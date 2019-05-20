@@ -1,7 +1,7 @@
 ---
-title: My first Blog post
-description: abc
-date: '2018-12-02'
+title: Second Blog Post
+description: def
+date: '2019-01-02'
 image: 'water.jpg'
 tags: ['javascript','react','gatsby']
 ---

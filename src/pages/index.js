@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import './post.css';
 import Layout from '../components/layout'
 
 const IndexPage = (props) => {
@@ -31,8 +32,8 @@ export const listQuery = graphql`
           }
           excerpt(pruneLength: 250)
           frontmatter {
+            date(formatString: "MMMM Do YYYY")
             title
-            date(formatString: "DD MMMM, YYYY")
           }
         }
       }
