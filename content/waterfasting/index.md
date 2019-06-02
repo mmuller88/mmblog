@@ -7,12 +7,12 @@ tags: ['water','fasting','ketosis']
 ---
 
 # Water Fasting what is that?
-As the name describes, you are only allowed to drink water for the time of the fasting. No teas, coffee, sugar-less or suger-free drinks except, of course water. 
+As the name describes, you are only allowed to drink water for the time of the fasting. No teas, coffee, sugar-less or suger-free drinks except, of course water.
 
 As from personal experience it is much easier than juice fasting where you only drink fresh pressed juice from a big variety of vegetables like apples, oranges and cucumbers and so on.
 
 # Motivation?
-You might think why on earth should someone should do something like this? Well there are some interesting health benefits when we abstain food for a while. And it makes sense when you think where we humans are coming from. Now the days food is every where at any time. Just some decades ago, food wasn't available everywhere all the time. Humans had to survive with less or even no food for days. An unpleasant relic from those time is the capability to store extra calories as body fat. 
+You might think why on earth should someone should do something like this? Well there are some interesting health benefits when we abstain food for a while. And it makes sense when you think where we humans are coming from. Now the days food is every where at any time. Just some decades ago, food wasn't available everywhere all the time. Humans had to survive with less or even no food for days. An unpleasant relic from those time is the capability to store extra calories as body fat.
 
 So what are the health benefits I spoke about? There are a lot benefits and most of them are having scientific evidences. I will focus on my top three reasons to avoid eating for some days.
 
@@ -24,7 +24,7 @@ So what are the health benefits I spoke about? There are a lot benefits and most
 
 So I really hope doing fasting once or twice a year to reduce the amount of those "bad" proteins to have a reduced likelihood for having certain diseases like cancer.
 
-**Second: Reset of gut bacteria.** As a known fact our gut bacterias are very important for digestion and our immunsystem. But alongside the settlement of "good" gut bacterias we also can have less useful or even harmfull gut bacterias. Those settlements normally following the rule first come, first served. Having a "bad" composition of gut bacterias can reduce not even your health, as well your live quality. A medical article describes it as the following:
+**Second: Reset of gut bacteria.** As a known fact our gut bacteria are very important for digestion and our immune system. But alongside the settlement of "good" gut bacteria we also can have less useful or even harmful gut bacteria. Those settlements normally following the rule first come, first served. Having a "bad" composition of gut bacteria can reduce not even your health, as well your live quality. A medical article describes it as the following:
 
 [https://www.tandfonline.com/doi/full/10.1080/13102818.2018.1481350]
 
@@ -74,7 +74,7 @@ Finally the last day. It was my favourite day, knowing that I can start soo eati
 
 [picture Alcohol-tester Sunday]
 
-At 1 pm I prepared a natural yoghurt with some healthy nuts in it. Remember one of my health benefits was to resettle good gut bacterias. Those bacterias normally come with healthy food like yoghurt. At 2 pm my wife prepared a healthy warm meal for us.
+At 1 pm I prepared a natural yoghurt with some healthy nuts in it. Remember one of my health benefits was to resettle good gut bacteria. Those bacteria normally come with healthy food like yoghurt. At 2 pm my wife prepared a healthy warm meal for us.
 
 ## Day 4 Monday:
 For luck this day was a bank holiday in UK. I woke up with a feeling of endless energy which I directly could use in my morning workout. I felt stronger than never before. This is easy explainable. After abstaining carbs for some days your body becomes very sensitive for carbs and tries to store it even stronger in your body.
