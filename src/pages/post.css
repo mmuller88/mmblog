@@ -19,6 +19,15 @@ height: 90% !important;
   background-color: whitesmoke;
 }
 
+.container {
+  float: left;
+  width: 30%;
+  margin-right: 3.33333%;
+  padding: 20px;
+  background: #eee;
+  box-sizing: border-box;
+}
+
 
 .tags{
   display: flex;

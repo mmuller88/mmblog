@@ -11,7 +11,8 @@ function BlogPost(props) {
     const url = props.data.site.siteMetadata.siteUrl
     const thumbnail = props.data.markdownRemark.frontmatter.image &&
         props.data.markdownRemark.frontmatter.image.childImageSharp.resize.src
-    const { title, image, tags } = props.data.markdownRemark.frontmatter;
+    const { title, image, tags} = props.data.markdownRemark.frontmatter;
+    //var affiliates = props.data.markdownRemark.frontmatter.affiliates.childMarkdownRemark.frontmatter;
     const { prev, next } = props.pageContext;
     return (
         <Layout>
@@ -26,6 +27,12 @@ function BlogPost(props) {
                 <h1>{title}</h1>
                 {image && <Img fluid={image.childImageSharp.fluid} />}
                 <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
+                {/* <div>
+                    {affiliates.map((affiliate, i) => (
+                        {affiliate}
+                    ))}
+                </div>
+                <div dangerouslySetInnerHTML={{ __html: affiliates.childMarkdownRemark.frontmatter.title }} /> */}
                 <div>
                     <span>Tagged in </span>
                     {tags.map((tag, i) => (
@@ -60,7 +67,7 @@ export const query = graphql`
             }
           }
         }
-       }
+      }
    }
    site {
     siteMetadata {

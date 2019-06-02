@@ -9,7 +9,8 @@ exports.createPages = ({ actions, graphql }) => {
         resolve(
             graphql(`
         {
-          allMarkdownRemark(
+          posts: allMarkdownRemark(
+            filter: { fileAbsolutePath: {regex : "\/content/"} }
             sort: { order: DESC, fields: [frontmatter___date] }
             limit: 1000
           ) {
@@ -17,7 +18,23 @@ exports.createPages = ({ actions, graphql }) => {
               node {
                 fields {
                   slug
-
+                }
+                frontmatter {
+                  title
+                  tags
+                }
+              }
+            }
+          }
+          affiliates: allMarkdownRemark(
+            filter: { fileAbsolutePath: {regex : "\/affiliate/"} }
+            sort: { order: DESC, fields: [frontmatter___date] }
+            limit: 1000
+          ) {
+            edges {
+              node {
+                fields {
+                  slug
                 }
                 frontmatter {
                   title
@@ -33,7 +50,8 @@ exports.createPages = ({ actions, graphql }) => {
                         return reject(result.errors)
                     }
 
-   const posts = result.data.allMarkdownRemark.edges
+   const posts = result.data.posts.allMarkdownRemark.edges
+   const affiliates = result.data.affiliates.allMarkdownRemark.edges
    const blogTemplate = path.resolve('./src/templates/blog-post.js');
    const tagsTemplate = path.resolve('./src/templates/tag-template.js');
 
@@ -45,12 +63,12 @@ exports.createPages = ({ actions, graphql }) => {
                  allTags = allTags.concat(edge.node.frontmatter.tags)
              }
           })
-                    // Eliminate duplicate tags
+            // Eliminate duplicate tags
             allTags = _.uniq(allTags)
 
             allTags.forEach((tag, index) => {
                 createPage({
-                 path: `/${_.kebabCase(tag)}/`,
+                 path: `tags/${_.kebabCase(tag)}/`,
                 component: tagsTemplate,
                 context: {
                     tag,
@@ -69,6 +87,16 @@ exports.createPages = ({ actions, graphql }) => {
                  },
                })
              })
+
+            affiliates.forEach(({ node }, index) => {
+              createPage({
+              path: `${node.fields.slug}`,
+              component: blogTemplate,
+              context: {
+              slug: node.fields.slug,
+               },
+             })
+           })
             return
         })
         )
