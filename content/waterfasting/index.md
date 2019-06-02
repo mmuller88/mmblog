@@ -16,25 +16,23 @@ You might think why on earth should someone should do something like this? Well 
 
 So what are the health benefits I spoke about? There are a lot benefits and most of them are having scientific evidences. I will focus on my top three reasons to avoid eating for some days.
 
-First: Autophagy. A phase from the body where it self-eats its own body cells to cover the need of protein. Preferable the body starts to eat degenerated body cells first. Those degenerated cells otherwise could cause cancer in the worst case. A better explanation from a study 2010:
+**First: Autophagy.** A phase from the body where it self-eats its own body cells to cover the need of protein. Preferable the body starts to eat degenerated body cells first. Those degenerated cells otherwise could cause cancer in the worst case. A better explanation from a study 2010:
 
 [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2990190]
 
-"Autophagy also plays a housekeeping role in removing misfolded or aggregated proteins, clearing damaged organelles, such as mitochondria, endoplasmic reticulum and peroxisomes, as well as eliminating intracellular pathogens. Thus, autophagy is generally thought of as a survival mechanism."
+*Autophagy also plays a housekeeping role in removing misfolded or aggregated proteins, clearing damaged organelles, such as mitochondria, endoplasmic reticulum and peroxisomes, as well as eliminating intracellular pathogens. Thus, autophagy is generally thought of as a survival mechanism.*
 
 So I really hope doing fasting once or twice a year to reduce the amount of those "bad" proteins to have a reduced likelihood for having certain diseases like cancer.
 
-Second: Reset of gut bacteria. As a known fact our gut bacterias are very important for digestion and our immunsystem. But alongside the settlement of "good" gut bacterias we also can have less useful or even harmfull gut bacterias. Those settlements normally following the rule first come, first served. Having a "bad" composition of gut bacterias can reduce not even your health, as well your live quality. A medical article describes it as the following:
+**Second: Reset of gut bacteria.** As a known fact our gut bacterias are very important for digestion and our immunsystem. But alongside the settlement of "good" gut bacterias we also can have less useful or even harmfull gut bacterias. Those settlements normally following the rule first come, first served. Having a "bad" composition of gut bacterias can reduce not even your health, as well your live quality. A medical article describes it as the following:
 
 [https://www.tandfonline.com/doi/full/10.1080/13102818.2018.1481350]
 
-```
-Gut microbiota dysbiosis may lead to a number of diseases, including gastrointestinal disorders, obesity, cardiovascular diseases, allergy and central nervous system-related diseases.
-```
+*Gut microbiota dysbiosis may lead to a number of diseases, including gastrointestinal disorders, obesity, cardiovascular diseases, allergy and central nervous system-related diseases.*
 
 As all kind of bacteria, gut bacteria need food as source of energy to survive. Taking away food will reduce the total number of bacteria and allow the settlement of new "good" bacteria cultures after the fasting, assuming that you eat healthy food after the fasting period like vegetables or natural yoghurt.
 
-Third: Food detaching. Less of physical health benefit that is more like a mental health benefit. In our modern time, food plays a big role in our life. Some of us are spending much time thinking and consuming food. Experiencing that you can survive without frequently eating, makes you less attached to food by becoming more independent of it.
+**Third: Food detaching.** Less of physical health benefit that is more like a mental health benefit. In our modern time, food plays a big role in our life. Some of us are spending much time thinking and consuming food. Experiencing that you can survive without frequently eating, makes you less attached to food by becoming more independent of it.
 
 # Fasting experiences so far
 Just some years ago in March 2017 I tried my first fasting experience. I decided to do juice fasting for 7 days. For this I bought a juicer which separats the juice from the pulp and some big glass bottles. Every day I drank two bottles full of juice composed of fresh apples, oranges, cucumbers, beetroot, grapes and other vegetables. I had less side effects. What I remember of, I had some minor headache after the third day which disappeared shortly after they appeared. But more interestingly it became very hard, after the fourth day, to continue with drinking the juice because it started to taste very awful.

@@ -50,8 +50,8 @@ exports.createPages = ({ actions, graphql }) => {
                         return reject(result.errors)
                     }
 
-   const posts = result.data.posts.allMarkdownRemark.edges
-   const affiliates = result.data.affiliates.allMarkdownRemark.edges
+   const posts = result.data.posts.edges;
+   const affiliates = result.data.affiliates.edges;
    const blogTemplate = path.resolve('./src/templates/blog-post.js');
    const tagsTemplate = path.resolve('./src/templates/tag-template.js');
 
