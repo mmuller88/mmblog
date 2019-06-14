@@ -1,13 +1,14 @@
 ---
 title: Water Fasting Experience
 description: Blog about my water fasting experience from 24 - 26 May 2019
-date: '2019-05-27'
+date: '2019-06-12'
 image: 'water.jpg'
 tags: ['water','fasting','ketosis']
+pruneLength: 250
 ---
 
 # Water Fasting what is that?
-As the name describes, you are only allowed to drink water for the time of the fasting. No teas, coffee, sugar-less or suger-free drinks except, of course water.
+As the name describes, you are only allowed to drink water for the time of the fasting. No teas, coffee, sugar-less or sugar-free drinks except, of course water.
 
 As from personal experience it is much easier than juice fasting where you only drink fresh pressed juice from a big variety of vegetables like apples, oranges and cucumbers and so on.
 
@@ -34,16 +35,16 @@ As all kind of bacteria, gut bacteria need food as source of energy to survive. 
 
 **Third: Food detaching.** Less of physical health benefit that is more like a mental health benefit. In our modern time, food plays a big role in our life. Some of us are spending much time thinking and consuming food. Experiencing that you can survive without frequently eating, makes you less attached to food by becoming more independent of it.
 
-# Fasting experiences so far
-Just some years ago in March 2017 I tried my first fasting experience. I decided to do juice fasting for 7 days. For this I bought a juicer which separats the juice from the pulp and some big glass bottles. Every day I drank two bottles full of juice composed of fresh apples, oranges, cucumbers, beetroot, grapes and other vegetables. I had less side effects. What I remember of, I had some minor headache after the third day which disappeared shortly after they appeared. But more interestingly it became very hard, after the fourth day, to continue with drinking the juice because it started to taste very awful.
+# Fasting experience
+Just some years ago in March 2017 I tried my first fasting experience. I decided to do juice fasting for 7 days. For this I bought a juicer which separates the juice from the pulp and some big glass bottles. Every day I drank two bottles full of juice composed of fresh apples, oranges, cucumbers, beetroot, grapes and other vegetables. I had less side effects. What I remember of, I had some minor headache after the third day which disappeared shortly after they appeared. But more interestingly it became very hard, after the fourth day, to continue with drinking the juice because it started to taste very awful.
 
-In the next year 2018 I tried water fasting two times. Both times I skipped eating for three days. I only did three days because I tried to minimise the effect of loosing muscles during the fasting, but receive the full health benefits as described above. I did the water fasting on weekends to minimise the chance to affect my work as a software engineer.
+In the next year 2018 I tried water fasting two times. Both times I skipped eating for three days. I only did three days because I tried to minimize the effect of loosing muscles during the fasting, but receive the full health benefits as described above. I did the water fasting on weekends to minimize the chance to affect my work as a software engineer.
 
 # 3 Days Water Fasting Diary
-In this section I will summarise my three days of water fasting including the day before as day 0 and the day after as day 4.
+In this section I will summarize my three days of water fasting including the day before as day 0 and the day after as day 4.
 
 ## Day 0 Thursday:
-I call it day 0 because it is the last day of eating. Knowing that I will not eat for the next three days I ate plenty of food until 9pm. That helped me to surpress my hunger the following first water fasting day.
+I call it day 0 because it is the last day of eating. Knowing that I will not eat for the next three days I ate plenty of food until 9pm. That helped me to suppress my hunger the following first water fasting day.
 
 ## Day 1 Friday:
 I woke up and drunk two big glasses full of water before I started my 30 minutes morning workout, which I do usually every morning at 8 am. The workout includes 8 minutes tabata. If you don't know what is tabata I explain it shortly. Tabata is a high intensive short workout which usually consist of at least 9 cycles where you perform at least 20 seconds a full body exercise like jumping jack or burpees. After the 20 seconds you rest for 10 seconds. These you repeat 9 times.
@@ -54,12 +55,12 @@ Additional to measuring my weight and body composition I was interested how fast
 
 [picture Alcohol-tester Friday morning]
 
-I went to work. In the office I paid much attention to drink a lot water. Even it was Friday it was quite a busy day with a lot of meetings. Anyway the work day went on very smoothly and I felt no hunger. Even at home in the night the craving for eating something remained low. Remember I ate plenty food the day before which seemed to pay off! As well before I went to sleep I measured my ketose in my breath. 
+I went to work. In the office I paid much attention to drink a lot water. Even it was Friday it was quite a busy day with a lot of meetings. Anyway the work day went on very smoothly and I felt no hunger. Even at home in the night the craving for eating something remained low. Remember I ate plenty food the day before which seemed to pay off! As well before I went to sleep I measured my ketose in my breath.
 
 [picture Alcohol-tester Friday evening]
 
 ## Day 2 Saturday:
-Hello lovely weekend! Day two was slightly more harder regarding hunger but overall the feeling remained low. As usually I made my 30 minutes morning workout at 8 am and after it I measure my weight again. I already lost almost 4 kilos in just on day which surprised me quite a lot. Though I know most of it is water which you are loosing as well when your body is burning the sugar reserves in your body. Even more excited I was about what the alcohol tester is saying and if I am in ketosis or not. 
+Hello lovely weekend! Day two was slightly more harder regarding hunger but overall the feeling remained low. As usually I made my 30 minutes morning workout at 8 am and after it I measure my weight again. I already lost almost 4 kilos in just on day which surprised me quite a lot. Though I know most of it is water which you are loosing as well when your body is burning the sugar reserves in your body. Even more excited I was about what the alcohol tester is saying and if I am in ketosis or not.
 
 [picture Alcohol-tester Saturday morning]
 
@@ -70,7 +71,7 @@ It was a sunny day and most of the rest of the day my wife and me we spend outsi
 [picture Alcohol-tester Saturday evening]
 
 ## Day 3 Sunday:
-Finally the last day. It was my favourite day, knowing that I can start soo eating again. I followed my normal morning routine. After the workout I measure my weight. I lost unbelievable 6 kg. The alcohol tester reached it maximum:
+Finally the last day. It was my favorite day, knowing that I can start soo eating again. I followed my normal morning routine. After the workout I measure my weight. I lost unbelievable 6 kg. The alcohol tester reached it maximum:
 
 [picture Alcohol-tester Sunday]
 
@@ -80,21 +81,27 @@ At 1 pm I prepared a natural yoghurt with some healthy nuts in it. Remember one 
 For luck this day was a bank holiday in UK. I woke up with a feeling of endless energy which I directly could use in my morning workout. I felt stronger than never before. This is easy explainable. After abstaining carbs for some days your body becomes very sensitive for carbs and tries to store it even stronger in your body.
 
 # Summary:
-As mentioned before it wasn't my first water fasting and my experiences were similar as the times before. I enjoyed the few days without eating and I really can recommend to try it yourself! In special after the first time you will be amazed for what your body is capable of for abstaining food. 
+As mentioned before it wasn't my first water fasting and my experiences were similar as the times before. I enjoyed the few days without eating and I really can recommend to try it yourself! In special after the first time you will be amazed for what your body is capable of for abstaining food.
 
 Just some advices from me if you plan to do water fasting as well. Reduce high intensive workouts but keep doing workouts! Do it when you are not working like on Weekend or during holidays. Observe and write down the experiences you made to reflect on them.
 
 Disclaimer: The following section contains affiliate links, which means that if you click on one of the product links, I’ll receive a small commission. This helps support this blog!
 
-## My amazing equipment:
+## My Amazing Equipment:
 **Alcohol tester**: Great for figuring out if you are in ketosis or not. \
-Amazon UK: <a href="https://amzn.to/2XkTM03" target="_blank">https://amzn.to/2XkTM03 (Amazon)</a>
+Amazon UK: <a href="https://amzn.to/2IdwHGo" target="_blank">https://amzn.to/2IdwHGo (Amazon)</a>
 
 **Omron Scale**: Measures not only your body weight. Can estimate your body fat, water and muscle composition as well. \
-Amazon UK: <a href="https://amzn.to/2W4YxcR" target="_blank">https://amzn.to/2W4YxcR (Amazon)</a>
+Amazon UK: <a href="https://amzn.to/2EPEVUc" target="_blank">https://amzn.to/2EPEVUc (Amazon)</a>
 
-**Bare-foot shoes**: Perfect shoes for workouts like tabata, gym or running. Normal modern shoes are bad for your feet as they are overprotecting to your foot which will result in underdeveloped foot muscles and skeleton. A good developed foot is the basement of your body and prevents all kind of resulting issues like knee or back pain. There are many of expensive bare-foot shoes out but some cheap water shoes are completely sufficient. \
-Amazon UK: <a href="https://amzn.to/2QCVAiF" target="_blank">https://amzn.to/2QCVAiF (Amazon)</a>
+**Bare-Foot Shoes**: Perfect shoes for workouts like tabata, gym or running. Normal modern shoes are bad for your feet as they are overprotecting to your foot which will result in underdeveloped foot muscles and skeleton. A good developed foot is the basement of your body and prevents all kind of resulting issues like knee or back pain. There are many of expensive bare-foot shoes out but some cheap water shoes are completely sufficient. \
+Amazon UK: <a href="https://amzn.to/2ESuyiF" target="_blank">https://amzn.to/2ESuyiF (Amazon)</a>
 
-**Bluetooth earphones**: I tested many different bluetooth earphones. I am sticking now with this one because they are cheap but are from very good quality regarding sound, battery and robustness. I can use them for weeks for my workouts without ever charging them! \
-Amazon UK: <a href="https://amzn.to/2W7fOSH" target="_blank">https://amzn.to/2W7fOSH (Amazon)</a>
+**Bluetooth Earphones**: I tested many different bluetooth earphones. I am sticking now with this one because they are cheap but are from very good quality regarding sound, battery and robustness. I can use them for weeks for my workouts without ever charging them! \
+Amazon UK: <a href="https://amzn.to/2IkCdqG" target="_blank">https://amzn.to/2IkCdqG (Amazon)</a>
+
+**Gymnastic Rings**: Perfect tool for upper body workout. I love it to train outside in the sun and fresh air. As well they are very light so you can take them with you wherever you go. \
+Amazon UK: <a href="https://amzn.to/2WLwKm4" target="_blank">https://amzn.to/2WLwKm4 (Amazon)</a>
+
+**Stainless Steel Water Bottle**: That drinking water is crucial I don't need to explain. I prefer those steel water bottles because there is not risk of plastic in your water. \
+Amazon UK: <a href="https://amzn.to/2JYGyTL" target="_blank">https://amzn.to/2JYGyTL (Amazon)</a>
