@@ -10,21 +10,36 @@ pruneLength: 50
 AWS, endlessly services, we are writing the year 2019 the 9th July at 1 pm. I finally smashed the AWS Certified Solutions Architect - Professional exam. After two failed attempts the last screen on the third try contained the lovely words "Congratulations! You have successfully passed ...". For a tiny moment I probably was the happiest man on earth. The reason why I wrote the post is to helping you to smash that damn hard exam as well!
 
 # Exam Overview
-* How long, how many questions, how much points for pass. https://www.linkedin.com/pulse/preparing-aws-certified-solutions-architect-2019-sap-c01-agarwal
+The exam is a three hour marathon consisting of 75 questions. You can achieve a maximum of 1000 points and you need at least 750 points to pass the exam, which lets you about two - three minutes per question. Even more scary are the long questions which can span up do many sentences with a lot of distraction parts in it. That is quite a difference to the exams I did before (Developer Associate, DevOps Professional, Architect Associate) which were comparable easy.
+
+For more information about the exam I strongly recommend to read the official (AWS Exam Guide)[https://d1.awsstatic.com/training-and-certification/docs-sa-pro/AWS%20Certified%20Solutions%20Architect-Professional_Exam%20Guide_2019.pdf]. And fairly recently AWS released an online course about preparing for this exam name "Exam Readiness: AWS Certified Solutions Architect – Professional" on www.aws.training which I can highly recommend to go through.
 
 # Preparation
-* [exam blueprint](https://d1.awsstatic.com/training-and-certification/docs-sa-pro/AWS%20Certified%20Solutions%20Architect-Professional_Exam%20Guide_2019.pdf)
-* practical experiences, DMS, S3 as static web host, VPN connection between VPC and company network
+I already mentioned the (AWS Exam Guide)[https://d1.awsstatic.com/training-and-certification/docs-sa-pro/AWS%20Certified%20Solutions%20Architect-Professional_Exam%20Guide_2019.pdf] in the previous section which contains doesn't of references to preparing material which I highly recommend to go through! I dare to say that you need to know about all available AWS services to sort out wrong answers more easily.
+
+Of course the best preparation to understand a service, the capabilities it offers and how to use it at best if you have practical experiences. So if you have the opportunity to work with AWS try to get your hands dirty of a variety of their services. For example if you once managed to migrate a database using AWS DMS or you got a VPN connection between a VPC and your company network it helps a lot to understand the particular services better.
+
 * whizlab https://www.whizlabs.com/whizlabs-affiliate-program/
-* writing things down which are new for you.
+
+I found it very useful to write stuff down I didn't know before. It helps me much better to keep new information in my brain. As well the next days you simply revisit the new information and keep it in your long-term memory.
+
 * acloudguru
+
 * aws learning
+
+AWS TechChat , AWS Podcast.
 * podcasts
-* reading questions
+
+Start with scanning the answers first with a time limit from about 15 seconds. It will help you to presort the question first. As well it helps to sort out the often massive distraction parts in the question itself. 
+
 * habits, morning routine. 10 Minutes every day are better than 70 Minutes once a week.
 
 # 30 Minutes More
-* Request 30 minutes more if not native language english speaker https://www.linkedin.com/pulse/30-minute-extension-your-aws-certification-exam-garcia-lozano
+If the language of the exam isn't available in your mother language there is a high chance that you can request a 30 minutes extension for your exam which adds up to 210 instead of 180 minutes. At least that was possible for me and much appreciated. In fact otherwise I wouldn't have passed.
+
+The additional 30 minutes can only be requested before you register for the exam! Log into your AWS Certification account. Click on "Upcoming Exams" and on the right click on "Request Test Evaluations". Than under "Request Accommodation" you select "ESL +30 Minutes" from the accommodation drop-down menu.
+
+Thats it. I hope you find that the same useful as I did.
 
 # Day of the Exam
 * Get enough sleep
