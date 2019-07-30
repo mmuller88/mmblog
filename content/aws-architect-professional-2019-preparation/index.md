@@ -7,7 +7,7 @@ tags: ['aws','solution','architect', 'professional', 'preparation', 'exam', 'SAP
 pruneLength: 50
 ---
 
-AWS, endlessly services, we are writing the year 2019 the 9th July at 1 pm. I finally smashed the AWS Certified Solutions Architect - Professional exam. After two failed attempts the last screen on the third try contained the lovely words "Congratulations! You have successfully passed ...". For a tiny moment I probably was the happiest man on earth. The reason why I wrote the post is to helping you to smash that damn hard exam as well!
+AWS, endlessly services, we are writing the year 2019 the 9th July at 1 pm. I finally smashed the AWS Certified Solutions Architect - Professional exam. After two failed attempts the last screen on the third attempt contained the lovely words "Congratulations! You have successfully passed ...". For a tiny moment I probably was the happiest man on earth. The reason why I wrote the post is to helping you to smash that damn hard exam as well!
 
 # Exam Overview
 The exam is a three hour marathon consisting of 75 questions. You can achieve a maximum of 1000 points and you need at least 750 points to pass the exam, which lets you about two - three minutes per question. Even more scary are the long questions which can span up do many sentences with a lot of distraction parts in it. That is quite a difference to the exams I did before (Developer Associate, DevOps Professional, Architect Associate) which were comparable easy.
@@ -15,24 +15,24 @@ The exam is a three hour marathon consisting of 75 questions. You can achieve a 
 For more information about the exam I strongly recommend to read the official (AWS Exam Guide)[https://d1.awsstatic.com/training-and-certification/docs-sa-pro/AWS%20Certified%20Solutions%20Architect-Professional_Exam%20Guide_2019.pdf]. And fairly recently AWS released an online course about preparing for this exam name "Exam Readiness: AWS Certified Solutions Architect – Professional" on www.aws.training which I can highly recommend to go through.
 
 # Preparation
-I already mentioned the (AWS Exam Guide)[https://d1.awsstatic.com/training-and-certification/docs-sa-pro/AWS%20Certified%20Solutions%20Architect-Professional_Exam%20Guide_2019.pdf] in the previous section which contains doesn't of references to preparing material which I highly recommend to go through! I dare to say that you need to know about all available AWS services to sort out wrong answers more easily.
+I already mentioned the (AWS Exam Guide)[https://d1.awsstatic.com/training-and-certification/docs-sa-pro/AWS%20Certified%20Solutions%20Architect-Professional_Exam%20Guide_2019.pdf] in the previous section which contains doesn't of references to preparing material which I highly recommend to have a look at! I dare to say but you need to know about all available AWS services to sort out wrong answers more easily.
 
-Of course the best preparation to understand a service, the capabilities it offers and how to use it at best if you have practical experiences. So if you have the opportunity to work with AWS try to get your hands dirty of a variety of their services. For example if you once managed to migrate a database using AWS DMS or you got a VPN connection between a VPC and your company network it helps a lot to understand the particular services better.
+Of course the best preparation to understand a service, the capabilities it offers and how to use it is practical experiences. So if you have the opportunity to work with AWS try to get your hands dirty on the variety of their services. For example if you once managed to migrate a database using AWS DMS or you got a VPN connection between a VPC and your company network it helps a lot to understand the particular service better.
 
-* whizlab https://www.whizlabs.com/whizlabs-affiliate-program/
+As you are seeking advice for how to pass the Architect Professional with reading this post their is a chance you already know about (whizlabs.com)[https://www.whizlabs.com/whizlabs-affiliate-program]. As that was my solely resource for passing the three exams before I highly recommend to use it as learning material. In special the practice exams on whizlabs are giving you a pretty much accurate taste of how the exam questions will be. Furthermore they explain very much in details why certain answers are wrong or correct.
 
 I found it very useful to write stuff down I didn't know before. It helps me much better to keep new information in my brain. As well the next days you simply revisit the new information and keep it in your long-term memory.
 
-* acloudguru
+Very helpful was the (acloud.guru)[acloud.guru] learn course named "AWS Certified Solutions Architect - Professional 2018". Though it is a bit outdated regarding newer released Amazon services it helps to understand the principles and services itself a lot.
 
-* aws learning
+(AWS Training)[aws.training] is a great source of learning material. I probably got over 80% of my material from there. The format of the material can be quite different. Sometimes their are just videos and other times it is more interactive with assessments during and at the end. And you will find information about every service AWS is actually offering.
 
-AWS TechChat , AWS Podcast.
-* podcasts
+As you need to know about a lot of services a god way of doing so are podcasts. Podcasts are a great tool to learn about AWS during you spend time commuting. As well your start to like the moderators of the podcasts as they are nice persons and they are making the podcast very entertaining. As a little bonus you always keep up to date as AWS is a fast changing industry! In this context I recommend the two podcasts "AWS TechChat" and "AWS Podcast".
 
-Start with scanning the answers first with a time limit from about 15 seconds. It will help you to presort the question first. As well it helps to sort out the often massive distraction parts in the question itself. 
+Start with scanning the answers first with a time limit from about 15 seconds. It will help you to presort the question first. As well it helps to sort out the often massive distraction parts in the question itself. Start using that technique if you using the practice exams on (whizlabs.com)[https://www.whizlabs.com/whizlabs-affiliate-program]. I've got that awesome tip and some more from an (LinkedIn article)[https://www.linkedin.com/pulse/preparing-aws-certified-solutions-architect-2019-sap-c01-agarwal] which I am very grateful.
 
-* habits, morning routine. 10 Minutes every day are better than 70 Minutes once a week.
+Last but not least advice. Having habits like a morning routine where you dedicate some time to prepare for the exam can be very powerful. Even just 10 minutes a day sums up to many hours over weeks. Following I would like to describe my morning routine I had during the preparation time. I hope it may can help you to find your morning routine. Every morning about 7 am, I woke up and made a tea. Enjoying my tea I spend 30 minutes on exam preparations. After that I went ou
+tine. 10 Minutes every day are better than 70 Minutes once a week.
 
 # 30 Minutes More
 If the language of the exam isn't available in your mother language there is a high chance that you can request a 30 minutes extension for your exam which adds up to 210 instead of 180 minutes. At least that was possible for me and much appreciated. In fact otherwise I wouldn't have passed.
@@ -42,10 +42,14 @@ The additional 30 minutes can only be requested before you register for the exam
 Thats it. I hope you find that the same useful as I did.
 
 # Day of the Exam
-* Get enough sleep
-* start easy in the day, may exercising
-* bring enough water
-* no need to feel nervous if you prepared at your best and give your best
+They day before the exam you might start to get a bit nervous as that is absolutely normal which makes it little more difficult to sleep. So I recommend go early to sleep to get enough of it! May have a glass of water next to you and take a sip always when you wake up or feel thirsty.
+
+As I am a big fan from morning exercising I strong recommend to be a bit active in the morning for at least 20 minutes. Go outside and have a little walk, run or stretching session. As you will sit about 3 hours during the exam you will not regret that!. 
+
+The three hours your spend doing the exam you need to stay hydrated. So take enough water with you. As you are deep focused in answering the questions, you will probably forget to drink. Try to set yourself a marker which reminds you to drink. For example always after finishing 15 questions take a deep breath and take a sip of water.
+
+# Good Luck
+Remember if you keep preparing and keep giving your best their is no blaming in failing. The opposite is the case. As I failed the first time, I realised what I had to do and in which areas my weaknesses were. Actually I am confinced that failing the exam made me a better AWS architect! So if you register for your AWS exam you will smash it! Of my heart content I whish your good luck!
 <!-- 
 # Motivation?
 
