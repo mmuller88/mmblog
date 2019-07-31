@@ -87,7 +87,7 @@ Just some advices from me if you plan to do water fasting as well. Reduce high i
 
 Disclaimer: The following section contains affiliate links, which means that if you click on one of the product links, I’ll receive a small commission. This helps support this blog!
 
-## My Amazing Equipment:
+<!-- ## My Amazing Equipment:
 **Alcohol tester**: Great for figuring out if you are in ketosis or not. \
 Amazon UK: <a href="https://amzn.to/2IdwHGo" target="_blank">https://amzn.to/2IdwHGo (Amazon)</a>
 
@@ -104,4 +104,4 @@ Amazon UK: <a href="https://amzn.to/2IkCdqG" target="_blank">https://amzn.to/2Ik
 Amazon UK: <a href="https://amzn.to/2WLwKm4" target="_blank">https://amzn.to/2WLwKm4 (Amazon)</a>
 
 **Stainless Steel Water Bottle**: That drinking water is crucial I don't need to explain. I prefer those steel water bottles because there is not risk of plastic in your water. \
-Amazon UK: <a href="https://amzn.to/2JYGyTL" target="_blank">https://amzn.to/2JYGyTL (Amazon)</a>
+Amazon UK: <a href="https://amzn.to/2JYGyTL" target="_blank">https://amzn.to/2JYGyTL (Amazon)</a> -->
