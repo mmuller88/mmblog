@@ -3,26 +3,34 @@ title: My Smart Home Experience 2019
 description: In the end of 2019 I bought a house and extended it with a lot cool and cost saving smart home devices/
 date: '2019-12-11'
 image: 'aws.jpg'
-tags: ['aws','solution','architect', 'professional', 'preparation', 'exam', 'SAP-C01', '2019']
+tags: ['Smart Home', 'Smart Life', '2019']
 pruneLength: 50
 ---
 
-Still under construction ...
+Hi folks.
 
-# Buying my first house
-Still under construction ...
+As in October 2019 I had the amazing opportunity to buy a house in the beautiful town called Ludwigslust in Germany. It is an old but recently renovated lovely house. As I'm much interested in tech I couldn't wait to try some cool Smart Home stuff.
 
-# blub
-Still under construction ...
+This article is about my experiences with Smart Home gadgets. My highest priorities were  to save costs like electricity or gas in the long run and increase the living quality from me and my wife.
 
-# bla
-Still under construction ...
+There are dozens of Smart Home solution out there and you need to be very careful which one you will go with as often gadgets from different vendors are not playing nicely together.
 
-# Hi
-Still under construction ...
+I decided to buy gadgets which can be controlled with the 'Smart Life' app, as it has a huge offer on all kinds of Smart Home devices.
 
-# Nope
-Still under construction ...
+# Which Wireless Frequency?
+It is important to mention that all of my Smart Home gadgets only are working in a 2.4 GHz wireless network. It is unlikely that you find gadgets for the 5 GHz network. 2.4 as the length of the waves are longer compared to 5 GHz it reaches better through walls but is therefor not that performance. Make sure to establish both of those network frequencies on your router!
+
+# Smart Light Bulb
+I opted in buying the Smart WLAN LED lights from Teckin. If you but the package containing four bulbs you save some money compared to buy just one. What can I see I really love those Smart bulbs.
+
+# Smart Sockets
+The next smart device were the Smart Socket with two USB Ports.
+
+# Time Scheduled Thermostats
+Very happy I am with my "Smart" thermostats from Eqiva Radiator. Though I am not sure if they are falling under the category Smart Home devices as they are basically just configurable through the display and I am currently only using them for time scheduled heating. Anyway there were very easy to install and they do work like a charm.
+
+# Futur Ideas
+I feel like that I just started my little Smart Home Journey. Soon I would like to try more complex systems like the Tado Smart Radiator system. As well I am thinking about to create my own private Smart Home Server running an a PI. I found some interesting article regarding that in the c't's Sonderheft Smart Home.
 <!-- 
 # Motivation?
 
