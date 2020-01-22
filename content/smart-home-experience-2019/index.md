@@ -21,7 +21,9 @@ I decided to buy gadgets which can be controlled with the 'Smart Life' app, as i
 It is important to mention that all of my Smart Home gadgets only are working in a 2.4 GHz wireless network. It is unlikely that you find gadgets for the 5 GHz network. 2.4 as the length of the waves are longer compared to 5 GHz it reaches better through walls but is therefor not that performance. Make sure to establish both of those network frequencies on your router!
 
 # Smart Light Bulb
-I opted in buying the Smart WLAN LED lights from Teckin. If you but the package containing four bulbs you save some money compared to buy just one. What can I see I really love those Smart bulbs.
+I opted in buying the Smart WLAN LED lights from Teckin. If you but the package containing four bulbs you save some money compared to buy just one. What can I see I really love those Smart bulbs. I already saved money with just replacing the existing bulbs which ran on 40 W to use those Smart bulbs which just need 8 W to shine.
+
+As it is just natural to forget turning out the light and it already happened I configured every replaced bulb to turn off at 1 am as usually no one is wake at this time anymore.
 
 # Smart Sockets
 The next smart device were the Smart Socket with two USB Ports.
