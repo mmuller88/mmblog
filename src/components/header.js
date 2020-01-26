@@ -32,7 +32,7 @@ const Header = ({ siteTitle }) => (
       </h1>
       <div style={{float:`right`, borderRadius: "25px"}}>
         <a href='https://www.twitter.com/MartinMueller_' target="_blank" rel='noopener'><img  src={twitterLogo} width='40' height='40' alt="twitter" style={{borderRadius: "25px"}}/> </a>
-        <a href='https://www.martin--mueller.com' target="_blank" rel='noopener'><img  src={avatarIcon} width='40' height='40' alt="avatarIcon" style={{borderRadius: "25px"}}/> </a>
+        <a href='https://www.h-o.dev' target="_blank" rel='noopener'><img  src={avatarIcon} width='40' height='40' alt="avatarIcon" style={{borderRadius: "25px"}}/> </a>
       </div>
     </div>
   </header>
