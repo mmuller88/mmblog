@@ -9,11 +9,11 @@ pruneLength: 50
 
 Hi werter Leser.
 
-Mit voller Freude darf ich verkuenden, dass ich am 14. Februar zu www.object.ch wechsle. Diese ist eine Partnerfirma von meiner jetztigen Firma www.alfresco.com. OBJECT bewegt sich hauptsaechlich auf and den Deutschen / Schweizerischen ECM (Enterprise Content Managment) Markt. Nachfolgend moechte ich meine Beweggruende preisgeben und am Schluss meine Vision von OBJECT und Alfresco fuer 2022
+Mit voller Freude darf ich verkuenden, dass ich am 14. Februar zu www.object.ch wechsle. Diese ist eine Partnerfirma von meiner jetztigen Firma www.alfresco.com. OBJECT bewegt sich hauptsaechlich auf and den Deutschen / Schweizerischen ECM (Enterprise Content Managment) Markt. Nachfolgend liste ich meine Beweggruende auf und am Schluss meine erklaere ich meine Visionen von OBJECT und Alfresco fuer 2022.
 
 # Beweggruende
-* Ich liebe die Alfresco Produkte: ACS, Process, ADF und die Moeglichkeiten mit der Cloud. Weiter vorranbringen im deutschen Sprachraum.
-* Naeherer zum Kunden, als es mit Alfresco moeglich war. Herausfinden was Kunden wollen. Architekt arbeit leisten. Konkurent Produkte Schwaechen und Staerken besser kennenlernen.
+* Ich liebe die Alfresco Produkte: ACS, Process (Activiti), ADF und die Moeglichkeiten diese in der Cloud zu deployen. Weiter vorranbringen im deutschen Sprachraum.
+* Naeher zum Kunden, als es mit Alfresco moeglich war. Herausfinden was Kunden wollen. Architekt arbeit leisten. Konkurent Produkte Schwaechen und Staerken besser kennenlernen.
 * Deutscher ECM und BPM Landschaft bescheiden. Alfresco Loesungen vorran treiben
 * Staerkerer Nutzung der Cloud als Infrastrucktur im deutschsprachigen Raum. Laender wie Deutschland sehr zurueckhaltend in Sachen Cloud.
 * Neue Technologies wie Docker, Kubernetes und Angular im deutschsprachigen Raum vorantreiben.
