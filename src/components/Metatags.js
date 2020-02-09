@@ -61,8 +61,8 @@ function Metatags(props) {
                 { property: 'og:type', content: 'website' },
                 { name: 'robots', content: 'index, follow' },
 
-                { name: 'twitter:creator', content: '@saigowthamr' },
-                { property: 'og:site_name', content: 'yoursitename' }
+                { name: 'twitter:creator', content: '@MartinMueller_' },
+                { property: 'og:site_name', content: 'martinmueller.dev' }
             ]}
         >
             <html lang="en" />
