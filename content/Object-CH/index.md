@@ -9,7 +9,7 @@ pruneLength: 50
 
 Hi werter Leser.
 
-Mit voller Freude darf ich verkünden, dass ich am 14. Februar zu [OBJECT](www.object.ch) wechsle. Diese ist eine Partnerfirma von meiner jetzigen Firma [Alfresco](www.alfresco.com). OBJECT agiert hauptsächlich im Deutschen und Schweizerischen ECM (Enterprise Content Management) Markt. Nachfolgend liste ich meine Beweggründe auf und am Schluss erkläre ich meine Zukunftsvisionen von OBJECT und Alfresco für das Jahr 2022.
+Mit voller Freude darf ich verkünden, dass ich am 14. Februar zu [OBJECT](https://www.object.ch) wechsle. Diese ist eine Partnerfirma von meiner jetzigen Firma [Alfresco](https://www.alfresco.com). OBJECT agiert hauptsächlich im Deutschen und Schweizerischen ECM (Enterprise Content Management) Markt. Nachfolgend liste ich meine Beweggründe auf und am Schluss erkläre ich meine Zukunftsvisionen von OBJECT und Alfresco für das Jahr 2022.
 
 # Gründe für den Wechsel
 Einer meiner grössten Beweggründe ist das mir die Alfresco Produkte sehr gefallen. Alfresco Content System (ACS) ist ein geniales und ausgeklügeltes auf der Java VM basierendes Content Management System. Auch wenn ich bisher kaum die Möglichkeit hatte mit Alfresco Process Service (APS) zu arbeiten, erkenne ich wie toll auch dieses Produkt ist und möchte auch gerne in Zukunft damit befassen. Last but not least Alfresco Developer Framework (ADF). Ich finde die neuen, auf Angular basierenden, Weboberflächen sehr schön und genial für das Frontend. Vor allem die einfache Benutzung der Graphischen Oberfläche sowie die umfangreiche Sammlung an vorgefertigten Components, wie z.B. der [Document List](https://www.alfresco.com/abn/adf/docs/content-services/components/document-list.component), haben es mir angetan. 2019 hatte ich die Gelegenheit den ADF Teams mit Alfresco Backend Knowhow zu helfen und konnte dabei auch vieles über ADF lernen, wofür ich sehr dankbar bin.
@@ -26,7 +26,7 @@ Im nächsten Abschnitt würde ich gerne einen Ausblick über OBJECT zusammen mit
 
 # Ausblick 2022
 
-In dem letzten Jahr bei Alfresco, konnte ich den Cloud Trend beobachten sowie selber daran mitarbeiten. Ich weiss das dieser noch stärker ausgebaut wird. Alfresco bietet bereits ein starkes PaaS (Program as a Service) Angebot und wird dieses in Zukunft noch weiter ausbauen. Realistisch gesehen glaube ich das dieses Angebot im deutschsprachigen Raum bis 2022 noch nicht oder nur wenig genutzt wird, da Länder wie Deutschland sich sehr vorsichtig und somit auch langsam in der Cloud Welt bewegen.
+In dem letzten Jahr bei Alfresco, konnte ich den Cloud Trend beobachten sowie selber daran mitwirken. Ich weiss das dieser noch stärker ausgebaut wird. Alfresco bietet bereits ein starkes PaaS (Program as a Service) Angebot und wird dieses in Zukunft noch weiter ausbauen. Realistisch gesehen glaube ich das dieses Angebot im deutschsprachigen Raum bis 2022 noch nicht oder nur wenig genutzt wird, da Länder wie Deutschland sich sehr vorsichtig und somit auch langsam in der Cloud Welt bewegen.
 
 Auch wenn bis 2022 der deutschsprachige Raum das Alfresco's PaaS Angebot kaum nutzen wird, werden wir einen starken Gang in Richtung Cloud erleben, bezüglich der Alfresco Produkte. Schon heute lassen sich viele Kosten sparen mit der Verwendung der Cloud als Storage z.B. macht es der S3 oder Azure Connector von ACS einfach, die BLOB Storages der jeweiligen Cloud provider zu verwenden. OBJECT kann dabei als vertrauenswürdiger Partner Rat und Tat leisten.
 
