@@ -23,15 +23,15 @@ In dem zweiten Projekt geht es um eine Entwicklung eines Prototypen für die Auf
 
 Im dritten und wohl für mich spannensten Projekt geht es darum, dass OBJECT gerne eine stärker Sozial Media Präsenz hätte. Das ginge von Platformen wie Xing, LinkedIN zu kleinen YouTube Videos. Auch hier habe ich großes Interesse mein bisher erlangtes Wissen über Alfresco zielführend einzusetzen und meine bisher bescheidenen aber existierenden Sozial Medial Skills auszubauen.
 
-Zusammenfassend für diesen Tag kann ich sagen, dass er sehr anstrengend war aber auch sehr produktiv und toll. Ich bin sehr happy das OBJECT großes mit mir vorhat oder zumindestns fühle ich so.
+Zusammenfassend für diesen Tag kann ich sagen, dass der Tag sehr anstrengend, aber auch sehr produktiv und toll, war. Ich bin sehr happy das OBJECT großes mit mir vorhat.
 
 # Tag 2 Project Einführung
-Mein toller brasilianische Kollege, auch von mir Amigo genannt, hat sich die Zeit genommen und mir das aktuelle ACS 5.2. deployment gezeigt. Ich habe alle Details verschlungen und ihm viele Fragen gestellt. Wir benötigten etwa zwei Stunden.Am meisten beeindruckt hat mich der Entwurfsprozess für dieses Deployment. Es waren einige Entwurfsdiagramme nötig, bis sich auf das finale Diagram entschieden wurde. Bereits jetzt habe ich schon ein paar interessante Ideen wie man das Deployment besser gestalten könnte in Punkto einfacher Wartbarkeit, verminderter Fehleranfälligkeit und Verlässlichkeit.
+Mein toller brasilianische Kollege, auch von mir Amigo genannt, hat sich die Zeit genommen und mir das aktuelle ACS 5.2. Deployment gezeigt. Ich habe alle Details verschlungen und ihm viele Fragen gestellt. Wir benötigten etwa zwei Stunden. Am meisten beeindruckt hat mich der Entwurfsprozess für dieses Deployment. Es waren einige Entwurfsdiagramme nötig, bis sich auf das finale Diagram entschieden wurde. Bereits jetzt habe ich schon ein paar interessante Ideen wie man das Deployment besser gestalten könnte in Punkto einfacher Wartbarkeit, Sicherheit, verminderter Fehleranfälligkeit und Verlässlichkeit.
 
 # Tag 3 Developer Meeting
-Am Mittwoch und somit der dritte Tag hatten wir ein zirka einstündiges Meeting mit allen Developern bei OBJECT. In dieser Runde stellte sich jeder kurz vor und erklärte mir an welchen spannenden Aufgaben sie arbeiten. Um diese Flut an Informationen besser zu verarbeiten, entschloss ich mich diese in kurzen Stichpunkten in mein Notizblock niederzuschreiben. Die Kennenlernrunde war sehr toll und ich wage mich zu behaupten, dass ich einen guten ersten Eindruck von mir hinterlassen habe. Ich hoffe schon bald öfter mit dem einen oder anderen Kollegen zusammenzuarbeiten zu können, da ich das Gefühlt habe noch viel von ihnen lernen zu können.
+Am Mittwoch und somit der dritte Tag hatten wir ein zirka einstündiges Meeting mit allen Developern bei OBJECT. In dieser Runde stellte sich jeder kurz vor und erklärte mir an welchen spannenden Aufgaben sie arbeiten. Um diese Flut an Informationen besser zu verarbeiten, entschloss ich mich diese in kurzen Stichpunkten in mein Notizblock niederzuschreiben. Die Kennenlernrunde war sehr toll und ich wage mich zu behaupten, dass ich einen guten ersten Eindruck von mir hinterlassen habe. Ich hoffe schon bald öfter mit dem einen oder anderen Kollegen zusammenzuarbeiten zu können, da ich das Gefühl habe noch viel von ihnen lernen zu können.
 
-Den Rest des Tages verbrachte ich damit mit weiter mit dem im vorherigen Kapitel erwähnten Deployment zu befassen. Auch habe ich einen Verbesserungsvorschlag ausgearbeitet welchen ich bald meinen Kollegen und unserem Partner vorschlage möchte.
+Den Rest des Tages verbrachte ich damit, mich weiter mit dem, im vorherigen Kapitel erwähnten, Deployment zu befassen. Auch habe ich einen Verbesserungsvorschlag ausgearbeitet welchen ich bald meinen Kollegen und unserem Partner vorschlagen möchte.
 
 # Tag 4
 ...
