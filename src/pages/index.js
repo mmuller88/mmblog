@@ -12,9 +12,10 @@ const IndexPage = (props) => {
           {/* <h1>Language</h1> */}
           {
               data.filter((tag) => (tag.fieldValue === "eng" || tag.fieldValue === "de")).map(tag => (
-                  <Link to={`tags/${tag.fieldValue}`} >
-                      {tag.fieldValue} {`(${tag.totalCount})`}
-                  </Link>
+                  <a href={`tags/${tag.fieldValue}`}>{tag.fieldValue} {`(${tag.totalCount})`}</a>
+                  // <Link to={`tags/${tag.fieldValue}`} >
+                  //     {tag.fieldValue} {`(${tag.totalCount})`}
+                  // </Link>
               ))
           }
       </div>
