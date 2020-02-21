@@ -11,7 +11,7 @@ function BlogPost(props) {
     const url = props.data.site.siteMetadata.siteUrl
     const thumbnail = props.data.markdownRemark.frontmatter.image &&
         props.data.markdownRemark.frontmatter.image.childImageSharp.resize.src
-    const { title, image, tags, date} = props.data.markdownRemark.frontmatter;
+    const { title, image, tags, date, engUrl} = props.data.markdownRemark.frontmatter;
     //var affiliates = props.data.markdownRemark.frontmatter.affiliates.childMarkdownRemark.frontmatter;
     const { prev, next } = props.pageContext;
     return (
@@ -26,6 +26,7 @@ function BlogPost(props) {
             <div>
                 <h1>{title}</h1>
                 <a href={engUrl} target="_blank">Translate To English</a>
+                <a href={gerUrl} target="_blank">Translate To German</a>
                 <span>{date}</span>
                 {image && <Img fluid={image.childImageSharp.fluid} />}
                 <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
@@ -69,6 +70,8 @@ export const query = graphql`
         date(formatString: "Do MMMM YYYY")
         title
         tags
+        engUrl
+        gerUrl
         image {
           childImageSharp {
             resize(width: 1000, height: 420) {

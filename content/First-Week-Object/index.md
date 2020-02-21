@@ -4,7 +4,7 @@ description: Hier beschreibe ich meine Erste Woche bei OBJECT
 date: '2020-02-20'
 image: 'ham.png'
 tags: ['Alfresco', 'Object', '2020', 'ECM', '2022', 'Vision', 'BPM', 'Hamburg', 'Onboarding']
-deUrl: https://martinmueller.dev/Erste-Woche-Object/
+gerUrl: https://martinmueller.dev/Erste-Woche-Object/
 pruneLength: 50
 ---
 
