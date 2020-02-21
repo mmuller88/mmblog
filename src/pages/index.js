@@ -59,7 +59,9 @@ export const pageQuery = graphql`
       limit: 2000, 
       filter: {
         frontmatter: {
-          tags: "ENG"
+          tags: {
+            eq: "ENG"
+          }
         }
       }
       ) {
