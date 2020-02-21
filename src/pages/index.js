@@ -9,15 +9,16 @@ const IndexPage = (props) => {
   return (
     <Layout>
       <div>
-          {/* <h1>Language</h1> */}
-          {
+        <a href={`tags/de`}>de </a> <a href={`tags/eng`}>eng</a>
+          {/* {
               data.filter((tag) => (tag.fieldValue === "eng" || tag.fieldValue === "de")).map(tag => (
-                  <a href={`tags/${tag.fieldValue}`}>{tag.fieldValue} {`(${tag.totalCount})`}</a>
+                  
+                  // <a href={`tags/${tag.fieldValue}`}>{tag.fieldValue} {`(${tag.totalCount})`}</a>
                   // <Link to={`tags/${tag.fieldValue}`} >
                   //     {tag.fieldValue} {`(${tag.totalCount})`}
                   // </Link>
               ))
-          }
+          } */}
       </div>
       <div>
         {postList.edges.map(({ node }, i) => (
