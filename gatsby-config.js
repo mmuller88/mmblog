@@ -57,13 +57,6 @@ module.exports = {
         name: `pages`,
         path: `${__dirname}/content`,
       }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `affiliate`,
-        path: `${__dirname}/affiliate/`,
-      },
-    },
+    }
   ],
 }

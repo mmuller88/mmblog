@@ -26,23 +26,6 @@ exports.createPages = ({ actions, graphql }) => {
               }
             }
           }
-          affiliates: allMarkdownRemark(
-            filter: { fileAbsolutePath: {regex : "\/affiliate/"} }
-            sort: { order: DESC, fields: [frontmatter___date] }
-            limit: 1000
-          ) {
-            edges {
-              node {
-                fields {
-                  slug
-                }
-                frontmatter {
-                  title
-                  tags
-                }
-              }
-            }
-          }
         }
       `).then(result => {
                     if (result.errors) {
@@ -51,7 +34,6 @@ exports.createPages = ({ actions, graphql }) => {
                     }
 
    const posts = result.data.posts.edges;
-   const affiliates = result.data.affiliates.edges;
    const blogTemplate = path.resolve('./src/templates/blog-post.js');
    const tagsTemplate = path.resolve('./src/templates/tag-template.js');
 
@@ -87,16 +69,6 @@ exports.createPages = ({ actions, graphql }) => {
                  },
                })
              })
-
-            affiliates.forEach(({ node }, index) => {
-              createPage({
-              path: `${node.fields.slug}`,
-              component: blogTemplate,
-              context: {
-              slug: node.fields.slug,
-               },
-             })
-           })
             return
         })
         )
