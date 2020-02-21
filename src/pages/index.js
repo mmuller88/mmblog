@@ -58,7 +58,7 @@ export const pageQuery = graphql`
     engdetags: allMarkdownRemark(
       limit: 2000, 
       filter: {
-        virtuals: {
+        frontmatter: {
           tags: {
             elemMatch: {
               slug: {
