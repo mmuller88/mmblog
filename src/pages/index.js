@@ -9,7 +9,7 @@ const IndexPage = (props) => {
   return (
     <Layout>
       <div>
-        <a href={`tags/de`}>de </a> <a href={`tags/eng`}>eng</a>
+        <a href={`tags/de`}>de</a>, <a href={`tags/eng`}>eng</a>
           {/* {
               data.filter((tag) => (tag.fieldValue === "eng" || tag.fieldValue === "de")).map(tag => (
                   
