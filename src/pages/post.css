@@ -30,7 +30,7 @@ height: 90% !important;
 
 .tags{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .tags a{
