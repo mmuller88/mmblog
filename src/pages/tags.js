@@ -9,7 +9,7 @@ function TagsPage(props) {
 
     return (
         <Layout>
-            <div className="tags">
+            <div className="href">
                 <h1>All tags</h1>
                 {
                     data.map(tag => (
