@@ -8,15 +8,17 @@ function Tags(props) {
     const { tag } = props.pageContext;
     return (
         <Layout>
-            <h1>{`Available posts  in ${tag}`}</h1>
-            <div className="tags">
-                {
-                    posts.map(({ node }, i) => (
-                        <Link to={node.fields.slug} key={i} >
-                            {node.frontmatter.title}
-                        </Link>
-                    ))
-                }
+            <h1>{`Available posts in ${tag}`}</h1>
+            <div>
+              {posts.map(({ node }, i) => (
+                <Link to={node.fields.slug} key={i} className="link" >
+                  <div className="post-list">
+                    <h1>{node.frontmatter.title}</h1>
+                    <span>{node.frontmatter.date}</span>
+                    <p>{node.excerpt}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
         </Layout>
     )
@@ -37,11 +39,14 @@ allMarkdownRemark(
       edges {
         node {
           frontmatter {
+            date(formatString: "Do MMMM YYYY")
             title
+            show
           }
           fields {
             slug
           }
+          excerpt(pruneLength: 250)
         }
       }
     }
