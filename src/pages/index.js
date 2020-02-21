@@ -39,7 +39,7 @@ export const pageQuery = graphql`
   query {
     posts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { fileAbsolutePath: {regex : "\/content/"}, { frontmatter: { show: { neq: "false" } } }}
+      filter: { fileAbsolutePath: {regex : "\/content/"}, frontmatter: { show: { neq: "false" }} }
       ) {
       edges {
         node {
