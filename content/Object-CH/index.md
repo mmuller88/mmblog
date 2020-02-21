@@ -3,7 +3,7 @@ title: Von Alfresco zu OBJECT
 description: Dieser kurze Artikel beschreibt meine Beweggründe warum ich nach OBJECT gewechselt bin 
 date: '2020-02-09'
 image: 'object.png'
-tags: ['Alfresco', 'Object', '2020', 'ECM', '2022', 'Vision', 'BPM']
+tags: ['DE', 'Alfresco', 'Object', '2020', 'ECM', '2022', 'Vision', 'BPM']
 engUrl: https://martinmueller.dev/Object-CH-eng/
 pruneLength: 50
 ---

@@ -3,7 +3,7 @@ title: Meine Erste aufregende Woche bei OBJECT
 description: Hier beschreibe ich meine Erste Woche bei OBJECT
 date: '2020-02-20'
 image: 'ham.png'
-tags: ['Alfresco', 'Object', '2020', 'ECM', '2022', 'Vision', 'BPM', 'Hamburg', 'Onboarding']
+tags: ['DE', 'Alfresco', 'Object', '2020', 'ECM', '2022', 'Vision', 'BPM', 'Hamburg', 'Onboarding']
 engUrl: https://martinmueller.dev/First-Week-Object/
 pruneLength: 50
 ---

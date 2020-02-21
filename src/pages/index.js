@@ -8,7 +8,7 @@ const IndexPage = (props) => {
   const data = props.data.tags.group;
   return (
     <Layout>
-      {/* <div className="tags">
+      <div className="tags">
           <h1>Tags</h1>
           {
               data.map(tag => (
@@ -17,7 +17,7 @@ const IndexPage = (props) => {
                   </Link>
               ))
           }
-      </div> */}
+      </div>
       <div>
         {postList.edges.map(({ node }, i) => (
           <Link to={node.fields.slug} key={i} className="link" >

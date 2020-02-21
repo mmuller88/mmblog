@@ -4,7 +4,7 @@ description: Here I describe my first week at OBJECT
 show: 'no'
 date: '2020-02-20'
 image: 'ham.png'
-tags: ['Alfresco', 'Object', '2020', 'ECM', '2022', 'Vision', 'BPM', 'Hamburg', 'Onboarding']
+tags: ['ENG', 'Alfresco', 'Object', '2020', 'ECM', '2022', 'Vision', 'BPM', 'Hamburg', 'Onboarding']
 gerUrl: https://martinmueller.dev/Erste-Woche-Object/
 pruneLength: 50
 ---

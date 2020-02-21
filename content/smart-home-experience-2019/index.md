@@ -3,7 +3,7 @@ title: My Smart Home Experience 2019
 description: In the end of 2019 I bought a house and extended it with a lot cool and cost saving smart home devices/
 date: '2019-12-11'
 image: 'aws.jpg'
-tags: ['Smart Home', 'Smart Life', '2019']
+tags: ['ENG', 'Smart Home', 'Smart Life', '2019']
 pruneLength: 50
 ---
 
