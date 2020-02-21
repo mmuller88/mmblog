@@ -50,6 +50,8 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "Do MMMM YYYY")
             title
+            engUrl
+            deUrl
           }
         }
       }

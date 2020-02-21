@@ -25,6 +25,7 @@ function BlogPost(props) {
             />
             <div>
                 <h1>{title}</h1>
+                <a href={engUrl} target="_blank">Translate To English</a>
                 <span>{date}</span>
                 {image && <Img fluid={image.childImageSharp.fluid} />}
                 <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />

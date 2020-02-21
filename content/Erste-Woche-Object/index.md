@@ -4,6 +4,7 @@ description: Hier beschreibe ich meine Erste Woche bei OBJECT
 date: '2020-02-20'
 image: 'ham.png'
 tags: ['Alfresco', 'Object', '2020', 'ECM', '2022', 'Vision', 'BPM', 'Hamburg', 'Onboarding']
+engUrl: https://martinmueller.dev/First-Week-Object/
 pruneLength: 50
 ---
 
@@ -33,7 +34,12 @@ Am Mittwoch und somit der dritte Tag hatten wir ein zirka einstündiges Meeting 
 
 Den Rest des Tages verbrachte ich damit, mich weiter mit dem, im vorherigen Kapitel erwähnten, Deployment zu befassen. Auch habe ich einen Verbesserungsvorschlag ausgearbeitet welchen ich bald meinen Kollegen und unserem Partner vorschlagen möchte.
 
-# Tag 4
+# Tag 4 Inspirierendes Konversation
+Heute am Donnerstag hatte ich ein super interessantes und inspirierendes Gespräch mit einem Partner von uns. Dieser ist im Bereich AI (Artificial Inteligence) tätig und hat eine eigene Firma gegründet. Alfresco's Content Managment System ist dabei nur eine Plattform von vielen wo mittels AI wertvolle Informationen extrahiert werden können. Ich war so erstaunt wie dieser Gründer so mit voller Begeisterung über das entwickelte Produkt gesprochen hat.
+
+Mein Ziel ist es nun in den nächsten Wochen einen auf ADF basierenden Prototypen zu entwickeln, welche die zuvor erwähnten AI Fähigkeiten demonstrieren kann. Sehr gerne arbeite ich mit ADF. Wie schon im [vorherigen Blog Post](https://martinmueller.dev/Object-CH/) erwähnt liebe ich dieses Framework. Meine Idee ist es [Alfresco's ADF App mit namen ACA](https://github.com/Alfresco/alfresco-content-app) als Grundlage für den Prototypen zu gehört.
+
+# Tag 5 
 ...
 
 # Zusammenfassung
