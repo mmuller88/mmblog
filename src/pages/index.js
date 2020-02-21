@@ -67,6 +67,7 @@ export const pageQuery = graphql`
             }
           }
         }
+      }
       ) {
       group(field: frontmatter___tags) {
         fieldValue
