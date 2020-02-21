@@ -24,11 +24,11 @@ function BlogPost(props) {
                 pathname={props.location.pathname}
             />
             <div>
-                <h1>{title}</h1>
                 <a href={engUrl}>Translate To English</a>
                 <br></br>
                 <a href={gerUrl}>Translate To German</a>
                 <br></br>
+                <h1>{title}</h1>
                 <span>{date}</span>
                 {image && <Img fluid={image.childImageSharp.fluid} />}
                 <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
