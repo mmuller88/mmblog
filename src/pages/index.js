@@ -19,7 +19,7 @@ const IndexPage = (props) => {
           }
       </div> */}
       <div>
-        {postList.edges.map(({ node }, i) => (
+        {postList.edges.filter(node => node.frontmatter.show != 'false').map(({ node }, i) => (
           <Link to={node.fields.slug} key={i} className="link" >
             <div className="post-list">
               <h1>{node.frontmatter.title}</h1>
@@ -50,6 +50,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "Do MMMM YYYY")
             title
+            show
           }
         }
       }

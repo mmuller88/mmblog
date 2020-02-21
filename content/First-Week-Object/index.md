@@ -1,6 +1,7 @@
 ---
-title: Meine Erste aufregende Woche bei OBJECT
-description: Hier beschreibe ich meine Erste Woche bei OBJECT
+title: My first exciting week at OBJECT
+description: Here I describe my first week at OBJECT
+show: false
 date: '2020-02-20'
 image: 'ham.png'
 tags: ['Alfresco', 'Object', '2020', 'ECM', '2022', 'Vision', 'BPM', 'Hamburg', 'Onboarding']

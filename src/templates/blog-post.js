@@ -71,6 +71,7 @@ export const query = graphql`
        frontmatter {
         date(formatString: "Do MMMM YYYY")
         title
+        show
         tags
         engUrl
         gerUrl
