@@ -3,7 +3,7 @@ title: AWS Solution Architect Professional Exam Preparation 2019 (SAP-C01)
 description: Preparation and passing the SAP-C01 exam
 date: '2019-07-27'
 image: 'aws.jpg'
-tags: ['aws','solution','architect', 'professional', 'preparation', 'exam', 'SAP-C01', '2019']
+tags: ['aws','solution','architect', 'professional', 'preparation', 'exam', 'sap-c01', '2019']
 pruneLength: 50
 ---
 

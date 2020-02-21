@@ -11,7 +11,7 @@ const IndexPage = (props) => {
       <div className="tags">
           <h1>Language</h1>
           {
-              data.map(tag => (
+              data.filter((tag) => tag.fieldValue === "eng").map(tag => (
                   <Link to={`tags/${tag.fieldValue}`} >
                       {tag.fieldValue} {`(${tag.totalCount})`}
                   </Link>
@@ -60,7 +60,7 @@ export const pageQuery = graphql`
       filter: {
         frontmatter: {
           tags: {
-            eq: "ENG"
+            eq: "eng"
           }
         }
       }

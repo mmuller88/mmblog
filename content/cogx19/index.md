@@ -3,7 +3,7 @@ title: CogX 2019 My Conference Experience
 description: Blog about attending the AI conference CogX 2019
 date: '2019-06-14'
 image: 'cogX.JPG'
-tags: ['cogx','cognitionX','ai', 'conference']
+tags: ['cogx','cognitionx','ai', 'conference']
 pruneLength: 50
 ---
 

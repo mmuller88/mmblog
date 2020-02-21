@@ -4,7 +4,7 @@ description: This short article describes my reasons why I switched to OBJECT
 show: 'no'
 date: '2020-02-09'
 image: 'object.png'
-tags: ['ENG', 'Alfresco', 'Object', '2020', 'ECM', '2022', 'Vision', 'BPM']
+tags: ['eng', 'alfresco', 'object', '2020', 'ecm', '2022', 'vision', 'bpm']
 gerUrl: https://martinmueller.dev/Object-CH/
 pruneLength: 50
 ---

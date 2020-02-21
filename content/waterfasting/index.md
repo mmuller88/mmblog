@@ -3,7 +3,7 @@ title: Water Fasting Experience
 description: Blog about my water fasting experience from 24 - 26 May 2019
 date: '2019-06-12'
 image: 'water.jpg'
-tags: ['ENG', 'water','fasting','ketosis']
+tags: ['eng', 'water','fasting','ketosis']
 pruneLength: 250
 ---
 
