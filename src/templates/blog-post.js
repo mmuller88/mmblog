@@ -31,7 +31,6 @@ function BlogPost(props) {
                 <span>{date}</span>
                 {image && <Img fluid={image.childImageSharp.fluid} />}
                 <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
-                {
                 <div>
                     <span>Tagged in </span>
                     {tags.map((tag, i) => (
@@ -40,15 +39,6 @@ function BlogPost(props) {
                 </div>
                 <Share title={title} url={url} pathname={props.location.pathname} />
                 <PrevNext prev={prev && prev.node} next={next && next.node} />
-                {/* <form method="POST" action="hhttps://dev.staticman.net/v3/entry/github/mmuller88/mmblog/master">
-                    <input name="options[redirect]" type="hidden" value="https://martinmueller.dev"/>
-                    <input name="options[slug]" type="hidden" value="{{ page.slug }}"/>
-                    <label><input name="fields[name]" type="text"/>Name</label>
-                    <label><input name="fields[email]" type="email"/>E-mail</label>
-                    <label><textarea name="fields[message]"></textarea>Message</label>
-                    
-                    <button type="submit">Go!</button>
-                </form> */}
             </div>
         </Layout>
     )
