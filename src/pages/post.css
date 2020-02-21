@@ -1,13 +1,8 @@
-.link{
+.link {
   display: flex;
   flex-direction: column;
   text-decoration: none;
   color: black;
-
-  border: 1px solid  gainsboro;
-  padding: .5rem;
-  box-shadow: 0 -1px 4px #ede7e7;
-  margin: 1rem;
 }
 
 .href {
