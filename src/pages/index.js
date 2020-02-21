@@ -19,7 +19,7 @@ const IndexPage = (props) => {
           }
       </div> */}
       <div>
-        {postList.edges.filter(node => node.frontmatter.show != 'false').map(({ node }, i) => (
+        {postList.edges.map(({ node }, i) => (
           <Link to={node.fields.slug} key={i} className="link" >
             <div className="post-list">
               <h1>{node.frontmatter.title}</h1>
@@ -39,7 +39,7 @@ export const pageQuery = graphql`
   query {
     posts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { fileAbsolutePath: {regex : "\/content/"} }
+      filter: { fileAbsolutePath: {regex : "\/content/"}, { frontmatter: { show: { neq: "false" } } }}
       ) {
       edges {
         node {
