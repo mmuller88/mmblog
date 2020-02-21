@@ -60,11 +60,7 @@ export const pageQuery = graphql`
       filter: {
         frontmatter: {
           tags: {
-            elemMatch: {
-              slug: {
-                in: "ENG"
-              }
-            }
+            in: "ENG"
           }
         }
       }
