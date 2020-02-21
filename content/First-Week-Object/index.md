@@ -11,7 +11,7 @@ pruneLength: 50
 
 Hello.
 
-In this article I briefly summarize the first week at [OBJECT] (https://www.object.ch). For me myself this belongs to North. On the one hand I practice writing articles and on the other hand serves as a reflection on the previous days. As they say, my dream job as a software engineer is so important. This art of blog post may need to be understood better. I hope you heard.
+In this article I briefly summarize the first week at [OBJECT](https://www.object.ch). For me myself this belongs to North. On the one hand I practice writing articles and on the other hand serves as a reflection on the previous days. As they say, my dream job as a software engineer is so important. This art of blog post may need to be understood better. I hope you heard.
 
 # Day 1 onboarding
 
@@ -38,7 +38,7 @@ I spent the rest of the day directing myself with the commitment, in the persona
 # Day 4 Inspirational conversation
 Today on Thursday I had a super interesting and inspiring conversation with one of our partners. This is in the area of ​​AI (Artificial Intelligence) and a separate company. Alfresco's content management system is just one of many platforms where AI can extract valuable information. I was as important as this founder heard about the personal product with full experience.
 
-My goal is to develop a prototype based on ADF in the past few weeks, which the associated AI AI. I love hearing with ADF. As in the [Blog Blog Post] (https://martinmueller.dev/Object-CH/) I love this framework. My idea is to include [Alfresco's ADF app with the name ACA] (https://github.com/Alfresco/alfresco-content-app) as the basis for the prototypes.
+My goal is to develop a prototype based on ADF in the past few weeks, which the associated AI AI. I love hearing with ADF. As in the [Blog Post](https://martinmueller.dev/Object-CH/) I love this framework. My idea is to include [Alfresco's ADF app with the name ACA](https://github.com/Alfresco/alfresco-content-app) as the basis for the prototypes.
 
 # Day 5
 ...
@@ -46,4 +46,4 @@ My goal is to develop a prototype based on ADF in the past few weeks, which the 
 # Summary
 The first week was intensely intense with lots of new information. I was positively heard that quite a lot of people helped me to get the help I offered. I see the same with full ambition and prestige in the future from myself together with OBJEKT.
 
-To the great readers of this article it should be said that feedback of any kind is welcome. In the future I will try to include a discussion function here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter] (https://twitter.com/MartinMueller_) or [FaceBook] (https://www.facebook.com/martin.muller.10485). Thank you very much :).
+To the great readers of this article it should be said that feedback of any kind is welcome. In the future I will try to include a discussion function here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
