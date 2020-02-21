@@ -36,6 +36,8 @@ height: 90% !important;
 }
 
 .tags a{
+  display: flex;
+  flex-direction: row;
   margin-bottom: 2rem;
   list-style: none;
       background-color: #ececec;
