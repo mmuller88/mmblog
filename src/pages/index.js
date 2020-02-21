@@ -5,13 +5,13 @@ import Layout from '../components/layout'
 
 const IndexPage = (props) => {
   const postList = props.data.posts;
-  const data = props.data.engdetags.group;
+  const data = props.data.tags.group;
   return (
     <Layout>
       <div className="tags">
           {/* <h1>Language</h1> */}
           {
-              data.map(tag => (
+              data.filter((tag) => (tag.fieldValue === "eng" || tag.fieldValue === "de")).map(tag => (
                   <Link to={`tags/${tag.fieldValue}`} >
                       {tag.fieldValue} {`(${tag.totalCount})`}
                   </Link>
@@ -53,21 +53,6 @@ export const pageQuery = graphql`
             show
           }
         }
-      }
-    }
-    engdetags: allMarkdownRemark(
-      limit: 2000, 
-      filter: {
-        frontmatter: {
-          tags: {
-            eq: "eng"
-          }
-        }
-      }
-      ) {
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
       }
     }
     tags: allMarkdownRemark(limit: 2000) {
