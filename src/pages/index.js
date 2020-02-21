@@ -8,7 +8,7 @@ const IndexPage = (props) => {
   const data = props.data.tags.group;
   return (
     <Layout>
-      <div className="tags">
+      <div>
           {/* <h1>Language</h1> */}
           {
               data.filter((tag) => (tag.fieldValue === "eng" || tag.fieldValue === "de")).map(tag => (
