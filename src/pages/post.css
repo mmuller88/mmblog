@@ -9,6 +9,10 @@
   margin: 1rem;
 }
 
+.header {
+  margin: 1rem;
+}
+
 .post-list {
   border: 1px solid  gainsboro;
   padding: .5rem;

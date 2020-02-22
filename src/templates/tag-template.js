@@ -8,8 +8,8 @@ function Tags(props) {
     const { tag } = props.pageContext;
     return (
         <Layout>
-            <h1>{`  Available posts in ${tag}`}</h1>
-            <div>
+            <div className="header">
+              <h1>{`  Available posts in ${tag}`}</h1>
               {posts.map(({ node }, i) => (
                 <Link to={node.fields.slug} key={i} className="link" >
                   <div className="post-list">
