@@ -9,7 +9,7 @@ function Tags(props) {
     return (
         <Layout>
           <div className="header">
-            <h1>{`  Available posts in ${tag}`}</h1>
+            <h1>{`Available posts in ${tag}`}</h1>
           </div>
             <div>
               {posts.map(({ node }, i) => (
