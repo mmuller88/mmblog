@@ -1,5 +1,5 @@
 ---
-title: My first exciting week at OBJECT
+title: My First Exciting Week at OBJECT
 description: Here I describe my first week at OBJECT
 show: 'no'
 date: '2020-02-20'
@@ -38,14 +38,14 @@ I spent the rest of the day to learn more about the deployment I mentioned in th
 # Day 4 Inspirational Conversation
 Today on Thursday I had a super interesting and inspiring conversation with one of our partners. This is in the area of ​​AI (Artificial Intelligence) and ther partner founded that company. Alfresco's Content Management System is just one of many platforms where that AI can extract valuable information. I was impressed as the founder told about the product with so much passion.
 
-My goal is to develop a prototype based on ADF in the next few weeks, which the using the AI capabilities I spoke of. I will use ADF for the prototype. As mentioned in the [Blog Post](https://martinmueller.dev/Object-CH-eng/) I love this framework. My idea is to include [Alfresco's ADF app with the name ACA](https://github.com/Alfresco/alfresco-content-app) as the base for the prototype.
+My goal is to develop a prototype based on ADF in the next few weeks, which the using the AI capabilities I spoke of. I will use ADF for the prototype. As mentioned in the [Blog Post](https://martinmueller.dev/Object-CH-eng/) I love this framework. My idea is to include [Alfresco's ADF app with the name ACA](https://github.com/Alfresco/alfresco-content-app) as the base for the prototype. It might could be a cool idea to write an Artikel about that app too.
 
 # Day 5 AI Magic
 When I started writing this article, I certainly didn't think that AI would become such an important part of this post. I am very interested in AI and today on Friday I got a cool life demonstration about an AI system that uses Alfresco's Content Management System as a data source to extract extremely interesting information. The system also warns the user if something suspicious happens.
 
-I found it very interesting that a simple ACS Community version without any customization was sufficient. This demonstration gave me a good picture of what the ADF app should look like. On Monday I will start making small sketches of the prototype.
+I find it impressive that a simple ACS Community version without any customization was sufficient. This demonstration gave me a good picture of how the ADF app should look like. On Monday I will start making small sketches of the prototype.
 
 # Summary
-The first week was intense with lots of new information. I was positively surprised that quite a lot colleagues seek my help regarding Alfresco stuff. I see very ambitioned and forward looking into the future from myself together with OBJEKT.
+The first week was intense with lots of new information. I was positively surprised that quite a lot colleagues seek my help regarding Alfresco stuff. I see very ambitioned and forward looking into the future from myself together with OBJECT.
 
 To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
