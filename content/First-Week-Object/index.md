@@ -4,7 +4,7 @@ description: Here I describe my first week at OBJECT
 show: 'no'
 date: '2020-02-20'
 image: 'ham.png'
-tags: ['eng', 'alfresco', 'object', '2020', 'ecm', '2022', 'vision', 'bpm', 'hamburg', 'onboarding']
+tags: ['eng', 'alfresco', 'object', '2020', 'ecm', '2022', 'bpm', 'hamburg', 'onboarding']
 gerUrl: https://martinmueller.dev/Erste-Woche-Object/
 pruneLength: 50
 ---
@@ -23,20 +23,20 @@ The first task is that I have my own project together with another partner. This
 
 The second project is about developing a prototype for discovering sensitive data. For that we also would like to create a beautiful ADF app. In this project, my own knowledge gained with Docker and ADF will be very useful.
 
-In the third and for me most exciting project it is about that OBJECT would like to be string in the social media world. That would go from platforms like Xing, LinkedIN to YouTube videos. Again, I have a great interest based on my knowledge of Alfresco and my existing social media skills, which can be improved though.
+In the third and for me most exciting project it is about that OBJECT would like to be more in the social media world. That would go from platforms like Xing, LinkedIN to YouTube videos. Again, I have a great interest based on my knowledge of Alfresco and my existing social media skills, which can be improved though.
 
 For this day I can say that it was challenging, but also very productive and great. I am very happy that OBJECT has big plans for me.
 
 # Day 2 Project Launch
-My great Brazilian colleague, also called Amigo by me, took the time to give me an overview about thethe current ACS 5.2 deployment. I devoured all the details and asked him a lot of questions. It took us about two hours. The most impressive fact was that the designing process for this deployment. I already have a few interesting ideas on how to improve the deployment in terms of maintainability, security and reliability.
+My great Brazilian colleague, also called Amigo by me, took the time to give me an overview about the current ACS 5.2 deployment. I devoured all the details and asked him a lot of questions. It took us about two hours. The most impressive fact was that the designing process for this deployment. I already have a few interesting ideas on how to improve the deployment in terms of maintainability, security and reliability.
 
 # Day 3 Developer Meeting
-On Wednesday, and thus the third day, we had an approximately one hour meeting with all developers at OBJECT. In this round all of my developer colleagues summarized in short on what exciting tasks they are working on. In order to better digest this flood on information, I decided to write it down in my notepad. The introduction round was very nice and I think I left a first nice impression of myself. I hope that I can soon work together with one or the other colleague because I feel I can learn a lot from them.
+On Wednesday, and thus the third day, we had an approximately one hour meeting with all developers at OBJECT. In this round all of my developer colleagues summarized in short on what exciting tasks they are working on. In order to better digest this flood on information, I decided to write it down in my notepad. The introduction round was very nice and I think I left a first good impression of myself. I hope that I can soon work together with one or the other colleague because I feel I can learn a lot from them.
 
 I spent the rest of the day to learn more about the deployment I mentioned in the chapter before. I also made ready an improvement proposal for that deployment and I am excited to hear what they will think of it.
 
 # Day 4 Inspirational Conversation
-Today on Thursday I had a super interesting and inspiring conversation with one of our partners. This is in the area of ​​AI (Artificial Intelligence) and ther partner founded that company. Alfresco's Content Management System is just one of many platforms where that AI can extract valuable information. I was impressed as the founder told about the product with so much passion.
+Today on Thursday I had a super interesting and inspiring conversation with one of our partners. This is in the area of ​​AI (Artificial Intelligence) and the partner founded that company. Alfresco's Content Management System is just one of many platforms where that AI can extract valuable information. I was impressed as the founder told about the product with so much passion.
 
 My goal is to develop a prototype based on ADF in the next few weeks, which the using the AI capabilities I spoke of. I will use ADF for the prototype. As mentioned in the [Blog Post](https://martinmueller.dev/Object-CH-eng/) I love this framework. My idea is to include [Alfresco's ADF app with the name ACA](https://github.com/Alfresco/alfresco-content-app) as the base for the prototype. It might could be a cool idea to write an Artikel about that app too.
 
