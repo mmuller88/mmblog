@@ -11,7 +11,7 @@ pruneLength: 50
 
 Hello.
 
-In this article I briefly summarize the first week at [OBJECT](https://www.object.ch). For me myself this belongs to North. On the one hand I practice writing articles and on the other hand serves as a reflection on the previous days. As they say, my dream job as a software engineer is so important. This art of blog post may need to be understood better. I hope you heard.
+In this article I briefly summarize the first week at [OBJECT](https://www.object.ch) . For me myself this belongs to North. On the one hand I practice writing articles and on the other hand serves as a reflection on the previous days. As they say, my dream job as a software engineer is so important. This art of blog post may need to be understood better. I hope you heard.
 
 # Day 1 onboarding
 
