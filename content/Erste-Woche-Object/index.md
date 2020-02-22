@@ -22,7 +22,7 @@ Die erste Aufgabe ist, dass ich ein eigenes Projekt zusammen mit einem anderen P
 
 In dem zweiten Projekt geht es um eine Entwicklung eines Prototypen für die Auffindung von sensiblen Daten. Dafür würden wir auch gerne eine schicke ADF app benutzen. In diesem Projekt werde ich meine bisher erlangten Skills mit Docker und ADF voll ausspielen können.
 
-Im dritten und wohl für mich spannensten Projekt geht es darum, dass OBJECT gerne eine stärker Sozial Media Präsenz hätte. Das ginge von Platformen wie Xing, LinkedIN zu kleinen YouTube Videos. Auch hier habe ich großes Interesse mein bisher erlangtes Wissen über Alfresco zielführend einzusetzen und meine bisher bescheidenen aber existierenden Sozial Medial Skills auszubauen.
+Im dritten und wohl für mich spannensten Projekt geht es darum, dass OBJECT gerne eine stärker Sozial Media Präsenz hätte. Das ginge von Platformen wie Xing, LinkedIN zu YouTube Videos. Auch hier habe ich großes Interesse mein bisher erlangtes Wissen über Alfresco zielführend einzusetzen und meine bisher bescheidenen aber existierenden Sozial Medial Skills auszubauen.
 
 Zusammenfassend für diesen Tag kann ich sagen, dass der Tag sehr anstrengend, aber auch sehr produktiv und toll, war. Ich bin sehr happy das OBJECT großes mit mir vorhat.
 
@@ -37,7 +37,7 @@ Den Rest des Tages verbrachte ich damit, mich weiter mit dem, im vorherigen Kapi
 # Tag 4 Inspirierendes Konversation
 Heute am Donnerstag hatte ich ein super interessantes und inspirierendes Gespräch mit einem Partner von uns. Dieser ist im Bereich AI (Artificial Inteligence) tätig und hat eine eigene Firma gegründet. Alfresco's Content Managment System ist dabei nur eine Plattform von vielen wo mittels AI wertvolle Informationen extrahiert werden können. Ich war so erstaunt wie dieser Gründer so mit voller Begeisterung über das entwickelte Produkt gesprochen hat.
 
-Mein Ziel ist es nun in den nächsten Wochen einen auf ADF basierenden Prototypen zu entwickeln, welche die zuvor erwähnten AI Fähigkeiten demonstrieren kann. Sehr gerne arbeite ich mit ADF. Wie schon im [vorherigen Blog Post](https://martinmueller.dev/Object-CH/) erwähnt liebe ich dieses Framework. Meine Idee ist es [Alfresco's ADF App mit namen ACA](https://github.com/Alfresco/alfresco-content-app) als Grundlage für den Prototypen zu gehört.
+Mein Ziel ist es nun in den nächsten Wochen einen auf ADF basierenden Prototypen zu entwickeln, welche die zuvor erwähnten AI Fähigkeiten demonstrieren kann. Sehr gerne arbeite ich mit ADF. Wie schon im [vorherigen Blog Post](https://martinmueller.dev/Object-CH/) erwähnt liebe ich dieses Framework. Meine Idee ist es [Alfresco's ADF App mit namen ACA](https://github.com/Alfresco/alfresco-content-app) als Grundlage für den Prototypen zu gehört. Vielleicht wäre es eine coole Idee auch einen Artikel über diese App zu schreiben.
 
 # Tag 5 AI Magie
 Als ich angefangen habe diesen Artikel zu schreiben, habe ich mit sicherheit nichtmal ansatzweise daran gedacht das AI so ein wichtiger Inhalt dieses Post wird. Ich bin sehr AI interessiert und heute am Freitag, habe ich eine coole Life Demonstration über ein AI System bekommen, welches Alfresco's Content Management System als Datenquelle verwendet um extrem interessante Informationen zu extrahieren. Auch warnt das System den Nutzer gegebenfalls, wenn etwas misstrauisches passiert.

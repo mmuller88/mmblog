@@ -11,7 +11,7 @@ pruneLength: 50
 
 Hello.
 
-In this article I briefly summarize the first week at [OBJECT](https://www.object.ch). For myself that hast a couple of advantages. On one hand I practice writing articles and on the other hand it serves as a reflection on the previous days. As well for some of my family and friends it is hart to understand what I am doing in my dream profession as a Software Engineer. This kind of blog post may helps them to understand it better.
+In this article I briefly summarize the first week at [OBJECT](https://www.object.ch). For myself that has a couple of advantages. On one hand I practice writing articles and on the other hand it serves as a reflection on the previous days. As well for some of my family and friends it is hart to understand what I am doing in my dream profession as a Software Engineer. This kind of blog post may helps them to understand it better.
 
 # Day 1 Onboarding
 
@@ -31,14 +31,14 @@ For this day I can say that it was challenging, but also very productive and gre
 My great Brazilian colleague, also called Amigo by me, took the time to give me an overview about thethe current ACS 5.2 deployment. I devoured all the details and asked him a lot of questions. It took us about two hours. The most impressive fact was that the designing process for this deployment. I already have a few interesting ideas on how to improve the deployment in terms of maintainability, security and reliability.
 
 # Day 3 Developer Meeting
-On Wednesday, and thus the third day, we had an approximately one-hour meeting with all developers at OBJECT. In this round all of my developer colleagues summarized in short on what exciting tasks they are working on. In order to better digest this flood on information, I decided to write it down in my notepad. The introduction round was very nice and I think I left a first nice impression of myself. I hope that I can soon work together with one or the other colleague because I feel I can learn a lot from them.
+On Wednesday, and thus the third day, we had an approximately one hour meeting with all developers at OBJECT. In this round all of my developer colleagues summarized in short on what exciting tasks they are working on. In order to better digest this flood on information, I decided to write it down in my notepad. The introduction round was very nice and I think I left a first nice impression of myself. I hope that I can soon work together with one or the other colleague because I feel I can learn a lot from them.
 
 I spent the rest of the day to learn more about the deployment I mentioned in the chapter before. I also made ready an improvement proposal for that deployment and I am excited to hear what they will think of it.
 
 # Day 4 Inspirational Conversation
-Today on Thursday I had a super interesting and inspiring conversation with one of our partners. This is in the area of ​​AI (Artificial Intelligence) and ther partner founded that company. Alfresco's Content Management System is just one of many platforms where that AI can extract valuable information. I was as impressed as the founder told about the product with so much passion.
+Today on Thursday I had a super interesting and inspiring conversation with one of our partners. This is in the area of ​​AI (Artificial Intelligence) and ther partner founded that company. Alfresco's Content Management System is just one of many platforms where that AI can extract valuable information. I was impressed as the founder told about the product with so much passion.
 
-My goal is to develop a prototype based on ADF in the past few weeks, which the using the AI capabilities I spoke of. I will use ADF for the prototype. As mentioned in the [Blog Post](https://martinmueller.dev/Object-CH-eng/) I love this framework. My idea is to include [Alfresco's ADF app with the name ACA](https://github.com/Alfresco/alfresco-content-app) as the base for the prototype.
+My goal is to develop a prototype based on ADF in the next few weeks, which the using the AI capabilities I spoke of. I will use ADF for the prototype. As mentioned in the [Blog Post](https://martinmueller.dev/Object-CH-eng/) I love this framework. My idea is to include [Alfresco's ADF app with the name ACA](https://github.com/Alfresco/alfresco-content-app) as the base for the prototype.
 
 # Day 5 AI Magic
 When I started writing this article, I certainly didn't think that AI would become such an important part of this post. I am very interested in AI and today on Friday I got a cool life demonstration about an AI system that uses Alfresco's Content Management System as a data source to extract extremely interesting information. The system also warns the user if something suspicious happens.
