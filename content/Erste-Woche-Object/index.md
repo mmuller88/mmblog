@@ -39,8 +39,10 @@ Heute am Donnerstag hatte ich ein super interessantes und inspirierendes Gesprä
 
 Mein Ziel ist es nun in den nächsten Wochen einen auf ADF basierenden Prototypen zu entwickeln, welche die zuvor erwähnten AI Fähigkeiten demonstrieren kann. Sehr gerne arbeite ich mit ADF. Wie schon im [vorherigen Blog Post](https://martinmueller.dev/Object-CH/) erwähnt liebe ich dieses Framework. Meine Idee ist es [Alfresco's ADF App mit namen ACA](https://github.com/Alfresco/alfresco-content-app) als Grundlage für den Prototypen zu gehört.
 
-# Tag 5 
-...
+# Tag 5 AI Magie
+Als ich angefangen habe diesen Artikel zu schreiben, habe ich mit sicherheit nichtmal ansatzweise daran gedacht das AI so ein wichtiger Inhalt dieses Post wird. Ich bin sehr AI interessiert und heute am Freitag, habe ich eine coole Life Demonstration über ein AI System bekommen, welches Alfresco's Content Management System als Datenquelle verwendet um extrem interessante Informationen zu extrahieren. Auch warnt das System den Nutzer gegebenfalls, wenn etwas misstrauisches passiert.
+
+Sehr interessant fand ich, dass schon eine einfache ACS Community version ohne jegliche Customization ausreichte. Diese Demonstration hat mir ein gutes Bild verschafft wie die ADF App aussehen soll. Am Montag werde ich anfangen kleine Skizzen von dem Prototypen anzufertigen.
 
 # Zusammenfassung
 Die erste Woche war intensiv aufgrund der vielen neuen Informationen. Positiv überrascht war ich, dass schon recht viele Kollegen auf die von mir angebotene Hilfe zurückgegriffen haben. Ebenso schaue ich mit voller Ehrgeiz und Begeisterung in die Zukunft von mir zusammen mit OBJECT.
