@@ -23,22 +23,36 @@ function BlogPost(props) {
                 pathname={props.location.pathname}
             />
             <div>
-                <a href={engUrl}>Translate To English</a>
-                <br></br>
-                <a href={gerUrl}>Translate To German</a>
-                <br></br>
-                <h1>{title}</h1>
-                <span>{date}</span>
-                {image && <Img fluid={image.childImageSharp.fluid} />}
-                <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
-                <div>
-                    <span>Tagged in </span>
-                    {tags.map((tag, i) => (
-                        <a href={`/${tag}`} key={i} style={{ marginLeft: "10px" }} >{tag}</a>
-                    ))}
-                </div>
-                <Share title={title} url={url} pathname={props.location.pathname} />
-                <PrevNext prev={prev && prev.node} next={next && next.node} />
+              {
+                engUrl ? (
+                  <div>
+                    <a href={engUrl}>Translate To English</a>
+                    <br></br>
+                  </div>
+                ) : null
+              }
+              {
+                gerUrl ? (
+                  <div>
+                    <a href={gerUrl}>Translate To German</a>
+                    <br></br>
+                  </div>
+                ) : null
+              }
+
+              <br></br>
+              <h1>{title}</h1>
+              <span>{date}</span>
+              {image && <Img fluid={image.childImageSharp.fluid} />}
+              <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
+              <div>
+                  <span>Tagged in </span>
+                  {tags.map((tag, i) => (
+                      <a href={`/${tag}`} key={i} style={{ marginLeft: "10px" }} >{tag}</a>
+                  ))}
+              </div>
+              <Share title={title} url={url} pathname={props.location.pathname} />
+              <PrevNext prev={prev && prev.node} next={next && next.node} />
             </div>
         </Layout>
     )
