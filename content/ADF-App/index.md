@@ -1,15 +1,17 @@
 ---
 title: ADF App bauen vom Scratch
 description: Für ein Projekt von OBJECT werde ich eine ADF App bauen
-date: '2020-02-20'
+date: '2020-03-13'
 image: 'robot.png'
 tags: ['de', 'alfresco', 'ai', '2020', 'ecm', 'adf', 'prototype', 'aca', 'object']
 pruneLength: 50
 ---
 
+UNDER CONSTRUCTION
+
 Good day :D
 
-Wie im vorangegangen [Blog Post](https://martinmueller.dev/) erwähnt, arbeite ich an einem spannenenden AI Prototyp welcher ACS Community als Content Managment System verwendet. Darüber hinaus laufen noch gewisse AI Services welche über die ACS Schnittstelle wie CMIS und REST gewisse AI Aktionen auf ACS durchführen. Leider muss ich hier etwas im unklaren bleiben, um Firmengeheimnisse zu waren. Soviel sei allerdings gesagt OBJECT und die Partnerfirma planen ein Webinar wo unter anderem auch der hier besprochene Prototype gezeigt wird. Zurück zum Thema! Für die Webaplikation haben wir uns für ADF entschieden. In den nächsten Kapiteln werde ich erklären wir man ein ADF App Projekt erstellen kann und es nach wünschen zu ändern.
+Wie im vorangegangen [Blog Post](https://martinmueller.dev/Erste-Woche-Object/) erwähnt, arbeite ich an einem spannenenden AI Prototyp welcher ACS Community als Content Managment System verwendet. Darüber hinaus laufen noch gewisse AI Services welche über die ACS Schnittstelle wie CMIS und REST gewisse AI Aktionen auf ACS durchführen. Leider muss ich hier etwas im unklaren bleiben, um Firmengeheimnisse zu waren. Soviel sei allerdings gesagt OBJECT und die Partnerfirma planen ein Webinar wo unter anderem auch der hier besprochene Prototype gezeigt wird. Zurück zum Thema! Für die Webaplikation haben wir uns für ADF entschieden. In den nächsten Kapiteln werde ich erklären wir man ein ADF App Projekt erstellen kann und es nach wünschen zu ändern.
 
 # Git Repository Vorbereiten
 
