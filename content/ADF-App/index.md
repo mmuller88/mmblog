@@ -1,0 +1,41 @@
+---
+title: ADF App bauen vom Scratch
+description: Für ein Projekt von OBJECT werde ich eine ADF App bauen
+date: '2020-02-20'
+image: 'robot.png'
+tags: ['de', 'alfresco', 'ai', '2020', 'ecm', 'adf', 'prototype', 'aca', 'object']
+pruneLength: 50
+---
+
+Good day :D
+
+Wie im vorangegangen [Blog Post](https://martinmueller.dev/) erwähnt, arbeite ich an einem spannenenden AI Prototyp welcher ACS Community als Content Managment System verwendet. Darüber hinaus laufen noch gewisse AI Services welche über die ACS Schnittstelle wie CMIS und REST gewisse AI Aktionen auf ACS durchführen. Leider muss ich hier etwas im unklaren bleiben, um Firmengeheimnisse zu waren. Soviel sei allerdings gesagt OBJECT und die Partnerfirma planen ein Webinar wo unter anderem auch der hier besprochene Prototype gezeigt wird. Zurück zum Thema! Für die Webaplikation haben wir uns für ADF entschieden. In den nächsten Kapiteln werde ich erklären wir man ein ADF App Projekt erstellen kann und es nach wünschen zu ändern.
+
+# Git Repository Vorbereiten
+
+* Github.com/Alfresco/alfresco-content-app kurz ACA verwenden. Da es ADF utilisiert + eine Shell bereitstellt + Alfresco is maintining and updating.
+* Git Repository erstellen. Private oder Public. Ich selber private und in GitLab von der Firma Object. 
+* ACA als git submodule laden. Zuerst ACA repository macht es einfach updates im ACA repository zu laden. Außerdem kann man die IDE suche auch in ACA submodule..
+
+# ACA Starten
+
+* In meiner vorherigen Position war ich im ACA team und habe massgeblich das Deployment beeinflusst.
+* In alfresco-content-app ordner gehen. npm run build . Welches zuerst die Extensions aca-shared und aos-extension baut und dan die ACA webapplikation in dist/aca erstellt. Wichtig für die nächsten Schritt, wenn das Deployment gestartet wird.
+* ACA submodule und dort enthaltene start.sh welches Docker Compose nutzt zum laufen bringen.
+
+# Deployment Anpassen
+
+* Docker Compose in Parentfolder folder kopieren und tweeken. Falls für euer Projekt ACS Enterprise verwendet werden solle, kann man hier nun Enterprise spezifische Änderungen machen.
+* Ebenfalls auch die start.sh aus dem alfresco-content-app folder in Parentfolder kopieren. Nun sicherstellen, dass Deployment funktioniert
+* Auch müssen wichtige Angular Konfigurations files wie angular.json in den Parentfolder kopiert und geändert werden. Undzwar so, dass sie in der lage sind die Datein im alfresco-content-app zu nutzen. Somit braucht man diese nicht neu erstellen und kann soviel es geht wiederverwenden.
+* Überprüfen ob ACS erfolgreich gestartet ist http://localhost:8080/alfresco ACA app startet auf http://localhost:8080/content-app
+
+# Extension Erstellen
+
+* Ähnlich wie in alfresco-content-app/projects/aca-shared sollte nun eine Projektspezifische Extension erstellt werden wie z.B. projects/ai-prototype . Der Einfachkeitshalber einfach die Datein von aca-shared in den ai-prototype folder kopieren und tweeken. Wichtig sind erstmal nur die Konfigurationsdatein.
+* Auch muss die angular.json um ein neues Build erweirt werden. Im unseren Fall wäre es ai-prototype . 
+
+# Zusammenfassung
+Das wars. Ich hoffe der Artikel war hilfreich.
+
+An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
