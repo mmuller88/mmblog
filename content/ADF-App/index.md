@@ -66,7 +66,7 @@ Das -wp Flag wandelt die Linux Dateipfade in Windows Dateipfade um und -hi steht
 
 ```
 http://localhost:8080/alfresco/ ACS
-http://localhost:8080/content-app/  ACA Webapp
+http://localhost:8080/content-app/ ACA Webapp
 http://localhost:8080/share/ Good old Share
 ```
 
