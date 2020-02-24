@@ -15,9 +15,14 @@ Wie im vorangegangen [Blog Post](https://martinmueller.dev/Erste-Woche-Object/) 
 
 # Git Repository Vorbereiten
 
-* Github.com/Alfresco/alfresco-content-app kurz ACA verwenden. Da es ADF utilisiert + eine Shell bereitstellt + Alfresco is maintining and updating.
-* Git Repository erstellen. Private oder Public. Ich selber private und in GitLab von der Firma Object. 
-* ACA als git submodule laden. Zuerst ACA repository macht es einfach updates im ACA repository zu laden. Außerdem kann man die IDE suche auch in ACA submodule..
+Als base für den Prototype verwende ich das [ACA](https://github.com/Alfresco/alfresco-content-app) git Repository. Zum einen hat es viele [ADF Component und API Libaries](https://github.com/Alfresco/alfresco-ng2-components) bereits integriert und zum andern stellt es eine Shell bereit die schon recht umfangreich das ACS Backend verwendet. Darüber hinaus wird es einfach möglich sein, Updates vom ACA repository in meine App einzuspielen. Und ziemlich cool, ich kann direct zurück contributien.
+
+Nun gehts ans git Repository. Für mich viel die Wahl auf ein privates git Repository bei uns im GitLab, da es ja eine Vorbereitungsprojekt für ein Webinar werden soll und niemand die App schon vorher sehen soll. In deinem fall kannst du vielleicht ein public git Repository nehmen. Der weitere Verlauf wird sich dadurch nicht beeinflussen.
+
+Wie vorhing angesprochen würde ich gerne in der Lage sein Updates vom ACA repository problemlos einzuspielen. Darüber hinaus will ich natürlich soviel es geht vom ACA repository wiederverwenden. Ich habe mich daher für [git's submodules](https://git-scm.com/docs/git-submodule) entschieden. Damit ich auch in der Lage bin zurück zu contribuiten habe ich ein Fork vom ACA repo erstellt https://github.com/mmuller88/alfresco-content-app . Ich rate dir das gleiche zu tun. Dann einfach ins Projektverzeichniss wechseln und den Fork als submodule laden
+```
+git submodule add https://github.com/<USER>/alfresco-content-app
+```
 
 # ACA Starten
 
