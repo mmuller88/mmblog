@@ -1,5 +1,5 @@
 ---
-title: ADF App bauen vom Scratch
+title: Build ADF App from Scratch
 description: Für ein Projekt von OBJECT werde ich eine ADF App bauen
 show: 'no'
 date: '2020-03-13'
