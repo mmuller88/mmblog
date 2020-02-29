@@ -10,13 +10,13 @@ pruneLength: 50
 
 Good day :D
 
-Wie im vorangegangen [Blog Post](https://martinmueller.dev/Erste-Woche-Object/) erwähnt, arbeite ich an einem spannenenden AI Prototyp welcher ACS Community als Content Managment System verwendet. Darüber hinaus laufen noch gewisse AI Services welche über die ACS Schnittstelle wie CMIS und REST gewisse AI Aktionen auf ACS durchführen. Leider muss ich hier etwas im unklaren bleiben, um Firmengeheimnisse zu waren. Soviel sei allerdings gesagt OBJECT und die Partnerfirma planen ein Webinar wo unter anderem auch der hier besprochene Prototyp gezeigt wird. Zurück zum Thema! Für die Webapp haben wir uns für ADF entschieden.
+Wie im vorangegangen [Blog Post](https://martinmueller.dev/Erste-Woche-Object/) erwähnt, arbeite ich an einem spannenenden AI Prototyp welcher ACS Community als Content Managment System verwendet. Darüber hinaus laufen noch gewisse AI Services welche über die ACS Schnittstelle wie CMIS und REST gewisse AI Aktionen auf ACS durchführen. Leider muss ich hier etwas im unklaren bleiben, um Firmengeheimnisse zu waren. Soviel sei allerdings gesagt [OBJECT](https://www.object.ch) und die Partnerfirma planen ein Webinar wo unter anderem auch der hier besprochene Prototyp gezeigt wird. Zurück zum Thema! Für die Webapp haben wir uns für ADF entschieden.
 
 In den nächsten Kapiteln werde ich erklären wir man ein ADF Webapp Projekt erstellen kann und es nach wünschen zu ändern. Diese sollten sich auch wenig bis garnicht unterscheiden ob man nun mit Windows 10, MacOS oder Linux arbeitet. Ich selber mag alle drei OS Systeme.
 
 # Das wird Benötigt
 
-Ihr solltet [Docker](https://docs.docker.com/install/), [NPM](https://www.npmjs.com/get-npm) und [YARN](https://yarnpkg.com/lang/en/docs/install/) installiert haben. YARN brauche ich da ich auf einen Windows Laptop arbeite und YARN in der lage ist die Windows Paths in Unix Paths zu konvertieren. Aufpassen bei Docker! Die Standardinstallation bei Docker erlaubt nur die Verwendung von 2 GB RAM für die Docker Compose Deployments, welches viel zu wenig ist für ACS Community und die anderen Services! Dafür braucht ihr mindestens 10 GB und für ACS Enterprise mindestens 12 GB. Vorzugsweise mehr! Zusätzlich, falls ihr eigene Amps, Jars oder andere Customizations für das ACS Deployment einrichten wollt, empfiehlt es sich Java und Maven zu installieren.
+Ihr solltet [Docker](https://docs.docker.com/install/), [NPM](https://www.npmjs.com/get-npm) und [YARN](https://yarnpkg.com/lang/en/docs/install/) installiert haben. YARN brauchte ich da ich auf einen Windows Laptop arbeite und YARN in der Lage ist die Windows Paths in Unix Paths zu konvertieren. Aufpassen bei Docker! Die Standardinstallation bei Docker erlaubt nur die Verwendung von 2 GB RAM für die Docker Compose Deployments, welches viel zu wenig ist für ACS Community und die anderen Services! Dafür braucht ihr mindestens 10 GB und für ACS Enterprise mindestens 12 GB. Vorzugsweise mehr! Zusätzlich, falls ihr eigene Amps, Jars oder andere Customizations für das ACS Deployment einrichten wollt, empfiehlt es sich Java und Maven zu installieren.
 
 # Git Repository Vorbereiten
 
@@ -54,7 +54,7 @@ Um die nötigen Node Dependencies zu laden.
 yarn run build
 ```
 
-Um die ADF Webapp im dist/app Verzeichniss zu erstellen. Darüber hinaus erstellt der Befehl auch die ADF Extensions mit namen @alfresco/aca-shared und @alfresco/adf-office-services-ext . Als frühen Ausblick sei gesagt, Ziel wird es sein für die eigene ADF Webapp eine eigene Extension zu schreiben. Dies hat praktische Gründe wie der Modularisierung.
+Um die ADF Webapp im dist/app Verzeichniss zu erstellen. Darüber hinaus erstellt der Befehl auch die ADF Extensions mit namen @alfresco/aca-shared und @alfresco/adf-office-services-ext . Als frühen Ausblick sei gesagt, Ziel wird es sein für die eigene ADF Webapp eine eigene Extension zu schreiben. Dies hat praktische Gründe wie der Modularisierung und Distributierung.
 
 Das start.sh im ACA Verzeichniss ist ein ausgeklügelt Script. Ihr solltet es bevorzugsweise nutzen um das Deployment zu starten. Die einzelnen Parameter lassen sich mit dem -h oder --help Flag erfragen. Für meinen Windows Laptop muss ich dann diese Parameter Konfiguration nutzen:
 
@@ -82,11 +82,20 @@ Das stopp und löscht alle Container die mittels start.sh gestartet wurden.
 
 # Deployment Anpassen
 
-Dieser und der nächste Abschnitt ist wohl der schwerste und erfordert viel Geduld. Bisher war es ein leichtes da wir einfach nur bestehenden Code genommen haben, welches bereits von anderen Entwicklern vor uns konfiguriert und getestet wurde. Nun müssen wir das allerdings selber machen, denn wir wollen ja in der Lage sein Customizations so wie unsere eigene Extension einzubinden. Also nehmt euch nen Cafe oder wie in meinem Fall nen Tee und ran an den Speck!
+Dieser und der nächste Abschnitt ist wohl der schwerste und erfordert viel Geduld. Bisher war es ein leichtes da wir einfach nur bestehenden Code genommen haben, welches bereits von anderen Entwicklern konfiguriert und getestet wurde. Nun müssen wir das allerdings selber machen, denn wir wollen ja in der Lage sein Customizations so wie unsere eigene Extension einzubinden. Also nehmt euch nen Cafe oder wie in meinem Fall nen Tee und ran an den Speck!
 
 Zum manipulieren des Docker Compose Deployments habe ich alle direkten Dockerbezüglichen Files aus dem ACA Folder in den Projektfolder kopiert. Das beinhaltet zum Beispiel **docker-compose.yaml**, **start.sh**, **Dockerfile** und den **docker** Folder. Es wäre nun ratsam zu testen ob euer Docker Compose Deployment jetzt immer noch funktioniert. Dafür vielleicht einfach erstmal die ADF Webapp im alfresco-content-app/dist/app folder in den Projekt dist/app Folder kopieren und das Deployment mit start.sh starten. Wie das geht, habe ich ja im vorherigen Kapitel beschrieben.
 
-Jetzt kommt der wohl schwierigste Part, zumindestns war es für mich so. Ihr müsst nun auch die Angular bezüglichen Files in den Projektfolder kopieren und diese so konfigurieren, dass sie die Component aus von alfresco-conten-app/src benutzen. Ich will hier nichts vormachen, dass hat mich tatsächlich mehrere Tage gekostet. Als ich nicht mehr weiterkam, suchte ich erfolgreicht nach Hilfe von der wundervollen [ADF Community in Gitter](https://gitter.im/Alfresco/content-app). Die Jungs und Mädels verstehen ihr Handwerk. Besonderen Dank an meinen Freund und Exkollegen [Bogdan](https://twitter.com/pionnegru).
+Jetzt kommt der wohl schwierigste Part, zumindestns war es für mich so. Ihr müsst nun auch die Angular bezüglichen Files in den Projektfolder kopieren und diese so konfigurieren, dass sie die Component aus von alfresco-conten-app/src benutzen. In meiem Fall waren es die folgenden Datein:
+
+```
+src\app\extensions.module.ts
+src\assets\app.extensions.json
+src\app.config.json
+src\tsconfig.app.json
+```
+
+Ich will hier nichts vormachen, die richtige Einstellung der Konfiguration hat mich tatsächlich zwei Tage gekostet. Als ich nicht mehr weiterkam, suchte ich Rat bei der wundervollen [ADF Community in Gitter](https://gitter.im/Alfresco/content-app). Die Jungs und Mädels verstehen ihr Handwerk. Besonderen Dank an meinen Freund und Exkollegen [Bogdan](https://twitter.com/pionnegru).
 
 Jetzt ist es an der Zeit den dist/app folder selber von Angular compilieren zu lassen, anstelle es nur aus dem aca projekt zu kopieren. Wenn du es hinbekommen hast, dass das Docker Compose Deployment erfolgreich mit der im Parentfolder compilierten Webapp im dist folder, kann endlich das Customizing beginnen :) !
 
@@ -111,7 +120,7 @@ Bitte nicht vergessen das -wp ist Windows spezifisch. Wenn ihr MacOS oder Linux 
 
 # Neues ACA Update Verfügbar
 
-Als sich das [ACA Git Repository](https://github.com/Alfresco/alfresco-content-app) mit unglaublich schneller Geschwindigkeit weiterentwickelt, stellt sich die Frage wie wir diese Updates in wenigen Schritten in unsere ADF WebApp integrieren können. Ich brauchte dies zwar bisher nicht machen für meinen ADF AI Prototypen, aber grundlegend seien diese Schritte genannnt:
+Als sich das [ACA Git Repository](https://github.com/Alfresco/alfresco-content-app) mit unglaublich schneller Geschwindigkeit weiterentwickelt, stellt sich die Frage wie wir diese Updates in wenigen Schritten in unsere ADF Webapp integrieren können. Ich brauchte dies zwar bisher nicht machen für meinen ADF AI Prototypen, aber grundlegend seien diese Schritte genannnt:
 
 1) Es muss das alfresco-content-app Git Submodule geupdated werden.
 2) Die Versionen de package.json im Projetfolder müssen mit denen im alfresco-content-app/package.json synchronisiert werden
