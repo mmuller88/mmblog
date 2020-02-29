@@ -1,7 +1,7 @@
 ---
 title: ADF App Bauen vom Scratch
 description: Für ein Projekt von OBJECT werde ich eine ADF App bauen
-date: '2020-03-13'
+date: '2020-02-29'
 image: 'robot.png'
 tags: ['de', 'alfresco', '2020', 'ecm', 'adf', 'prototype', 'aca', 'object', 'angular', 'webapp']
 engUrl: https://martinmueller.dev/ADF-App-eng/
