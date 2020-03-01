@@ -45,7 +45,7 @@ class ContactForm extends Component {
       <form
         name="contact"
         method="post"
-        action="https://martinmueller.dev/thx/"
+        action="/thx/"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         onSubmit={this.handleSubmit}
