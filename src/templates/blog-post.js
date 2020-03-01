@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import PrevNext from '../components/prevnext';
 import MetaTags from '../components/Metatags';
 import Share from '../components/share';
+import ContactForm from '../components/contactform'
 
 function BlogPost(props) {
 
@@ -45,35 +46,7 @@ function BlogPost(props) {
               <span>{date}</span>
               {image && <Img fluid={image.childImageSharp.fluid} />}
               <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
-              <form name="contact" netlify netlify-honeypot="bot-field" action="https://martinmueller.dev/thx" hidden>
-                <input type="text" name="name" />
-                <input type="email" name="email" />
-                <textarea name="message"></textarea>
-              </form>
-
-              <div id="root"></div>
-              <script type="text/babel">
-
-                ReactDOM.render(
-                  <form name="contact" method="post">
-                    <input type="hidden" name="form-name" value="contact" />
-                    <p>
-                      <label>Your Name: <input type="text" name="name"/></label>
-                    </p>
-                    <p>
-                      <label>Your Email: <input type="email" name="email"/></label>
-                    </p>
-                    <p>
-                      <label>Message: <textarea name="message"></textarea></label>
-                    </p>
-                    <p>
-                      <button type="submit">Send</button>
-                    </p>
-                  </form>,
-                  document.getElementById("root")
-                );
-
-              </script>
+              <ContactForm />
               <div>
                   <span>Tagged in </span>
                   {tags.map((tag, i) => (
