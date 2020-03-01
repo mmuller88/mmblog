@@ -2,7 +2,7 @@
 title: Build an ADF App from Scratch
 description: For a project at OBJECT I build an app based on ADF and ACA
 show: 'no'
-date: '2020-03-13'
+date: '2020-03-01'
 image: 'robot.png'
 tags: ['eng', 'alfresco', 'ai', '2020', 'ecm', 'adf', 'prototype', 'aca', 'object']
 gerUrl: https://martinmueller.dev/ADF-App/
@@ -11,13 +11,13 @@ pruneLength: 50
 
 Good day
 
-As mentioned in the previous [Blog Post](https://martinmueller.dev/First-Week-Object/), I am working on an exciting AI prototype which uses ACS Community as a content management system. In addition, certain AI services are running and performing certain AI actions using the ACS interface such as CMIS and REST. Unfortunately, I have to remain unclear here to protect company secrets. So I am allowed to say [OBJECT](https://www.object.ch) and the partner company is planning a webinar where, among other things, this prototype will be shown. Back to the topic! We chose ADF for the webapp.
+As mentioned in the previous [Blog Post](https://martinmueller.dev/First-Week-Object/), I am working on an exciting AI prototype which uses ACS Community as a content management system. In addition, certain AI services are running and performing certain AI actions using the ACS interface such as CMIS and REST. Unfortunately, I have to remain unclear here to protect company secrets. So I am allowed to say [OBJECT](https://www.object.ch) and the partner company is planning a webinar where, among other things, this prototype will be shown. Back to the topic! We chose [ADF](https://www.alfresco.com/ecm-software/application-development-framework) for the webapp.
 
 In the next chapters I will explain how to create an ADF webapp project and how to change it. That shouldn't differ whether you are working with Windows 10, MacOS or Linux. I myself like all three operation systems.
 
 # This is Required
 
-You should install [Docker](https://docs.docker.com/install/), [NPM](https://www.npmjs.com/get-npm) and [YARN](https://yarnpkg.com/lang/en/docs/install/). I needed YARN because I am working on a Windows laptop and YARN is able to convert the Windows Paths into Unix Paths. Watch out at Docker! The standard installation at Docker only allows the use of 2 GB RAM for the Docker Compose Deployments, which is far too little for ACS Community and the other services! For this you need at least 10 GB and for ACS Enterprise at least 12 GB. Preferably more! In addition, if you want to set up your own amps, jars or other customizations for ACS deployment, I recommend installing Java and Maven.
+You should install [Docker](https://docs.docker.com/install/), [Docker Compose](https://docs.docker.com/compose/install/), [NPM](https://www.npmjs.com/get-npm) and [YARN](https://yarnpkg.com/lang/en/docs/install/). I needed YARN because I am working on a Windows laptop and YARN is able to convert the Windows Paths into Unix Paths. Watch out at Docker! The standard installation at Docker only allows the use of 2 GB RAM for the Docker Compose Deployments, which is far too little for ACS Community and the other services! For this you need at least 10 GB and for ACS Enterprise at least 12 GB. Preferably more! In addition, if you want to set up your own amps, jars or other customizations for ACS deployment, I recommend installing Java and Maven.
 
 # Prepare the Git repository
 
@@ -66,9 +66,9 @@ The start.sh in the ACA directory is a sophisticated script. You should preferab
 The -wp flag converts the Linux file paths to Windows file paths and -hi stands for Host IP and transfers the IP of the computer to the deployment. If everything is all right the following addresses should be available:
 
 ```
-http: // localhost: 8080 / alfresco / ACS
-http: // localhost: 8080 / content-app / ACA Webapp
-http: // localhost: 8080 / share / Good old Share
+http://localhost:8080/alfresco/   ACS
+http://localhost:8080/content-app/   ACA Webapp
+http://localhost:8080/share/   Good old Share
 ```
 
 At the time of article creation I get a strange error because of the GoogleDocs module on my Windows PC. I'm sure I didn't get it on my MacBook. I confidently ignore this error. If you dear reader, however, knows why, I would be happy to receive a private message with an explanation.
@@ -129,6 +129,6 @@ As the [ACA Git Repository](https://github.com/Alfresco/alfresco-content-app) ev
 
 # Summary
 
-The first week was intense with lots of new information. I was positively surprised that quite a lot colleagues seek my help regarding Alfresco stuff. I see very ambitioned and forward looking into the future from myself together with OBJECT.
+Wow think about what we did here. We actually wrote our own ADF webapp which is based on ACA and can be easily updated at any time! For that we first had to create a new Git repo. Then integrate the ACA project as a submodule. Immediately afterwards we tested the Docker Compose Deployment in ACA. Then we rebuilt the repo so that we integrated our own Angular Extension into the ADF web app. That’s it! I hope you had fun and the article was helpful.
 
 To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).

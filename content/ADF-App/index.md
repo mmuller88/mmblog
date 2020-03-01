@@ -10,13 +10,13 @@ pruneLength: 50
 
 Good day
 
-Wie im vorangegangen [Blog Post](https://martinmueller.dev/Erste-Woche-Object/) erwähnt, arbeite ich an einem spannenenden AI Prototyp welcher ACS Community als Content Managment System verwendet. Darüber hinaus laufen noch gewisse AI Services welche über die ACS Schnittstelle wie CMIS und REST gewisse AI Aktionen auf ACS durchführen. Leider muss ich hier etwas im unklaren bleiben, um Firmengeheimnisse zu waren. Soviel sei allerdings gesagt [OBJECT](https://www.object.ch) und die Partnerfirma planen ein Webinar wo unter anderem auch der hier besprochene Prototyp gezeigt wird. Zurück zum Thema! Für die Webapp haben wir uns für ADF entschieden.
+Wie im vorangegangen [Blog Post](https://martinmueller.dev/Erste-Woche-Object/) erwähnt, arbeite ich an einem spannenenden AI Prototyp welcher ACS Community als Content Managment System verwendet. Darüber hinaus laufen noch gewisse AI Services welche über die ACS Schnittstelle wie CMIS und REST gewisse AI Aktionen auf ACS durchführen. Leider muss ich hier etwas im unklaren bleiben, um Firmengeheimnisse zu waren. Soviel sei allerdings gesagt [OBJECT](https://www.object.ch) und die Partnerfirma planen ein Webinar wo unter anderem auch der hier besprochene Prototyp gezeigt wird. Zurück zum Thema! Für die Webapp haben wir uns für [ADF](https://www.alfresco.com/de/ecm-software/application-development-framework) entschieden.
 
 In den nächsten Kapiteln werde ich erklären wir man ein ADF Webapp Projekt erstellen kann und es nach wünschen zu ändern. Diese sollten sich auch wenig bis garnicht unterscheiden ob man nun mit Windows 10, MacOS oder Linux arbeitet. Ich selber mag alle drei Operation Systeme.
 
 # Das wird Benötigt
 
-Ihr solltet [Docker](https://docs.docker.com/install/), [NPM](https://www.npmjs.com/get-npm) und [YARN](https://yarnpkg.com/lang/en/docs/install/) installiert haben. YARN brauchte ich da ich auf einen Windows Laptop arbeite und YARN in der Lage ist die Windows Paths in Unix Paths zu konvertieren. Aufpassen bei Docker! Die Standardinstallation bei Docker erlaubt nur die Verwendung von 2 GB RAM für die Docker Compose Deployments, welches viel zu wenig ist für ACS Community und die anderen Services! Dafür braucht ihr mindestens 10 GB und für ACS Enterprise mindestens 12 GB. Vorzugsweise mehr! Zusätzlich, falls ihr eigene Amps, Jars oder andere Customizations für das ACS Deployment einrichten wollt, empfiehlt es sich Java und Maven zu installieren.
+Ihr solltet [Docker](https://docs.docker.com/install/), [Docker Compose](https://docs.docker.com/compose/install/), [NPM](https://www.npmjs.com/get-npm) und [YARN](https://yarnpkg.com/lang/en/docs/install/) installiert haben. YARN brauchte ich da ich auf einen Windows Laptop arbeite und YARN in der Lage ist die Windows Paths in Unix Paths zu konvertieren. Aufpassen bei Docker! Die Standardinstallation bei Docker erlaubt nur die Verwendung von 2 GB RAM für die Docker Compose Deployments, welches viel zu wenig ist für ACS Community und die anderen Services! Dafür braucht ihr mindestens 10 GB und für ACS Enterprise mindestens 12 GB. Vorzugsweise mehr! Zusätzlich, falls ihr eigene Amps, Jars oder andere Customizations für das ACS Deployment einrichten wollt, empfiehlt es sich Java und Maven zu installieren.
 
 # Git Repository Vorbereiten
 
@@ -109,7 +109,7 @@ ng generate library my-ext
 
 Ich würde sehr empfehlen ein -ext an den Namen der Extension zu fügen, um es unterscheidbarer von der Webapp zu machen. In meinem Projekt haben sie die gleichen Namen mit Ausnahme, dass ich der Extension noch -ext angefügt habe. Was man nun mit der Extension macht ist total offen und es gibt viele tolle Angular Tutorials, Seiten oder Foren die einen Helfen die gewünschten Änderungen zu erreichen.
 
-Willst du zwischendurch oder am Ende deiner Änderungen die Webapp testen, musst du einfach die ADF Webapp compilieren und das Docker Compose Deployment starten. Dies schaut ähnlich auch wie im [Abschnit ACA Starten](#aca-starten) erklärt mit den folgenden Befehlen:
+Willst du zwischendurch oder am Ende deiner Änderungen die Webapp testen, musst du einfach die ADF Webapp compilieren und das Docker Compose Deployment starten. Dies schaut ähnlich auch wie im **Abschnit ACA Starten** erklärt mit den folgenden Befehlen:
 ```
 yarn install
 yarn run build
