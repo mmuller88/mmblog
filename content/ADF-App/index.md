@@ -8,11 +8,11 @@ engUrl: https://martinmueller.dev/ADF-App-eng/
 pruneLength: 50
 ---
 
-Good day :D
+Good day
 
 Wie im vorangegangen [Blog Post](https://martinmueller.dev/Erste-Woche-Object/) erwähnt, arbeite ich an einem spannenenden AI Prototyp welcher ACS Community als Content Managment System verwendet. Darüber hinaus laufen noch gewisse AI Services welche über die ACS Schnittstelle wie CMIS und REST gewisse AI Aktionen auf ACS durchführen. Leider muss ich hier etwas im unklaren bleiben, um Firmengeheimnisse zu waren. Soviel sei allerdings gesagt [OBJECT](https://www.object.ch) und die Partnerfirma planen ein Webinar wo unter anderem auch der hier besprochene Prototyp gezeigt wird. Zurück zum Thema! Für die Webapp haben wir uns für ADF entschieden.
 
-In den nächsten Kapiteln werde ich erklären wir man ein ADF Webapp Projekt erstellen kann und es nach wünschen zu ändern. Diese sollten sich auch wenig bis garnicht unterscheiden ob man nun mit Windows 10, MacOS oder Linux arbeitet. Ich selber mag alle drei OS Systeme.
+In den nächsten Kapiteln werde ich erklären wir man ein ADF Webapp Projekt erstellen kann und es nach wünschen zu ändern. Diese sollten sich auch wenig bis garnicht unterscheiden ob man nun mit Windows 10, MacOS oder Linux arbeitet. Ich selber mag alle drei Operation Systeme.
 
 # Das wird Benötigt
 
@@ -36,7 +36,7 @@ Eventuell kann auch der folgende Befehl nützlich sein um die Submodules, welche
 git submodule update --init --remote
 ```
 
-Ich brauchte es da ich den branch gewechselt habe im .gitmodules File.
+Ich brauchte es da ich zu einem Fix Branch gewechselt habe im .gitmodules File.
 
 # ACA Starten
 
@@ -78,7 +78,7 @@ Um das Deployment sauber wieder runterzufahren einfach folgenden Befehl benutzen
 .\start.sh -d
 ```
 
-Das stopp und löscht alle Container die mittels start.sh gestartet wurden.
+Das stopp und löscht alle Container die mittels start.sh gestartet wurden. Du musst das Deployment löschen und erneut starten wenn du Änderungen von der webapp im dist/app Folder applyen willst. Alternativ kannst du auch das -aca Flag benutzen welches nur den webapp Container neustartet.
 
 # Deployment Anpassen
 
@@ -86,7 +86,7 @@ Dieser und der nächste Abschnitt ist wohl der schwerste und erfordert viel Gedu
 
 Zum manipulieren des Docker Compose Deployments habe ich alle direkten Dockerbezüglichen Files aus dem ACA Folder in den Projektfolder kopiert. Das beinhaltet zum Beispiel **docker-compose.yaml**, **start.sh**, **Dockerfile** und den **docker** Folder. Es wäre nun ratsam zu testen ob euer Docker Compose Deployment jetzt immer noch funktioniert. Dafür vielleicht einfach erstmal die ADF Webapp im alfresco-content-app/dist/app folder in den Projekt dist/app Folder kopieren und das Deployment mit start.sh starten. Wie das geht, habe ich ja im vorherigen Kapitel beschrieben.
 
-Jetzt kommt der wohl schwierigste Part, zumindestns war es für mich so. Ihr müsst nun auch die Angular bezüglichen Files in den Projektfolder kopieren und diese so konfigurieren, dass sie die Component aus von alfresco-conten-app/src benutzen. In meiem Fall waren es die folgenden Datein:
+Jetzt kommt der wohl schwierigste Part, zumindestns war es für mich so. Ihr müsst nun auch die Angular bezüglichen Files in den Projektfolder kopieren und diese so konfigurieren, dass sie die Componenten aus von alfresco-conten-app/src benutzen. In meiem Fall waren es die folgenden Datein:
 
 ```
 src\app\extensions.module.ts
