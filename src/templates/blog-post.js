@@ -45,20 +45,48 @@ function BlogPost(props) {
               <span>{date}</span>
               {image && <Img fluid={image.childImageSharp.fluid} />}
               <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
-              <form name="contact" method="POST" data-netlify="true" netlify netlify-honeypot="bot-field">
-              <p>
-                <label>Your Name: <input type="text" name="name" /></label>   
-              </p>
-              <p>
-                <label>Your Email: <input type="email" name="email" /></label>
-              </p>
-              <p>
-                <label>Message: <textarea name="message"></textarea></label>
-              </p>
-              <p>
-                <button type="submit">Send</button>
-              </p>
-            </form>
+              <form
+                name="contact"
+                method="post"
+                action="/success/"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={this.handleSubmit}
+                ref={this.ContactForm}
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p hidden>
+                  <label>
+                    Don’t fill this out:{" "}
+                    <input name="bot-field" onChange={this.handleChange} />
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    Your name:
+                    <br />
+                    <input type="text" name="name" onChange={this.handleChange} />
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    Your email:
+                    <br />
+                    <input type="email" name="email" onChange={this.handleChange} />
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    Message:
+                    <br />
+                    <textarea name="message" onChange={this.handleChange} />
+                  </label>
+                </p>
+                <p>
+                  <button type="submit">Send</button>
+                  <input type="reset" value="Eraser" />
+                </p>
+              </form>
               <div>
                   <span>Tagged in </span>
                   {tags.map((tag, i) => (
