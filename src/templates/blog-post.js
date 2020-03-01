@@ -45,7 +45,7 @@ function BlogPost(props) {
               <span>{date}</span>
               {image && <Img fluid={image.childImageSharp.fluid} />}
               <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
-              <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+              <form name="contact" method="POST" data-netlify="true" netlify netlify-honeypot="bot-field">
               <p>
                 <label>Your Name: <input type="text" name="name" /></label>   
               </p>
