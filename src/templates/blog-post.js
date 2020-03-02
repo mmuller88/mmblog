@@ -12,7 +12,7 @@ function BlogPost(props) {
     const url = props.data.site.siteMetadata.siteUrl
     const thumbnail = props.data.markdownRemark.frontmatter.image &&
         props.data.markdownRemark.frontmatter.image.childImageSharp.resize.src
-    const { title, image, tags, date, engUrl, gerUrl} = props.data.markdownRemark.frontmatter;
+    const { title, image, tags, date, engUrl, gerUrl, showContact} = props.data.markdownRemark.frontmatter;
     const { prev, next } = props.pageContext;
     return (
         <Layout>
