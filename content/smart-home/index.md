@@ -7,6 +7,8 @@ tags: ['2020', 'smart-home', 'smart-life']
 pruneLength: 50
 ---
 
+**UNDER CONSTRUCTION**
+
 Hi folks.
 
 As in October 2019 I had the amazing opportunity to buy a house in the beautiful town called Ludwigslust in Germany. It is an old but recently renovated lovely house. As I'm much interested in tech I couldn't wait to try some cool Smart Home stuff.

@@ -135,4 +135,4 @@ To the wonderful readers of this article I'm saying that feedback of any kind is
 
 # Kudos
 
-To [Eddie May](https://twitter.com/freshwebs) the new awesome Digital Community Manager of Alfresco for doing some English quality check and offering more feedback for coming posts :).
+To [Eddie May](https://twitter.com/freshwebs) the new awesome Digital Community Manager from Alfresco for doing some English quality check and offering more feedback for coming posts :).
