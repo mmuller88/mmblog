@@ -3,7 +3,7 @@ title: My Smart Home Experience
 description: In the end of 2019 I bought a house and extended it with a lot cool and cost saving smart home devices/
 date: '2020-03-15'
 image: 'house.png'
-tags: ['eng', '2020' 'smart-home', 'smart-life']
+tags: ['2020', 'smart-home', 'smart-life']
 pruneLength: 50
 ---
 
@@ -31,6 +31,10 @@ The next smart device were the Smart Socket with two USB Ports. I love those soc
 The next cool feature of those sockets is that you can configure a time schedule for switching off and on devices. I do use a schedule off switch on my TV station as there are a bunch of devices which I would like to be cut off at night to save money. So I configured the TV smart socket to turn off at 1 am. An other off schedule is on the microwave. As it is an old microwave it spends a lot of energy even just being ind standby. That wasn't acceptable so the microwave turns off at 7 pm and 1 am. If you want to turn it on again, simply press the button on the socket.
 
 Last but not least the washing machine has a smart socket between as well. Three reasons for that. As well the on off switch is practical. It saves energy a bit because I turn off the standby. And really cool I configured the "Smart Life" app to send me a notification when the cloth is done washing. That is possible because you can trigger a notification event when the power level reaches a certain level. I love that!
+
+# Smart Garage Door
+
+Imagine if you could open your door with just saying "Hey Siri, Garage". Well thats the case for me. And still until now I feel like Batman and his cave open kind of automatically when he gets close :D. So very very cool. How I did that? ...
 
 # Time Scheduled Thermostats
 Very happy I am with my "Smart" thermostats from Eqiva Radiator. Though I am not sure if they are falling under the category Smart Home devices as they are basically just configurable through the display and I am currently only using them for time scheduled heating. Anyway there were very easy to install and they do work like a charm.
