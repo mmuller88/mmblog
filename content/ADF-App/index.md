@@ -123,10 +123,14 @@ Bitte nicht vergessen das -wp ist Windows spezifisch. Wenn ihr MacOS oder Linux 
 Als sich das [ACA Git Repository](https://github.com/Alfresco/alfresco-content-app) mit unglaublich schneller Geschwindigkeit weiterentwickelt, stellt sich die Frage wie wir diese Updates in wenigen Schritten in unsere ADF Webapp integrieren können. Ich brauchte dies zwar bisher nicht machen für meinen ADF AI Prototypen, aber grundlegend seien diese Schritte genannnt:
 
 1) Es muss das alfresco-content-app Git Submodule geupdated werden.
-2) Die Versionen de package.json im Projetfolder müssen mit denen im alfresco-content-app/package.json synchronisiert werden
+2) Die Versionen in package.json im Projetfolder müssen mit denen im alfresco-content-app/package.json synchronisiert werden
 
 # Zusammenfassung
 
 Wow überlegt mal was wir hier geschafft haben. Wir haben tatsächlich unsere eigene ADF Webapp geschrieben welche auf ACA basiert und jederzeit einfach upgedatet werden kann! Dafür mussten wir zuerst ein neues Git Repo erstellen. Dann das ACA Projekt als Submodul einbinden. Unmittelbar danach testeten wir das Docker Compose Deployment in ACA. Dann haben wir das Repo so umgebaut, dass wir unsere eigene Angular Extension in die ADF Webapp integriert haben. Das wars! Ich hoffe ihr hattet Spaß und war der Artikel war hilfreich.
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
+
+# Kudos
+
+Für [Eddie May](https://twitter.com/freshwebs) der brand neue Digital Community Manager von Alfresco für das Berichtigen meiner englischen Übersetzung und das Angebot mir auch in zukünftigen Posts Feedback zu geben :).

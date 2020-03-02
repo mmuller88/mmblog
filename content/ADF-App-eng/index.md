@@ -11,9 +11,9 @@ pruneLength: 50
 
 Good day
 
-As mentioned in the previous [Blog Post](https://martinmueller.dev/First-Week-Object/), I am working on an exciting AI prototype which uses ACS Community as a content management system. In addition, certain AI services are running and performing certain AI actions using the ACS interface such as CMIS and REST. Unfortunately, I have to remain unclear here to protect company secrets. So I am allowed to say [OBJECT](https://www.object.ch) and the partner company is planning a webinar where, among other things, this prototype will be shown. Back to the topic! We chose [ADF](https://www.alfresco.com/ecm-software/application-development-framework) for the webapp.
+As mentioned in the previous [Blog Post](https://martinmueller.dev/First-Week-Object/), I am working on an exciting AI prototype which uses ACS Community as a content management system. In addition, certain AI services are running and performing certain AI actions using the ACS interface such as CMIS and REST. Unfortunately, I have to remain unclear here to protect company secrets. So I am allowed to say [OBJECT](https://www.object.ch) and the partner company are planning a webinar where, among other things, this prototype will be shown. Back to the topic! We chose [ADF](https://www.alfresco.com/ecm-software/application-development-framework) for the webapp.
 
-In the next chapters I will explain how to create an ADF webapp project and how to change it. That shouldn't differ whether you are working with Windows 10, MacOS or Linux. I myself like all three operation systems.
+In the next chapters I will explain how to create an ADF webapp project and how to change it. That shouldn't differ whether you are working with Windows 10, MacOS or Linux. I myself like all three operating systems.
 
 # This is Required
 
@@ -27,9 +27,9 @@ Now lets start with the Git repository. For me, the choice was a private Git rep
 
 As mentioned earlier, I would like to be able to import updates from the ACA repository without any problems. In addition, of course, I want to reuse as much of the ACA repository as possible. I therefore chose [Git's submodules](https://git-scm.com/docs/git-submodule). With that I am able to contribute back easily. I created a fork from the ACA repo https://github.com/mmuller88/alfresco-content-app. I advise you to do the same. Then simply switch to the project directory and load the fork as submodule:
 
-`` `
+```
 git submodule add https://github.com/<USER>/alfresco-content-app
-`` `
+```
 
 The following command may also be useful to update the submodules, which in this case is only ACA:
 
@@ -55,7 +55,7 @@ To load the necessary node dependencies.
 yarn run build
 ```
 
-For creating the ADF webapp in the dist/app directory. The command also creates the ADF extensions with the names @alfresco/aca-shared and @alfresco/adf-office-services-ext. As an early outlook, the goal will be to write your own extension for your own ADF webapp. This has practical reasons such as modularization and distribution.
+For creating the ADF webapp in the dist/app directory. The command also creates the ADF extensions with the names @alfresco/aca-shared and @alfresco/adf-office-services-ext. As an early objective, the goal will be to write your own extension for your own ADF webapp. This has practical reasons such as modularization and distribution.
 
 The start.sh in the ACA directory is a sophisticated script. You should preferably use it to start the deployment. The individual parameters can be queried with the -h or --help flag. For my Windows laptop I have to use these parameter configuration:
 
@@ -71,7 +71,7 @@ http://localhost:8080/content-app/   ACA Webapp
 http://localhost:8080/share/   Good old Share
 ```
 
-At the time of article creation I get a strange error because of the GoogleDocs module on my Windows PC. I'm sure I didn't get it on my MacBook. I confidently ignore this error. If you dear reader, however, knows why, I would be happy to receive a private message with an explanation.
+When I started writing this article I got a strange error because of the GoogleDocs module on my Windows PC. I'm sure I didn't get it on my MacBook. I confidently ignore this error. If you dear reader, however, knows why, I would be happy to receive a private message with an explanation.
 
 To cleanly shutdown the deployment simply use the following command:
 
@@ -83,7 +83,7 @@ The stop and delete all containers that were started using start.sh. You will ne
 
 # Adjust the Deployment
 
-This and the next section is probably the most difficult and requires a lot of patience. So far it was easy because we just took existing code that was already configured and tested by other developers. Now we have to do it ourselves, because we want to be able to integrate customizations like our own extension. So take a cafe or like in my case a tea and get ready!
+This and the next section is probably the most difficult and requires a lot of patience. So far it was easy because we just took existing code that was already configured and tested by other developers. Now we have to do it ourselves, because we want to be able to integrate customizations like our own extension. So, grab a coffee, or like in my case a tea and get ready!
 
 To manipulate the Docker Compose Deployment, I copied all direct Docker related files from the ACA folder into the project folder. This includes, for example, **docker-compose.yaml**, **start.sh**, **Dockerfile** and the **docker** folder. It would now be advisable to test whether your Docker Compose Deployment is still working. Maybe just copy the ADF webapp in the alfresco-content-app/dist/app folder into the project dist/app folder and start the deployment with start.sh script. I described how to do this in the previous chapter.
 
@@ -98,7 +98,7 @@ src\tsconfig.app.json
 
 I don't want to pretend here, the correct setting of the configuration actually took me two days. When I got stuck, I looked for advice from the wonderful [ADF Community in Gitter](https://gitter.im/Alfresco/content-app). The boys and girls understand their craft. Special thanks to my friend and ex-colleague [Bogdan](https://twitter.com/pionnegru).
 
-Now it is time to let Angular compile the dist / app folder yourself instead of just copying it from the aca project. If you have managed to make Docker Compose Deployment successful with the web app compiled in the parent folder in the dist folder, you can finally start customizing :)!
+Now it is time to let Angular compile the dist/app folder yourself instead of just copying it from the aca project. If you have managed to make Docker Compose Deployment successful with the web app compiled in the parent folder in the dist folder, you can finally start customizing :)!
 
 # Create an Extension
 
@@ -122,13 +122,17 @@ Please don't forget that -wp is Windows specific. If you use MacOS or Linux you 
 
 # New ACA Update Available
 
-As the [ACA Git Repository](https://github.com/Alfresco/alfresco-content-app) evolves at an incredibly fast rate, the question arises how we can integrate these updates into our ADF web app in just a few steps. So far I hat not to do that but basically these steps are mentioned:
+As the [ACA Git Repository](https://github.com/Alfresco/alfresco-content-app) evolves at an incredibly fast rate, the question arises how we can integrate these updates into our ADF web app in just a few steps. So far I have not had to do that but basically these steps are mentioned:
 
 1) The alfresco-content-app Git submodule must be updated.
-2) The versions de package.json in the project folder must be synchronized with those in the alfresco-content-app/package.json
+2) The dependencies of the package.json file in the project folder must be synchronized with those in the alfresco-content-app/package.json
 
 # Summary
 
 Wow think about what we did here. We actually wrote our own ADF webapp which is based on ACA and can be easily updated at any time! For that we first had to create a new Git repo. Then integrate the ACA project as a submodule. Immediately afterwards we tested the Docker Compose Deployment in ACA. Then we rebuilt the repo so that we integrated our own Angular Extension into the ADF web app. That’s it! I hope you had fun and the article was helpful.
 
 To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
+
+# Kudos
+
+To [Eddie May](https://twitter.com/freshwebs) the new awesome Digital Community Manager of Alfresco for doing some English quality check and offering more feedback for coming posts :).
