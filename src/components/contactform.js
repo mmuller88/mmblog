@@ -81,7 +81,6 @@ class ContactForm extends Component {
         </p>
         <p>
           <button type="submit">Send</button>
-          <input type="reset" value="Eraser" />
         </p>
       </form>
     )

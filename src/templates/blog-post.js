@@ -46,7 +46,11 @@ function BlogPost(props) {
               <span>{date}</span>
               {image && <Img fluid={image.childImageSharp.fluid} />}
               <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
-              <ContactForm />
+              {
+                showContact !== 'no' ? (
+                  <ContactForm />
+                ) : null
+              }
               <div>
                   <span>Tagged in </span>
                   {tags.map((tag, i) => (
