@@ -1,13 +1,11 @@
 ---
 title: My Smart Home Experience
 description: In the end of 2019 I bought a house and extended it with a lot cool and cost saving smart home devices/
-date: '2020-03-15'
+date: '2020-03-05'
 image: 'house.png'
-tags: ['2020', 'smart-home', 'smart-life', 'amazon']
+tags: ['eng', '2020', 'smart-home', 'smart-life', 'amazon']
 pruneLength: 50
 ---
-
-**UNDER CONSTRUCTION**
 
 Hi folks.
 
@@ -49,12 +47,12 @@ I am very happy with my "Smart" thermostats from Eqiva Radiator for most of my h
 
 # Smart Home Gadgets
 
-If you found something I mentioned here interesting check out those links below. Affiliates:
+If you found something I mentioned here interesting check it out on those Affiliates:
 
-Smart Bulbs Tecking [Amazon Eng](...) [Amazon DE](...)
-Smart Sockets Tecking [Amazon Eng](...) [Amazon DE](...)
-Smart Garage Door [Amazon Eng](...) [Amazon DE](...)
-Thermostats [Amazon Eng](...) [Amazon DE](...)
+Smart Bulbs Teckin [Amazon UK](https://amzn.to/2xcvwFp) [Amazon DE](https://amzn.to/2xe1CAJ) [Amazon USA](https://amzn.to/3ax4pmR)
+Smart Sockets Teckin [Amazon UK](https://amzn.to/2xbZKZ5) [Amazon DE](https://amzn.to/3amBOAq) [Amazon USA](https://amzn.to/3cy1wnF)
+Smart Garage Door [Amazon UK](https://amzn.to/2PMt2DQ) [Amazon DE](https://amzn.to/2IiKzQ3) [Amazon USA](https://amzn.to/2x5NtoU)
+Thermostats [Amazon UK](https://amzn.to/2Tn3hwb) [Amazon DE](https://amzn.to/38lbyF5)
 
 # Future Ideas
 
