@@ -13,13 +13,13 @@ As in October 2019 I had the amazing opportunity to buy a house in the beautiful
 
 I made some amazing times with the following Smart Home gadgets:
 
-Smart Bulbs Teckin: That are smart bulbs with integrated wifi. You can easily replace your existing ones with them.
+**Smart Bulbs Teckin**: That are smart bulbs with integrated wifi. You can easily replace your existing ones with them.
 
-Smart Sockets Teckin: Pretty nice power sockets which you can plug between your electrical device and the socket in your wall to remote control it. It works with your wifi as well.
+**Smart Sockets Teckin**: Pretty nice power sockets which you can plug between your electrical device and the socket in your wall to remote control it. It works with your wifi as well.
 
-Smart Garage Door: A cool garage engine extension. It enhances your existing garage engine to be remote controllable via wifi.
+**Smart Garage Door**: A cool garage engine extension. It enhances your existing garage engine to be remote controllable via wifi.
 
-Thermostats: Very nice little gadget to time schedule your heaters. Those I tested didn't had wifi or bluetooth connection.
+**Thermostats**: Very nice little gadget to time schedule your heaters. Those I tested didn't had wifi or bluetooth connection.
 
 Further done I have links to those gadgets if you would like to try them out yourself. My highest priorities were to save costs like electricity or gas in the long run and increase the living quality from me and my wife.
 
@@ -57,15 +57,15 @@ I am very happy with my "Smart" thermostats from Eqiva Radiator for most of my h
 
 # Smart Home Gadgets
 
-If you found something I mentioned here interesting check it out on those Affiliates:
+If you found something I mentioned here interesting, check it out those Affiliates links (I would get a little commission for supporting my blog post work):
 
-Smart Bulbs Teckin (Amazon): [UK](https://amzn.to/2xcvwFp) [DE](https://amzn.to/2xe1CAJ) [USA](https://amzn.to/3ax4pmR)
+**Smart Bulbs Teckin** (Amazon): [UK](https://amzn.to/2xcvwFp) [DE](https://amzn.to/2xe1CAJ) [USA](https://amzn.to/3ax4pmR)
 
-Smart Sockets Teckin (Amazon): [UK](https://amzn.to/2xbZKZ5) [DE](https://amzn.to/3amBOAq) [USA](https://amzn.to/3cy1wnF)
+**Smart Sockets Teckin** (Amazon): [UK](https://amzn.to/2xbZKZ5) [DE](https://amzn.to/3amBOAq) [USA](https://amzn.to/3cy1wnF)
 
-Smart Garage Door (Amazon): [UK](https://amzn.to/2PMt2DQ) [DE](https://amzn.to/2IiKzQ3) [USA](https://amzn.to/2x5NtoU)
+**Smart Garage Door** (Amazon): [UK](https://amzn.to/2PMt2DQ) [DE](https://amzn.to/2IiKzQ3) [USA](https://amzn.to/2x5NtoU)
 
-Thermostats (Amazon): [UK](https://amzn.to/2Tn3hwb) [DE](https://amzn.to/38lbyF5)
+**Thermostats** (Amazon): [UK](https://amzn.to/2Tn3hwb) [DE](https://amzn.to/38lbyF5)
 
 # Future Ideas
 
