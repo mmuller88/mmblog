@@ -2,7 +2,7 @@
 title: Alfresco Docker Installer
 description: Project für OBJECT mit Customizations
 date: '2020-03-15'
-image: 'robot.png'
+image: 'docker.jpg'
 tags: ['de', 'alfresco', '2020', 'ecm', 'prototype', 'docker', 'docker-compose']
 pruneLength: 50
 ---
