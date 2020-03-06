@@ -1,8 +1,8 @@
 ---
-title: My Smart Home Experience
+title: Meine Smart Home Erfahrung
 show: 'no'
-description: In the end of 2019 I bought a house and extended it with a lot cool and cost saving smart home devices/
-date: '2020-03-06'
+description: Ende 2019 habe ich ein Haus gekauft und mit vielen coolen smart home gadget erweitern
+date: '2020-03-07'
 image: 'house.png'
 tags: ['de', '2020', 'smart-home', 'smart-life', 'amazon']
 pruneLength: 50
