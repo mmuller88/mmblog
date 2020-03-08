@@ -4,6 +4,7 @@ description: In the end of 2019 I bought a house and extended it with a lot cool
 date: '2020-03-06'
 image: 'house.png'
 tags: ['eng', '2020', 'smart-home', 'smart-life', 'amazon']
+gerUrl: http://martinmueller.dev/smart-home-de
 pruneLength: 50
 ---
 
@@ -29,7 +30,7 @@ I decided to buy gadgets which can be controlled with the 'Smart Life' app, as i
 
 # Which Wireless Frequency?
 
-It is important to mention that all of my Smart Home gadgets only are working in a 2.4 GHz wireless network. It is unlikely that you find gadgets for the 5 GHz network. 2.4 as the length of the waves are longer compared to 5 GHz it reaches better through walls but it has a smaller bandwidth. Actually Smart Home devices don't need a high bandwidth, so thats fine. Make sure to establish both of those network frequencies on your router!
+It is important to mention that all of my Smart Home gadgets only are working in a 2.4 GHz wireless network. It is unlikely that you find gadgets for the 5 GHz network. 2.4 as the length of the waves are longer compared to 5 GHz it reaches better through walls but it has a smaller maximum bandwidth. Actually Smart Home devices don't need a high bandwidth, so thats fine. Make sure to establish both of those network frequencies on your router!
 
 # Smart Light Bulbs Everywhere
 
