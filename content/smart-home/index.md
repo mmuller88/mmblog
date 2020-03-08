@@ -77,3 +77,7 @@ I feel like that I just started my little Smart Home journey. Soon I would like 
 Smart Home devices are not just tools for playing around with. They actually help you to save real coins which will add up over the years and will increase your living quality. If you think about peeking in the Smart Home devices world start with simple devices like those wifi Smart Bulbs and Smart Sockets which doesn't need any other devices to work and they are cheap! Be creative for how you can use them in a smart way. And yeah most important have fun!
 
 To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
+
+I love to work on Content Management Open Source projects. A lot from my stuff you can already use on www.github.com/mmuller88 . If you like my work there and my blog posts, please consider supporting me on Patreon:
+
+<a href="https://www.patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Become a Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
