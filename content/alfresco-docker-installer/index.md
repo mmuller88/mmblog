@@ -1,5 +1,5 @@
 ---
-title: Alfresco Amps / Jars Testen mit Docker
+title: Alfresco's Amps mit Docker Testen
 description: Project für OBJECT mit Customizations
 date: '2020-03-15'
 image: 'docker.jpg'
@@ -23,7 +23,8 @@ Docker Container addressieren genau diese Probleme. Mit Hilfe des Dockerfiles ka
 Klingt nach ner Menge Arbeit? Nö! Alfresco maintained ACS Docker Deployments mit Version 6.0 oder neuer. Wie so ein einfaches Docker Deployment, wobei die Container mit Docker Compose orchestriert werden lässt sich hier bestauen für [ACS Enterprise](https://github.com/Alfresco/acs-deployment/tree/master/docker-compose) und hier für [ACS Community](https://github.com/Alfresco/acs-community-deployment/tree/master/docker-compose). Die Docker Images welches diese Deployment sind hier [ACS Enterprise Image](https://github.com/Alfresco/acs-packaging/tree/master/docker-alfresco) und hier [ACS Community Image](https://github.com/Alfresco/acs-community-packaging/tree/master/docker-alfresco). Zugegeben diese Deployments und Images sind recht limitiert. Das ist zwar gut für einen schnellen Einstieg, erlaubt uns aber nicht unsere lokal erstellten Amps zu testen. Wie das ermöglicht wird, beschreibe ich im nächsten Kapitel.
 
 # Git Repo Vorbereiten
-* Repo und Share Amps sollten in einem Git Repo liegen. Am besten in einzeilen folders wie repo und share. Normalerweise mit Maven als package und build manager
+Falls der Build Code eure Amps und Jars in verschieden Git Repos liegen, macht es Sinn diese auf einem Repo zu vereinigen um die Docker Image Erstellung zu erleichtern. Z.B. könnte die repo und share amp in gleichnahmigen Unterverzeichnissen liegen. Falls Maven als Build und Packagingtool verwendet wurde, ist das einfach zu realisieren mit parent Poms. Nach der möglichen Umstruckturierung muss der Build getestet werden, ob auch die Amps oder Jars erstellt werden. 
+
 * Alfresco Docker Installer installieren https://github.com/Alfresco/alfresco-docker-installer
 * Images in share und repo folder schieben, da Docker nur auf datein in der gleichen Verzeichnisshöhe zugreifen kann.
 
