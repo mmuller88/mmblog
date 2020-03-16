@@ -131,8 +131,12 @@ As the [ACA Git Repository](https://github.com/Alfresco/alfresco-content-app) ev
 
 Wow think about what we did here. We actually wrote our own ADF webapp which is based on ACA and can be easily updated at any time! For that we first had to create a new Git repo. Then integrate the ACA project as a submodule. Immediately afterwards we tested the Docker Compose Deployment in ACA. Then we rebuilt the repo so that we integrated our own Angular Extension into the ADF web app. That’s it! I hope you had fun and the article was helpful.
 
-To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
-
 # Kudos
 
 To [Eddie May](https://twitter.com/freshwebs) the new awesome Digital Community Manager from Alfresco for doing some English quality check and offering more feedback for coming posts :).
+
+To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
+
+I love to work on Content Management Open Source projects. A lot from my stuff you can already use on www.github.com/mmuller88 . If you like my work there and my blog posts, please consider supporting me on Patreon:
+
+<a href="https://www.patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Become a Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>

@@ -105,3 +105,9 @@ Amazon UK: <a href="https://amzn.to/2WLwKm4" target="_blank">https://amzn.to/2WL
 
 **Stainless Steel Water Bottle**: That drinking water is crucial I don't need to explain. I prefer those steel water bottles because there is not risk of plastic in your water. \
 Amazon UK: <a href="https://amzn.to/2JYGyTL" target="_blank">https://amzn.to/2JYGyTL (Amazon)</a>
+
+To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
+
+I love to work on Content Management Open Source projects. A lot from my stuff you can already use on www.github.com/mmuller88 . If you like my work there and my blog posts, please consider supporting me on Patreon:
+
+<a href="https://www.patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Become a Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>

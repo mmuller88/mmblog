@@ -129,8 +129,12 @@ Als sich das [ACA Git Repository](https://github.com/Alfresco/alfresco-content-a
 
 Wow überlegt mal was wir hier geschafft haben. Wir haben tatsächlich unsere eigene ADF Webapp geschrieben welche auf ACA basiert und jederzeit einfach upgedatet werden kann! Dafür mussten wir zuerst ein neues Git Repo erstellen. Dann das ACA Projekt als Submodul einbinden. Unmittelbar danach testeten wir das Docker Compose Deployment in ACA. Dann haben wir das Repo so umgebaut, dass wir unsere eigene Angular Extension in die ADF Webapp integriert haben. Das wars! Ich hoffe ihr hattet Spaß und war der Artikel war hilfreich.
 
-An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
-
 # Kudos
 
 Für [Eddie May](https://twitter.com/freshwebs) der brand neue Digital Community Manager von Alfresco für das Berichtigen meiner englischen Übersetzung und das Angebot mir auch in zukünftigen Posts Feedback zu geben :).
+
+An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
+
+Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf www.github.com/mmuller88 . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:
+
+<a href="https://www.patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Werde ein Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>

@@ -48,3 +48,7 @@ Sehr interessant fand ich, dass schon eine einfache ACS Community version ohne j
 Die erste Woche war intensiv aufgrund der vielen neuen Informationen. Positiv überrascht war ich, dass schon recht viele Kollegen auf die von mir angebotene Hilfe zurückgegriffen haben. Ebenso schaue ich mit voller Ehrgeiz und Begeisterung in die Zukunft von mir zusammen mit OBJECT.
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
+
+Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf www.github.com/mmuller88 . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:
+
+<a href="https://www.patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Werde ein Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>

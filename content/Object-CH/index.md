@@ -32,3 +32,9 @@ In dem letzten Jahr bei Alfresco, konnte ich den Cloud Trend beobachten sowie se
 Auch wenn bis 2022 der deutschsprachige Raum das Alfresco's PaaS Angebot kaum nutzen wird, werden wir einen starken Gang in Richtung Cloud erleben, bezüglich der Alfresco Produkte. Schon heute lassen sich viele Kosten sparen mit der Verwendung der Cloud als Storage z.B. macht es der S3 oder Azure Connector von ACS einfach, die BLOB Storages der jeweiligen Cloud provider zu verwenden. OBJECT kann dabei als vertrauenswürdiger Partner Rat und Tat leisten.
 
 Viele Alfresco Kunden benutzten bereits die schicken mit ADF erstellten Webapplikationen und bis 2022 werden es garantiert mehr. OBJECT sehe ich in der perfekten Lage gemeinsam mit dem Kunden angepasste ADF Apps zu entwickeln.
+
+An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
+
+Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf www.github.com/mmuller88 . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:
+
+<a href="https://www.patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Werde ein Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
