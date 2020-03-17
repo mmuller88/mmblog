@@ -1,5 +1,5 @@
 ---
-title: Alfresco's Amps mit Docker Testen
+title: Alfresco's Amps und Jars mit Docker Testen
 description: Project für OBJECT mit Customizations
 date: '2020-03-15'
 image: 'docker.jpg'

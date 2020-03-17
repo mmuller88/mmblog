@@ -1,6 +1,6 @@
 ---
-title: Alfresco's Amps mit Docker Testen
-description: Project für OBJECT mit Customizations
+title: Alfresco's Amps and Jars Testing with Docker
+description: Project for OBJECT with Customizations
 show: 'no'
 date: '2020-03-17'
 image: 'docker.jpg'
@@ -8,8 +8,6 @@ tags: ['eng', 'alfresco', '2020', 'ecm', 'docker', 'docker-compose', 'Amp', 'Jar
 gerUrl: http://martinmueller.dev/alfresco-docker-installer
 pruneLength: 50
 ---
-
-**Under Construction** Translation in progress ... :D 
 
 Hi Alfrescans,
 
