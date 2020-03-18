@@ -8,9 +8,21 @@ pruneLength: 50
 ---
 
 Hi Alfrescans,
-* Contributing to alfresco docker installer to provide a wrapper script for waiting finishing docker compose and more
 
+Ich habe tolle Erfahrungen gesammelt in meinem letzten Projekt mit dem [Alfresco Docker Installer](https://github.com/Alfresco/alfresco-docker-installer). Näheres darüber einfach in meinem [Blogpost](http://martinmueller.dev/alfresco-docker-installer) nachlesen. Nun bin ich natürlich wild drauf sinnvolle neue Features zu kontributieren. Eines davon ist das Start Script welches als Wrapper für das Docker Compose File genutzt werden kann. In meinen bishering Alfresco Docker Compose Projekten habe ich immer dieses Script implementiert da es einige wertvolle Zusatzfunktionen bietet. Welche das sind werden im nächsten Abschnitt erklärt. Für mich macht es daher Sinn das Start Script dem Installer zur Verfügung zu stellen.
 
+# Features
+* Wait-on http://localhost:80/alfresco
+* Host IP ermitteln vor AIMS und andere Services welche die HOST IP benötigen
+* Windows Path translation
+* Mehr Features sind möglich aber zurzeit nicht implementiert. Z.B. Laden von Testdaten mit dem REST API, In meinem ADF AI Prototypen habe ich noch zusätzlich ein -b für build the Angular Webapp und ein -aca so das nur der ACA Container redeployed wird
+Wie genau ich das Start Script kontributiert habe, stelle ich im nächsten Abschnitt vor.
+
+# Kontribution
+Zuerst sollte ein Fork vom [Alfresco Docker Installer](https://github.com/Alfresco/alfresco-docker-installer) kreiert werden. Auf diesem können dann die Anpassungen gemacht werden. In meinem Fall ist es das Start Script mit Filenamen start.sh . Ich habe das Script unter template/scripts abgespeichert und das Yeoman Setup so eingestellt, dass das Script optional hinzugefügt werden kann, sehr ähnlich wie auch der LDAP Service hinzugefügt wird.
+
+# Ausblick
+Als nächstes möchte ich gerne Alfresco's neuen Alfresco Identity Management Service auch AIMS genannt als Kontribution bereit stellen. Dafür müsste dann ein Keycloak Container hinzugefügt werden, sowie Alfresco Properties angepasst. Zusätzlich müsste auch auch der Keycloak Container mit LDAP konfiguriert werden.
 
 # Zusammenfassung
 ...
