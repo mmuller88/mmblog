@@ -3,29 +3,47 @@ title: Bash Script Contribution für den Alfresco Docker Installer
 description: Project für OBJECT mit Customizations
 date: '2020-03-22'
 image: 'owl.png'
-tags: ['de', 'alfresco', '2020', 'ecm', 'docker', 'docker-compose', 'amp', 'jar']
+tags: ['de', 'alfresco', '2020', 'ecm', 'docker', 'docker-compose', 'yeoman']
 pruneLength: 50
 ---
 
 Hi Alfrescans,
 
-Ich habe tolle Erfahrungen gesammelt in meinem letzten Projekt mit dem [Alfresco Docker Installer](https://github.com/Alfresco/alfresco-docker-installer). Näheres darüber einfach in meinem [Blogpost](http://martinmueller.dev/alfresco-docker-installer) nachlesen. Nun bin ich natürlich wild drauf sinnvolle neue Features zu kontributieren. Eines davon ist das Start Script welches als Wrapper für das Docker Compose File genutzt werden kann. In meinen bishering Alfresco Docker Compose Projekten habe ich immer dieses Script implementiert da es einige wertvolle Zusatzfunktionen bietet. Welche das sind werden im nächsten Abschnitt erklärt. Für mich macht es daher Sinn das Start Script dem Installer zur Verfügung zu stellen.
+Ich habe tolle Erfahrungen gesammelt in meinem letzten Projekt mit dem [Alfresco Docker Installer](https://github.com/Alfresco/alfresco-docker-installer). Näheres darüber einfach in meinem vorherigen [Blogpost](http://martinmueller.dev/alfresco-docker-installer) nachlesen. Nun bin ich natürlich wild drauf sinnvolle neue Features zu kontributieren. Eines davon ist das Start Script welches als Wrapper für das Docker Compose File genutzt werden kann. In meinen bishering Alfresco Docker Compose Projekten habe ich immer dieses Script implementiert da es einige wertvolle Zusatzfunktionen bietet. Welche das sind werden im nächsten Abschnitt erklärt. Für mich macht es daher Sinn das Start Script dem Installer zur Verfügung zu stellen.
 
 # Features
-* Wait-on http://localhost:80/alfresco
-* Host IP ermitteln vor AIMS und andere Services welche die HOST IP benötigen
-* Windows Path translation
-* Mehr Features sind möglich aber zurzeit nicht implementiert. Z.B. Laden von Testdaten mit dem REST API, In meinem ADF AI Prototypen habe ich noch zusätzlich ein -b für build the Angular Webapp und ein -aca so das nur der ACA Container redeployed wird
-Wie genau ich das Start Script kontributiert habe, stelle ich im nächsten Abschnitt vor.
+Das wohl wichtigste Feature is eine eingebaute warte Routine. Dieses wartet solange bis ACS fertig gebooted hat. Das ist zum Beispiel super nützlich wenn man nach dem Start von ACS tests auführen möchte mit Tools wie Postman. Auch können Daten via REST API geladen werden, wenn ACS fertig mit booten ist. Die warte Routine ist mit NPM's [wait-on](https://www.npmjs.com/package/wait-on) implementiert. Ich denke es macht Sinn auf die breite Palette an Tools im public NPM Repository zurückzugreifen, da ich dann diese nicht selber implementieren musst und außerdem sind diese in der Regel gut getested und bieten wenig Freiraum für Fehlerfälle.
+
+Das nächste Feature ist besonders wichtig für mich da ich mit dem Windows arbeite. Wenn man versucht Docker Compose mit Windows auszuführen bekommt man eventuell ein Problem mit den Volumes, da diese nicht die Windows Path schreibweise ootb unterstützen. Glücklicherweise hat die Docker Compose Community eine Lösung bereitgestellt. Es muss einfach die folgende Environment Variable gesetzt werden bevor Docker Compose gestartet wird:
+
+```
+export COMPOSE_CONVERT_WINDOWS_PATHS=1
+```
+
+Das wird nun vorher gemacht wenn man das Start Script zusätzlich mit dem -wp flag startet.
+
+Die nächsten Features haben es bisher noch nicht in den Alfresco Docker Installer geschafft, was sich aber bald ändern könnte und welche ich persönlich schon viel bei meinen Deployment nutze. Es ist möglich mit -hi und -hp die Host IP und den Host Port dynamisch mit dem Start Script zu setzen. Ich finde das sehr praktisch wenn man sich in Umgebungen befindet welche öfter mal die IP wechseln. Zurzeit löst das aber der Installer so, dass er bei der Installation die Host IP und den Host Port abfragt. Es ist also schon konfigurierbar.
+
+Mehr Features sind zwar möglich aber zurzeit nicht implementiert. Z.B. Das Laden von Testdaten mit dem REST API. In meinem ADF AI Prototypen habe ich noch zusätzlich ein -b für build the Angular Webapp und ein -aca so das nur der ACA Container redeployed wird um ein schnelles Entwickeln mit der ACA Webapp zu gewährleisten. Wie genau ich das Start Script kontributiert habe, stelle ich im nächsten Abschnitt vor.
 
 # Kontribution
-Zuerst sollte ein Fork vom [Alfresco Docker Installer](https://github.com/Alfresco/alfresco-docker-installer) kreiert werden. Auf diesem können dann die Anpassungen gemacht werden. In meinem Fall ist es das Start Script mit Filenamen start.sh . Ich habe das Script unter template/scripts abgespeichert und das Yeoman Setup so eingestellt, dass das Script optional hinzugefügt werden kann, sehr ähnlich wie auch der LDAP Service hinzugefügt wird.
+Zuerst sollte ein Fork vom [Alfresco Docker Installer](https://github.com/Alfresco/alfresco-docker-installer) kreiert werden. Auf diesem können dann die Anpassungen gemacht werden. In meinem Fall ist es das Start Script mit Filenamen start.sh. Ich habe das Script unter template/scripts abgespeichert und das Yeoman Setup so eingestellt, dass das Script optional hinzugefügt werden kann, sehr ähnlich wie auch der LDAP Service hinzugefügt wird. Alle Änderungen sollten auf deinen Fork in Form eines Remote Branches gesichert werden. Dafür muss zunächst ein lokaler Branch erzeugt und Änderungen comitted werden:
+
+```
+git branch startscript
+git add --all
+git commit -m "added startscript"
+git push -u origin HEAD:startscript
+```
+
+Sind nun alle Änderungen vollzogen und ausgiebig getestet, kann ein Pull Request erstellt werden.
 
 # Ausblick
-Als nächstes möchte ich gerne Alfresco's neuen Alfresco Identity Management Service auch AIMS genannt als Kontribution bereit stellen. Dafür müsste dann ein Keycloak Container hinzugefügt werden, sowie Alfresco Properties angepasst. Zusätzlich müsste auch auch der Keycloak Container mit LDAP konfiguriert werden.
+Als nächstes möchte ich gerne Alfresco's neuen Alfresco Identity Management Service auch AIMS genannt als Kontribution bereit stellen. Dafür wird ein Keycloak Container hinzugefügt, sowie die Alfresco Properties angepasst. 
+AIMS macht nur Sinn wenn man auch einen Identity Provider besitzt. Also soll AIMS nur hinzugefügt werden, wenn LDAP während der Installation ausgewählt wird.
 
 # Zusammenfassung
-...
+Dieser Artikel beschreibt eine kurz Übersicht zu meiner ersten Kontribution zu dem Alfresco Docker Installer. Zu einem nutze ich das Repository bereits für meine Projekte und es bot mir die perfekte Möglichkeit den Installer besser zu verstehen. Das Start Script bietet viele neue zusätzliche Funktionen und der Kontributionsprozess, der hier beschrieben wurde, ließ sich auch einfach durchführen.
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
