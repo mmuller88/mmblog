@@ -1,7 +1,7 @@
 ---
 title: Bash Script Contribution für den Alfresco Docker Installer
 description: Project für OBJECT mit Customizations
-date: '2020-03-22'
+date: '2020-03-21'
 image: 'owl.png'
 tags: ['de', 'alfresco', '2020', 'ecm', 'docker', 'docker-compose', 'yeoman']
 pruneLength: 50
