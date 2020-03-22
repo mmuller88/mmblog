@@ -4,6 +4,7 @@ description: Project für OBJECT mit Customizations
 date: '2020-03-21'
 image: 'owl.png'
 tags: ['de', 'alfresco', '2020', 'ecm', 'docker', 'docker-compose', 'yeoman']
+engUrl: http://martinmueller.dev/start-script-eng
 pruneLength: 50
 ---
 
@@ -38,11 +39,13 @@ git push -u origin HEAD:startscript
 
 Sind nun alle Änderungen vollzogen und ausgiebig getestet, kann ein Pull Request zum Alfresco Docker Installer Repository erstellt werden. Dafür geht man einfach auf die Installer Github Seite. Dort erscheint dann ein Create Pull Request Button.
 
+Oh ja eine Sache bitte noch beachten. Wenn du ein neues Feature contributen willst wäre es sehr toll und best practice wenn du auch dazu einen Test schreibst, welcher garantiert dass das neue Feature funktioniert. Ich habe das im .travis File gemacht. Nun werden Deployments und Start von Alfresco mit und ohne zur Hilfenahme des Start Scriptes getestet.
+
 # Ausblick
 Als nächstes möchte ich gerne Alfresco's neuen Alfresco Identity Management Service auch AIMS genannt als Kontribution bereit stellen. Dafür wird ein Keycloak Container hinzugefügt, sowie die Alfresco Properties angepasst. AIMS macht nur Sinn wenn man auch einen Identity Provider besitzt. Also soll AIMS nur hinzugefügt werden, wenn LDAP während der Installation ausgewählt wird.
 
 # Zusammenfassung
-Dieser Artikel beschreibt eine kurz Übersicht zu meiner ersten Kontribution zu dem Alfresco Docker Installer. Zu einem nutze ich das Repository bereits für meine Projekte und es bot mir die perfekte Möglichkeit den Installer besser zu verstehen. Das Start Script bietet viele neue zusätzliche Funktionen. Wie man eine Contribution machen kann, wurde ebenfalls ausführlich beschrieben. Hast du eventuell auch eine tolle Idee wie man den Installer verbessern könnte? Ich freue mich auf dein Feedback.
+Dieser Artikel beschreibt eine kurz Übersicht zu meiner ersten Kontribution zu dem Alfresco Docker Installer. Zu einem nutze ich das Repository bereits für meine Projekte und es bot mir die perfekte Möglichkeit den Yeoman template Installer besser zu verstehen. Das Start Script bietet viele neue zusätzliche Funktionen. Wie man eine Contribution machen kann, wurde ebenfalls ausführlich beschrieben. Hast du eventuell auch eine tolle Idee wie man den Installer verbessern könnte? Ich freue mich auf dein Feedback.
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
