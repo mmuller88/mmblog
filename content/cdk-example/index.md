@@ -4,32 +4,42 @@ description: AWS CDK example mit Travis Deployment
 show: 'no'
 date: '2020-03-28'
 image: 'docker.jpg'
-tags: ['de', 'alfresco', '2020', 'ecm', 'docker', 'docker-compose', 'Amp', 'Jar']
+tags: ['de', '2020', 'aws', 'lambda', 'cdk', 'cfd']
 engUrl: http://martinmueller.dev/cdk-example-eng
 pruneLength: 50
 ---
 
 Ahoi AWS'ler
 
-[AWS CDK Examples](https://github.com/aws-samples/aws-cdk-examples)
-[My CDK Example Repo](https://github.com/mmuller88/cdk-example)
+Für ein privates Projekt habe ich mich in den letzten Tagen an ein AWS CDK Example rangetraut. AWS bietet eine Palette von tollen Beispielprojekten hier: [AWS CDK Examples](https://github.com/aws-samples/aws-cdk-examples) . Die Erfahrung war so gut, dass ich mich entschlossen habe, einen Blogpost zu darüber zu schreiben. Schon sehr früh in meiner AWS Karriere durfe ich mich mit CloudFormation beschäftigen. Es hat mir damals schon viel Spaß gemacht, allerdigns seit neuem scheint ja ein neues Kind im Block zu sein mit namen AWS CDK (Cloud Development Kit). Dieses Kit verspricht ein leichteres Handling der Cloudformation Templates, da man anstelle wie üblich diese im eher komplexen YAML schreiben muss, werden im CDK richtige Programmiersprachen wie Java, Python, JS oder Typescript unterstützt. Ich finde das ein super Idee da man, wenn man sich für z.B. Typescript als Sprache für die Lambdas entschieden hat, auch diese für das CDK verwenden kann.
+Mein Beispiel Code ist natürlich hier [CDK Example Repo](https://github.com/mmuller88/cdk-example) einsehbar. In den nächsten Abschnitten werde ich kurz die einzelnen Schritte für die Repo Erstellung beschreiben.
 
 # Das wird Benötigt
-* AWS Account
-* AWS CLI Credentials wie der AWS_ACCESS_KEY_ID und AWS_SECRET_ACCESS_KEY . Dafür erstelle ich normalerweise einen IAM User welcher Programmierzugriff auf den Account hat. AWS Doku URL
-* Node muss auch installiert sein. Da es als Package manager und Build manager verwendet wird.
+Klar wenn du AWS CDK ausprobieren möchtest, benötigst du einen AWS Account. Darüber hinaus brauchst du AWS CLI Credentials, welche es deiner Programmierumgebung erlauben Resourcen in deinem AWS Account zu nutzen. Üblicherweise erstellt man dafür einen [IAM User](https://docs.aws.amazon.com/de_de/IAM/latest/UserGuide/id_users_create.html#id_users_create_cliwpsapi).
+Das verwendete AWS Beispiel verwendet NPM als Package Manager. Das bedeutet es kümmert sich um die Dependencies wie zum Beispiel dem aws-cdk welches mit dem folgenden command installiert wird:
+
+```
+npm install -g aws-cdk
+```
+NPM is [hier](https://nodejs.org/en/download/) erhältlich.
 
 # Git Repo Vorbereiten
-* Go to AWS CDK Examples repo and fork it
-* Create a seconde Repo. Will be more easy to copy over examples
-* Choose the right example. I recommend a TypeScript example as most of the examples there are in that language and in general TypeScript seems quite famous as language for CDK and Lambda
-* Für mein Projekt habe ich das [Api Cors Lambda Crud DynamoDB](https://github.com/aws-samples/aws-cdk-examples/tree/master/typescript/api-cors-lambda-crud-dynamodb) example entschieden
+So nun geht es los. Zuerst erstellen wir unser GitHub Repository welches noch komplett leer ist. Bei mir habe ich es **cdk-example** genannt. Dann sollte das [AWS CDK Examples](https://github.com/aws-samples/aws-cdk-examples) Repo geforkt und local ausgecheckt sein. Mit dem Hintergrund, dass wir so einfacher Cherry Picking betreiben können und somit einfach die für uns interesannten Beispiele darin in unser Repository kopieren können.
 
-# CDK manuell Deployen
+Wenn man sich das AWS CDK Examples Repository anschaut hat man nun sprichwörtlich die Qual der Wahl. Ich selber für die Beispiele von der Typescript Kategorie empfehlen da sie reichlich sind und Typescript anscheinend immer beliebter wird als Programmiersprache. Auch empfehle ich mit dem [Api Cors Lambda Crud DynamoDB](https://github.com/aws-samples/aws-cdk-examples/tree/master/typescript/api-cors-lambda-crud-dynamodb) Example anzufangen, da es schon sehr viele AWS Services beinhaltet wie API Gateway, Lambda und DynamoDB. Das Beispiel is ein einfacher CRUD Storage welches mit DynamoDB als DB fungiert. Am besten den bestehenden Quellcode nicht abändern und erstmal versuchen ihn nur zum Laufen zu bekommen. Ich selber hatte eine kleine Schwierigkeit. Das Beispiel hat eine missing Dependency. Undzware fehlt die uuid Library. Dafür muss ins src/ Verzeichnis gewechselt werden und die folgenden Command ausgeführt werden:
+
+```
+npm init
+npm install uuid
+```
+
+Auch muss der Code etwas angepasst werden, da sich die uuid mit den Versionen etwas geändert hat. Alternativ kann auch einfach aus meinem [publizierten GitHub Repo](https://github.com/mmuller88/cdk-example) kopiert werden. Im nächsten Abschnitt bringen wir dann das Beispiel zum laufen.
+
+# CDK Manuell Deployen
 * Alle Schritte zum deployen in der Readme.
 ...
 
-# Travis Magic
+# Automation mmit Travis
 * Will nicht wie vorher beschrieben immer manuell deployen müssen. Deshalb Travis nutzen
 * .travis file erstellen. In meinen Repo sehen
 * AWS environment variablen ermitteln
