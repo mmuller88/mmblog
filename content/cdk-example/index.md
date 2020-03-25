@@ -15,7 +15,7 @@ Für ein privates Projekt habe ich mich in den letzten Tagen an ein AWS CDK Exam
 Mein Beispiel Code ist natürlich hier [CDK Example Repo](https://github.com/mmuller88/cdk-example) einsehbar. In den nächsten Abschnitten werde ich kurz die einzelnen Schritte für die Repo Erstellung beschreiben.
 
 # Das wird Benötigt
-Klar wenn du AWS CDK ausprobieren möchtest, benötigst du einen AWS Account. Darüber hinaus brauchst du AWS CLI Credentials, welche es deiner Programmierumgebung erlauben Resourcen in deinem AWS Account zu nutzen. Üblicherweise erstellt man dafür einen [IAM User](https://docs.aws.amazon.com/de_de/IAM/latest/UserGuide/id_users_create.html#id_users_create_cliwpsapi).
+Klar wenn du AWS CDK ausprobieren möchtest, benötigst du einen AWS Account. Darüber hinaus brauchst du AWS CLI Credentials, welche es deiner Programmierumgebung erlauben Resourcen in deinem AWS Account zu nutzen. Üblicherweise erstellt man dafür einen [IAM User](https://docs.aws.amazon.com/de_de/IAM/latest/UserGuide/id_users_create.html#id_users_create_cliwpsapi). Wichtig dabei ist, dass du dir die Zugangscredentails also der die Access Key Id und der Secret Access Key gut abspeicherst. Diese werden nachher im Deploying benötigt.
 Das verwendete AWS Beispiel verwendet NPM als Package Manager. Das bedeutet es kümmert sich um die Dependencies wie zum Beispiel dem aws-cdk welches mit dem folgenden command installiert wird:
 
 ```
@@ -36,8 +36,43 @@ npm install uuid
 Auch muss der Code etwas angepasst werden, da sich die uuid mit den Versionen etwas geändert hat. Alternativ kann auch einfach aus meinem [publizierten GitHub Repo](https://github.com/mmuller88/cdk-example) kopiert werden. Im nächsten Abschnitt bringen wir dann das Beispiel zum laufen.
 
 # CDK Manuell Deployen
-* Alle Schritte zum deployen in der Readme.
-...
+Im vorherigen Abschnitt haben wir das Repo soweit vorbereitet, jetzt wollen wir natürlich deployen! Da wir unser Deployment in AWS haben, muss sichergestellt werden, dass die Zugangscredentials richtig eingestellt sind. In der **Das wird Benötigt** haben wir bereits die Credentials erhalten. Es gibt verschiedene Möglichkeiten diese Credentials deinem Build zur Verfügung zu stellen. Das automatisierte Deployment in Travis funktioniert mit Environment Variablen. Für das manuelle Deployn ist es komfortabeler die Credentials im aws config folder zu erstellen.  dafür einfach die folgenden Datein einfügen:
+
+~/.aws/conf und ~/.aws/credentials ebenfalls! Für Windows nutzer einfach deinen Benutzerordner anstelle der ~ benutzen. Mit folgenden Content befüllen:
+
+```
+[default]
+aws_access_key_id = AKI...
+aws_secret_access_key = fIr...
+region = eu-west-2
+```
+
+Du solltest dir eine Region aussuchen welche dicht zu dir sind und viel Funktionalität anbieten. Da die Frankfurter Region oftmals hinterherhingt mit neuen Features, habe ich mich für die London Region eu-west-2 entschieden.
+
+Jetzt ins Repo wechseln und die folgenden Befehle ausführen:
+
+```
+npm install -g aws-cdk
+npm install
+npm run build
+```
+
+Die npm install befehle laden die Dependencies. In der Regel müssen diese nur selten ausgeführt werden. Der Run Befehl hingegen immer wenn Änderungen durchgeführt worden sind. Interessante Tatsache ist, dass dieser die TypeScript Files in JavaScript Files konvertiert. Da TypeScript ein Superset vom JavaScript ist, spart man sich so zusätzlich Compiler arbeit.
+
+Als nächstes muss CDK so konfiguriert werden, dass es weiß welcher Account und welche Region genutzt werden soll. Warum CDK das nicht aus dem AWS Folder generieren kann, verstehe ich allerdings auch nicht. Dann kann CDK deployed werden:
+
+```
+cdk bootstrab aws //{account}/{region}
+cdk deploy
+```
+
+Auch interessant mit:
+
+```
+cdk synth > cfn.yaml
+```
+
+Kann man sich das generierte CloudFormation Template anschauen.
 
 # Automation mmit Travis
 * Will nicht wie vorher beschrieben immer manuell deployen müssen. Deshalb Travis nutzen
