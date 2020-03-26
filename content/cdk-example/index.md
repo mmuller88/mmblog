@@ -75,18 +75,16 @@ cdk synth > cfn.yaml
 Kann man sich das generierte CloudFormation Template anschauen.
 
 # Automation mmit Travis
-* Will nicht wie vorher beschrieben immer manuell deployen müssen. Deshalb Travis nutzen
-* .travis file erstellen. In meinen Repo sehen
-* AWS environment variablen ermitteln
-* AWS_ACCESS_KEY_ID, AWS_ACCOUNT_NUMBER, AWS_DEFAULT_REGION, AWS_SECRET_ACCESS_KEY, CDK_DEFAULT_ACCOUNT, CDK_DEFAULT_REGION
-* Nächster Abschnitt wie automatisch testen.
+Noch hält sicher der manuelle Aufwand für das Deployment gering, aber das könnte bei mehr werdender Komplexität sicher ändern. Von daher habe ich bisher super Erfahrungen gemacht, wenn ich so viel wie möglich davon automatisiere. Und nunja stellt euch mal vor wie cool es ist einfach nur mit einem Push zu master die Produktionsumgebung zu ändern. Einen kleinen Vorgeschmack wie das aussehen könnte beschreibe ich hier. Auch sei wieder gesagt, dass ihr euch meine Travis Pipeline gerne anschauen könnte hier [CDK Example Repo](https://github.com/mmuller88/cdk-example/blob/master/.travis.yml).
+
+Was ich dort in Travis mache ist recht einfach erklärt. Ich führe einfach nur die manuellen Deployschritte von der vorherigen Sektion in Travis aus. Da Travis meine AWS Credentials in Form von Environmental Variables hat, erlaube ich es es in meinem AWS Account Ressourcen zu manipulieren. Die folgenden Environmental Variablen waren dafür nötig: AWS_ACCESS_KEY_ID, AWS_ACCOUNT_NUMBER, AWS_DEFAULT_REGION, AWS_SECRET_ACCESS_KEY, CDK_DEFAULT_ACCOUNT, CDK_DEFAULT_REGION .
+
+Nur das Deployment nicht mehr manuell ausführen zu müssen, scheint auf den ersten Blick vielleicht nicht sehr nützlich, aber glaubt mir es lohnt sich! Nachdem das CDK Deployment fertig ist werden dann Postman Tests in Form von Requests und Response Validations ausgeführt. Näheres dazu beschreibe ich in der nächsten Sektion.
 
 # Stack Testing mit Postman
-* Auch das Testen kann von Travis übernommen werden
-* Postman eignet sich hervorragend zum erstellen von API Requests zu dem API Gateway. Sammlung von Requests wird Collection genannt.
-* Würde den Umfang der Collection erstmal gering halten und nur das nötigste testen.
-* Postman kann auch Responses evaluieren und z.B. Statuserwartungen testen. create Item Post sollte 201 returnen
-* Postman hat eine CLI mit namen Newman welcher im Build installiert werden muss
+Ich denke mittlerweile wissen die meisten über [Postman](https://www.postman.com/automated-testing) . Es ist ein geniales Tool zum testen von API (s die mittels Request und Responses arbeiten. In meinem Fall ist das ein REST API. In meinem GitHub repository habe ich eine kleine Sammlung von Requests und Response Tests, welches in Postman als Collections, bezeichnet werden, zusammengestellt. Diese können dann einfach mittels [Newman](https://github.com/postmanlabs/newman), welches ein CLI Tool ist zum ausführen von Postman erstellten Collections, ausgeführt werden. Newman muss dann natürlich auf der Build Maschine installiert sein. In meinem Repo mache ich das via NPM im package.json.
+
+Der Kreative prozess des Collections schreiben sind dann so auch, dass man in Postman eine neue Collection erstellt und ein Request schreibt. Das Request läuft gegen die REST API und gibt ein Response zurück. Das Response kann dann validiert werden. Postman bietet für die Validierung der Responses eine Umfangreiche Möglichkeiten. So kann man einfach den Statuscode im Response mit dem erwarteten Wert abgleichen, andere Erwartungswerte vergleichen, Variablen erstellen für das nächste Request genutzt werden können und vieles vieles mehr. Ein Tip von mir, versucht die Menge an Testrequests gering zu halten.
 
 # Zusammenfassung
 * AWS noch recht neues CDK ist ein tolles Werkzeug zum erstellen von AWS Cloudformation Stacks. Sehr toll finde ich, dass man es in der gleichen Programmiersprache schreiben kann in der auch eventuell verwendete Lambdas sind. Kombiniert mit automatischen Deployment und Tests zum Beispiel mit Travis, erlaubt es schnell und effizient neue Änderungen am Stack durchzuführen. Ich glaube auch, dass es dadurch nicht oder weniger nötig ist Lambdas lokal testen zu müssen.
