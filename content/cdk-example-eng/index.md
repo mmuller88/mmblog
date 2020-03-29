@@ -1,6 +1,7 @@
 ---
 title: AWS CDK Tutorial with Travis Deployment
 description: AWS CDK example with Travis Deployment
+show: 'no'
 date: '2020-03-29'
 image: 'cloud.jpg'
 tags: ['eng', '2020', 'aws', 'lambda', 'cdk', 'cfd', 'github', 'travis']
