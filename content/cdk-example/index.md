@@ -4,7 +4,7 @@ description: AWS CDK example mit Travis Deployment
 date: '2020-03-28'
 image: 'cloud.jpg'
 tags: ['de', '2020', 'aws', 'lambda', 'cdk', 'cfd', 'github', 'travis']
-engUrl: http://martinmueller.dev/cdk-example-eng
+engUrl: https://martinmueller.dev/cdk-example-eng
 pruneLength: 50
 ---
 
@@ -81,7 +81,7 @@ Was ich dort in Travis mache ist recht einfach erklärt. Ich führe einfach nur 
 Nur das Deployment nicht mehr manuell ausführen zu müssen, scheint auf den ersten Blick vielleicht nicht sehr nützlich, aber glaubt mir es lohnt sich! Nachdem das CDK Deployment fertig ist werden dann Postman Tests in Form von Requests und Response Validations ausgeführt. Näheres dazu beschreibe ich in der nächsten Sektion.
 
 # Stack Testing mit Postman
-Ich denke mittlerweile weiß jeder über [Postman](https://www.postman.com/automated-testing) bescheid. Es ist ein geniales Tool zum testen von APIs, die mittels Request und Responses arbeiten. In meinem Fall ist das ein REST API. In meinem GitHub repository habe ich eine kleine Sammlung von Requests und Response Tests, welches in Postman als Collections bezeichnet werden, zusammengestellt. Diese können dann einfach mittels der CLI [Newman](https://github.com/postmanlabs/newman) zum Ausführen von den mit Postman erstellten Collections genutzt werden. Newman muss dann natürlich vorher auf der Build Maschine installiert sein. In meinem Repo mache ich das via NPM im package.json. Dazu einfach den folgenden Befehl ausführen:
+Ich denke mittlerweile weiß jeder über [Postman](https://www.postman.com/automated-testing) bescheid. Es ist ein geniales Tool zum testen von APIs, die mittels Request und Responses arbeiten. In meinem Fall ist das ein REST API welches durch AWS API Gateway definiert ist. In meinem GitHub repository habe ich eine kleine Sammlung von Requests und Response Tests, welches in Postman als Collections bezeichnet werden, zusammengestellt. Diese können dann einfach mittels der CLI [Newman](https://github.com/postmanlabs/newman) zum Ausführen von den mit Postman erstellten Collections genutzt werden. Newman muss dann natürlich vorher auf der Build Maschine installiert sein. In meinem Repo mache ich das via NPM im package.json. Dazu einfach den folgenden Befehl ausführen:
 
 ```
 npm install newman
