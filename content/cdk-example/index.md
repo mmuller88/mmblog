@@ -56,7 +56,7 @@ npm install
 npm run build
 ```
 
-Die npm install Befehle laden die Dependencies. In der Regel müssen diese nur selten ausgeführt werden. Der Run Befehl hingegen immer wenn Änderungen durchgeführt worden sind. Interessante Tatsache ist, dass dieser die TypeScript Files in JavaScript Files konvertiert. Da TypeScript ein Superset vom JavaScript ist, muss man so das Tooling um TypeScript nicht neu erfinden und nutzt einfach die vorhandenen von JavaScript.
+Die npm install Befehle laden die Dependencies. In der Regel müssen diese nur selten ausgeführt werden. Der Run Befehl hingegen immer wenn Änderungen durchgeführt worden sind. Interessante Tatsache ist, dass dieser die TypeScript Files in JavaScript Files konvertiert. Da TypeScript ein Superset vom JavaScript ist, muss man so das Tooling um TypeScript nicht neu erfinden und nutzt einfach die vorhandenen von JavaScript. Aber aufpassen und nicht verwirren lassen von diesen generierten JS Files. Eventuell machst du deine Änderungen genau an diesen und wunderst dich, warum die Änderungen nicht im Deployment geschehen.
 
 Als nächstes muss CDK so konfiguriert werden, dass es weiß welcher Account und welche Region genutzt werden soll. Warum CDK das nicht aus dem AWS Folder generieren kann, verstehe ich allerdings auch nicht. Dann kann CDK deployed werden:
 
@@ -74,9 +74,9 @@ cdk synth > cfn.yaml
 Kann man sich das generierte CloudFormation Template anschauen.
 
 # Automation mmit Travis
-Noch hält sicher der manuelle Aufwand für das Deployment gering, aber das könnte bei mehr werdender Komplexität sicher ändern. Von daher habe ich bisher super Erfahrungen gemacht, wenn ich so viel wie möglich davon automatisiere. Und nunja stellt euch mal vor wie cool es ist einfach nur mit einem Push zu master die Produktionsumgebung zu ändern. Einen kleinen Vorgeschmack wie das aussehen könnte beschreibe ich hier. Auch sei wieder gesagt, dass ihr euch meine Travis Pipeline gerne anschauen könnte hier [CDK Example Repo](https://github.com/mmuller88/cdk-example/blob/master/.travis.yml).
+Noch hält sicher der manuelle Aufwand für das Deployment gering, aber das könnte bei mehr werdender Komplexität sicher ändern. Von daher habe ich bisher super Erfahrungen gemacht, wenn ich so viel wie möglich davon automatisiere. Und nunja stellt euch mal vor wie cool es ist einfach nur mit einem Push zu master die Produktionsumgebung zu ändern. Einen kleinen Vorgeschmack wie das aussehen könnte beschreibe ich hier. Auch sei wieder gesagt, dass ihr euch meine Travis Definition gerne anschauen könnte hier [CDK Example Repo](https://github.com/mmuller88/cdk-example/blob/master/.travis.yml).
 
-Was ich dort in Travis mache ist recht einfach erklärt. Ich führe einfach nur die manuellen Deployschritte von der vorherigen Sektion in Travis aus. Da Travis meine AWS Credentials in Form von Environmental Variables hat, erlaube ich es es in meinem AWS Account Ressourcen zu manipulieren. Die folgenden Environmental Variablen waren dafür nötig: AWS_ACCESS_KEY_ID, AWS_ACCOUNT_NUMBER, AWS_DEFAULT_REGION, AWS_SECRET_ACCESS_KEY, CDK_DEFAULT_ACCOUNT, CDK_DEFAULT_REGION .
+Was ich dort in Travis mache ist recht einfach erklärt. Ich führe einfach nur die manuellen Deployschritte von der vorherigen Sektion in Travis aus. Da Travis meine AWS Credentials in Form von verschlüsselten Environmental Variables hat, erlaube ich es es in meinem AWS Account Ressourcen zu manipulieren. Die folgenden Environmental Variablen waren dafür nötig: AWS_ACCESS_KEY_ID, AWS_ACCOUNT_NUMBER, AWS_DEFAULT_REGION, AWS_SECRET_ACCESS_KEY, CDK_DEFAULT_ACCOUNT, CDK_DEFAULT_REGION .
 
 Nur das Deployment nicht mehr manuell ausführen zu müssen, scheint auf den ersten Blick vielleicht nicht sehr nützlich, aber glaubt mir es lohnt sich! Nachdem das CDK Deployment fertig ist werden dann Postman Tests in Form von Requests und Response Validations ausgeführt. Näheres dazu beschreibe ich in der nächsten Sektion.
 
