@@ -9,14 +9,12 @@ gerUrl: https://martinmueller.dev/cdk-swagger
 pruneLength: 50
 ---
 
-UNDER CONSTRUCTION
-
 Ahoi AWS'ler and Swagger fans
 
 In the last post I showed how [AWS CDK](https://martinmueller.dev/cdk-example-eng) can be used as a welcome alternative to YAML for describing your cloud infrastructure. Working on my CDK project from I encountered a problem handling Swagger files. But first I want to explain what the Swagger definitions are. It should also be said that the new version of Swagger has been called OpenApi since 2018. When using AWS API Gateway, it is convenient to use Swagger for parameter validation such as Query, Path and Body Parameter. What exactly Swagger is and why I think it's so great I describe in the next section.
 
 # What is Swagger
-[Swagger] (https://swagger.io/docs/specification/2-0/what-is-swagger/) is a YAML or JSON template language for describing RESTful APIs. Following I describe what is great about Swagger. First of all, the templates are extremely suitable as documentation about the API itself, because a stylish looking HTML UI can be generated out of the template, which describes the API endpoints very well. Such an UI can be seen in the cover of this blog post. Even more brilliant is the UI that can be used directly to test the endpoints, i.e. to send and receive requests and responses. Many API interfaces, like the AWS API Gateway, offer the parameter validation of requests with using Swagger. I give a little example for what I mean by parameter validation using the following example:
+[Swagger](https://swagger.io/docs/specification/2-0/what-is-swagger/) is a YAML or JSON template language for describing RESTful APIs. Following I describe what is great about Swagger. First of all, the templates are extremely suitable as documentation about the API itself, because a stylish looking HTML UI can be generated out of the template, which describes the API endpoints very well. Such an UI can be seen in the cover of this blog post. Even more brilliant is the UI that can be used directly to test the endpoints, i.e. to send and receive requests and responses. Many API interfaces, like the AWS API Gateway, offer the parameter validation of requests with using Swagger. I give a little example for what I mean by parameter validation using the following example:
 
 ```YAML
 parameters:
