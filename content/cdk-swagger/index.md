@@ -10,12 +10,12 @@ pruneLength: 50
 
 Ahoi AWS'ler und Swagger Fans
 
-Im letzten Post habe ich gezeigt wie [AWS CDK](https://martinmueller.dev/cdk-example) genutzt werden kann als willkommende Alternative zu YAML als Infrastruckturbeschreibung. Während der Weiterentwicklung des CDK Beispiels von [Api Cors Lambda Crud DynamoDB](https://github.com/aws-samples/aws-cdk-examples/tree/master/typescript/api-cors-lambda-crud-dynamodb) ist mir ein Problem beim Umgang mit Swagger Files begegnet. Aber erstmal will ich erklären was die Swagger Definition überhaupt ist. Auch sei gesagt, dass seit 2018 die neue Version von Swagger OpenApi heißt. Wenn man AWS API Gateway nutzt, ist es praktisch zur Parameter Validierung wie zum Beispiel dem Query, Path und den Body Parameter, Swagger Files zu verwenden. Was genau Swagger ist und wieso ich es so toll finde beschreibe ich im nächsten Absatz.
+Im letzten Post habe ich gezeigt wie [AWS CDK](https://martinmueller.dev/cdk-example) genutzt werden kann als willkommende Alternative zu YAML als Infrastruckturbeschreibung. Während der Weiterentwicklung des CDK Beispiels ist mir ein Problem beim Umgang mit Swagger Files begegnet. Aber erstmal will ich erklären was die Swagger Definition überhaupt ist. Auch sei gesagt, dass seit 2018 die neue Version von Swagger OpenApi heißt. Wenn man AWS API Gateway nutzt, ist es praktisch zur Parameter Validierung wie zum Beispiel dem Query, Path und den Body Parameter, Swagger Files zu verwenden. Was genau Swagger ist und wieso ich es so toll finde beschreibe ich im nächsten Absatz.
 
 # Was ist Swagger
 [Swagger](https://swagger.io/docs/specification/2-0/what-is-swagger/) ist eine YAML oder JSON Template Sprache zur Beschreibung von RESTful APIs. Folgend beschreibe ich was super an Swagger ist. Erstens eigenen sich die Templates extrem gut als Dokumentation über die API selber, da aus dem Template eine schick aussehende HTML UI generiert werden kann, welche die API Endpoints sehr gut beschreibt. Eine solche UI ist im Titelbild dieses Blogposts zu sehen. Noch genialer ist die UI kann direkt zum Testen der Endpoints genutzt werden, also zum Senden und Empfangen von Requests und Responses. Viele API Schnittstellen, wie es auch AWS API Gateway eine ist, bieten es and die Parameter Validierung der Requests über Swagger Files zu machen. Was mit Parametervalidierung gemeint ist versuche ich anhand des folgenden Beispiels zu erklären:
 
-```
+```YAML
 parameters:
     - in: query
     name: userId
@@ -36,7 +36,7 @@ Auch sehr mächtig ist die Eigenschaft, dass es möglich ist aus Swagger Files [
 Auch cool ist, [Postman](https://www.postman.com/automated-testing) bietet eine Importierfunktion für Swagger Files. Dann wird daraus gleich eine Collections erzeugt. Das ist sehr praktisch, wenn man anfangen möchte die Requests in Postman zu schreiben.
 
 # AWS Api Gatway mit Swagger
-Die ganzen Features vom vorherigen Abschnitt klingen schon sehr verlockend oder? Wie toll das auch AWS API Gateway es anbietet, Swagger Files aus dessen Deployments zu [extrahieren](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-export-api.html) und zu importieren. Leider im Zusammenhang mit [AWS CDK](https://github.com/aws/aws-cdk), lassen sich extrahierte Swagger Files nicht so einfach wiederverwenden für dessen Beschreibung. Das größte Problem ist, dass wenn zum Beispiel ein Lambda geupdated wird, sich dan logischerweise auch dessen ARN ändert. Allerdings die vom API Gateway extrahierten Swagger Files verwenden genau diese ARNs wenn Lambda als Backendimplementierung für einen Endpoint benutzt wird. Und da sich die ARN ändert sind diese outdated im swagger file. Nachfolgend ist ein Swagger Snippet und dort sieht man die Arn über die ich spreche hinter dem **uri** keyword.
+Die ganzen Features vom vorherigen Abschnitt klingen schon sehr verlockend oder? Wie toll das auch AWS API Gateway es anbietet, Swagger Files aus dessen Deployments zu [extrahieren](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-export-api.html) und zu importieren, wenn Cloudformation oder CDK verwendet wird. Leider im Zusammenhang mit [AWS CDK](https://github.com/aws/aws-cdk), lassen sich extrahierte Swagger Files nicht so einfach wiederverwenden für dessen Beschreibung. Das größte Problem ist, dass wenn zum Beispiel ein Lambda geupdated wird, sich dan logischerweise auch dessen ARN ändert. Allerdings die vom API Gateway extrahierten Swagger Files verwenden genau diese ARNs wenn Lambda als Backendimplementierung für einen Endpoint benutzt wird. Und da sich die ARN ändert sind diese outdated im swagger file. Nachfolgend ist ein Swagger Snippet und dort sieht man die Arn über die ich spreche hinter dem **uri** keyword.
 
 ```YAML
 paths:
@@ -60,11 +60,10 @@ paths:
       x-amazon-apigateway-request-validator: Validator
 ```
 
-Das AWS CDK weiß über dieses Problem bescheid und es ist auf der Roadmap. So hoffentlich wenn du diesen Beitrag ließt ist der folgende Workaround nicht mehr notwendig. Zur Vollständigkeit liste ich hier die related Issues auf:
+Das AWS CDK Team weiß über dieses Problem bescheid und es ist auf der Roadmap. So hoffentlich wenn du diesen Beitrag ließt ist der folgende Workaround nicht mehr notwendig. Zur Vollständigkeit liste ich hier die related Issues auf:
 
 https://github.com/aws/aws-cdk/issues/723
 https://github.com/aws/aws-cdk/issues/1461
-
 
 # Workaround
 Um des Problem zu lösen habe ich mein Travis so konfiguriert, dass CDK zweimal deployed wird. Beim ersten Deploy wird kein Swagger File benutzt und beim zweiten wird dann ein geniertes Swagger File verwendet. Wirklich interessant ist wie ich an das generierte Swagger File komme. Folgend versuche ich den Prozess zu beschreiben, aber bitte schaut auch in [meinem GitHub Repo](https://github.com/mmuller88/cdk-swagger) (dort in .travis) nach wie ich diesen Workaround implementiert habe.
@@ -140,7 +139,7 @@ swagger: '2.0'
 info:
   version: '2020-03-29T16:59:22Z'
   title: Items Service
-host: hjtiuj2ou1.execute-api.[secure].amazonaws.com
+host: hjtiuj2ou1.execute-api.eu-.amazonaws.com
 basePath: /prod
 schemes:
   - https
@@ -182,7 +181,7 @@ aws apigateway create-deployment --rest-api-id $REST_API_ID --stage-name prod
 ```
 
 # Zusammenfassung
-Swagger Definitions eigenen sich hervorragend zur Erstellung, Editierung, Dokumentation und Testung vom APIs wie der von AWS Api Gateway. Sie eigenen sich nicht nur direkt im Backend um dieses Backend zu erstellen, sondern sind nützlich sogar im Frontend da aus den Swagger Definitions Client Libaries generiert werden können und es dem Frontendentwickler gelingt durch die Swagger Dokumentations UI das Backend viel besser und in kürzerer Zeit zu verstehen.
+Swagger Definitions eigenen sich hervorragend zur Erstellung, Editierung, Dokumentation und Testung vom APIs wie der von AWS Api Gateway. Sie eigenen sich nicht nur direkt im Backend um dieses Backend zu erstellen, sondern sind nützlich sogar im Frontend da aus den Swagger Definitions Client Libraries generiert werden können und es dem Frontendentwickler gelingt durch die Swagger Dokumentations UI das Backend viel besser und in kürzerer Zeit zu verstehen.
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
