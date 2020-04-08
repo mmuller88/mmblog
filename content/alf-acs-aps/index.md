@@ -1,12 +1,15 @@
 ---
 title: ACS und APS in Docker Compose
-description: AWS CDK example mit Swagger für ein Api Gateway
+show: 'now'
+description: ACS und APS installiert mit Docker Compose
 date: '2020-04-04'
 image: 'swagger.png'
 tags: ['de', '2020', 'acs', 'aps', 'docker', 'docker-compose', 'ec2']
 # engUrl: https://martinmueller.dev/cdk-swagger-eng
 pruneLength: 50
 ---
+
+UNDER CONSTRUCTION
 
 Hi Alfrescans.
 
