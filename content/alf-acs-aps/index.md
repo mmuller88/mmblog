@@ -1,9 +1,9 @@
 ---
-title: ACS und APS in Docker Compose
+title: ACS und APS Deployment mit Docker Compose
 show: 'now'
 description: ACS und APS installiert mit Docker Compose
 date: '2020-04-04'
-image: 'swagger.png'
+image: 'compose.jpeg'
 tags: ['de', '2020', 'acs', 'aps', 'docker', 'docker-compose', 'ec2']
 # engUrl: https://martinmueller.dev/cdk-swagger-eng
 pruneLength: 50
@@ -34,10 +34,72 @@ docker login quay.io
 Mehr oder weniger optional aber mein Beispiel im GitHub Repository verwendet Node's NPM für ein CLI Script Tool zum warten bis Alfresco fertig gebooted hat. Also am besten auch Node und NPM installieren.
 
 # Git Vorbereiten
-Natürlich muss erstmal ein Git Repo erstellt werden. Ich hatte meins [alf-acs-aps](https://github.com/mmuller88/alf-acs-aps) genannt. Wie auch in meinem letzten [Alfresco Docker Projekt](https://martinmueller.dev/start-script) empfehle ich den [Docker Alfresco Installer](https://github.com/Alfresco/alfresco-docker-installer) zu verwenden um das noch leere Git Repository vorzubereiten. Wie genau der Docker Alfresco Installer verwendet werden kann, beschreibe ich [hier](https://github.com/mmuller88/alfresco-docker-installer). Beim installieren mit dem Installer darauf achten, dass auch LDAP und ein SMTP Server mit installiert wird.
+Natürlich muss erstmal ein Git Repo erstellt werden. Ich hatte meins [alf-acs-aps](https://github.com/mmuller88/alf-acs-aps) genannt. Wie auch in meinem letzten [Alfresco Docker Projekt](https://martinmueller.dev/start-script) empfehle ich den [Docker Alfresco Installer](https://github.com/Alfresco/alfresco-docker-installer) zu verwenden um das noch leere Git Repository vorzubereiten. Wie genau der Docker Alfresco Installer verwendet werden kann, beschreibe ich [hier](https://github.com/mmuller88/alfresco-docker-installer). Beim installieren mit dem Installer darauf achten, dass auch LDAP und ein SMTP Server mit installiert wird. Falls du nicht mein GithUb Repo verwendest müsstest du nun die APS 1.10 services in das Docker Compose Deployment integrieren. Ich empfehle dir das Deployment in drei Teile aufzuteilen. Alle drei werden in den nächsten Abschnitten erläutert.
 
-# Deployen
-* Local, Ec2 Machine, Kunde VM
+## ACS Deployment
+Zuerst wird ein docker-compose-base.yml File erstellt welcher alle Services beinhaltet die für alle drei Deployments benötigt werden. Das sind in meinem Fall eine openLDAP und postgres Datenbank. Sowie ein Mail Server. Danach wird der ACS Docker Compose File erstellt. Das gesamte deployment lässt sich nun so starten:
+
+```
+docker-compose -f docker-compose-base.yml -f docker-compose-ACS.yml up -d --build
+```
+
+und so stoppen:
+
+```
+docker-compose -f docker-compose-base.yml -f docker-compose-ACS.yml stop
+```
+
+Falls ein kompletter ACS Neustart mit leereren Datenbanken und anderen Storage erwünscht ist einfach diese Befehle ausführen:
+
+```
+docker-compose -f docker-compose-base.yml -f docker-compose-ACS.yml down
+rm -rf data
+rm -rf logs
+```
+
+## APS Deployment
+Das APS Deployment wird folgender Maßen gestartet:
+
+```
+docker-compose -f docker-compose-base.yml -f docker-compose-APS.yml up -d --build
+```
+
+und gestoppt wird es so:
+
+```
+docker-compose -f docker-compose-base.yml -f docker-compose-APS.yml stop
+```
+
+Zum Erasen einfach das Folgende ausführen:
+
+```
+docker-compose -f docker-compose-base.yml -f docker-compose-APS.yml down
+rm -rf data
+rm -rf logs
+```
+
+## ACS und APS Deployment
+Achtung eine Warnung vorweg! Dieses Deployment ist sehr Memoryintensiv. Mindestens 16Gb sollte dein Laptop oder PC besitzen. Alternativ plan ich diese Variante in der Cloud auf EC2 zu deployen.
+
+Und so werden alle Services gestarted:
+
+```
+docker-compose -f docker-compose-base.yml -f docker-compose-ACS.yml -f docker-compose-APS.yml -f docker-compose-Proxy.yml up -d --build
+```
+
+und so gestoppt
+
+```
+docker-compose -f docker-compose-base.yml -f docker-compose-ACS.yml -f docker-compose-APS.yml -f docker-compose-Proxy.yml stop
+```
+
+Und zum runterreißen einfach eingeben:
+
+```
+docker-compose -f docker-compose-base.yml -f docker-compose-ACS.yml -f docker-compose-APS.yml -f docker-compose-Proxy.yml down
+rm -rf data
+rm -rf logs
+```
 
 # Outlook
 * Ec2 Instance für ACS und APS Deployment
@@ -45,7 +107,7 @@ Natürlich muss erstmal ein Git Repo erstellt werden. Ich hatte meins [alf-acs-a
 * Bonus Alfresco AIMS + SAML Amp für Single Sign On
 
 # Zusammenfassung
-...
+Man muss nicht immer gleich die Kubernetes Keule auspacken wenn es um Container Orchestrierung geht. Auch Docker Compose kann hervorragend verwendet werden um Container zu orchestrieren. Es besteht sogar die möglichkeit komplexe Deployments in kleine Teilstücke aufzuteilen, welche nicht den Memory deines Laptops schonen sondern sich auch hervorragend für eine schnelle Iteration bei der Entwicklung eigenen. Also gerne mal ausprobieren ACS und APS mittels Docker Compose zu Deployen. Falls irgendwelche fragen sind, einfach anschreiben.
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
