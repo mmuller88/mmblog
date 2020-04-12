@@ -107,6 +107,9 @@ SSO (Single Sign On) allows you to only have to register once for Alfresco produ
 # Summary
 You don't always have to shoot with the Kubernetes shotgun when it comes to container orchestration. Docker Compose can also be used to orchestrate containers in a simplified manner. There is even the option of dividing complex deployments like that into smaller pieces. That not just saves your memory footprint but is also excellent for fast iterations during the development. So feel free to try it out yourself and deploy ACS and APS using Docker Compose. If there are any questions, just write me.
 
+# Kudos
+To Thijs from the amazing [Alfrescan Discord Channel](https://discord.gg/XGQjUU) for suggesting this kind of Docker Compose deployment split.
+
 To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
 
 I love to work on Content Management Open Source projects. A lot from my stuff you can already use on www.github.com/mmuller88 . If you like my work there and my blog posts, please consider supporting me on Patreon:
