@@ -13,19 +13,52 @@ pruneLength: 50
 
 Hi AWS Fans,
 
-* CDK ist super als infrastruktur Code. Was ist das? Siehe letzten post
-* Test und Produktion Stacks
+Wie gut sich AWS CDK zur Beschreibung in Code der Infrastruktur eignet habe ich ja bereits in einem [vorherigen Beitrag](https://martinmueller.dev/cdk-example) beschrieben. In diesem Beitrag soll es darum gehen wie CDK in einer Test und Produktionsumgebung aussehen könnte. In meinem privaten Projekt habe ich bereits sowas wie eine Produktionsumgebung eingebaut und bin sehr begeistert davon. Kurz gesagt dafür benutze ich CDK's [Multiple Stack](https://docs.aws.amazon.com/cdk/latest/guide/stack_how_to_create_multiple_stacks.html). In den nächsten Abschnitten beschreibe ich wie mein Deployment aussieht.
 
-# Prerequisites
-* AWS ACC ...
-* GitHub
+# CDK Multiple Stack
+Ein CDK Multiple Stack ist ein CDK Deployment welches mehrere Stacks verwaltet. Diese Stacks können in der gleichen oder anderen Region sein oder sogar in anderen AWS accounts. Die unterschiedlichen Stacks können dann einfach bei der Erstellung mit unterschiedlichen Parameter initialisiert werden. Nachfolgend ist ein Beispiel mit zwei Stacks:
 
-# Multistacks
-* Was ist nen Multistack.
-* Beispiel
+```TypeScript
+new MultiStack(app, "EuWest2Prod", {
+    environment: 'prod',
+    env: {
+      region: "eu-west-2",
+      account: 'ABC'
+    },
+    // disable create ec2 instance
+    // createInstances: {
+    //   imageId: 'ami-04d5cc9b88f9d1d39'
+    // },
+    domain: {
+      domainName: 'api.nope.dev',
+      zoneName: 'api.nope.dev.',
+      hostedZoneId: 'AA',
+      certificateArn: 'arn:aws:acm:eu-west-2:ABC:certificate/xyz'
+    }
+  });
+
+new MultiStack(app, "EuWest2", {
+  environment: 'dev',
+  env: {
+    region: 'eu-west-2',
+    account: 'XYZ'
+  },
+  createInstances: {
+    imageId: 'ami-0cb790308f7591fa6'
+  }
+});
+```
+
+Das ist ein Beispiel aus meinem Projekt, allerdings stark anonymisiert. Der erste Stack mit Namen EuWest2Prod beschreibt den Produktionsstack der sogar in einem anderen Account liegt. Der Zweite Stack EuWest2 ist der Teststack. Diese Art und Weise der Parametrisierung lässt sich hervorragend nutzen um Features an und auszuschalten. Im Produktionsstack habe ich mit der Auskommentierung von createInstances das Feature zur Erstellung von Ec2 Instanzen erstmal ausgestellt um Kosten zu sparen. Was ich persönlich wirklich toll an den Multi Stacks finde ist. Auch unterstützt das eine mögliche Migration zu einem anderen AWS Account.
+
+In den nächsten Abschnitten will ich mehr über meinen Test Stack und Produktions Stack für mein Projekt sprechen. Mann muss aber fair erwähnen, dass ich noch keinen wirklichen Produktions Stack habe. Also sprich wirklich Kunden, die meinen Service nutzen. Ich hoffe dieses natürlich bald ändern zu können. Zum jetzigen Zeitpunkt versuche ich Erfahrungen zu sammeln wie ich eine echte Produktion möglichst gut am laufen halten könnte, sprich neue Feature problemlos implementieren. Dafür eignen sich AWS ChangeSets für CloudFormation Stacks sehr gut. Diese ändern den jeweiligen Stack nur mit den erforderlichen Updates. Befor du weiterliest, es macht definitiv Sinn über AWS ChangeSets für CloudFormations sich zu informieren.
 
 # Test Stack
-* Kurz lebende Resourcen zum Geld sparen.
+Teststacks sollten in erster Linie günstig sein. Die Tests sollten ausgeführt worden sein und das Result dem Developer bekannt sein. Und kurz danach sollte der Stack die Ressourcen vernichten. Ist noch eine manuelle Begutachtung des Teststacks erwünscht kann man eine Verzögerung der Vernichtung nach den Tests implementieren.
+
+Und natürlich sollte der Test Stack testen. Was das genau ist hängt von deinem Use Case ab. Bei mir teste ich gegen ein API GateWay welches im Hintergrund mehrere DynamoDB Tabellen, sowie EC2 Instanzen kreiert oder terminiert mittels StepFunctions. Das mache ich mit Postman. Falls dich das Testen mehr interessiert habe ich bereits darüber in meinem [vorherigen Post](https://martinmueller.dev/cdk-example-eng) berichtet.
+
+An sich wars das. Wenn die Testphase erfolgreich war, kann das Update in die Produktions angewandt werden. Das wird im nächsten Abschnitt beschrieben.
 
 # Produktions Stack
 * Andere Regions im gleich account. Aufpassen Regions manchmal unterschiedlich.
