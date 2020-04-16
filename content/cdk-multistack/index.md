@@ -13,10 +13,10 @@ pruneLength: 50
 
 Hi AWS Fans,
 
-Wie gut sich AWS CDK zur Beschreibung in Code der Infrastruktur eignet habe ich ja bereits in einem [vorherigen Beitrag](https://martinmueller.dev/cdk-example) beschrieben. In diesem Beitrag soll es darum gehen wie CDK in einer Test und Produktionsumgebung aussehen könnte. In meinem privaten Projekt habe ich bereits sowas wie eine Produktionsumgebung eingebaut und bin sehr begeistert davon. Kurz gesagt dafür benutze ich CDK's [Multiple Stack](https://docs.aws.amazon.com/cdk/latest/guide/stack_how_to_create_multiple_stacks.html). In den nächsten Abschnitten beschreibe ich wie mein Deployment aussieht.
+Wie gut sich AWS CDK zur Beschreibung in Code der Infrastruktur eignet habe ich ja bereits in einem [vorherigen Beitrag](https://martinmueller.dev/cdk-example) beschrieben. In diesem Beitrag soll es darum gehen wie CDK in einer Test und Produktionsumgebung aussehen könnte. In meinem privaten Projekt habe ich bereits sowas wie eine Produktionsumgebung eingebaut und bin sehr begeistert davon. Kurz gesagt dafür benutze ich CDK's [Multi Stack](https://docs.aws.amazon.com/cdk/latest/guide/stack_how_to_create_multiple_stacks.html). In den nächsten Abschnitten beschreibe ich wie mein Deployment aussieht.
 
-# CDK Multiple Stack
-Ein CDK Multiple Stack ist ein CDK Deployment welches mehrere Stacks verwaltet. Diese Stacks können in der gleichen oder anderen Region sein oder sogar in anderen AWS accounts. Die unterschiedlichen Stacks können dann einfach bei der Erstellung mit unterschiedlichen Parameter initialisiert werden. Nachfolgend ist ein Beispiel mit zwei Stacks:
+# CDK Multi Stack
+Ein CDK Multi Stack ist ein CDK Deployment welches mehrere Stacks verwaltet. Diese Stacks können in der gleichen oder anderen Regionen sein oder sogar in einem anderen AWS accounts. Die unterschiedlichen Stacks können dann einfach bei der Erstellung mit verschiedenen Parameter initialisiert werden. Nachfolgend ist ein Beispiel mit zwei Stacks:
 
 ```TypeScript
 new MultiStack(app, "EuWest2Prod", {
@@ -29,6 +29,7 @@ new MultiStack(app, "EuWest2Prod", {
     // createInstances: {
     //   imageId: 'ami-04d5cc9b88f9d1d39'
     // },
+    cognito: 'true'
     domain: {
       domainName: 'api.nope.dev',
       zoneName: 'api.nope.dev.',
@@ -49,9 +50,9 @@ new MultiStack(app, "EuWest2", {
 });
 ```
 
-Das ist ein Beispiel aus meinem Projekt, allerdings stark anonymisiert. Der erste Stack mit Namen EuWest2Prod beschreibt den Produktionsstack der sogar in einem anderen Account liegt. Der Zweite Stack EuWest2 ist der Teststack. Diese Art und Weise der Parametrisierung lässt sich hervorragend nutzen um Features an und auszuschalten. Im Produktionsstack habe ich mit der Auskommentierung von createInstances das Feature zur Erstellung von Ec2 Instanzen erstmal ausgestellt um Kosten zu sparen. Was ich persönlich wirklich toll an den Multi Stacks finde ist. Auch unterstützt das eine mögliche Migration zu einem anderen AWS Account.
+Das ist ein Beispiel aus meinem Projekt, allerdings stark anonymisiert. Der erste Stack mit Namen EuWest2Prod beschreibt den Produktionsstack der sogar in einem anderen Account liegt. Der Zweite Stack EuWest2 ist der Teststack. Diese Art und Weise der Parametrisierung lässt sich hervorragend nutzen um Features an und auszuschalten. Im Produktionsstack habe ich mit der Auskommentierung von createInstances das Feature zur Erstellung von Ec2 Instanzen erstmal ausgestellt um Kosten zu sparen. Auch unterstützt das eine mögliche Migration zu einem anderen AWS Account.
 
-In den nächsten Abschnitten will ich mehr über meinen Test Stack und Produktions Stack für mein Projekt sprechen. Mann muss aber fair erwähnen, dass ich noch keinen wirklichen Produktions Stack habe. Also sprich wirklich Kunden, die meinen Service nutzen. Ich hoffe dieses natürlich bald ändern zu können. Zum jetzigen Zeitpunkt versuche ich Erfahrungen zu sammeln wie ich eine echte Produktion möglichst gut am laufen halten könnte, sprich neue Feature problemlos implementieren. Dafür eignen sich AWS ChangeSets für CloudFormation Stacks sehr gut. Diese ändern den jeweiligen Stack nur mit den erforderlichen Updates. Befor du weiterliest, es macht definitiv Sinn über AWS ChangeSets für CloudFormations sich zu informieren.
+In den nächsten Abschnitten will ich mehr über meinen Test Stack und Produktions Stack für mein Projekt sprechen. Mann muss aber fairerweise erwähnen, dass ich noch keine wirkliche Produktion habe. Also sprich echte Kunden, die meinen Service nutzen. Ich hoffe dieses natürlich bald ändern zu können. Zum jetzigen Zeitpunkt versuche ich Erfahrungen zu sammeln wie ich eine echte Produktion möglichst gut am laufen halten könnte, sprich neue Features problemlos implementieren. Dafür eignen sich AWS ChangeSets für CloudFormation Stacks sehr gut. Diese ändern den jeweiligen Stack nur mit den erforderlichen Updates. Bevor du weiterliest, es macht definitiv Sinn über AWS ChangeSets für CloudFormations sich zu informieren.
 
 # Test Stack
 Teststacks sollten in erster Linie günstig sein. Die Tests sollten ausgeführt worden sein und das Result dem Developer bekannt sein. Und kurz danach sollte der Stack die Ressourcen vernichten. Ist noch eine manuelle Begutachtung des Teststacks erwünscht kann man eine Verzögerung der Vernichtung nach den Tests implementieren.
@@ -61,8 +62,22 @@ Und natürlich sollte der Test Stack testen. Was das genau ist hängt von deinem
 An sich wars das. Wenn die Testphase erfolgreich war, kann das Update in die Produktions angewandt werden. Das wird im nächsten Abschnitt beschrieben.
 
 # Produktions Stack
-* Andere Regions im gleich account. Aufpassen Regions manchmal unterschiedlich.
-* Anderer Account für Produktion
+Der Produktions Stack ist für die Kunden gedacht. Dort muss als alles tadelos funktionieren und neue Features sollten erst implementiert werden, wenn sie sich im Test Stack bewiesen haben. Auch kann es Sinn machen den Produktions Stack mit etwas veränderten Service Einstellungen zu betreiben. Ein Beispiel dafür wäre, dass ich im Test Stack ja keine wirklich User Verwaltung ggf. mit Cognito brauche, aber im Produktions Stack schon. Somit wird die Komplexität im Test Stack geringer gehalten. Im obigen Snippet habe ich Cognito in der Produktion definiert. Ein weiteres Beispiel wären EC2 Instanzen. Im Test Stack reichen vielleicht kostengünstige EC2 Typen wohingegen in der Produktion stärkere und somit kostenspieligere Instanzen nötig sind.
+
+Es stellt sich nun die Frage wo der Produktions Stack deployed werden sollte. Glücklicherweise bietet uns CDK dort jede Freiheit. Es ist möglich den Stack in der gleichen oder in einer anderen Region, im gleichen Account zu deployen. Auch kann der Produktions Stack in einem anderen Account deployed werden. Dafür müssen dann aber Profiles genutzt werden. Hier ist mal ein Beispiel:
+
+```BASH
+cdk deploy "$STACK_NAME_PRODUCTION" --profile=prod
+```
+
+Dieser Stack wird nun in einem anderen AWS Account deployed. Bisher habe ich mit dieser Art und Weise der Deployments eine gute Erfahrung gesammelt. Ein Nachteil hat diese Art des Deployments allerdings. Da ich nun auf den Profile parameter angewiesen bin, kann ich den gleichen cdk deploy Befehl nicht auch für den Test Stack nutzen und ich muss zwei CDK Befehle ausführen:
+
+```BASH
+cdk deploy "$STACK_NAME_TEST"
+cdk deploy "$STACK_NAME_PRODUCTION" --profile=prod
+```
+
+Es wäre toll wenn ich bei der Definition im Multi Stack einfach den Profil namen angeben könnte. Wirklich schlimm ist dieser Nachteil natürlich nicht, da in einer vernünftigen Pipeline sowieso der Test Stack alleine nur ausgeführt werden sollte und nachdem die Testphase abgeschlossen ist der Produktion Stack deployed wird.
 
 # DevOps Pipeline
 * AWS ClouFormation super geeignet da Stack updates selbständig durchgeführt werden. Im Fall von Fehler automatisch reverted. Muss aber ehrlich sein mein Projekt bisher noch nicht in einer wirklich Produktion.
