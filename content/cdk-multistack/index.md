@@ -9,14 +9,12 @@ tags: ['de', '2020', 'aws', 'lambda', 'cdk', 'production', 'github', 'travis']
 pruneLength: 50
 ---
 
-**UNDER CONSTRUCTION**
-
 Hi AWS Fans,
 
-Wie gut sich AWS CDK zur Beschreibung in Code der Infrastruktur eignet habe ich ja bereits in einem [vorherigen Beitrag](https://martinmueller.dev/cdk-example) beschrieben. In diesem Beitrag soll es darum gehen wie CDK in einer Test und Produktionsumgebung aussehen könnte. In meinem privaten Projekt habe ich bereits sowas wie eine Produktionsumgebung eingebaut und bin sehr begeistert davon. Kurz gesagt dafür benutze ich CDK's [Multi Stack](https://docs.aws.amazon.com/cdk/latest/guide/stack_how_to_create_multiple_stacks.html). In den nächsten Abschnitten beschreibe ich wie mein Deployment aussieht.
+Wie gut sich AWS CDK zur Beschreibung in Code der Infrastruktur eignet habe ich ja bereits in einem [vorherigen Beitrag](https://martinmueller.dev/cdk-example) beschrieben. In diesem Beitrag soll es darum gehen wie CDK in einer Test und Produktionsumgebung aussehen könnte. In meinem privaten Projekt habe ich bereits sowas wie eine Produktionsumgebung eingebaut und bin sehr begeistert davon. Kurz gesagt dafür benutze ich CDK's [Multistack](https://docs.aws.amazon.com/cdk/latest/guide/stack_how_to_create_multiple_stacks.html). In den nächsten Abschnitten beschreibe ich wie mein Deployment aussieht.
 
-# CDK Multi Stack
-Ein CDK Multi Stack ist ein CDK Deployment welches mehrere Stacks verwaltet. Diese Stacks können in der gleichen oder anderen Regionen sein oder sogar in einem anderen AWS accounts. Die unterschiedlichen Stacks können dann einfach bei der Erstellung mit verschiedenen Parameter initialisiert werden. Nachfolgend ist ein Beispiel mit zwei Stacks:
+# CDK Multistack
+Ein CDK Multistack ist ein CDK Deployment welches mehrere Stacks verwaltet. Diese Stacks können in der gleichen oder anderen Regionen sein oder sogar in einem anderen AWS accounts. Die unterschiedlichen Stacks können dann einfach bei der Erstellung mit verschiedenen Parameter initialisiert werden. Nachfolgend ist ein Beispiel mit zwei Stacks:
 
 ```TypeScript
 new MultiStack(app, "EuWest2Prod", {
@@ -77,18 +75,22 @@ cdk deploy "$STACK_NAME_TEST"
 cdk deploy "$STACK_NAME_PRODUCTION" --profile=prod
 ```
 
-Es wäre toll wenn ich bei der Definition im Multi Stack einfach den Profil namen angeben könnte. Wirklich schlimm ist dieser Nachteil natürlich nicht, da in einer vernünftigen Pipeline sowieso der Test Stack alleine nur ausgeführt werden sollte und nachdem die Testphase abgeschlossen ist der Produktion Stack deployed wird.
+Es wäre toll wenn ich bei der Definition im Multistack einfach den Profil namen angeben könnte. Wirklich schlimm ist dieser Nachteil natürlich nicht, da in einer vernünftigen Pipeline sowieso der Test Stack alleine nur ausgeführt werden sollte und nachdem die Testphase abgeschlossen ist der Produktion Stack deployed wird.
 
-# DevOps Pipeline
-* AWS ClouFormation super geeignet da Stack updates selbständig durchgeführt werden. Im Fall von Fehler automatisch reverted. Muss aber ehrlich sein mein Projekt bisher noch nicht in einer wirklich Produktion.
-* Commit to master oder feature branch triggers update / creation
-* Zuerst Test Stack creation dann Tests dann evtl. Manuelle Bestätigung dann Produktion update
+# DevOps Travis Pipeline
+Travis sollte jedem Engineer bekannt sein. Der Free Tier von Travis erlaubt es, wenn dein GitHub Pojekt public ist, darfst du VMs von Travis benutzen. Diese müssen dann lediglich nur noch in der .travis File definiert und konfiguriert werden. Genau das mache ich. Ehrlich gesagt nutze ich Travis sehr stark. Ich beschreibe einfach mal kurz meinen Workflow wenn ich ein neues Feature kreiere:
+
+1) Code Anpassungen von neue Feature in master schreiben.
+2) Ggf. neuen Test in Postman hinzufügen.
+3) master committen --> Travis build wird getriggert.
+4) Travis schlägt fehl oder passt.
+5) Wenn es fehl geschlagen ist, reverted der Stack automatisch und ich werte die Logs aus um zu sehen was schief lief. Zurück zu schritt 1).
+6) Wenn es passt ist auf allen Stacks das neue Feature und ich kann es jetzt manuell testen.
+
+Das ist sehr genial da ich weniger Interaktionen ausführen muss um dieses neue Feature zu implementieren. Der gesamt Build dauert in etwa 10 Minuten und ich kann dann 10 Minuten einfach was anderes machen. Diese Art der Pipeline hat mir ein sehr schnelle Iteration von neuen Features gebracht. Ich bin regelrecht baff was heutzutage möglich ist mir nur einem DevOps. Was ich alleine leisten kann, dafür hätte man vor 5 Jahren garantiert 10 Leute anstatt nur einem gebraucht. 
 
 # Zusammenfassung
-* CDK Multistack super!
-
-# Questions: 
-Multistack von CDK oder von CloudFormation? 
+CDK's Multistacks sind eine tolle Art und Weise mehrere Stacks wie einen Teststack und Produktionsstack zu verwalten. Für mein kleines Projekt habe ich tolle Erfahrungen mit dieser Art der Stackverwaltung gesammelt und hier beschrieben. Bisher hat auch komplett ein relative kleiner Travis build ausgereicht um eine nützliche Pipeline zu kreieren. Ich erwäge es eventuell in AWS CodePipeline reinzuschauen ob es mir Vorteile bieten könnte. Ich hoffte euch hat meine kleine Zusammenfassung gefallen :)
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
