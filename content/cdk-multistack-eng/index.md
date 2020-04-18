@@ -13,7 +13,7 @@ pruneLength: 50
 
 Hi AWS Fans,
 
-I have already described how well AWS CDK is suitable for describing in infrastructure code in a [previous post](https://martinmueller.dev/cdk-example). This article is about how CDK could look in a test and production environment. In my private project I have already implemented something like a production environment and I am very enthusiastic about it. In short, I use CDK's [Multistack](https://docs.aws.amazon.com/cdk/latest/guide/stack_how_to_create_multiple_stacks.html). In the next sections I describe what my deployment looks like.
+I have already described how well AWS CDK is suitable for describing in infrastructure code in a [previous post](https://martinmueller.dev/cdk-example-eng). This article is about how CDK could look in a test and production environment. In my private project I have already implemented something like a production environment and I am very enthusiastic about it. In short, I use CDK's [Multistack](https://docs.aws.amazon.com/cdk/latest/guide/stack_how_to_create_multiple_stacks.html). In the next sections I describe what my deployment looks like.
 
 # CDK Multistack
 A CDK multistack is a CDK deployment that manages multiple stacks. These stacks can be in the same or different regions, or even in a different AWS account. The different stacks can then be easily initialized with different parameters during creation. Here is an example with two stacks:
@@ -57,7 +57,7 @@ In the next sections, I want to talk more about my test stack and production sta
 # Test stack
 Test stacks should primarily be cheap. The tests are carried out and the log result should be easily accessible to the developer. Shortly afterwards, the stack should destroy the resources. If a manual assessment of the test stack is still desired, a delay in destruction can be implemented after the tests.
 
-And of course the test stack should test. What exactly that is depends on your use case. I test against an API GateWay and its endpoints. In the background, several DynamoDB tables and EC2 instances are created or terminated using step functions. I do that with Postman. If you are more interested in testing, I have already reported about it in my [previous post](https://martinmueller.dev/cdk-example).
+And of course the test stack should test. What exactly that is depends on your use case. I test against an API GateWay and its endpoints. In the background, several DynamoDB tables and EC2 instances are created or terminated using step functions. I do that with Postman. If you are more interested in testing, I have already reported about it in my [previous post](https://martinmueller.dev/cdk-example-eng).
 
 In itself, that's it. If the test phase was successful, the update can be applied to production. This is described in the next section.
 
