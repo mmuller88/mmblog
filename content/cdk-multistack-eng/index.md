@@ -5,18 +5,16 @@ show: 'no'
 date: '2020-04-19'
 image: 'cloud.jpg'
 tags: ['eng', '2020', 'aws', 'lambda', 'cdk', 'production', 'github', 'travis']
-engUrl: https://martinmueller.dev/cdk-multistack
+gerUrl: https://martinmueller.dev/cdk-multistack
 pruneLength: 50
 ---
 
-**UNDER CONSTRUCTION**
-
 Hi AWS Fans,
 
-I have already described how well AWS CDK is suitable for describing in infrastructure code in a [previous post](https://martinmueller.dev/cdk-example-eng). This article is about how CDK could look in a test and production environment. In my private project I have already implemented something like a production environment and I am very enthusiastic about it. In short, I use CDK's [Multistack](https://docs.aws.amazon.com/cdk/latest/guide/stack_how_to_create_multiple_stacks.html). In the next sections I describe what my deployment looks like.
+[Last time](https://martinmueller.dev/cdk-example-eng) I described how well AWS CDK is suited for describing infrastructure as code. This article is about how CDK could look in a test and production environment. In my private project I have already implemented something like a production environment and I am very enthusiastic about it. In short, I use CDK's [Multistack](https://docs.aws.amazon.com/cdk/latest/guide/stack_how_to_create_multiple_stacks.html). In the next sections I describe how my deployment looks like.
 
 # CDK Multistack
-A CDK multistack is a CDK deployment that manages multiple stacks. These stacks can be in the same or different regions, or even in a different AWS account. The different stacks can then be easily initialized with different parameters during creation. Here is an example with two stacks:
+A CDK multistack is a CDK deployment that manages multiple stacks. These stacks can be in the same or different regions, or even in a different AWS account. The different stacks can then be easily initialized with different parameters before creation. Here is an example with two stacks:
 
 ```TypeScript
 new MultiStack(app, "EuWest2Prod", {
@@ -50,19 +48,19 @@ new MultiStack(app, "EuWest2", {
 });
 ```
 
-This is a small excerpt from my project. The first stack called EuWest2Prod describes the production stack, which is even in another account. The second stack EuWest2 is the test stack. This type of parameterization can be used to switch features on and off. In the production stack, by commenting out createInstances, I first issued the feature for creating Ec2 instances in order to save costs. The parameterization also supports simple migration from one AWS account to another.
+This is a small excerpt from my project. The first stack called EuWest2Prod describes the production stack, which is even in another account. The second stack EuWest2 is the test stack. This type of parameterization can be used to turn features on and off. In the production stack, by commenting out createInstances, I disabled the feature to create Ec2 instances in order to save costs. The parameterization also supports simple migration from one AWS account to another.
 
-In the next sections, I want to talk more about my test stack and production stack for my project. But you have to mention fairly that I don't have a real production yet. So speak to real customers who use my service. I hope to be able to change this soon, of course. At the moment I am trying to gain experience on how I could keep a real production running as well as possible, i.e. implement new features without any problems. AWS ChangeSets for cloud formation stacks are very suitable for this. These only change the respective stack with the necessary updates. Before you read on, it definitely makes sense to learn about AWS ChangeSets for CloudFormations.
+In the next sections, I want to talk more about my test stack and production stack. But I have to mention fairly that I don't have a real production yet. So to speak real customers who use my service. I hope to be able to change this soon in a closed beta version. At the moment I am trying to gain experience on how I could keep a real production running as good as possible, i.e. implement seamlessly new features. AWS ChangeSets for cloud formation stacks are very suitable for that. These only change the respective stack with the necessary updates. Before you continue reading, I definitely recommend to learn about AWS ChangeSets for CloudFormations.
 
-# Test stack
-Test stacks should primarily be cheap. The tests are carried out and the log result should be easily accessible to the developer. Shortly afterwards, the stack should destroy the resources. If a manual assessment of the test stack is still desired, a delay in destruction can be implemented after the tests.
+# Test Stack
+Test stacks should be primarily cheap. The tests are carried out and the log result should be easily accessible to the developer. Shortly afterwards, the stack should destroy the resources to save money. If a manual assessment of the test stack is still desired afterwards, a delay in destruction can be implemented. I did that for the Ec2 instances which terminate themself after 55 minutes.
 
-And of course the test stack should test. What exactly that is depends on your use case. I test against an API GateWay and its endpoints. In the background, several DynamoDB tables and EC2 instances are created or terminated using step functions. I do that with Postman. If you are more interested in testing, I have already reported about it in my [previous post](https://martinmueller.dev/cdk-example-eng).
+And of course the test stack should test. What exactly that is depends on your use case. I test against an API GateWay and its endpoints. In the background, several DynamoDB tables and EC2 instances are created or terminated using step functions. I do that with Postman. If you are more interested in testing, I have already written about it in one of my [previous post](https://martinmueller.dev/cdk-example-eng).
 
 In itself, that's it. If the test phase was successful, the update can be applied to production. This is described in the next section.
 
 # Production Stack
-The production stack is intended for customers. Everything has to work as well as possible there and new features should only be implemented after they have been proven in the test stack. It can also make sense to operate the production stack with slightly changed service settings. An example of this would be that I don't really need user administration with Cognito in the test stack, but I do in the production stack. This keeps the complexity in the test stack lower. In the snippet above, I defined cognito in production. Another example would be EC2 instances. In the test stack, inexpensive EC2 types may be sufficient, whereas stronger and therefore more expensive instances are required in production.
+The production stack is intended for customers. Everything has to work as well as possible there and new features should only be implemented after they have been proven in the test stack. It can also make sense to operate the production stack with slightly changed service settings. An example of this would be that I don't really need user administration with Cognito in the test stack, but I do in the production stack. This keeps the complexity in the test stack lower. In the snippet above, I defined cognito in production. Another example would be EC2 instances. In the test stack, low cost EC2 types are fine, but stronger and therefore more expensive instances are required in production, usually.
 
 The question now is where the production stack should be deployed. Fortunately, CDK gives us every freedom there. It is possible to deploy the stack in the same or in a different region, in the same account. The production stack can also be deployed in another account. Profiles have to be used for this. Here is an example:
 
@@ -77,7 +75,7 @@ cdk deploy "$ STACK_NAME_TEST"
 cdk deploy "$ STACK_NAME_PRODUCTION" --profile = prod
 ```
 
-It would be great if I could simply specify the profile name when defining it in the multistack. This disadvantage is of course not really bad, since in a reasonable pipeline the test stack should only be carried out on its own and after the test phase the production stack is deployed.
+It would be great if I could simply specify the profile name when defining it in the multistack. This disadvantage is of course not really bad, since in a proper pipeline the test stack should run first and after passed test an a manual approval the production stack is deployed.
 
 **EDIT:** I received feedback that there is already a workaround for this in the npm registry: https://github.com/hupe1980/cdk-multi-profile-plugin
 
@@ -89,9 +87,9 @@ Every developer should be familiar with Travis. The Travis Free Tier allows you 
 3) master commit -> Travis build is triggered.
 4) Travis fails or passes.
 5) If it failed, the stack reverted automatically and I evaluated the logs to see what went wrong. Back to step 1).
-6) If it fits, the new feature is on all stacks and I can now test it manually.
+6) If it passed, the new feature is on all stacks and I can now test it manually.
 
-This is very awesome because I have to do fewer interactions to implement this new feature. The entire build takes about 10 minutes and then I can just do something else for 10 minutes. This type of pipeline has brought me a very fast iteration of new features. I am literally flabbergasted what is possible today with just a DevOps. What I can do alone would have required 10 people 5 years ago instead of just one.
+This is very awesome because I have to do fewer interactions to implement this new feature. The entire build takes about 10 minutes and then I can just do something else for 10 minutes. This type of pipeline has brought me very quick iterations of new features. I am literally flabbergasted what is possible today with just a DevOps. What I can do alone would have required about 10 people 5 years ago instead of just one.
 
 # Summary
 CDK's multistacks are a great way to manage multiple stacks like a test stack and production stack. For my small project I have great experiences with this type of stack management and described it here. So far, a relatively small Travis build has been sufficient to create a useful pipeline. I am considering looking into AWS CodePipeline to see if it could benefit me. I hope you enjoyed my little summary :)
