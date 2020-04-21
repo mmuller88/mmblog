@@ -11,18 +11,30 @@ pruneLength: 50
 
 Hi Alfrescans.
 
-* Gute 4 Wochen her dass ich angefangen habe den Alfresco Backend Provisioner zu implementieren
-* Damit kann jeder schnell und einfach Alfresco Backends für sich und seinte community erstellen
+In den letzten Wochen habe ich während meiner Freizeit an einem interessanten Projekt gearbeitet. Ich habe zwar noch nicht wirklich einen Namen gefunden aber es ist sowas wie der Alfresco Backend Provisioner. Damit kann jeder schnell und einfach Alfresco Backends für sich und seine Community erstellen. In den nächsten Abschnitten werde ich genauer von meiner Idee berichten sowie welche Technologien ich dafür verwendet habe.
 
 
 # Zielgruppe
-* Zielgruppe sind kleine Communities wie Vereine. 
-* Aktuell Corona. Könnte helfen bei Digitalisierung.
-* Konkretes Beispiel Kirchgemeide
+Da Alfresco eher auf große Kundschaft zielt, also große Gruppen wie Unternehmen mit mehreren hundert Angestellten, sehe ich einen klaren Bedarf bei den eher kleineren Gruppen bishin zu Einzelpersonen. Das ist ein eher Netflix oder Uber ähnlicher Ansatz bei dem günstige Services angeboten werden. Ich habe sogar genau einen passenden potentiellen Kunden in meiner Umgebung. Ich bin Mitglied in einer Kirchgemeinde. Nun würde sich gerne die Kirchgemeinde modernisieren auch hin in Richtung Digitalisierung. So werden zum Beispiel Videos von Gottesdienste einfach auf Youtube hochgeladen oder gemachte Bilder landen irgendwo in Dropbox. Das ist überhaupt nicht kollaborationsfreundlich und ich sehe die Alfresco Produkte in der Lage viele solcher Probleme lösen zu können. Mit sicherheit kennst auch auch du Vereine in deiner Umgebung die von Alfresco profitieren könnten.
 
-# Verwendete Technologies
+Auch könnte das schnelle bereitstellten von Alfresco Backends Communites bei der zwingend erforderlichen Digitalisierung wärend der Coronakrise helfen. Es sollte sogut es geht vermieden werden Dokumente in echt von Person zu Person auszutauschen. Gerne würde ich meinen Beitrag leisten bei der Pandemie zu helfen und vielleicht ist der Alfresco Backend Provisioner ja eine Möglichkeit
+
+ Herausvordernd wird dan natürlich den monatlichen Preis so gering wie möglich zu halten und die Kostenvorteile der Cloud so gut leveragen zu können wie möglich. Ein paar Ideen die ich diesbezüglich bereits habe und erforschen werde sind Reserved Instances, Spot Instances, S3 als Objektspeicher, Pay as you go für die Alfresco Instanzen.
+
+# Verwendete Technologien
+Selbst wenn der Alfresco Backend Provisioner nicht so erfolgreich wird wie ich es gerne hätte, macht das überhaupt nichts da ich im Zuge der Implementierung viele neue tolle und moderne Technologien erlernt habe. Ich versuche die verwendeten Technologien aufzuteilen in Backend, DevOps Pipeline und Frontend
+
+## Backend
+Die Alfresco Instanzen werden mit Hilfe von Docker Compose, welche ich mit dem [Alfresco Docker Installer](https://github.com/Alfresco/alfresco-docker-installer) erstellt habe, betrieben. Diese laufen dann in AWS Ec2 Instanzen. Bis hierhin ist noch nix spannendes. Allerding mache ich diese Kreierung der Instanzen so dynamisch und flexible wie nur möglich. Ich habe nämlich ein AWS Api GateWay erstellt welches autonom in der Lage ist mittel API Requests vom Kunden, dies Ec2 Instanzen zu starten, stoppen und terminieren. 
+
+Nachdem die Instanz gestartet ist, erhält der Kunde eine Url die ihm zum Alfresco Backend bringt. Hinter dem Api Gateway arbeiten außerdem noch eine vielzahl an Lambdas, Step Function, Dynamo DB Tables und S3 Buckets um diese zu ermöglichen. All das ist mit Infrastruktur als Code in AWS CDK verfasst. Als Programmiersprache für CDK und den Lambdas verwende ich TypeScript. TypeScript habe ich wärend dieses Projekts lieben gelernt und es ermöglicht mir ein sehr schnelles Entwickeln des Alfresco Backend Provisioner.
+
+## DevOps Pipeline
+
+## Frontend
 * AWS CDK, Cloudformation, Lambdas, Step Functions for orchestrating, DynamoDB.
 * Pipeline CDK + Travis
+* Alfresco Docker Installer für Docker Compose Deployments. Plan regemäßiges Contributen.
 
 # Wie funktionierts?
 * Kunde äußert Wunsch via REST API und provisioner wird versuchen den Wunsch zu folgen. Ähnlich Kubernetes wo auch über Manifeste spezifiziert werden wie die Orchestrierung aussehen soll.
@@ -34,6 +46,10 @@ Hi Alfrescans.
 	"customName": "Alf Backend 1"
 }
 ```
+
+* AlfType Erklärung. Bisher nur
+  - alfType 1: m4.xlarge 
+  - alfType 2: m4.2xlarge
 * Graphische UI kommt noch
 
 # Closed Beta
