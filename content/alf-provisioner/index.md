@@ -25,16 +25,27 @@ Auch könnte das schnelle bereitstellten von Alfresco Backends Communites bei de
 Selbst wenn der Alfresco Backend Provisioner nicht so erfolgreich wird wie ich es gerne hätte, macht das überhaupt nichts da ich im Zuge der Implementierung viele neue tolle und moderne Technologien erlernt habe. Ich versuche die verwendeten Technologien aufzuteilen in Backend, DevOps Pipeline und Frontend
 
 ## Backend
-Die Alfresco Instanzen werden mit Hilfe von Docker Compose, welche ich mit dem [Alfresco Docker Installer](https://github.com/Alfresco/alfresco-docker-installer) erstellt habe, betrieben. Diese laufen dann in AWS Ec2 Instanzen. Bis hierhin ist noch nix spannendes. Allerding mache ich diese Kreierung der Instanzen so dynamisch und flexible wie nur möglich. Ich habe nämlich ein AWS Api GateWay erstellt welches autonom in der Lage ist mittel API Requests vom Kunden, dies Ec2 Instanzen zu starten, stoppen und terminieren. 
+Die Alfresco Instanzen werden mit Hilfe von Docker Compose, welche ich mit dem [Alfresco Docker Installer](https://github.com/Alfresco/alfresco-docker-installer) erstellt habe, betrieben. Diese laufen dann in AWS Ec2 Instanzen. Bis hierhin ist noch nix spannendes. Allerding mache ich diese Kreierung der Instanzen so dynamisch und flexible wie nur möglich. Ich habe nämlich ein AWS Api GateWay erstellt welches autonom in der Lage ist mittel API Requests vom Kunden, dies Ec2 Instanzen zu starten, stoppen und terminieren.
 
-Nachdem die Instanz gestartet ist, erhält der Kunde eine Url die ihm zum Alfresco Backend bringt. Hinter dem Api Gateway arbeiten außerdem noch eine vielzahl an Lambdas, Step Function, Dynamo DB Tables und S3 Buckets um diese zu ermöglichen. All das ist mit Infrastruktur als Code in AWS CDK verfasst. Als Programmiersprache für CDK und den Lambdas verwende ich TypeScript. TypeScript habe ich wärend dieses Projekts lieben gelernt und es ermöglicht mir ein sehr schnelles Entwickeln des Alfresco Backend Provisioner.
+Nachdem die Instanz gestartet ist, erhält der Kunde eine Url die ihm zum Alfresco Backend bringt. Hinter dem Api Gateway arbeiten außerdem noch eine vielzahl an Lambdas, Step Functions, Dynamo DB Tables und S3 Buckets um diese zu ermöglichen. All das ist mit Infrastruktur als Code in AWS CDK verfasst. Als Programmiersprache für CDK und den Lambdas verwende ich TypeScript. TypeScript habe ich wärend dieses Projekts lieben gelernt und es ermöglicht mir ein sehr schnelles Entwickeln des Alfresco Backend Provisioner. Auch wird mittels CDK ein Swagger File erzeugt, welches als UI und Client Library für das Frontent gilt. Nähere wie man Swagger lückenlos in CDK einbindet habe ich [ein diesem Beitrag beschrieben](https://martinmueller.dev/cdk-swagger).
 
 ## DevOps Pipeline
+Mit DevOps Pipeline meine ich den Prozess vom implementieren neuer Features bis hin zur Production. Diese Wege können sehr vielfältig sein. Es hat sich allgemein aber eingestellt soviel wie möglich automatisieren zu lassen. Bei meiner Pipeline habe ich einen sehr hohen Automatisierungsgrade geschafft. Ich muss quasi nur nach master pushen, dann wird ein Teststack aufgebaut und danach Postmantests gegen das API GateWay durchgeführt. Wenn die tests erfolgreich waren wird der Produktionsstack geupdated. Dieses Verhalten kann ich noch leicht beeinflussen im Code selber indem ich folgende Variablen setze:
+
+```YAML
+env:
+  destroyBefore: true
+  deploy: true
+  updateProduction: true
+  destroyAfter: true
+```
+
+Auch nutze ich AWS CDK welches mir erlaubt per TypeScript den Test- und Produktionsstack zu definieren. Näheres darüber kann in meinem vorherigen Post nachgelesen werden [CDK Multistack](https://martinmueller.dev/cdk-multistack) oder [CDK allgemein](http://martinmueller.dev/cdk-example). Travis und AWS CDK finde ich eine geniale Kombination
 
 ## Frontend
-* AWS CDK, Cloudformation, Lambdas, Step Functions for orchestrating, DynamoDB.
-* Pipeline CDK + Travis
-* Alfresco Docker Installer für Docker Compose Deployments. Plan regemäßiges Contributen.
+Das Frontend ist, verglichen mit dem Backend, noch sehr bescheidend. Das liegt zu einem daran das ich noch viel zu lernen habe im Frontend aber auch daran, dass sich das Backend stark entwickelt und ich nicht jedesmal UI Components neu anpassen möchte. Meine Wahl der Technologien sind React und TypeScript. React besticht durch eine reiche Auswahl an schönen Components und TypeScript ist eine geniale Sprache. Um TypeScript kurz zu beschreiben es nimmt aus Java und JavaScript nur das beste. Am besten finde ich die Möglichkeit Types zu verwenden. Das dient als Dokumentation und ich schaffe Ordnung im eher Typlosen Dschungel von JavaScript. Auch ist das Nullhandling bzw. Undefinedhandling von TypeScript super.
+
+Darüber hinaus habe ich mich entschlossen den OpenAPI UI explorer als meine UI zu verwenden. Das hat einfach den super Vorteil, dass quasi die UI Components nur aufgrund des Swagger Files gerendert werden und ich nicht selber Hand anlegen muss. Quasi automatisch generierte Components.
 
 # Wie funktionierts?
 * Kunde äußert Wunsch via REST API und provisioner wird versuchen den Wunsch zu folgen. Ähnlich Kubernetes wo auch über Manifeste spezifiziert werden wie die Orchestrierung aussehen soll.
@@ -53,20 +64,14 @@ Nachdem die Instanz gestartet ist, erhält der Kunde eine Url die ihm zum Alfres
 * Graphische UI kommt noch
 
 # Closed Beta
-* Suche feedback
-* Bei Intresse bitte melden
+Ich danke dir soweit schonmal, dass du bis hierhin gelesen hast. Nun würde ich gerne bald den Alfresco Backend Provisioner der Öffentlichkeit zu Verfügung stellen wollen. Dafür habe ich mir gedacht eventuell erstmal eine Closed Bete zu veranstalten. So können schon baliding Interessierte den Provisioner ausprobieren und sich gg. Partnerschaften herauskristallisieren lassen. Auch würde es mir wertfollen Feedback geben, was ich in Zukunft noch implementieren und prioritisieren sollte. Bei Interesse bitte schreibt mir und ich erstelle dann euren Zugangsaccounts. Alles was ich brauch ist die Email Adresse und der gewünschte User Name.
 
 # Geplante Features
-* User kann Instanz stoppen und starten
-* Einfach upgraden zu nem anderen alfType
-* Automated Backup capabilities
-* Free Tier
-* SSL using Let's Encrypt
-* APS, ACS Enterprise builds
-* Onboarding Layer For ACA
+Bereits jetzt sind viele Features geplant die dem Kunden ermöglichen Geld zu sparen, den Umgang mit den Alfresco Produkten erleichtern und das Backend sicherer machen. Der Kunde soll in der Lage sein die Intanzen stoppen und starten zu können. Wenn die Instanz gestopp ist, braucht der Kunde nicht mehr für den Compute zu bezahlen sondern nur noch für den Storage oder evtl. garnicht mehr. Auch nützlich wäre eine Erweiterung zur automatischen Erstellung von Backups. Dafür werde ich mir die interessante Arbeit von Tony mit [Alfresco BART](https://github.com/toniblyx/alfresco-backup-and-recovery-tool). Das würde es auch ermöglichen zu anderen alfTypes upzugraden.
+
+Bisher ist noch kein HTTPS zum Proxy der Instanzen eingerichtet. Ich plan dafür die Zertifikate bereitgestellt von Let's Encrypt. Dafür muss man einfach ein Docker Companien erstellen, welcher die Zertifikate Verwaltung übernimmt. Auch sollte es so möglich sein die Zertifikate automatisch vor Ablauf erneuern zu lassen. Bisher ist nur ACS Community eingerichtet aber ich plan auch andere Produkte von Alfresco wie ACS Enterprise oder APS anzubieten. Auch denke ich über einen Onboarding Layer für ACA nach.
 
 # Zusammenfassung
-Der Alfresco Provisioner
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
