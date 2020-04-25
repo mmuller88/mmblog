@@ -2,7 +2,7 @@
 title: Der Alfresco Backend Provisioner
 show: 'no'
 description: Über die Closed Beta meines CDK Backends
-date: '2020-04-25'
+date: '2020-04-27'
 image: 'prov.png'
 tags: ['de', '2020', 'acs', 'aps', 'docker', 'docker-compose', 'ec2']
 engUrl: https://martinmueller.dev/alf-provisioner-eng
@@ -13,9 +13,8 @@ Hi Alfrescans.
 
 In den letzten Wochen habe ich während meiner Freizeit an einem interessanten Projekt gearbeitet. Ich habe zwar noch nicht wirklich einen Namen gefunden aber es ist sowas wie der Alfresco Backend Provisioner. Damit kann jeder schnell und einfach Alfresco Backends für sich und seine Community erstellen. In den nächsten Abschnitten werde ich genauer von meiner Idee berichten sowie welche Technologien ich dafür verwendet habe.
 
-
 # Zielgruppe
-Da Alfresco eher auf große Kundschaft zielt, also große Gruppen wie Unternehmen mit mehreren hundert Angestellten, sehe ich einen klaren Bedarf bei den eher kleineren Gruppen bishin zu Einzelpersonen. Das ist ein eher Netflix oder Uber ähnlicher Ansatz bei dem günstige Services angeboten werden. Ich habe sogar genau einen passenden potentiellen Kunden in meiner Umgebung. Ich bin Mitglied in einer Kirchgemeinde. Nun würde sich gerne die Kirchgemeinde modernisieren auch hin in Richtung Digitalisierung. So werden zum Beispiel Videos von Gottesdienste einfach auf Youtube hochgeladen oder gemachte Bilder landen irgendwo in Dropbox. Das ist überhaupt nicht kollaborationsfreundlich und ich sehe die Alfresco Produkte in der Lage viele solcher Probleme lösen zu können. Mit sicherheit kennst auch auch du Vereine in deiner Umgebung die von Alfresco profitieren könnten.
+Da Alfresco die Firma eher auf große Kundschaft zielt, also große Gruppen wie Unternehmen mit mehreren hundert Angestellten, sehe ich auch einen klaren Bedarf bei den eher kleineren Gruppen bishin zu Einzelpersonen. Ich habe sogar genau ein gutes Beispiel aus meiner näheren Umgebung. Ich bin Mitglied in einer Kirchgemeinde. Nun würde sich die Kirchgemeinde gerne modernisieren auch hin in Richtung Digitalisierung. So werden zum Beispiel Videos von Gottesdienste einfach auf Youtube hochgeladen oder gemachte Bilder landen irgendwo in Dropbox. Das sind zwar kostengünstige, schnelle und einfache Lösungen aber nicht sehr Kollaborationsfreundlich. Ich sehe die Alfresco Produkte in der Lage einer Gruppe wie meiner Kirchengemeinde zu helfen, effizienter digitalen Content zu verwalten. Mit sicherheit kennst auch auch du Vereine in deiner Umgebung die von Alfresco profitieren könnten.
 
 Auch könnte das schnelle bereitstellten von Alfresco Backends Communites bei der zwingend erforderlichen Digitalisierung wärend der Coronakrise helfen. Es sollte sogut es geht vermieden werden Dokumente in echt von Person zu Person auszutauschen. Gerne würde ich meinen Beitrag leisten bei der Pandemie zu helfen und vielleicht ist der Alfresco Backend Provisioner ja eine Möglichkeit
 
@@ -45,23 +44,26 @@ Auch nutze ich AWS CDK welches mir erlaubt per TypeScript den Test- und Produkti
 ## Frontend
 Das Frontend ist, verglichen mit dem Backend, noch sehr bescheidend. Das liegt zu einem daran das ich noch viel zu lernen habe im Frontend aber auch daran, dass sich das Backend stark entwickelt und ich nicht jedesmal UI Components neu anpassen möchte. Meine Wahl der Technologien sind React und TypeScript. React besticht durch eine reiche Auswahl an schönen Components und TypeScript ist eine geniale Sprache. Um TypeScript kurz zu beschreiben es nimmt aus Java und JavaScript nur das beste. Am besten finde ich die Möglichkeit Types zu verwenden. Das dient als Dokumentation und ich schaffe Ordnung im eher Typlosen Dschungel von JavaScript. Auch ist das Nullhandling bzw. Undefinedhandling von TypeScript super.
 
-Darüber hinaus habe ich mich entschlossen den OpenAPI UI explorer als meine UI zu verwenden. Das hat einfach den super Vorteil, dass quasi die UI Components nur aufgrund des Swagger Files gerendert werden und ich nicht selber Hand anlegen muss. Quasi automatisch generierte Components.
+Darüber hinaus habe ich mich entschlossen den OpenAPI UI Explorer als meine UI zu verwenden. Das hat einfach den super Vorteil, dass quasi die UI Components nur aufgrund des Swagger Files gerendert werden und ich nicht selber Hand anlegen muss. Quasi automatisch generierte Components.
 
 # Wie funktionierts?
-* Kunde äußert Wunsch via REST API und provisioner wird versuchen den Wunsch zu folgen. Ähnlich Kubernetes wo auch über Manifeste spezifiziert werden wie die Orchestrierung aussehen soll.
+Das Provisioning der Alfresco Instanzen geschieht via REST API. Der Kunde logt sich dafür auf der Website ein, erhält dann ein OAUTH Token und kann damit dann neue Alfresco Instanzen erstellen, alte abrufen und ändern. Dadurch dass ich den OpanAPI UI Explorer benutze, erhält der Kunde genauste Informationen wie die API zu bedienen ist, also welche Parameter in den Requests und Response zu setzen bzw. zu erwarten sind.
 
+Nachfolgend list ich wie zum Beispiel der Body im POST Request ist zum Erstellen einer neuen Instanz:
 ```JSON
 {
-	"alfUserId": "alfresco",
+	"userId": "alfresco",
 	"alfType": 1,
 	"customName": "Alf Backend 1"
 }
 ```
 
-* AlfType Erklärung. Bisher nur
-  - alfType 1: m4.xlarge 
-  - alfType 2: m4.2xlarge
-* Graphische UI kommt noch
+Die userId ist lediglich der Username im System und customName ein Spitzname für das Alfresco Backend kreiert mit dem Provisioner. AlfType beschreibt den Typ des Alfresco Backends. Dieser setzt sich zusammen aus einem Alfresco Docker Compose Repository und dem Typen den Ec2 VM. Das alles ist variable hinterlegt in einer Tabelle, welche in Zukunft dem Anwender ersichtlich gemacht werden soll. Zurzeit befinden sich lediglich zwei Typen in der Tabelle:
+
+* alfType 1: ACS Community Docker Compose X m4.xlarge 
+* alfType 2: ACS Community Docker Compose X m4.2xlarge
+
+Das existierende ACS Community Docker Compose ist zurzeit noch auf private gestellt und beinhaltet ACS Community und alle Komponenten installiert mit dem [Alfresco Docker Installer](https://github.com/Alfresco/alfresco-docker-installer). Natürlich ist geplant dieses Angebot in Zukunft weit auszubreiten.
 
 # Closed Beta
 Ich danke dir soweit schonmal, dass du bis hierhin gelesen hast. Nun würde ich gerne bald den Alfresco Backend Provisioner der Öffentlichkeit zu Verfügung stellen wollen. Dafür habe ich mir gedacht eventuell erstmal eine Closed Bete zu veranstalten. So können schon baliding Interessierte den Provisioner ausprobieren und sich gg. Partnerschaften herauskristallisieren lassen. Auch würde es mir wertfollen Feedback geben, was ich in Zukunft noch implementieren und prioritisieren sollte. Bei Interesse bitte schreibt mir und ich erstelle dann euren Zugangsaccounts. Alles was ich brauch ist die Email Adresse und der gewünschte User Name.
