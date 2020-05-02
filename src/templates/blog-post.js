@@ -54,7 +54,7 @@ function BlogPost(props) {
               <div>
                   <span>Tagged in </span>
                   {tags.map((tag, i) => (
-                      <a href={`/${tag}`} key={i} style={{ marginLeft: "10px" }} >{tag}</a>
+                      <a href={`/tags/${tag}`} key={i} style={{ marginLeft: "10px" }} >{tag}</a>
                   ))}
               </div>
               <Share title={title} url={url} pathname={props.location.pathname} />
