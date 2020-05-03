@@ -4,7 +4,7 @@ show: 'no'
 description: Über die Closed Beta meines CDK Backends
 date: '2020-05-02'
 image: 'prov.png'
-tags: ['de', '2020', 'acs', 'alfresco, 'docker', 'docker-compose', 'ec2', 'swagger', 'cdk']
+tags: ['de', '2020', 'acs', 'alfresco', 'docker', 'docker-compose', 'ec2', 'swagger', 'cdk']
 engUrl: https://martinmueller.dev/alf-provisioner-eng
 pruneLength: 50
 ---
