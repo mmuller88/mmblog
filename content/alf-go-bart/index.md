@@ -8,7 +8,7 @@ tags: ['de', '2020', 'acs', 'backup',  'docker', 'docker-compose', 'travis']
 # engUrl: https://martinmueller.dev/alf-go-bart-eng
 pruneLength: 50
 ---
-
+**UNDER CONSTRUCTION**
 Hi Alfrescans.
 
 Backups von ACS zu machen und auch diese gegebenfalls wieder einzuspielen war noch nie leicht bei Alfresco. Eine genau Anleitung wie es gemacht werden sollte findet ihr in [Alfresco's Dokumentation](https://docs.alfresco.com/6.2/concepts/backup-intro.html). Da liegt es natürlich nahe, dass man sich ein gewisses Tooling wünscht, welches diesen Aufwand stark reduziert. Vor einigen Jahren hat Tony ein bemerkenswertes Tool den [Alfresco BART](https://github.com/toniblyx/alfresco-backup-and-recovery-tool) geschrieben. Das Projekt wurde aber leider nicht weiter entwickelt. Nun habe ich die Idee eine komplett neue Version mit mehr Features zu schreiben welches ich Go Alfresco BART nenne.
