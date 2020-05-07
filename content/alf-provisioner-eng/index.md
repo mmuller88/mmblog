@@ -85,6 +85,9 @@ I will soon make the Alfresco Provisioner available to the public. For that I th
 
 If you are interested, write to me and I will then create your access accounts. All I need is the email address and the desired user name. I don't have a specific launch date for the Closed Alpha yet, but I am confident that I will do it in May.
 
+## More about the Alfresco Products
+To give you a quicker 
+
 # From a Personal Perspective
 What I like most about this project is the fact that most of the implementation, testing, development and documentation is done or supported using the Swagger definition. This goes from the validation of the request parameters, implementation of the REST interface, documentation, visualization with Swagger UI and automated tests in Postman. I love the approach with the Swagger definition, which I can preview using the Swagger plugin in Visual Studio Code, to use for almost everything. For sure, that's the future of server implementations.
 

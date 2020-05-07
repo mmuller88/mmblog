@@ -85,6 +85,15 @@ Ich werde bald den Alfresco Provisioner der Öffentlichkeit zu Verfügung stelle
 
 Bei Interesse schreibt mir und ich erstelle dann euren Zugangsaccounts. Alles was ich brauche ist die Email Adresse und der gewünschte User Name. Ich habe noch keinen genauen Starttermin für die Closed Alpha allerdings bin ich zuversichtlich, dass ich es noch im Mai passieren wird.
 
+## Mehr über die Alfresco Produkte
+Wenn du mehr über die in der Closed Alpha genutzten Alfresco Produkte wissen möchtest, habe ich mir gedacht hier ein paar Informationen darüber bereitzustellen. Der Alfresco Provisioner installiert
+die moderne [Alfresco Angular WebApp ACA](https://github.com/Alfresco/alfresco-content-app) welches als vereinfachte und Dateispezifische Version von Share angesehen werden kann. ACA wird sitzt auf Root. Es muss also nur die URL der Instanz eingegeben werden z.B. http://ec2-1-2-3-4.eu-west-2.compute.amazonaws.com/ Eine schnelle Runde über die Fähigkeiten von ACA wird [hier](https://docs.alfresco.com/adw1.0/concepts/welcome-adw.html) gezeigt.
+
+Share welches mit /share aufgerufen werden kann bietet zusätzlich zu ACA eine riesige Auswahl von Funktionen. Einen groben Überblick können die nachfolgenden Video verschaffen:
+* https://www.youtube.com/watch?v=YhtMv86LP10
+* https://www.youtube.com/watch?v=ZWz1wXq7zCk
+* https://www.youtube.com/watch?v=8R1FCoWm0xY
+
 # Aus Persönlicher Sicht
 Was mir am meisten gefällt an diesem Projekt ist einfach mal die Tatsache, dass der Großteil der Implementierung, Testung, Entwicklung und Dokumentierung mit Hilfe der Swagger Definition geschieht. Das geht hin von der Validierung der Request Parameter, Implementierung der REST Schnittstelle, Dokumentation, Visualisierung mit Swagger UI und automatisierten Tests in Postman. Ich liebe den Ansatz mit der Swagger Definition, die ich per Swagger Plugin im Visual Studio Code previewen kann, für fast alles nutzen zu können. Aus meinser Sicher ist das die Zukunft der Serverimplementierung.
 
