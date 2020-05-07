@@ -1,5 +1,6 @@
 ---
 title: AWS CDK Tutorial mit Travis Deployment
+show: 'no'
 description: AWS CDK example mit Travis Deployment
 date: '2020-03-28'
 image: 'cloud.jpg'

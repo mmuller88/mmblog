@@ -1,5 +1,6 @@
 ---
 title: Meine Erste aufregende Woche bei OBJECT
+show: 'no'
 description: Hier beschreibe ich meine Erste Woche bei OBJECT
 date: '2020-02-20'
 image: 'ham.png'

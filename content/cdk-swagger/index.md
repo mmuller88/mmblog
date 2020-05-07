@@ -1,5 +1,6 @@
 ---
 title: AWS CDK Api Gateway mit Swagger
+show: 'no'
 description: AWS CDK example mit Swagger für ein Api Gateway
 date: '2020-04-04'
 image: 'swagger.png'

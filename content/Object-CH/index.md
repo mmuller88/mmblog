@@ -1,5 +1,6 @@
 ---
 title: Von Alfresco zu OBJECT
+show: 'no'
 description: Dieser kurze Artikel beschreibt meine Beweggründe warum ich nach OBJECT gewechselt bin 
 date: '2020-02-09'
 image: 'object.png'

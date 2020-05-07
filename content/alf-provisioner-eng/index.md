@@ -1,6 +1,5 @@
 ---
 title: The Alfresco Provisioner
-show: 'no'
 description: About the Closed Beta of my CDK Backend
 date: '2020-05-05'
 image: 'prov.png'

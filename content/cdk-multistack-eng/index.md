@@ -1,7 +1,6 @@
 ---
 title: AWS CDK Multistacks for Test and Produktion
 description: AWS CDK Multistacks for Test and Produktion
-show: 'no'
 date: '2020-04-19'
 image: 'cloud.jpg'
 tags: ['eng', '2020', 'aws', 'lambda', 'cdk', 'production', 'github', 'travis']

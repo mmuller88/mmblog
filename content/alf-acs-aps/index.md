@@ -1,5 +1,6 @@
 ---
 title: ACS und APS Deployment mit Docker Compose
+show: 'no'
 description: ACS und APS installiert mit Docker Compose
 date: '2020-04-11'
 image: 'compose.jpeg'

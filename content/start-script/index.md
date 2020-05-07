@@ -1,5 +1,6 @@
 ---
 title: Bash Script Contribution für den Alfresco Docker Installer
+show: 'no'
 description: Project für OBJECT mit Customizations
 date: '2020-03-21'
 image: 'owl.png'

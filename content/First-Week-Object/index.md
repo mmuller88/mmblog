@@ -1,7 +1,6 @@
 ---
 title: My First Exciting Week at OBJECT
 description: Here I describe my first week at OBJECT
-show: 'no'
 date: '2020-02-20'
 image: 'ham.png'
 tags: ['eng', 'alfresco', 'object', '2020', 'ecm', '2022', 'bpm', 'hamburg', 'onboarding']

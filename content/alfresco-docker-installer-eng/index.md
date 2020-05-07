@@ -1,7 +1,6 @@
 ---
 title: Alfresco's Amps and Jars Testing with Docker
 description: Project for OBJECT with Customizations
-show: 'no'
 date: '2020-03-17'
 image: 'docker.jpg'
 tags: ['eng', 'alfresco', '2020', 'ecm', 'docker', 'docker-compose', 'Amp', 'Jar']

@@ -1,7 +1,6 @@
 ---
 title: From Alfresco to OBJECT
 description: This short article describes my reasons why I switched to OBJECT
-show: 'no'
 date: '2020-02-09'
 image: 'object.png'
 tags: ['eng', 'alfresco', 'object', '2020', 'ecm', '2022', 'vision', 'bpm']
