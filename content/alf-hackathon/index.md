@@ -2,7 +2,7 @@
 title: Alfresco Virtual Hack-a-thon Mai 2020
 show: 'no'
 description: Alfresco Virtual Hack-a-thon Mai 2020
-date: '2020-05-12'
+date: '2020-05-08'
 image: 'hack.jpeg'
 tags: ['de', '2020', 'acs', 'alfresco', 'docker', 'docker-compose', 'hackathon']
 engUrl: https://martinmueller.dev/alf-hackathon-eng
