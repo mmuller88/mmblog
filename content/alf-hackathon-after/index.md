@@ -4,7 +4,7 @@ description: Alfresco Virtual Hack-a-thon May 2020
 date: '2020-05-13'
 image: 'hack.jpeg'
 tags: ['eng', '2020', 'acs', 'alfresco', 'docker', 'docker-compose', 'hackathon']
-engUrl: https://martinmueller.dev/alf-hackathon-danach
+gerUrl: https://martinmueller.dev/alf-hackathon-danach
 pruneLength: 50
 ---
 
@@ -13,7 +13,7 @@ Hi Alfhackas.
 The Alfresco hack-a-thon was great. What I liked most were the personal conversations with many great ex-colleagues and other Alfresco folks. In addition, I was able to learn valuable information about planned projects within Alfresco. For example, I am very excited to see where Digital Workspace, the beautiful webapp for ACS Enterprise, will develop. Very soon it will get UI elements to display APS elements like tasks and processes. I was also advised that as an Alfresco partner I could get access to the Digital Workspace Repository, which I gratefully will do.
 
 # Lets Encrypt
-My project for the Hack-a-thon was to give the Alfresco Docker Installer a Docker extension, which would enable Lets Encrypt to use authorized certificates for the HTTPS connection. Even the extension would manage the entire life cycle of the certificate. I haven't completely finished with it, but I was able to implement a good bit and I'm guaranteed to finish it this weekend.
+My project for the Hack-a-thon was to give the [Docker Alfresco Installer](https://github.com/Alfresco/alfresco-docker-installer) a Docker extension, which would enable Lets Encrypt to use authorized certificates for the HTTPS connection. Even the extension would manage the entire life cycle of the certificate. I haven't completely finished with it, but I was able to implement a good bit and I'm guaranteed to finish it this weekend.
 
 # Conclusion
 Many thanks to the organizers of the Alfresco Hack-a-thon and to the great Alfresco community. I will definitely be back at the next Hack-a-thon. Cheers.
