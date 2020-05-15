@@ -1,7 +1,7 @@
 ---
 title: Alfresco Virtual Hack-a-thon May 2020 Summary
 description: Alfresco Virtual Hack-a-thon May 2020
-date: '2020-05-13'
+date: '2020-05-15'
 image: 'hack.jpeg'
 tags: ['eng', '2020', 'acs', 'alfresco', 'docker', 'docker-compose', 'hackathon']
 gerUrl: https://martinmueller.dev/alf-hackathon-danach
