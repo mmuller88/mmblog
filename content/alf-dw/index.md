@@ -11,7 +11,7 @@ pruneLength: 50
 
 Hi Alfrescans.
 
-Die noch recht neue Alfresco Angular Frontend Webapp Digital Workspace (kurz DW), welche auf [Alfresco Content App](https://github.com/Alfresco/alfresco-content-app) und [ADF](https://github.com/Alfresco/alfresco-ng2-components) basiert, bekam mit der zuletzt releaseten Version 1.5.0 einige Process UI Elemente spendiert. Darauf haben Alfresco Kunden und Partner schon lange gewartet. Jetzt endlich sollte es möglich sein, eine tolle ADF Webapp mit ACS und APS UI Elementen out of the box zu bekommen. Darüber hinaus maintainen und weiterentwickeln die fähigen Angular Entwickler bei Alfresco diese Webapp. In den nächsten Abschnitten erkläre ich wie sich die neue DW Version mit den Process Elementen anfühlt.
+Die noch recht neue Alfresco Angular Frontend Webapp Digital Workspace (kurz DW), welche auf [Alfresco Content App](https://github.com/Alfresco/alfresco-content-app) und [ADF](https://github.com/Alfresco/alfresco-ng2-components) basiert, bekam mit der zuletzt releaseten Version 1.5.0 einige Process UI Elemente spendiert. Darauf haben Alfresco Kunden und Partner schon lange gewartet. Jetzt endlich sollte es möglich sein, eine tolle ADF Webapp mit ACS und APS UI Elementen out of the box zu bekommen. Darüber hinaus maintainen und developen die fähigen Angular Entwickler bei Alfresco die Angular Webapp. In den nächsten Abschnitten erkläre ich wie sich die neue DW Version mit den Process Elementen anfühlt.
 
 # Prerequisites
 Die private DW Image is gehosted auf quay.io. Um diese pullen zu können müsste ihr im Alfresco Support nach credentials für DW fragen. Dann loggt ihr euch in die Quay.io registry ein mit:
@@ -34,6 +34,15 @@ In einem meiner vorherigen posts habe ich bereits beschrieben wie ein multi Alfr
             APP_CONFIG_PROVIDER: "ALL"
             APP_WITH_PROCESS: "true"
 ```
+
+# User Provisioning
+Ein Problem bleibt allerdings noch bestehen. ACS und APS verwenden ootb unterschiedliche user provisioning systeme. Undzwar bei ACS und APS sind es eigene Datenbanken. Nun muss aber für die DW Webapp es so aussehen, als das ACS und APS die gleichen user verwendet. Für Testzwecke könnte man das einfach erreichen indem ein User mit identischen Credentials erstellt wird für beide Systeme z.B. :
+
+user: admin@martinmueller.dev pw: admin
+
+Dieser User muss nun bei ACS und APS existieren.
+
+Eine viel bessere und flexiblere Lösung ist die Verwendund eines gemeinsamen user provisioning Systems wie openLDAP. ACS und APS lassen sich jeweils konfigurieren um mit openLDAP die User Provisioning zu garantieren. Natürlich geht das auch in Docker Compose. In meinem letzten Projekt [ACS & APS](https://martinmueller.dev/alf-acs-aps) ist dies auch der Fall. Dort verwenden ACS und APS eine gemeinsames openLDAP welches mit der UI /phpldapadmin verwaltet werden kann.
 
 
 # Ausblick
