@@ -1,7 +1,8 @@
 ---
 title: Der Alfresco Provisioner
+show: 'no'
 description: Über die Closed Beta meines CDK Backends
-date: '2020-05-02'
+date: '2020-05-19'
 image: 'prov.png'
 tags: ['de', '2020', 'acs', 'alfresco', 'docker', 'docker-compose', 'ec2', 'swagger', 'cdk']
 engUrl: https://martinmueller.dev/alf-provisioner-eng
@@ -83,6 +84,9 @@ Ein weiteres nützliches Feature wäre es, wenn der Nutzer die Instanz Url einfa
 Ich werde bald den Alfresco Provisioner der Öffentlichkeit zu Verfügung stellen. Dafür habe ich mir gedacht eventuell erstmal eine Closed Alpha zu veranstalten. So können Interessierte den Alfresco Instanz Provisioner ausprobieren, Feedback geben und mehr.
 
 Bei Interesse schreibt mir und ich erstelle dann euren Zugangsaccounts. Alles was ich brauche ist die Email Adresse und der gewünschte User Name. Ich habe noch keinen genauen Starttermin für die Closed Alpha allerdings bin ich zuversichtlich, dass ich es noch im Mai passieren wird.
+
+## Kurze Anleitung über die Benutzung des Alfresco Provisioner
+Ich habe mich dazu entschlossen ein kurzes Video darüber zu machen, wie der Alfresco Provisioner benutzt werden kann. Das Video kann hier angeschaut werden: https://www.youtube.com/watch?v=OOEOE_ncsx4
 
 ## Mehr über die Alfresco Produkte
 Wenn du mehr über die in der Closed Alpha genutzten Alfresco Produkte wissen möchtest, habe ich mir gedacht hier ein paar Informationen darüber bereitzustellen. Der Alfresco Provisioner installiert

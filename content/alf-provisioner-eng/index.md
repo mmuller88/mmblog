@@ -1,7 +1,7 @@
 ---
 title: The Alfresco Provisioner
 description: About the Closed Beta of my CDK Backend
-date: '2020-05-05'
+date: '2020-05-19'
 image: 'prov.png'
 tags: ['eng', '2020', 'acs', 'alfresco', 'docker', 'docker-compose', 'ec2', 'swagger', 'cdk']
 gerUrl: https://martinmueller.dev/alf-provisioner
@@ -83,6 +83,9 @@ Another useful feature would be if the user can simply redirect the url instance
 I will soon make the Alfresco Provisioner available to the public. For that I thought to organize a closed alpha first. Interested people can try out the Alfresco Instance Provisioner and provide feedback and more. 
 
 If you are interested, write to me and I will then create your access accounts. All I need is the email address and the desired user name. I don't have a specific launch date for the Closed Alpha yet, but I am confident that I will do it in May.
+
+## Brief instructions on how to use the Alfresco Provisioner
+I decided to make a short video about how to use the Alfresco Provisioner. The video can be viewed here: https://www.youtube.com/watch?v=OOEOE_ncsx4
 
 ## More about the Alfresco Products
 To give you a quicker 
