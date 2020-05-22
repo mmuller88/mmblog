@@ -11,7 +11,7 @@ pruneLength: 50
 
 Ahoi AWS'ler
 
-Für ein privates Projekt habe ich mich in den letzten Tagen an ein AWS CDK Example gemacht. AWS bietet eine Palette von tollen [AWS CDK Beispielen](https://github.com/aws-samples/aws-cdk-examples). Die Erfahrung die ich gemacht habe, war so gut, dass ich mich entschlossen habe, einen Blogpost darüber zu schreiben. Schon sehr früh in meiner AWS Karriere durfte ich mich mit CloudFormation beschäftigen. Es hat mir damals schon viel Spaß gemacht, seit neuem scheint ein neues Kind im Block zu sein mit Namen AWS CDK (Cloud Development Kit), welches bevorzugt als Sprache zur Beschreibung der Infrastrucktur in AWS genutzt werden kann. CDK verspricht eine willkommende Alternative zu Cloudformation zu sein, da man anstelle wie üblich diese im eher komplexen YAML schreiben muss, werden im CDK richtige Programmiersprachen wie Java, Python, JS oder Typescript unterstützt. Ich finde das ein super Idee da man, wenn man sich für z.B. Typescript als Sprache für die Lambdas entschieden hat, auch diese für das CDK verwenden kann.
+Für ein privates Projekt habe ich mich in den letzten Tagen an ein AWS CDK Example gemacht. AWS bietet eine Palette von tollen [AWS CDK Beispielen](https://github.com/aws-samples/aws-cdk-examples). Die Erfahrung die ich gemacht habe, war so gut, dass ich mich entschlossen habe, einen Blogpost darüber zu schreiben. Schon sehr früh in meiner AWS Karriere durfte ich mich mit CloudFormation beschäftigen. Seit neuem scheint ein neues Kind im Block zu sein mit Namen AWS CDK (Cloud Development Kit), welches bevorzugt als Sprache zur Beschreibung der Infrastruktur in AWS genutzt werden kann. CDK verspricht eine willkommende Alternative zu Cloudformation zu sein, da man anstelle wie üblich diese im eher komplexen YAML schreiben muss, werden im CDK richtige Programmiersprachen wie Java, Python, JS oder Typescript unterstützt. Ich finde das ein super Idee da man, wenn man sich für z.B. Typescript als Sprache für die Lambdas entschieden hat, auch diese für das CDK verwenden kann.
 Mein Beispiel Code [CDK Example Repo](https://github.com/mmuller88/cdk-example) ist auf GitHub. In den nächsten Abschnitten werde ich kurz die einzelnen Schritte für die Repo Erstellung beschreiben.
 
 # Das wird Benötigt
@@ -74,7 +74,7 @@ cdk synth > cfn.yaml
 
 Kann man sich das generierte CloudFormation Template anschauen.
 
-# Automation mmit Travis
+# Automation mit Travis
 Noch hält sicher der manuelle Aufwand für das Deployment gering, aber das könnte bei mehr werdender Komplexität sicher ändern. Von daher habe ich bisher super Erfahrungen gemacht, wenn ich so viel wie möglich davon automatisiere. Und nunja stellt euch mal vor wie cool es ist einfach nur mit einem Push zu master die Produktionsumgebung zu ändern. Einen kleinen Vorgeschmack wie das aussehen könnte beschreibe ich hier. Auch sei wieder gesagt, dass ihr euch meine Travis Definition gerne anschauen könnte hier [CDK Example Repo](https://github.com/mmuller88/cdk-example/blob/master/.travis.yml).
 
 Was ich dort in Travis mache ist recht einfach erklärt. Ich führe einfach nur die manuellen Deployschritte von der vorherigen Sektion in Travis aus. Da Travis meine AWS Credentials in Form von verschlüsselten Environmental Variables hat, erlaube ich es es in meinem AWS Account Ressourcen zu manipulieren. Die folgenden Environmental Variablen waren dafür nötig: AWS\_ACCESS\_KEY\_ID, AWS\_ACCOUNT\_NUMBER, AWS\_DEFAULT\_REGION, AWS\_SECRET\_ACCESS\_KEY, CDK\_DEFAULT\_ACCOUNT, CDK\_DEFAULT\_REGION.

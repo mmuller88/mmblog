@@ -6,6 +6,7 @@ module.exports = {
     author: `@mmuller88`,
   },
   plugins: [
+    `gatsby-plugin-feed`,
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
