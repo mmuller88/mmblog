@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 
 const IndexPage = (props) => {
   const postList = props.data.posts;
-  const data = props.data.tags.group;
+  //const data = props.data.tags.group;
   return (
     <Layout>
       <div className="href">
