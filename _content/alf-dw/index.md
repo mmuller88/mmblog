@@ -5,7 +5,7 @@ description: Digital Workspace bekommt Process Workspace Elemente
 date: '2020-05-23'
 image: 'tri.png'
 tags: ['de', '2020', 'acs', 'aps', 'docker', 'docker-compose', 'dw']
-engUrl: https://martinmueller.dev/alf-dw-eng
+# engUrl: https://martinmueller.dev/alf-dw-eng
 pruneLength: 50
 ---
 
