@@ -59,7 +59,7 @@ module.exports = {
             },
             {
               serialize: ({ query: { site, allMarkdownRemark } }) => {
-                return allMarkdownRemark.edges.map(edge => {
+                return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("de")).map(edge => {
                   return Object.assign({}, edge.node.frontmatter, {
                     description: edge.node.excerpt,
                     date: edge.node.frontmatter.date,
