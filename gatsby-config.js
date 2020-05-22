@@ -30,6 +30,9 @@ module.exports = {
                     date: edge.node.frontmatter.date,
                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                     guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    enclosure: edge.node.frontmatter.image && {
+                      url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
+                    },
                     custom_elements: [
                       { "content:encoded": edge.node.html },
                       {
