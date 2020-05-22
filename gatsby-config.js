@@ -30,8 +30,14 @@ module.exports = {
                     date: edge.node.frontmatter.date,
                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                     guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    enclosure: edge.node.frontmatter.image,
-                    custom_elements: [{ "content:encoded": edge.node.html }],
+                    custom_elements: [
+                      { "content:encoded": edge.node.html },
+                      {
+                        featuredImage:
+                          site.siteMetadata.siteUrl +
+                          edge.node.frontmatter.image.publicURL
+                      },
+                    ],
                   })
                 })
               },
@@ -50,11 +56,7 @@ module.exports = {
                           date
                           tags
                           image {
-                            childImageSharp {
-                              resize(width: 1000, height: 420) {
-                                src
-                              }
-                            }
+                            publicURL
                           }
                         }
                       }
@@ -73,7 +75,14 @@ module.exports = {
                     date: edge.node.frontmatter.date,
                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                     guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    custom_elements: [{ "content:encoded": edge.node.html }],
+                    custom_elements: [
+                      { "content:encoded": edge.node.html },
+                      {
+                        featuredImage:  edge.node.frontmatter.image ?
+                          site.siteMetadata.siteUrl +
+                          edge.node.frontmatter.image.publicURL : undefined
+                      },
+                    ],
                   })
                 })
               },
@@ -91,6 +100,9 @@ module.exports = {
                           title
                           date
                           tags
+                          image {
+                            publicURL
+                          }
                         }
                       }
                     }
