@@ -30,6 +30,7 @@ module.exports = {
                     date: edge.node.frontmatter.date,
                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                     guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    categories: edge.node.frontmatter.tags,
                     enclosure: edge.node.frontmatter.image && {
                       url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
                     },
@@ -78,6 +79,7 @@ module.exports = {
                     date: edge.node.frontmatter.date,
                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                     guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                    categories: edge.node.frontmatter.tags,
                     enclosure: edge.node.frontmatter.image && {
                       url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
                     },
