@@ -1,5 +1,5 @@
 ---
-title: Alfresco Docker Compose Lets Encrypt Docker Compose Companion
+title: Alfresco Let's Encrypt Docker Companion Erweiterung
 show: 'no'
 description: Companion Image für Docker Compose
 date: '2020-05-30'
@@ -11,17 +11,19 @@ pruneLength: 50
 
 Hi Alfrescans.
 
-...
+Während des Alfresco Hackathon dieses Jahr habe ich für den [Docker Alfresco Installer](https://github.com/Alfresco/alfresco-docker-installer) eine Docker Companion Erweiterung implementiert, um SSL Zertifikate zu verwalten welche dann genutzt werden können für HTTPS Verbindungen, entwickelt. Die SSL Zertifikate werden dabei von [Let's Encrypt](https://letsencrypt.org/de/) ausgestellt und regelmäßig erneuert. Let's Encrypt dient dabei auch als Autorisierer der Zertifikate. Ziemlich cool oder? Somit muss ich mir keine Gedanken mehr machen über eine sichere und verschlüsselte Verbindung zu meinem Alfresco Proxy.
 
-# Lets Encrypt
-Mein Projekt für den Hack-a-thon war es dem [Docker Alfresco Installer](https://github.com/Alfresco/alfresco-docker-installer) eine Docker Erweiterung zu spendieren, welche es ermöglichen würde Lets Encrypt autorisierte Zertifikate für die HTTPS Verbindung zu nutzen. Sogar würde die Erweiterung den kompletten Lifecycle des Zertifikates managen. Ich bin zwar nicht komplett fertig geworden damit aber konnte ein gutes Stück implementieren und dieses Wochenende werde ich garantiert damit fertig.
+Leider wurde der Pull Request abgelehnt. Um aber dieses tolle Feature euch einfacher zugänglich zu machen, habe ich mich entschlossen es einfach in meinem GitHub Repo zu implementieren und es euch hier zu präsentieren. Zusätzlich habe ich automatisierte Tests geschrieben welche die noch recht neue Build Engine GitHub Actions nutzen, um das Let's Encrypt Docker Companion zu testen. In den nächsten Abschnitten erkläre ich die Erweiterung sowie die die automatisierten Tests.
+
+# Docker Companion
+* Repo, Code
 
 # Testing
 GitHub Actions ...
 Sub Domain ...
 
-# Zum Abschluss
-Vielen lieben Dank an die Organisierer des Alfresco Hack-a-thon und an die die tolle Alfresco Community. Definitiv bin ich wieder dabei beim nächsten Hack-a-thon. Cheers.
+# Zusammenfassung
+Verschlüsselte Verbindungen zum Alfresco Proxy sind essenziell für eine Produktionsumgebung mit Alfresco. Es benötigt einen hohen manuellen Aufwand die dafür benötigten SSL Zertifikate zu erstellen, autorisieren und regelmäßig zu erneuern. Mit dem tollen und kostenlosem Angebot von [Let's Encrypt](https://letsencrypt.org/de/) lässt sich dieser Aufwand auf fast null reduzieren. Falls ihr Let's Encrypt auch für eine Produktionsumgebung nutzt, bitte denkt darüber nach eine Spende and Let's Encrypt zu entrichten. Somit kann garantiert werden, dass dieser Service auch in Zukunft kostenlos bleibt. Ich bedanke mich für eure Aufmerksamkeit und hoffe auf reichliches Feedback :).
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
