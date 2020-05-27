@@ -13,7 +13,7 @@ Hi Alfrescans.
 
 Während des Alfresco Hackathons im Mai 2020 habe ich für den [Docker Alfresco Installer](https://github.com/Alfresco/alfresco-docker-installer) eine Docker Companion Erweiterung implementiert, um SSL Zertifikate zu verwalten welche dann genutzt werden können für HTTPS Verbindungen, entwickelt. Die SSL Zertifikate werden dabei von [Let's Encrypt](https://letsencrypt.org/de/) ausgestellt und regelmäßig erneuert. Let's Encrypt dient dabei auch als Autorisierer der Zertifikate. Ziemlich cool oder? Somit muss ich mir keine Gedanken mehr machen über eine sichere und verschlüsselte Verbindung zu meinem Alfresco Proxy.
 
-Leider wurde der Pull Request abgelehnt. Um aber dieses tolle Feature euch einfacher zugänglich zu machen, habe ich mich entschlossen es einfach in meinem GitHub Repo zu implementieren und es euch hier zu präsentieren. Zusätzlich habe ich automatisierte Tests geschrieben welche die noch recht neue Build Engine GitHub Actions nutzen, um das Let's Encrypt Docker Companion zu testen. In den nächsten Abschnitten erkläre ich die Erweiterung sowie die die automatisierten Tests.
+Leider wurde der Pull Request abgelehnt. Um aber dieses tolle Feature euch nicht vor zu enthalten und einfach zugänglich zu machen, habe ich mich entschlossen es in meinem GitHub Repo zu implementieren und es euch hier zu präsentieren. Zusätzlich habe ich automatisierte Tests geschrieben welche die noch recht neue Build Engine GitHub Actions nutzen, um das Let's Encrypt Docker Companion zu testen. In den nächsten Abschnitten erkläre ich die Erweiterung sowie die die automatisierten Tests.
 
 # Docker Companion
 Der Code für die Let's Encrypt Erweiterung ist bei [mir auf GitHub](https://github.com/mmuller88/alf-lets-encrypt). Das Docker Compose Deployment wird mit dem Script ./start.sh gestarted. Soll nun ein SSL Zertifikat von Lets Encrypt ausgestellt werden benötigst du einen Server auf dem das Docker Compose Deployment ausgeführt wird und eine Domaine die auf diesen Server umleitet. Ich selber habe dafür EC2 VM von AWS genommen und dann einach einen CNAME Record erstellt welche von meiner Domain auf den Public DNS Name von der EC2 VM zeigen. Der CNAME Record sieht dan in etwas so aus:
@@ -78,9 +78,17 @@ jobs:
         docker-compose logs
 ```
 
+Im Workflow File von GitHub Actions sehen wir das Alfresco gestarted wird mit der Domaine die über den CNAME Record auf den EC2 Runner zeigt. Durch die Ausführung von `start.sh` wird Alfresco gestarted und am Schluss die Erreichbarkeit geprüft. Jetzt sollten wir nur noch sicherstellen, dass auch die Indexengine Solr funktioniert. Mittels Newman, welches ein CLI Tool von Postman ist, wird ein Request als Test benutzt:
 
-GitHub Actions ...
-Sub Domain ...
+```
+protocol=https
+host=a.notreal.net
+port=443
+POST {{protocol}}://{{host}}:{{port}}/alfresco/api/-default-/public/search/versions/1/search
+```
+
+Dieses tested die Erreichbarkeit von Solr. Zum jetzigen Zeitpunkt sehe ich wenig Sinn in mehr Request Tests mit Postman. Es wäre aber kein Problem dieses zu einem späteren Zeitpunkt nachzuholen. Interessierst du dich mehr für die Möglichkeiten mit Postman? Vor einiger Zeit habe ich schon einen interessanten Artikel geschreiben bei dem ich auch [Postman verwende](https://martinmueller.dev/cdk-example)
+
 
 # Zusammenfassung
 Verschlüsselte Verbindungen zum Alfresco Proxy sind essenziell für eine Produktionsumgebung mit Alfresco. Es benötigt einen hohen manuellen Aufwand die dafür benötigten SSL Zertifikate zu erstellen, autorisieren und regelmäßig zu erneuern. Mit dem tollen und kostenlosem Angebot von [Let's Encrypt](https://letsencrypt.org/de/) lässt sich dieser Aufwand auf fast null reduzieren. Falls ihr Let's Encrypt auch für eine Produktionsumgebung nutzt, bitte denkt darüber nach eine Spende and Let's Encrypt zu entrichten. Somit kann garantiert werden, dass dieser Service auch in Zukunft kostenlos bleibt. Ich bedanke mich für eure Aufmerksamkeit und hoffe auf reichliches Feedback :).
