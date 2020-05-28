@@ -1,6 +1,5 @@
 ---
 title: Alfresco Let's Encrypt Docker Companion Erweiterung
-show: 'no'
 description: Companion Image für Docker Compose
 date: '2020-05-30'
 image: 'lets.png'
@@ -23,11 +22,12 @@ a.notreal.net. CNAME ec2-3-8-139-83.eu-west-2.compute.amazonaws.com
 ```
 
 Das Alfresco Docker Compose Deployment kann dann folgendermaßen gestarted werden:
+
 ```BASH
 ./start.sh -spr https -sh a.notreal.net -sp 443
 ```
 
-Somit wird das gesamt ACS Docker Compose Deployment spezifisch auf https und der domain a.notreal.net umgestellt.
+Somit wird das gesamte ACS Docker Compose Deployment spezifisch auf https und der domain a.notreal.net umgestellt.
 
 # Testing
 Ich hatte große Lust mal die neue Buildengine GitHub Actions auszuprobieren um die Ausstellung des SSL Zertifkates für die Domain a.notreal.com zu testen. Ich habe mir gedacht es müsste doch möglich sein die GitHub Action Runner nicht von GitHub selber laufen zu lassen, sondern auf AWS. So könnte ich dann einach mittels des CNAME Records auf den Public DNS Name vom AWS Runner verweisen. Und ja das hat tatsächlich geklappt. Viel geholfen hat mir [dieser Blog Post](https://www.lotharschulz.info/2019/12/09/github-action-self-hosted-runners-on-aws-incl-spot-instances/) von Lothar Schulz wo genau beschrieben wird, wie ich AWS Ec2 VMs als GitHub Actions Runner verwenden kann. Dann kann der GitHub Workflow folgendermaßen ausgeführt werden:
@@ -78,7 +78,7 @@ jobs:
         docker-compose logs
 ```
 
-Im Workflow File von GitHub Actions sehen wir das Alfresco gestarted wird mit der Domaine die über den CNAME Record auf den EC2 Runner zeigt. Durch die Ausführung von `start.sh` wird Alfresco gestarted und am Schluss die Erreichbarkeit geprüft. Jetzt sollten wir nur noch sicherstellen, dass auch die Indexengine Solr funktioniert. Mittels Newman, welches ein CLI Tool von Postman ist, wird ein Request als Test benutzt:
+Im Workflow File von GitHub Actions sehen wir das Alfresco gestarted wird mit der Domaine die über den CNAME Record auf den EC2 Runner zeigt. Durch die Ausführung von `start.sh` wird Alfresco gestarted und am Schluss die Erreichbarkeit geprüft. Jetzt sollten wir nur noch sicherstellen, dass auch die Indexengine Solr funktioniert. Mittels Newman, welches ein CLI Tool von Postman ist, wird ein Request mit anschließender Validierung als Test benutzt:
 
 ```
 protocol=https
