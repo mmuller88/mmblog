@@ -10,9 +10,9 @@ pruneLength: 50
 
 Hi Alfrescans.
 
-Während des Alfresco Hackathons im Mai 2020 habe ich für den [Docker Alfresco Installer](https://github.com/Alfresco/alfresco-docker-installer) eine Docker Companion Erweiterung implementiert, um SSL Zertifikate zu verwalten welche dann genutzt werden können für HTTPS Verbindungen, entwickelt. Die SSL Zertifikate werden dabei von [Let's Encrypt](https://letsencrypt.org/de/) ausgestellt und regelmäßig erneuert. Let's Encrypt dient dabei auch als Autorisierer der Zertifikate. Ziemlich cool oder? Somit muss ich mir keine Gedanken mehr machen über eine sichere und verschlüsselte Verbindung zu meinem Alfresco Proxy.
+Während des Alfresco Hackathons im Mai 2020 habe ich für den [Docker Alfresco Installer](https://github.com/Alfresco/alfresco-docker-installer) eine Docker Companion Erweiterung implementiert, um SSL Zertifikate zu verwalten welche dann genutzt werden können für HTTPS Verbindungen. Die SSL Zertifikate werden dabei von [Let's Encrypt](https://letsencrypt.org/de/) ausgestellt und regelmäßig erneuert. Let's Encrypt dient dabei auch als Autorisierer der Zertifikate. Ziemlich cool oder? Somit muss ich mir keine Gedanken mehr machen über eine sichere und verschlüsselte Verbindung zu meinem Alfresco Proxy.
 
-Leider wurde der Pull Request abgelehnt. Um aber dieses tolle Feature euch nicht vor zu enthalten und einfach zugänglich zu machen, habe ich mich entschlossen es in meinem GitHub Repo zu implementieren und es euch hier zu präsentieren. Zusätzlich habe ich automatisierte Tests geschrieben welche die noch recht neue Build Engine GitHub Actions nutzen, um das Let's Encrypt Docker Companion zu testen. In den nächsten Abschnitten erkläre ich die Erweiterung sowie die die automatisierten Tests.
+Leider wurde der Pull Request abgelehnt, weil der Docker Alfresco Installer im Fokus Demo und Trial bleiben soll. Um aber dieses tolle Feature euch nicht vor zu enthalten und einfach zugänglich zu machen, habe ich mich entschlossen es in meinem GitHub Repo zu implementieren und es euch hier zu präsentieren. Zusätzlich habe ich automatisierte Tests geschrieben welche die noch recht neue Build Engine GitHub Actions nutzen, um das Let's Encrypt Docker Companion zu testen. In den nächsten Abschnitten erkläre ich die Erweiterung sowie die die automatisierten Tests.
 
 # Docker Companion
 Der Code für die Let's Encrypt Erweiterung ist bei [mir auf GitHub](https://github.com/mmuller88/alf-lets-encrypt). Das Docker Compose Deployment wird mit dem Script ./start.sh gestarted. Soll nun ein SSL Zertifikat von Lets Encrypt ausgestellt werden benötigst du einen Server auf dem das Docker Compose Deployment ausgeführt wird und eine Domaine die auf diesen Server umleitet. Ich selber habe dafür EC2 VM von AWS genommen und dann einach einen CNAME Record erstellt welche von meiner Domain auf den Public DNS Name von der EC2 VM zeigen. Der CNAME Record sieht dan in etwas so aus:
@@ -27,7 +27,48 @@ Das Alfresco Docker Compose Deployment kann dann folgendermaßen gestarted werde
 ./start.sh -spr https -sh a.notreal.net -sp 443
 ```
 
-Somit wird das gesamte ACS Docker Compose Deployment spezifisch auf https und der domain a.notreal.net umgestellt.
+Somit wird das gesamte ACS Docker Compose Deployment spezifisch auf https und der domain a.notreal.net umgestellt. Das Docker Compose Deployment könnte auch ohne die Nutzung des ./start.sh Scripts gestartet werden. Allerding müssten dann die Variablen im Docker Compose File richtig gesetzt werden!
+
+Die Anpassungen im Docker Compose File umfassen dabei nur die drei nochfolgenden Services:
+
+```YAML
+    proxy:
+      image: nginx:alpine
+      depends_on:
+        - alfresco
+        - solr6
+        - share
+        - content-app
+      volumes:
+        # redirect Alfresco Apps to port 80
+        - ./config/nginx.conf:/etc/nginx/nginx.conf
+      environment:
+        VIRTUAL_PORT: 80
+        VIRTUAL_HOST: ${SERVER_HOST}
+        LETSENCRYPT_HOST: ${SERVER_HOST}
+        LETSENCRYPT_EMAIL: admin@${SERVER_HOST}
+
+
+    nginx-proxy:
+      image: jwilder/nginx-proxy
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - "/etc/nginx/vhost.d"
+        - "/usr/share/nginx/html"
+        - "/var/run/docker.sock:/tmp/docker.sock:ro"
+        - "/etc/nginx/certs"
+
+    letsencrypt-nginx-proxy-companion:
+      image: jrcs/letsencrypt-nginx-proxy-companion
+      volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      volumes_from:
+        - "nginx-proxy"
+```
+
+Der erste Service mit namen **proxy** ist der Alfresco Proxy über welchen die Alfresco Applikationen wie Share oder Alfresco Content App erreichbar sind. Die beiden nachfolgenden Services bilden zusammen die Docker Companion Images für die SSL Zertifikateverwaltung mit Let's Encrypt.
 
 # Testing
 Ich hatte große Lust mal die neue Buildengine GitHub Actions auszuprobieren um die Ausstellung des SSL Zertifkates für die Domain a.notreal.com zu testen. Ich habe mir gedacht es müsste doch möglich sein die GitHub Action Runner nicht von GitHub selber laufen zu lassen, sondern auf AWS. So könnte ich dann einach mittels des CNAME Records auf den Public DNS Name vom AWS Runner verweisen. Und ja das hat tatsächlich geklappt. Viel geholfen hat mir [dieser Blog Post](https://www.lotharschulz.info/2019/12/09/github-action-self-hosted-runners-on-aws-incl-spot-instances/) von Lothar Schulz wo genau beschrieben wird, wie ich AWS Ec2 VMs als GitHub Actions Runner verwenden kann. Dann kann der GitHub Workflow folgendermaßen ausgeführt werden:
@@ -89,9 +130,10 @@ POST {{protocol}}://{{host}}:{{port}}/alfresco/api/-default-/public/search/versi
 
 Dieses tested die Erreichbarkeit von Solr. Zum jetzigen Zeitpunkt sehe ich wenig Sinn in mehr Request Tests mit Postman. Es wäre aber kein Problem dieses zu einem späteren Zeitpunkt nachzuholen. Interessierst du dich mehr für die Möglichkeiten mit Postman? Vor einiger Zeit habe ich schon einen interessanten Artikel geschreiben bei dem ich auch [Postman verwende](https://martinmueller.dev/cdk-example)
 
-
 # Zusammenfassung
-Verschlüsselte Verbindungen zum Alfresco Proxy sind essenziell für eine Produktionsumgebung mit Alfresco. Es benötigt einen hohen manuellen Aufwand die dafür benötigten SSL Zertifikate zu erstellen, autorisieren und regelmäßig zu erneuern. Mit dem tollen und kostenlosem Angebot von [Let's Encrypt](https://letsencrypt.org/de/) lässt sich dieser Aufwand auf fast null reduzieren. Falls ihr Let's Encrypt auch für eine Produktionsumgebung nutzt, bitte denkt darüber nach eine Spende and Let's Encrypt zu entrichten. Somit kann garantiert werden, dass dieser Service auch in Zukunft kostenlos bleibt. Ich bedanke mich für eure Aufmerksamkeit und hoffe auf reichliches Feedback :).
+Verschlüsselte Verbindungen zum Alfresco Proxy sind essenziell für eine Produktionsumgebung mit Alfresco. Es benötigt einen hohen manuellen Aufwand die dafür benötigten SSL Zertifikate zu erstellen, autorisieren und regelmäßig zu erneuern. Mit dem tollen und kostenlosem Angebot von [Let's Encrypt](https://letsencrypt.org/de/) lässt sich dieser Aufwand auf fast null reduzieren. Wenn ihr Kubernetes auch so spannend findet wie ich, könnte man darüber nachdenken kleine Let's Encrypt Charts zu erstellen, welche in einem Kubernetes Deployment verwendet werden können, um SSL Zertifikate Verwaltung auch in einem Cluster zu erreichen.
+
+Falls ihr Let's Encrypt auch für eine Produktionsumgebung nutzt, bitte denkt darüber nach eine Spende and Let's Encrypt zu entrichten. Somit kann garantiert werden, dass dieser Service auch in Zukunft kostenlos bleibt. Ich bedanke mich für eure Aufmerksamkeit und hoffe auf reichliches Feedback :).
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
