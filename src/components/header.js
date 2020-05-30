@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import twitterLogo from "../images/icons/twitter.svg"
 // import avatarIcon from "../images/avatarIcon.jpeg"
-import inLogo from "../images/icons/in.jpg"
+import inLogo from "../images/icons/in.svg"
 
 const Header = ({ siteTitle }) => (
   <header
