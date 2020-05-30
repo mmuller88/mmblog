@@ -1,15 +1,16 @@
 ---
-title: Martin Müller Resume
+title: Martin Mueller Resume
 description: Resume about me
 show: 'no'
 date: '2020-05-30'
 image: 'avatar.jpeg'
 tags: []
-engUrl: https://martinmueller.dev/resume-eng
+gerUrl: https://martinmueller.dev/resume-de
 pruneLength: 50
 ---
 
 # Summary
+damadden88@googlemail.com
 
 Passionate Full Stack Developer. I like to have a broad collection of skills. From developing the backend and frontend applications written in Java, JavaScript or any other language, until developing a cost optimised cloud infrastructure solution. Enthusiastic agile player with strong communication skills. Looking for taking new challenges and learning new technologies.
 
@@ -36,18 +37,18 @@ Sep 2015 – Feb 2020
 * Learning more about JS and Angular
 *	Maintaining and adding new features to Angular application
 
-*	Working in a Large Scale Scrum team 
+## Working in a Large Scale Scrum team 
 *	Two weeks sprints
 *	Sprint reviews with stakeholders at the end of the sprint
 *	Retrospective after each sprint
 
-* AWS deployment:
+## AWS deployment:
 *	AWS QuickStart with dockerized flavour
 *	Maintaining / Enhancing ACS helm charts
 *	ACS helm chart deployment on AWS EKS (involves EC2, S3, EBS, EKS, CFN, Lambda, SSM, EFS, RDS, AmazonMQ)
 *	Writing Lambdas and Scripts with Python
 
-*	Maintaining and enhancing ACS (Alfresco Content Service):
+##	Maintaining and enhancing ACS (Alfresco Content Service):
 *	Working on bugs or new features 
 *	Following peer review process
 *	Using Jira to capture work flow
@@ -55,7 +56,6 @@ Sep 2015 – Feb 2020
 *	Developing test automation at unit, integration and functional level
 *	Use / enhance Test Automation System for integration tests
 *	Capturing manual tests with TestRail
-
 
 # Education
 Master Computer Science – Rostock, Germany \

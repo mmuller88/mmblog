@@ -31,9 +31,19 @@ const Header = ({ siteTitle }) => (
         >
           {siteTitle}
         </Link>
+        <Link
+            to="/resume"
+            style={{
+              color: `white`,
+              textDecoration: `none`,
+              paddingLeft: "7cm"
+            }}
+          >
+          Resume
+          </Link>
       </h1>
       <div style={{color: "white", float:`right`, borderRadius: "25px"}}>
-        <a href='https://martinmueller.dev/resume' target="_blank" rel='noopener'>Resume</a>
+        {/* <a href='https://martinmueller.dev/resume' target="_blank" rel='noopener'>Resume</a> */}
         <a href='https://github.com/mmuller88' target="_blank" rel='noopener'><img  src={ghLogo} width='40' height='40' alt="twitter" style={{borderRadius: "25px"}}/> </a>
         <a href='https://www.twitter.com/MartinMueller_' target="_blank" rel='noopener'><img  src={twitterLogo} width='40' height='40' alt="twitter" style={{borderRadius: "25px"}}/> </a>
         <a href='https://www.linkedin.com/in/martinmueller88/' target="_blank" rel='noopener'><img  src={inLogo} width='40' height='40' alt="avatarIcon" style={{borderRadius: "25px"}}/> </a>
