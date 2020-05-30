@@ -12,7 +12,7 @@ Hi Alfrescans.
 
 During the Alfresco Hackathon in May 2020 I implemented a Docker Companion extension for the [Docker Alfresco Installer](https://github.com/Alfresco/alfresco-docker-installer) to manage SSL certificates. These certificates can be used for HTTPS connections. The SSL certificates are issued and regularly renewed by [Let's Encrypt](https://letsencrypt.org/de/). Let's Encrypt also serves as the authorizer of the certificates. Pretty cool, right? So I don't have to worry about a secure, encrypted and maintained connection to my Alfresco proxy.
 
-Unfortunately, the pull request was denied because the Alfresco Installer docker should remain in focus demo and trial. But to make this feature more accessible and not to preclude you from using it, I decided to implement it into my GitHub repo and present it to you here. Additionally, I've written automated tests that use the new build engine GitHub Actions to test the Let's Encrypt Docker Companion. In the next sections I will explain the extension and the automated tests.
+Unfortunately, the pull request was denied because the Alfresco Installer docker should remain in focus demo and trial. To make this feature more accessible for you, I decided to implement it into my GitHub repo and present it to you here. Additionally, I've written automated tests that use the new build engine GitHub Actions to test the Let's Encrypt Docker Companion. In the next sections I will explain the extension and the automated tests.
 
 # Docker Companion
 The code for the Let's Encrypt extension is at [me on GitHub](https://github.com/mmuller88/alf-lets-encrypt). The Docker Compose deployment is started with the script ./start.sh. If you want Lets Encrypt to request an SSL certificate, you need a server where Docker Compose Deployment is running and a domain that redirects to this server. I have taken EC2 VM from AWS and created a CNAME record which points from my domain to the Public DNS name of the EC2 VM. The CNAME record then looks something like this:
@@ -120,16 +120,16 @@ jobs:
         docker-compose logs
 ```
 
-In the workflow file of GitHub Actions we see that Alfresco is started with the domain that points to the EC2 Runner via the CNAME record. By executing 'start.sh' Alfresco is started and at the end the accessibility is checked. Now we should just make sure that the index engine Solr is also working. Using Newman, which is a CLI tool from Postman, a request with subsequent validation is used as a test:
+In the workflow file of GitHub Actions we see that Alfresco is started with the domain that points to the EC2 Runner via the CNAME record. By executing 'start.sh' Alfresco is started and at the end the availability is checked. Now we should just make sure that the index engine Solr is also working. Using Newman, which is a CLI tool from Postman, a request with subsequent validation is used as a test:
 
 ```
 protocol=https
 host=a.notreal.net
 port=443
-POST {{{protocol}}}://{{{host}}:{{{port}}/alfresco/api/-default-/public/search/versions/1/search
+POST {{protocol}}://{{host}}:{{port}}/alfresco/api/-default-/public/search/versions/1/search
 ```
 
-This tests the accessibility of Solr. At this time I don't see much point in more request tests with Postman. But it would be no problem to do this at a later time. Are you more interested in the possibilities with Postman? Some time ago I wrote an interesting article where I also [use Postman](https://martinmueller.dev/cdk-example)
+This tests the accessibility of Solr. At this time I don't see much point in more request tests with Postman. But it would be no problem to do this at a later time. Are you more interested in the possibilities with Postman? Some time ago I wrote an interesting article where I also [use Postman](https://martinmueller.dev/cdk-example).
 
 # Summary
 Encrypted connections to the Alfresco proxy are essential for a production environment using Alfresco. It requires a lot of manual effort to create, authorize and renew the required SSL certificates. With the great and free offer from [Let's Encrypt](https://letsencrypt.org/de/) this effort can be reduced to almost zero. If you find Kubernetes as exciting as I do, you might consider creating small Let's Encrypt charts which can be used in a Kubernetes deployment to achieve SSL certificate management in a cluster.

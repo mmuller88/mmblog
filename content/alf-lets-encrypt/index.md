@@ -1,5 +1,5 @@
 ---
-title: Alfresco meets Let's Encrypt
+title: Alfresco trifft Let's Encrypt
 description: Companion Image für Docker Compose
 show: 'no'
 date: '2020-05-30'
