@@ -1,6 +1,7 @@
 ---
-title: Alfresco Let's Encrypt Docker Companion Erweiterung
+title: Alfresco meets Let's Encrypt
 description: Companion Image für Docker Compose
+show: 'no'
 date: '2020-05-30'
 image: 'lets.png'
 tags: ['de', '2020', 'acs', 'alfresco', 'docker', 'docker-compose', 'ssl', 'github-actions']
@@ -10,12 +11,12 @@ pruneLength: 50
 
 Hi Alfrescans.
 
-Während des Alfresco Hackathons im Mai 2020 habe ich für den [Docker Alfresco Installer](https://github.com/Alfresco/alfresco-docker-installer) eine Docker Companion Erweiterung implementiert, um SSL Zertifikate zu verwalten welche dann genutzt werden können für HTTPS Verbindungen. Die SSL Zertifikate werden dabei von [Let's Encrypt](https://letsencrypt.org/de/) ausgestellt und regelmäßig erneuert. Let's Encrypt dient dabei auch als Autorisierer der Zertifikate. Ziemlich cool oder? Somit muss ich mir keine Gedanken mehr machen über eine sichere und verschlüsselte Verbindung zu meinem Alfresco Proxy.
+Während des Alfresco Hackathons im Mai 2020 habe ich für den [Docker Alfresco Installer](https://github.com/Alfresco/alfresco-docker-installer) eine Docker Companion Erweiterung implementiert, um SSL Zertifikate zu verwalten. Diese können dann für eine HTTPS Verbindung genutzt werden. Die SSL Zertifikate werden dabei von [Let's Encrypt](https://letsencrypt.org/de/) ausgestellt und regelmäßig erneuert. Let's Encrypt dient dabei auch als Autorisierer der Zertifikate. Ziemlich cool oder? Somit muss ich mir weniger Gedanken machen über eine sichere, verschlüsselte und maintainte Verbindung zu meinem Alfresco Proxy.
 
-Leider wurde der Pull Request abgelehnt, weil der Docker Alfresco Installer im Fokus Demo und Trial bleiben soll. Um aber dieses tolle Feature euch nicht vor zu enthalten und einfach zugänglich zu machen, habe ich mich entschlossen es in meinem GitHub Repo zu implementieren und es euch hier zu präsentieren. Zusätzlich habe ich automatisierte Tests geschrieben welche die noch recht neue Build Engine GitHub Actions nutzen, um das Let's Encrypt Docker Companion zu testen. In den nächsten Abschnitten erkläre ich die Erweiterung sowie die die automatisierten Tests.
+Leider wurde der Pull Request abgelehnt, weil der Docker Alfresco Installer im Fokus Demo und Trial bleiben soll. Um aber dieses tolle Feature euch nicht vor zu enthalten sowie einfacher zugänglich zu machen, habe ich mich entschlossen es in meinem GitHub Repo zu implementieren und es euch hier zu präsentieren. Zusätzlich habe ich automatisierte Tests geschrieben welche die noch recht neue Build Engine GitHub Actions nutzen, um das Let's Encrypt Docker Companion zu testen. In den nächsten Abschnitten erkläre ich die Erweiterung sowie die die automatisierten Tests.
 
 # Docker Companion
-Der Code für die Let's Encrypt Erweiterung ist bei [mir auf GitHub](https://github.com/mmuller88/alf-lets-encrypt). Das Docker Compose Deployment wird mit dem Script ./start.sh gestarted. Soll nun ein SSL Zertifikat von Lets Encrypt ausgestellt werden benötigst du einen Server auf dem das Docker Compose Deployment ausgeführt wird und eine Domaine die auf diesen Server umleitet. Ich selber habe dafür EC2 VM von AWS genommen und dann einach einen CNAME Record erstellt welche von meiner Domain auf den Public DNS Name von der EC2 VM zeigen. Der CNAME Record sieht dan in etwas so aus:
+Der Code für die Let's Encrypt Erweiterung ist bei [mir auf GitHub](https://github.com/mmuller88/alf-lets-encrypt). Das Docker Compose Deployment wird mit dem Script ./start.sh gestarted. Soll nun ein SSL Zertifikat von Lets Encrypt ausgestellt werden, benötigst du einen Server auf dem das Docker Compose Deployment ausgeführt wird und eine Domaine die auf diesen Server umleitet. Ich selber habe dafür EC2 VM von AWS genommen und dann einach einen CNAME Record erstellt welche von meiner Domain auf den Public DNS Name von der EC2 VM zeigen. Der CNAME Record sieht dan in etwas so aus:
 
 ```
 a.notreal.net. CNAME ec2-3-8-139-83.eu-west-2.compute.amazonaws.com
@@ -27,11 +28,12 @@ Das Alfresco Docker Compose Deployment kann dann folgendermaßen gestarted werde
 ./start.sh -spr https -sh a.notreal.net -sp 443
 ```
 
-Somit wird das gesamte ACS Docker Compose Deployment spezifisch auf https und der domain a.notreal.net umgestellt. Das Docker Compose Deployment könnte auch ohne die Nutzung des ./start.sh Scripts gestartet werden. Allerding müssten dann die Variablen im Docker Compose File richtig gesetzt werden!
+Somit wird das gesamte ACS Docker Compose Deployment spezifisch auf https und der Domain a.notreal.net umgestellt. Das Docker Compose Deployment könnte auch ohne die Nutzung des ./start.sh Scripts gestartet werden. Allerding müssten dann die Variablen im Docker Compose File richtig gesetzt werden!
 
-Die Anpassungen im Docker Compose File umfassen dabei nur die drei nochfolgenden Services:
+Die SSL spezifischen Anpassungen im Docker Compose File umfassen dabei nur die drei nochfolgenden Services:
 
 ```YAML
+    ...
     proxy:
       image: nginx:alpine
       depends_on:
@@ -71,7 +73,7 @@ Die Anpassungen im Docker Compose File umfassen dabei nur die drei nochfolgenden
 Der erste Service mit namen **proxy** ist der Alfresco Proxy über welchen die Alfresco Applikationen wie Share oder Alfresco Content App erreichbar sind. Die beiden nachfolgenden Services bilden zusammen die Docker Companion Images für die SSL Zertifikateverwaltung mit Let's Encrypt.
 
 # Testing
-Ich hatte große Lust mal die neue Buildengine GitHub Actions auszuprobieren um die Ausstellung des SSL Zertifkates für die Domain a.notreal.com zu testen. Ich habe mir gedacht es müsste doch möglich sein die GitHub Action Runner nicht von GitHub selber laufen zu lassen, sondern auf AWS. So könnte ich dann einach mittels des CNAME Records auf den Public DNS Name vom AWS Runner verweisen. Und ja das hat tatsächlich geklappt. Viel geholfen hat mir [dieser Blog Post](https://www.lotharschulz.info/2019/12/09/github-action-self-hosted-runners-on-aws-incl-spot-instances/) von Lothar Schulz wo genau beschrieben wird, wie ich AWS Ec2 VMs als GitHub Actions Runner verwenden kann. Dann kann der GitHub Workflow folgendermaßen ausgeführt werden:
+Ich hatte große Lust mal die neue Buildengine GitHub Actions auszuprobieren um die Ausstellung des SSL Zertifkates für die Domain a.notreal.com zu testen. Ich habe mir gedacht es müsste doch möglich sein die GitHub Action Runner nicht von GitHub selber laufen zu lassen, sondern auf AWS direkt. So könnte ich dann einach mittels des CNAME Records auf den Public DNS Name vom AWS Runner verweisen. Und ja das hat tatsächlich geklappt. Viel geholfen hat mir [dieser Blog Post von Lothar Schulz](https://www.lotharschulz.info/2019/12/09/github-action-self-hosted-runners-on-aws-incl-spot-instances/) wo genau beschrieben wird, wie ich AWS Ec2 VMs als GitHub Actions Runner verwenden kann. Mein GitHub Workflow sieht folgendermaßen aus:
 
 ```YAML
 name: Test Deployment
