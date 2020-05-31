@@ -3,7 +3,7 @@ title: Martin Müller Lebenslauf
 description: Resume about me
 show: 'no'
 date: '2020-05-30'
-image: 'avatar.jpeg'
+image: 'joint.jpg'
 tags: []
 engUrl: https://martinmueller.dev/resume
 pruneLength: 50
@@ -12,9 +12,9 @@ pruneLength: 50
 # Zusammenfassung
 damadden88@googlemail.com
 
-Begeisterter Full Stack Entwickler. Ich mag es viele unterschiedliche und nützliche Informatiker Fähigkeiten zu besitzen. Vom Entwickeln des Backendsund Frontend geschrieben in Java, JavaScript oder jeder anderen Sprache bis zum Kreieren  der kostoptimierten Cloud Infrastrukturlösungen. Ich suche nach neuen und spannenden Herausforderungen.
+<p align=center>Begeisterter Full Stack Entwickler. Ich mag es viele unterschiedliche und nützliche Informatiker Fähigkeiten zu besitzen. Vom Entwickeln des Backendsund Frontend geschrieben in Java, JavaScript oder jeder anderen Sprache bis zum Kreieren  der kostoptimierten Cloud Infrastrukturlösungen. Ich suche nach neuen und spannenden Herausforderungen.</p>
 
-“Was ich nicht weiß, werde ich lernen”
+<p align=center>“Was ich nicht weiß, werde ich lernen”</p>
 
 # Highlights
 * Java, JavaScript, TypeScript, Kotlin, Angular, React
