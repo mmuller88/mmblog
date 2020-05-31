@@ -18,8 +18,15 @@ const Header = ({ siteTitle }) => (
         margin: `0 auto`,
         maxWidth: 960,
         padding: `1.45rem 1.0875rem`,
+        // display: 'inline-block'
       }}
     >
+      <div style={{float: 'right', color: 'white', marginRight:'0.3rem', display:'inline-block'}}>
+        <a href='https://github.com/mmuller88' target="_blank" rel='noopener' style={{color: 'white', marginRight:'0.3rem'}}><img src={ghLogo} textDecoration='none' width='20px' height='20px' alt="github" style={{borderRadius: "25px"}}/></a>
+        <a href='https://www.twitter.com/MartinMueller_' target="_blank" rel='noopener' style={{ marginRight:'0.3rem'}}><img  src={twitterLogo} width='20px' height='20px' alt="twitter" style={{borderRadius: "25px"}}/></a> 
+        <a href='https://www.linkedin.com/in/martinmueller88/' target="_blank" rel='noopener' style={{display:'inline-block'}}><img src={inLogo} width='20px' height='20px' alt="avatarIcon" style={{borderRadius: "25px"}}/></a>
+      </div>
+      <div>
       <h1 class="row" style={{ margin: 0, marginLeft: 0, display: `inline-block`,
     alignItems: `center`}}>
         <Link
@@ -53,11 +60,11 @@ const Header = ({ siteTitle }) => (
           </Link>
           <div style={{color: "white", marginLeft:'0.5rem', float:`right`, borderRadius: "25px"}}>
         {/* <a href='https://martinmueller.dev/resume' target="_blank" rel='noopener'>Resume</a> */}
-        <a href='https://github.com/mmuller88' target="_blank" rel='noopener' style={{color: 'white', marginRight:'0.3rem', display:'inline-block'}}><img src={ghLogo} textDecoration='none' width='20px' height='20px' alt="github" style={{borderRadius: "25px"}}/></a>
-        <a href='https://www.twitter.com/MartinMueller_' target="_blank" rel='noopener' style={{color: 'white', marginRight:'0.3rem', display:'inline-block'}}><img  src={twitterLogo} width='20px' height='20px' alt="twitter" style={{borderRadius: "25px"}}/></a> 
-        <a href='https://www.linkedin.com/in/martinmueller88/' target="_blank" rel='noopener' style={{color: 'white', display:'inline-block'}}><img  src={inLogo} width='20px' height='20px' alt="avatarIcon" style={{borderRadius: "25px"}}/></a>
+        
+        
         </div>
       </h1>
+      </div>
       
     </div>
   </header>
