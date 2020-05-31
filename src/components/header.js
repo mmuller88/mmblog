@@ -20,7 +20,7 @@ const Header = ({ siteTitle }) => (
         padding: `1.45rem 1.0875rem`,
       }}
     >
-      <h1 class="row" style={{ margin: 0, marginLeft: 20, display: `inline-block`,
+      <h1 class="row" style={{ margin: 0, marginLeft: 0, display: `inline-block`,
     alignItems: `center`}}>
         <Link
           to="/"

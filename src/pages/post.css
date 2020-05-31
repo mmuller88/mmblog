@@ -1,13 +1,14 @@
 .link {
   display: flex;
+  margin: 0;
   flex-direction: column;
   text-decoration: none;
   color: black;
 }
 
-.href {
+/* .href {
   margin: 1rem;
-}
+} */
 
 .header {
   margin-left: 1rem;
@@ -18,6 +19,7 @@
   padding: .5rem;
   box-shadow: 0 -1px 4px #ede7e7;
   margin: 1rem;
+  margin-left: 0;
 }
 
 img{
