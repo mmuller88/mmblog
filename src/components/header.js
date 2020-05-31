@@ -39,7 +39,7 @@ const Header = ({ siteTitle }) => (
               // paddingLeft: "7cm"
             }}
           >
-          | Resume
+          | Resume 
           </Link>
           <Link
             to="/projects"
