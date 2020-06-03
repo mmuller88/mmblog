@@ -4,7 +4,7 @@ show: 'no'
 description: AWS CDK example mit Swagger für ein Api Gateway
 date: '2020-04-04'
 image: 'swagger.png'
-tags: ['de', '2020', 'aws', 'swagger', 'cdk', 'cfd', 'github', 'travis']
+tags: ['de', '2020', 'aws', 'swagger', 'cdk', 'cfd', 'github', 'travis', 'postman']
 engUrl: https://martinmueller.dev/cdk-swagger-eng
 pruneLength: 50
 ---

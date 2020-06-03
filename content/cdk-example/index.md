@@ -4,7 +4,7 @@ show: 'no'
 description: AWS CDK example mit Travis Deployment
 date: '2020-03-28'
 image: 'cloud.jpg'
-tags: ['de', '2020', 'aws', 'lambda', 'cdk', 'cfd', 'github', 'travis']
+tags: ['de', '2020', 'aws', 'lambda', 'cdk', 'cfd', 'github', 'travis', 'postman']
 engUrl: https://martinmueller.dev/cdk-example-eng
 pruneLength: 50
 ---

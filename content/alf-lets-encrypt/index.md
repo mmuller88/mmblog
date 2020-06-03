@@ -4,7 +4,7 @@ description: Companion Image für Docker Compose
 show: 'no'
 date: '2020-05-30'
 image: 'lets.png'
-tags: ['de', '2020', 'acs', 'alfresco', 'docker', 'docker-compose', 'ssl', 'github-actions']
+tags: ['de', '2020', 'acs', 'alfresco', 'docker', 'docker-compose', 'ssl', 'github-actions', 'postman']
 engUrl: https://martinmueller.dev/alf-lets-encrypt-eng
 pruneLength: 50
 ---

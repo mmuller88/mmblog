@@ -3,7 +3,7 @@ title: Alfresco meets Let's Encrypt
 description: Companion Image for Docker Compose
 date: '2020-05-30'
 image: 'lets.png'
-tags: ['eng', '2020', 'acs', 'alfresco', 'docker', 'docker-compose', 'ssl', 'github-actions']
+tags: ['eng', '2020', 'acs', 'alfresco', 'docker', 'docker-compose', 'ssl', 'github-actions', 'postman']
 gerUrl: https://martinmueller.dev/alf-lets-encrypt
 pruneLength: 50
 ---

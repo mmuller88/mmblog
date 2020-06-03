@@ -3,7 +3,7 @@ title: The Alfresco Provisioner
 description: About the Closed Beta of my CDK Backend
 date: '2020-05-19'
 image: 'prov.png'
-tags: ['eng', '2020', 'acs', 'alfresco', 'docker', 'docker-compose', 'ec2', 'swagger', 'cdk']
+tags: ['eng', '2020', 'acs', 'alfresco', 'docker', 'docker-compose', 'ec2', 'swagger', 'cdk', 'postman']
 gerUrl: https://martinmueller.dev/alf-provisioner
 pruneLength: 50
 ---
