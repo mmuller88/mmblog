@@ -1,9 +1,9 @@
 ---
-title: OpenApi generierte REST Server
+title: OpenApi generierte Restic REST Serve
 description: Wie man mit OpenApi Specs REST Server
 show: 'no'
 date: '2020-06-06'
-image: 'lets.png'
+image: 'swagger.png'
 tags: ['de', '2020', 'openApi', 'automate', 'github-actions', 'postman']
 engUrl: https://martinmueller.dev/openapi-server-eng
 pruneLength: 50
@@ -11,9 +11,9 @@ pruneLength: 50
 
 Hello Leute :).
 
-In diesem Beitrag möchte ich gerne davon berichten wie einfach es sein kann einen Backend REST Server zu erstellen mit zur Hilfenahme von OpenApi Spezifikationen. Mein ultimatives Ziel ist es Backups und den Restore Prozess von Alfresco Daten so einfach wie möglich zu machen. Nach langem recherchieren habe ich mich entschlossen [Restic](https://github.com/restic/restic) als Backup und Restoring Engine zu benutzen. Da in meinem bisherigen Deployments alle Alfresco Daten, sprich die Blob Daten, RDB Daten, Solr Daten usw. im /data Folder vorliegen scheint es der perfekte Use Case. Das automatisierte Backup funktioniert auch so weit. Vielen Dank an dieser Stelle [lobaro](https://github.com/lobaro/restic-backup-docker) und seiner brillanten restic Backup Arbeit welche mir im Part automatisierte Backup sehr geholfen hat. 
+In diesem Beitrag möchte ich davon berichten wie einfach es sein kann einen Backend REST Server zu erstellen mit zur Hilfenahme von OpenApi Spezifikationen. Mein ultimatives Ziel ist es Backups und den Restore Prozess von Alfresco Daten so einfach wie möglich zu machen. Nach langem recherchieren habe ich mich entschlossen [Restic](https://github.com/restic/restic) als Backup und Restoring Engine zu benutzen. Da in meinem bisherigen Deployments alle Alfresco Daten, sprich die Blob Daten, DB Daten, Solr Daten usw. im /data Folder vorliegen scheint es der perfekte Use Case für Restic zu sein. Das automatisierte Backup funktioniert so weit gut. Vielen Dank an dieser Stelle [lobaro](https://github.com/lobaro/restic-backup-docker) und seiner brillanten restic Backup Arbeit welche mir im Part automatisierte Backup sehr geholfen hat.
 
-Nun steht allerdings noch der Restoring part an. Und wie es scheint gibt es bisher dafür keine einfach zu nutzenden Ansätze. Der Administrator müsste also immer die Restoring Manuell durchführen. Das heißt in die Machine einloggen und die nötigen restic restore Befehle ausführen, welche den gewünschten Snapshot wiederherstellen. Diesen Prozess will ich vereinfachen und dem Administrator eine angenehme UI zur Wiederherstellung bieten. Dafür verwende ich die OpenApi Technologien. In den nächsten Abschnitten erzähle ich mehr über OpenApi und was genau ich gemacht habe.
+Nun steht allerdings noch der Restoring part an. Und wie es scheint gibt es bisher dafür kein Tooling. Der Administrator müsste also immer die Restoring mittel Restic manuell durchführen. Das heißt in die Machine einloggen und die nötigen Restic Restore Befehle ausführen, welche den gewünschten Snapshot wiederherstellen. Diesen Prozess will ich vereinfachen und dem Administrator eine angenehme UI zur Wiederherstellung bereitstellen. Dafür verwende ich die OpenApi Technologien. In den nächsten Abschnitten erzähle ich mehr über OpenApi und was genau ich gemacht habe.
 
 # OpenApi
 [OpenApi](https://swagger.io/docs/specification/about/) welches früher Swagger genannt wurde, ist eine YAML oder JSON Template Sprache zur Beschreibung von RESTful APIs. Folgend beschreibe ich was super an OpenApi ist. Erstens eigenen sich die Templates extrem gut als Dokumentation über die API selber, da aus dem Template eine schick aussehende HTML UI generiert werden kann, welche die API Endpoints sehr gut beschreibt. Eine solche UI ist im Titelbild dieses Blogposts zu sehen. Noch genialer ist die UI kann direkt zum Testen der Endpoints genutzt werden, also zum Senden und Empfangen von Requests und Responses. Viele API Schnittstellen, wie es auch AWS API Gateway eine ist, bieten es and die Parameter Validierung der Requests über OpenApi Files zu machen. Was mit Parametervalidierung gemeint ist versuche ich anhand des folgenden Beispiels zu erklären:
@@ -34,7 +34,7 @@ http://<url>/items?userId=martin
 
 Mit der Parametervalidierung kann ich dann bestimmte Eigenschaften des Parameters definieren, wie hier der name **userId** ob er required ist und welchen Typ der value haben soll, in unserem Fall als vom typ string.
 
-Auch sehr mächtig ist die Eigenschaft, dass es möglich ist aus OpenApi Files [Client Libaries und Server Stubs zu generieren](https://swagger.io/tools/swagger-codegen/). Alfresco macht das zum Beispiel mit dem [API-Explorer](https://api-explorer.alfresco.com/api-explorer/) (Näheres auf [GitHub Api-Explorer](https://github.com/Alfresco/rest-api-explorer)) und [ADF](https://www.alfresco.com/abn/adf/) (oder [ADF JS Github](https://github.com/Alfresco/alfresco-js-api)). Dort wird zum Beispiel aus dem [Swagger File](https://github.com/Alfresco/rest-api-explorer/blob/master/src/main/webapp/definitions/alfresco-core.yaml) die eine JavaScript API Library erzeugt, welche als Wrapper für die API Requests genutzt werden kann und auch wird in [ADF Components Github](https://github.com/Alfresco/alfresco-ng2-components).
+Auch sehr mächtig ist die Eigenschaft, dass es möglich ist aus OpenApi Files [Client Libaries und Server Stubs zu generieren](https://swagger.io/tools/swagger-codegen/). Alfresco generiert zum Beispiel JavaScript Clients mit zur Hilfenahme des [API-Explorers](https://api-explorer.alfresco.com/api-explorer/) (Näheres auf [GitHub Api-Explorer](https://github.com/Alfresco/rest-api-explorer)) und [ADF](https://www.alfresco.com/abn/adf/) (oder [ADF JS Github](https://github.com/Alfresco/alfresco-js-api)). Dort wird zum Beispiel aus dem [Swagger File](https://github.com/Alfresco/rest-api-explorer/blob/master/src/main/webapp/definitions/alfresco-core.yaml) die eine JavaScript API Library erzeugt, welche als Wrapper für die API Requests genutzt werden kann in den [ADF Components Github](https://github.com/Alfresco/alfresco-ng2-components).
 
 Auch cool ist, [Postman](https://www.postman.com/automated-testing) bietet eine Importierfunktion für OpenApi Files. Dann wird daraus gleich eine Collections erzeugt. Das ist sehr praktisch, wenn man anfangen möchte die Requests in Postman zu schreiben.
 
