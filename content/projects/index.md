@@ -1,5 +1,5 @@
 ---
-title: Ongoing and past Projects
+title: Ongoing 2020
 description: Resume about me
 show: 'no'
 # date: '2020-05-30'
@@ -9,7 +9,6 @@ gerUrl: https://martinmueller.dev/projects-ger
 pruneLength: 50
 ---
 
-# Ongoing 2020
 ## AWS APN Partner
 I became an AWS APN Partner. An AWS APN Partner helps customers to find AWS solutions such like migrating to the cloud. You can read more about the APN programm [here](https://aws.amazon.com/partners/).
 
