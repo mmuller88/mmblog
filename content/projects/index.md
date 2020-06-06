@@ -26,5 +26,9 @@ I work on an Alfresco as a Platform solution to simplify the deployments of Alfr
 
 If you want to know more have a look at my [Alfresco Provisioner Post](https://martinmueller.dev/alf-provisioner-eng). I'm happy to create an test account for you!
 
-# Past
-...
+## Happy Bootcamp in Germany (Ludwigslust)
+I lead a bootcamp every Saturday and Sunday at 9 o'clock for group exercising. Sounds interesting?
+
+Check out Ludwigslust Happy Bootcamp!
+* https://www.facebook.com/groups/2547025218953959/
+* Meetup www.meetup.com/LuluHB
