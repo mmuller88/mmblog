@@ -49,6 +49,7 @@ module.exports = {
                 {
                   allMarkdownRemark(
                     sort: { order: DESC, fields: [frontmatter___date] },
+                    filter: { frontmatter: { show: { ne: "no" } } }
                   ) {
                     edges {
                       node {
@@ -98,6 +99,7 @@ module.exports = {
                 {
                   allMarkdownRemark(
                     sort: { order: DESC, fields: [frontmatter___date] },
+                    filter: { frontmatter: { show: { ne: "no" } } }
                   ) {
                     edges {
                       node {
