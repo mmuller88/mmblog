@@ -1,6 +1,7 @@
 ---
 title: Mit ACS 6.X Prozesse in APS starten
 show: 'no'
+draft: 'yes'
 date: '2020-06-12'
 image: 'compose.jpeg'
 tags: ['de', '2020', 'acs', 'aps', 'process']

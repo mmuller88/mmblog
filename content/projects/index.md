@@ -32,3 +32,4 @@ I lead a bootcamp every Saturday and Sunday at 9 o'clock for group exercising. S
 Check out Ludwigslust Happy Bootcamp!
 * https://www.facebook.com/groups/2547025218953959/
 * Meetup www.meetup.com/LuluHB
+<!-- ![joint](joint.jpg) -->

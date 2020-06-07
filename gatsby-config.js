@@ -49,6 +49,7 @@ module.exports = {
                 {
                   allMarkdownRemark(
                     sort: { order: DESC, fields: [frontmatter___date] },
+                    filter: { frontmatter: { draft: { ne: "yes" } } }
                   ) {
                     edges {
                       node {
@@ -59,6 +60,7 @@ module.exports = {
                           title
                           date
                           tags
+                          draft
                           image {
                             publicURL
                           }
@@ -98,6 +100,7 @@ module.exports = {
                 {
                   allMarkdownRemark(
                     sort: { order: DESC, fields: [frontmatter___date] },
+                    filter: { frontmatter: { draft: { ne: "yes" } } }
                   ) {
                     edges {
                       node {
@@ -108,6 +111,7 @@ module.exports = {
                           title
                           date
                           tags
+                          draft
                           image {
                             publicURL
                           }
