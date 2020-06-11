@@ -1,5 +1,5 @@
 ---
-title: Mit ACS 6.X Prozesse in APS starten
+title: ACS und APS Integration
 show: 'no'
 draft: 'yes'
 date: '2020-06-12'
@@ -11,16 +11,71 @@ pruneLength: 50
 
 Hi Alfrescans.
 
-Vor einigen Monaten berichtete ich über ein spannendes Projekt mit dem Kunden bei dem wir die neuest [ACS und APS version verwenden](https://martinmueller.dev/alf-acs-aps-integration). Bisher lief alles reibungslos. Nun standen wir aber vor der nächsten Herausforderung. Wie sollten wir ohne den Share Connector, welcher normalerweise eine Integration zwischen ACS und APS erleichtert, nur bewerkstelligen? Seit ACS 6.0 ist es nämlich nicht mehr erlaubt den Share Connector zu verwenden.
+Vor einigen Monaten berichtete ich über ein spannendes Projekt mit dem Kunden bei dem wir die neuest [ACS und APS version verwenden](https://martinmueller.dev/alf-acs-aps-integration). Bisher lief alles reibungslos. Nun standen wir aber vor der nächsten Herausforderung. Wir sollten wir ohne den Share Connector, welcher normalerweise eine Integration zwischen ACS und APS erleichtert, nur bewerkstelligen? Seit ACS 6.0 ist der Share Connector nicht mehr supported
 
 # Problemstellung
-...
+ACS und APS sind zwei unabhängige Services die in der Lage sind über CMIS oder REST Apis miteinander zu kommunizieren. Schon seit langem ist es möglich bei APS ACS als Content Management System einzustellen und somit Daten direkt in ACS zu speichern und abrufbar zu halten. Das funktioniert super solange die Prozesse von APS aus gestartet werden. Nun kann man sich aber ja auch perfekt den Use Case vorstellen, dass Prozesse aus ACS gestartet werden sollen. Ein Beispiel dafür wäre wenn ein Dokument in einem bestimmten ACS Folder hochgeladen wird, soll ein Prozess in APS mit diesem Dokument gestartet werden. 
+
+Für ACS 5.2 ließ sich das Problem mit dem Share Connector lösen. Dieser erweitert ACS mit Webscripts welche über die REST mit APS Prozesse starten kann. Zusätzlich bietet der Share Connector noch einige Share UI Erweiterungen für die APS Integration. Es wäre zwar noch möglich den Share Connector für neuere ACS Versionen zu verwenden, allerdings bietet dann Alfresco keinen Support mehr. Nachfolgend sind zweit Alternativen zu dem Share Connector erklärt:
 
 # APS Signals
 ...
 
 # Custom Endpoint
+APS bietet die Möglichkeit Custom Endpoints per Java Code zu implementieren. Mit diesem lassen sich dann Prozesse starten und Variablen zum Prozess übergeben. Die Alfresco Dokumentation dazu findet ihr [hier](https://docs.alfresco.com/process-services1.11/topics/custom_rest_endpoints.html). Ist nun so ein Custom Endpunkt implementiert, kann dieser als WebHook von ACS genutzt werden, um einen Prozess aus ACS heraus zu starten. Wie in Dokumentation beschrieben, kann der Endpunkt mittels Java definiert werden um anschließend in eine Jar verpackt zu werden. Das war etwas aufwendig da einige Dependencies nur in dem privaten Alfresco Nexus erhältlich sind. Die folgenden Dependencies habe ich benötigt um die JAR zu bauen:
+
+```MAVEN
+<dependencies>
+    <dependency>
+        <groupId>org.alfresco</groupId>
+        <artifactId>alfresco-repository</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>com.activiti</groupId>
+        <artifactId>activiti-app-rest</artifactId>
+        <version>1.11.0</version>
+    </dependency>
+    <dependency>
+    <groupId>org.springframework</groupId>
+        <artifactId>spring-web</artifactId>
+        <version>4.1.6.RELEASE</version>
+    </dependency>
+</dependencies>
 ...
+<repositories>
+    <repository>
+        <id>enterprise-releases</id>
+        <url>https://artifacts.alfresco.com/nexus/content/repositories/activiti-enterprise-releases</url>
+    </repository>
+</repositories>
+```
+
+Für das private Alfresco Nexus Repository werden Zugangsdaten benötigt. Diese bekommt man unter support.alfresco.com . Anschließend kann die JAR mittels Docker in den Container kopiert werden. Nachfolgend zeige ich die Docker Compose und Docker Settings für das laden der JAR in die Tomcat webapp lib.
+
+```YAML
+process:
+    build:
+        context: ./process
+    environment:
+    ...
+```
+
+Im Ordner ./process befindet sich die folgende Dockerfile.
+
+```YAML
+FROM alfresco/process-services:1.11.0
+
+ARG TOMCAT_DIR=/usr/local/tomcat
+
+COPY target/acsaps-1.0.0-SNAPSHOT.jar $TOMCAT_DIR/webapps/activiti-app/WEB-INF/lib
+```
+
+Am besten testet ihr den Custom Endpoint zuerst mit Postman befor ihr versucht mittels ACS diesen aufzurufen.
+
+# Zusammenfassung
+ACS und APS sind mächtige Tools welche vereint Unternehmen helfen endlich die lang ersehnte optimale digitale Lösung zu finden. Die Integration ACS nach APS stellt viele Alfresco Engineers vor Herausforderungen. Ich listete hier mehrere Möglichkeiten wie diese Integration gemeistert werden kann und hoffe das es dir hilft deine ECM BPM Ziele mittels ACS und APS zu erreichen. Schreibt mir wie es für euch gelaufen ist oder wenn ihr Hilfe braucht :) .
+
+
 
 Es ist mal wieder Zeit über ein spannendes Alfresco Partner Projekt von mir zu berichten. Für einen Kunden hier in Deutschland entwickle ich ein POC welches ACS 6.2 und APS 1.10 verwenden soll. Nach ein wenig Überzeugungsarbeit konnte ich die Beteiligten davon überzeugen, Docker für ACS 6.2 zu verwenden. Mein Plan war es ein Docker Compose Deployment zu erstellen welche ACS, APS und als Identity Provider openLDAP beinhaltet. Das komplette Deployment kann [bei mir in GitHub](https://github.com/mmuller88/alf-acs-aps) gesichtet werden. Eines sei vorweg noch erwähnt. Alfresco offiziell empfiehlt für solche Deployments doch bitte [Kubernetes zu verwenden](https://github.com/Alfresco/alfresco-dbp-deployment), allerdings ist für meinen Kunden die Cloud erstmal noch ein Tabuthema. Darüber hinaus bin ich gespannt zu sehen wie weit ich mit Docker Compose für so ein Deployment kommen werde.
 

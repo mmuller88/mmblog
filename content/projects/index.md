@@ -30,6 +30,6 @@ If you want to know more have a look at my [Alfresco Provisioner Post](https://m
 I lead a bootcamp every Saturday and Sunday at 9 o'clock for group exercising. Sounds interesting?
 
 Check out Ludwigslust Happy Bootcamp!
-* https://www.facebook.com/groups/2547025218953959/
-* Meetup www.meetup.com/LuluHB
+* FaceBook Group: https://www.facebook.com/groups/2547025218953959/
+* Meetup: https://www.meetup.com/LuluHB
 <!-- ![joint](joint.jpg) -->
