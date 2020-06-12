@@ -18,7 +18,7 @@ Begeisterter Full Stack Entwickler. Ich mag es viele unterschiedliche und nützl
 
 # Highlights
 * Java, JavaScript, TypeScript, Kotlin, Angular, React
-* AWS (Professional Solution Architect certified), Lambda, EC2, CDK, DynamoDB and many more
+* AWS (Professional Solution Architect [certified](https://martinmueller.dev/aws-cert)), Lambda, EC2, CDK, DynamoDB and many more
 * Maven, Gradle, SQL, ElasticSearch
 * Docker, Kubernetes, Helm
 * Spring, GitHub (Actions), Travis, GitLab
