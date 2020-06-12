@@ -4,7 +4,7 @@ description: AWS Certified Solutions Architect - Professional
 show: 'no'
 # date: '2020-05-30'
 image: 'cert.jpg'
-# tags: []
+tags: []
 # engUrl: https://martinmueller.dev/alf-lets-encrypt-eng
 # pruneLength: 50
 ---
