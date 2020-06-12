@@ -10,7 +10,7 @@ pruneLength: 50
 ---
 
 # Summary
-damadden88@googlemail.com
+office@martinmueller.dev
 
 Passionate Full Stack Developer. I like to have a broad collection of skills. From developing the backend and frontend applications written in Java, JavaScript or any other language, until developing a cost optimised cloud infrastructure solution. Enthusiastic agile player with strong communication skills. Looking for taking new challenges and learning new technologies.
 

@@ -18,9 +18,6 @@ ACS und APS sind zwei unabhängige Services die in der Lage sind über CMIS oder
 
 Für ACS 5.2 ließ sich das Problem mit dem Share Connector lösen. Dieser erweitert ACS mit Webscripts welche über die REST mit APS Prozesse starten kann. Zusätzlich bietet der Share Connector noch einige Share UI Erweiterungen für die APS Integration. Es wäre zwar noch möglich den Share Connector für neuere ACS Versionen zu verwenden, allerdings bietet dann Alfresco keinen Support mehr. Nachfolgend sind zweit Alternativen zu dem Share Connector erklärt:
 
-# APS Signals
-...
-
 # Custom Endpoint
 APS bietet die Möglichkeit Custom Endpoints per Java Code zu implementieren. Mit diesem lassen sich dann Prozesse starten und Variablen zum Prozess übergeben. Die Alfresco Dokumentation dazu findet ihr [hier](https://docs.alfresco.com/process-services1.11/topics/custom_rest_endpoints.html). Ist nun so ein Custom Endpunkt implementiert, kann dieser als WebHook von ACS genutzt werden, um einen Prozess aus ACS heraus zu starten. Wie in Dokumentation beschrieben, kann der Endpunkt mittels Java definiert werden um anschließend in eine Jar verpackt zu werden. Das war etwas aufwendig da einige Dependencies nur in dem privaten Alfresco Nexus erhältlich sind. Die folgenden Dependencies habe ich benötigt um die JAR zu bauen:
 
@@ -71,6 +68,26 @@ COPY target/acsaps-1.0.0-SNAPSHOT.jar $TOMCAT_DIR/webapps/activiti-app/WEB-INF/l
 ```
 
 Am besten testet ihr den Custom Endpoint zuerst mit Postman befor ihr versucht mittels ACS diesen aufzurufen.
+
+# APS Signals
+Die Verwendung von Start Signalen in APS ist eine andere Art und Weise ACS und APS miteinander zu verbinden. Der große Vorteil gegenüber der Custom Endpoint Methode ist, dass kein Java Code erstellt werden muss und sich alles mittels UI in /activiti-app konfigurieren lässt. Ein anderer Vorteil ist, dass das sogenannte Start Signalen mehrere Prozesse staren kann. In unserem Beispiel bleibe ich aber erstmal bei einem. jtsmith beschreibt das Vorgehen sehr gut in seinem Blog Post [Start Signal Event with REST example](https://hub.alfresco.com/t5/alfresco-process-services/using-rest-call-with-a-start-signal-event-in-aps/ba-p/288943). Kurz zusammengefasst wird dabei mittels APS ein Basic Auth Endpoint erstellt. Danach wird ein Signal Prozess modelliert, welcher in Zukunft das Signal quasi abfängt und auf mapped. Dafür wichtig ist, dass das Request Mapping die folgende Form haben muss:
+
+```JSON
+{
+   "signalName":"mysignal",
+   "tenantId":"tenant_1",
+   "async":"false",
+   "variables":
+   [
+      {
+         "name":"varFromSignal",
+         "value":"This is a string"
+      }
+   ]
+}
+```
+
+Die genauen Funktionen der Properties bitte im verlinkten original Post nachlesen. Als nächstes können dann Prozesse erstellt werden die als Start Event das Signal **mysignal** nutzen können umd den Prozess zu starten.
 
 # Zusammenfassung
 ACS und APS sind mächtige Tools welche vereint Unternehmen helfen endlich die lang ersehnte optimale digitale Lösung zu finden. Die Integration ACS nach APS stellt viele Alfresco Engineers vor Herausforderungen. Ich listete hier mehrere Möglichkeiten wie diese Integration gemeistert werden kann und hoffe das es dir hilft deine ECM BPM Ziele mittels ACS und APS zu erreichen. Schreibt mir wie es für euch gelaufen ist oder wenn ihr Hilfe braucht :) .

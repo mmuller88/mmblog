@@ -3,7 +3,7 @@
   "private": true,
   "description": "My first blog page with Gatsby",
   "version": "0.1.0",
-  "author": "Martin Mueller <damadden88@googlemail.com>",
+  "author": "Martin Mueller <office@martinmueller.dev>",
   "dependencies": {
     "gatsby": "^2.22.6",
     "gatsby-cli": "^2.12.31",

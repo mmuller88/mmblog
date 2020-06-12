@@ -10,7 +10,7 @@ pruneLength: 50
 ---
 
 # Zusammenfassung
-damadden88@googlemail.com
+office@martinmueller.dev
 
 Begeisterter Full Stack Entwickler. Ich mag es viele unterschiedliche und nützliche Informatiker Fähigkeiten zu besitzen. Vom Entwickeln des Backendsund Frontend geschrieben in Java, JavaScript oder jeder anderen Sprache bis zum Kreieren  der kostoptimierten Cloud Infrastrukturlösungen. Ich suche nach neuen und spannenden Herausforderungen.
 

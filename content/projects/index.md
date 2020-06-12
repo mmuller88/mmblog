@@ -19,7 +19,7 @@ I am an certified AWS Professional Solution Architekt with many years of Cloud e
 * AWS S3 / EBS / EFS
 * AWS StepFunctions
 
-If you are interested in my services find write me: damadden88@googlemail.com
+If you are interested in my services find write me: office@martinmueller.dev
 
 ## Alfresco as a Platform
 I work on an Alfresco as a Platform solution to simplify the deployments of Alfresco a lot. In fact you don't need to deploy anything anymore and just can use created Alfresco instances.
