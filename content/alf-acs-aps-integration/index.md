@@ -2,7 +2,7 @@
 title: ACS und APS Integration
 show: 'no'
 date: '2020-06-14'
-image: ''
+image: 'handshake.png'
 tags: ['de', '2020', 'acs', 'aps', 'process']
 engUrl: https://martinmueller.dev/alf-acs-aps-integration-eng
 pruneLength: 50
