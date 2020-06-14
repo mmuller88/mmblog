@@ -24,7 +24,7 @@ module.exports = {
           feeds: [
             {
               serialize: ({ query: { site, allMarkdownRemark } }) => {
-                return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("eng") && !edge.node.frontmatter.tags.includes("draft")).map(edge => {
+                return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("eng") && !edge.node.frontmatter.tags.includes("nofeed")).map(edge => {
                   return Object.assign({}, edge.node.frontmatter, {
                     description: edge.node.excerpt,
                     date: edge.node.frontmatter.date,
@@ -73,7 +73,7 @@ module.exports = {
             },
             {
               serialize: ({ query: { site, allMarkdownRemark } }) => {
-                return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("de") && !edge.node.frontmatter.tags.includes("draft")).map(edge => {
+                return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("de") && !edge.node.frontmatter.tags.includes("nofeed")).map(edge => {
                   return Object.assign({}, edge.node.frontmatter, {
                     description: edge.node.excerpt,
                     date: edge.node.frontmatter.date,

@@ -4,7 +4,7 @@ description: Resume about me
 show: 'no'
 # date: '2020-05-30'
 image: 'joint.jpg'
-tags: []
+tags: [nofeed]
 engUrl: https://martinmueller.dev/resume
 pruneLength: 50
 ---
