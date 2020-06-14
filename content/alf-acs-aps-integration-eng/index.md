@@ -1,7 +1,7 @@
 ---
 title: ACS and APS Integration
 date: '2020-06-14'
-# image: 'compose.jpeg'
+image: ''
 tags: ['eng', '2020', 'acs', 'aps', 'process']
 gerUrl: https://martinmueller.dev/alf-acs-aps-integration
 pruneLength: 50
