@@ -71,55 +71,55 @@ module.exports = {
               output: "/rss.xml",
               title: "Martin Mueller's Blog",
             },
-            {
-              serialize: ({ query: { site, allMarkdownRemark } }) => {
-                return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("de") && !edge.node.frontmatter.tags.includes("nofeed")).map(edge => {
-                  return Object.assign({}, edge.node.frontmatter, {
-                    description: edge.node.excerpt,
-                    date: edge.node.frontmatter.date,
-                    url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    categories: edge.node.frontmatter.tags,
-                    enclosure: edge.node.frontmatter.image && {
-                      url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
-                    },
-                    custom_elements: [
-                      { "content:encoded": edge.node.html },
-                      {
-                        featuredImage:  edge.node.frontmatter.image ?
-                          site.siteMetadata.siteUrl +
-                          edge.node.frontmatter.image.publicURL : undefined
-                      },
-                    ],
-                  })
-                })
-              },
-              query: `
-                {
-                  allMarkdownRemark(
-                    sort: { order: DESC, fields: [frontmatter___date] }
-                  ) {
-                    edges {
-                      node {
-                        excerpt
-                        html
-                        fields { slug }
-                        frontmatter {
-                          title
-                          date
-                          tags
-                          image {
-                            publicURL
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              `,
-              output: "/rss-ger.xml",
-              title: "Martin Mueller's Blog Ger",
-            },
+            // {
+            //   serialize: ({ query: { site, allMarkdownRemark } }) => {
+            //     return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("de") && !edge.node.frontmatter.tags.includes("nofeed")).map(edge => {
+            //       return Object.assign({}, edge.node.frontmatter, {
+            //         description: edge.node.excerpt,
+            //         date: edge.node.frontmatter.date,
+            //         url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+            //         guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+            //         categories: edge.node.frontmatter.tags,
+            //         enclosure: edge.node.frontmatter.image && {
+            //           url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
+            //         },
+            //         custom_elements: [
+            //           { "content:encoded": edge.node.html },
+            //           {
+            //             featuredImage:  edge.node.frontmatter.image ?
+            //               site.siteMetadata.siteUrl +
+            //               edge.node.frontmatter.image.publicURL : undefined
+            //           },
+            //         ],
+            //       })
+            //     })
+            //   },
+            //   query: `
+            //     {
+            //       allMarkdownRemark(
+            //         sort: { order: DESC, fields: [frontmatter___date] }
+            //       ) {
+            //         edges {
+            //           node {
+            //             excerpt
+            //             html
+            //             fields { slug }
+            //             frontmatter {
+            //               title
+            //               date
+            //               tags
+            //               image {
+            //                 publicURL
+            //               }
+            //             }
+            //           }
+            //         }
+            //       }
+            //     }
+            //   `,
+            //   output: "/rss-ger.xml",
+            //   title: "Martin Mueller's Blog Ger",
+            // },
           ]
         },
     },
