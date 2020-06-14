@@ -26,7 +26,7 @@ APS offers the possibility to implement custom endpoints via Java code. This can
         <artifactId>alfresco repository
     </dependency>
     <dependency>
-        <group id. activiti
+        <groupId>com.activiti</groupId>
         <artifactId>activiti-app-rest</artifactId>
         <version>1.11.0</version>
     </dependency>
