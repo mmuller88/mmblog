@@ -88,7 +88,7 @@ The use of start signals in APS is a different way of connecting ACS and APS. Th
 
 Please read the exact functions of the properties in the linked original post. Next you can create processes that can use the **mysignal** signal as start event to start the process. The model for the signal process can then be easily exported and reused.
 
-# ACS Webhook
+# ACS Webhook Action
 The previous sections explained how to start an APS process from a URL. Now the only thing missing is the possibility to do exactly that with ACS. I consider the use case that a user wants to start a process when a file in a folder is uploaded to ACS. Two elements are necessary for this. For the folder we have to create a rule that is activated when a new document is created. Then a WebHook action must be executed.
 
 Unfortunately Alfresco does not offer a Webhook action ootb. There are two possibilities to archive that. Either you create an Alfresco Webhook action yourself or use the sophisticated Webhook action from [Acosix GmBH](https://github.com/Acosix/alfresco-actions). That comes with a lot of great features like FreeMarker text input fields to define the payload or the Webhook URL, which is pretty cool. The Webhook Action works with payload templates that can be created / customized at runtime.
