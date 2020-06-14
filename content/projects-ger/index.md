@@ -3,7 +3,7 @@ title: Ongoing 2020
 description: Resume about me
 show: 'no'
 # date: '2020-05-30'
-image: ''
+image: 'joint.jpg'
 tags: [nofeed]
 engUrl: https://martinmueller.dev/projects
 pruneLength: 50
