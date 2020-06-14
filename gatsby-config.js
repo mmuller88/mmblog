@@ -24,7 +24,7 @@ module.exports = {
           feeds: [
             {
               serialize: ({ query: { site, allMarkdownRemark } }) => {
-                return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("eng")).map(edge => {
+                return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("eng") && !edge.node.frontmatter.tags.includes("draft")).map(edge => {
                   return Object.assign({}, edge.node.frontmatter, {
                     description: edge.node.excerpt,
                     date: edge.node.frontmatter.date,
@@ -48,8 +48,7 @@ module.exports = {
               query: `
                 {
                   allMarkdownRemark(
-                    sort: { order: DESC, fields: [frontmatter___date] },
-                    filter: { frontmatter: { draft: { ne: "yes" } } }
+                    sort: { order: DESC, fields: [frontmatter___date] }
                   ) {
                     edges {
                       node {
@@ -60,7 +59,6 @@ module.exports = {
                           title
                           date
                           tags
-                          draft
                           image {
                             publicURL
                           }
@@ -75,7 +73,7 @@ module.exports = {
             },
             {
               serialize: ({ query: { site, allMarkdownRemark } }) => {
-                return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("de")).map(edge => {
+                return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("de") && !edge.node.frontmatter.tags.includes("draft")).map(edge => {
                   return Object.assign({}, edge.node.frontmatter, {
                     description: edge.node.excerpt,
                     date: edge.node.frontmatter.date,
@@ -99,8 +97,7 @@ module.exports = {
               query: `
                 {
                   allMarkdownRemark(
-                    sort: { order: DESC, fields: [frontmatter___date] },
-                    filter: { frontmatter: { draft: { ne: "yes" } } }
+                    sort: { order: DESC, fields: [frontmatter___date] }
                   ) {
                     edges {
                       node {
@@ -111,7 +108,6 @@ module.exports = {
                           title
                           date
                           tags
-                          draft
                           image {
                             publicURL
                           }
