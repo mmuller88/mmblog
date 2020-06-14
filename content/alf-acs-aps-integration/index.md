@@ -1,9 +1,8 @@
 ---
 title: ACS und APS Integration
 show: 'no'
-draft: 'yes'
-date: '2020-06-12'
-image: 'compose.jpeg'
+date: '2020-06-14'
+# image: 'compose.jpeg'
 tags: ['de', '2020', 'acs', 'aps', 'process']
 engUrl: https://martinmueller.dev/alf-acs-aps-integration-eng
 pruneLength: 50
@@ -11,15 +10,15 @@ pruneLength: 50
 
 Hi Alfrescans.
 
-Vor einigen Monaten berichtete ich über ein spannendes Projekt mit dem Kunden bei dem wir die neuest [ACS und APS version verwenden](https://martinmueller.dev/alf-acs-aps-integration). Bisher lief alles reibungslos. Nun standen wir aber vor der nächsten Herausforderung. Wir sollten wir ohne den Share Connector, welcher normalerweise eine Integration zwischen ACS und APS erleichtert, nur bewerkstelligen? Seit ACS 6.0 ist der Share Connector nicht mehr supported
+Vor einigen Monaten berichtete ich über ein spannendes Projekt mit dem Kunden bei dem wir die neueste [ACS und APS version verwenden](https://martinmueller.dev/alf-acs-aps-integration). Bisher lief alles reibungslos. Nun standen wir aber vor der nächsten spannenden Herausforderung. Wir wollten Prozesse in APS aus ACS heraus starten. Das Ganze aber ohne Verwendung des Share Connector, welcher normalerweise solche Integrationen zwischen ACS und APS erleichtert. Seit ACS 6.0 ist der Share Connector nicht mehr von Alfresco supported.
 
 # Problemstellung
-ACS und APS sind zwei unabhängige Services die in der Lage sind über CMIS oder REST Apis miteinander zu kommunizieren. Schon seit langem ist es möglich bei APS ACS als Content Management System einzustellen und somit Daten direkt in ACS zu speichern und abrufbar zu halten. Das funktioniert super solange die Prozesse von APS aus gestartet werden. Nun kann man sich aber ja auch perfekt den Use Case vorstellen, dass Prozesse aus ACS gestartet werden sollen. Ein Beispiel dafür wäre wenn ein Dokument in einem bestimmten ACS Folder hochgeladen wird, soll ein Prozess in APS mit diesem Dokument gestartet werden. 
+ACS und APS sind zwei unabhängige Services die in der Lage sind über CMIS oder REST APIs miteinander zu kommunizieren. Schon seit langem ist es möglich bei APS ACS als Content Management System einzustellen und somit Daten direkt in ACS zu speichern und abrufbar (Content und Properties) zu halten. Das funktioniert super solange die Prozesse von APS aus gestartet werden. Nun kann man sich aber ja auch perfekt den Use Case vorstellen, dass Prozesse aus ACS gestartet werden sollen. Ein Beispiel dafür wäre wenn ein Dokument in einem bestimmten ACS Folder hochgeladen wird, soll ein Prozess in APS mit diesem Dokument gestartet werden.
 
-Für ACS 5.2 ließ sich das Problem mit dem Share Connector lösen. Dieser erweitert ACS mit Webscripts welche über die REST mit APS Prozesse starten kann. Zusätzlich bietet der Share Connector noch einige Share UI Erweiterungen für die APS Integration. Es wäre zwar noch möglich den Share Connector für neuere ACS Versionen zu verwenden, allerdings bietet dann Alfresco keinen Support mehr. Nachfolgend erkläre ich zwei Methoden wie ein Prozess in APS über eine URL gestartet werden kann. Anschließend erkläre ich wie man diese URL in ACS als teil einer Action in Form eines Webhooks aufrufen kann.
+Für ACS 5.2 ließ sich das Problem mit dem Share Connector lösen. Dieser erweitert ACS mit Webscripts welche über die REST mit APS Prozesse starten kann. Zusätzlich bietet der Share Connector noch einige Share UI Erweiterungen für die APS Integration. Es wäre zwar noch möglich den Share Connector für neuere ACS Versionen zu verwenden, allerdings bietet dann Alfresco keinen Support mehr. Nachfolgend erkläre ich zwei Methoden wie ein Prozess in APS über eine URL gestartet werden kann ohne den Share Connector zu verwenden. Anschließend erkläre ich wie man diese URL in ACS als teil einer Action in Form eines Webhooks aufrufen kann.
 
 # Custom Endpoint zum Prozess Starten
-APS bietet die Möglichkeit Custom Endpoints per Java Code zu implementieren. Mit diesem lassen sich dann Prozesse starten und Variablen zum Prozess übergeben. Die Alfresco Dokumentation dazu findet ihr [hier](https://docs.alfresco.com/process-services1.11/topics/custom_rest_endpoints.html). Ist nun so ein Custom Endpunkt implementiert, kann dieser als WebHook von ACS genutzt werden, um einen Prozess aus ACS heraus zu starten. Wie in Dokumentation beschrieben, kann der Endpunkt mittels Java definiert werden um anschließend in eine Jar verpackt zu werden. Das war etwas aufwendig da einige Dependencies nur in dem privaten Alfresco Nexus erhältlich sind. Die folgenden Dependencies habe ich benötigt um die JAR zu bauen:
+APS bietet die Möglichkeit Custom Endpoints per Java Code zu implementieren. Mit diesem lassen sich dann Prozesse starten und Variablen zum Prozess übergeben. Die Alfresco Dokumentation dazu findet ihr [hier](https://docs.alfresco.com/process-services1.11/topics/custom_rest_endpoints.html). Ist nun so ein Custom Endpunkt implementiert, kann dieser als WebHook in ACS genutzt werden um einen Prozess aus ACS heraus zu starten. Wie in der Dokumentation beschrieben, wird der Endpunkt mittels Java definiert um anschließend in eine Jar verpackt zu werden. Die Konfiguration dessen war etwas aufwendig da einige Dependencies nur in dem privaten Alfresco Nexus erhältlich sind. Die folgenden Dependencies habe ich benötigt um die JAR zu bauen:
 
 ```MAVEN
 <dependencies>
@@ -67,10 +66,10 @@ ARG TOMCAT_DIR=/usr/local/tomcat
 COPY target/acsaps-1.0.0-SNAPSHOT.jar $TOMCAT_DIR/webapps/activiti-app/WEB-INF/lib
 ```
 
-Am besten testet ihr den Custom Endpoint zuerst mit Postman befor ihr versucht mittels ACS diesen aufzurufen.
+Am besten testet ihr den Custom Endpoint zuerst mit Postman bevor ihr versucht mittels ACS Url Webhook diesen aufzurufen. Ich bin mir noch nicht sicher was diese Methode für Vorteile hat Verglichen mit der APS Signals Methode im nächsten Abschnitt. Ich vermute aber, dass mit der Java Programmierung ein komplexerer Prozessaufruf möglich sein könnte.
 
 # APS Signals für den Start des Prozess
-Die Verwendung von Start Signalen in APS ist eine andere Art und Weise ACS und APS miteinander zu verbinden. Der große Vorteil gegenüber der Custom Endpoint Methode ist, dass kein Java Code erstellt werden muss und sich alles mittels UI in /activiti-app konfigurieren lässt. Ein anderer Vorteil ist, dass das sogenannte Start Signalen mehrere Prozesse staren kann. In unserem Beispiel bleibe ich aber erstmal bei einem. jtsmith beschreibt das Vorgehen sehr gut in seinem Blog Post [Start Signal Event with REST example](https://hub.alfresco.com/t5/alfresco-process-services/using-rest-call-with-a-start-signal-event-in-aps/ba-p/288943). Kurz zusammengefasst wird dabei mittels APS ein Basic Auth Endpoint erstellt. Danach wird ein Signal Prozess modelliert, welcher in Zukunft das Signal quasi abfängt und auf mapped. Dafür wichtig ist, dass das Request Mapping die folgende Form haben muss:
+Die Verwendung von Start Signalen in APS ist eine andere Art ACS und APS miteinander zu verbinden. Der große Vorteil gegenüber der Custom Endpoint Methode ist, dass kein Java Code erstellt werden muss und sich alles mittels UI in /activiti-app konfigurieren lässt. Ein anderer Vorteil ist, dass das sogenannte Start Signalen mehrere Prozesse staren kann. In unserem Beispiel bleibe ich aber erstmal bei einem. jtsmith beschreibt das Vorgehen sehr gut in seinem Blog Post [Start Signal Event with REST example](https://hub.alfresco.com/t5/alfresco-process-services/using-rest-call-with-a-start-signal-event-in-aps/ba-p/288943). Kurz zusammengefasst wird dabei mittels APS ein Basic Auth Endpoint erstellt. Danach wird ein Signal Prozess modelliert, welcher in Zukunft das Signal quasi abfängt und auf mapped. Dafür wichtig ist, dass das Request Mapping die folgende Form haben muss:
 
 **APS Signal Payload**
 ```JSON
@@ -88,118 +87,17 @@ Die Verwendung von Start Signalen in APS ist eine andere Art und Weise ACS und A
 }
 ```
 
-Die genauen Funktionen der Properties bitte im verlinkten original Post nachlesen. Als nächstes können dann Prozesse erstellt werden die als Start Event das Signal **mysignal** nutzen können umd den Prozess zu starten.
+Die genauen Funktionen der Properties bitte im verlinkten original Post nachlesen. Als nächstes können dann Prozesse erstellt werden die als Start Event das Signal **mysignal** nutzen können umd den Prozess zu starten. Das Modell für den Signal Prozess lässt sich dann auch einfach exportieren und wiederverwenden.
 
 # ACS Webhook
-In den vorherigen Abschnitten wurde erklärt wie ein APS Prozess über eine URL gestartet werden kann. Jetzt fehlt nur noch die Möglichkeit genau das zu tun mit ACS. Ich betrachte dabei den Use Case, dass ein User gerne einen Prozess gestartet haben möchte, wenn eine Datei in einem Folder in ACS hochgeladen wird. Dafür sind zwei Elemente notwendig. Für den Folder müssen wir eine Rule erstellen, welche aktiviert wenn ein neues Dokument erstellt wird. Dann muss eine WebHook Action ausgeführt werden. 
+In den vorherigen Abschnitten wurde erklärt wie ein APS Prozess über eine URL gestartet werden kann. Jetzt fehlt nur noch die Möglichkeit genau das zu tun mit ACS. Ich betrachte dabei den Use Case, dass ein User gerne einen Prozess gestartet haben möchte, wenn eine Datei in einem Folder in ACS hochgeladen wird. Dafür sind zwei Elemente notwendig. Für den Folder müssen wir eine Rule erstellen, welche aktiviert wenn ein neues Dokument erstellt wird. Dann muss eine WebHook Action ausgeführt werden.
 
-Leider bietet Alfresco ootb keine Webhook Action an. Es bieten sich nun als zwei Möglichkeiten. Entweder du bastelst dir selber eine Alfresco Webhook Action oder benutzt die tolle Webhook Action von [Axel Faust](https://github.com/Acosix/alfresco-actions). Diese kommt mit vielen tollen Funktionen wie z.B. FreeMarker Text Input Felder um den Payload oder die Webhook URL zu definieren, was ziemlich cool ist. Die Webhook Action arbeitet mit Payload Templates die zur Laufzeit erstellt / angepasst werden können. 
+Leider bietet Alfresco ootb keine Webhook Action an. Es bieten sich nun als zwei Möglichkeiten. Entweder du bastelst dir selber eine Alfresco Webhook Action oder benutzt die geniale Webhook Action von [Acosix GmBH](https://github.com/Acosix/alfresco-actions). Diese kommt mit vielen tollen Funktionen wie z.B. FreeMarker Text Input Felder um den Payload oder die Webhook URL zu definieren, was ziemlich cool ist. Die Webhook Action arbeitet mit Payload Templates die zur Laufzeit erstellt / angepasst werden können.
 
-Ich habe ein APS Payload Template spendiert welche bereits den vorhin erwähnten **APS Signal Payload** bereitstellt. Wenn ihr noch mehr Variablen wie evtl. Alfresco Properties mittels des Webhooks übergeben, muss das Payload Template nur erweitert werden in der **variables** Section. Die Webhook Action von Axel bietet dabei auch hervorragende Debugging Optionen um eventuelle Bugs aufzufinden.
-
-# Zusammenfassung
-ACS und APS sind mächtige Tools welche vereint Unternehmen helfen endlich die lang ersehnte optimale digitale Lösung zu finden. Die Integration ACS nach APS stellt viele Alfresco Engineers vor Herausforderungen. Ich listete hier mehrere Möglichkeiten wie diese Integration gemeistert werden kann und hoffe das es dir hilft deine ECM BPM Ziele mittels ACS und APS zu erreichen. Schreibt mir wie es für euch gelaufen ist oder wenn ihr Hilfe braucht :) .
-
-
-
-Es ist mal wieder Zeit über ein spannendes Alfresco Partner Projekt von mir zu berichten. Für einen Kunden hier in Deutschland entwickle ich ein POC welches ACS 6.2 und APS 1.10 verwenden soll. Nach ein wenig Überzeugungsarbeit konnte ich die Beteiligten davon überzeugen, Docker für ACS 6.2 zu verwenden. Mein Plan war es ein Docker Compose Deployment zu erstellen welche ACS, APS und als Identity Provider openLDAP beinhaltet. Das komplette Deployment kann [bei mir in GitHub](https://github.com/mmuller88/alf-acs-aps) gesichtet werden. Eines sei vorweg noch erwähnt. Alfresco offiziell empfiehlt für solche Deployments doch bitte [Kubernetes zu verwenden](https://github.com/Alfresco/alfresco-dbp-deployment), allerdings ist für meinen Kunden die Cloud erstmal noch ein Tabuthema. Darüber hinaus bin ich gespannt zu sehen wie weit ich mit Docker Compose für so ein Deployment kommen werde.
-
-# Docker Compose Setup
-Hier beschreibe ich etwas mehr im Detail welche Technologien ich für das Deployment benutze. Wie Eingangs angedeuted soll ACS 6.2 installiert werden. Die zum jetzigen Zeitpunkt zuletzt releaste Version ist 6.2.0.3. Das muss also nur im alfresco Dockerfile in /alfresco/Dockerfile reflektiert werden. Share bleibt auf Version 6.2.0 da keine neuere Version released wurde. ACS soll mit einer openLDAP DB zur User Provisioning connected werden. Zum Glück gibt es bereits toll ausgearbeitete Images zur Erstellung und Management einer [openLDAP DB](https://github.com/osixia/docker-openldap). Zur optischen Verwaltung der openLDAP DB benutze ich [phpldapadmin](http://phpldapadmin.sourceforge.net/wiki/index.php/Main_Page). Wie genau die openLDAP Konfigurations aussieht einfach im docker-compose-base.yml File nachlesen.
-
-Auch soll [APS 1.10](https://docs.alfresco.com/process-services1.11/concepts/welcome.html) zur Modellierung der Workflows beim Kunden verwendet werden. Etwas ungünstig ist die Tatsache, dass Alfresco keine Docker Compose Referenz Deployments für APS 1.10 mehr anbietet. Ich vermute mal, dass ist aufgrund des Kubernetes Deployments und das einfach darauf ein stärker Fokus gelegt wird. Zum Glück existieren noch ein paar alter [Docker Compose Vorlagen](https://github.com/AlfrescoLabs/aps-docker-library/tree/master/docker-compose) und mit ein paar Modifikationen funktionieren diese auch!
-
-Da es sehr Memoryintensiv ist ACS und APS gleichzeitig zu laufen, habe ich mich entschlossen das komplexe Deployment in drei voneinander separierbare Deployments zu teilen. Somit kann ich auch weiterhin auf meinem 16 GB Memory Laptop effizient arbeiten. Die Teilung geschieht mittels Docker Compose Files. Das Erste ist das ACS Deployment, gefolge vom Zweiten mit dem APS Deployment. Zu guter Letzt gibt es dann noch das ACS und APS Deployment. Ich finde das eine geniale Idee da ich nun, falls ich nur an ACS oder APS arbeiten möchte, nicht den gesamten Stack hochfahren muss. Zusätzlich bin ich am überlegen das Dritte Deployment also ACS und APS mittels einer DevOps Pipeline in EC2 zu deployen.
-
-# Prerequisites
-Klar ist, dass du Docker brauchst. Falls du auf einem Windows oder Mac arbeitest empfehle ich dir den [Docker Desktop](https://www.docker.com/products/docker-desktop). Nach der Installation bitte daran denken der Docker Umgebung mehr Memory zu Verfügung zu stellen da die default 2 GB viel zu wenig sind umd ACS zum Laufen zu bringen. Mindestens 12 GB wäre angebracht!
-
-Auch verwendet die ACS Docker Compose File private Images von Alfresco gehosted in quay.io . Für diese wäre es wichtig Zugangsdaten vom Alfresco Support zu erfragen. Wenn du diese hast einfach den folgenden Befehl ausführen und die Credentials eingeben:
-
-```
-docker login quay.io
-```
-
-Mehr oder weniger optional aber mein Beispiel im GitHub Repository verwendet Node's NPM für ein CLI Script Tool zum warten bis Alfresco fertig gebooted hat. Also am besten auch Node und NPM installieren.
-
-# Git Vorbereiten
-Natürlich muss erstmal ein Git Repo erstellt werden. Ich hatte meins [alf-acs-aps](https://github.com/mmuller88/alf-acs-aps) genannt. Wie auch in meinem letzten [Alfresco Docker Projekt](https://martinmueller.dev/start-script) empfehle ich den [Docker Alfresco Installer](https://github.com/Alfresco/alfresco-docker-installer) zu verwenden um das noch leere Git Repository vorzubereiten. Wie genau der Docker Alfresco Installer verwendet werden kann, beschreibe ich [hier](https://github.com/mmuller88/alfresco-docker-installer). Beim installieren darauf achten, dass auch LDAP und ein SMTP Server ausgewählt wird. Falls du nicht mein GithUb Repo verwendest, müsstest du nun die APS 1.10 services in das Docker Compose Deployment integrieren. Ich empfehle dir das Deployment in drei Teile aufzuteilen. Alle drei werden in den nächsten Abschnitten erläutert.
-
-## ACS Deployment
-Zuerst wird ein docker-compose-base.yml File erstellt welcher alle Services beinhaltet die für alle drei Deployments benötigt werden. Das sind in meinem Fall eine openLDAP und postgres Datenbank. Sowie ein Mail Server. Danach wird der ACS Docker Compose File erstellt. Das gesamte deployment lässt sich nun so starten:
-
-```
-docker-compose -f docker-compose-base.yml -f docker-compose-ACS.yml up -d --build
-```
-
-und so stoppen:
-
-```
-docker-compose -f docker-compose-base.yml -f docker-compose-ACS.yml stop
-```
-
-Falls ein kompletter ACS Neustart mit leereren Datenbanken und anderen Storage erwünscht ist, einfach diese Befehle ausführen:
-
-```
-docker-compose -f docker-compose-base.yml -f docker-compose-ACS.yml down
-rm -rf data
-rm -rf logs
-```
-
-## APS Deployment
-Das APS Deployment wird folgender Maßen gestartet:
-
-```
-docker-compose -f docker-compose-base.yml -f docker-compose-APS.yml up -d --build
-```
-
-und gestoppt wird es so:
-
-```
-docker-compose -f docker-compose-base.yml -f docker-compose-APS.yml stop
-```
-
-Zum Erasen einfach das Folgende ausführen:
-
-```
-docker-compose -f docker-compose-base.yml -f docker-compose-APS.yml down
-rm -rf data
-rm -rf logs
-```
-
-## ACS und APS Deployment
-Achtung eine Warnung vorweg! Dieses Deployment ist sehr Memoryintensiv. Mindestens 16Gb sollte dein Laptop oder PC besitzen. Alternativ plan ich diese Variante in der Cloud auf EC2 zu deployen.
-
-Und so werden alle Services gestarted:
-
-```
-docker-compose -f docker-compose-base.yml -f docker-compose-ACS.yml -f docker-compose-APS.yml -f docker-compose-Proxy.yml up -d --build
-```
-
-und so gestoppt
-
-```
-docker-compose -f docker-compose-base.yml -f docker-compose-ACS.yml -f docker-compose-APS.yml -f docker-compose-Proxy.yml stop
-```
-
-Und zum runterreißen einfach eingeben:
-
-```
-docker-compose -f docker-compose-base.yml -f docker-compose-ACS.yml -f docker-compose-APS.yml -f docker-compose-Proxy.yml down
-rm -rf data
-rm -rf logs
-```
-
-# Ausblick
-Wie angedeutet würde ich gerne das dritte Deployment also ACS und APS auf AWS EC2 bringen. Am liebsten sogar in einer schönen DevOps Pipeline, sprich commit nach master triggered ein Deploy nach EC2 wo dann dort automatisierte Tests ausgeführt werden wie zum Beispiel ob ACS und APS erfolgreich gebooted haben.
-
-SSO (Single Sign On) erlaubt es für die Alfresco Produkte sich nur noch einmal anmelden zu müssen. Das heißt wenn ich mich zum Beispiel in Share einlogge und dann Alfresco Digital Workspace öffne oder Ativiti App, muss ich mich nicht erneut einloggen. Dafür müsste AIMS Alfresco Identify Manager Service mit ACS konfiguriert werden und zusätzlich für Share dann noch die SAML amp.
+Ich habe ein APS Payload Template spendiert welche bereits den vorhin erwähnten **APS Signal Payload** bereitstellt. Wenn ihr noch mehr Variablen wie evtl. Alfresco Properties mittels des Webhooks übertragen wollt, muss das Payload Template nur erweitert werden in der **variables** Section. Die Webhook Action von Axel bietet dabei auch hervorragende Debugging Optionen um eventuelle Bugs aufzufinden.
 
 # Zusammenfassung
-Man muss nicht immer gleich die Kubernetes Keule auspacken wenn es um Container Orchestrierung geht. Auch Docker Compose kann hervorragend verwendet werden um Container zu orchestrieren. Es besteht sogar die möglichkeit komplexe Deployments in kleine Teilstücke aufzuteilen, welche nicht den Memory deines Laptops schonen sondern sich auch hervorragend für eine schnelle Iteration bei der Entwicklung eigenen. Also gerne mal ausprobieren ACS und APS mittels Docker Compose zu Deployen. Falls irgendwelche fragen sind, einfach anschreiben.
-
-# Kudos
-An Thijs von der Tollen [Alfrescan Discord Channel Community](https://discord.gg/XGQjUU) für den Vorschlag das Docker Compose Deployment so auf zu teilen :).
+ACS und APS sind mächtige Tools welche vereint Unternehmen helfen endlich die lang ersehnte, optimale digitale Lösung zu finden. Die Integration ACS nach APS stellt viele Alfresco Engineers vor Herausforderungen. Ich listete hier mehrere Möglichkeiten wie diese Integration gemeistert werden kann und hoffe das es dir hilft deine ECM BPM Ziele mittels ACS und APS zu erreichen. Unsere ACS APS Integration beim Kunden ist bei weitem noch nicht abgeschlossen, da wir planen relative komplexe Prozesse in APS zu schreiben und uns bereits gedanken über die Integrität zwischen ACS und APS machen, welches uns vor spannenden Problemen stellt. Schreibt mir wie eurer ACS APS Integration aussieht :) .
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
