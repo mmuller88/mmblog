@@ -1,5 +1,5 @@
 ---
-title: Infrastruktur optimieren mit CDK Solution Constructs Teil I
+title: Infrastruktur Optimieren mit CDK Solution Constructs Teil I.
 show: 'no'
 date: '2020-06-28'
 image: 'cdkpattern.png'
