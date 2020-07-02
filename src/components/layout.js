@@ -47,6 +47,7 @@ const Layout = ({ children }) => (
         <CookieConsent
           location="bottom"
           buttonText="Accept"
+          enableDeclineButton="true"
           declineButtonText="Decline"
           cookieName="gatsby-gdpr-google-analytics">
           This website stores cookies on your computer. These cookies are used to collect information about how you interact with this website and allow us to remember you.
