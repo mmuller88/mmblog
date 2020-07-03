@@ -79,6 +79,7 @@ export const query = graphql`
         tags
         engUrl
         gerUrl
+        showContact
         image {
           childImageSharp {
             resize(width: 1000, height: 420) {
