@@ -37,7 +37,7 @@ const Layout = ({ children }) => (
         >
           <main>{children}</main>
           <footer>
-            © {new Date().getFullYear()} Martin Mueller (<a href={`impressum`}>impressum</a>) Built with
+            © {new Date().getFullYear()} Martin Mueller (<a href={"https://martinmueller.dev/impressum"}>Impressum</a>) Built with
             {` `}
             <a href="https://www.gatsbyjs.org">Gatsby</a> and
             {` `}
