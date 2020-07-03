@@ -1,5 +1,5 @@
 ---
-title: Optimize Infrastructure with CDK Solution Constructs Part I.
+title: Optimize Infrastructure with CDK Solutions Constructs Part I.
 date: '2020-06-28'
 image: 'cdkpattern.png'
 tags: ['eng', '2020', 'aws', 'lambda', 'cdk', 'github']
