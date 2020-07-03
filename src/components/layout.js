@@ -37,14 +37,13 @@ const Layout = ({ children }) => (
         >
           <main>{children}</main>
           <footer>
-            © {new Date().getFullYear()} Martin Mueller Built with
+            © {new Date().getFullYear()} Martin Mueller (<a href={`impressum`}>impressum</a>) Built with
             {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a> and Netlify
+            <a href="https://www.gatsbyjs.org">Gatsby</a> and
             {` `}
-            <a href="https://www.netlify.com"></a>
+            <a href="https://www.netlify.com">Netlify</a>
           </footer>
         </div>
-        <a href={`impressum`}>de</a>
  
         <CookieConsent
           location="bottom"
