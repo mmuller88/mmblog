@@ -10,14 +10,17 @@ pruneLength: 50
 
 Ahoi AWS CDK Fans
 
-Mit CDK ist 
+Lange habe ich das Problem vor mir hergeschoben und nun endlich angegangen. Ec2 Instanzen mit einem Lambda zu erzeugen ist kein problem. Möchte man aber komplexere Deployments mit einem Lambda erstellen, bieten sich auch hier CDK Apps an. Mit einem Lambda CDK Apps beliebig oft zu deployen ist aber garnicht so einfach und bisher gab es kaum Informationen dazu im Web. 
+
+Während eines CDK Meetups habe ich aber den Vorschlag erhalten einfach mal ein CodeBuild Projekt zum erstellen der CDK App via Lambda zu benutzen. Und ja das hat super geklappt. In den nächsten Abschnitten stelle ich vor warum das für mich nützlich ist und wie ich das gemacht habe.
 
 # Use Cases
-* AlfPro
-* Kunde dynamisch Stacks deployen in dev, qa, prod account with CodePipeline
+Schon dutzend fach erwähnt auf meiner Blogseite benutze ich CDK zum deployen meine [Alfresco Provisioners](https://martinmueller.dev/alf-provisioner-eng)(auch: [CDK Construct Solutions](https://martinmueller.dev/cdk-solutions-constructs-2-eng)). Alfresco nur au einer EC2 Instanz laufen zu lassen funktioniert zwar, ist aber langfristig keine optimale Lösung. Ich wollte gerne auch in der Lage sein einen Loadbalancer und mehrere EC2 Instanzen für einen Alfresco Stack zu starten. In Zukunft will ich auch einen Kubernetes Cluster im Stack bauen zum Orchestrieren der Instanzen pro Stack. Es war also nötig dieses komplexe Deployment zu verwalten und dafür bieten sich CDK Apps perfekt an.
+
+Ein anderer Use Case war für einen Kunden von mir der gerne in der Lage sein wollte CDK Stacks in verschiedenen Stage Accounts wie Dev, QA, Prod zu deployen. Das ganze sollte orchestriert werden mit CodePipeline. Das Deployment in den anderen Accounts auch mit CDK zu machen, liegt auf der Hand. Um das zu erreichen, muss auch ein CodeBuild Projekt, welches direkt CDK Befehle ausführt, erstellt werden. Dieser Use Case unterscheidet sich aber soweit, dass der Stack nicht via Lambda deployed wird, sondern via CodePipeline und CodeBuild.
 
 # CDK Deploy via CodeBuild und Lambda
-The CodeBuild Project sieht folgendermaßen aus:
+Um nun mittel CDK Stacks deployen zu können, muss ein CodeBuild Projekt erstellt werden. Das Project sieht folgendermaßen aus:
 
 ```TypeScript
 const createInstanceBuild = new Project(scope, 'LambdaBuild', {
