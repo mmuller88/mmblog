@@ -7,6 +7,9 @@
     "editorconfig.editorconfig",
     "davidanson.vscode-markdownlint",
     "esbenp.prettier-vscode",
-    "eamodio.gitlens"
+    "eamodio.gitlens",
+    "ms-ceintl.vscode-language-pack-de",
+    "streetsidesoftware.code-spell-checker-german",
+    "arjun.swagger-viewer"
   ]
 }
