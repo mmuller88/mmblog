@@ -10,17 +10,17 @@ pruneLength: 50
 
 Ahoi AWS CDK Fans
 
-Lange habe ich das Problem vor mir hergeschoben und nun endlich angegangen. Ec2 Instanzen mit einem Lambda zu erzeugen ist kein problem. Möchte man aber komplexere Deployments mit einem Lambda erstellen, bieten sich auch hier CDK Apps an. Mit einem Lambda CDK Apps beliebig oft zu deployen ist aber garnicht so einfach und bisher gab es kaum Informationen dazu im Web. 
+Beliebig viele Ec2 Instanzen mit einem Lambda zu erzeugen ist kein Problem. Möchte man aber komplexere Deployments wie z.B. LoadBalancer, Securitygroups, Scalingroups, usw. mit einem Lambda erstellen, bieten sich auch hier CDK Apps an. Mit einem Lambda CDK Apps beliebig oft zu deployen ist aber garnicht so einfach und bisher gab es kaum Informationen dazu im Web.
 
 Während eines CDK Meetups habe ich aber den Vorschlag erhalten einfach mal ein CodeBuild Projekt zum erstellen der CDK App via Lambda zu benutzen. Und ja das hat super geklappt. In den nächsten Abschnitten stelle ich vor warum das für mich nützlich ist und wie ich das gemacht habe.
 
 # Use Cases
-Schon dutzend fach erwähnt auf meiner Blogseite benutze ich CDK zum deployen meine [Alfresco Provisioners](https://martinmueller.dev/alf-provisioner-eng)(auch: [CDK Construct Solutions](https://martinmueller.dev/cdk-solutions-constructs-2-eng)). Alfresco nur au einer EC2 Instanz laufen zu lassen funktioniert zwar, ist aber langfristig keine optimale Lösung. Ich wollte gerne auch in der Lage sein einen Loadbalancer und mehrere EC2 Instanzen für einen Alfresco Stack zu starten. In Zukunft will ich auch einen Kubernetes Cluster im Stack bauen zum Orchestrieren der Instanzen pro Stack. Es war also nötig dieses komplexe Deployment zu verwalten und dafür bieten sich CDK Apps perfekt an.
+Schon dutzend fach erwähnt auf meiner Blogseite benutze ich CDK zum deployen meine [Alfresco Provisioners](https://martinmueller.dev/alf-provisioner-eng)(auch: [CDK Construct Solutions](https://martinmueller.dev/cdk-solutions-constructs-2-eng)). Alfresco nur auf einer EC2 VM laufen zu lassen funktioniert zwar, ist aber langfristig keine optimale Lösung. Ich wollte gerne auch in der Lage sein einen Loadbalancer und mehrere EC2 Instanzen für einen Alfresco Stack zu starten. In Zukunft will ich auch einen Kubernetes Cluster im Stack integrieren zum Orchestrieren der Instanzen bzw. Pods. Es war also nötig dieses komplexe Deployment zu verwalten und dafür bieten sich CDK Apps perfekt an.
 
-Ein anderer Use Case war für einen Kunden von mir der gerne in der Lage sein wollte CDK Stacks in verschiedenen Stage Accounts wie Dev, QA, Prod zu deployen. Das ganze sollte orchestriert werden mit CodePipeline. Das Deployment in den anderen Accounts auch mit CDK zu machen, liegt auf der Hand. Um das zu erreichen, muss auch ein CodeBuild Projekt, welches direkt CDK Befehle ausführt, erstellt werden. Dieser Use Case unterscheidet sich aber soweit, dass der Stack nicht via Lambda deployed wird, sondern via CodePipeline und CodeBuild.
+Ein anderer Use Case war für einen Kunden der gerne in der Lage sein wollte, CDK Stacks in verschiedenen Stage Accounts wie Dev, QA, Prod zu deployen. Das ganze sollte orchestriert werden mit CodePipeline. Das Deployment in den anderen Accounts auch mit CDK zu verwalten, liegt auf der Hand. Um das zu erreichen, muss auch ein CodeBuild Projekt, welches direkt CDK Befehle ausführt, erstellt werden. Dieser Use Case unterscheidet sich aber soweit, dass der Stack nicht via Lambda deployed wird, sondern via CodePipeline und CodeBuild.
 
 # CDK Deploy via CodeBuild und Lambda
-Um nun mittel CDK Stacks deployen zu können, muss ein CodeBuild Projekt erstellt werden. Das Project sieht folgendermaßen aus:
+Um nun mittels CDK Stacks deployen zu können, muss ein CodeBuild Projekt erstellt werden. Das Project sieht folgendermaßen aus:
 
 ```TypeScript
 const createInstanceBuild = new Project(scope, 'LambdaBuild', {
@@ -78,7 +78,7 @@ phases: {
 }),
 ```
 
-Falls man sich gerne vorher die benötigten Stack Änderungen anschauen will geht das auch ganz einfach mit ```cdk diff --profile dev```. Was jetzt noch fehlt ist die Lambda Implementation zur Ausführung des CodeBuild Projektes. Zuerst muss das Lambda erstellt werden:
+Falls du dir gerne vorher die benötigten Stack Änderungen anschauen möchtest, geht das auch ganz einfach mit ```cdk diff --profile dev```. Was jetzt noch fehlt ist die Lambda Implementation zur Ausführung des CodeBuild Projektes. Zuerst muss das Lambda erstellt werden:
 
 ```TypeScript
 const createInstanceLambdaRole = new Role(scope, 'createInstanceLambdaRole', {
@@ -102,9 +102,10 @@ new Function(scope, 'createCdkApp', {
 });
 ```
 
-Wie es schon der Lambda CDK Code andeutet befindet sich im Folder lambda die Lambda Funktion:
+Wie es schon der Lambda CDK Code andeutet, befindet sich im Folder ./lambda die Lambda Funktion:
 
 ```TypeScript
+// lambeda/create-cdk-stack.ts
 import AWS = require("aws-sdk");
 import { CodeBuild } from "aws-sdk";
 
@@ -124,10 +125,10 @@ export const handler = async (event: any = {}): Promise<any> => {
 }
 ```
 
-E voila und kann das Lambda selbstständig CDK Apps deployn.
+E voila und kann das Lambda selbstständig CDK Apps deployen.
 
 # Zusammenfassung
-CDK macht das Erstellen und Verwalten von Stacks einfach. Das will man auch so in dynamisch erstellten (z.B. mit einem Lambda) Stacks haben! Bei bisherigen Lösungen musste man damit immer mit Cloudformation Template Files rumhantieren und diese zum Beispiel in ein S3 hochladen welches dann als Source für ein Cloudformation Deploy dienen könnte. 
+CDK macht das Erstellen und Verwalten von Stacks einfach. Das ist auch in dynamisch erstellten (z.B. mit einem Lambda) Stacks nützlich! Bei bisherigen Lösungen mussten immer erst Cloudformation Templates erstellt werden um diese anschließend in ein S3 hochladen welches dann als Source für ein Cloudformation Deploy dienen könnte.
 
 Mit der hier vorgestellten Lösung ist das nun nicht mehr notwendig und es kann sich mehr auf die Erstellung der CDK App selbst konzentriert werden. Ein weiterer Vorteil den ich sehr schätzen gelernt zu habe ist, dass ich separat die via Lambda deployten CDK Apps testen kann ohne quasi den kompletten CDK Parent Stack dafür deployen zu müssen. Das kombiniert mit CI CD Pipeline ist der wahrgewordene DevOps Traum!
 
