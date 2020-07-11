@@ -1,9 +1,8 @@
 ---
 title: AWS CDK Apps deployed with Lambda
 date: '2020-07-11'
-show: 'no'
 image: 'cloud.jpg'
-tags: ['eng', '2020', 'aws', 'lambda', 'cdk', 'cfd', 'nofeed']
+tags: ['eng', '2020', 'aws', 'lambda', 'cdk', 'cfd']
 gerUrl: https://martinmueller.dev/cdk-lambda
 pruneLength: 50
 ---
@@ -15,9 +14,9 @@ Creating any number of Ec2 instances with one Lambda is no problem. But if you w
 During a CDK Meetup I got the suggestion to use a CodeBuild project to create the CDK App via Lambda. And yes that worked out great. In the next sections I will explain why this is useful for me and how I did it.
 
 # Use Cases
-Already mentioned dozens of times on my blog page I use CDK to deploy my [Alfresco Provisioners](https://martinmueller.dev/alf-provisioner-eng)(also: [CDK Construct Solutions](https://martinmueller.dev/cdk-solutions-constructs-2-eng)). Running Alfresco only on an EC2 VM works, but is not the best solution in the long run. I also wanted to be able to run a load balancer and multiple EC2 instances for an Alfresco stack. In the future I also want to integrate a Kubernetes cluster in the stack to orchestrate the instances and pods. So it was necessary to manage this complex deployment and CDK Apps are perfect for this.
+Already mentioned several times in my blog that I use CDK to deploy my [Alfresco Provisioner](https://martinmueller.dev/alf-provisioner-eng)(also: [CDK Construct Solutions](https://martinmueller.dev/cdk-solutions-constructs-2-eng)). Running Alfresco only on an EC2 VM works, but is not the best solution in the long run. I also want to be able to run a load balancer and multiple EC2 instances for an Alfresco stack. Even more I would like to integrate a Kubernetes cluster in the stack to orchestrate the instances and pods. So it was necessary to manage this complex deployment and CDK Apps would be perfect for this.
 
-Another use case was for a customer who wanted to be able to deploy CDK stacks in different stage accounts like Dev, QA, Prod. The whole thing should be orchestrated with CodePipeline. To manage the deployment in the other accounts also with CDK is obvious. To achieve this, a CodeBuild project, which directly executes CDK commands, must be created. This use case differs in that the stack is not deployed via Lambda, but via CodePipeline and CodeBuild.
+Another use case was for a customer who wanted to be able to deploy CDK stacks in different stage accounts like Dev, QA, Prod. The deployment should be supervised by CodePipeline written in CDK. This use case differs in that the stack is not deployed via Lambda, but via CodePipeline and CodeBuild. For deploying CDK stacks using CodePipeline a CodeBuild project must be created.
 
 # CDK Deploy via CodeBuild and Lambda
 To deploy stacks using CDK, a CodeBuild project must be created. The project looks like this:
@@ -39,7 +38,7 @@ const createInstanceBuild = new Project(scope, 'LambdaBuild', {
         build: {
             commands: [
                 'npm run build',
-                cdk deploy --require-approval never
+                'cdk deploy --require-approval never'
             ]
         },
     },
@@ -63,7 +62,7 @@ phases: {
                 `aws --profile prod configure set aws_access_key_id $AWS_ACCESS_KEY_ID_PROD`,
                 `aws --profile prod configure set aws_secret_access_key $AWS_ACCESS_KEY_ID_PROD`,
                 `aws --profile prod configure set region $AWS_ACCESS_KEY_ID_PROD`,
-                cd src,
+                'cd src',
                 'npm install -g aws-cdk',
                 'npm install',
             ],
@@ -71,14 +70,14 @@ phases: {
         build: {
             commands: [
                 'npm run build',
-                cdk deploy --require-approval never --profile dev
+                'cdk deploy --require-approval never --profile dev'
             ]
         },
     },
 }),
 ```
 
-If you would like to take a look at the required stack changes beforehand, you can easily do that with ``cdk diff --profile dev``. What's missing now is the Lambda implementation to run the CodeBuild project. First the Lambda must be created:
+If you would like to take a look at the required stack changes beforehand, you can easily do that with ```cdk diff --profile dev```. What's missing now is the Lambda implementation to run the CodeBuild project. First the Lambda must be created:
 
 ```TypeScript
 const createInstanceLambdaRole = new Role(scope, 'createInstanceLambdaRole', {
@@ -130,7 +129,7 @@ E voila and can independently deploy the Lambda CDK Apps.
 # Summary
 CDK makes stack creation and management easy. This is also useful in dynamically created (e.g. with a Lambda) stacks! With previous solutions, cloudformation templates had to be created first and then uploaded to an S3 which could then be used as the source for a cloudformation deployment.
 
-With the solution presented here this is no longer necessary and you can concentrate more on the creation of the CDK app itself. Another advantage I learned to appreciate is that I can test the CDK apps deployed via Lambda separately without having to deploy the complete CDK Parent Stack. This combined with CI CD Pipeline is the DevOps dream come true!
+With this new approach I presented that is no longer necessary and you can concentrate more on the creation of the CDK app itself. Another advantage I appreciate is that I can test the CDK apps deployed via Lambda separately without having to deploy the complete CDK Parent Stack. This combined with CI CD Pipeline is the DevOps dream comes true!
 
 To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
 

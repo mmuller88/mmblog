@@ -3,7 +3,7 @@ title: AWS CDK Apps deployed mit Lambda
 show: 'no'
 date: '2020-07-11'
 image: 'cloud.jpg'
-tags: ['de', '2020', 'aws', 'lambda', 'cdk', 'cfd', 'nofeed']
+tags: ['de', '2020', 'aws', 'lambda', 'cdk', 'cfd']
 engUrl: https://martinmueller.dev/cdk-lambda-eng
 pruneLength: 50
 ---
