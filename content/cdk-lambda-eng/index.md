@@ -9,14 +9,14 @@ pruneLength: 50
 
 Ahoy AWS CDK Fans
 
-Creating any number of Ec2 instances with one Lambda is no problem. But if you want to create more complex deployments such as LoadBalancer, Securitygroups, Scalingroups, etc. with a Lambda, CDK Apps are a good choice. Deploying CDK Apps with a Lambda CDK Apps as often as you want is not that easy and until now there was hardly any information about it on the web.
+Creating any number of Ec2 instances with a Lambda is no problem. But if you want to create more complex deployments such as LoadBalancer, Securitygroups, Scalingroups, etc. with a Lambda that is tricky! CDK Apps are a good choice to manage those stacks. Deploying CDK Apps with a Lambda is not that easy and there is less information about it in the web.
 
 During a CDK Meetup I got the suggestion to use a CodeBuild project to create the CDK App via Lambda. And yes that worked out great. In the next sections I will explain why this is useful for me and how I did it.
 
-# Use Cases
-Already mentioned several times in my blog that I use CDK to deploy my [Alfresco Provisioner](https://martinmueller.dev/alf-provisioner-eng)(also: [CDK Construct Solutions](https://martinmueller.dev/cdk-solutions-constructs-2-eng)). Running Alfresco only on an EC2 VM works, but is not the best solution in the long run. I also want to be able to run a load balancer and multiple EC2 instances for an Alfresco stack. Even more I would like to integrate a Kubernetes cluster in the stack to orchestrate the instances and pods. So it was necessary to manage this complex deployment and CDK Apps would be perfect for this.
+# Use Case
+I already mentioned several times in my blogs that I use CDK to deploy my [Alfresco Provisioner](https://martinmueller.dev/alf-provisioner-eng)(also: [CDK Construct Solutions](https://martinmueller.dev/cdk-solutions-constructs-2-eng)). Running Alfresco only on an EC2 VM works, but is not the best solution in long terms. I also want to be able to run a load balancer and multiple EC2 instances for an Alfresco stack. Even more I would like to integrate a Kubernetes cluster in the stack to orchestrate the instances and pods. So it was necessary to manage this kind of complex deployments and CDK Apps are perfect for that.
 
-Another use case was for a customer who wanted to be able to deploy CDK stacks in different stage accounts like Dev, QA, Prod. The deployment should be supervised by CodePipeline written in CDK. This use case differs in that the stack is not deployed via Lambda, but via CodePipeline and CodeBuild. For deploying CDK stacks using CodePipeline a CodeBuild project must be created.
+Another use case is for a customer who wants to be able to deploy CDK stacks in different stage accounts like Dev, QA, Prod. The deployment should be supervised by CodePipeline written in CDK. This use case differs in that the stack is not deployed via Lambda, but via CodePipeline and CodeBuild. For deploying CDK stacks using CodePipeline a CodeBuild project must be created.
 
 # CDK Deploy via CodeBuild and Lambda
 To deploy stacks using CDK, a CodeBuild project must be created. The project looks like this:
@@ -77,7 +77,13 @@ phases: {
 }),
 ```
 
-If you would like to take a look at the required stack changes beforehand, you can easily do that with ```cdk diff --profile dev```. What's missing now is the Lambda implementation to run the CodeBuild project. First the Lambda must be created:
+If you would like to take a look at the required stack changes beforehand, you can easily do that with: 
+
+```
+cdk diff --profile dev
+```
+
+What's missing now is the Lambda implementation to run the CodeBuild project. First the Lambda must be created:
 
 ```TypeScript
 const createInstanceLambdaRole = new Role(scope, 'createInstanceLambdaRole', {

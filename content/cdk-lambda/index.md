@@ -78,7 +78,13 @@ phases: {
 }),
 ```
 
-Falls du dir gerne vorher die benötigten Stack Änderungen anschauen möchtest, geht das auch ganz einfach mit ```cdk diff --profile dev```. Was jetzt noch fehlt ist die Lambda Implementation zur Ausführung des CodeBuild Projektes. Zuerst muss das Lambda erstellt werden:
+Falls du dir gerne vorher die benötigten Stack Änderungen anschauen möchtest, geht das auch ganz einfach mit:
+
+```
+cdk diff --profile dev
+```
+
+Was jetzt noch fehlt ist die Lambda Implementation zur Ausführung des CodeBuild Projektes. Zuerst muss das Lambda erstellt werden:
 
 ```TypeScript
 const createInstanceLambdaRole = new Role(scope, 'createInstanceLambdaRole', {
