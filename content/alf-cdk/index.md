@@ -121,7 +121,7 @@ new HelmChart(this, 'AcsHelmChart', {
 })
 ```
 
-So einfach geht es einen kompletten Helm Chart zu deployen. Die Charts speichert Alfresco in [GitHub](https://github.com/Alfresco/charts). Um nun aber Alfresco per URL erreichbar zu machen, muss noch der Ingress definiert werden. Ich verwende dafür einen Nginx Ingress in AWS Flavour:
+So einfach geht es einen kompletten Helm Chart zu deployen. Die Charts speichert Alfresco in [GitHub](https://github.com/Alfresco/charts). Um nun aber Alfresco per URL erreichbar zu machen, muss noch der Ingress mit definiert werden. Ich verwende dafür einen Nginx Ingress in AWS Flavour:
 
 ```TypeScript
 new HelmChart(this, 'NginxIngress', {
@@ -162,11 +162,8 @@ new HelmChart(this, 'NginxIngress', {
     })
 ```
 
-* github.com/Alfresco/acs-community-deployment/helm ...
-* 
-
 # Zusammenfassung
-AWS CDK ist ein spannendes Framework zur Kreierung von AWS Infrastrucktur. 
+AWS CDK ist ein spannendes Framework zur Erstellung von AWS Infrastruktur. CDK synthetisiert zu Cloudformation Templates es müssen also bestehende CI CD Pipelines nicht groß verändert werden. Dabei ist der Gewinn bei der Verwendung von CDK riesig. Z.B. die Typendefinition verhindert Bugs schon im Editor. Viele Zeilen Code werden gespart und es muss kein oder nur kaum YAML geschrieben werden. Für mich ist CDK der nächste logische Schritt für IaC in AWS. Es gibt mittlerweile sogar die ersten Bemühungen CDK auch in das [Terraform](https://github.com/hashicorp/terraform-cdk/) Ökosystem zu integrieren, was ich sehr spannend finde. Schreibt mir eure Erfahrungen mit CDK :)!
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
