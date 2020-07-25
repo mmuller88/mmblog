@@ -1,9 +1,9 @@
 ---
 title: ACS Infrastruktur erstellen leichtgemacht mit AWS CDK
 show: 'no'
-date: '2020-07-25'
-image: 'alfcdk.jpeg'
-tags: ['de', '2020', 'acs', 'alfresco', 'cdk', 'docker-compose', 'nofeed']
+date: '2020-07-26'
+image: 'alfcdk.jpg'
+tags: ['de', '2020', 'acs', 'alfresco', 'cdk', 'docker-compose']
 engUrl: https://martinmueller.dev/alf-cdk-eng
 pruneLength: 50
 ---
@@ -49,14 +49,14 @@ Nur die Zeile ```new Vpc(this, 'vpc');``` ist nötig um ein komplettes public VP
 
 ```TypeScript
 new Vpc(this, 'CustomVPC', {
-    cidr: '10.0.0.0/16',
-    maxAzs: 2,
-    subnetConfiguration: [{
-        cidrMask: 26,
-        name: 'isolatedSubnet',
-        subnetType: SubnetType.ISOLATED,
-    }],
-    natGateways: 0
+  cidr: '10.0.0.0/16',
+  maxAzs: 2,
+  subnetConfiguration: [{
+    cidrMask: 26,
+    name: 'isolatedSubnet',
+    subnetType: SubnetType.ISOLATED,
+  }],
+  natGateways: 0
 });
 ```
 
@@ -114,41 +114,41 @@ So einfach geht es einen kompletten Helm Chart zu deployen. Die Charts speichert
 
 ```TypeScript
 new HelmChart(this, 'NginxIngress', {
-      cluster: eksCluster,
-      chart: 'nginx-ingress',
-      repository: 'https://helm.nginx.com/stable',
-      namespace: 'kube-system',
-      values: {
-        'rbac': {
-          'create': true
+  cluster: eksCluster,
+  chart: 'nginx-ingress',
+  repository: 'https://helm.nginx.com/stable',
+  namespace: 'kube-system',
+  values: {
+    'rbac': {
+      'create': true
+    },
+    'controller': {
+      'scope': {
+        'enabled': true,
+        'namespace': acsNamespace
+      },
+      'config': {
+        'force-ssl-redirect': true,
+        'server-tokens': false
+      },
+      'service': {
+        'targetPorts': {
+          'https': 80
         },
-        'controller': {
-          'scope': {
-            'enabled': true,
-            'namespace': acsNamespace
-          },
-          'config': {
-            'force-ssl-redirect': true,
-            'server-tokens': false
-          },
-          'service': {
-            'targetPorts': {
-              'https': 80
-            },
-            'annotations': {
-              'service.beta.kubernetes.io/aws-load-balancer-backend-protocol': 'http',
-              'service.beta.kubernetes.io/aws-load-balancer-ssl-ports': 'https',
-              'service.beta.kubernetes.io/aws-load-balancer-ssl-cert': awsCertArn,
-              'external-dns.alpha.kubernetes.io/hostname': `${acsNamespace}.eks.alfpro.net`,
-              'service.beta.kubernetes.io/aws-load-balancer-ssl-negotiation-policy': awsCertPolicy
-            },
-            'publishService': {
-              'enabled': true
-            }
-          }
+        'annotations': {
+          'service.beta.kubernetes.io/aws-load-balancer-backend-protocol': 'http',
+          'service.beta.kubernetes.io/aws-load-balancer-ssl-ports': 'https',
+          'service.beta.kubernetes.io/aws-load-balancer-ssl-cert': awsCertArn,
+          'external-dns.alpha.kubernetes.io/hostname': `${acsNamespace}.eks.alfpro.net`,
+          'service.beta.kubernetes.io/aws-load-balancer-ssl-negotiation-policy': awsCertPolicy
+        },
+        'publishService': {
+          'enabled': true
         }
       }
-    })
+    }
+  }
+})
 ```
 
 Nach erfolgreichen deployen mit
@@ -159,11 +159,13 @@ npm run build && cdk deploy
 
 erscheint der folgende Output:
 
+```
  ✅  AcsEksCluster
 
 Outputs:
 AcsEksCluster.ClusterConfigCommand43AAE40F = aws eks update-kubeconfig --name AcsEksCluster --region us-east-1 --role-arn arn:aws:iam::1111122223333:role/AcsEksCluster-eksClusterAdminE955DB57-1H9KJVEE241KS
 AcsEksCluster.ClusterGetTokenCommand06AE992E = aws eks get-token --cluster-name AcsEksCluster --region us-east-1 --role-arn arn:aws:iam::1111122223333:role/AcsEksCluster-eksClusterAdminE955DB57-1H9KJVEE241KS
+```
 
 Der aws eks update-config command kann genutzt werden um zu dem Cluster zu connecten und Cluster Konfigurationen mittel kubectl anzuwenden.
 
