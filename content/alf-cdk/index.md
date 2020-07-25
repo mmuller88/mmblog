@@ -2,7 +2,7 @@
 title: ACS Infrastruktur erstellen leichtgemacht mit AWS CDK
 show: 'no'
 date: '2020-07-25'
-image: 'hack.jpeg'
+image: 'alfcdk.jpeg'
 tags: ['de', '2020', 'acs', 'alfresco', 'cdk', 'docker-compose', 'nofeed']
 engUrl: https://martinmueller.dev/alf-cdk-eng
 pruneLength: 50
@@ -75,7 +75,7 @@ npm run build && cdk deploy
 
 Wenn alles geklappt hat, sollte die Alfresco Content App kurz ACA auf der public DNS Url erreichbar sein. Z.B.: ec2-34-201-46-76.compute-1.amazonaws.com .
 
-Die CDK App kreiert einen Cloudformation Stack welcher eine Ec2 Instanz hinter einem Application Loadbalancer deployed. Anschließend wird der ACS Deploy Code, der auch im gleichen Repo enthalten ist, auf die Ec2 Instanz kopiert und ACS gestartet. Docker Compose dient dabei als Container Orchestrierer. 
+Die CDK App kreiert einen Cloudformation Stack welcher eine Ec2 Instanz hinter einem Application Loadbalancer deployed. Anschließend wird der ACS Deploy Code, der auch im gleichen Repo enthalten ist, auf die Ec2 Instanz kopiert und ACS gestartet. Docker Compose dient dabei als Container Orchestrierer.
 
 Für einfach Entwicklerumgebungen ist das ideal, da sich Docker Compose Templates schnell erstellen lassen und einfach erweiterbar sind. Will man nun aber ein produktionsähnlicheres ACS Deployment erstellen, sollte Kubernetes als Container Orchestrierer verwendet werden.
 
@@ -110,18 +110,7 @@ const onDemandASG = new AutoScalingGroup(this, 'OnDemandASG', {
 });
 ```
 
-Anschließend muss noch der Alfresco Helm Chart definiert werden. Zurzeit ist leider nur der letzte releaste ACS Enterprise Helm Chart kompatibel mit der hier verwendeten Kubernetes Version 1.17 :
-
-```TypeScript
-new HelmChart(this, 'AcsHelmChart', {
-  cluster: eksCluster,
-  chart: 'http://kubernetes-charts.alfresco.com/incubator/alfresco-content-services-5.0.0.tgz',
-  release: 'my-acs',
-  namespace: acsNamespace,
-})
-```
-
-So einfach geht es einen kompletten Helm Chart zu deployen. Die Charts speichert Alfresco in [GitHub](https://github.com/Alfresco/charts). Um nun aber Alfresco per URL erreichbar zu machen, muss noch der Ingress mit definiert werden. Ich verwende dafür einen Nginx Ingress in AWS Flavour:
+So einfach geht es einen kompletten Helm Chart zu deployen. Die Charts speichert Alfresco in [GitHub](https://github.com/Alfresco/charts). Um Alfresco per URLs erreichbar zu machen, muss noch der Ingress mit definiert werden. Ich verwende dafür einen Nginx Ingress in AWS Flavour:
 
 ```TypeScript
 new HelmChart(this, 'NginxIngress', {
@@ -162,8 +151,27 @@ new HelmChart(this, 'NginxIngress', {
     })
 ```
 
+Nach erfolgreichen deployen mit
+
+```
+npm run build && cdk deploy
+```
+
+erscheint der folgende Output:
+
+ ✅  AcsEksCluster
+
+Outputs:
+AcsEksCluster.ClusterConfigCommand43AAE40F = aws eks update-kubeconfig --name AcsEksCluster --region us-east-1 --role-arn arn:aws:iam::1111122223333:role/AcsEksCluster-eksClusterAdminE955DB57-1H9KJVEE241KS
+AcsEksCluster.ClusterGetTokenCommand06AE992E = aws eks get-token --cluster-name AcsEksCluster --region us-east-1 --role-arn arn:aws:iam::1111122223333:role/AcsEksCluster-eksClusterAdminE955DB57-1H9KJVEE241KS
+
+Der aws eks update-config command kann genutzt werden um zu dem Cluster zu connecten und Cluster Konfigurationen mittel kubectl anzuwenden.
+
+## Helm 3 Issue
+Leider sind bis zum jetzigen Zeitpunkt noch keine der ACS Charts also Community und Enterprise mit Helm 3 kompatibel. Das bedeuted wir können die den existierenden HelmChart CDK Constructor verwenden um ACS zu installieren. Alternativ muss also ACS per Helm 2 installiert werden.
+
 # Zusammenfassung
-AWS CDK ist ein spannendes Framework zur Erstellung von AWS Infrastruktur. CDK synthetisiert zu Cloudformation Templates es müssen also bestehende CI CD Pipelines nicht groß verändert werden. Dabei ist der Gewinn bei der Verwendung von CDK riesig. Z.B. die Typendefinition verhindert Bugs schon im Editor. Viele Zeilen Code werden gespart und es muss kein oder nur kaum YAML geschrieben werden. Für mich ist CDK der nächste logische Schritt für IaC in AWS. Es gibt mittlerweile sogar die ersten Bemühungen CDK auch in das [Terraform](https://github.com/hashicorp/terraform-cdk/) Ökosystem zu integrieren, was ich sehr spannend finde. Schreibt mir eure Erfahrungen mit CDK :)!
+AWS CDK ist ein spannendes Framework zur Erstellung von Alfresco Infrastruktur in AWS. CDK synthetisiert zu Cloudformation Templates es müssen also bestehende CI CD Pipelines kaum oder garnicht verändert werden. Dabei ist der Gewinn bei der Verwendung von CDK riesig. Z.B. die Typendefinition verhindert Bugs schon im Editor. Viele Zeilen Code werden gespart und es muss kein oder kaum YAML getemplated werden. Für mich ist CDK der nächste logische Schritt für IaC in AWS. Es gibt mittlerweile sogar die ersten Bemühungen CDK auch in das [Terraform](https://github.com/hashicorp/terraform-cdk/) Ökosystem zu integrieren, was ich sehr spannend finde. Schreibt mir eure Erfahrungen mit CDK :)!
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
