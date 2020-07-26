@@ -23,7 +23,7 @@ Das tolle an CDK im TypeScript Flavor sind die Typendefinitionen welche ein züg
 AWS CDK lässt sich also hervorragend verwenden die Infrastruktur für ein ACS 6.2 Deployment bereitzustellen. Nachfolgend erkläre ich die zwei Stacks Ec2 Stack und EKS Stack, welche kreiert mit CDK kreiert wurden.
 
 # CDK Constructs
-Constructs können entweder low level oder high level sein. Low level Constructs repräsentieren dabei eine Cloudformation Resource. High Level Constructs sind eine Kombination von mehreren low level Constructs. Die ganze CDK App repräsentiert dabei einen Tree an dessen Root die App selbst sind. Danach kommen die high level Constructs und als Blätter sind die low level Constructs.
+Constructs können entweder low level oder high level sein. Low level Constructs repräsentieren dabei eine Cloudformation Resource. High Level Constructs sind eine Kombination von mehreren low level Constructs. Die ganze CDK App repräsentiert dabei einen Tree an dessen Root die App selbst sind. Danach kommen die high level Constructs und als Blätter sind die low level Constructs. Interessant zu wissen, dass low level Constructs automatisch von Cloudformation Ressourcen generiert werden.
 
 Ein gutes Beispiel dafür ist das high level Construct Vpc aus dem Package @aws-cdk/aws-ec2 welches eine Kombination aus Ressourcen ist wie Vpc, InternetGateway, Cidr oder VpC Iam Role. Die Erstellung des high level VPC Construct sieht folgendermaßen aus:
 
@@ -73,7 +73,7 @@ Anschließend wird der Stack wird mit dem folgenden Befehl deployed:
 npm run build && cdk deploy
 ```
 
-Wenn alles geklappt hat, sollte die Alfresco Content App kurz ACA auf der public DNS Url erreichbar sein. Z.B.: ec2-34-201-46-76.compute-1.amazonaws.com .
+Wenn alles geklappt hat, sollte die Alfresco Content App kurz ACA auf der public DNS Url erreichbar sein. Z.B.: ec2-34-201-46-76.compute-1.amazonaws.com . Diese Url kannst du direkt aus dem AWS Browser bekommen im EC2 Bereich oder du könntest eine Output Ressource für diese schreiben.
 
 Die CDK App kreiert einen Cloudformation Stack welcher eine Ec2 Instanz hinter einem Application Loadbalancer deployed. Anschließend wird der ACS Deploy Code, der auch im gleichen Repo enthalten ist, auf die Ec2 Instanz kopiert und ACS gestartet. Docker Compose dient dabei als Container Orchestrierer.
 
@@ -110,7 +110,7 @@ const onDemandASG = new AutoScalingGroup(this, 'OnDemandASG', {
 });
 ```
 
-So einfach geht es einen kompletten Helm Chart zu deployen. Die Charts speichert Alfresco in [GitHub](https://github.com/Alfresco/charts). Um Alfresco per URLs erreichbar zu machen, muss noch der Ingress mit definiert werden. Ich verwende dafür einen Nginx Ingress in AWS Flavour:
+Um Alfresco per URLs erreichbar zu machen, muss noch der Ingress mit definiert werden. Ich verwende dafür einen Nginx Ingress in AWS Flavour:
 
 ```TypeScript
 new HelmChart(this, 'NginxIngress', {
@@ -170,7 +170,7 @@ AcsEksCluster.ClusterGetTokenCommand06AE992E = aws eks get-token --cluster-name 
 Der aws eks update-config command kann genutzt werden um zu dem Cluster zu connecten und Cluster Konfigurationen mittel kubectl anzuwenden.
 
 ## Helm 3 Issue
-Leider sind bis zum jetzigen Zeitpunkt noch keine der ACS Charts also Community und Enterprise mit Helm 3 kompatibel. Das bedeuted wir können die den existierenden HelmChart CDK Constructor verwenden um ACS zu installieren. Alternativ muss also ACS per Helm 2 installiert werden.
+Leider sind bis zum jetzigen Zeitpunkt noch keine der ACS Charts also Community und Enterprise mit Helm 3 kompatibel. Das bedeuted wir können nicht den existierenden HelmChart CDK Constructor verwenden um ACS zu installieren. Alternativ muss also ACS per Helm 2 installiert werden.
 
 # Zusammenfassung
 AWS CDK ist ein spannendes Framework zur Erstellung von Alfresco Infrastruktur in AWS. CDK synthetisiert zu Cloudformation Templates es müssen also bestehende CI CD Pipelines kaum oder garnicht verändert werden. Dabei ist der Gewinn bei der Verwendung von CDK riesig. Z.B. die Typendefinition verhindert Bugs schon im Editor. Viele Zeilen Code werden gespart und es muss kein oder kaum YAML getemplated werden. Für mich ist CDK der nächste logische Schritt für IaC in AWS. Es gibt mittlerweile sogar die ersten Bemühungen CDK auch in das [Terraform](https://github.com/hashicorp/terraform-cdk/) Ökosystem zu integrieren, was ich sehr spannend finde. Schreibt mir eure Erfahrungen mit CDK :)!
