@@ -1,10 +1,10 @@
 ---
 title: Alfresco Backup und Restoring so einfach wie möglich
 show: 'no'
-date: '2020-07-26'
+date: '2020-08-14'
 image: 'alfcdk.jpg'
-tags: ['de', '2020', 'acs', 'alfresco', 'cdk', 'docker-compose']
-engUrl: https://martinmueller.dev/alf-cdk-eng
+tags: ['de', '2020', 'acs', 'alfresco', 'cdk', 'docker-compose', 'nofeed']
+engUrl: https://martinmueller.dev/alf-backup-eng
 pruneLength: 50
 ---
 
