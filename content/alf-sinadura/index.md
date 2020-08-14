@@ -2,17 +2,17 @@
 title: Alfresco Signaturen mit Sinadura
 show: 'no'
 date: '2020-08-14'
-image: 'alfcdk.jpg'
-tags: ['de', '2020', 'acs', 'alfresco', 'docker-compose', 'nofeed']
+image: 'sig.png'
+tags: ['de', '2020', 'addon', 'acs', 'alfresco', 'docker-compose', 'nofeed']
 engUrl: https://martinmueller.dev/alf-backup-eng
 pruneLength: 50
 ---
 
 Hi Alfrescans.
 
-Digitale Signaturen sind eine der meist genutzten Formen zum Integritätscheck im Internet. Integritätscheck meint hier ob es sich bei dem jeweiligen Dokument um das Originale une damit keine Fälschung oder geänderten Version handelt. Was einem dort gleich in den Sinn kommt, sind die SSL Zertifikate zum aufrufen von HTTPS Urls. Dort muss quasi überprüft werden ob das SSL Zertifikat nicht gefälscht ist und das geschieht mit einer digitalen Signatur.
+Digitale Signaturen sind eine der meist genutzten Formen zum Integritätscheck im Internet. Integritätscheck meint hier ob es sich bei dem jeweiligen Dokument um das Originale une damit keine Fälschung oder geänderten Version handelt. Ein Beispiel sind die SSL Zertifikate die zum aufrufen von HTTPS Urls benötigt werden. Dort muss quasi überprüft werden ob das SSL Zertifikat nicht gefälscht ist und das geschieht mit einer digitalen Signatur.
 
-Alfresco bietet keine Signierfunktion ootb, aber mit dem Open Source Addon [Sinadura](https://github.com/zylklab/alfresco-sinadura) (Repo und Share) kann diese Funktion nachgerüstet werden. Eine Signierfunktion in Alfresco hat zwei wesentlich Vorteile. Der erste wäre eine erhöhte Sicherheit, da es so fast unmöglich gemacht wird Dokument in Alfresco zu fälschen z.B. durch einen Angreifer der ins System gelangt.
+Alfresco bietet keine Signierfunktion ootb, aber mit dem Open Source Addon [Sinadura](https://github.com/zylklab/alfresco-sinadura) (Repo und Share) kann diese Funktion nachgerüstet werden. Auf YouTube existiert ein kurzes [Video](https://www.youtube.com/watch?feature=player_embedded&v=MCTpOKZtTgw) über die Signierfunktion von Sinadura. Eine Signierfunktion in Alfresco hat zwei wesentlich Vorteile. Der erste wäre eine erhöhte Sicherheit, da es so fast unmöglich gemacht wird Dokument in Alfresco zu fälschen z.B. durch einen Angreifer der ins System gelangt.
 
 Zweitens könnte somit der normale Use Case Scope, also nur innerhalb einer Firma zu bleiben, verlassen werden und Personen die nicht in der Firma arbeiten wie z.B. Kunden mit ins Content Management System mit einbezogen werden. Durch die Verwendung von Signaturen kann ein verbessertes Vertrauensverhältniss gesichert werden.
 
