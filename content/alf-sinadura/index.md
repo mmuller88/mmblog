@@ -1,5 +1,5 @@
 ---
-title: Alfresco Signaturen mit Sinadura (Gesponsort mit [PMGA Tech](www.pmga.tech))
+title: Alfresco Signaturen mit Sinadura
 show: 'no'
 date: '2020-08-14'
 image: 'sig.png'
@@ -7,7 +7,7 @@ tags: ['de', '2020', 'addon', 'acs', 'alfresco', 'docker-compose', 'nofeed']
 engUrl: https://martinmueller.dev/alf-sinadura-eng
 pruneLength: 50
 ---
-
+# Gesponsort bei [PMGA Tech](www.pmga.tech)
 Hi Alfrescans.
 
 Digitale Signaturen sind eine der meist genutzten Formen zum Integritätscheck im Internet. Integritätscheck meint hier ob es sich bei dem jeweiligen Dokument um das Originale une damit keine Fälschung oder geänderten Version handelt. Ein Beispiel sind die SSL Zertifikate die zum aufrufen von HTTPS Urls benötigt werden. Dort muss quasi überprüft werden ob das SSL Zertifikat nicht gefälscht ist und das geschieht mit einer digitalen Signatur.
