@@ -6,7 +6,7 @@ tags: ['eng', '2020', 'addon', 'acs', 'alfresco', 'docker-compose', 'nofeed']
 gerUrl: https://martinmueller.dev/alf-sinadura
 pruneLength: 50
 ---
-
+# Sponsored by [PMGA Tech](www.pmga.tech)
 Hi Alfrescans.
 
 Digital signatures are one of the most used forms of integrity checks on the Internet. Integrity check here means whether the document in question is the original and therefore not a fake or a modified version. An example are the SSL certificates which are needed to call HTTPS urls. There you have to check if the SSL certificate is not tampered with and this is done with a digital signature.
