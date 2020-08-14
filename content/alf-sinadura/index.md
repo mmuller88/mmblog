@@ -28,7 +28,7 @@ Aktuell basiert das Alfresco Sinadura Addon in https://github.com/zylklab/alfres
 
 Die Migration, welche ihr in meinem Git Repo findet unter https://github.com/mmuller88/alfresco-sinadura-6X-pmgatech, hat super funktioniert. Wie eine Alfresco SDK 4.1.0 Build gebaut werden kann ist sehr gut beschrieben im offiziellen [Alfresco SDK Repo](https://github.com/Alfresco/alfresco-sdk). SDK 4.1.0 basiert stark auf Docker und nutzt Docker Compose als Container Orchestrierer.
 
-Etwas herausfordernd war die Migration der AMP Struktur nach 4.1.0 da einige Datein nun an anderer Stelle platziert werden müssen als noch in 2.2.0 . Auch muss ich einen eigenen Service für die sinaduraCloud Endpunkt schreiben da diese nur mit Java 8 funktioniert.
+Etwas herausfordernd war die Migration der AMP Struktur nach 4.1.0 da einige Datein nun an anderer Stelle platziert werden müssen als noch in 2.2.0 . Die sinaduraCloud war File musste ich in ein eigenständiges Tomcat mit Java 8 packen da Alfresco mit Java 11 läuftgit.
 
 # Zusammenfassung
 Digitale Signaturen sind ein spannendes Thema und ermöglichen einem Alfresco Document Management System komplett neue Use Cases. Auch interessant könnte der Vorgang des Signierens im Zusammenspiel mit Alfresco Process Service sein.
