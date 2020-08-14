@@ -1,5 +1,5 @@
 ---
-title: Alfresco Signatures with Sinadura (Sponsored by [PMGA Tech](www.pmga.tech))
+title: Alfresco Signatures with Sinadura. Sponsored by [PMGA Tech](www.pmga.tech)
 date: '2020-08-14'
 image: 'sig.png'
 tags: ['eng', '2020', 'addon', 'acs', 'alfresco', 'docker-compose', 'nofeed']
