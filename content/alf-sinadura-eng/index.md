@@ -1,5 +1,5 @@
 ---
-title: Alfresco Signatures with Sinadura
+title: Alfresco Signatures with Sinadura (Sponsored by [PMGA Tech](www.pmga.tech))
 date: '2020-08-14'
 image: 'sig.png'
 tags: ['eng', '2020', 'addon', 'acs', 'alfresco', 'docker-compose', 'nofeed']
@@ -32,7 +32,7 @@ A bit more challenging was the migration of the AMP structure to 4.1.0 as some f
 # Summary
 Digital signatures are an exciting topic and enable an Alfresco document management system to have completely new use cases. The process of signing in conjunction with Alfresco Process Service could also be interesting.
 
-Many thanks to my sponsor www.pmga.tech for the migration work on Sinadura. Do you have exciting Alfresco projects you are working on? Let me know :) !
+Many thanks to my sponsor [www.pmga.tech](www.pmga.tech) for the migration work on Sinadura. Do you have exciting Alfresco projects you are working on? Let me know :) !
 
 To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
 
