@@ -12,12 +12,14 @@ Hi CDK Fans,
 
 Da ich die tolle Gelegenheit habe bei dem Bau einer Platform für meine Firma [unimed.de](https://unimed.de) zu helfen, will ich euch erklären wie das aussieht. Zurzeit arbeiten wir an einer spannenden Platform zum effizienten Speichern und Auffinden von internen Daten. Meine Hauptverantwortlichkeit liegt dabei in der AWS Infrastruktur.
 
-Unser DevOps Team möchte soviel wie möglich in AWS auslagern. Für die Verwaltung der Ressourcen in AWS nutzen wir AWS CDK. AWS CDK ist ein Framework zur Erstellung und Anwendung von Cloudformation Templates. Dabei kann man zwischen gängigen Programmiersprachen auswählen. Wir haben uns für TypeScript entschieden da auch unser Frontend in TypeScript geschrieben ist und den Vorteil der starken Typendefinition mit sich bringt ohne dabei gefühlt viel an Flexibilität zu verlieren.
+Unser DevOps Team möchte soviel wie möglich in AWS auslagern. Für die Verwaltung der Ressourcen in AWS nutzen wir AWS CDK. AWS CDK ist ein Framework zur Erstellung und Anwendung von Cloudformation Templates. Dabei kann man zwischen gängigen Programmiersprachen auswählen. Wir haben uns für TypeScript entschieden da auch unser Frontend in TypeScript geschrieben ist und den Vorteil der starken Typendefinition mit sich bringt ohne dabei gefühlt viel an Flexibilität zu verlieren. Wenn du mehr über AWS CDK wissen möchtest empfehle ich dir meine anderen Posts hier in meinem Blog wie z.B. [cdk-example](https://martinmueller.dev/cdk-example).
 
 Das eben erwähnte Frontend ist mit React im TypeScript Flavour implementiert. Ich plane eine mehrteilige Serie über "AWS CDK Let's build a Platform' und in dieser Folge geht es speziell um das Frontend.
 
 # React Frontend
-Wie schon erwähnt unser Frontend is eine React Browser App im TypeScript Flavor. Sie nutzt das Material Design wo immer es möglich ist. Die Authentifizierung läuft über Keycloak welches an unser firmeninternes Active Directory angeschlossen ist. Nach dem Eingeben der Zugangsdaten kann direkt nach relevanten Kundendaten gesucht und Neue eingefügt werden. An dieser Stelle möchte ich einen Schwank auf die Infrastrucktur machen. Die React Browser App ist eine Static Web App und um diese mittels AWS werden einige AWS Resourcen benötigt. Diese möchte ich im nächsten Abschnitte Auflisten und wie sie mittel CDK verwaltet werden können.
+Wie schon erwähnt unser Frontend is eine React Browser App im TypeScript Flavor. Sie nutzt das Material Design wo immer es möglich ist. Die Authentifizierung läuft über Keycloak welches an unser firmeninternes Active Directory angeschlossen ist. Nach dem Eingeben der Zugangsdaten kann direkt nach relevanten Daten gesucht und Neue eingefügt werden. Die static App wird mit ```npm run build``` in den Ordner build gebaut.
+
+An dieser Stelle möchte ich einen Schwank auf die Infrastrucktur machen. Die React Browser App ist eine Static Web App und um diese mittels AWS werden einige AWS Resourcen benötigt. Diese möchte ich im nächsten Abschnitte Auflisten und wie sie mittel CDK verwaltet werden können.
 
 # CDK Stack
 Zur Darstellung der static React App wird ein S3 Bucket benötigt, welcher als static Web App Bucket dient:
@@ -31,9 +33,9 @@ const bucket = new AutoDeleteBucket(this, props.domainName, {
 });
 ```
 
-Ich verwende ein CDK Highlevel Construct mit Namen [AutoDeleteBucket](https://www.npmjs.com/package/@mobileposse/auto-delete-bucket) welcher sich bei Bedarf selbst löschen kann. Das normal S3Bucket kann die Löschung des Buckets nur durchführen wenn keine Daten in diesem Enthalten sind. Der AutDeleteBucket löscht also erst alle in im enthaltenen Daten und entfernt sich dann selbst. Dieses flexible Verhalten ist durchaus nützlich für Buckets die lediglich als static Web App Container dienen sollen. Der Name des static Web App Buckets ```bucketName: ${props.subDomain}.${props.domainName}``` wird üblicherweise nach der Domain vergeben z.B. www.example.com .
+Ich verwende ein CDK Highlevel Construct mit Namen [AutoDeleteBucket](https://www.npmjs.com/package/@mobileposse/auto-delete-bucket) welcher sich bei Bedarf selbst löschen kann. Das normale S3Bucket kann die Löschung des Buckets nur durchführen wenn keine Daten in diesem Enthalten sind. Der AutDeleteBucket löscht also erst alle in im enthaltenen Daten und entfernt sich dann selbst. Dieses flexible Verhalten ist durchaus nützlich für Buckets die lediglich als static Web App Container dienen sollen. Der Name des static Web App Buckets ```bucketName: ${props.subDomain}.${props.domainName}``` wird üblicherweise nach der Domain vergeben z.B. www.example.com .
 
-Der S3 Bucket speichert das statische Build und wird mit Cloudfront verbunden: 
+Der S3 Bucket speichert das statische Build und wird mit Cloudfront verbunden:
 
 ```TypeScript
 const cloudFrontOAI = new OriginAccessIdentity(this, 'OAI', {
@@ -73,7 +75,7 @@ const cloudfrontDistribution = new CloudFrontWebDistribution(
 );
 ```
 
-Cloudfront ist ein Cloud Distribution Network (kurz: CDN) von AWS welches die static Web Apps überall auf der Welt in den jeweiligen Regionen cashed. Somit wird die Ladelatency auf ein Minimum gehalten.
+Cloudfront ist ein Cloud Distribution Network (kurz: CDN) von AWS welches die static Web Apps überall auf der Welt in den jeweiligen Regionen cashed. Somit wird die Latency während des Ladens auf ein Minimum gehalten.
 
 Um nun selbst den static Web App Build in den S3 Bucket zu laden musst noch ein BucketDeployment Construct erstellt werden:
 
@@ -86,7 +88,7 @@ new BucketDeployment(this, `DeployApp-${new Date().toString()}`, {
 });
 ```
 
-Auch wird hier im BucketDeployment der Invalidierungspfad der Cloudfront Distribution spezifiziert. Das sorgt dann für ein Neuladen des Cashes sofern eine neue App deployed wird.
+Auch wird hier im BucketDeployment der Pfad zur Invalidierung der Cloudfront Distribution angegeben. Das sorgt dann für ein Neuladen des Cashes sofern eine neue App deployed wird. Der static Web App build Ordner enthält das Build der React App und wurde vorher mit ```npm run build``` erstellt.
 
 Weiterhin wird eine Route 53 Record Resource benötigt um eine Custom Domain (z.B. www.example.com) auf den Cloudfront Endpoint zu zeigen um ein die static Web App mittels URL aufrufbar zu machen:
 
