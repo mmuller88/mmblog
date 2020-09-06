@@ -1,10 +1,10 @@
 ---
 title: AWS CDK Let's build a Platform - Frontend
 show: 'no'
-date: '2020-09-05'
+date: '2020-09-06'
 image: 'frontend.png'
 tags: ['de', '2020', 'aws', 'react', 'cdk']
-engUrl: https://martinmueller.dev/cdk-platform-frontend
+engUrl: https://martinmueller.dev/cdk-platform-frontend-eng
 pruneLength: 50
 ---
 
@@ -19,7 +19,7 @@ Das eben erwähnte Frontend ist mit React im TypeScript Flavour implementiert. I
 # React Frontend
 Wie schon erwähnt unser Frontend is eine React Browser App im TypeScript Flavor. Sie nutzt das Material Design wo immer es möglich ist. Die Authentifizierung läuft über Keycloak welches an unser firmeninternes Active Directory angeschlossen ist. Nach dem Eingeben der Zugangsdaten kann direkt nach relevanten Daten gesucht und Neue eingefügt werden. Die static App wird mit ```npm run build``` in den Ordner build gebaut.
 
-An dieser Stelle möchte ich einen Schwank auf die Infrastrucktur machen. Die React Browser App ist eine Static Web App und um diese mittels AWS werden einige AWS Resourcen benötigt. Diese möchte ich im nächsten Abschnitte Auflisten und wie sie mittel CDK verwaltet werden können.
+An dieser Stelle möchte ich einen Schwank auf die Infrastruktur machen. Die React Browser App ist eine Static Web App und um diese mittels AWS werden einige AWS Ressourcen benötigt. Diese möchte ich im nächsten Abschnitte Auflisten und wie sie mittel CDK verwaltet werden können.
 
 # CDK Stack
 Zur Darstellung der static React App wird ein S3 Bucket benötigt, welcher als static Web App Bucket dient:
@@ -33,7 +33,7 @@ const bucket = new AutoDeleteBucket(this, props.domainName, {
 });
 ```
 
-Ich verwende ein CDK Highlevel Construct mit Namen [AutoDeleteBucket](https://www.npmjs.com/package/@mobileposse/auto-delete-bucket) welcher sich bei Bedarf selbst löschen kann. Das normale S3Bucket kann die Löschung des Buckets nur durchführen wenn keine Daten in diesem Enthalten sind. Der AutDeleteBucket löscht also erst alle in im enthaltenen Daten und entfernt sich dann selbst. Dieses flexible Verhalten ist durchaus nützlich für Buckets die lediglich als static Web App Container dienen sollen. Der Name des static Web App Buckets ```bucketName: ${props.subDomain}.${props.domainName}``` wird üblicherweise nach der Domain vergeben z.B. www.example.com .
+Ich verwende ein CDK Highlevel Construct mit Namen [AutoDeleteBucket](https://www.npmjs.com/package/@mobileposse/auto-delete-bucket) welcher sich bei Bedarf selbst löschen kann. Das normale [S3Bucket Construct](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-s3.Bucket.html) kann die Löschung des Buckets nur durchführen wenn keine Daten in diesem Enthalten sind. Der AutDeleteBucket löscht also erst alle in im enthaltenen Daten und entfernt sich dann selbst. Dieses flexible Verhalten ist durchaus nützlich für Buckets die lediglich als static Web App Container dienen sollen. Der Name des static Web App Buckets ```bucketName: ${props.subDomain}.${props.domainName}``` wird üblicherweise nach der Domain vergeben z.B. www.example.com .
 
 Der S3 Bucket speichert das statische Build und wird mit Cloudfront verbunden:
 
@@ -197,7 +197,7 @@ export class FrontendStack extends core.Stack {
 ```
 
 # Pipeline
-Wir deployen die static React App mittels einer Staging Pipeline. Das bedeutet die App durchläuft die verschieden Stages Dev, QA und Prod. Alles Stages sind separierte Accounts. Somit erreicht man eine erhöhte Sicherheit durch Trennung der Ressourcen. Der Dev Account wird zum testen neuer Features genutzt. Die QA Umgebung dient als nächste Stage.
+Wir deployen die static React App mittels einer Staging Pipeline. Das bedeutet die App durchläuft die verschieden Stages Dev, QA und Prod. Alle Stages sind separierte Accounts. Somit erreicht man eine erhöhte Sicherheit durch Trennung der Ressourcen. Der Dev Account wird zum testen neuer Features genutzt. Die QA Umgebung dient als nächste Stage.
 
 Ich würde gerne etwas ausführlicher über unsere Staging Pipeline im nächsten Teil der Serie berichten.
 
