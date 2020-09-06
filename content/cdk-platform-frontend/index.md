@@ -33,7 +33,7 @@ const bucket = new AutoDeleteBucket(this, props.domainName, {
 });
 ```
 
-Ich verwende ein CDK Highlevel Construct mit Namen [AutoDeleteBucket](https://www.npmjs.com/package/@mobileposse/auto-delete-bucket) welcher sich bei Bedarf selbst löschen kann. Das normale [S3Bucket Construct](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-s3.Bucket.html) kann die Löschung des Buckets nur durchführen wenn keine Daten in diesem Enthalten sind. Der AutDeleteBucket löscht also erst alle in im enthaltenen Daten und entfernt sich dann selbst. Dieses flexible Verhalten ist durchaus nützlich für Buckets die lediglich als static Web App Container dienen sollen. Der Name des static Web App Buckets ```bucketName: ${props.subDomain}.${props.domainName}``` wird üblicherweise nach der Domain vergeben z.B. www.example.com .
+Ich verwende ein CDK Highlevel Construct mit Namen [AutoDeleteBucket](https://www.npmjs.com/package/@mobileposse/auto-delete-bucket) welcher sich bei Bedarf selbst löschen kann. Das normale [S3Bucket Construct](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-s3.Bucket.html) kann die Löschung des Buckets nur durchführen wenn keine Daten in diesem Enthalten sind. Der AutDeleteBucket löscht also erst alle in im enthaltenen Daten und entfernt sich dann selbst. Dieses flexible Verhalten ist durchaus nützlich für Buckets die lediglich als static Web App Container dienen sollen. Der Name des static Web App Buckets ```bucketName: ${props.subDomain}.${props.domainName}``` wird üblicherweise nach der Domain vergeben z.B. example.com .
 
 Der S3 Bucket speichert das statische Build und wird mit Cloudfront verbunden:
 
