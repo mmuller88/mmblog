@@ -1,5 +1,5 @@
 ---
-title: AWS CDK Let's build a Platform - Api GateWay
+title: AWS CDK Let's build a Platform - Api Gateway
 show: 'no'
 date: '2020-09-13'
 image: 'api-gw.png'
@@ -10,14 +10,14 @@ pruneLength: 50
 
 Hi CDK Fans,
 
-Willkommen zurück zu meiner kleinen Serie "AWS CDK Let's build a platform". In der vorherigen Episode  [AWS CDK Let's build a Platform - Frontend](https://martinmueller.dev/cdk-platform-frontend) habe ich erklärt wie wir für meine Firma [unimed.de](https://unimed.de) ein cooles static React Web App mit AWS CDK bauen.
+Willkommen zurück zu meiner kleinen Serie "AWS CDK Let's build a platform". In der vorherigen Folge  [AWS CDK Let's build a Platform - Frontend](https://martinmueller.dev/cdk-platform-frontend) habe ich erklärt wie wir für meine Firma [unimed.de](https://unimed.de) ein cooles static React Web App mit AWS CDK bauen.
 
 AWS CDK ist ein Framework zur Erstellung und Anwendung von Cloudformation Templates. Dabei kann man zwischen gängigen Programmiersprachen wie Java, Python oder TypeScript auswählen. Wir haben uns für TypeScript entschieden. Wenn du mehr über AWS CDK wissen möchtest empfehle ich dir meine anderen Posts hier in meinem Blog wie z.B. [cdk-example](https://martinmueller.dev/cdk-example).
 
-In dieser Folge soll es um das AWS Api Gateway gehen welches von der Frontend Applikation benutzt wird um z.B. interne Date abzufragen oder zu speichern.
+In dieser Folge soll es um das AWS Api Gateway gehen welches von der Frontend Applikation benutzt wird um z.B. interne Daten abzufragen oder zu speichern.
 
 # Api Gateway
-Das AWS Api Gateway ist das Herzstück vieler AWS Deployments. Es ist ein REST API zum verarbeiten von Requests und den darauf folgenden Responses. Sollen zum Beispiel interne Daten erfragt werden könnte das mit diesem Request gemacht werden:
+Das AWS Api Gateway ist das Herzstück vieler AWS Deployments. Es ist ein Rest Api zum verarbeiten von Requests und den darauf folgenden Responses. Sollen zum Beispiel interne Daten erfragt werden könnte das mit diesem Request gemacht werden:
 
 ```
 GET https://example.com/users
@@ -32,7 +32,7 @@ Der Response Body könnte dann folgender Maßen aussehen:
 ]
 ```
 
-Das Api Gateway nimmt also ein Request entgegen, leitet es zu einer Integration weiter und gibt dann einen Response zurück. Die Integration kann dabei aus verschieden Technologien gewählt werden wie z.B. Mock, HTTP Proxy, Lambda Proxy oder anderen AWS Servicen. Bei der Erstellung des API Gateways haben wir uns für die Variante mit der openApi Spezifikation entschieden. Darüber hab ich ja schon in einem [vorherigen Post](https://martinmueller.dev/cdk-swagger) geschrieben und empfehle Euch den zu lesen.
+Das Api Gateway nimmt also ein Request entgegen, leitet es zu einer Integration weiter und gibt dann einen Response zurück. Die Integration kann dabei aus verschieden Technologien gewählt werden wie z.B. Mock, HTTP Proxy, Lambda Proxy oder anderen AWS Services. Bei der Erstellung des API Gateways haben wir uns für die Variante mit der openApi Spezifikation entschieden. Darüber hab ich ja schon in einem [vorherigen Post](https://martinmueller.dev/cdk-swagger) geschrieben und empfehle Euch den zu lesen.
 
 Kurz zusammengefasst bietet die Verwendung einer openApi Spezifikation einige Vorteile wie Schema Validierung der Request Parameter sowie einer tollen Dokumentation über die zu erwartenden Responses und möglichen Fehlermeldungen. Insbesondere bei der Verwendung einer NoSQL Datenbank wie DynamoDB ist die Validierung der Request Parameter extrem wichtig da ja die Datenbank selber kein Schema vorgibt! Und so sieht ein openApi Api Gateway in CDK aus:
 
@@ -88,14 +88,6 @@ npx newman run test/postman/example-com.postman_collection.json --env-var baseUr
 ```
 
 Die User Credentials werden vorher im Build per secure Environmentvariables gesetze, welche aus AWS SecurityManager geladen werden.
-
-# Lambdas
-* Lambdas als Integration
-* Bekommen ihren eigenen Stack. Bessere Flexibilität
-
-# Pipeline
-* Staging Pipeline
-* eigener Blog Post
 
 # Zusammenfassung
 In diesem Teil der "AWS CDK Let's build a Platform" Reihe habe ich euch erklärt wie der Backend Stack grob aussehen könnte. Was ich mit Absicht ausgelassen habe sind die Informationen was hinter dem Api Gateway bzw. den Lambdas kommt. Üblicherweise greift man hier auf Daten aus Speichern zu wie vielleicht DynamoDB oder RDS. Es kann aber auch sein, dass ihr komplexere Verarbeitungsabläufe anstoßen wollt mit AWS Step Functions.
