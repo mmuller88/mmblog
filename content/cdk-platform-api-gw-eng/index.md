@@ -11,7 +11,7 @@ Hi CDK Fans,
 
 Welcome back to my little series "AWS CDK Let's build a platform". In the previous episode [AWS CDK Let's build a Platform - Frontend](https://martinmueller.dev/cdk-platform-frontend) I explained how we build a cool static React Web App with AWS CDK for my company [unimed.de](https://unimed.de).
 
-AWS CDK is a framework for creating and using Cloudformation templates. You can choose between common programming languages like Java, Python or TypeScript. We have decided to use TypeScript. If you want to know more about AWS CDK I recommend my other posts here in my blog like [cdk-example](https://martinmueller.dev/cdk-example).
+AWS CDK is a framework for creating and using Cloudformation templates. You can choose between common programming languages like Java, Python or TypeScript. We have decided to use TypeScript. If you want to know more about AWS CDK I recommend my other posts here in my blog like [cdk-example](https://martinmueller.dev/cdk-example-eng).
 
 In this episode I will talk about the AWS Api Gateway which is used by the frontend application to retrieve or store internal data.
 
@@ -31,7 +31,7 @@ The response body could then look like this:
 ]
 ```
 
-So the Api Gateway receives a request, forwards it to an integration and then returns a response. The integration can be chosen from different technologies like Mock, HTTP Proxy, Lambda Proxy or other AWS services. When creating the API gateway, we decided to use the variant with the openApi specification. I already wrote about this in a [previous post](https://martinmueller.dev/cdk-swagger) and recommend you to read it.
+So the Api Gateway receives a request, forwards it to an integration and then returns a response. The integration can be chosen from different technologies like Mock, HTTP Proxy, Lambda Proxy or other AWS services. When creating the API gateway, we decided to use the variant with the openApi specification. I already wrote about this in a [previous post](https://martinmueller.dev/cdk-swagger-eng) and recommend you to read it.
 
 In short, using an openApi specification offers some advantages like schema validation of the request parameters and a great documentation about the expected responses and possible error messages. Especially when using a NoSQL database like DynamoDB the validation of the request parameters is extremely important because the database itself does not provide a schema! And this is how an openApi Api Gateway looks like in CDK:
 
