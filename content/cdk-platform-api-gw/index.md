@@ -3,8 +3,8 @@ title: AWS CDK Let's build a Platform - Api Gateway
 show: 'no'
 date: '2020-09-13'
 image: 'api-gw.png'
-tags: ['de', '2020', 'aws', 'react', 'cdk', 'nofeed']
-engUrl: https://martinmueller.dev/cdk-platform-api-gw
+tags: ['de', '2020', 'aws', 'react', 'cdk']
+engUrl: https://martinmueller.dev/cdk-platform-api-gw-eng
 pruneLength: 50
 ---
 
