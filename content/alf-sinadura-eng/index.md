@@ -2,7 +2,7 @@
 title: Alfresco Signatures with Sinadura
 date: '2020-08-14'
 image: 'sig.png'
-tags: ['eng', '2020', 'addon', 'acs', 'alfresco', 'docker-compose', 'nofeed']
+tags: ['eng', '2020', 'addon', 'acs', 'alfresco', 'docker-compose']
 gerUrl: https://martinmueller.dev/alf-sinadura
 pruneLength: 50
 ---

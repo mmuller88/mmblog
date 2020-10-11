@@ -3,7 +3,7 @@ title: AWS CDK One Library
 show: 'no'
 date: '2020-10-18'
 image: 'api-gw.png'
-tags: ['de', '2020', 'aws', 'cdk']
+tags: ['de', '2020', 'aws', 'cdk', 'nofeed']
 engUrl: https://martinmueller.dev/cdk-platform-api-gw-eng
 pruneLength: 50
 ---
