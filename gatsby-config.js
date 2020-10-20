@@ -177,11 +177,13 @@ module.exports = {
     'gatsby-plugin-offline',
     {
       resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          `gatsby-remark-prismjs`,
-        ]
-      }
+      // options: {
+      //   plugins: [
+      //     {
+      //       resolve: `gatsby-remark-highlight-code`
+      //     },
+      //   ],
+      // },
     },
     {
       resolve: 'gatsby-source-filesystem',

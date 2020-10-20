@@ -1,8 +1,8 @@
 ---
 title: AWS CDK - PipelineApp - Eine Library für Staging Pipelines
 show: 'no'
-date: '2020-10-18'
-image: 'api-gw.png'
+date: '2020-10-24'
+image: 'staging.png'
 tags: ['de', '2020', 'aws', 'cdk', 'nofeed']
 engUrl: https://martinmueller.dev/cdk-pipeline-lib-eng
 pruneLength: 50
@@ -27,7 +27,7 @@ Meine CDK Pipeline Library soll einige Anforderungen erfüllen die nach Außen �
 ```TypeScript
 const pipelineAppProps: PipelineAppProps = {
   branch: 'master',
-  repositoryName: name,
+  repositoryName: 'alf-cdk-ui',
   accounts: [
     {
       id: '123...',
@@ -98,6 +98,18 @@ Die gesamte Library wird als Dependendy im package.json geladen:
 
 In den nächsten Unterabschnitten erläutere ich genauer die einzelnen Properties.
 
+## Git Repository
+Die PipelineApp soll ihre Stages basierend auf Git Repositories deployen. Dafür ist es notwendig das Repository und den Branch zu definieren:
+
+```TypeScript
+const pipelineAppProps: PipelineAppProps = {
+  branch: 'master',
+  repositoryName: 'alf-cdk-ui',
+  ...
+```
+
+Der **repositoryName** bezieht sich auf den Namen in meinem Repository auf Github z.B. https://github.com/mmuller88/alf-cdk-ui . Über die Pipeline wird mittels eines Tokens dieses Repository gepullt und als Source definiert.
+
 ## Verwalten von Stages
 Es soll möglich sein zu spezifischen AWS Accounts in der jeweiligen Stage zu connecten. Die Spezifikation über den Account und der Stage soll als Parameter mitgegeben werden. Ich entwickelte das folgende Interface:
 
@@ -116,9 +128,8 @@ accounts: [
 ],
 ```
 
-Hier wird eine Liste von Stage Accounts übergeben in die die Pipeline die Stacks deployn wird. Zusätzlich wird mit dem **stage** property der Name der Stage festgelegt. Die Reihenfolge der Accounts bestimmt auch die Reihenfolge in der das Staging durchgeführt wird. In diesem Beispiel wird also zuerst die DEV Stage durchlaufen und dann Die PROD Stage.
+Hier wird eine Liste von Stage Accounts übergeben in die die Pipeline die Stacks deployen wird. Zusätzlich wird mit dem **stage** property der Name der Stage festgelegt. Die Reihenfolge der Accounts bestimmt auch die Reihenfolge in der das Staging durchgeführt wird. In diesem Beispiel wird also zuerst die DEV Stage durchlaufen und dann Die PROD Stage.
 
-## Buildaccount
 Der Buildaccount definiert den Account indem die CDK Pipeline deployed werden soll.
 
 ```TypeScript
@@ -132,7 +143,7 @@ buildAccount: {
 In dem Build Account können auch wichtige Secret mit dem Secret Manager oder dem Parameter Store definiert werden wie z.B. das GitHub Token. In dem Pipeline Stack kann dann dort auf diese Secrets zugegriffen werden.
 
 ## Ein oder mehrere Stacks
-Die Pipeline soll in der Lage sein ein oder mehrere Stacks zu deployn und in die Pipeline zu integrieren. Die Stackdefinition soll dabei im jeweiligen Repository liegen und kann dann einfach der Library als Higher Order Function übergeben werden:
+Die Pipeline soll in der Lage sein ein oder mehrere Stacks zu deployen und in diesige zu integrieren. Die Stackdefinition soll dabei im jeweiligen Repository liegen und kann dann einfach der Library als Higher Order Function übergeben werden:
 
 ```TypeScript
 customStack: (scope, account) => {

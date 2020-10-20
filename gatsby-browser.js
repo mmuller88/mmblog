@@ -5,3 +5,4 @@
  */
 
 // You can delete this file if you're not using it
+require('gatsby-remark-vscode/styles.css');
