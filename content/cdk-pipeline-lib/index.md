@@ -10,11 +10,16 @@ pruneLength: 50
 
 Hi CDK Fans,
 
-Das Bauen von AWS CDK Pipelines macht Spaß. Seit Mitte diesen Jahres (2020) gibt es sogar eine Level 2 CDK Pipeline welche viele Vorteile bringt wie self-mutate, ein vereinfachtes Cross-Account Deployment und eine bessere Abstraktion von den benötigten CodeBuild Projekten. Hier ist ein empfehlenswerter Blogpost über die neue [CdkPipeline](https://aws.amazon.com/blogs/developer/cdk-pipelines-continuous-delivery-for-aws-cdk-applications/).
+Das Bauen von AWS CDK Pipelines macht Spaß. Seit Mitte diesen Jahres (2020) gibt es sogar eine Level 2 CDK Pipeline welche viele Vorteile bringt wie self-mutate, ein vereinfachtes Cross-Account Deployment und eine bessere Abstraktion von den benötigten CodeBuild Projekten.
 
-Privat und beruflich habe ich schon viele CDK Pipelines erstellt und viel gelernt. Was mich dabei nervt, ist dass sich viel Code wiederholt, jedesmal wenn ich eine neue Pipeline schreibe. Von daher böte es sich doch an eine allgemeine Library für die ganzen Pipelines zu schreiben.
+Ich habe eine CDK Library entwickelt die einige Probleme Lösen soll. Wenn auch ihr auf nur einer der folgenden Probleme stoßt, müsste ihr euch unbedingt den gesamten Post durchlesen :) :
 
-In den nächsten Abschnitten geht es um diese allgemeine Library. Zuerst beschreibe ich wozu man überhaupt eine Pipeline braucht. Dann erkläre ich genauer die Idee hinter der Library und zum Schluss zeige ich einige Beispiele meiner Projekte welche bereits die Library verwenden.
+* Maintaining der CDK Dependencies zwischen mehreren Repositories
+* Wiederholung von Code für den Bau von CDK Apps nur um z.B. einen beliebigen Stack zu deployen
+* Wiederholung von CDK Pipeline Code
+* Vermissen eines einheitlichen CDK Pipeline Standards über ein Interface
+
+In den nächsten Abschnitten geht es um diese allgemeine Library und wie ich diese Probleme löse. Zuerst beschreibe ich wozu man überhaupt eine Pipeline braucht. Dann erkläre ich genauer die Idee hinter der Library und zum Schluss zeige ich einige Beispiele meiner Projekte welche bereits die Library verwenden.
 
 # Wozu überhaupt eine Pipeline?
 In Zeiten von modernen DevOps Praktiken ist es wichtig Änderungen in der Produktion so schnell und einfach wie möglich durchzuführen. Idealerweise geschieht das basierend auf Git Code Commits und einer Staging Pipeline. Eine Staging Pipeline führt Anpassungen auf Stages aus.
