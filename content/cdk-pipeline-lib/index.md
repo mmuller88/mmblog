@@ -216,15 +216,19 @@ import { sharedDevAccountProps, sharedProdAccountProps } from 'alf-cdk-app-pipel
 new PipelineApp({
   branch: 'master',
   repositoryName: name,
-  accounts: [
+  stageAccounts: [
     {
-      id: '123...',
-      region: 'eu-central-1',
+      account: {
+        id: '123...',
+        region: 'eu-central-1',
+      },
       stage: 'dev',
     },
     {
-      id: '123...',
-      region: 'us-east-1',
+      account: {
+        id: '123...',
+        region: 'us-east-1',
+      },
       stage: 'prod',
     },
   ],
@@ -304,10 +308,12 @@ Das nächste Beispiel befindet sich in Github auf [alf-cdk-ec2](https://github.c
 const pipelineAppProps: PipelineAppProps = {
   branch: 'master',
   repositoryName: name,
-  accounts: [
+  stageAccounts: [
     {
-      id: '123...',
-      region: 'eu-central-1',
+      account: {
+        id: '123...',
+        region: 'eu-central-1',
+      },
       stage: 'dev',
     },
   ],
@@ -374,15 +380,19 @@ import { sharedDevAccountProps, sharedProdAccountProps } from 'alf-cdk-app-pipel
 const pipelineAppProps: PipelineAppProps = {
   branch: 'master',
   repositoryName: name,
-  accounts: [
+  stageAccounts: [
     {
-      id: '123...',
-      region: 'eu-central-1',
+      account: {
+        id: '123...',
+        region: 'eu-central-1',
+      },
       stage: 'dev',
     },
     {
-      id: '987...',
-      region: 'us-east-1',
+      account: {
+        id: '987...',
+        region: 'us-east-1',
+      },
       stage: 'prod',
     },
   ],
