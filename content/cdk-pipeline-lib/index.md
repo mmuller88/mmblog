@@ -44,15 +44,19 @@ Meine CDK Pipeline Library soll einige Anforderungen erfüllen die nach Außen �
 const pipelineAppProps: PipelineAppProps = {
   branch: 'master',
   repositoryName: 'alf-cdk-ui',
-  accounts: [
+  stageAccounts: [
     {
-      id: '123...',
-      region: 'eu-central-1',
+      account: {
+        id: '123...',
+        region: 'eu-central-1',
+      },
       stage: 'dev',
     },
     {
-      id: '987...',
-      region: 'eu-central-1',
+      account: {
+        id: '987...',
+        region: 'eu-central-1',
+      },
       stage: 'prod',
     },
   ],
@@ -120,15 +124,19 @@ Der **repositoryName** bezieht sich auf den Namen in meinem Repository auf Githu
 Es soll möglich sein zu spezifischen AWS Accounts in der jeweiligen Stage zu connecten. Die Spezifikation über den Account und der Stage soll als Parameter mitgegeben werden. Ich entwickelte das folgende Interface:
 
 ```TypeScript
-accounts: [
+stageAccounts: [
   {
-    id: '123..',
-    region: 'eu-central-1',
+    account: {
+      id: '123..',
+      region: 'eu-central-1',
+    },
     stage: 'dev',
   },
   {
-    id: '987...',
-    region: 'eu-central-1',
+    account: {
+      id: '987...',
+      region: 'eu-central-1',
+    },
     stage: 'prod',
   },
 ],
