@@ -10,21 +10,32 @@ pruneLength: 50
 
 Hi CDK Fans,
 
-Das Bauen von AWS CDK Pipelines macht Spaß. Seit Mitte diesen Jahres (2020) gibt es sogar eine Level 2 CDK Pipeline welche viele Vorteile bringt wie self-mutate, ein vereinfachtes Cross-Account Deployment und eine bessere Abstraktion von den benötigten CodeBuild Projekten.
+Das Bauen von AWS CDK Pipelines macht Spaß. Seit Mitte diesen Jahres (2020) gibt es sogar eine High Level CDK Pipeline welche viele Vorteile bringt wie self-mutate, ein vereinfachtes Cross-Account Deployment und eine bessere Abstraktion von den benötigten CodeBuild Projekten.
 
-Ich habe eine CDK Library entwickelt die einige Probleme Lösen soll. Wenn auch ihr auf nur einer der folgenden Probleme stoßt, müsste ihr euch unbedingt den gesamten Post durchlesen :) :
+Ich habe eine [CDK Library](https://github.com/mmuller88/alf-cdk-app-pipeline) entwickelt die einige Probleme Lösen soll. Wenn auch ihr auf nur einer der folgenden Probleme stoßt, müsste ihr euch unbedingt den gesamten Post durchlesen :) :
 
 * Maintaining der CDK Dependencies zwischen mehreren Repositories
 * Wiederholung von Code für den Bau von CDK Apps nur um z.B. einen beliebigen Stack zu deployen
 * Wiederholung von CDK Pipeline Code
-* Vermissen eines einheitlichen CDK Pipeline Standards über ein Interface
+* Vermissen eines einheitlichen CDK Pipeline Standards über z.B. einem Interface
 
-In den nächsten Abschnitten geht es um diese allgemeine Library und wie ich diese Probleme löse. Zuerst beschreibe ich wozu man überhaupt eine Pipeline braucht. Dann erkläre ich genauer die Idee hinter der Library und zum Schluss zeige ich einige Beispiele meiner Projekte welche bereits die Library verwenden.
+In den nächsten Abschnitten geht es um diese allgemeine Library und wie ich diese Probleme löse. Zuerst beschreibe ich wozu man überhaupt eine Pipeline braucht. Dann erkläre ich genauer die Idee hinter der Library und zum Schluss zeige ich einige Beispiele meiner Projekte welche bereits die Library verwenden. 
+
+Übrigens meine [CDK Library](https://github.com/mmuller88/alf-cdk-app-pipeline) kann direkt genutzt werden via npm depedency und erfordert kein npm Repository. Einfach die Dependency folgendermaßen angeben:
+
+```JSON
+ "dependencies": {
+    "alf-cdk-app-pipeline": "github:mmuller88/alf-cdk-app-pipeline#v0.0.7",
+    ...
+ }
+```
 
 # Wozu überhaupt eine Pipeline?
 In Zeiten von modernen DevOps Praktiken ist es wichtig Änderungen in der Produktion so schnell und einfach wie möglich durchzuführen. Idealerweise geschieht das basierend auf Git Code Commits und einer Staging Pipeline. Eine Staging Pipeline führt Anpassungen auf Stages aus.
 
-In meiner Firma haben wir die drei Stages DEV, QA und PROD. Die DEV Stage ist als Entwicklungsumgebung für die Entwickler gedacht. Die QA Stage ist eine Testumgebung die möglichst ähnlich der PROD Umgebung ist. Und PROD selber ist natürlich die Produktionsumgebung welche aktiv von der Firma und unseren Kunden verwendet wird.
+In meiner Firma haben wir die vier Stages DEV, QA, PROD. Die DEV Stage ist als Entwicklungsumgebung für die Entwickler gedacht. Die QA Stage ist eine Testumgebung die möglichst ähnlich der PROD Umgebung ist. Und PROD selber ist natürlich die Produktionsumgebung welche aktiv von der Firma und unseren Kunden verwendet wird.
+
+Zum besseren Verständniss benutze ich in den nächsten Abschnitten aber nur eine DEV, PROD Stage. Die PipelineApp Library lässt sich um beliebig viele Stages erweitern.
 
 # Anforderungen
 Meine CDK Pipeline Library soll einige Anforderungen erfüllen die nach Außen über ein Interface implementiert sind. Hier ist das Interface implementiert mit den **PipelineAppProps** für die **PipelineApp** Klasse in der Library:
@@ -48,7 +59,6 @@ const pipelineAppProps: PipelineAppProps = {
   buildAccount: {
     id: '555...',
     region: 'eu-central-1',
-    stage: 'build',
   },
   customStack: (scope, account) => {
 
@@ -92,15 +102,6 @@ const pipelineAppProps: PipelineAppProps = {
 new PipelineApp(pipelineAppProps);
 ```
 
-Die gesamte Library wird als Dependendy im package.json geladen:
-
-```JSON
- "dependencies": {
-    "alf-cdk-app-pipeline": "github:mmuller88/alf-cdk-app-pipeline#v0.0.7",
-    ...
- }
-```
-
 In den nächsten Unterabschnitten erläutere ich genauer die einzelnen Properties.
 
 ## Git Repository
@@ -141,7 +142,6 @@ Der Buildaccount definiert den Account indem die CDK Pipeline deployed werden so
 buildAccount: {
   id: '555...',
   region: 'eu-central-1',
-  stage: 'build',
 },
 ```
 
@@ -185,7 +185,7 @@ customStack: (scope, account) => {
   },
 ```
 
-Der hier aufgezeigte Stack befindet sich im Repo https://github.com/mmuller88/alf-cdk-ec2 mit alf-cdk-ec2-stack.ts als File. Der Stack wird in der app.ts zusammen mit der PipelineApp Library aufgerufen. 
+Der hier aufgezeigte Stack befindet sich im [alf-cdk-ec2](https://github.com/mmuller88/alf-cdk-ec2) Repo mit alf-cdk-ec2-stack.ts als File. Der Stack wird in der app.ts zusammen mit der PipelineApp Library aufgerufen.
 
 Dank der High Order Function können Account Informationen einfach als Parameter mittels **account** in den jeweiligen Stage Stack integriert werden.
 
@@ -223,7 +223,6 @@ new PipelineApp({
   buildAccount: {
     id: '123...',
     region: 'eu-central-1',
-    stage: 'dev',
   },
   customStack: (scope, account) => {
     const stageProps = {
@@ -306,8 +305,7 @@ const pipelineAppProps: PipelineAppProps = {
   ],
   buildAccount: {
     id: '123...',
-    region: 'eu-central-1',
-    stage: 'dev',
+    region: 'eu-central-1'
   },
   customStack: (scope, account) => {
     // console.log('echo = ' + JSON.stringify(account));
@@ -382,8 +380,7 @@ const pipelineAppProps: PipelineAppProps = {
   ],
   buildAccount: {
     id: '123...',
-    region: 'eu-central-1',
-    stage: 'dev',
+    region: 'eu-central-1'
   },
   customStack: (scope, account) => {
     // values that are differs from the stages
@@ -490,9 +487,6 @@ const pipelineAppProps: PipelineAppProps = {
     return account.stage === 'dev' ? false : true;
   },
   testCommands: (account) => [
-    // Use 'curl' to GET the given URL and fail if it returns an error
-    // 'sleep 180',
-    // 'curl -Ssf $InstancePublicDnsName',
     ...(account.stage==='dev'? [
       `npx newman run test/alf-cdk.postman_collection.json --env-var baseUrl=$RestApiEndPoint -r cli,json --reporter-json-export tmp/newman/report.json --export-environment tmp/newman/env-vars.json --export-globals tmp/newman/global-vars.json`,
       'echo done! Delete all remaining Stacks!',
@@ -509,7 +503,7 @@ const pipelineAppProps: PipelineAppProps = {
 new PipelineApp(pipelineAppProps);
 ```
 
-Wie ihr seht ist das ein sehr umfangreicher Stack mit vielen Eingangs Properties. In Zukunft werde ich diesen riesen Stack eventuell etwas mehr runterbrechen. Dieses Beispiel ist in erster Linie interssant da es am Schluss ein umfangreiches Testen mit Postman und der AWS CLI macht. Das Property **testCommands** führt also für die DEV Stage Postman Tests aus mit:
+Wie ihr seht ist das ein sehr umfangreicher Stack mit vielen Eingangs Properties. In Zukunft werde ich diesen riesen Stack eventuell etwas mehr runterbrechen. Dieses Beispiel ist in erster Linie interessant da es am Schluss ein umfangreiches Testen mit Postman und der AWS CLI macht. Das Property **testCommands** führt also für die DEV Stage Postman Tests aus mit:
 
 ```
 npx newman run test/alf-cdk.postman_collection.json --env-var baseUrl=$RestApiEndPoint -r cli,json --reporter-json-export tmp/newman/report.json --export-environment tmp/newman/env-vars.json --export-globals tmp/newman/global-vars.json`
@@ -528,7 +522,9 @@ done`,
 # Zusammenfassung
 CDK Codepipelines sind super cool. Allerdings auch super kompliziert bzw. komplex. Diese ganze Komplexität möchte man nicht jedesmal aufs neue bewältigen müssen nur um Stacks in eine Stagingpipeline zu pressen. Es sollte also eine gute Abstraktion zu diesen Stagingpipelines geben.
 
-In diesem Artikel habe ich eine solche Abstraktion in Form einer Library vorgestellt. Ich betreibe damit bereits drei CDK Stacks damit, welche ich hier in der Beispiele Sektion vorgestellt habe. Jetzt bin ich aber neugierig. Was haltet ihr von meiner PipelineApp Library? Was kann ich verbessern? Lasst es mich wissen.
+In diesem Artikel habe ich eine solche Abstraktion in Form einer Library vorgestellt. Ich betreibe damit bereits einige CDK Stacks, welche hier zum vorgestellt wurden.
+
+Diese Library kann bisher nur auf Repositories in meinem Github Account zugreifen. Es wäre möglich die Library allgemeiner zu gestalten um auf beliebige Git Repositories zugreifen zu können. Wenn ihr das als nützlich anseht, sagt mir Bescheid. Jetzt bin ich aber neugierig. Was haltet ihr von meiner PipelineApp Library? Was kann ich verbessern? Lasst es mich wissen.
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
