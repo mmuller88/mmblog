@@ -1,9 +1,8 @@
 ---
 title: AWS CDK - PipelineApp - A Library for Staging Pipelines
-show: 'no'
 date: '2020-10-24'
 image: 'staging.png'
-tags: ['eng', '2020', 'aws', 'cdk', 'nofeed']
+tags: ['eng', '2020', 'aws', 'cdk']
 gerUrl: https://martinmueller.dev/cdk-pipeline-lib
 pruneLength: 50
 ---
