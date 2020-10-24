@@ -12,16 +12,16 @@ Hi CDK Fans,
 
 Building AWS CDK pipelines is fun. Since the middle of this year (2020) there is even a high level CDK pipeline which brings many advantages like self-mutate, a simplified cross-account deployment and a better abstraction from the required code build projects.
 
-I have developed a [CDK Library](https://github.com/mmuller88/alf-cdk-app-pipeline) which should solve some problems. If you encounter only one of the following problems, you should read the whole post :) :
+I have developed a [CDK Library](https://github.com/mmuller88/alf-cdk-app-pipeline) which solves some annoying problems. If you encounter only one of the following, you should read the whole post :) :
 
 * Maintaining CDK dependencies between multiple repositories
 * Repetition of code for building CDK apps only to deploy e.g. an arbitrary stack
 * Repetition of CDK pipeline code
 * Missing a uniform CDK pipeline standard over e.g. an interface
 
-In the next sections I will talk about this general library and how I solve these problems. First of all I will describe why you need a pipeline at all. Then I explain the idea behind the library and finally I show some examples of my projects which already use the library.
+In the next sections I will talk about this general library and how I solve those problems. First of all I will describe why you need a pipeline at all. Then I explain the idea behind the library and finally I show some examples of my projects which already use the library.
 
-By the way my [CDK Library](https://github.com/mmuller88/alf-cdk-app-pipeline) can be used directly via npm depedency and does not require an npm repository. Just specify the dependency as follows:
+By the way my [CDK Library](https://github.com/mmuller88/alf-cdk-app-pipeline) can be used directly via npm depedency and does not require an npm repository. Just specify the dependency as follow:
 
 ```JSON
  "dependencies": {
@@ -30,8 +30,8 @@ By the way my [CDK Library](https://github.com/mmuller88/alf-cdk-app-pipeline) c
  }
 ```
 
-# Why a pipeline at all?
-In times of modern DevOps practices it is important to make changes in production as fast and easy as possible. Ideally this is done based on git code commits and a staging pipeline. A Staging Pipeline executes changes on Stages.
+# Why a Pipeline at all?
+In times of modern DevOps practices it is important to make changes in production as fast and easy as possible. Ideally this is done based on git commits and a staging pipeline. A Staging Pipeline executes changes on Stages.
 
 In my company we have four stages DEV, QA, PROD. The DEV Stage is intended as a development environment for the developers. The QA Stage is a test environment that is as similar as possible to the PROD environment. And PROD itself is of course the production environment which is actively used by the company and our customers.
 
@@ -142,7 +142,7 @@ stageAccounts: [
 ],
 ```
 
-Here a list of stage accounts is passed to which the pipeline will deploy the stacks. Additionally the **stage** property defines the name of the stage. The order of the accounts also determines the order in which the staging is performed. In this example the DEV Stage is run through first and then the PROD Stage.
+A list of stage accounts is passed to which the pipeline will deploy the stacks. Additionally the **stage** property defines the name of the stage. The order of the accounts also determines the order in which the staging is performed. In this example the DEV Stage is run through first and then the PROD Stage.
 
 The build account defines the account where the CDK pipeline will be deployed.
 
@@ -521,7 +521,7 @@ const pipelineAppProps: PipelineAppProps = {
 new PipelineApp(pipelineAppProps);
 ```
 
-As you can see this is a very large stack with many input properties. In the future I might break down this huge stack a bit more. This example is mainly interesting because it does a lot of testing with Postman and the AWS CLI at the end. The property **testCommands** performs tests for the DEV Stage Postman:
+As you can see this is a very large stack with many input properties. In the future I might break down this huge stack into smaller ones. This example is interesting because it does a lot of testing with Postman and the AWS CLI at the end. The property **testCommands** performs tests for the DEV Stage Postman:
 
 ```
 npx newman run test/alf-cdk.postman_collection.json --env-var baseUrl=$RestApiEndPoint -r cli,json --reporter-json-export tmp/newman/report.json --export-environment tmp/newman/env-vars.json --export-globals tmp/newman/global-vars.json`
@@ -538,11 +538,11 @@ done`,
 ```
 
 # Summary
-CDK code pipelines are super cool. But they are also super complicated or complex. You don't want to have to deal with all this complexity every time just to squeeze stacks into a staging pipeline. So there should be a good abstraction to these staging pipelines.
+CDK code pipelines are super cool. But they are also super complicated or complex. You don't want to deal with all this complexity every time just to squeeze stacks into a staging pipeline. So there should be a good abstraction to these staging pipelines.
 
 In this article I presented such an abstraction in form of a library. I am already using it to run some CDK stacks, which are presented here.
 
-This library can only access repositories in my github account. It would be possible to make the library more general in order to be able to access any git repositories. If you find this useful, let me know. But now I'm curious. What do you think of my PipelineApp library? What can I improve? Let me know.
+This library can only access repositories in my github account. It would be possible to make the library more general sophisticated in order to be able to access any git repositories. If you find this useful, let me know. But now I'm curious. What do you think of my PipelineApp library? What can I improve? Let me know.
 
 To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
 
