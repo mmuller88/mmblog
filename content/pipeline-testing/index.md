@@ -23,10 +23,10 @@ In diesem Post möchte ich gerne darauf eingehen wie man mit meiner Library auto
  }
 ```
 
-# Wofür testen wir?
+## Wofür testen wir?
 Im Zeitalter der schnellen Releases zu Produktion ist es unerlässlich automatisierte Tests während dem Releaseprozess in der Pipeline durchzuführen. Damit wird sichergestellt, dass alte und neue Features immer noch funktionieren.
 
-# Cloudformation Stack Tests
+## Cloudformation Stack Tests
 Schon im letzten Blogpost habe ich meinen Ec2 Stack vorgestellt. Nun möchte ich genauer auf den Test Part im **testCommands** Property eingehen.
 
 ```TypeScript
@@ -51,7 +51,7 @@ const instancePublicDnsName = new CfnOutput(this, 'InstancePublicDnsName', {
 this.cfnOutputs['InstancePublicDnsName'] = instancePublicDnsName;
 ```
 
-# API GW Tests
+## API Gateway Tests
 In meinem AWS API GW Stack lasse ich Postman Tests laufen. Es sind mittlerweile mehr als 40 Requests die gegen das API GW laufen und das Backend ausgiebig testen. Wenn dich Postman Tests interessieren findest du auf meiner Blogseite viele Beiträge über das Thema auf https://martinmueller.dev/tags/postman .
 
 ```TypeScript
