@@ -4,7 +4,7 @@ show: 'no'
 date: '2020-11-09'
 image: 'testing.jpg'
 tags: ['de', '2020', 'aws', 'cdk', 'testing', 'postman']
-engUrl: https://martinmueller.dev/cdk-pipeline-lib-eng
+engUrl: https://martinmueller.dev/pipeline-testing-eng
 pruneLength: 50
 ---
 
