@@ -1,9 +1,8 @@
 ---
 title: AWS CDK - PipelineApp Library - Automated Testing
-show: 'no'
-date: '2020-11-07'
+date: '2020-11-09'
 image: 'testing.jpg'
-tags: ['eng', '2020', 'aws', 'cdk', 'testing', 'postman', 'nofeed']
+tags: ['eng', '2020', 'aws', 'cdk', 'testing', 'postman']
 gerUrl: https://martinmueller.dev/cdk-pipeline-lib
 pruneLength: 50
 ---
