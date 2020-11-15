@@ -1,6 +1,7 @@
 ---
 title: AWS Cognito Auth Mock
 date: '2020-11-15'
+show: 'no'
 image: 'cognito.jpg'
 tags: ['de', '2020', 'aws', 'cdk', 'postman', 'cognito']
 engUrl: https://martinmueller.dev/cdk-cognito-eng
