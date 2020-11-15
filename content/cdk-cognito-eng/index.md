@@ -20,7 +20,7 @@ This works great, but I would like to have automated tests to test the functiona
 The solution for me was to write a Mock Authentication Layer which simulates the exact behavior of the Cognito Authorizer. For this I used Middy. What Middy is and how exactly my solution looks like I will describe in the next sections.
 
 # Middy as Mock Auth Layer
-[Middy](https://github.com/middyjs/middy) is a simple framework for building layers in Lambda functions. With this framework it is possible to encapsulate all features that are not directly related to business logic in layers. In my case I want to implement a Mock Auth Layer that simulates the Cognito Authorisation. This layer should be optionally switchable by environmental variables.
+[Middy](https://github.com/middyjs/middy) is a simple framework for building layers in Lambda functions. With this framework it is possible to encapsulate all features that are not directly related to business logic in layers. In my case I want to implement a Mock Auth Layer that simulates the Cognito authorization. This layer should be optionally switchable by environmental variables.
 
 The complete code for the Auth Layer can be found on [GitHub](https://github.com/mmuller88/alf-cdk/blob/master/src/util/mockAuthLayer.ts).
 
@@ -101,7 +101,7 @@ it('from himself will success', async (done) => {
 So as we can see here I use the mock header **MOCK_AUTH_cognito:username': 'martin'** and **'MOCK_AUTH_cognito:groups': 'Admin'** . With this I simply simulate the authorization behavior of Cognito and make the username and user groups known to the Lambda at runtime. Fair enough.
 
 # Postman Tests
-Of course my postmant tests should also be able to use the new Auth Mock Layer. On [GitHub](https://github.com/mmuller88/alf-cdk-api-gw/blob/master/test/alf-cdk.postman_collection.json) I have a Postman Collection with over 40 requests. The whole collection is executed by Newman after building the DEV environment as an integration test:
+Of course my Postman tests should also be able to use the new Auth Mock Layer. On [GitHub](https://github.com/mmuller88/alf-cdk-api-gw/blob/master/test/alf-cdk.postman_collection.json) I have a Postman Collection with over 40 requests. The whole collection is executed by Newman after building the DEV environment as an integration test:
 
 ```TypeScript
   ...
