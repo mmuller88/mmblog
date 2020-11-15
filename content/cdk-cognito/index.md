@@ -1,6 +1,6 @@
 ---
 title: AWS Cognito Auth Mock
-date: '2020-11-15'
+date: '2020-11-16'
 show: 'no'
 image: 'cognito.jpg'
 tags: ['de', '2020', 'aws', 'cdk', 'postman', 'cognito']
