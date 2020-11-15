@@ -73,9 +73,9 @@ const headerValue = handler.event.headers[headerKey] || 'martin';
   ] = headerValue;
 ```
 
-Then the headers are copied into the Authorizer Claims area which would also contain the Cognito Values. This way my Lambda has access to the authenticated user and role. How to set the MOCK_AUTH_ headers is shown in the next section.
+Then the headers are copied into the Authorizer Claims area which would also contain the Cognito Values. This way my Lambda has access to the authenticated user and role. How to set the **MOCK_AUTH_** headers is shown in the next section.
 
-At the end with **.replace(/&/g, ':')** there is a small symbol replacement because Postman does not allow to use colons **:** in the header key.
+At the end with **.replace(/&/g, ':')** there is a small symbol replacement because Postman does not allow to use double colons **:** in the header key.
 
 # Lambda Unit Tests
 For my Lambdas I have written unit tests which should also take the authorization into account. From my code I pick a unit test file on [GitHub](https://github.com/mmuller88/alf-cdk/blob/master/test/get-all-conf-api.spec.ts) and explain it in more detail.
@@ -124,12 +124,12 @@ MOCK_AUTH_cognito&username = martin
 MOCK_AUTH_cognito&groups = Admin
 ```
 
-But I had to make one change. Postman does not allow to have a colon in the header key. So I had to add a symbol replacement. The AND character **&** is translated to the colon **:** in the code.
+But I had to make one change. Postman does not allow to have a double colon in the header key. So I had to add a symbol replacement. The AND character **&** is translated to the double colon **:** in the code.
 
-If you are interested in testing with CDK I can recommend my blog post from [last week](https://martinmueller.dev/pipeline-testing-eng).
+If you are interested in testing with CDK, I can recommend my blog post from [last week](https://martinmueller.dev/pipeline-testing-eng).
 
 # Summary
-AWS Cognito is mega cool and fast to set up. It offers a range of great user management functions. Unfortunately, it is not possible to run the Cognito authorization process completely automated, e.g. for automatic tests. But that doesn't matter because I simply simulate the Cognito authorization with my Auth Mock Layer. Now to you. Did you like the article? Do you want to know more? Let me know.
+AWS Cognito is mega cool and fast to set up. It offers a range of great user management functions. Unfortunately, it is not possible to run the Cognito authorization process completely automated, e.g. for automated tests. But that doesn't matter because I simply simulate the Cognito authorization with my Auth Mock Layer. Now to you. Did you like the article? Do you want to know more? Let me know.
 
 To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
 
