@@ -36,7 +36,7 @@ The full Docker Compose git code can be found in my GitHub repo [alfresco-ocr](h
 * https://github.com/Alfresco/alfresco-docker-installer link to other posts from me about the installer
 
 # Run it with CDK
-...
+I enhanced the Docker Compose deployment to make it easy runnable in AWS.
 
 # Summary
 OCR in Alfresco is a cool and useful feature. It enhances an Alfresco repository to make better use of documents which lost text information like scanned ones. Incredible useful it is to encapsulate the OCR engine as its own service like I did here as Docker Container. 
