@@ -32,11 +32,12 @@ ocrmypdf:
 The full Docker Compose git code can be found in my GitHub repo [alfresco-ocr](https://github.com/mmuller88/alfresco-ocr). How I did the setup for Alfresco I will describe in the next section.
 
 # Alfresco Setup
-* ACS Community 6.2
-* https://github.com/Alfresco/alfresco-docker-installer link to other posts from me about the installer
+The Alfresco Docker Compose deploy was created using the [Alfresco Docker Installer](https://github.com/Alfresco/alfresco-docker-installer) and ist using ACS Community 6.2.
 
-# Run it with CDK
-I enhanced the Docker Compose deployment to make it easy runnable in AWS.
+Additionall the repo and share OCR amps [alfresco-simple-ocr](https://github.com/keensoft/alfresco-simple-ocr) are installed by simply dropping the addon jar files into **alfresco-ocr/alfresco/modules/jars** and **alfresco-ocr/share/modules/jars** .
+
+# Run it with AWS CDK
+I enhanced the Docker Compose deployment to make it easy runnable in AWS. For that I use [AWS CDK](https://github.com/aws/aws-cdk). Is use a little library with hides a lot complexity using the AWS CDK stuff. The CDK Pipeline App in ./cdk/app.ts will create a sophisticated pipeline to deploy the instance in one or more accounts. For more information please read the Readme.
 
 # Summary
 OCR in Alfresco is a cool and useful feature. It enhances an Alfresco repository to make better use of documents which lost text information like scanned ones. Incredible useful it is to encapsulate the OCR engine as its own service like I did here as Docker Container. 
