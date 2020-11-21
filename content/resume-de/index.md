@@ -2,7 +2,7 @@
 title: Martin Müller Lebenslauf
 description: Resume about me
 show: 'no'
-image: 'joint.jpg'
+# image: 'joint.jpg'
 tags: [nofeed]
 engUrl: https://martinmueller.dev/resume
 pruneLength: 50
