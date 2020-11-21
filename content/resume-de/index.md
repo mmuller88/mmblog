@@ -2,7 +2,6 @@
 title: Martin Müller Lebenslauf
 description: Resume about me
 show: 'no'
-# date: '2020-05-30'
 image: 'joint.jpg'
 tags: [nofeed]
 engUrl: https://martinmueller.dev/resume
