@@ -3,7 +3,7 @@ title: Martin Mueller Resume
 description: Resume about me
 show: 'no'
 # date: '2020-05-30'
-# image: 'joint.jpg'
+image: 'joint.jpg'
 tags: []
 gerUrl: https://martinmueller.dev/resume-de
 pruneLength: 50
@@ -25,8 +25,13 @@ Passionate Full Stack Developer. I like to have a broad collection of skills. Fr
 * Alfresco Content Systems, Alfresco Process Systems (former Activiti) on premise, in the cloud or hybride
 
 # Experience
+Senior Software Engineer – www.unimed.de, GER \
+Sep 2020 – current
+* Working as an AWS Solution Architect to shift production workloads to AWS
+* Creating and Monitoring Docker applikations in a DevOps manner
+
 Senior Software Engineer – www.object.ch, GER \
-Feb 2020 – current
+Feb 2020 – Aug 2020
 * Working as Alfresco Partner
 * Building Enterprise Content Management and Process Management solutions with and for the customer
 

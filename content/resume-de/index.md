@@ -2,7 +2,7 @@
 title: Martin Müller Lebenslauf
 description: Resume about me
 show: 'no'
-# image: 'joint.jpg'
+image: 'joint.jpg'
 tags: [nofeed]
 engUrl: https://martinmueller.dev/resume
 pruneLength: 50
@@ -24,8 +24,13 @@ Begeisterter Full Stack Entwickler. Ich mag es viele unterschiedliche und nützl
 * Alfresco Content Systems, Alfresco Process Systems (former Activiti) on premise, in the cloud or hybride
 
 # Erfahrungen
+Senior Software Engineer – www.unimed.de, GER \
+Sep 2020 – current
+* Arbeiten als AWS Solution Architect um Produktionsanwendungen in die Cloud zu bekommen
+* Erstellung und Monitoring von Docker Applikationen in DevOps Style
+
 Senior Software Engineer – www.object.ch, GER \
-Feb 2020 – jetzt
+Feb 2020 – Aug 2020
 * Tätig als Alfresco Partner
 * Erarbeiten von Enterprise Content Management Und Process Management Lösungen mit und für den Kunden
 
