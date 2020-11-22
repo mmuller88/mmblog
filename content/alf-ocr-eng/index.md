@@ -1,9 +1,8 @@
 ---
 title: Alfresco 6.2 with OCR
-show: 'no'
 date: '2020-11-23'
 image: 'digital.png'
-tags: ['eng', '2020', 'addon', 'acs', 'alfresco', 'docker-compose', 'ocr', 'nofeed']
+tags: ['eng', '2020', 'addon', 'acs', 'alfresco', 'docker-compose', 'ocr']
 gerUrl: https://martinmueller.dev/alf-ocr
 pruneLength: 50
 ---
@@ -38,6 +37,12 @@ Additionall the repo and share OCR amps [alfresco-simple-ocr](https://github.com
 
 # Run it with AWS CDK
 I enhanced the Docker Compose deployment to make it easy runnable in AWS. For that I use [AWS CDK](https://github.com/aws/aws-cdk). Is use a little library with hides a lot complexity using the AWS CDK stuff. The CDK Pipeline App in ./cdk/app.ts will create a sophisticated pipeline to deploy the instance in one or more accounts. For more information please read the Readme.
+
+Your Alfresco will become available in AWS und links like
+* http://ec2-3-92-227-231.compute-1.amazonaws.com:8080/ for Alfresco Content App or
+* http://ec2-3-92-227-231.compute-1.amazonaws.com:8080/share for Share of course
+
+I personally like that way of deploying Alfresco into the Cloud as AWS CDK is a lovely abstraction on top of CloudFormation which makes creating infrastructure such as for Alfresco (Ec2, Loadbalancer, Kubernetes, Docker) a piece of cake. If you want to know more about deploy Alfresco into AWS have a look through [my posts](https://martinmueller.dev/tags/alfresco) where you find lots of topics around it.
 
 # Summary
 OCR in Alfresco is a cool and useful feature. It enhances an Alfresco repository to make better use of documents which lost text information like scanned ones. Incredible useful it is to encapsulate the OCR engine as its own service like I did here as Docker Container.
