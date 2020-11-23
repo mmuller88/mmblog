@@ -3,7 +3,6 @@ title: Alfresco 6.2 with OCR
 date: '2020-11-24'
 image: 'digital.png'
 tags: ['eng', '2020', 'addon', 'acs', 'alfresco', 'docker-compose', 'ocr']
-gerUrl: https://martinmueller.dev/alf-ocr
 pruneLength: 50
 ---
 
