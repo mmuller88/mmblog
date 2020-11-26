@@ -10,18 +10,18 @@ pruneLength: 250
 
 Hi Low Carber :)
 
-In den letzten Monaten habe ich erfolgreich viel Gewicht verloren mit meiner Diät die ich **Optimised Fasting** (übersetzt optimiertes) Fasten getauft habe. Pro Woche habe ich ca 0,5kg verloren. Da diese Diät so erfolgreich funktioniert hat und weiterhing funktioniert, wollte ich sie euch gerne beschreiben.
+In den letzten Monaten habe ich erfolgreich viel Gewicht verloren mit meiner Diät die ich **Optimised Fasting** (übersetzt optimiertes) Fasten getauft habe. Pro Woche habe ich ca 500 Gramm, als einen halben Kilo verloren. Da diese Diät so erfolgreich funktioniert hat und weiterhin funktioniert, wollte ich sie euch gerne vorstellen.
 
-Aber vorweg möchte ich noch erwähnen, dass ihr diese Diät nur anwenden solltet wenn ihr schon einige Erfahrungen mit Low Carb oder sogar Ketosis habt. Low Carb, also der die massive Reduzierung von Zucker stärkt euren Fettstoffwechsel ausbaut. Der Mensch hat im wesentlichen zwei Stoffwechsel zur Erzeugung von Energie. Das ist der Zuckerstoffwechsel und der Fettstoffwechsel. Beim Zuckerstoffwechsel nutzt der Körper primär Zucker zum Energiegewinn und beim Fettstoffwechsel nutzt er primär Fett.
+Aber vorweg möchte ich noch erwähnen, dass ihr diese Diät nur anwenden solltet wenn ihr schon einige Erfahrungen mit Low Carb oder sogar Ketosis habt. Low Carb bedeutet massive Reduzierung der Einnahme jeglicher Form von Zucker und ihr benutzt somit hauptsächlich euren Fettstoffwechsel. Der Mensch hat im wesentlichen zwei Stoffwechsel zur Erzeugung von Energie. Das ist der Zuckerstoffwechsel und der Fettstoffwechsel. Beim Zuckerstoffwechsel nutzt der Körper primär Zucker zum gewinnen von Energie und beim Fettstoffwechsel nutzt er primär Fett.
 
-Wenn der Fettstoffwechsel allerdings kaum benutzt wird, verkümmert er. Beim Optimised Fasting brauchen wir aber einen stark ausgebildeten Fettstoffwechsel ansonsten können die in etwa 2 Tage an denen gefastet wird physisch und psychisch unangenehm werden, da sich der Körper nach Zucker sehnt und nie vernünftig gelernt hat mit dem eignen Körperfett mittels Fettstoffwechsel umzugehen. Es wäre also ein bisschen so wie ins kalte Wasser zu springen.
+Wenn der Fettstoffwechsel allerdings kaum benutzt wird, verkümmert er, bzw. wird nie vernünftig ausgebaut. Beim Optimised Fasting brauchen wir aber einen stark ausgebildeten Fettstoffwechsel ansonsten können die zwei Tage an denen gefastet wird, physisch und psychisch schwierig werden, da sich der Körper nach Zucker sehnt und nie vernünftig gelernt hat mit dem eignen Körperfett mittels Fettstoffwechsel umzugehen. Es wäre also ein bisschen so wie ins kalte Wasser zu springen. Nebenwirkungen können dann sein Kopfschmerzen und extremes Hungerempfinden.
 
-Wenn ihr also noch keinen gut ausgebildeten Fettstoffwechsel habt empfehle ich euch Low Carb Diäten auszuprobieren und am Wochenend mal einen Tag rheines Wasserfasten auszuprobieren. Hier ist noch ein älterer Post von mir über das [Wasserfasten](https://martinmueller.dev/waterfasting) den ich euch wärmstens empfehlen kann.
+Wenn ihr also noch keinen gut ausgebildeten Fettstoffwechsel habt empfehle ich euch Low Carb Diäten auszuprobieren und am Wochenende mal einen Tag rheines Wasserfasten auszuprobieren. Hier ist noch ein älterer Post von mir über das [Wasserfasten](https://martinmueller.dev/waterfasting) den ich euch wärmstens empfehlen kann.
 
-In den nächsten Abschnitten möchte ich euch aber mehr über meine neue Diätform des Optimised Fasting erzählen, bei dem es primär darum geht über viele Wochen abzunehmen.
+In den nächsten Abschnitten möchte ich euch aber mehr über meine neue Diätform des Optimised Fasting erzählen. Bei diesem geht es primär darum über viele Wochen kontinuierlich abzunehmen.
 
 # Optimised Fasting Anleitung
-Optimised Fasting besteht aus ca 2 Tagen langem Wasserfasten. Um das Training herum ist es erlaubt Vitamine, Salze und minimal Proteine zuzuführen. Durch die Zuführung von Protein vor und nach dem Training wird quasi ein anaboles Signal für den Körper ausgeschüttet was uns hilft das Training besser und vor allem intensiver durchzuführen.
+Optimised Fasting besteht aus ca. 2 Tagen langem Wasserfasten. Um das Training herum ist es erlaubt Vitamine, Salze und minimal Proteine zuzuführen. Durch die Zuführung von Protein vor und nach dem Training wird quasi ein anaboles Signal für den Körper ausgeschüttet was uns hilft das Training besser und vor allem intensiver durchzuführen.
 
 Die Menge an Protein darf dabei nicht zu hoch sein, da sonst das Verdauungsystem zu viel beansprucht wird und das hinderlich für das Training wird. Ca 25g vor und nach dem Training sollten genügen.
 
@@ -29,26 +29,27 @@ Die Vitamine sind allgemein wichtig für den Menschen um die Körperfunktionen a
 
 Ein genaues Beispiel an Lebensmittel die ich mir zuführen vor und nach dem Training liste in dem nächsten Kapitel.
 
-Ziel ist es nun das Fasten solange zu machen bis du 500 Gramm weniger als letzte Woche erreicht hast. Bei mir war das bisher immer der dritte Tag, also der Tag nach den zwei Tagen Optimised Fasting. Wenn ich die 500 Gramm erreicht habe, mache ich immer ein Bild mit meinem Smartphone. Somit weiß ich dann wieviel KG ich nächste Woche erreichen möchte. 
+Ziel ist es nun das Fasten solange zu machen bis du 500 Gramm weniger als letzte Woche erreicht hast. Bei mir war das bisher immer der dritte Tag, also der Tag nach den zwei Tagen Optimised Fasting. Wenn ich die 500 Gramm erreicht habe, mache ich mir immer ein Bild mit dem Smartphone von der Wage. Somit weiß ich dann wieviel KG ich nächste Woche erreichen möchte.
 
 # Optimised Fasting Beispiel
-Ich arbeite als Software Entwickler für 4 Tage die Woche. Also von Montag bis Donnerstag. Von daher beginne ich das Optimised Fasting schon am Donnerstag. Am Mittwoch Abend ist als der letzte Zeitpunkt an dem ich etwas esse.
+Ich arbeite als Software Entwickler für 4 Tage die Woche. Also von Montag bis Donnerstag. Von daher beginne ich das Optimised Fasting schon am Donnerstag. Am Mittwoch Abend ist also der letzte Zeitpunkt an dem ich etwas esse.
 
-Schon am Mittwoch esse ich schon auch keine Lebensmittel mit Zucker mehr und somit nur noch Protein und Fett. Das Hilft mir meinen Fettstoffwechsel auf die nächsten 2 Tage Fasten vorzubereiten und erleichtert den Einstieg.
+Schon am Mittwoch reduziere ich Lebensmittel mit hohem Zuckergehalt. Ich ernähre mich dann hauptsächlich nur noch von Protein und Fett. Das Hilft mir meinen Fettstoffwechsel auf die nächsten 2 Tage Fasten vorzubereiten und erleichtert den Einstieg.
 
 Donnerstag und Freitag wir dan gefastet und nur um mein morgentliches Training eine Kleinigkeit gegessen.
 
 ## Vor dem Training
-Ich mache mir einen grünen Tee mit einer scharfen Chilli Sauce und gepressten Zitronensaft. Dadurch erhoffe ich mir einen aufputsch Effekt und eine höhere Kalorienverbrennung des Körpers durch den erhöhten Koffeingehalt und Scharfstoffe im Chilli. Danach gehts zum Training.
+Ich mache mir einen grünen Tee mit einer scharfen Chilli Sauce und gepressten Zitronensaft. Dadurch erhoffe ich mir einen aufputsch Effekt und eine höhere Kalorienverbrennung des Körpers durch den erhöhten Koffeingehalt und Scharfstoffe im Chilli. Danach geht es zum Training.
 
-Mein Training morgens ist breit gefächert und sehr Abwechslungsreicht. Je nach Körperbefinden mache ich etwas Krafttraining, Ausdauertraining oder ein kurzes hoch intensives Training. Auch Aufwärmen und anschließende Dehnung gehört zu meinem Trainingsprogramm. Wenn ihr mehr über mein Training wissen wollt, sagt mir Bescheid :).
+Mein Training morgens ist breit gefächert und sehr Abwechslungsreich. Je nach Körperbefinden mache ich etwas Krafttraining, Ausdauertraining oder ein kurzes hoch intensives Training. Auch Aufwärmen und anschließende Dehnung gehört zu meinem Trainingsprogramm. Wenn ihr mehr über mein Training wissen wollt, sagt mir Bescheid :).
+
 ## Nach dem Training
 Esse ich eine kleine Schale voll mit Nüssen (Wallnuss, Kürbiskerne, Paranuss), Omega 3 und Vitamin D Kapseln, ein Stück schwarze Schokolade, Gummibärchen (ca. 8) und zwei Eier. Im Titelbild seht ihr auch diese Mahlzeit. Wenn ihr euch vielleicht fragt wozu die Gummibärchen. Sie enthalten relativ viel Gelatine welches ein gesundes und wichtiges Protein für den Körper ist. Außerdem sind sie lecker und der Zucker in ihnen ist zu wenig um mich aus der Ketosis zu befördern.
 
 # Was ich so toll finde am Optimised Fasting
-Jede Diät ist nur dann erfolgreich wenn sie einfach umsetzbar ist und Optimised Fasting ist sehr einfach umsetzbar. Es muss ja nur zwei Tage gefastet werden und an den restlichen Tagen kann man essen wei man möchte. Es ist kein aufwendiges Vorbereiten der Mahlzeigen zu den Fastentagen nötig, da ja gefastet wird.
+Jede Diät ist nur dann erfolgreich wenn sie einfach umsetzbar ist und Optimised Fasting ist sehr einfach umsetzbar. Es muss ja nur zwei Tage gefastet werden und an den restlichen Tagen kann man essen wie man möchte. Es ist kein aufwendiges Vorbereiten der Mahlzeiten notwendig, da ja gefastet wird.
 
-Auch cool finde ich, dass die 500 Gramm ...
+Auch cool finde ich, dass die 500 Gramm, die ich jedes Wochenende erreiche, ein sehr verlässlicher Wert sind da zu einem mein Darm größtenteils entleert ist nach zwei Tagen Fasten und das Wasser, welches durch Zuckereinlagerungen in den Muskeln zustande kam, raus ist. Somit unterliege ich weniger Wasserschwankungen während der Gewichtsaufnahme nach dem zweiten Fastentag.
 
 # Vereinfachter Einstieg
 Die Durchführungen meiner bisherigen Optimised Fasting waren sehr einfach da ich Fasten gewöhnt bin und mich allgemein Low Carb ernähre. Auch bin ich sehr diszipliniert was den Sport angeht und meisten morgen und abends kurze und knackige Workouts absolviere. Ich kann mir nun aber vorstellen, dass dir der Einstieg etwas schwerer fallen könnte.
