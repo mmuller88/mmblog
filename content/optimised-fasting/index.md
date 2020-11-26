@@ -52,12 +52,12 @@ Jede Diät ist nur dann erfolgreich wenn sie einfach umsetzbar ist und Optimised
 Auch cool finde ich, dass die 500 Gramm, die ich jedes Wochenende erreiche, ein sehr verlässlicher Wert sind da zu einem mein Darm größtenteils entleert ist nach zwei Tagen Fasten und das Wasser, welches durch Zuckereinlagerungen in den Muskeln zustande kam, raus ist. Somit unterliege ich weniger Wasserschwankungen während der Gewichtsaufnahme nach dem zweiten Fastentag.
 
 # Vereinfachter Einstieg
-Die Durchführungen meiner bisherigen Optimised Fasting waren sehr einfach da ich Fasten gewöhnt bin und mich allgemein Low Carb ernähre. Auch bin ich sehr diszipliniert was den Sport angeht und meisten morgen und abends kurze und knackige Workouts absolviere. Ich kann mir nun aber vorstellen, dass dir der Einstieg etwas schwerer fallen könnte.
+Die Durchführungen meiner bisherigen Optimised Fasting waren sehr einfach für mich da ich Fasten gewöhnt bin und mich allgemein Low Carb ernähre. Auch bin ich sehr diszipliniert was den Sport angeht und meistens morgens und abends kurze und knackige Workouts absolviere. Ich kann mir nun aber vorstellen, dass dir der Einstieg etwas schwerer fallen könnte.
 
-Für diesen Fall habe ich mir eine verinfachte Variante überlegt. Fang die ersten zwei Wochen erstmal nur mit einem Optimised Fasting Tag an. Somit gibst du deinem Körper die Möglichkeit sich langsam an das Fasten zu gewöhnen. Vielleicht reicht bei dir ja auch schon ein Fastentag und am Folgetag hast du bereits schon 500 Gramm gewicht verloren, im Vergleich zur letzten Woche. Das wäre doch super :).
+Für diesen Fall habe ich mir eine vereinfachte Variante überlegt. Fang die ersten zwei Wochen erstmal nur mit einem Optimised Fasting Tag an. Somit gibst du deinem Körper die Möglichkeit sich langsam an das Fasten zu gewöhnen. Vielleicht reicht bei dir ja auch schon ein Fastentag und am Folgetag hast du bereits schon 500 Gramm gewicht verloren, im Vergleich zur letzten Woche. Das wäre doch super :).
 
 # Zusammenfassung
-Optimised Fasting ist eine einfach Art und Weise kontinuierlich abzunehmen. Sie ist extrem einfach umzusetzen da nur ca zwei Tage gefastet werden müssen und in der restlichen Woche kann man essen was man möchte. Kein nerviges Vorbereiten der Mahlzeiten. Kein zählen der Kalorien.Ich
+Optimised Fasting ist eine einfach Art und Weise kontinuierlich abzunehmen. Sie ist extrem leicht umzusetzen da nur ca zwei Tage gefastet werden müssen und in der restlichen Woche kann man essen was man möchte. Kein nerviges Vorbereiten der Mahlzeiten. Kein zählen der Kalorien.Ich
 
 Falls Fasten oder Low Carb generell etwas für dich sind, kann ich dir nur empfehlen mal diese Art der Gewichtsreduktion auszuprobieren. Schreib mir deine Erfahrungen. Ich bin sehr gespannt :) !
 
