@@ -10,7 +10,7 @@ pruneLength: 250
 
 Hi Low Carber :)
 
-In den letzten Monaten habe ich erfolgreich viel Gewicht verloren mit meiner Diät die ich **Optimised Fasting** (übersetzt optimiertes) Fasten getauft habe. Pro Woche habe ich ca 500 Gramm, als einen halben Kilo verloren. Da diese Diät so erfolgreich funktioniert hat und weiterhin funktioniert, wollte ich sie euch gerne vorstellen.
+In den letzten Monaten habe ich erfolgreich viel Gewicht verloren mit meiner Diät die ich **Optimised Fasting** (übersetzt optimiertes) Fasten getauft habe. Pro Woche habe ich ca. 500 Gramm, als einen halben Kilo verloren. Da diese Diät so erfolgreich funktioniert hat und weiterhin funktioniert, wollte ich sie euch gerne vorstellen.
 
 Aber vorweg möchte ich noch erwähnen, dass ihr diese Diät nur anwenden solltet wenn ihr schon einige Erfahrungen mit Low Carb oder sogar Ketosis habt. Low Carb bedeutet massive Reduzierung der Einnahme jeglicher Form von Zucker und ihr benutzt somit hauptsächlich euren Fettstoffwechsel. Der Mensch hat im wesentlichen zwei Stoffwechsel zur Erzeugung von Energie. Das ist der Zuckerstoffwechsel und der Fettstoffwechsel. Beim Zuckerstoffwechsel nutzt der Körper primär Zucker zum gewinnen von Energie und beim Fettstoffwechsel nutzt er primär Fett.
 
@@ -23,7 +23,7 @@ In den nächsten Abschnitten möchte ich euch aber mehr über meine neue Diätfo
 # Optimised Fasting Anleitung
 Optimised Fasting besteht aus ca. 2 Tagen langem Wasserfasten. Um das Training herum ist es erlaubt Vitamine, Salze und minimal Proteine zuzuführen. Durch die Zuführung von Protein vor und nach dem Training wird quasi ein anaboles Signal für den Körper ausgeschüttet was uns hilft das Training besser und vor allem intensiver durchzuführen.
 
-Die Menge an Protein darf dabei nicht zu hoch sein, da sonst das Verdauungsystem zu viel beansprucht wird und das hinderlich für das Training wird. Ca 25g vor und nach dem Training sollten genügen.
+Die Menge an Protein darf dabei nicht zu hoch sein, da sonst das Verdauungsystem zu viel beansprucht wird und das hinderlich für das Training wird. Ca. 25g vor und nach dem Training sollten genügen.
 
 Die Vitamine sind allgemein wichtig für den Menschen um die Körperfunktionen aufrecht zu erhalten. Der Körper kann kein oder nur kaum Salz im Körper Zwischenspeichern und daher ist es notwendig Salz nachzuliefern während des Fastens. Am einfachsten geht das, wenn man ein Lebensmittel mit hohem Salzgehalt zu sich nimmt.
 
@@ -57,7 +57,7 @@ Die Durchführungen meiner bisherigen Optimised Fasting waren sehr einfach für 
 Für diesen Fall habe ich mir eine vereinfachte Variante überlegt. Fang die ersten zwei Wochen erstmal nur mit einem Optimised Fasting Tag an. Somit gibst du deinem Körper die Möglichkeit sich langsam an das Fasten zu gewöhnen. Vielleicht reicht bei dir ja auch schon ein Fastentag und am Folgetag hast du bereits schon 500 Gramm gewicht verloren, im Vergleich zur letzten Woche. Das wäre doch super :).
 
 # Zusammenfassung
-Optimised Fasting ist eine einfach Art und Weise kontinuierlich abzunehmen. Sie ist extrem leicht umzusetzen da nur ca zwei Tage gefastet werden müssen und in der restlichen Woche kann man essen was man möchte. Kein nerviges Vorbereiten der Mahlzeiten. Kein zählen der Kalorien.Ich
+Optimised Fasting ist eine einfach Art und Weise kontinuierlich abzunehmen. Sie ist extrem leicht umzusetzen da nur ca. zwei Tage gefastet werden müssen und in der restlichen Woche kann man essen was man möchte. Kein nerviges Vorbereiten der Mahlzeiten. Kein zählen der Kalorien.Ich
 
 Falls Fasten oder Low Carb generell etwas für dich sind, kann ich dir nur empfehlen mal diese Art der Gewichtsreduktion auszuprobieren. Schreib mir deine Erfahrungen. Ich bin sehr gespannt :) !
 
