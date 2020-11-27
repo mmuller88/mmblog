@@ -21,7 +21,7 @@ Wenn ihr also glaubt noch keinen gut ausgebildeten Fettstoffwechsel zu haben, em
 In den nächsten Abschnitten möchte ich mehr über meine neue Diätform des Optimised Fasting erzählen. Bei diesem geht es primär darum über viele Wochen kontinuierlich abzunehmen mit minimalem Aufwand.
 
 # Optimised Fasting Anleitung
-Optimised Fasting besteht aus ca. 2 Tagen langem Wasserfasten. Um das Training herum ist es erlaubt Vitamine, Salze und minimal Proteine zuzuführen. Durch die Zuführung von Protein vor und nach dem Training wird quasi ein anaboles Signal für den Körper ausgeschüttet was uns hilft das Training besser und vor allem intensiver durchzuführen.
+Optimised Fasting besteht aus ca. 2 Tagen langem Wasserfasten. Um das Training herum ist es erlaubt Vitamine, Salze und minimal Proteine zuzuführen. Durch die Zuführung von Protein vor und nach dem Training wird quasi ein anaboles Signal für den Körper ausgeschüttet, welches hilft das Training besser und vor allem intensiver durchzuführen.
 
 Die Menge an Protein darf dabei nicht zu hoch sein, da sonst das Verdauungsystem zu viel beansprucht wird und das hinderlich für das Training wird. Ca. 25g vor und nach dem Training sollten genügen.
 
@@ -41,7 +41,7 @@ Donnerstag und Freitag wir dan gefastet und nur um mein morgentliches Training e
 ## Vor dem Training
 Ich mache mir einen grünen Tee mit einer scharfen Chilli Sauce und gepressten Zitronensaft. Dadurch erhoffe ich mir einen aufputsch Effekt und eine höhere Kalorienverbrennung des Körpers durch den erhöhten Koffeingehalt und Scharfstoffe im Chilli. Danach geht es zum Training.
 
-Mein Training morgens ist breit gefächert und sehr Abwechslungsreich. Je nach Körperbefinden mache ich etwas Krafttraining, Ausdauertraining oder ein kurzes hoch intensives Training. Auch Aufwärmen und anschließende Dehnung gehört zu meinem Trainingsprogramm. Wenn ihr mehr über mein Training wissen wollt, sagt mir Bescheid :).
+Mein Training morgens ist breit gefächert und sehr abwechslungsreich. Je nach Körperbefinden mache ich etwas Krafttraining, Ausdauertraining oder ein kurzes hoch intensives Training. Auch Aufwärmen und anschließende Dehnung gehört zu meinem Trainingsprogramm. Wenn ihr mehr über mein Training wissen wollt, sagt mir Bescheid :).
 
 ## Nach dem Training
 Esse ich eine kleine Schale voll mit Nüssen (Wallnuss, Kürbiskerne, Paranuss), Omega 3 und Vitamin D Kapseln, ein Stück schwarze Schokolade, Gummibärchen (ca. 8) und zwei Eier. Im Titelbild seht ihr auch diese Mahlzeit. Wenn ihr euch vielleicht fragt wozu die Gummibärchen. Sie enthalten relativ viel Gelatine welches ein gesundes und wichtiges Protein für den Körper ist. Außerdem sind sie lecker und der Zucker in ihnen ist zu wenig um mich aus der Ketosis zu befördern.
@@ -57,7 +57,7 @@ Die Durchführungen meiner bisherigen Optimised Fasting waren sehr einfach für 
 Für diesen Fall habe ich mir eine vereinfachte Variante überlegt. Fang die ersten zwei Wochen erstmal nur mit einem Optimised Fasting Tag an. Somit gibst du deinem Körper die Möglichkeit sich langsam an das Fasten zu gewöhnen. Vielleicht reicht bei dir ja auch schon ein Fastentag und am Folgetag hast du bereits schon 500 Gramm gewicht verloren, im Vergleich zur letzten Woche. Das wäre doch super :).
 
 # Zusammenfassung
-Optimised Fasting ist eine einfach Art und Weise kontinuierlich abzunehmen. Sie ist extrem leicht umzusetzen da nur ca. zwei Tage gefastet werden müssen und in der restlichen Woche kann man essen was man möchte. Kein nerviges Vorbereiten der Mahlzeiten. Kein zählen der Kalorien.Ich
+Optimised Fasting ist eine einfach Art und Weise kontinuierlich abzunehmen. Sie ist extrem leicht umzusetzen da nur ca. zwei Tage gefastet werden müssen und in der restlichen Woche kann man essen was man möchte. Kein nerviges Vorbereiten der Mahlzeiten. Kein zählen der Kalorien.
 
 Falls Fasten oder Low Carb generell etwas für dich sind, kann ich dir nur empfehlen mal diese Art der Gewichtsreduktion auszuprobieren. Schreib mir deine Erfahrungen. Ich bin sehr gespannt :) !
 
