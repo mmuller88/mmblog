@@ -2,7 +2,7 @@
 title: Optimised Fasting
 date: '2020-11-29'
 show: 'no'
-image: 'water.jpg'
+image: 'opt.jpg'
 tags: ['ger', '2020', 'optimised', 'water', 'fasting', 'ketosis', 'nofeed']
 engUrl: https://martinmueller.dev/optimised-fasting-eng
 pruneLength: 250
@@ -10,15 +10,15 @@ pruneLength: 250
 
 Hi Low Carber :)
 
-In den letzten Monaten habe ich erfolgreich viel Gewicht verloren mit meiner Diät die ich **Optimised Fasting** (übersetzt optimiertes) Fasten getauft habe. Pro Woche habe ich ca. 500 Gramm, als einen halben Kilo verloren. Da diese Diät so erfolgreich funktioniert hat und weiterhin funktioniert, wollte ich sie euch gerne vorstellen.
+In den letzten Monaten habe ich erfolgreich viel Gewicht verloren mit **Optimised Fasting** (übersetzt optimiertes). Pro Woche habe ich ca. 500 Gramm, also einen halben Kilo verloren. Da diese Diät für mich so erfolgreich funktioniert, wollte ich sie euch gerne kurz und bündig vorstellen.
 
-Aber vorweg möchte ich noch erwähnen, dass ihr diese Diät nur anwenden solltet wenn ihr schon einige Erfahrungen mit Low Carb oder sogar Ketosis habt. Low Carb bedeutet massive Reduzierung der Einnahme jeglicher Form von Zucker und ihr benutzt somit hauptsächlich euren Fettstoffwechsel. Der Mensch hat im wesentlichen zwei Stoffwechsel zur Erzeugung von Energie. Das ist der Zuckerstoffwechsel und der Fettstoffwechsel. Beim Zuckerstoffwechsel nutzt der Körper primär Zucker zum gewinnen von Energie und beim Fettstoffwechsel nutzt er primär Fett.
+Ein kleiner Disclaimer davor. Ihr solltet diese Diät nur ausprobieren, wenn ihr schon etwas Erfahrungen mit Low Carb oder sogar Ketosis habt. Low Carb bedeutet eine massive Reduzierung der Einnahme jeglicher Arten von Zucker um somit den Fettstoffwechsel zu aktivieren. Der Mensch hat im wesentlichen zwei Stoffwechsel zur Erzeugung von Energie. Das ist zum einem der Zuckerstoffwechsel und zum anderen der Fettstoffwechsel. Beim Zuckerstoffwechsel nutzt der Körper primär Zucker zum gewinnen von Energie und beim Fettstoffwechsel nutzt er primär Fett.
 
 Wenn der Fettstoffwechsel allerdings kaum benutzt wird, verkümmert er, bzw. wird nie vernünftig ausgebaut. Beim Optimised Fasting brauchen wir aber einen stark ausgebildeten Fettstoffwechsel ansonsten können die zwei Tage an denen gefastet wird, physisch und psychisch schwierig werden, da sich der Körper nach Zucker sehnt und nie vernünftig gelernt hat mit dem eignen Körperfett mittels Fettstoffwechsel umzugehen. Es wäre also ein bisschen so wie ins kalte Wasser zu springen. Nebenwirkungen können dann sein Kopfschmerzen und extremes Hungerempfinden.
 
-Wenn ihr also noch keinen gut ausgebildeten Fettstoffwechsel habt empfehle ich euch Low Carb Diäten auszuprobieren und am Wochenende mal einen Tag rheines Wasserfasten auszuprobieren. Hier ist noch ein älterer Post von mir über das [Wasserfasten](https://martinmueller.dev/waterfasting) den ich euch wärmstens empfehlen kann.
+Wenn ihr also glaubt noch keinen gut ausgebildeten Fettstoffwechsel zu haben, empfehle ich euch erstmal eine Low Carb Diät auszuprobieren und am Wochenende mal einen Tag rheines Wasserfasten zu erleben. Hier ist noch ein älterer Post von mir über das [Wasserfasten](https://martinmueller.dev/waterfasting) den ich euch wärmstens empfehlen kann.
 
-In den nächsten Abschnitten möchte ich euch aber mehr über meine neue Diätform des Optimised Fasting erzählen. Bei diesem geht es primär darum über viele Wochen kontinuierlich abzunehmen.
+In den nächsten Abschnitten möchte ich mehr über meine neue Diätform des Optimised Fasting erzählen. Bei diesem geht es primär darum über viele Wochen kontinuierlich abzunehmen mit minimalem Aufwand.
 
 # Optimised Fasting Anleitung
 Optimised Fasting besteht aus ca. 2 Tagen langem Wasserfasten. Um das Training herum ist es erlaubt Vitamine, Salze und minimal Proteine zuzuführen. Durch die Zuführung von Protein vor und nach dem Training wird quasi ein anaboles Signal für den Körper ausgeschüttet was uns hilft das Training besser und vor allem intensiver durchzuführen.
