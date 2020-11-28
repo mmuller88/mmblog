@@ -1,18 +1,19 @@
 ---
 title: Optimised Fasting
-date: '2020-11-29'
+date: '2020-11-28'
 show: 'no'
 image: 'opt.jpg'
-tags: ['ger', '2020', 'optimised', 'water', 'fasting', 'ketosis', 'nofeed']
+tags: ['de', '2020', 'optimised', 'water', 'fasting', 'ketosis']
 engUrl: https://martinmueller.dev/optimised-fasting-eng
-pruneLength: 250
+pruneLength: 50
 ---
 
 Hi Low Carber :)
 
-In den letzten Monaten habe ich erfolgreich viel Gewicht verloren mit **Optimised Fasting** (übersetzt optimiertes). Pro Woche habe ich ca. 500 Gramm, also einen halben Kilo verloren. Da diese Diät für mich so erfolgreich funktioniert, wollte ich sie euch gerne kurz und bündig vorstellen.
+In den letzten Monaten habe ich erfolgreich viel Gewicht verloren mit **Optimised Fasting** (übersetzt optimiertes Fasten). Pro Woche habe ich ca. 500 Gramm, also einen halben Kilo, verloren. Ich habe schon viel Erfahrungen mit Fasten wie Wasserfasten gesammelt. Optimised Fasting is eine Abwandlung vom Wasserfasten. Da diese Diät für mich so erfolgreich funktioniert, wollte ich sie euch gerne einmal vorstellen.
 
-Ein kleiner Disclaimer davor. Ihr solltet diese Diät nur ausprobieren, wenn ihr schon etwas Erfahrungen mit Low Carb oder sogar Ketosis habt. Low Carb bedeutet eine massive Reduzierung der Einnahme jeglicher Arten von Zucker um somit den Fettstoffwechsel zu aktivieren. Der Mensch hat im wesentlichen zwei Stoffwechsel zur Erzeugung von Energie. Das ist zum einem der Zuckerstoffwechsel und zum anderen der Fettstoffwechsel. Beim Zuckerstoffwechsel nutzt der Körper primär Zucker zum gewinnen von Energie und beim Fettstoffwechsel nutzt er primär Fett.
+# Disclaimer
+Ihr solltet diese Diät nur ausprobieren, wenn ihr schon etwas Erfahrungen mit Low Carb oder sogar Ketosis habt. Low Carb bedeutet eine massive Reduzierung der Einnahme jeglicher Arten von Zucker. Der Mensch hat im wesentlichen zwei Stoffwechsel zur Erzeugung von Energie. Das ist zum einem der Zuckerstoffwechsel und zum anderem der Fettstoffwechsel. Beim Zuckerstoffwechsel nutzt der Körper primär Zucker zum gewinnen von Energie und beim Fettstoffwechsel nutzt er primär Fett.
 
 Wenn der Fettstoffwechsel allerdings kaum benutzt wird, verkümmert er, bzw. wird nie vernünftig ausgebaut. Beim Optimised Fasting brauchen wir aber einen stark ausgebildeten Fettstoffwechsel ansonsten können die zwei Tage an denen gefastet wird, physisch und psychisch schwierig werden, da sich der Körper nach Zucker sehnt und nie vernünftig gelernt hat mit dem eignen Körperfett mittels Fettstoffwechsel umzugehen. Es wäre also ein bisschen so wie ins kalte Wasser zu springen. Nebenwirkungen können dann sein Kopfschmerzen und extremes Hungerempfinden.
 
@@ -36,7 +37,7 @@ Ich arbeite als Software Entwickler für 4 Tage die Woche. Also von Montag bis D
 
 Schon am Mittwoch reduziere ich Lebensmittel mit hohem Zuckergehalt. Ich ernähre mich dann hauptsächlich nur noch von Protein und Fett. Das Hilft mir meinen Fettstoffwechsel auf die nächsten 2 Tage Fasten vorzubereiten und erleichtert den Einstieg.
 
-Donnerstag und Freitag wir dan gefastet und nur um mein morgentliches Training eine Kleinigkeit gegessen.
+Donnerstag und Freitag wir dan gefastet und nur um mein morgendliches Training eine Kleinigkeit gegessen.
 
 ## Vor dem Training
 Ich mache mir einen grünen Tee mit einer scharfen Chilli Sauce und gepressten Zitronensaft. Dadurch erhoffe ich mir einen aufputsch Effekt und eine höhere Kalorienverbrennung des Körpers durch den erhöhten Koffeingehalt und Scharfstoffe im Chilli. Danach geht es zum Training.
@@ -48,6 +49,8 @@ Esse ich eine kleine Schale voll mit Nüssen (Wallnuss, Kürbiskerne, Paranuss),
 
 # Was ich so toll finde am Optimised Fasting
 Jede Diät ist nur dann erfolgreich wenn sie einfach umsetzbar ist und Optimised Fasting ist sehr einfach umsetzbar. Es muss ja nur zwei Tage gefastet werden und an den restlichen Tagen kann man essen wie man möchte. Es ist kein aufwendiges Vorbereiten der Mahlzeiten notwendig, da ja gefastet wird.
+
+Beim Wasserfasten hat mich schon immer das viele Salzwasser trinken genervt. Durch Optimised Fasting kann genug Salz durch den Snack nach dem Training dem Körper zugeführt werden. Es tut dann nicht mehr nötig noch extra Salz in Form von Salzwasser zu trinken.
 
 Auch cool finde ich, dass die 500 Gramm, die ich jedes Wochenende erreiche, ein sehr verlässlicher Wert sind da zu einem mein Darm größtenteils entleert ist nach zwei Tagen Fasten und das Wasser, welches durch Zuckereinlagerungen in den Muskeln zustande kam, raus ist. Somit unterliege ich weniger Wasserschwankungen während der Gewichtsaufnahme nach dem zweiten Fastentag.
 
