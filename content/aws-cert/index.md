@@ -8,3 +8,5 @@ tags: []
 # engUrl: https://martinmueller.dev/alf-lets-encrypt-eng
 # pruneLength: 50
 ---
+
+[Verification Link](https://www.youracclaim.com/badges/519848e5-985f-479c-9564-548b5af67b34)
