@@ -8,13 +8,15 @@ engUrl: https://martinmueller.dev/alps-cdk-eng
 pruneLength: 50
 ---
 
-Hi 
+Hi :).
 
-* AWS bietet viele API Technologien an. Rest Api, Graph QL, MQTT
-* Haben Vor- und Nachteile z.B. Graph QL definition von queries. Rest Api einfach zu implementieren und zu dokumentieren
-* Mit ALPS werden die APIs austauschbar und einfacher implementierbar und man hat die frei Wahl. Super cool
-* Was ALPS API ist und wie ich es mit AWS CDK kombiniert habe in den nächsten Abschnitten
-...
+AWS bietet viele spannende API Technologien an. Solche sind z.B. das AWS API Gateway welches eine Implementation einer REST API ist oder AWS Appsync was eine GRAPH QL API implementiert.
+
+Jeder dieser AWS API implementationen hat seine Vor- und Nachteile. Z.B. kann die Erstellung von Appsync schneller von der Hand gehen als das API Gateway, allerdings wird es dann wieder komplizierter bei der Erstellung von Queries and das Graph QL. Zugegeben ich kenne mich zu wenig aus um die Vor- und Nachteile der verschieden API Implementation in AWS gegeneiner auszuwägen, aber das muss ich jetzt auch nicht mehr!
+
+Mit meiner aufregenden Arbeit mit ALPS in Kombination mit AWS CDK, kann ich die API frei auswählbar machen oder sogar gegeneinander austauschen und das alles auf Grundlage von einer ALPS Spezifikation (kurz Spec).
+
+Was genau eine ALPS Spec ist und wie daraus mit Hilfe von AWS CDK komplette APIs wie Api Gateway oder Appsync erstellt werden können, erkläre ich euch in den nächsten Abschnitten.
 
 # ALPS API
 * Specifikation einer abstrakten API über OpanAPI, GraphQL, SOAP

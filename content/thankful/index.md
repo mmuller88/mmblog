@@ -1,6 +1,6 @@
 ---
 title: Dankbarkeit
-date: '2020-12-05'
+date: '2020-12-06'
 show: 'no'
 image: 'thanks.jpg'
 tags: ['de', '2020', 'notech']
@@ -10,9 +10,9 @@ pruneLength: 50
 
 Ein herzliches hallo,
 
-Da wir uns jetzt gegen das Ende von 2020 zubewegen, wollte ich gerne die Gelegenheit nutzen meine Dankbarkeit zu zeigen. Dafür möchte ich einen ganzen Blogpost widmen :). Auch wenn es für viele anders war, für uns war 2020 das beste Jahr als Familie. Warum das so ist, werdet ihr in herausfinden, wenn ihr den ganzen Post lest.
+Da wir uns jetzt gegen das Ende von 2020 zubewegen, wollte ich gerne die Gelegenheit nutzen meine Dankbarkeit zu zeigen. Dafür möchte ich einen ganzen Blogpost widmen :). Auch wenn es für viele anders war, für uns war 2020 das beste Jahr als Familie. Warum das so ist, werdet ihr herausfinden, wenn ihr den ganzen Post lest.
 
-In den nächsten Abschnitten werde ich chronologisch zu meinen Lebensjahren Danke sagen.
+In den nächsten Abschnitten liste ich meine Danksagungen chronologisch nach meinen Lebensjahren.
 
 # Gott
 Der erste und größte Danke geht an Gott. Denn er ist barmherzig und großzügig. Er hat mich mit einen gesunden Geist und Körper gesegnet, was bei weitem nicht selbstverständlich ist. Auf meinem Lebensweg hat er mich begleitet und vor größerem Schaden bewahrt.
@@ -29,7 +29,7 @@ Ganz besonders möchte ich meiner Mutter danken die maßgeblich für meine Entwi
 Sie ist eine herzensgute und starke Frau. Ich denke das hat mich insgeheim auch stark beeinflusst bei der Wahl meiner Frau die ebenfalls herzensgut und stark ist. Vielen Danke Mutti und Pappi.
 
 # Frau
-Den Dank eine meine Frau. Wo fange ich da nur an. Ich hab soviel über das ich Dankbar sein könnte wenn es zu meiner Frau kommt. Kennengelernt habe ich sie in England. Ich war dort seit fast zwei Jahren. Nach einem Praktikum bei Alfresco, bekam ich dort eine Festanstellung und entschied mich länger in England zu bleiben.
+Den Dank eine meine Frau. Wo fange ich da nur an. Ich hab soviel über das ich Dankbar sein könnte wenn es zu meiner Frau kommt. Kennengelernt habe ich sie in England. Ich war dort seit fast zwei Jahren. Nach einem Praktikum bei Alfresco, bekam ich dort eine Festanstellung und entschied, länger in England zu bleiben.
 
 Meine Frau war in England für fast einem Jahr. Sie kommt aus Brasilien und wollte unbedingt England kennen lernen. Wie der Zufall es wollte, trafen wir uns und hatten sofort eine Verbindung. Liebe auf dem ersten Blick!
 
@@ -55,7 +55,7 @@ Auch möchte ich meinen Exkollegen aus der Firma Alfresco und der Firma Object d
 
 Erst seit kurzem leben wir in der schönen Stadt Ludwigslust. Nicht weit von uns haben wir eine tolle junge Familie gefunden mit der wir gerne Zeit verbringen. Es sind herzensgute Menschen und liebevolle Eltern. Vielen Dank dass ihr da seit und wir euch als Freunde haben dürfen.
 
-Ganz anfänglich dankte ich Gott. Ich möchte auch Gottes Gemeinde hier in Ludwigslust Danken. Die Landeskirchliche Gemeinde Ludwigslust ist für mich eine wertvolle Gemeinschaft mit dem Ziel Gutes zu tun und forciert Gottes Wort zu verkünden. Vielen Dank dass ich euer Mitglied sein darf.
+Ganz anfänglich dankte ich Gott. Ich möchte auch Gottes Gemeinde hier in Ludwigslust Danken. Die Landeskirchliche Gemeinschaft Ludwigslust ist für mich eine wertvolle Gemeinschaft mit dem Ziel Gutes zu tun und forciert Gottes Wort zu verkünden. Vielen Dank dass ich euer Mitglied sein darf.
 
 # Zusammenfassung
 Dankbarkeit ist eine tolle Sache und macht das Leben schöner. Es erzeugt ein positives Gefühl für an dem der Dank gerichtet ist und demjenigen der den Dank äußert. Ich hoffe euch hat dieser etwas andere Stiel trotzdem gefallen. Schreibt mir wofür ihr dankbar seit.
