@@ -25,19 +25,19 @@ Many thanks also to my mom and dad. They are two incredibly great people. And ab
 
 I would especially like to thank my mother, who was instrumental in my development. For her, education has always been a top priority for me and my brother. I am extremely grateful to her for this, because without this high value I might never have found my dream job as a software developer.
 
-She is a kind and strong woman. I think this has secretly influenced me in my choice of my wife who is also kind and strong. Thanks a lot mom and dad.
+She is a kind and strong woman. I think this has influenced me in the choice of my wife who is also kind and strong. Thanks a lot mom and dad.
 
 # Woman
-The thanks of my wife. I don't know where to begin. I have so much to be grateful for when it comes to my wife. I got to know her in England. I was there for almost two years. After an internship at Alfresco, I got a permanent position there and decided to stay in England for a longer period of time.
+For the thanks to my wife. I don't know where to begin. I have so much to be grateful for when it comes to my wife. I got to know her in England. I was there for almost two years. After an internship at Alfresco, I got a permanent position there and decided to stay in England for a longer.
 
-My wife was in England for almost a year. She is from Brazil and was eager to get to know England. As luck would have it, we met and immediately had a connection. Love at first sight!
+My wife was in England for almost a year. She is from Brazil and was eager to get to know England. When we met we immediately had a connection. Love at first sight!
 
-Then everything went relatively quickly. We moved into an apartment together and got engaged only a few months after we met. Since then we have been together for 3 wonderful years. Our relationship is very harmonious and I am looking forward to the many years to come together with her.
+Then everything went relatively quickly. We moved into an apartment together and got engaged only a few months after. Since then we have been together for 3 wonderful years. Our relationship is very harmonious and I am looking forward to the many years ahead of us.
 
 Many thanks to my beautiful, smart and wonderful wife, for always being at my side and walking through the adventure of life with me. I don't want to be a day without you anymore. And also many thanks that you are such a great mother. Our daughter is so lucky that she has such a great mommy.
 
 # Child
-A special thanks goes to my daughter. She is not yet able to understand this text. Let's see, maybe this blog still exists, if she can and she was perhaps happy about it. Anyway I am very proud and happy to be your father.
+A special thanks goes to my daughter. She is not yet able to understand this text. Let's see, maybe this blog still exists, if she can and she is perhaps happy about it. Anyway I am very proud and happy to be your father.
 
 You give me your trust every day and I accept this precious gift every day and promise to always act for your best. Thank you so much for letting me be your father.
 
@@ -50,11 +50,11 @@ Many thanks also to my non core family like my aunts and uncles and my grandpare
 
 I would also like to thank my family from Brazil. I had the luck to visit them in Brazil in 2018 and hope to do so again in 2021.
 
-I would also like to thank my former colleagues from Alfresco and Object. They have shaped me a lot and made me a better developer.
+As well thank you to my former colleagues from Alfresco and Object. They have shaped me a lot and made me a better developer.
 
-We have only recently started living in the beautiful city of Ludwigslust. Not far from us we have found a great young family with whom we like to spend time. They are kind people and loving parents. Thank you very much that you are here and that we can have you as friends.
+We have only recently started living in the beautiful city called Ludwigslust. Not far from us we have found a great young family with whom we like to spend time. They are kind people and loving parents. Thank you very much that you are here and that we can have you as friends.
 
-At the very beginning I thanked God. I also want to thank God's church here in Ludwigslust. For me, the Ludwigslust Regional Church Community is a valuable community with the goal of doing good and proclaiming God's word. Thank you very much for letting me be your member.
+At the very beginning I thanked God. I also want to thank God's church here in Ludwigslust. For me, the Landeskirchliche Gemeinschaft Ludwigslust  (church community) is a valuable community with the goal of doing good and proclaiming God's word. Thank you very much for letting me be your member.
 
 # Summary
 Gratitude is a great thing and makes life more beautiful. It creates a positive feeling for the person to whom the gratitude is directed and for the one who expresses it. I hope you liked this slightly different stem anyway. Write me what you are thankful for.
