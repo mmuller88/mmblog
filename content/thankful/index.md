@@ -1,6 +1,6 @@
 ---
 title: Dankbarkeit
-date: '2020-12-06'
+date: '2020-12-07'
 show: 'no'
 image: 'thanks.jpg'
 tags: ['de', '2020', 'notech']

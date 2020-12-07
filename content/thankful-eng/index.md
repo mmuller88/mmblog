@@ -1,22 +1,22 @@
 ---
 title: Thankfulness
-date: '2020-12-06'
+date: '2020-12-07'
 image: 'thanks.jpg'
 tags: ['eng', '2020', 'notech']
 deUrl: https://martinmueller.dev/thankful
 pruneLength: 50
 ---
 
-A hearty hello,
+A warm welcome,
 
 As we are now approaching the end of 2020, I would like to take this opportunity to show my gratitude. For this I would like to dedicate a whole blog post :). Even if it was different for many, for us 2020 was the best year as a family. Why this is so, you will find out when you read the whole post.
 
-In the next sections I list my thanks chronologically by my years of life.
+In the next sections I list my thanks chronologically by my life.
 
 # God
-The first and greatest thanks goes to God. For he is merciful and generous. He has blessed me with a healthy mind and body, which is by no means a matter of course. He has accompanied me on my path of life and saved me from greater harm.
+The first and greatest thanks goes to God. He is merciful and generous. He has blessed me with a healthy mind and body, which is by no means for granted. He has accompanied me on my path of life and saved me from greater harm.
 
-Thank you God and I ask you to continue to watch over me and especially over my family, friends and humanity. Just saying thanks is not enough for me! In 2021 I would like to become more involved in your church.
+Thank you God and I humbly ask you to continue to watch over me and especially over my family, friends and humanity. Just saying thanks is not enough for me! In 2021 I would like to become more involved in your church.
 
 Even if it is not always easy, you give me the strength to do so. I want to thank you my God.
 
