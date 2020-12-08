@@ -1,9 +1,9 @@
 ---
 title: Thankfulness
-date: '2020-12-07'
+date: '2020-12-08'
 image: 'thanks.jpg'
 tags: ['eng', '2020', 'notech']
-deUrl: https://martinmueller.dev/thankful
+gerUrl: https://martinmueller.dev/thankful
 pruneLength: 50
 ---
 
