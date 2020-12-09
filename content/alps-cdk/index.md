@@ -149,16 +149,74 @@ export class AlpsGraphQL extends appsync.GraphqlApi {
 ```
 
 ## CDK Demo Deployment
-* Nutzen der zwei Libraries
+Super! Wir haben nun diese zwei Constructs welche aus einer ALPS spec AWS Apis generieren können. Jetzt müssen wir das nur noch machen :). Dafür habe ich ein neues [Demo Github Repo](https://github.com/mmuller88/cdk-alps-constructs-demo) erstellt.
+
+Das Demo Deployment verwendet das gleich ALPS spec TODO Beispiel welches ich schon vorgestellt habe. Zum Speichern der TODO items wird DynamoDB verwendet:
+
+```ts
+const todoTable = new db.Table(stack, 'TodoTable', {
+  removalPolicy: RemovalPolicy.DESTROY,
+  partitionKey: {
+    name: 'id',
+    type: db.AttributeType.STRING,
+  },
+});
+```
+
+Dann wird das Api Gateway und Appsync erstellt
+
+```ts
+new AlpsSpecRestApi(stack, 'AlpsSpecRestApi', {
+  alpsSpecFile: 'src/todo-alps.yaml',
+});
+...
+
+const graphQlApi = new AlpsGraphQL(stack, 'AlpsGraphQL', {
+  name: 'demo',
+  alpsSpecFile: 'src/todo-alps.yaml',
+  tmpFile: join(__dirname, '../tmp/schema.graphql'),
+});
+
+...
+```
+
+Das wars. Jetzt nur noch den CDK Stack applyen mit:
+
+```
+yarn build
+yarn deploy [--profile X]
+```
+
+Yeahh. Wir haben somit ein Api Gateway und ein Appsync erstellt auf Grundlage der ALPS API.
 
 # Use Cases
 * Sichere Migration von z.B. REST API zu Graph QL
 * Bessere Abstraction der API Definition da die ALPS spec von dem Domainenexperten erstellt werden. Da simple und nur Domainenwissen enthällt
 
 # Zusammenfassung
-...
+ALPS API ist eine faszinierende Idee über eine Abstraktion von anderen APIs wie REST API, Graph QL usw. Mir persönlich hat es geholfen Graph QL besser zu verstehen da ich durch den Rückweg über den ALPS spec einen gemeinsamen Nenner hatte. Auch die automatische Generierung des Graph QL Schemas ist super toll um ebenfalls die API besser zu verstehen.
 
-* Next steps
+Ich selber habe bei der Erstellung der drei Repos gemerkt, dass ich noch nicht viel über die ALPS Syntax weiß und mehr darüber lernen möchte. Wenn euch auch das ALPS Thema interessiert, schreibt mir doch. Mit der [ALPS Community](alps.io) veranstalten wir regelmäßig Community Treffen online aus aller Welt. Dort trefft ihr spannende Leute und könnt euch einbringen wennt ihr wollt :).
+
+Ich arbeite bereits an einer aufgefrischten Library zur Konvertierung der ALPS Spec zu den lower abstracted APIs [hier](https://github.com/mmuller88/alps-unified-ts). Damit wird es dann noch einfacher sein ALPS unified als Library in deinem Code zu benutzen:
+
+```ts
+// geladen von einer YAML File
+Alps.unified(Alps.loadYaml(...), { formatType: FormatType.OPENAPI })
+
+// oder direct per TypeScript Object
+Alps.unified(Alps.spec({
+    alps: {
+      version: '1.0',
+      doc: {
+        value: 'Simple Todo list example',
+      },
+      ...
+    }
+});
+```
+
+Darüber hinaus soll die Library in JavaScript, TypeScript, Python, Java und .NET funktioniert und über öffentliche Registries erhältlicht sein. Mehr darüber kommt in einem separatem Blogpost. Bis dahin stay tuned!
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
