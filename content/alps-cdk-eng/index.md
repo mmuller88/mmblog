@@ -2,7 +2,7 @@
 title: ALPS API combined with AWS CDK
 show: 'no'
 date: '2020-12-12'
-# image: 'swagger.png'
+image: 'alps.png'
 tags: ['eng', '2020', 'aws', 'swagger', 'cdk', 'alps', 'openapi', 'nofeed']
 gerUrl: https://martinmueller.dev/alps-cdk
 pruneLength: 50
@@ -117,7 +117,6 @@ const api = new apigw.SpecRestApi(this, 'SpecRestApi', {
 ## CDK ALPS Graph QL API Construct Library
 
 The second ALPS CDK Construct was much more exciting for me, because I used AWS Appsync as Graph QL Api and it was completely new for me. But again it was very easy and I was able to finish the construct in a few hours here on [github](https://github.com/mmuller88/cdk-alps-graph-ql). The ALPS compiler translates the ALPS spec into the Graph QL Schema and passes it to the [CDK GraphqlApi Construct](_COPY19@aws-cdk_aws-appsync.GraphqlApi.html):
-
 
 ```ts
 export class AlpsGraphQL extends appsync.GraphqlApi {
