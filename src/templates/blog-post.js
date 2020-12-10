@@ -44,7 +44,7 @@ function BlogPost(props) {
               <br></br>
               <h1>{title}</h1>
               <span>{date}</span>
-              {image && <Img fluid={image.childImageSharp.fluid} />}
+              {image && <Img fluid={image.childImageSharp.fluid} imgStyle={{ objectFit: 'contain' }} />}
               <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
               {
                 showContact !== 'no' ? (
