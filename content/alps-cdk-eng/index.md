@@ -21,7 +21,7 @@ What exactly an ALPS Spec is and how to create complete APIs like Api Gateway or
 # ALPS API
 ALPS is a specification for describing the bounded context of a service. ALPS can be used as a source material to generate lower abstracted specifications like OpenApi / Swagger, WSDL, RAML, WADL.
 
-When I saw the YouTube video, I immediately found the idea of ALPS cool and exciting. Like every good developer I love abstractions and ALPS seems to be an extremely cool abstraction. I immediately had the idea to combine the ALPS Api with AWS CDK constructs. That's exactly what I did and I'll report more details in the next section.
+When I saw the [YouTube Video](https://www.youtube.com/watch?v=oG6-r3UdenE) with [Mike Amundsen](https://twitter.com/mamund), I immediately found the idea of ALPS cool and exciting. Like every good developer I love abstractions and ALPS seems to be an extremely cool abstraction. I immediately had the idea to combine the ALPS Api with AWS CDK constructs. That's exactly what I did and I'll report more details in the next section.
 
 # AWS CDK ALPS Constructs
 
