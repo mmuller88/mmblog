@@ -24,11 +24,11 @@ ALPS ist eine Spezifikation zur Beschreibung vom Context eines Services. ALPS ka
 Als ich das [YouTube Video](https://www.youtube.com/watch?v=oG6-r3UdenE) mit [Mike Amundsen](https://twitter.com/mamund) gesehen habe, fand ich die Idee von ALPS sofort cool und spannend. Wie jeder gut Entwickler liebe ich Abstraktionen und ALPS scheint eine extrem coole Abstraktion zu sein. Mir kam dan sofort die Idee ob man die ALPS Api nicht mit AWS CDK Constructen verbinden könnte. Genau das habe ich gemacht und berichte mehr im Detail darüber im nächsten Abschnitt.
 
 # AWS CDK ALPS Constructs
-AWS CDK Constructs sind kurzgefasst Quellcode für Resourcen in AWS. Dafür benutzen sie abstrakte Sprachen wie TypeScript oder Python verwenden und generieren aus dem Code Cloudformation Templates welche dann auch noch mit dem AWS CDK Framework applyed werden. Wenn euch das Thema AWS CDK mehr im Detail interessiert, ich habe sehr viele Posts über [CDK hier geschrieben](https://martinmueller.dev/tags/cdk).
+AWS CDK Constructs sind kurzgefasst Quellcode für Resourcen in AWS. Dafür benutzen sie abstrakte Sprachen wie TypeScript oder Python und generieren aus dem Code Cloudformation Templates welche dann auch noch mit dem AWS CDK Framework applyed werden. Wenn euch das Thema AWS CDK mehr im Detail interessiert, ich habe sehr viele Posts über [CDK hier geschrieben](https://martinmueller.dev/tags/cdk).
 
-Mein Ziel war es also mit Hilfe von ALPS Specs gezielt AWS Apis wie Api Gateway und Appsync aufbauen zu lassen. Nachfolgend zeige ich zuerst ein ALPS Spec Beispiel. Dann beschreibe ich das Construct bei dem ich aus einer ALPS Spec ein AWS Api Gateway generiere. Danach wird aus der selben ALPS Spec ein Appsync gebaut.
+Mein Ziel war es also mit Hilfe von einer ALPS Specs gezielt AWS Apis wie Api Gateway und Appsync aufbauen zu lassen. Nachfolgend zeige ich zuerst ein ALPS Spec Beispiel. Dann beschreibe ich das Construct bei dem ich aus einer ALPS Spec ein AWS Api Gateway generiere. Danach wird aus der selben ALPS Spec ein Appsync gebaut.
 
-Die beiden nachfolgenden Libraries werden automatisch nach [NPM](https://www.npmjs.com/) (für JavaScript und TypeScript) und [PYPI](https://pypi.org/) (für Python) released. In Zukunft plane ich auch zu einem öffentlichen Maven Repository und .Net package repository zu publishen.
+Die beiden nachfolgenden Libraries werden automatisch nach [NPM](https://www.npmjs.com/) (für JavaScript und TypeScript) und [PYPI](https://pypi.org/) (für Python) released. In Zukunft plane ich auch zu einem öffentlichen Maven Repository und .Net package Repository zu publishen.
 
 ## ALPS Spec Beispiel
 Das folgende Beispiel ist eine simple TODO List Api.
@@ -119,27 +119,14 @@ export class AlpsGraphQL extends appsync.GraphqlApi {
 
   constructor(scope: cdk.Construct, id: string, props: AlpsGraphQLProps) {
     // convert ALPS yaml to graph ql schema file in tmp/schema.graphql
-    unified(props.alpsSpecFile);
+    const sdl = Alps.unified(Alps.loadYaml(props.alpsSpecFile), { formatType: FormatType.SDL });
+    fs.writeFileSync('tmp/schema.graphql', sdl);
     super(scope, id, {
       ...props,
-      // schema: appsync.Schema.fromAsset(join(__dirname, '../tmp/schema.graphql')),
-      schema: appsync.Schema.fromAsset(props.tmpFile),
-    });
-
-    new cdk.CfnOutput(this, 'GraphQlUrl', { value: thisexport class AlpsGraphQL extends appsync.GraphqlApi {
-
-  constructor(scope: cdk.Construct, id: string, props: AlpsGraphQLProps) {
-    // convert ALPS yaml to graph ql schema file in tmp/schema.graphql
-    unified(props.alpsSpecFile);
-    super(scope, id, {
-      ...props,
-      // schema: appsync.Schema.fromAsset(join(__dirname, '../tmp/schema.graphql')),
-      schema: appsync.Schema.fromAsset(props.tmpFile),
+      schema: appsync.Schema.fromAsset('tmp/schema.graphql'),
     });
 
     new cdk.CfnOutput(this, 'GraphQlUrl', { value: this.graphqlUrl });
-  }
-}.graphqlUrl });
   }
 }
 ```
@@ -162,16 +149,10 @@ const todoTable = new db.Table(stack, 'TodoTable', {
 Dann wird das Api Gateway und Appsync erstellt
 
 ```ts
-new AlpsSpecRestApi(stack, 'AlpsSpecRestApi', {
-  alpsSpecFile: 'src/todo-alps.yaml',
-});
+new AlpsSpecRestApi(stack, 'AlpsSpecRestApi', { alpsSpecFile: 'src/todo-alps.yaml' });
 ...
 
-const graphQlApi = new AlpsGraphQL(stack, 'AlpsGraphQL', {
-  name: 'demo',
-  alpsSpecFile: 'src/todo-alps.yaml',
-  tmpFile: join(__dirname, '../tmp/schema.graphql'),
-});
+const graphQlApi = new AlpsGraphQL(stack, 'AlpsGraphQL', { alpsSpecFile: 'src/todo-alps.yaml' });
 
 ...
 ```
@@ -190,12 +171,12 @@ Natürlich hab ich mir gedanken gemacht welche Use Cases für die ALPS Spec Abst
 
 Ich sehe es als einfachen und sicheren Weg für eine Migration vom Api Gateway zu Appsync. Die Resolver für das Graph QL könnten zum Beispiel die Lambda Integrationen von der Rest Api nutzen oder eventuell sogar komplett auf diese verzichten und für CRUD Operationen auf eine DB direkt ein Mapping.
 
-Da die ALPS Spec eine Abstraktion von z.B. Rest Api ist, sollte es möglich sein für Domaineexperten diese selber schreiben zu können. Es wäre super wenn die Fachlichkeit besser Abstrahiert werden könnte und das könnte mit ALPS möglich sein. Während sich also der Domaineexperte um die Fachlichkeit kümmert, kann sich der Entwickler um die Verwendung der konkreten Api und dessen Implementation kümmern. Somit wird eine bessere Aufgabenverteilung erreicht.
+Da die ALPS Spec eine Abstraktion von z.B. Rest Api ist, sollte es möglich sein für Domaineexperten diese selber schreiben zu können. Es wäre super wenn der domainspezifische Context besser abstrahiert werden könnte und das könnte mit ALPS möglich sein. Während sich also der Domaineexperte um die Fachlichkeit kümmert, kann der Entwickler an der konkreten Api und dessen Implementation arbeiten. Somit wird eine besseres modulares Arbeiten ermöglicht.
 
 # Zusammenfassung
-ALPS Api ist eine faszinierende Idee über eine Abstraktion von anderen Apis wie REST Api, Graph QL usw. Mir persönlich hat es geholfen Graph QL besser zu verstehen da ich durch den Rückweg über den ALPS Spec einen gemeinsamen Nenner hatte. Auch die automatische Generierung des Graph QL Schemas ist super toll um ebenfalls die Api besser zu verstehen.
+ALPS Api ist eine faszinierende Idee über die Abstraktion von anderen Apis wie REST, Graph QL usw. Mir persönlich hat es geholfen Graph QL besser zu verstehen da ich durch den Rückweg über den ALPS Spec einen gemeinsamen Nenner hatte. Auch die automatische Generierung des Graph QL Schemas ist super toll um ebenfalls die Api besser zu verstehen.
 
-Ich selber habe bei der Erstellung der drei Repos gemerkt, dass ich noch nicht viel über die ALPS Syntax weiß und mehr darüber lernen möchte. Wenn euch auch das ALPS Thema interessiert, schreibt mir doch. Mit der [ALPS Community](alps.io) veranstalten wir regelmäßig Community Treffen online aus aller Welt. Dort trefft ihr spannende Leute und könnt euch einbringen wenn ihr wollt :).
+Ich selber habe bei der Erstellung der drei Repos gemerkt, dass ich noch nicht viel über die ALPS Syntax weiß und mehr darüber lernen möchte. Wenn euch auch das ALPS Thema interessiert, schreibt mir doch. Mit der [ALPS Community](https://alps.io) veranstalten wir regelmäßig Community Treffen online aus aller Welt. Dort trefft ihr spannende Leute und könnt euch einbringen wenn ihr wollt :).
 
 Ich arbeite bereits an einer aufgefrischten Library zur Konvertierung der ALPS Spec zu den lower abstracted Apis [hier](https://github.com/mmuller88/alps-unified-ts). Damit wird es dann noch einfacher sein ALPS unified als Library in deinem Code zu benutzen:
 
