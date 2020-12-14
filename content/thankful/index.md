@@ -2,7 +2,7 @@
 title: Dankbarkeit
 date: '2020-12-08'
 show: 'no'
-image: 'thanks.jpg'
+image: 'fam.jpeg'
 tags: ['de', '2020', 'notech']
 engUrl: https://martinmueller.dev/thankful-eng
 pruneLength: 50
