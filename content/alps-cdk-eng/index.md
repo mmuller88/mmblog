@@ -1,39 +1,36 @@
 ---
 title: ALPS API combined with AWS CDK
-show: 'no'
-date: '2020-12-12'
+date: '2020-12-13'
 image: 'alps.png'
-tags: ['eng', '2020', 'aws', 'swagger', 'cdk', 'alps', 'openapi', 'nofeed']
+tags: ['eng', '2020', 'aws', 'swagger', 'cdk', 'alps', 'openapi']
 gerUrl: https://martinmueller.dev/alps-cdk
 pruneLength: 50
 ---
 
 Hi :).
 
-AWS offers many exciting API technologies. These are for example the AWS API Gateway which is an implementation of a REST API or AWS Appsync which implements a GRAPH QL API.
+AWS offers many exciting Api technologies. Those include the AWS Api Gateway which is an implementation of a REST Api or AWS Appsync which implements a GRAPH QL Api.
 
-Each of these AWS API implementations has its advantages and disadvantages. For example, the Appsync API can be built faster than the API Gateway, but it becomes more complicated when building queries and the Graph QL. Admittedly I don't know enough about the pros and cons of the different API implementations in AWS, but I don't have to now!
+Each of these AWS Api implementations has its advantages and disadvantages. For example, Appsync can be faster to build than the Api Gateway, but then again it gets more complicated when creating queries to the Graph QL. Admittedly, I don't know enough to weigh the pros and cons of the different Api implementations in AWS, but I don't have to anymore!
 
-With my exciting work with ALPS in combination with AWS CDK, I can make the API freely selectable or even swap it for each other, all based on an ALPS specification (short Spec).
+With my exciting work with ALPS in combination with AWS CDK, I can make the Api freely selectable or even interchangeable and all based on an ALPS specification (Spec for short). As AWS says itself. Choice Matter! :)
 
-What exactly an ALPS Spec is and how to create complete APIs like Api Gateway or Appsync with the help of AWS CDK, I will explain in the next sections.
+What exactly an ALPS Spec is and how Api implementations like Api Gateway or Appsync can be created from it, I will explain in the next sections.
 
-# ALPS API
-ALPS is a specification for describing the bounded context of a service. ALPS can be used as a source material to generate lower abstracted specifications like OpenApi / Swagger, WSDL, RAML, WADL.
+# ALPS Api
+ALPS is a specification to describe the context of a service. ALPS can be used as specification input to generate low abstracted specifications like OpenApi / Swagger, WSDL, RAML, WADL.
 
-When I saw the [YouTube Video](https://www.youtube.com/watch?v=oG6-r3UdenE) with [Mike Amundsen](https://twitter.com/mamund), I immediately found the idea of ALPS cool and exciting. Like every good developer I love abstractions and ALPS seems to be an extremely cool abstraction. I immediately had the idea to combine the ALPS Api with AWS CDK constructs. That's exactly what I did and I'll report more details in the next section.
+When I saw the [YouTube video](https://www.youtube.com/watch?v=oG6-r3UdenE) with [Mike Amundsen](https://twitter.com/mamund), I immediately thought the idea of ALPS was cool and exciting. Like any good developer I love abstractions and ALPS seems to be an extremely cool abstraction. I immediately had the idea to connect the ALPS Api with an AWS CDK construct. That's exactly what I did and I tell more in details about it in the next section.
 
 # AWS CDK ALPS Constructs
+AWS CDK Constructs are, in short, source code for deploying resources or services in AWS. For this it uses abstract languages like TypeScript or Python and generates cloudformation templates from the code which are then also applied. If you are interested in the topic of AWS CDK, I have written a lot of posts about [CDK here](https://martinmueller.dev/tags/cdk).
 
-AWS CDK Constructs are short source code for resources in AWS. They use abstract languages like TypeScript or Python and generate from the code cloudformation templates which are then applied with the AWS CDK framework. If you are interested in more details about AWS CDK, I have many posts about [CDK written here](https://martinmueller.dev/tags/cdk).
+So my goal was to have targeted AWS Apis like Api Gateway and Appsync built using an ALPS specs. Below, I first show an ALPS Spec example. Then I describe the construct where I generate an AWS Api Gateway from an ALPS Spec. After that, an Appsync is built from the same ALPS Spec.
 
-My goal was to build AWS APIs like Api Gateway and Appsync with the help of ALPS Specs. In the following I show an ALPS Spec example. Then I describe the construct where I build an AWS Api Gateway from an ALPS Spec, which implements a REST API. After that I show how to build an appsync from the same ALPS Spec, which implements a Graph QL.
-
-The two following libraries are automatically released after [NPM](https://www.npmjs.com/) (for JavaScript and TypeScript) and [PYPI](https://pypi.org/) (for Python). In the future I plan to publish to a public Maven repository and .Net package repository.
+The two subsequent libraries are automatically released after [NPM](https://www.npmjs.com/) (for JavaScript and TypeScript) and [PYPI](https://pypi.org/) (for Python). In the future I also plan to publish to a public Maven repository and .Net package repository.
 
 ## ALPS Spec Example
-
-The following example is a simple TODO API.
+The following example is a simple TODO list api.
 
 ```YAML
 
@@ -48,7 +45,7 @@ alps:
     - type: metadata
       name: title
       value: simpleTodo
-      tags: 'oas'
+      tags: 'oas
     - type: metadata
       name: id
       value: http://alps.io/profiles/mamund/simpleTodo
@@ -102,11 +99,10 @@ alps:
 
 ```
 
-The element **todoItem** consists of an **id** and a todo string **body**. There are three actions defined **todoList** to list the todo entries, **todoAdd** to add new todos and **todoRemove** to delete todo entries.
+The **todoItem** element consists of an **id** and a todo string **body** . Three actions are defined **todoList** to list the todo items, **todoAdd** to insert new todos and **todoRemove** to delete todo items.
 
-## CDK ALPS REST API Construct Library
-
-The first ALPS CDK Construct I implemented is the CDK ALPS REST API Construct in my [github repo](https://github.com/mmuller88/cdk-alps-spec-rest-api) . It creates an AWS Api Gateway using the [CDK SpecRestApi Constructs](_COPY19@aws-cdk_aws-apigateway.SpecRestApi.html). You only have to pass an openApi Spec generated from the ALPS to the AWS Api Gateway:
+## CDK ALPS REST Api Construct Library
+The first ALPS CDK Construct I implemented is the CDK ALPS REST Api Construct in my [github repo](https://github.com/mmuller88/cdk-alps-Spec-rest-api) . It creates an AWS Api Gateway using the [CDK SpecRestApi Construct](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-apigateway.SpecRestApi.html). This then just needs to be passed an openApi Spec generated from the ALPS:
 
 ```ts
 const api = new apigw.SpecRestApi(this, 'SpecRestApi', {
@@ -114,44 +110,30 @@ const api = new apigw.SpecRestApi(this, 'SpecRestApi', {
 });
 ```
 
-## CDK ALPS Graph QL API Construct Library
-
-The second ALPS CDK Construct was much more exciting for me, because I used AWS Appsync as Graph QL Api and it was completely new for me. But again it was very easy and I was able to finish the construct in a few hours here on [github](https://github.com/mmuller88/cdk-alps-graph-ql). The ALPS compiler translates the ALPS spec into the Graph QL Schema and passes it to the [CDK GraphqlApi Construct](_COPY19@aws-cdk_aws-appsync.GraphqlApi.html):
+## CDK ALPS Graph QL Api Construct Library
+The second ALPS CDK Construct was much more exciting for me, because I used AWS Appsync as Graph QL Api and it was completely new for me. But against all expectations it was very easy and I was able to finish the construct in a few hours here on [github](https://github.com/mmuller88/cdk-alps-graph-ql). The ALPS compiler translates the ALPS spec into the Graph QL schema and passes it to the [CDK GraphqlApi Construct](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-appsync.GraphqlApi.html):
 
 ```ts
 export class AlpsGraphQL extends appsync.GraphqlApi {
 
   constructor(scope: cdk.Construct, id: string, props: AlpsGraphQLProps) {
     // convert ALPS yaml to graph ql schema file in tmp/schema.graphql
-    unified(props.alpsSpecFile);
+    const sdl = Alps.unified(Alps.loadYaml(props.alpsSpecFile), { formatType: FormatType.SDL });
+    fs.writeFileSync('tmp/schema.graphql', sdl);
     super(scope, id, {
       ...props,
-      // schema: appsync.Schema.fromAsset(join(__dirname, '../tmp/schema.graphql')),
-      schema: appsync.Schema.fromAsset(props.tmpFile),
-    });
-
-    new cdk.CfnOutput(this, 'GraphQlUrl', { value: thisexport class AlpsGraphQL extends appsync.GraphqlApi {
-
-  constructor(scope: cdk.Construct, id: string, props: AlpsGraphQLProps) {
-    // convert ALPS yaml to graph ql schema file in tmp/schema.graphql
-    unified(props.alpsSpecFile);
-    super(scope, id, {
-      ...props,
-      // schema: appsync.Schema.fromAsset(join(__dirname, '../tmp/schema.graphql')),
-      schema: appsync.Schema.fromAsset(props.tmpFile),
+      schema: appsync.Schema.fromAsset('tmp/schema.graphql'),
     });
 
     new cdk.CfnOutput(this, 'GraphQlUrl', { value: this.graphqlUrl });
-  }
-}.graphqlUrl });
   }
 }
 ```
 
 ## CDK Demo Deployment
-Great! We now have these two constructs which can generate Apis from an ALPS spec AWS. Now we just have to do this :). For this I have created a new [Demo Github Repo](https://github.com/mmuller88/cdk-alps-constructs-demo).
+Sweet! We now have these two constructs which can generate AWS Apis from an ALPS Spec. Now we just need to do that :). For this I created a new [Demo Github Repo](https://github.com/mmuller88/cdk-alps-constructs-demo).
 
-The Demo Deployment uses the same ALPS spec TODO example which I already introduced. To save the TODO items DynamoDB is used:
+The demo deployment uses the same ALPS Spec TODO example I already presented. DynamoDB is used to store the TODO items:
 
 ```ts
 const todoTable = new db.Table(stack, 'TodoTable', {
@@ -163,52 +145,46 @@ const todoTable = new db.Table(stack, 'TodoTable', {
 });
 ```
 
-Then the Api Gateway and Appsync is created
+Then the Api Gateway and Appsync are created
 
 ```ts
-new AlpsSpecRestApi(stack, 'AlpsSpecRestApi', {
-  alpsSpecFile: 'src/todo-alps.yaml',
-});
+new AlpsSpecRestApi(stack, 'AlpsSpecRestApi', { alpsSpecFile: 'src/todo-alps.yaml' });
 ...
 
-const graphQlApi = new AlpsGraphQL(stack, 'AlpsGraphQL', {
-  name: 'demo',
-  alpsSpecFile: 'src/todo-alps.yaml',
-  tmpFile: join(__dirname, '../tmp/schema.graphql'),
-});
+const graphQlApi = new AlpsGraphQL(stack, 'AlpsGraphQL', { alpsSpecFile: 'src/todo-alps.yaml' });
 
 ...
 ```
 
-That's it. Now just apply the CDK stack:
+That's it. Now just apply the CDK stack with:
 
 ```
 yarn build
-yarn deploy [--profiles X]
+yarn deploy [--profile X]
 ```
 
-Yeahh. So we have created an Api Gateway and an Appsync based on the ALPS API.
+Yeahh. So we have created an Api Gateway and an Appsync based on the ALPS Api.
 
 # Use Cases
-Of course I thought about which Use Cases for the ALPS Spec abstraction there could be. Some of them came to my attention while I was creating the CDK ALPS Constructs.
+Of course I thought about what use cases there could be for the ALPS spec abstraction. Some of them came to my mind while I was creating the CDK ALPS Constructs.
 
-I see it as an easy and safe way to migrate from Api Gateway to Appsync. The resolvers for the Graph QL could for example use the Lambda integrations from the rest of Api or maybe even do without them completely and for CRUD operations to a DB directly a mapping.
+I see it as an easy and safe way to migrate from Api Gateway to Appsync. For example, the resolvers for the Graph QL could use the Lambda integrations from the Rest Api, or possibly even do away with them entirely and map directly to a DB for CRUD operations.
 
-Since the ALPS spec is an abstraction of e.g. Rest Api, it should be possible for domain experts to write it themselves. It would be great if the domain expertise could be better abstracted and this could be possible with ALPS. So while the domain expert takes care of the technicalities, the developer can take care of the usage of the specific API and its implementation. Thus a better distribution of tasks is achieved.
+Since the ALPS spec is an abstraction of e.g. Rest Api, it should be possible for domain experts to write it themselves. It would be great if the domain specific context could be abstracted better and this could be possible with ALPS. So while the domain expert takes care of the domain specificity, the developer can work on the concrete api and its implementation. Thus, a better modular work is made possible.
 
 # Summary
-ALPS API is a fascinating idea about an abstraction from other APIs like REST API, Graph QL etc. Personally it helped me to understand Graph QL better because I had a common denominator by going back over the ALPS spec. Also the automatic generation of the Graph QL schema is great to understand the API better.
+ALPS Api is a fascinating idea about abstraction from other apis like REST, Graph QL etc. Personally, it helped me understand Graph QL better as I had a common denominator by going back through the ALPS spec. Also the auto-generation of Graph QL schema is super great to understand the api better as well.
 
-I myself noticed while creating the three repos that I don't know much about the ALPS syntax and want to learn more about it. If you are also interested in the ALPS topic, please write me. With the [ALPS Community](alps.io) we regularly organize community meetings online from all over the world. There you can meet exciting people and get involved if you want :).
+I myself realized while creating the three repos that I still don't know much about the ALPS syntax and want to learn more about it. If you are also interested in the ALPS topic, please write me. With the [ALPS Community](https://alps.io) we regularly organize community meetings online from all over the world. There you can meet exciting people and get involved if you want :).
 
-I'm already working on a refreshed library to convert the ALPS spec to the lower abstracted APIs [here](https://github.com/mmuller88/alps-unified-ts). This will make it even easier to use ALPS unified as a library in your code:
+I am already working on a refreshed library to convert the ALPS spec to the lower abstracted Apis [here](https://github.com/mmuller88/alps-unified-ts). This will make it even easier to use ALPS unified as a library in your code:
 
 ```ts
 // loaded from a YAML file
-Alps.unified(Alps.loadYaml(...), { formatType: FormatType.OPENAPI })
+Alps.unified(Alps.loadYaml(...), { formatType: FormatType.OPENApi })
 
-// or direct via TypeScript Object
-Alps.unified(Alps.spec({
+// or directly via TypeScript object
+Alps.unified(Alps.Spec({
     alps: {
       version: '1.0',
       doc: {
@@ -219,7 +195,7 @@ Alps.unified(Alps.spec({
 });
 ```
 
-In addition, the library should work in JavaScript, TypeScript, Python, Java and .NET and be available via public registries. More about this will be published in a separate blog post. Until then stay tuned!
+In addition, the library should work in JavaScript, TypeScript, Python, Java and .NET and be available through public registries. More about this will come in a separate blog post. Until then stay tuned!
 
 To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
 
