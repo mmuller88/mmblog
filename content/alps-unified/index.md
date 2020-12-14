@@ -10,6 +10,22 @@ pruneLength: 50
 
 Hi :).
 
+Mike Amundsen von der alps.io Community hat eine tolle [ALPS Converter Library](https://github.com/mamund/alps-unified) geschrieben. Mit dieser ist es möglich eine ALPS Spezifikation (kurz Spec), geschrieben in YAML oder JSON, zu konvertieren nach z.B. OpenApi oder dem GraphQL Schema.
+
+Allerdings ist die Library leider nur eine JavaScript CLI. Für meinen anderen Projekte mit ALPS hätte ich aber gerne eine Command Library die ich direkt benutzen kann wie z.B. so:
+
+```ts
+import { Alps, FormatType } from 'alps-unified-ts';
+
+// geladen von einer YAML File
+Alps.unified(Alps.loadYaml('todo-alps.yaml'), { formatType: FormatType.OPENAPI })
+```
+
+Wie man hier sieht besäße so eine Lirary auch den Vorteil von Typen. Dafür eignet sich natürlich TypeScript. Ich habe mich also rangemacht eine TypeScript Library Version von ALPS unified zu bauen. Weitere tolle Features meine ALPS unified TypeScript sind:
+
+* automatische versioniertes Releasing nach [NPM](https://npmjs.com), [PyPi](https://pypi.com), [Maven](https://maven-central.com) und [Nuget](https://nuget.com) (für .NET)
+* 
+
 * Projen für Grundgerüßt
 
 # ALPS API
@@ -97,6 +113,8 @@ Das Element **todoItem** besteht aus einer **id** und einem todo string **body**
 * Alps.unified(Alps.fromYAML())
 
 ```ts
+import { Alps, FormatType } from 'alps-unified-ts';
+
 // geladen von einer YAML File
 Alps.unified(Alps.loadYaml(...), { formatType: FormatType.OPENAPI })
 

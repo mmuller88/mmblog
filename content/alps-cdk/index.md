@@ -1,7 +1,7 @@
 ---
 title: ALPS Api kombiniert mit AWS CDK
 show: 'no'
-date: '2020-12-13'
+date: '2020-12-14'
 image: 'alps.png'
 tags: ['de', '2020', 'aws', 'swagger', 'cdk', 'alps', 'openapi']
 engUrl: https://martinmueller.dev/alps-cdk-eng
