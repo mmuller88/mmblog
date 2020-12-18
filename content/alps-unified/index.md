@@ -24,7 +24,7 @@ Alps.unified(Alps.loadYaml('todo-alps.yaml'), { formatType: FormatType.OPENAPI }
 Wie man hier sieht besäße so eine Library auch den Vorteil der Typisierung. Dafür eignet sich natürlich TypeScript. Ich habe mich also rangemacht eine TypeScript Library Version von ALPS unified zu bauen. Weitere tolle Features meine ALPS unified TypeScript sind:
 
 * automatische versioniertes Releasing nach [NPM](https://npmjs.com), [PyPi](https://pypi.com), [Maven](https://maven-central.com) und [Nuget](https://nuget.com) (für .NET)
-* 
+* Typensupport
 
 Das GitHub Projekt wurden mit [Projen](https://github.com/projen/projen) erstellt. Was die ALPS Api und Projen ist will ich in den nächsten Abschnitten genauer erörtern.
 
@@ -285,6 +285,8 @@ alps_converted = alps.Alps.unified(alps_document=alps.Alps.spec(alps=alps_def), 
 ```
 
 Die Verwendung in Java und .NET sollte ähnlich aussehen.
+
+In meinem vorherigen Blogpost [ALPS kombiniert mit CDK](https://martinmueller.dev/alps-cdk) erkläre ich wie aus einer ALPS Spec wahlweise ein AWS Api Gateway oder AWS Appsync mit dem ALPS Todo Beispiel und der ALPS unified library erzeugen werden kann.
 # Zusammenfassung
 Eine Library mit [Projen](https://github.com/projen/projen) zu bauen war super fun! Ich habe damit eine neue, verbesserte Version von der alps unified library gebaut. Diese kommt jetzt mit supper coolen neuen Funktionen die ich hier vorgestellt habe.
 
