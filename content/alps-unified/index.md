@@ -2,17 +2,15 @@
 title: ALPS Helfer Library
 show: 'no'
 date: '2020-12-19'
-image: 'alps.png'
-tags: ['de', '2020', 'aws', 'swagger', 'cdk', 'alps', 'openapi', 'nofeed']
+image: 'alps-u.png'
+tags: ['de', '2020', 'aws', 'swagger', 'cdk', 'alps', 'openapi', 'projen']
 engUrl: https://martinmueller.dev/alps-cdk-eng
 pruneLength: 50
 ---
 
 Hi :).
 
-Mike Amundsen von der alps.io Community hat einen [ALPS Converter](https://github.com/mamund/alps-unified) entwickelt. Mit diesem ist es möglich eine ALPS Spezifikation (kurz Spec) zu OpenApi, GraphQL oder anderen APIs zu konvertieren.
-
-Allerdings ist die Library leider nur eine JavaScript CLI. Für meinen anderen Projekte mit ALPS hätte ich aber gerne eine Command Library die ich direkt benutzen kann wie z.B. so:
+Der neue von mir entwickelte [ALPS Converter](https://github.com/mmuller88/alps-unified-ts) macht es möglich eine ALPS Spezifikation (kurz Spec) zu OpenApi, GraphQL oder anderen APIs zu konvertieren.
 
 ```ts
 import { Alps, FormatType } from 'alps-unified-ts';
@@ -21,7 +19,7 @@ import { Alps, FormatType } from 'alps-unified-ts';
 Alps.unified(Alps.loadYaml('todo-alps.yaml'), { formatType: FormatType.OPENAPI })
 ```
 
-Wie man hier sieht besäße so eine Library auch den Vorteil der Typisierung. Dafür eignet sich natürlich TypeScript. Ich habe mich also rangemacht eine TypeScript Library Version von ALPS unified zu bauen. Weitere tolle Features meine ALPS unified TypeScript sind:
+Weitere tolle Features meine ALPS unified Library sind:
 
 * automatische versioniertes Releasing nach [NPM](https://npmjs.com), [PyPi](https://pypi.com), [Maven](https://maven-central.com) und [Nuget](https://nuget.com) (für .NET)
 * Typensupport
@@ -31,7 +29,7 @@ Das GitHub Projekt wurden mit [Projen](https://github.com/projen/projen) erstell
 # ALPS API
 ALPS ist eine Spezifikation zur Beschreibung vom Context eines Services. ALPS kann verwendet werden als Spezifikationinput zum generieren von niedrig abstrahierten Spezifikationen wie OpenApi / Swagger, WSDL, RAML, WADL.
 
-Der [ALPS Converter](https://github.com/mamund/alps-unified) convertiert also eine ALPS Api Spec in niedriger abstrahierten Api Spezifikationen. Ein Beispiel für so eine Convertierung folgt im nächsten Abschnitt.
+Der [ALPS Converter](https://github.com/mmuller88/alps-unified-ts) convertiert also eine ALPS Api Spec in niedriger abstrahierten Api Spezifikationen. Ein Beispiel für so eine Konvertierung folgt im nächsten Abschnitt.
 
 ## ALPS API Spec Beispiel
 Das folgende Beispiel ist eine simple TODO ALPS API Spec.
@@ -257,7 +255,7 @@ Alps.unified(Alps.spec({
 });
 ```
 
-Die **Alps.unified(...)** Function gibt immer einen String zurück. Je nach ***formType** beinhaltet der zurückgegebene String das gewünsche Format. In unserem Beispiel ist das **FormatType.OPENAPI** welches OpenApi in YAML ist. Würde man nun gerne OpenAPI in JSON zurückhaben wollen ginge auch FormatType.OPENAPI_JSON . Für die Wiedergabe des Graph QL Schemas müsste man FormatType.DSL verwenden.
+Die **Alps.unified(...)** Function gibt immer einen String zurück. Je nach **formType** beinhaltet der zurückgegebene String das gewünsche Format. In unserem Beispiel ist das **FormatType.OPENAPI** welches OpenApi in YAML ist. Würde man nun gerne OpenAPI in JSON zurückhaben wollen, ginge auch FormatType.OPENAPI_JSON. Für die Wiedergabe des Graph QL Schemas müsste man FormatType.DSL verwenden.
 
 In Python kann die Library so benutzt werden:
 
@@ -265,21 +263,21 @@ In Python kann die Library so benutzt werden:
 import alps_unified_ts as alps
 
 alps_def = alps.AlpsDef(
-    version='1.0', 
-    descriptor=[alps.DescriptorDef(id="id", type="semantic", text="sotrage id of todo item")], 
-    doc=alps.DocDef(
-        value="Simple Todo list example"), 
-        ext=[
-            alps.ExtDef(
-                name="root", 
-                tags="oas", 
-                type="metadata", 
-                value="http://api.example.org/todo"),
-            alps.ExtDef(
-                name="title", 
-                tags="oas", 
-                type="metadata", 
-                value="simpleTodo")])
+  version='1.0', 
+  descriptor=[alps.DescriptorDef(id="id", type="semantic", text="sotrage id of todo item")], 
+  doc=alps.DocDef(
+    value="Simple Todo list example"), 
+    ext=[
+      alps.ExtDef(
+        name="root", 
+        tags="oas", 
+        type="metadata", 
+        value="http://api.example.org/todo"),
+      alps.ExtDef(
+        name="title", 
+        tags="oas", 
+        type="metadata", 
+        value="simpleTodo")])
 
 alps_converted = alps.Alps.unified(alps_document=alps.Alps.spec(alps=alps_def), format_type=alps.FormatType.OPENAPI)
 ```
