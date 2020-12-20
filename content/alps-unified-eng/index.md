@@ -9,7 +9,7 @@ pruneLength: 50
 
 Hi :).
 
-The new [ALPS Converter](https://github.com/mmuller88/alps-unified-ts) I developed makes it possible to convert an ALPS specification (Spec for short) to OpenApi, GraphQL or other APIs.
+The new [ALPS Converter](https://github.com/mmuller88/alps-unified-ts) I developed makes it possible to convert an ALPS specification (spec short) to OpenApi, GraphQL or other APIs.
 
 ```ts
 import { Alps, FormatType } from 'alps-unified-ts';
@@ -23,7 +23,7 @@ Other great features of my ALPS unified library are:
 * automatic versioned releasing to [NPM](https://npmjs.com), [PyPi](https://pypi.com), [Maven](https://maven-central.com) and [Nuget](https://nuget.com) (for .NET).
 * Type support
 
-The GitHub project were created using [Projen](https://github.com/projen/projen). I will discuss what the ALPS Api and Projen is in more detail in the next sections.
+The GitHub project were created using [Projen](https://github.com/projen/projen). I will discuss what the ALPS Api and Projen is in more details in the next sections.
 
 # ALPS API
 ALPS is a specification for describing the context of a service. ALPS can be used as specification input to generate low abstracted specifications like OpenApi / Swagger, WSDL, RAML, WADL.
@@ -182,7 +182,7 @@ components:
             example: jn1ov7axj4kv560d0921xf
 ```
 
-Or even this GraphQL scheme:
+Or in GraphQL schema:
 
 ```ql
 # *******************************************************************
@@ -212,7 +212,7 @@ schema {
 ```
 
 # Projen
-[Projen](https://github.com/projen/projen) allows sophisticated management of project configuration through code. With just a few lines of TypeScript code, an entire repository can be configured. Here is an example:
+[Projen](https://github.com/projen/projen) allows sophisticated management of project configuration files through code. With just a few lines of TypeScript code, an entire repository can be configured. Here is an example:
 
 ```ts
 const { JsiiProject } = require('projen');
@@ -230,7 +230,7 @@ These few lines create all the GitHub project files your heart desires. Among th
 
 What's really cool is that Projen also comes with GitHub workflows that can publish new versions to registries like NPM or PYPI.
 
-I have come to love the Projen framework as it is great abstraction and default for a setup of projects. I encourage you to give Projen a try and very soon you will experience the beauty of this framework yourself.
+I fell in love with the Projen framework as it is a great abstraction and default for a setup of projects. I encourage you to give Projen a try and very soon you will experience the beauty of this framework yourself.
 
 # ALPS Library in Action
 

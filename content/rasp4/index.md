@@ -10,7 +10,7 @@ pruneLength: 50
 
 Hi Raspberry Freunde.
 
-* Arbeite an IOT Projekt zum auslesen Gaszähler, Orten Bluetoot und vieles mehr
+* Arbeite an IOT Projekt wie z.B. Auslesen Gaszähler, Orten Bluetooth und vieles mehr in Zukunft
 * Raspberry 4 mit 4GB gekauf an Cyber Monday gekauft.
 * Will Deployments auf dem Raspberry zu hohem grade automatisierten. Sprich Docker, Docker Compose, AWS CodeDeploy Agent, AWS CodePipeline mit CDK Pipeline.
 * push nach master updated und deployed docker compose deployment auf Raspberry
@@ -18,7 +18,9 @@ Hi Raspberry Freunde.
 
 # Setup
 * Raspberry 4 mit 4GB. 64GB microSSD
-* Ubuntu 20.04.1 Server also keine Benutzeroberfläche
+* Ubuntu 20.04.1 Server also keine 
+* docker compose als deployment
+* optional: zigbee sensor
 
 ## Raspberry Installation
 * ssd Karte mit Ubuntu bespielt URL
@@ -35,9 +37,10 @@ Hi Raspberry Freunde.
 * Das regelmäßige pullen des Agenten hat fehlgeschlaten. Bin mir nicht 100% sicher aber das Problem wurde warscheinlich dadurch gelößt das aich aws cli version 1 anstatt version 2 installiert habe also mit sudo apt install awscli welches Version 1 installiert
 
 # Ausblick
-* Docker Compose deployment zum Laufen zu bekommen
-* Secrets wie Grafana Password aus AWS SSM laden
-* IOT Red Node einrichten zum auslesen des Gas Zählers
+* IOT Red Node einrichten zum auslesen des Gas Zählers und Speisen der IOT Daten in InfluxDB
+* Grafana zum Rendern der Gas Zähler Daten über die Zeit.
+* Mehr IOT verbinden
+* Raspberry als DNS Server verwenden mit Pi-Hole. Kommt mit coolen Features wie Ads Query blocking und Caching. Hab nur nen einfache Vodafone Station, würde also viel davon profitieren.
 
 # Zusammenfassung
 Wenn euch auch das ALPS Thema interessiert, schreibt mir doch. Mit der [ALPS Community](alps.io) veranstalten wir regelmäßig Community Treffen online aus aller Welt. Dort trefft ihr spannende Leute und könnt euch einbringen wenn ihr wollt :).
