@@ -288,7 +288,7 @@ In my previous blogpost [ALPS combined with CDK](https://martinmueller.dev/alps-
 # Summary
 Building a library with [Projen](https://github.com/projen/projen) was super fun! I used it to build a new, improved version of the alps unified library. It now comes with super cool new features that I introduced here.
 
-By the way, one more info. If you are also interested in the ALPS topic, with the [ALPS Community](alps.io) we regularly organize community meetings online. There you can meet exciting people from all over the world. Feel free to come by :) .
+By the way, one more info. If you are also interested in the ALPS topic, with the [ALPS Community](https://alps.io) we regularly organize community meetings online. There you can meet exciting people from all over the world. Feel free to come by :) .
 
 To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
 

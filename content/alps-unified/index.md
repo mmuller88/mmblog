@@ -288,7 +288,7 @@ In meinem vorherigen Blogpost [ALPS kombiniert mit CDK](https://martinmueller.de
 # Zusammenfassung
 Eine Library mit [Projen](https://github.com/projen/projen) zu bauen war super fun! Ich habe damit eine neue, verbesserte Version von der alps unified library gebaut. Diese kommt jetzt mit supper coolen neuen Funktionen die ich hier vorgestellt habe.
 
-Achja eine Info noch. Falls euch auch das ALPS Thema interessiert, mit der [ALPS Community](alps.io) veranstalten wir regelmäßig Community Treffen online. Dort trefft ihr spannende Leute auß aller Welt. Kommt gerne mal vorbei :) .
+Achja eine Info noch. Falls euch auch das ALPS Thema interessiert, mit der [ALPS Community](https://alps.io) veranstalten wir regelmäßig Community Treffen online. Dort trefft ihr spannende Leute auß aller Welt. Kommt gerne mal vorbei :) .
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
