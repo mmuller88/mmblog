@@ -283,7 +283,7 @@ alps_converted = alps.Alps.unified(alps_document=alps.Alps.spec(alps=alps_def), 
 
 Using it in Java and .NET should look similar.
 
-In my previous blogpost [ALPS combined with CDK](https://martinmueller.dev/alps-cdk), I explain how to optionally create an AWS Api Gateway or AWS Appsync from an ALPS Spec using the ALPS Todo example and the ALPS unified library.
+In my previous blogpost [ALPS combined with CDK](https://martinmueller.dev/alps-cdk-eng), I explain how to optionally create an AWS Api Gateway or AWS Appsync from an ALPS Spec using the ALPS Todo example and the ALPS unified library.
 
 # Summary
 Building a library with [Projen](https://github.com/projen/projen) was super fun! I used it to build a new, improved version of the alps unified library. It now comes with super cool new features that I introduced here.

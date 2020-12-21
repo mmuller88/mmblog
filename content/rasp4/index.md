@@ -10,10 +10,15 @@ pruneLength: 50
 
 Hi Raspberry Freunde.
 
-* Arbeite an IOT Projekt wie z.B. Auslesen Gaszähler, Orten Bluetooth und vieles mehr in Zukunft
-* Raspberry 4 mit 4GB gekauf an Cyber Monday gekauft.
-* Will Deployments auf dem Raspberry zu hohem grade automatisierten. Sprich Docker, Docker Compose, AWS CodeDeploy Agent, AWS CodePipeline mit CDK Pipeline.
-* push nach master updated und deployed docker compose deployment auf Raspberry
+Seit kurzem darf ich mich Besitzer eines Raspberries nennen. Am Cyber Monday habe ich mir einen Raspberry 4 mit 4GB gekauft. Ein guter Freund von mir, der viel Erfahrung in sachen Home IOT (Internet of Things) hat, zeigte mir was so alles möglich ist. Ich habe schon vorher Erfahrungen mit Home IOT gesammelt und diese in einem [Blogpost zusammengefasst](https://martinmueller.dev/smart-home-de) zusammengefasst. Allerdings waren diese Erfahrungen an fertige IOT Lösungen gebunden und geben daher nur einen limitierten Funktionsumfang.
+
+Ich wollte aus auf das nächste Level und mit Hilfe von MQTT und NodeRED coole Home IOT Lösungen finden. Meiner erster Use Case ist, dass ich den Gaszähler auslesen möchte. Im Internet fand ich eine Anleitung wie man meinen Gaszähler, digital unterstützt, auslesen kann [BK-G4](https://forum.iobroker.net/topic/27960/gasz%C3%A4hler-bk-g4-auslesen-mit-zigbee-fensterkontakt). Diese Lösung verlangte aber ein komplexes NodeRED Deployment mit der Verwendung eines Raspberries.
+
+Der Raspberry kann wie ein stinknormale VM behandelt werden. Das heißt er wird mit einem Betriebsystem wie Ubuntu bespielt. Dann werden erforderliche Programme installiert und anschließend wird das NodeRED Deployment ausgeführt. Bei Bedarf kann die VM einfach weggeschmissen werden und alles nochmal ausgeführt werden. Das sind viele manuelle Schritte die sehr zeitaufwendig und fehleranfällig sein können.
+
+Von daher habe ich mich entschlossen das gesamt Deployment zu einem hohen Grade zu automatisieren mit der Verwendung folgender Technologien GitHub, Docker, Docker Compose, AWS CodeDeploy Agent, AWS CodePipeline mit CDK Pipeline. Prinzipiell muss dann nur noch ein push zum main branch gemacht werden und das gesamte Docker Deployment baut und startet sich von allein.
+
+Wie das alles geht beschreibe ich in den nächsten Abschnitten.
 * keine two way Kommunikation meines Raspberries. CodeDeploy Agent pullt regelmäßig das github repo
 
 # Setup
