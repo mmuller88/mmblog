@@ -22,23 +22,32 @@ Wie das alles geht beschreibe ich in den nächsten Abschnitten.
 * keine two way Kommunikation meines Raspberries. CodeDeploy Agent pullt regelmäßig das github repo
 
 # Setup
-* Raspberry 4 mit 4GB. 64GB microSSD
-* Ubuntu 20.04.1 Server also keine 
+
+Zunächst möchte ich aber gerne mein Setup beschreiben. Wie Eingangs schon erwähnt, habe ich mir zum Cyber-Monday einen Raspberry 4 (kurz Rasp4) mit 4GB gekauft. Desweiteren gab es in dem Set noch eine 64GB microSSD.
+
+Die Installation von Ubuntu 20.04.1 war sehr einfach und ist sehr gut Dokumentiert auf https://ubuntu.com/download/raspberry-pi . Ich habe mich für den Ubuntu Server entschieden, da ich den Rasp4 als headless remote VM benutzen möchte.
+
 * docker compose als deployment
 * optional: zigbee sensor
 
-## Raspberry Installation
-* ssd Karte mit Ubuntu bespielt URL
-* wifi konfigurierte
-* Remoteverbindung über ssh --> keine extra Tastatur oder Monitor benötigt. Extrem geil!
-
 ## Installation der Umgebung
-* benötige viele Programme wie Docker, Docker Compose, Git, AWS CLI, AWS CodeDeploy Agent und viele mehr --> init.sh mit sudo Rechten ausführen
+
+Die IOT Programme sollen mittels Docker Compose laufen und aus meinem [GitHub Repo](https://github.com/mmuller88/rasp4) soll die Docker Compose YAML file bereitgestellt werden. Desweiteren soll das Docker Compose Deployment automatisch rebuilded und redeployed werden sobald sich was auf den master Branch gepusht wird.
+
+Um das alles zu ermöglichen werden viele Programme wie Docker, Docker Compose, Git, AWS CLI, AWS CodeDeploy Agent usw, benötigt. Um die Installation der benötigten Programme zu vereinfachen habe ich ein Script ./mis/init.sh erstellt. Dieses wird dann einfach auf dem Rasp4 ausgeführt:
+
+```
+sudo chmod +x ./init.sh
+./init.sh
+```
 
 # Was hat besonders Spaß gemacht?
-* Raspberry sehr einfach bespielbar mit Ubuntu. Errinert mich stark an Docker Container nur ein wenig langsamer. init.sh
+Extrem cool fand ich die einfach Installierung von Ubuntu auf meinen Rasp4. Das ging sogar ohne extra Tastatur und Monitor und nennt sich remote Installation. Dafür muss während der Image Bespielung auf der microSSD karte einfach noch das wifi Credentials mit angegeben werden. Dieser einfach Prozess hat mich irgendwie an Docker Images erinnert, die ja auch sehr leichtfüßig unterwegs sind. Extrem cool!
+
+Es ist auch ein paar mal vorgekommen, dass ich das gesamte OS neu bespielt habe um Konfigurationsprobleme zu lösen. Da ich alle Schritte der Installation in der init.sh hatte, war das kein Problem.
 
 # Schwierigkeiten
+
 * Das regelmäßige pullen des Agenten hat fehlgeschlaten. Bin mir nicht 100% sicher aber das Problem wurde warscheinlich dadurch gelößt das aich aws cli version 1 anstatt version 2 installiert habe also mit sudo apt install awscli welches Version 1 installiert
 
 # Ausblick
