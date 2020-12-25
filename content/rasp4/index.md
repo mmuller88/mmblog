@@ -10,7 +10,7 @@ pruneLength: 50
 
 Hi Raspberry Freunde.
 
-Seit kurzem darf ich mich Besitzer eines Raspberries nennen. Am Cyber Monday habe ich mir einen Raspberry 4 mit 4 GB gekauft. Ich habe schon früher Erfahrungen mit Home IOT gesammelt und diese in einem [Blogpost zusammengefasst](https://martinmueller.dev/smart-home-de) zusammengefasst. Allerdings waren diese Erfahrungen an fertige IOT Lösungen gebunden und geben daher nur einen limitierten Funktionsumfang. Ein guter Freund von mir, der viel Erfahrung mit Home IOT (Internet of Things) hat, zeigte mir was noch alles so möglich ist.
+Seit kurzem darf ich mich Besitzer eines Raspberries nennen. Am Cyber Monday habe ich mir einen Raspberry 4 mit 4 GB gekauft RASPBERRY 4 AFFILIATE HIER. Ich habe schon früher Erfahrungen mit Home IOT gesammelt und diese in einem [Blogpost zusammengefasst](https://martinmueller.dev/smart-home-de) zusammengefasst. Allerdings waren diese Erfahrungen an fertige IOT Lösungen gebunden und geben daher nur einen limitierten Funktionsumfang. Ein guter Freund von mir, der viel Erfahrung mit Home IOT (Internet of Things) hat, zeigte mir was noch alles so möglich ist.
 
 Ich wollte aus auf das nächste IOT Level und mit Hilfe von MQTT und NodeRED coole Lösungen bauen. Meine erster Use Case ist, dass ich den Gaszähler digital auslesen möchte und in Relation zur Zeit schöne Auswertungsgrafiken angezeigt bekomme. Im Internet fand ich eine Anleitung wie man meinen Gaszähler, digital unterstützt, auslesen kann [BK-G4](https://forum.iobroker.net/topic/27960/gasz%C3%A4hler-bk-g4-auslesen-mit-zigbee-fensterkontakt). Diese Lösung verlangte aber ein komplexes NodeRED Deployment mit der Verwendung eines Raspberries.
 
@@ -19,11 +19,10 @@ Der Raspberry kann wie ein normale VM behandelt werden. Das heißt es wird mit e
 Von daher habe ich mich entschlossen das gesamt Deployment zu einem hohen Grade zu automatisieren mit der Verwendung folgender Technologien GitHub, Docker, Docker Compose, AWS CodeDeploy Agent, AWS CodePipeline mit CDK Pipeline. Prinzipiell muss dann nur noch ein push zum main branch gemacht werden und das gesamte Docker Deployment baut und startet sich von allein.
 
 Wie das alles geht beschreibe ich in den nächsten Abschnitten.
-* keine two way Kommunikation meines Raspberries. CodeDeploy Agent pullt regelmäßig das github repo
 
 # Setup
 
-Zunächst möchte ich aber gerne mein Setup beschreiben. Wie Eingangs schon erwähnt, habe ich mir zum Cyber-Monday einen Raspberry 4 (kurz Rasp4) mit 4GB gekauft. Desweiteren gab es in dem Set noch eine 64 GB microSSD.
+Zunächst möchte ich aber gerne mein Setup beschreiben. Wie Eingangs schon erwähnt, habe ich mir zum Cyber-Monday einen Raspberry 4 (kurz Rasp4) mit 4GB gekauft RASPBERRY 4 AFFILIATE HIER. Desweiteren gab es in dem Set noch eine 64 GB microSSD.
 
 Die Installation von Ubuntu 20.04.1 war sehr einfach und ist sehr gut Dokumentiert auf [ubuntu.com](https://ubuntu.com/download/raspberry-pi) . Ich habe mich für den Ubuntu Server entschieden, da ich den Rasp4 als headless remote VM benutzen möchte.
 
@@ -39,6 +38,8 @@ Um das alles zu ermöglichen werden viele Programme wie Docker, Docker Compose, 
 sudo chmod +x ./init.sh
 ./init.sh
 ```
+
+Wichtig noch zu erwähnen. Der Rasp4 hat nur eine one way Internetverbindung. Das heißt er hat keine öffentliche IP und ist somit von außen nicht bzw. nur schwer erreichbar. Er ist damit nur im lokalen Netz erreichbar.
 
 ## Automatisiertes Deployment mit AWS CodeDeploy & AWS CodePipeline
 Um manuellen Aufwand so gut es geht zu verringern, habe ich mich dafür entschieden das Docker Compose Deployment zu automatisieren. Dafür verwende ich einen AWS CodeDeploy Agenten der automatisch Änderungen auf dem main Branch registriert und auf dem Rasp4 ausführt. Die Installation des AWS CodeDeploy Agents war etwas knifflig aber hat letztenende funktioniert. Der Agent wird auch mit der init.sh installiert.
