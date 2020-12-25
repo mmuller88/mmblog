@@ -2,7 +2,7 @@
 title: Raspberry 4 automatisiert fernsteuern mit CDK Pipeline
 show: 'no'
 date: '2020-12-27'
-image: 'alps.png'
+image: 'rasp.jpeg'
 tags: ['de', '2020', 'aws', 'raspberry', 'cdk', 'nofeed']
 engUrl: https://martinmueller.dev/rasp4-eng
 pruneLength: 50
@@ -10,7 +10,7 @@ pruneLength: 50
 
 Hi Raspberry Freunde.
 
-Seit kurzem darf ich mich Besitzer eines Raspberries nennen. Am Cyber Monday habe ich mir einen Raspberry 4 mit 4 GB gekauft RASPBERRY 4 AFFILIATE HIER. Ich habe schon früher Erfahrungen mit Home IOT gesammelt und diese in einem [Blogpost zusammengefasst](https://martinmueller.dev/smart-home-de) zusammengefasst. Allerdings waren diese Erfahrungen an fertige IOT Lösungen gebunden und geben daher nur einen limitierten Funktionsumfang. Ein guter Freund von mir, der viel Erfahrung mit Home IOT (Internet of Things) hat, zeigte mir was noch alles so möglich ist.
+Seit kurzem darf ich mich Besitzer eines Raspberries nennen. Am Cyber Monday habe ich mir einen Raspberry 4 mit 4 GB gekauft RASPBERRY 4 AFFILIATE HIER. Ich habe schon früher Erfahrungen mit Home IOT gesammelt und diese in einem [Blogpost](https://martinmueller.dev/smart-home-de) zusammengefasst. Allerdings waren diese Erfahrungen an fertige IOT Lösungen gebunden und geben daher nur einen limitierten Funktionsumfang. Ein guter Freund von mir, der viel Erfahrung mit Home IOT (Internet of Things) hat, zeigte mir was noch alles so möglich ist.
 
 Ich wollte aus auf das nächste IOT Level und mit Hilfe von MQTT und NodeRED coole Lösungen bauen. Meine erster Use Case ist, dass ich den Gaszähler digital auslesen möchte und in Relation zur Zeit schöne Auswertungsgrafiken angezeigt bekomme. Im Internet fand ich eine Anleitung wie man meinen Gaszähler, digital unterstützt, auslesen kann [BK-G4](https://forum.iobroker.net/topic/27960/gasz%C3%A4hler-bk-g4-auslesen-mit-zigbee-fensterkontakt). Diese Lösung verlangte aber ein komplexes NodeRED Deployment mit der Verwendung eines Raspberries.
 
