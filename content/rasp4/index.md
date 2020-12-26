@@ -1,5 +1,5 @@
 ---
-title: Raspberry 4 automatisiert fernsteuern mit CDK Pipeline
+title: Raspberry 4 IOT mit AWS CDK Pipeline automatisiertes Deployment
 show: 'no'
 date: '2020-12-27'
 image: 'rasp.jpeg'
@@ -42,13 +42,19 @@ sudo chmod +x ./init.sh
 Wichtig noch zu erwähnen. Der Rasp4 hat nur eine one way Internetverbindung. Das heißt er hat keine öffentliche IP und ist somit von außen nicht bzw. nur schwer erreichbar. Er ist damit nur im lokalen Netz erreichbar.
 
 ## Automatisiertes Deployment mit AWS CodeDeploy & AWS CodePipeline
+
 Um manuellen Aufwand so gut es geht zu verringern, habe ich mich dafür entschieden das Docker Compose Deployment zu automatisieren. Dafür verwende ich einen AWS CodeDeploy Agenten der automatisch Änderungen auf dem main Branch registriert und auf dem Rasp4 ausführt. Die Installation des AWS CodeDeploy Agents war etwas knifflig aber hat letztenende funktioniert. Der Agent wird auch mit der init.sh installiert.
 
 Um den Agenten Aktionen auf dem Rasp4 ausführen zu lassen sobald Commits auf dem main Branch passieren, muss noch eine AWS CodePipeline erstellt werden. Die AWS CodePipeline wird Konfiguriert und Verwaltet mit [AWS CDK](https://github.com/aws/aws-cdk) . AWS CDK ist ein Open Source Framework zur Erstellung und Verwaltung von AWS Ressourcen mit Hilfe von high level Sprachen wir TypeScript oder Python. Der AWS CDK Code is ebenfalls in meinem GitHub repo und [hier](https://github.com/mmuller88/rasp4/blob/master/src) zu finden.
 
 Falls ich dich für das Thema AWS CDK neugierig gemacht habe, findest du auf meiner Blogseite unzählige weitere Blogposts über [AWS CDK](https://martinmueller.dev/tags/cdk)
 
+## IOT Docker Compose Stack
+
+Mein IOT Stack besteht aus den folgenden Containern NodeRED, InfluxDB, Grafana, Mosquitto und Zigbee. Die genauen Einstellungen sind in der [docker-compose](https://github.com/mmuller88/rasp4/blob/master/docker-compose.yml) file .
+
 # Was hat mir besonders Spaß gemacht?
+
 Extrem cool fand ich die einfach Installierung von Ubuntu auf meinen Rasp4. Das ging sogar ohne extra Tastatur und Monitor und nennt sich remote Installation. Dafür muss während der Image Bespielung auf der microSSD karte einfach noch das wifi Credentials mit angegeben werden. Dieser einfach Prozess hat mich irgendwie an Docker Images erinnert, die ja auch sehr leichtfüßig unterwegs sind. Extrem cool!
 
 Es ist auch ein paar mal vorgekommen, dass ich das gesamte OS neu bespielt habe um Konfigurationsprobleme zu lösen. Da ich alle Schritte der Installation in der init.sh hatte, war das kein Problem.
@@ -56,6 +62,7 @@ Es ist auch ein paar mal vorgekommen, dass ich das gesamte OS neu bespielt habe 
 Auch die Erstellung der AWS CodePipeline mit AWS CDK war extrem cool. Da ich mit AWS CDK schon sehr viel Erfahrung habe, ging das sehr leicht von der Hand. Infrastructure as Code ist einfach toll!
 
 # Schwierigkeiten
+
 Sehr zeitaufwendig und nervig war das Einrichten des AWS CodeDeploy Agents, da dieser nur mit bestimmten Programmversionen von awscli oder ruby funktioniert. Bis heute bin ich mir nicht sicher, warum der Agent immer so viel rumgezickt hat. Naja er funktioniert jetzt und das ist was zählt.
 
 # Ausblick
