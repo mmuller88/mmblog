@@ -51,7 +51,9 @@ Falls ich dich für das Thema AWS CDK neugierig gemacht habe, findest du auf mei
 
 ## IOT Docker Compose Stack
 
-Mein IOT Stack besteht aus den folgenden Containern NodeRED, InfluxDB, Grafana, Mosquitto und Zigbee. Die genauen Einstellungen sind in der [docker-compose](https://github.com/mmuller88/rasp4/blob/master/docker-compose.yml) file .
+Mein IOT Stack besteht aus den folgenden Containern NodeRED, InfluxDB, Grafana, Mosquitto und Zigbee. Die genauen Einstellungen sind in der [docker-compose](https://github.com/mmuller88/rasp4/blob/master/docker-compose.yml) file . Den Stack habe ich mir mit dem Docker Compose Builder von [IOTstack](https://github.com/gcgarner/IOTstack) zusammengebastelt.
+
+Ich empfehle euch einen der Forks vom IOTstack zu benutzen da der User gcgarner den Builder nicht mehr zu maintainen scheint.
 
 # Was hat mir besonders Spaß gemacht?
 
