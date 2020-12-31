@@ -32,7 +32,7 @@ Ich hab noch viele andere Streams an dem Tag besucht und es ist immer wieder tol
 Auch extrem cool und witzig und toll war die RC3 World welches eine digitalisierte zweidimensionale Welt von dem RC3 Messegelände und mehr darstellt. Du erstellst dir dort einen kleinen Avatar und läufst zusammen mit vielen anderen in einer 2 d Welt herum. Mit den anderen kann man auch sprechen und sich gegenseitig per Webcam bestaunen wenn man nah genug zusammenkommt. Extrem witzig und cool. In der World wurden unter anderem die Chaos Spaces von Deutschland modelliert und das [Hacklabor](https://hacklabor.de) ist sehr gut gelungen (siehe Titelbild).
 
 # Tag 2
-Besuchte Streas:
+Besuchte Streams:
 * 11:00 Daten : IT bei der Polizei
 * 12:20 Scientific Literacy
 * 13:00 Mundhalle
@@ -45,7 +45,11 @@ Heute ist Montag und der zweite Tag der rC3. Meine Highlight Stream heute war de
 Auch sehr spannend wer der 19:00 "Gesundheit ist eine soziale Frage" talks, welcher sehr schön aufgezeigt hat wie das aktuelle Deutsche Gesundheitsystem kränkelt. Z.B. das Präventation eine eher untergeordnete Rolle spielt. Auch sehr zum Nachdenken hat mich gebrachte die Formulierung warum man eigentlich Patienten wieder in ihr Umfeld entlässt, welches sie so krank gemacht hat. Genau da müsste man eigentlich ansetzen und das Umfeld / die Lebensbedingungen des Patienten angehen.
 
 # Tag 3
-...
+Besuchte Streams:
+* 11:05 Digitales Ehrenamt meets Deutsche Stiftung fuer Engagement und Ehrenamt met
+* 13:00 Offene Daten für Veile Nutzbar machen
+
+Heute hatte ich leider nicht ganz so viel Zeit zum Anschauen von Streams da ich an Projekten gearbeitet habe. Gegen Abends hab ich in der rC3 World etwas sozialised. Ich habe ein paar coole Dudes von dem Rostocker Space kennengelernt. Mir ist dann aufgefallen das ich Einige noch aus meiner Zeit als Rostocker Student her kenne. Die rC3 World ist dann auch irgendwann zusammengebrochen und es hat sehr lange gedauert bis diese wieder erreichbar war.
 
 # Tag 4
 ...
