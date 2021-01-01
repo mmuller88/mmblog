@@ -1,9 +1,9 @@
 ---
 title: Raspberry 4 IOT mit AWS CDK Pipeline automatisiertes Deployment
 show: 'no'
-date: '2020-12-31'
+date: '2020-01-01'
 image: 'rasp.jpeg'
-tags: ['de', '2020', 'aws', 'raspberry', 'cdk', 'nofeed']
+tags: ['de', '2021', 'aws', 'raspberry', 'cdk', 'nofeed']
 engUrl: https://martinmueller.dev/rasp4-eng
 pruneLength: 50
 ---
