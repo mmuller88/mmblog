@@ -14,12 +14,12 @@ Der 33te Kongress hat im Dezember stattgefunden und aufgrund der Pandemie war al
 
 # Tag 1
 Besuchte Streas:
-* 12:20 Intro
-* 13:00 Die Geschichte der Corona-Warn-App
-* 14:00 Flutter - Introduction
-* 14:30 Wie gründe ich eine Genossenschaft?
-* 16:00 Rage Against The Machine Learning
-* 19:00 What the cyberoptimists got wrong-and what to do about it
+* 12:20 [#rc Eröffnung](https://media.ccc.de/v/rc3-11583-rc3_eroffnung)
+* 13:00 [Die Geschichte der Corona-Warn-App](https://media.ccc.de/v/rc3-729538-die_geschichte_der_corona_warn_app)
+* 14:00 [Flutter - Introduction](https://media.ccc.de/v/rc3-695961-flutter_introduction_into_performant_cross_platform_development)
+* 14:30 [Wie gründe ich eine Genossenschaft?](https://media.ccc.de/v/rc3-578923-wie_gruende_ich_eine_genossenschaft)
+* 16:00 [Rage Against The Machine Learning](https://media.ccc.de/v/rc3-891673-rage_against_the_machine_learning)
+* 19:00 [What the cyberoptimists got wrong-and what to do about it](https://media.ccc.de/v/rc3-11337-what_the_cyberoptimists_got_wrong_-_and_what_to_do_about_it)
 
 Wir schreiben den 27ten Dezember 2020. Um 12:20 geht der RC3 los. Das Intro war sehr cool. Es gab eine Zusammenfassung über das Jahr 2020 und neben Corona sind viele interessante und leider auch traurige Sachen passiert auf die aufmerksam gemacht wurde. Es wurde auch gezeigt bzw. gut klar gemacht wieviel Aufwand und wieviel Leute eigentlich daran beteiligt sind den RC3 zu ermöglichen. Extrem cool.
 
@@ -33,12 +33,12 @@ Auch extrem cool und witzig und toll war die RC3 World welches eine digitalisier
 
 # Tag 2
 Besuchte Streams:
-* 11:00 Daten : IT bei der Polizei
-* 12:20 Scientific Literacy
-* 13:00 Mundhalle
-* 14:20 Flutter - An advanced view on cross-platform app development
-* 15:00 Hackergenossenschaft Plattform chaosnahen Wirtschaftens
-* 19:00 Gesundheit ist eine soziale Frage
+* 11:00 [Daten : IT bei der Polizei](https://media.ccc.de/v/rc3-110705-datenkanal)
+* 12:20 [Scientific Literacy 101](https://media.ccc.de/v/rc3-11430-scientific_literacy_101)
+* 13:00 [Mundhalle](https://media.ccc.de/v/rc3-4-mundhalle)
+* 14:20 [Flutter - An advanced view on cross-platform app development](https://media.ccc.de/v/rc3-518497-flutter_an_advanced_view_on_cross_platform_app_development)
+* 15:00 [Hackergenossenschaft Plattform chaosnahen Wirtschaftens](https://media.ccc.de/v/rc3-990369-hackergenossenschaft_als_plattform_chaosnahen_wirtschaftens)
+* 19:00 [Gesundheit ist eine soziale Frage](https://media.ccc.de/v/rc3-10-gesundheit_ist_eine_soziale_frage)
 
 Heute ist Montag und der zweite Tag der rC3. Meine Highlight Stream heute war der 15:00 Uhr "Hackergenossenschaft als Plattform chaosnahen Wirtschaftens" . Da ich selber gerade bei einer Genossenschaftsgründung dabei bin, ist es hochspannend darüber zu hören. Etwas verstörend fand ich, dass die dort vorgestellte Hackergenossenschaft ein Jahr gebraucht hat um die Genossenschaft zu gründen. Das soll wohl viel mit der Bürokratie von Deutschland zu tun haben. Ich bin aber optimistisch das unsere Genossenschaftsgründung schneller gehen wird.
 
@@ -47,15 +47,16 @@ Auch sehr spannend wer der 19:00 "Gesundheit ist eine soziale Frage" talks, welc
 # Tag 3
 Besuchte Streams:
 * 11:05 Digitales Ehrenamt meets Deutsche Stiftung fuer Engagement und Ehrenamt met
-* 13:00 Offene Daten für Veile Nutzbar machen
+* 13:00 Offene Daten für Viele Nutzbar machen
 
 Heute hatte ich leider nicht ganz so viel Zeit zum Anschauen von Streams da ich an Projekten gearbeitet habe. Gegen Abends hab ich in der rC3 World etwas sozialised. Ich habe ein paar coole Dudes von dem Rostocker Space kennengelernt. Mir ist dann aufgefallen das ich Einige noch aus meiner Zeit als Rostocker Student her kenne. Die rC3 World ist dann auch irgendwann zusammengebrochen und es hat sehr lange gedauert bis diese wieder erreichbar war.
 
 # Tag 4
-...
+Heute konnte ich so gut wie keine Streams besuchen da viel auf Arbeit getan werden musste. Ich konnte gegen Abend aber noch etwas Zeit mit Freunden in der World verbringen und ein ein paar Streams schauen.
+# Fazit
+Vielen vielen Dank an die Organisator und mitwirkenden Kräfte des rC3. Es war meine aller erste Chaos Computer Club Veranstaltung und es hat mich einfach aus den Socken gehauen. Es gab viele spannende Streams und die World war genial. Dafür dass dies die erste rC3 war, sind die relativ häufigen technische Markel / Ausfälle auf jedenfall verzeihbar.
 
-# Zusammenfassung
-Vielen vielen Dank an die Organisator und mitwirkenden Kräfte des RC3. Es war meine aller erste Chaos Computer Club Veranstaltung und es hat mich einfach aus den Socken gehauen.
+Anyhow ich hoffe für 2021 findet die C3 wieder in Person statt, aber falls nicht die rC3 ist eine super Alternative! Danke auch an meinen Kumpel und erfahrenen C3 Kongress Besucher für die vielen kleinen Tipps und das lustige Beisammen sein, die meine rC3 Experience verbessert haben :).
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
