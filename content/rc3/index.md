@@ -2,7 +2,7 @@
 title: RC3 Bericht
 show: 'no'
 date: '2021-01-05'
-image: 'rasp.jpeg'
+image: 'rc3.JPG'
 tags: ['de', '2020', 'ccc', 'chaos', 'congress', 'nofeed']
 engUrl: https://martinmueller.dev/rc3-eng
 pruneLength: 50
@@ -47,7 +47,7 @@ Auch sehr spannend wer der 19:00 "Gesundheit ist eine soziale Frage" talks, welc
 # Tag 3
 Besuchte Streams:
 * 11:05 Digitales Ehrenamt meets Deutsche Stiftung fuer Engagement und Ehrenamt met
-* 13:00 Offene Daten für Viele Nutzbar machen
+* 13:00 [Offene Daten für Viele Nutzbar machen](https://media.ccc.de/v/rc3-2020-157-offene-daten-fr-viele-nutzbar-machen)
 
 Heute hatte ich leider nicht ganz so viel Zeit zum Anschauen von Streams da ich an Projekten gearbeitet habe. Gegen Abends hab ich in der rC3 World etwas sozialised. Ich habe ein paar coole Dudes von dem Rostocker Space kennengelernt. Mir ist dann aufgefallen das ich Einige noch aus meiner Zeit als Rostocker Student her kenne. Die rC3 World ist dann auch irgendwann zusammengebrochen und es hat sehr lange gedauert bis diese wieder erreichbar war.
 
@@ -56,7 +56,7 @@ Heute konnte ich so gut wie keine Streams besuchen da viel auf Arbeit getan werd
 # Fazit
 Vielen vielen Dank an die Organisator und mitwirkenden Kräfte des rC3. Es war meine aller erste Chaos Computer Club Veranstaltung und es hat mich einfach aus den Socken gehauen. Es gab viele spannende Streams und die World war genial. Dafür dass dies die erste rC3 war, sind die relativ häufigen technische Markel / Ausfälle auf jedenfall verzeihbar.
 
-Anyhow ich hoffe für 2021 findet die C3 wieder in Person statt, aber falls nicht die rC3 ist eine super Alternative! Danke auch an meinen Kumpel und erfahrenen C3 Kongress Besucher für die vielen kleinen Tipps und das lustige Beisammen sein, die meine rC3 Experience verbessert haben :).
+Anyhow ich hoffe für 2021 findet die C3 wieder in Person statt, aber falls nicht die rC3 ist eine super Alternative! Danke auch an meinen Kumpel und erfahrenen C3 Kongress Besucher für die vielen kleinen Tipps und das lustige Beisammen sein die meine rC3 Experience super gemacht hat :).
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
