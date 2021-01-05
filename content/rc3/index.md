@@ -10,7 +10,7 @@ pruneLength: 50
 
 Hi Freunde des Chaos,
 
-Der 33te Kongress hat vom 27. - 30. Dezember 2020 stattgefunden und aufgrund der Pandemie war alles remote. Somit bekam der Chaos Kongress den Namen RC3. Das war meine aller erste Chaos Computer Club Veranstaltung die ich besucht habe. Wie toll die Tage waren und was ich erlebt habe, beschreibe ich in den nächsten Abschnitten.
+Der 37te Kongress hat vom 27. - 30. Dezember 2020 stattgefunden und aufgrund der Pandemie war alles remote. Somit bekam der Chaos Kongress den Namen RC3. Das war meine aller erste Chaos Computer Club Veranstaltung die ich besucht habe. Wie toll die Tage waren und was ich erlebt habe, beschreibe ich in den nächsten Abschnitten.
 
 # Tag 1
 Besuchte Streams:

@@ -9,7 +9,7 @@ pruneLength: 50
 
 Hi friends of the chaos,
 
-The 33rd Congress has taken place from 27 - 30 December 2020 and due to the pandemic everything was remote. So the Chaos Congress got the name RC3. This was my very first Chaos Computer Club event that I attended. How great the days were and what I experienced, I describe in the next paragraphs.
+The 37th Congress has taken place from 27 - 30 December 2020 and due to the pandemic everything was remote. So the Chaos Congress got the name RC3. This was my very first Chaos Computer Club event that I attended. How great the days were and what I experienced, I describe in the next paragraphs.
 
 # Tag 1
 Visited streams:
