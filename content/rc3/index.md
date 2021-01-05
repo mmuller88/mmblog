@@ -3,7 +3,7 @@ title: RC3 Bericht
 show: 'no'
 date: '2021-01-05'
 image: 'rc3.JPG'
-tags: ['de', '2020', 'ccc', 'chaos', 'congress', 'nofeed']
+tags: ['de', '2020', 'ccc', 'chaos', 'congress']
 engUrl: https://martinmueller.dev/rc3-eng
 pruneLength: 50
 ---
@@ -13,7 +13,7 @@ Hi Freunde des Chaos,
 Der 33te Kongress hat vom 27. - 30. Dezember 2020 stattgefunden und aufgrund der Pandemie war alles remote. Somit bekam der Chaos Kongress den Namen RC3. Das war meine aller erste Chaos Computer Club Veranstaltung die ich besucht habe. Wie toll die Tage waren und was ich erlebt habe, beschreibe ich in den nächsten Abschnitten.
 
 # Tag 1
-Besuchte Streas:
+Besuchte Streams:
 * 12:20 [#rc Eröffnung](https://media.ccc.de/v/rc3-11583-rc3_eroffnung)
 * 13:00 [Die Geschichte der Corona-Warn-App](https://media.ccc.de/v/rc3-729538-die_geschichte_der_corona_warn_app)
 * 14:00 [Flutter - Introduction](https://media.ccc.de/v/rc3-695961-flutter_introduction_into_performant_cross_platform_development)
@@ -53,6 +53,7 @@ Heute hatte ich leider nicht ganz so viel Zeit zum Anschauen von Streams da ich 
 
 # Tag 4
 Heute konnte ich so gut wie keine Streams besuchen da viel auf Arbeit getan werden musste. Ich konnte gegen Abend aber noch etwas Zeit mit Freunden in der World verbringen und ein ein paar Streams schauen.
+
 # Fazit
 Vielen vielen Dank an die Organisator und mitwirkenden Kräfte des rC3. Es war meine aller erste Chaos Computer Club Veranstaltung und es hat mich einfach aus den Socken gehauen. Es gab viele spannende Streams und die World war genial. Dafür dass dies die erste rC3 war, sind die relativ häufigen technische Markel / Ausfälle auf jedenfall verzeihbar.
 
