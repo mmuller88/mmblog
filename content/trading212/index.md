@@ -1,32 +1,51 @@
 ---
 title: Langzeit Investieren mit Trading212
 show: 'no'
-date: '2021-01-05'
+date: '2021-01-16'
 image: 'rasp.jpeg'
-tags: ['de', '2020', 'aws', 'raspberry', 'cdk', 'nofeed']
+tags: ['de', '2021', 'trading', 'nofeed']
 engUrl: https://martinmueller.dev/trading212-eng
 pruneLength: 50
 ---
 
 Hi,
 
-* seit November 2020 beschäftige ich mich mit dem Thema in Aktien investieren
+Seit November 2020 beschäftige ich mich stark mit dem Thema Aktien und bin ein aktiver Nutzer der Trading App [Trading212](AFFILIATE). Der Hauptgrund dafür ist, dass ich ein Konto bei der Bank nicht als ideale Form der Aufbewahrung sehe da es dort an Wert verliert.
+
+Die genaue Erklärung warum ich in Aktien investiere und wie meine Strategie aussieht und bisher so verläuft seht ihr in den nächsten Abschnitten. Nur soviel sei schon vorweg gesagt, es war ein super Entscheidung und ich habe schon nach wenigen Wochen einen höheren Wert geschaffen, als es bei einer Bank in einem Jahr möglich wäre.
+
 * Grund ist der sehr geringe Zinssatz bei den banken, Altersvorsorge und finanzielle Weiterbildung
+* Weiterhing is es eine tolle Möglichkeit Unternehmen die man gut findet zu unterstützen. Z.B. Green Energy Unternehmen die Windparks oder Solaranlagen bauen.
 
 # Warum?
-Banks are offering just a small interest rate (like 1 – 2% a year) which barely keeps up with the money inflation rate at all. So in a certain way you are loosing value if you are not doing something sense fully with your money. Putting money into the stock market with a low risk strategy should grant a bigger return than the mentioned interest rate from banks.
+Banken heutzutage bieten nur einen sehr geringen Zinssatz von etwa 1 - 2% pro Jahr an. Das kann kaum bis garnicht mit der Inflationsrate des Geldes mithalten. Anders gesagt, man verliert Kaufkraft. Um das Wort Kaufkraft besser zu verstehen, gebe ich ein kleines Beispiel. Wenn du dir 2020 noch für 100 Brötchen von 100€ leisten konntest, sind es 2021 eventuell nur noch 90 Brötchen die du dir mit 100€ kaufen kannst.
 
-To a certain degree I can choose the companies I want to invest in and invest in companies around the topics:
-* Green Energy
-* Quality Food
-* US Tech companies
-* Non-US Tech companies
+Belässt man also sein Geld auf der Bank verliert man an Kaufkraft. Es sollten also andere Möglichkeiten in Betracht gezogen werden, wenn es um die Anlage von Geld geht. Eine Investition in Aktien mit möglichst niedrigem Verlustrisiko hört sich von daher ja erstmal sehr verlockend an. An dieser Stelle sei aber gesagt, dass jede Investition ein Risiko birgt und das gilt natürlich auch für Aktien. Selbst Banken können Bankrott gehen auf Kosten der Anleger, siehe Griechenland.
 
-Those topics are especially important for me as a person and I would like to help companies with such topics.
+Auch sehr spannend finde ich den Gedanken mit meinen Investitionen in Aktien von bestimmten Firmen, diese damit unterstützen zu können. Bis zu einem gewissen Grad kann ich selbst bei einer Anlegestrategie mit geringem Verslustrisiko in Firmen investieren die ich toll finde. Toll finde ich Firmen in dem Thematiken:
+
+* Green Energy: Firmen die den Ausbau und Weiterenwicklung von erneuerbaren Energien wie Solaranlagen oder Windräder voranbringen.
+* Quality Food: Ich bin ein überzeugter Anhänger von hochqualitativer Nahrung und finde die Themen toll wie Bio, Regional, Fair Trade.
+* US Tech Firmen: Als Software Entwickler weiß ich natürlich viel über Tech Firmen und weiß wie nützlich und wertvoll diese für die Menschheit sind.
+* Non-US Tech Firmen: Da ich ja selber aus Deutschland komme, möchte ich spezifisch gerne Tech Unternehmen im EU Raum unterstützen.
+
+Und ich kann mich aktiv gegen Firmen mit gewissen Thematiken entscheiden wie Fossile Brennstoffe oder Alkohol als Genussmittel. Das waren jetzt meine persönlich Thematiken und die können bei dir ja ganz anders aussehen, was auch ok ist.
+
+Im nächsten Abschnitt erkläre ich, wie ich mit [Trading212](AFFILIATE) in Aktien investiere.
 
 # Trading212
-* Webplattform für investieren
+
+[Trading212](https://trading212.com) ist eine Internetplattform zum investieren in Aktien. Trading212 wirbt damit, keine Kommission dafür zahlen zu müssen, was die Plattform sehr attraktiv macht. Benutzt man einen Broker*innen verlangen diese üblicherweise eine Kommission. Trading212 besitzen auch jeweils eine ios und Android App.
+
+Ich selber nutze die Trading212 ios App sowie die Weboberfläche und bin sehr zufrieden. Damit ist es sehr einfach in Aktien zu investieren und dessen Verlauf langfristig zu verfolgen. Auch das Ein- und Auszahlen von meinem Bankkonto in meinen Trading212 Account geht sehr einfach und geht schnell.
+
 * Kommt mit tollen Features wie Pie
+
+Auch wenn das Angebot der verfügbaren Aktien, in die investieren werden kann bei Trading212, sehr groß ist, kam es das eine oder andere mal vor, dass meine gewünschte Aktie nicht / noch nicht verfügbar war. In so einem Fall kann man aber in dem [Trading212 Community Forum](https://community.trading212.com/) erbitten die jeweilige Aktie mit ins Portofolio von Trading212 aufzunehmen.
+
+* Forum Community
+
+* Kostenlose Webinare in Form von Youtube Videos. Man lernt viel über den Handel mit Aktien.
 * Affiliate!
 
 # Meine Strategie
