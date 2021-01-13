@@ -35,27 +35,29 @@ Im nächsten Abschnitt erkläre ich, wie ich mit [Trading212](AFFILIATE) in Akti
 
 # Trading212
 
-[Trading212](https://trading212.com) ist eine Internetplattform zum investieren in Aktien. Trading212 wirbt damit, keine Kommission dafür zahlen zu müssen, was die Plattform sehr attraktiv macht. Benutzt man einen Broker*innen verlangen diese üblicherweise eine Kommission. Trading212 besitzen auch jeweils eine ios und Android App.
+[Trading212](https://trading212.com) ist eine Internetplattform zum investieren in Aktien. Trading212 wirbt damit, keine Kommission dafür zahlen zu müssen, was die Plattform sehr attraktiv macht. Benutzt man einen Broker*innen verlangen diese üblicherweise eine Kommission. Trading212 besitzen auch jeweils eine ios und Android App sowie natürlich eine Weboberfläche.
 
 Ich selber nutze die Trading212 ios App sowie die Weboberfläche und bin sehr zufrieden. Damit ist es sehr einfach in Aktien zu investieren und dessen Verlauf langfristig zu verfolgen. Auch das Ein- und Auszahlen von meinem Bankkonto in meinen Trading212 Account geht sehr einfach und geht schnell.
 
-* Kommt mit tollen Features wie Pie
+Letztes Jahr (2020) wurde ein tolles Feature mit Namen [Pie](https://helpcentre.trading212.com/hc/en-us/articles/360009313957-Pies-AutoInvest-Introduction) released. Damit ist es möglich sogenannte Pies anzulegen in dem man bis zu 50 Aktien anzulegen. Jede Aktie bekommt kann dan einem gewissen Prozentwert zugewiesen werden. In der Summe ergeben alle Prozentwerte dann natürlich wieder 100%. Wenn du wissen möchtest was die Pies noch alles können einfach [hier](https://helpcentre.trading212.com/hc/en-us/articles/360009313957-Pies-AutoInvest-Introduction) klicken.
+
+Ich finde die Pies toll weil sie bei meiner low risk Strategie helfen und mir einen super Überblick verschaffen wie sich mein breites Portfolio entwickelt. Auch finde ich die Funktion [AutoInvest](https://helpcentre.trading212.com/hc/en-us/articles/360009313957-Pies-AutoInvest-Introduction) bei der ich monatlich einen gewissen Betrag in den Pie einzahlen kann.
 
 Auch wenn das Angebot der verfügbaren Aktien, in die investieren werden kann bei Trading212, sehr groß ist, kam es das eine oder andere mal vor, dass meine gewünschte Aktie nicht / noch nicht verfügbar war. In so einem Fall kann man aber in dem [Trading212 Community Forum](https://community.trading212.com/) erbitten die jeweilige Aktie mit ins Portofolio von Trading212 aufzunehmen.
 
-* Forum Community
+Die [Trading212 Forum Community](https://community.trading212.com/) ist der perfekte Ort wenn man mehr über Trading mit Trading212 und generell lernen möchte. Die Community dort hat mich bei meiner Investmentstrategie stark unterstützt wofür ich sehr dankbar bin. Seit kurzem hat Trading212 auch einen [Discord Channel](https://discord.gg/yWy9scvP).
 
-* Kostenlose Webinare in Form von Youtube Videos. Man lernt viel über den Handel mit Aktien.
-* Affiliate!
-
+Auch toll ist, dass Trading212 kostenlose Webinare zum Thema Trading auf ihrer Platform (also auch Apps) sowie auf [YouTube](https://www.youtube.com/user/Trading212) anbietet. Im nächsten Abschnitt erkläre ich meine Investmentstrategie.
+  
 # Meine Strategie
-I want to long term invest (more than 10 years) into wide range of sectors like IT, Materials, Energy … [1]. Putting the money into a wide range of sectors is lowering the risk to loose money as those sectors are mainly independent from each other in financial terms. And in general it seems unlikely that all those sector are going down at the same time.
+Ich möchte langzeit investieren (mehr als 10 Jahre) in viele verschiedene Sektoren wie IT, Materialien, Energie usw. Welche Sektoren es gibt und was diese bedeuten findet ihr [hier](https://corporatefinanceinstitute.com/resources/knowledge/finance/the-sp-sectors/). Das Geld in viele verschiedene Sektoren zu investieren, anstatt in einen einzigen spezifischen Sektor, verringert das Verlustrisiko da diese Sektoren unabhängiger voneinander sind als es ein Sektor für sich wäre. Wenn man z.B. die Coronakriese betrachtet sieht man, dass der IT Sektor nicht so stark gelitten hat wie z.B. Real Estate.
 
-Furthermore I want to regularly and automatically transfer some of my salary into the stock market each month. This way I will build up savings over years and invest further into the stock market without needing much spending time for it. I will start with 100€ from my salary and will adjust it if needed.
+Moderne Internet Plattformen wie [Trading212](AFFILIATE) erlauben es auf den Mittelmann wie dem Broker*innen, der ja in der Regel eine Kommission verlangt, zu verzichten da gut gestaltete Plattformen es sehr einfach machen sich selber um sein Portfolio zu kümmern.
 
-Modern Technologies like internet platforms allowing you to cutting out more and more middleman like broker or other stock market professionals with the capability to manage your portfolio on your own. One platform of such is www.trading212.com/invite/GvP8w4UF (affiliate). This way you don’t need to pay commission to a professional and Trading 212 offers nice features like pies [2], auto-invest [2] or easily transfer money. Very remarkable that the Trading 212 community https://community.trading212.com/ is very helpful and gave me already a lot of advises as a stock market trading newbie. I will regularly check news in the community to follow up on topics around the stock market.
+Desweiteren möchte ich einen Teil meines monatlichen Einkommens automatisch mit [AutoInvest](https://helpcentre.trading212.com/hc/en-us/articles/360009313957-Pies-AutoInvest-Introduction) in meinen [Pie](https://helpcentre.trading212.com/hc/en-us/articles/360009313957-Pies-AutoInvest-Introduction) einzahlen. Somit baue ich uns über die Jahre ein gute Rücklage auf ohne viel Aufwand damit haben zu müssen.
+Ich starte mit erstmal 100€ die jeden Monat automatisch überwiesen werden und erhöhe diesen Betrag ggf. in Zukunft.
 
-As I am still quite new to stock market investing I will leverage some risks in buying about 20-30% of ETFs [3] and might adjust to a lower number of ETFs over time when my experience grows.
+Da ich noch recht neu im Thema Aktien bin, werde ich ca. 20-30% des Portofolios aus [ETFs](https://en.wikipedia.org/wiki/Exchange-traded_fund) zusammenbauen. Und wenn meine Erfahrung über die Zeit steigt, die ETFs gegen normale Aktien austauschen. ETFs werden von professionellen Tradern verwaltet und diese Verwaltung kostet natürlich etwas. Mein langfristiges Ziel soll es sein komplett auf fremde ETFs zu verzichten, da mir Trading212 mit den Pies quasi erlaubt mir meine eigenen ETFs zu verwalten und ich somit die Kosten sparen kann.
 
 My Sector choices with roughly prioritizing
 * IT, Utilities, Energy, Consumer Staples, Real Estate, Materials, Financial, Consumer Discretionary
