@@ -2,11 +2,12 @@
 title: Langzeit Investieren mit Trading212
 show: 'no'
 date: '2021-01-16'
-image: 'rasp.jpeg'
+image: 'trading.jpg'
 tags: ['de', '2021', 'trading']
 engUrl: https://martinmueller.dev/trading212-eng
 pruneLength: 50
 ---
+*Bevor es los geht! In den Trading212 Link ist ein Affiliate bei dem du und ich jeweils eine Aktie geschenkt bekommen*
 
 Hi,
 
