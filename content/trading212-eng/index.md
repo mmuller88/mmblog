@@ -10,7 +10,7 @@ pruneLength: 50
 
 Hi,
 
-I have been involved with stocks since November 2020 and am an active user of the trading app [Trading212](www.trading212.com/invite/GvP8w4UF). The main reason is that I do not see an account in the bank as an ideal form of storage since it loses value there.
+I have been involved with stocks since November 2020 and am an active user of the trading app [Trading212](https://trading212.com/invite/GvP8w4UF). The main reason is that I do not see an account in the bank as an ideal form of storage since it loses value there.
 
 The exact explanation why I invest in stocks and how my strategy looks like, you will see in the next sections. Only so much is said in advance, it was a great decision and I have already created after a few weeks a higher value than it would be possible in a bank in a year.
 
@@ -28,10 +28,10 @@ I also find the idea of supporting certain companies by buying shares very excit
 
 And I can actively decide against companies with certain themes like fossil fuels or alcohol as a stimulant. These were my personal themes and they can look completely different for you, which is also ok.
 
-In the next section I explain how I invest in stocks with [Trading212](www.trading212.com/invite/GvP8w4UF).
+In the next section I explain how I invest in stocks with [Trading212](https://trading212.com/invite/GvP8w4UF).
 
 # Trading212
-[Trading212](www.trading212.com/invite/GvP8w4UF) is an internet platform for investing in stocks. Trading212 advertises that it does not charge a commission, which makes the platform very attractive. If you use a broker, they usually charge a commission. Trading212 also have an iOS and Android app and of course a web interface.
+[Trading212](https://trading212.com/invite/GvP8w4UF) is an internet platform for investing in stocks. Trading212 advertises that it does not charge a commission, which makes the platform very attractive. If you use a broker, they usually charge a commission. Trading212 also have an iOS and Android app and of course a web interface.
 
 I myself use the Trading212 ios app as well as the web interface and am very satisfied. It makes it very easy to invest in stocks and track their performance over the long term. Depositing and withdrawing from my bank account to my Trading212 account is also very easy and fast.
 
@@ -39,13 +39,13 @@ Last year (2020) a great feature called [Pie](https://helpcentre.trading212.com/
 
 I find the Pies great because they help with my low risk strategy and give me a great overview of how my broad portfolio is developing. I also like the [AutoInvest](https://helpcentre.trading212.com/hc/en-us/articles/360009313957-Pies-AutoInvest-Introduction) feature where I can pay a certain amount into the Pie every month.
 
-Quite recently, the "Share Pie" feature has been added. With this feature you can share the created pies and others can see how my pie looks like, i.e. in which shares and how many percent I have invested. Concrete amounts of money are not revealed. And this [here](www.trading212.com/pies/l7iYcKopcsn4QkND915c7ISopbU5) is my Pie with a diverse choice of stocks and companies I want to support. Already in only 4 weeks this Pie has been able to increase its value by 5%, which is remarkable in my eyes.
+Quite recently, the "Share Pie" feature has been added. With this feature you can share the created pies and others can see how my pie looks like, i.e. in which shares and how many percent I have invested. Concrete amounts of money are not revealed. And this [here](https://trading212.com/pies/l7iYcKopcsn4QkND915c7ISopbU5) is my Pie with a diverse choice of stocks and companies I want to support. Already in only 4 weeks this Pie has been able to increase its value by 5%, which is remarkable in my eyes.
 
 Even though the range of available stocks to invest in at Trading212 is very large, it happened once or twice that my desired stock was not / not yet available. In such a case, however, you can ask in the [Trading212 Community Forum](https://community.trading212.com/) to include the respective share in the portfolio of Trading212.
 
 The [Trading212 Forum Community](https://community.trading212.com/) is the perfect place if you want to learn more about trading with Trading212 and in general. The community there has been very supportive in my investment strategy for which I am very grateful. Recently Trading212 has also added a [Discord Channel](https://discord.gg/yWy9scvP).
 
-Also great is that Trading212 offers free webinars on trading on their platform (so apps too) as well as on [YouTube](https://www.youtube.com/user/Trading212). In the next section I explain my investment strategy.
+Also great is that Trading212 offers free webinars on trading on their platform (so apps too) as well as on [YouTube](https://https://youtube.com/user/Trading212). In the next section I explain my investment strategy.
   
 # My strategy
 I want to invest long term (more than 10 years) in many different sectors like IT, materials, energy etc. What sectors there are and what they mean you can find [here](https://corporatefinanceinstitute.com/resources/knowledge/finance/the-sp-sectors/). Investing money in many different sectors instead of one specific sector reduces the risk of loss because these sectors are more independent from each other than one sector would be. If you look at the Corona crisis, for example, you see that the IT sector did not suffer as much as real estate, for example.
@@ -69,10 +69,10 @@ Also an export feature should come soon, where I can export the investments e.g.
 # Summary
 Trading212 makes investing in stocks fun. It gives me all the tools I need to manage my stock portfolio myself. It's a great alternative to holding money in accounts and you learn a lot of useful things about the stock market. I think it is important and right to develop your financial intelligence. Trading212 can be your start to do just that!
 
-Thanks to the [DeepL translater (free version)](www.DeepL.com/Translator) for helping with translating to english and saving me tons of time :).
+Thanks to the [DeepL translater (free version)](https://DeepL.com/Translator) for helping with translating to english and saving me tons of time :).
 
-To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://www.facebook.com/martin.muller.10485). Thank you very much :).
+To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://https://facebook.com/martin.muller.10485). Thank you very much :).
 
-I love to work on Content Management Open Source projects. A lot from my stuff you can already use on www.github.com/mmuller88 . If you like my work there and my blog posts, please consider supporting me on Patreon:
+I love to work on Content Management Open Source projects. A lot from my stuff you can already use on https://github.com/mmuller88 . If you like my work there and my blog posts, please consider supporting me on Patreon:
 
-<a href="https://www.patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Become a Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+<a href="https://https://patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Become a Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
