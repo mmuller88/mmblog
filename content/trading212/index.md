@@ -1,7 +1,7 @@
 ---
 title: Langzeit Investieren mit Trading212
 show: 'no'
-date: '2021-01-16'
+date: '2021-01-17'
 image: 'trading.jpg'
 tags: ['de', '2021', 'trading']
 engUrl: https://martinmueller.dev/trading212-eng
@@ -41,7 +41,7 @@ Letztes Jahr (2020) wurde ein tolles Feature mit Namen [Pie](https://helpcentre.
 
 Ich finde die Pies toll weil sie bei meiner low risk Strategie helfen und mir einen super Überblick verschaffen wie sich mein breites Portfolio entwickelt. Auch finde ich die Funktion [AutoInvest](https://helpcentre.trading212.com/hc/en-us/articles/360009313957-Pies-AutoInvest-Introduction) bei der ich monatlich einen gewissen Betrag in den Pie einzahlen kann.
 
-Recht kürzlich ist auch das "Share Pie" Feature dazugekommen. Damit kann man die Erstellten Pies preisgeben und andere können sehen wie mein Pie aussieht, also in welche Aktien und wieviel Prozent ich investiert habe. Konkrete Geldbeträge werden nicht preisgegeben. Und das [hier](https://trading212.com/pies/l7iYcKopcsn4QkND915c7ISopbU5) ist mein Pie mit einer diversen Wahl von Aktien und Firmen die ich unterstützen möchte. Schon in nur 4 Wochen hat diese Pie seinen Wert sich um 5% steigern können, was in meinen Augen beachtlich ist.
+Recht kürzlich ist auch das "Share Pie" Feature dazugekommen. Damit kann man die Erstellten Pies preisgeben und andere können sehen wie mein Pie aussieht, also in welche Aktien und wieviel Prozent ich investiert habe. Konkrete Geldbeträge werden nicht preisgegeben. Und das [hier](https://trading212.com/pies/l7iYcKopcsn4QkND915c7ISopbU5) ist mein Pie mit einer diversen Wahl von Aktien und Firmen die ich unterstützen möchte.
 
 Auch wenn das Angebot der verfügbaren Aktien, in die investieren werden kann bei Trading212, sehr groß ist, kam es das eine oder andere mal vor, dass meine gewünschte Aktie nicht / noch nicht verfügbar war. In so einem Fall kann man aber in dem [Trading212 Community Forum](https://community.trading212.com/) erbitten die jeweilige Aktie mit ins Portofolio von Trading212 aufzunehmen.
 
@@ -52,7 +52,7 @@ Auch toll ist, dass Trading212 kostenlose Webinare zum Thema Trading auf ihrer P
 # Meine Strategie
 Ich möchte langzeit investieren (mehr als 10 Jahre) in viele verschiedene Sektoren wie IT, Materialien, Energie usw. Welche Sektoren es gibt und was diese bedeuten findet ihr [hier](https://corporatefinanceinstitute.com/resources/knowledge/finance/the-sp-sectors/). Das Geld in viele verschiedene Sektoren zu investieren, anstatt in einen einzigen spezifischen Sektor, verringert das Verlustrisiko da diese Sektoren unabhängiger voneinander sind als es ein Sektor für sich wäre. Wenn man z.B. die Coronakriese betrachtet sieht man, dass der IT Sektor nicht so stark gelitten hat wie z.B. Real Estate.
 
-Moderne Internet Plattformen wie [Trading212](AFFILIATE) erlauben es auf den Mittelmann wie dem Broker*innen, der ja in der Regel eine Kommission verlangt, zu verzichten da gut gestaltete Plattformen es sehr einfach machen sich selber um sein Portfolio zu kümmern.
+Moderne Internet Plattformen wie [Trading212](https://trading212.com/invite/GvP8w4UF) erlauben es auf den Mittelmann wie dem Broker*innen, der ja in der Regel eine Kommission verlangt, zu verzichten da gut gestaltete Plattformen es sehr einfach machen sich selber um sein Portfolio zu kümmern.
 
 Desweiteren möchte ich einen Teil meines monatlichen Einkommens automatisch mit [AutoInvest](https://helpcentre.trading212.com/hc/en-us/articles/360009313957-Pies-AutoInvest-Introduction) in meinen [Pie](https://helpcentre.trading212.com/hc/en-us/articles/360009313957-Pies-AutoInvest-Introduction) einzahlen. Somit baue ich uns über die Jahre ein gute Rücklage auf ohne viel Aufwand damit haben zu müssen.
 Ich starte mit erstmal 100€ die jeden Monat automatisch überwiesen werden und erhöhe diesen Betrag ggf. in Zukunft.
