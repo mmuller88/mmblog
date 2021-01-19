@@ -1,5 +1,5 @@
 ---
-title: Den Gaszähler digital auslesen
+title: IOT - Den Gaszähler digital auslesen
 show: 'no'
 date: '2021-01-25'
 image: 'gasmeter.jpeg'
@@ -8,13 +8,15 @@ engUrl: https://martinmueller.dev/nodered-eng
 pruneLength: 50
 ---
 
-Hi Raspberry Freunde.
+Hi.
 
-* Verweis auf Setup in vorheringen Blog
-* Hier Fokus auf Lösung für BK-G4 und andere mit magnetischen Impuls
+Vor einigen Wochen habe ich bereits [hier](https://martinmueller.dev/rasp4) mein IOT Deployment vorgestellt. Kurz zusammengefasst besteht es aus Hardwareseitig aus einem [Raspberry 4](), [Zigbee Türsensor]() und dem [Zigbee Empfäger](). Die Software die auf dem Raspberry 4 läuft ist Docker Compose. Mit dem Docker Compose Deployment kommt für das IOT Management [NodeRED]() zum Einsatz. Für die Anzeige in Diagrammen verwende ich [Grafana]().
+
+Zuerst möchte ich erklären wie ich meinen analogen Gaszähler digital auslesbar gemacht habe und dann wie ich NodeRED und Grafana nutze um die erhaltenen Daten zu transformieren und in Diagramme (siehe Titelbild) anzeigbar gemacht habe.
 
 # Gaszähler Erweiterung
 
+* Hier Fokus auf Lösung für BK-G4 und andere mit magnetischen Impuls
 * Zigbee Türsensor mit magnetischen Überlauf
 * Sendet Signal zum Zigbee Empfänger an dem Raspberry
 
