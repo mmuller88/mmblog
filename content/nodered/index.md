@@ -16,16 +16,26 @@ Zuerst möchte ich erklären wie ich meinen analogen Gaszähler digital auslesba
 
 # Gaszähler Erweiterung
 
-* Hier Fokus auf Lösung für BK-G4 und andere mit magnetischen Impuls
-* Zigbee Türsensor mit magnetischen Überlauf
-* Sendet Signal zum Zigbee Empfänger an dem Raspberry
+Wie im Bild oben rechts zu sehen habe ich einen analogen Gaszähler BK-G4. Wie also daraus einen digitalen Gaszähler der sogar Werte über Zeit speichern kann? Nun der Zähler sendet alle 0,01 qm verbrauchtem Gas einen magnetischen Impuls. Auf dem Bild ist das auch als 1 imp 0,01 qm zu sehen. Wenn also auch du einen Gaszähler mit magnetischen Impuls hast, sollte das auch bei dir funktionieren.
 
-# NodeRed Flow
+Den magnetischen Impuls messe ich einfach mit dem kabellosen [Zigbee Türsensor]() (auch oben rechts in Bild) und sende ihn an einen [Zigbee Empfänger]() der mit einem [Raspberry 4]() verbunden ist und zeichne die Werte auf.
+
+Ganz so einfach sit die Aufzeichnung nicht da das Signal noch transformiert werden muss. Die Transformation des Signals wird mit NodeRED gemacht.
+
+# NodeRED
+
+[NodeRED](https://github.com/node-red/node-red) ist ein Open Source Programmiertool zum verbinden von IOT Geräten miteinander, APIs und online Services. Es bietet einen Webbrowser basierten Editor und unterstützt JavaScript als Programmiersprache. Die Runtime selbst ist [Nodejs](https://en.wikipedia.org/wiki/Node.js).
+
+Sehr cool finde ich auch, dass NodeRED eine Anbindung nach GitHub unterstützt und der aktuelle Stand des NodeRED Projektes mittels Git Protokoll versioniert abgespeichert werden kann. NodeRED bietet viele weitere tolle Funktionen, die ihr unbedingt erforschen solltet. Genauer möchte ich aber auf den NodeRED Flow eingehen.
+
+## NodeRED Flow
+Ein NodeRED Projekt kann mehrere Flows besitzen. Ein NodeRED Flow beschreibt die Interaktion von den IOT Geräten mit anderen Geräten, APIs oder online Services. Meinen Flow seht ihr oben links im Bild. Der Flow ließt sich am besten von links nach Rechts. Ganz links sind zwei Eingänge. Der untere Eingang ist von einer [Open Weather API](https://openweathermap.org/appid) mit der ich die aktuelle Außentemperatur erfasse (auch in dem "Gas Delta" Diagram als gelb zu sehen). Der obere Eingang ist von meinem Zigbee Empfänger der ja das Signal vom Zigbee Türsensor bekommt.
+
+Ganz rechts in dem Flow sind die Ausgänge zu sehen (etwas abgeschnitten). Die braunen Ausgänge senden Daten zu einer InfluxDB. Der blaue Ausgang ist ein NodeRED UI Element. NodeRED bietet auch die möglichkeit UI Elemente mit z.B. Sensorwerten zu rendert. Diese ist dann erreichbar z.B. unter https://localhost:1880/ui
 
 * MQTT Signal vom Türsensor...
-* Temperatur auslesen
 
-# Grafana
+# InfluxDB & Grafana
 
 * Timeseries Datanbank zum Diagramme anzeigen
 * einzelnen Diagramme von Bild beschreiben
