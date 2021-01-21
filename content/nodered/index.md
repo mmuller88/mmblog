@@ -40,6 +40,8 @@ Ganz rechts in dem Flow sind die Ausgänge zu sehen (etwas abgeschnitten). Der b
 
 Bei meinem Flow speicher ich den aktuellen Gaswert und die Temperatur in InfluxDB. InfluxDB berechnet dann selbstständig den Timestamp. Dann kann ich einfach mit dem graphischen Analysetool [Grafana](https://github.com/grafana/grafana) mir die Daten aus dem InfluxDB holen und flexibel anzeigen lassen (siehe Diagramme in Titelbild).
 
+Unten rechts sehe ich den aktuellen und gestrigen Tagesverbrauch. Man sieht es in dem Bild schlecht da nur gelb angezeigt wird aber ich habe unterschiedliche Farben für Farberreiche eingestellt. Von 0 - 7 qm ist grün. Dann von 7 - 14 qm is gelb und alles über 14 qm ist rot. Für eine dreiköpfige Familie ist der durchschnittliche Tagesverbrauch in etwa 7 qm, was in etwa maximal um den Faktor 2 schwankt im Sommer und Winter. Extrem cool ^^.
+
 * Timeseries Datanbank zum Diagramme anzeigen
 * einzelnen Diagramme von Bild beschreiben
 
@@ -49,7 +51,7 @@ Bei meinem Flow speicher ich den aktuellen Gaswert und die Temperatur in InfluxD
 * Elektrizität messen
 
 # Zusammenfassung
-...
+Wenn euch noch coole Idee einfallen wie ich meine Sensordaten transformieren oder visualisieren um nützliche Informationen zu generieren, lasst es mich wissen.
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
