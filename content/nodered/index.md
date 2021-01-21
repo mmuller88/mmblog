@@ -31,11 +31,14 @@ Sehr cool finde ich auch, dass NodeRED eine Anbindung nach GitHub unterstützt u
 ## NodeRED Flow
 Ein NodeRED Projekt kann mehrere Flows besitzen. Ein NodeRED Flow beschreibt die Interaktion von den IOT Geräten mit anderen Geräten, APIs oder online Services. Meinen Flow seht ihr oben links im Bild. Der Flow ließt sich am besten von links nach Rechts. Ganz links sind zwei Eingänge. Der untere Eingang ist von einer [Open Weather API](https://openweathermap.org/appid) mit der ich die aktuelle Außentemperatur erfasse (auch in dem "Gas Delta" Diagram als gelb zu sehen). Der obere Eingang ist von meinem Zigbee Empfänger der ja das Signal vom Zigbee Türsensor bekommt.
 
-Ganz rechts in dem Flow sind die Ausgänge zu sehen (etwas abgeschnitten). Die braunen Ausgänge senden Daten zu einer InfluxDB. Der blaue Ausgang ist ein NodeRED UI Element. NodeRED bietet auch die möglichkeit UI Elemente mit z.B. Sensorwerten zu rendert. Diese ist dann erreichbar z.B. unter https://localhost:1880/ui
+Ganz rechts in dem Flow sind die Ausgänge zu sehen (etwas abgeschnitten). Der blaue Ausgang ist ein NodeRED UI Element. NodeRED bietet auch die möglichkeit UI Elemente mit z.B. Sensorwerten zu rendert. Diese ist dann erreichbar z.B. unter https://localhost:1880/ui . Die braunen Ausgänge senden Daten zu einer InfluxDB die dann mit Grafana angezeigt werden.
 
 * MQTT Signal vom Türsensor...
 
 # InfluxDB & Grafana
+[InfluxDB](https://github.com/influxdata/influxdb) ist eine Open Source time series Datenbank . Es ist in GO geschrieben und optimiert für schnellen, hochverfügbaren Speicher und Abfrage der gespeicherten Daten. Es eignet sich hervorragend für IOT Daten.
+
+Bei meinem Flow speicher ich den aktuellen Gaswert und die Temperatur in InfluxDB. InfluxDB berechnet dann selbstständig den Timestamp. Dann kann ich einfach mit dem graphischen Analysetool [Grafana](https://github.com/grafana/grafana) mir die Daten aus dem InfluxDB holen und flexibel anzeigen lassen (siehe Diagramme in Titelbild).
 
 * Timeseries Datanbank zum Diagramme anzeigen
 * einzelnen Diagramme von Bild beschreiben
