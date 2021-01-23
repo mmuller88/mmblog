@@ -10,7 +10,7 @@ pruneLength: 50
 
 Hi.
 
-Vor einigen Wochen habe ich bereits [hier](https://martinmueller.dev/rasp4) mein neues IOT Deployment vorgestellt. Es besteht aus einem [Raspberry 4](), [Zigbee Türsensor]() und dem [Zigbee Empfäger](). Die Software die auf dem Raspberry 4 läuft ist Docker Compose. Mit dem Docker Compose Deployment kommt für das IOT Management [NodeRED]() zum Einsatz. Für die Anzeige in Diagrammen verwende ich [Grafana]().
+Vor einigen Wochen habe ich bereits [hier](https://martinmueller.dev/rasp4) mein neues IOT Deployment vorgestellt. Es besteht aus einem [Raspberry 4](https://amzn.to/3a0Xjsd) [US](https://amzn.to/3iEHyuD), [Zigbee Türsensor](https://amzn.to/2KEqsAz) und dem [Zigbee Empfäger](https://amzn.to/2Y4aq63). Die Software die auf dem Raspberry 4 läuft ist Docker Compose. Mit dem Docker Compose Deployment kommt für das IOT Management [NodeRED](https://github.com/node-red/node-red) zum Einsatz. Für die Anzeige in Diagrammen verwende ich [Grafana](https://github.com/grafana/grafana).
 
 Zuerst möchte ich erklären wie ich meinen analogen Gaszähler digital auslesbar gemacht habe und dann wie ich NodeRED und Grafana nutze um die erhaltenen Daten zu transformieren und in Diagramme (siehe Titelbild) anzeigbar gemacht habe.
 
@@ -18,7 +18,7 @@ Zuerst möchte ich erklären wie ich meinen analogen Gaszähler digital auslesba
 
 Wie im Bild oben rechts zu sehen habe ich einen analogen Gaszähler BK-G4. Wie also daraus einen digitalen Gaszähler der sogar Werte über Zeit speichern kann? Nun der Zähler sendet alle 0,01 qm verbrauchtem Gas einen magnetischen Impuls. Auf dem Bild ist das auch als 1 imp 0,01 qm zu sehen. Wenn also auch du einen Gaszähler mit magnetischen Impuls hast, sollte die Anleitung hier auch bei dir funktionieren.
 
-Den magnetischen Impuls messe ich einfach mit dem kabellosen [Zigbee Türsensor]() (auch oben rechts in Bild) und sende ihn an einen [Zigbee Empfänger]() der mit einem [Raspberry 4]() verbunden ist und zeichne die Werte auf.
+Den magnetischen Impuls messe ich einfach mit dem kabellosen [Zigbee Türsensor](https://amzn.to/2KEqsAz) (auch oben rechts in Bild) und sende ihn an einen [Zigbee Empfäger](https://amzn.to/2Y4aq63) der mit einem [Raspberry 4](https://amzn.to/3a0Xjsd) [US](https://amzn.to/3iEHyuD) verbunden ist und zeichne die Werte auf.
 
 Ganz so einfach ist die Aufzeichnung nicht da das Signal noch transformiert werden muss. Die Transformation des Signals wird mit NodeRED gemacht.
 
@@ -50,7 +50,9 @@ Mittlerweile habe ich sogar eine Datenbackup Funktion eingebaut. Damit komprimie
 Für das Backup habe ich eine eigene [Docker Image gebaut und release](https://github.com/mmuller88/influxdb-s3-backup). Das war nötig da es noch keine Docker Image auf Docker Hub gab welche InfluxDB + AWS CLI + arm64 unterstützten. Diese konsumiere ich nun in meinem [rasp4 repo](https://github.com/mmuller88/rasp4) im docker-compose.yaml. Das Backup wird per default jeden morgen um 1 Uhr durchgeführt.
 # Ausblick
 
-* Elektrizität messen
+Als nächstes möchte ich mich gerne an meinen Stromzähler machen um auch diesen digital auslesen zu können.
+
+Ich will auch mehr IOT Geräte nach NodeRED migrieren da ich zurzeit noch einiges in der Cloud mit der App "Smart Life" am laufen habe. Die Funktionalität dort ist aber sehr beschränkt. Z.B. kann ich bereits meinen Heizboiler an- und ausschalten und das würde ich gerne mit NodeRED steuern können.
 
 # Zusammenfassung
 Wenn euch noch coole Idee einfallen wie ich meine Sensordaten transformieren oder visualisieren um nützliche Informationen zu generieren, lasst es mich wissen.
