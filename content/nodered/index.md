@@ -1,16 +1,16 @@
 ---
 title: IOT - Den Gaszähler digital auslesen
 show: 'no'
-date: '2021-01-25'
+date: '2021-01-24'
 image: 'gasmeter.jpeg'
-tags: ['de', '2021', 'nodered', 'raspberry', 'iot', 'nofeed']
+tags: ['de', '2021', 'nodered', 'raspberry', 'iot']
 engUrl: https://martinmueller.dev/nodered-eng
 pruneLength: 50
 ---
 
 Hi.
 
-Vor einigen Wochen habe ich bereits [hier](https://martinmueller.dev/rasp4) mein neues IOT Deployment vorgestellt. Es besteht aus einem [Raspberry 4](https://amzn.to/3a0Xjsd) [US](https://amzn.to/3iEHyuD), [Zigbee Türsensor](https://amzn.to/2KEqsAz) und dem [Zigbee Empfäger](https://amzn.to/2Y4aq63). Die Software die auf dem Raspberry 4 läuft ist Docker Compose. Mit dem Docker Compose Deployment kommt für das IOT Management [NodeRED](https://github.com/node-red/node-red) zum Einsatz. Für die Anzeige in Diagrammen verwende ich [Grafana](https://github.com/grafana/grafana).
+Vor einigen Wochen habe ich bereits [hier](https://martinmueller.dev/rasp4) mein neues IOT Deployment vorgestellt. Es besteht aus einem [Raspberry 4 DE](https://amzn.to/3a0Xjsd) [US](https://amzn.to/3iEHyuD) [UK](https://amzn.to/2Y8FOQZ), [Zigbee Türsensor DE](https://amzn.to/2KEqsAz) [UK](https://amzn.to/2MeSmDM) und dem [Zigbee Empfäger DE](https://amzn.to/2Y4aq63) [UK](https://amzn.to/3pjZrSk). Die Software die auf dem Raspberry 4 läuft ist Docker Compose. Mit dem Docker Compose Deployment kommt für das IOT Management [NodeRED](https://github.com/node-red/node-red) zum Einsatz. Für die Anzeige in Diagrammen verwende ich [Grafana](https://github.com/grafana/grafana).
 
 Zuerst möchte ich erklären wie ich meinen analogen Gaszähler digital auslesbar gemacht habe und dann wie ich NodeRED und Grafana nutze um die erhaltenen Daten zu transformieren und in Diagramme (siehe Titelbild) anzeigbar gemacht habe.
 
@@ -29,7 +29,7 @@ Ganz so einfach ist die Aufzeichnung nicht da das Signal noch transformiert werd
 Sehr cool finde ich auch, dass NodeRED eine Anbindung nach GitHub unterstützt und der aktuelle Stand des NodeRED Projektes mittels Git Protokoll versioniert abgespeichert werden kann. NodeRED bietet viele weitere tolle Funktionen, die ihr unbedingt erforschen solltet. Genauer möchte ich aber hier nur auf den NodeRED Flow eingehen.
 
 ## NodeRED Flow
-Ein NodeRED Projekt kann mehrere Flows besitzen. Ein NodeRED Flow beschreibt die Interaktion von den IOT Geräten mit anderen Geräten, APIs oder online Services. Meinen Flow seht ihr oben links im Bild. Der Flow ließt sich am besten von links nach Rechts. Ganz links sind zwei Eingänge. Der untere Eingang ist von einer [Open Weather API](https://openweathermap.org/appid) mit der ich die aktuelle Außentemperatur erfasse (auch in dem "Gas Delta" Diagram als gelb zu sehen).
+Ein NodeRED Projekt kann mehrere Flows besitzen. Ein NodeRED Flow beschreibt die Interaktion von den IOT Geräten mit anderen Geräten, APIs oder online Services. Meinen Flow seht ihr oben links im Bild. Der Flow ließt sich am besten von links nach Rechts. Ganz links sind zwei Eingänge. Der untere Eingang ist von einer [Open Weather API](https://openweathermap.org/appid) mit der ich die aktuelle Außentemperatur erfasse (auch in dem "Gas Delta" Diagram in gelb zu sehen).
 
 Der obere Eingang ist von meinem Zigbee Empfänger der ja das Signal vom Zigbee Türsensor bekommt. Der Zigbee Türsensor und Empfänger arbeiten mit dem sogenannten MQTT Protokoll. MQTT is ein datensparsames, publish und subscribe Protokoll vorranging für die Kommunikation zwischen IOT Geräten.
 
@@ -48,6 +48,7 @@ Ganz unten links wird der Gesamtverbrauch des Gases angezeigt und darüber wie s
 Mittlerweile habe ich sogar eine Datenbackup Funktion eingebaut. Damit komprimiere ich meine InfluxDB Daten und speicher sie in AWS S3. AWS S3 ist ein günstiger langzeit Cloud Storage. Ich bevorzuge diese Methode da ich mir so keinen externen Speicher kaufen muss und die physische Verwaltung des Speichers AWS überlassen kann.
 
 Für das Backup habe ich eine eigene [Docker Image gebaut und release](https://github.com/mmuller88/influxdb-s3-backup). Das war nötig da es noch keine Docker Image auf Docker Hub gab welche InfluxDB + AWS CLI + arm64 unterstützten. Diese konsumiere ich nun in meinem [rasp4 repo](https://github.com/mmuller88/rasp4) im docker-compose.yaml. Das Backup wird per default jeden morgen um 1 Uhr durchgeführt.
+
 # Ausblick
 
 Als nächstes möchte ich mich gerne an meinen Stromzähler machen um auch diesen digital auslesen zu können.
