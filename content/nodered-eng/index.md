@@ -1,11 +1,12 @@
 ---
 title: IOT - Gasmeter goes digital
-date: '2021-01-24'
+date: '2021-01-25'
 image: 'gasmeter.jpeg'
 tags: ['eng', '2021', 'nodered', 'raspberry', 'iot']
 gerUrl: https://martinmueller.dev/nodered
 pruneLength: 50
 ---
+*Before it begins. Affiliates regarding the IOT devices are in the post*
 
 Hi.
 

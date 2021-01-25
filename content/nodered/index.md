@@ -1,12 +1,13 @@
 ---
 title: IOT - Den Gaszähler digital auslesen
 show: 'no'
-date: '2021-01-24'
+date: '2021-01-25'
 image: 'gasmeter.jpeg'
 tags: ['de', '2021', 'nodered', 'raspberry', 'iot']
 engUrl: https://martinmueller.dev/nodered-eng
 pruneLength: 50
 ---
+*Bevor es losgeht. Im Beitrag sind Affiliates bezüglich der IOT Geräte*
 
 Hi.
 
