@@ -2,7 +2,7 @@
 title: Docker Hub release mit Projen
 show: 'no'
 date: '2021-01-31'
-image: 'projen.svg'
+image: 'projen.png'
 tags: ['de', '2021', 'projen', 'docker', 'nofeed']
 engUrl: https://martinmueller.dev/projen-eng
 pruneLength: 50
