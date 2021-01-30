@@ -1,8 +1,8 @@
 ---
 title: Docker Hub release mit Projen
 show: 'no'
-date: '2021-02-02'
-image: 'alps-u.png'
+date: '2021-01-31'
+image: 'projen.svg'
 tags: ['de', '2021', 'projen', 'docker', 'nofeed']
 engUrl: https://martinmueller.dev/projen-eng
 pruneLength: 50
@@ -34,7 +34,6 @@ Diese wenigen Zeilen erzeugen alle GitHub Projektfiles die das Herz begehrt. Dar
 Wirklich richtig cool ist das Projen auch mit GitHub Workflows kommt die z.B. neue Versionen publishen können nach Registries wie NPM oder PYPI. Für meinen Docker Image Release nach Docker Hub habe ich den Projen GitHub Release Workflow erweitert. Wie genau seht ihr im nächsten Abschnitt.
 
 # Projen Setup
-
 Nachfolgend seht ihr meine aktuelles Projen Setup welches in dem File .projenrc.js hinterlegt ist.
 
 ```ts
@@ -104,7 +103,6 @@ project.synth();
 ```
 
 ## NodeProject
-
 Meine Projen Projekt ist vom Typen NodeProject:
 ```ts
 const { NodeProject, ProjectType, DockerCompose } = require('projen');
@@ -118,7 +116,7 @@ const project = new NodeProject({
 });
 ```
 
-Das bedeuted, dass es ein typisches node deployment ist, welches nodejs als environment benötigt und zusätzliches Libaries sowie Projektinformationen in der package.json enthält. Dazu kommt noch dass Node Projekte eine Changelog.md, welches alle Änderungen seit dem letzten Release auflisten können, kommt. 
+Das bedeuted, dass es ein typisches node deployment ist, welches nodejs als environment benötigt und zusätzliches Libaries sowie Projektinformationen in der package.json enthält. Dazu kommt noch dass Node Projekte eine Changelog.md, welches alle Änderungen seit dem letzten Release auflisten können, kommt.
 
 Außerdem besitzt es einen GitHub Release Workflow welches mittels GitHub Actions automatisch GitHub releases macht bei commits und dabei die [semver](https://semver.org) befolgt. Ich habe nun eben genau diesen release Workflow erweitert um auch Docker Images nach Docker Hub pushen zu können in der gleichen Tagversion wie sie auch während des GitHub Releases gemacht wird. Um den Release Workflow zu erweitern habe ich das releaseWorkflow Objekt folgendermaßen erweitert:
 
@@ -175,8 +173,13 @@ project.releaseWorkflow.addJobs({
 })
 ```
 
-# Ausblick
-* Properties auch als TypeScript properties wegen Dokumentation
+Dieser GitHub workflow released also meine Image nach Docker Hub mit der gleichen Tagversion und latest:
+
+```
+tags: 'damadden88/influxdb-s3-backup:${{ steps.get_version.outputs.dversion }},damadden88/influxdb-s3-backup:latest'
+```
+
+Neue releases nach GitHub und Docker Hub werden so nun komplett von Projen gemanaged und bei commits nach master automatisch durchgeführt. Das ist extrem cool und spart mir viel Zeit :).
 
 # Zusammenfassung
 Ich habe das Projen Framework lieben gelernt, da es tolle Abstraktion und Vorgabe für ein Setup von Projekten ist. Ich lege dir ans Herz Projen mal einen Versuch zu geben und sehr bald wirst du die Schönheit dieses Frameworks selber erleben.
