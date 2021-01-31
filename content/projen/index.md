@@ -10,12 +10,12 @@ pruneLength: 50
 
 Hi Projen Freunde.
 
-Projen wird mehr und mehr beliebter. Ich selber nutze es schon ca seit einem halbem Jahr und bin immer noch total begeistert. Kürzlich habe ich es so gar geschafft eine Docker Image Release Cycle nach Docker Hub damit zu bauen. Mein [Docker InfluxDB Repo](https://github.com/mmuller88/influxdb-s3-backup) pusht nun automatisch bei jedem release eine Image nach Docker Hub.
+[Projen](https://github.com/projen/projen) wird immer beliebter. Ich selber nutze es schon ca seit einem halbem Jahr und bin immer noch total begeistert. Kürzlich habe ich es sogar geschafft einen Docker Image Release Cycle nach Docker Hub damit zu bauen. Mein [Docker InfluxDB Repo](https://github.com/mmuller88/influxdb-s3-backup) pusht nun automatisch bei jedem release eine Image nach Docker Hub.
 
 Was genau Projen ist und wie ich damit mein Projekt und Image Release Cycle manage, erkläre ich den nächsten Abschnitten.
 
 # Projen
-[Projen](https://github.com/projen/projen) erlaubt eine ausgeklügelte Verwaltung von Projektkonfiguration durch Code. Mit nur wenigen Zeilen TypeScript Code kann ein gesamtes Repository konfiguriert werden. Hierfür ein Beispiel:
+[Projen](https://github.com/projen/projen) erlaubt eine ausgeklügelte Verwaltung von Projektkonfiguration durch Code. Mit nur wenigen Zeilen TypeScript kann ein gesamtes Repository konfiguriert werden. Hierfür ein Beispiel:
 
 ```ts
 const { JsiiProject } = require('projen');
@@ -182,7 +182,7 @@ tags: 'damadden88/influxdb-s3-backup:${{ steps.get_version.outputs.dversion }},d
 Neue releases nach GitHub und Docker Hub werden so nun komplett von Projen gemanaged und bei commits nach master automatisch durchgeführt. Das ist extrem cool und spart mir viel Zeit :).
 
 # Zusammenfassung
-Ich habe das Projen Framework lieben gelernt, da es tolle Abstraktion und Vorgabe für ein Setup von Projekten ist. Ich lege dir ans Herz Projen mal einen Versuch zu geben und sehr bald wirst du die Schönheit dieses Frameworks selber erleben.
+Ich habe das Projen Framework lieben gelernt, da es eine tolle Abstraktion und Vorgabe für ein Setup von Projekten ist. Ich lege dir ans Herz Projen mal einen Versuch zu geben und sehr bald wirst du die Schönheit dieses Frameworks selber erleben.
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
