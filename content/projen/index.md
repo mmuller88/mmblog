@@ -1,9 +1,9 @@
 ---
 title: Docker Hub release mit Projen
 show: 'no'
-date: '2021-01-31'
+date: '2021-02-01'
 image: 'projen.png'
-tags: ['de', '2021', 'projen', 'docker', 'nofeed']
+tags: ['de', '2021', 'projen', 'docker']
 engUrl: https://martinmueller.dev/projen-eng
 pruneLength: 50
 ---
@@ -31,7 +31,7 @@ project.synth();
 
 Diese wenigen Zeilen erzeugen alle GitHub Projektfiles die das Herz begehrt. Darunter die package.json, .gitignore, tsconfig.json und noch viele viele mehr.
 
-Wirklich richtig cool ist das Projen auch mit GitHub Workflows kommt die z.B. neue Versionen publishen können nach Registries wie NPM oder PYPI. Für meinen Docker Image Release nach Docker Hub habe ich den Projen GitHub Release Workflow erweitert. Wie genau seht ihr im nächsten Abschnitt.
+Wirklich richtig cool ist das Projen auch mit GitHub Workflows kommt die z.B. neue Versionen publishen können nach Registries wie NPM oder PYPI. Das habe ich in einem anderen Projekt gemacht und [hier](https://martinmueller.dev/alps-unified) beschrieben. Für meinen Docker Image Release nach Docker Hub habe ich den Projen GitHub Release Workflow erweitert. Wie genau seht ihr im nächsten Abschnitt.
 
 # Projen Setup
 Nachfolgend seht ihr meine aktuelles Projen Setup welches in dem File .projenrc.js hinterlegt ist.
