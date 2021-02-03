@@ -10,24 +10,39 @@ pruneLength: 50
 
 Hi.
 
-* Team 4 Leute. Relativ klein
-* Organisierien uns komplett auf GitHub
-* Machen as erst seit 3 Wochen also vorsichtig mit der Beurteilung
-* Habe allerdings schon 5 Jahre Scrumerfahrung. Will GitHub so gut es geht nutzen für typische Scrum Paradigmen
-* Disclaimer ich habe nie eine Scrum Zertifizierung gemacht. Es werden also Begriffe und Paradigment vom "ursprünglichen" Scrum falsch sein! Könnte mich gerne korriegieren. Bitte sogar darum.
+In meinem Entwicklerteam arbeiten wir mit Scrum und organisieren und komplett mit GitHub. In diesem Artikel beschreibe ich wie GitHub genutzt werden kann um eine tolle Scrumarbeitsweise in einem Team zu entwickeln.
 
-# GitHub
-* Nutze und liebe es seit 2015
+Auch wenn ich schon seit ungefähr 5 Jahren Erfahrung mit Scrum habe aus der Entwickler Perspektive möchte ich hier doch einen kleinen Disclaimer geben. Ich habe nie eine Scrum Zertifizierung gemacht. Ich werde also wahrscheinlich Begriffe falsch wiedergeben oder einordnen. Ich würde dann gerne dich bitte mich zu korrigieren.
 
-## Meine GitHub Highlights
-* Highlights PR, GitHub Checks, GitHub Actions ...
-* Viele Funktionen for free. Speziell wenn sogar wenn man nur public Repositories benutzt.
+Auch arbeitet unser Team erst seit gut einem Monat als Team überhaupt zusammen im Scrum Modus. Das Team ist mit 4 Leuten 3 Fullstack Entwicklern und 1 Product Owner relativ klein. Trotzdem denke ich, dass dieser Beitrag euch dabei helfen kann euren Arbeitsprozess in eurem Scrumteam zu verbessern.
 
-## GitHub Projects for Scrum Board
-* Boards für verschiedene Zeitbereiche und Abstraktionen.
-* aktueller Sprint Board . 2 Wochen
-* Backlog Board . 2 - 6 Wochen . Spalten
-* Zukunfts Board . 6 Wochen bis 1 Jahr
+Im nächsten Abschnitt erzähle ich mehr über GitHub und wie wir es nutzen um uns in Scrum zu organisieren.
+
+# GitHub und Scrum
+
+Mein [GitHub Account](https://github.com/mmuller88) is aktiv seit 2016. GitHub ist bei weitem meine liebste Git Provider Umgebung. Privat nutze ich GitHub sehr viel. Ich bin sehr froh, dass ich GitHub nun auch für die Arbeit verwenden kann. Im nächsten Abschnitt erkläre ich wie wir einige GitHub Funktionen zur bewältigung unserer Scrum Arbeitsweise verwenden.
+## GitHub Issues als Tickets
+* Issues als Tickets
+* Sizen sie während des planning 1, 3, 5, 8 oder 13
+## GitHub Projects als Scrum Boards
+
+GitHub Projects eigenen sich hervorragend für die Scrum Boards. Wir haben 3 Projects für 3 Boards. Jedes Board reperesentiert dabei seinen eigenen Zeitbereich und Abstraktionslevel.
+
+### Aktuelle Sprint Board
+
+Das wichtigste Board ist dabei natürlich das "Aktuelle Sprint Board". Wir machen einen zweiwöchigen Sprint und mit dem "Aktuelle Sprint Board" reflektieren wir die Arbeit bzw. die Tickets an denen wir aktuelle arbeiten und arbeiten wollen. Es besitzt drei Spalten ToDo, In Progress und Done.
+
+Tickets aus dem Backlog Scrum Board, welches im nächsten Abschnitt vorgestellt wird, landen dann hier zuerst in der ToDo Spalte. Zu diesem Zeitpunkt sollten die Tickets verständlich und gesized sein. Am Ende jedes Sprints wird die Done Spalte geleert und die ToDo Spalte wieder aufgefüllt.
+
+### Backlog Board
+Das Backlog Board ist Gedacht für Aufgaben in dem Zeitraum von 2 - 6 Wochen und umfasst alle Tickets die noch nicht im Aktuellen Sprint Board sind. Hier werden diese gesammelt und Stück für Stück verfeinert. Dafür existieren die vier Spalten von links nach rechts Backlog, Ready for Sizing, Ready for Sprint und Next Sprint.
+
+In jeder Spalte wird also das Ticket verfeinert z.B. wenn das Ticket von Backlog in Ready for Sizing gelangt muss es für alle Entwickler soweit verständlich sein, dass es gesized werden kann. Sizen meint in dem Kontext, dass eine Zahl für die Komplexität des Tickets von den Entwicklern vergeben wird. Überlicherweise sind das die Fibonacci Zahlen 1 3 5 8 13 . 
+
+Wenn das Ticket in die Ready for Spring Spalte kommt, ist es nun soweit fertig um potentiell in den nächsten Sprint zu gelangen. In der Spalte Next Sprint einigen wir uns darauf welche Tickets wir im nächsten Sprint abfertigen wollen.
+
+### Zukunft Board
+Das Zukunft Board ist für Ideen / Aufgaben die noch relativ unklar sind und in einem Zeitabstand von ca 6 Wochen bis hin zu einem Jahr sind. Bisher nutzen wir dieses Board noch kaum und haben Ideen in einem Miro Board.
 
 # Zusammenfassung
 ...
