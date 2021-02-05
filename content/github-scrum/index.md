@@ -2,7 +2,7 @@
 title: Scrum und GitHub
 show: 'no'
 date: '2021-02-07'
-image: 'projen.png'
+image: 'git.jpg'
 tags: ['de', '2021', 'projen', 'docker', 'nofeed']
 engUrl: https://martinmueller.dev/projen-eng
 pruneLength: 50
@@ -10,9 +10,9 @@ pruneLength: 50
 
 Hi.
 
-In meinem Entwicklerteam arbeiten wir im Scrum und organisieren und komplett mit GitHub. In diesem Artikel beschreibe ich wie wir GitHub benutzen für eine tolle Scrumarbeitsweise.
+Unser Entwicklerteam hat ein spannendes Experiment ausprobiert. Wir arbeiten im Scrum und organisieren uns hauptsächlich mit GitHub. In diesem Artikel beschreibe ich wie wir GitHub dafür benutzen.
 
-Auch wenn ich schon seit ungefähr 5 Jahren Erfahrung mit Scrum habe als Entwickler möchte ich hier doch einen kleinen Disclaimer machen. Ich habe nie eine Scrum Zertifizierung gemacht. Ich werde also wahrscheinlich Begriffe falsch wiedergeben oder einordnen. Ich würde dann gerne dich bitte mich zu korrigieren.
+Auch wenn ich schon seit ungefähr 5 Jahren Erfahrung mit Scrum habe als Entwickler gebe ich hier einen kleinen Disclaimer. Ich habe nie eine Scrum Zertifizierung gemacht. Ich werde also wahrscheinlich Begriffe falsch wiedergeben oder einordnen. Ich würde dann gerne dich bitte mich zu korrigieren.
 
 Auch arbeitet unser Team erst seit gut einem Monat zusammen im Scrum. Das Team ist mit 4 Leuten 3 Fullstack Entwicklern und 1 Product Owner relativ klein. Trotzdem denke ich, dass dieser Beitrag euch dabei helfen kann euren Arbeitsprozess in eurem Team zu verbessern.
 
@@ -20,7 +20,10 @@ Im nächsten Abschnitt erzähle ich mehr über GitHub und wie wir es nutzen um u
 
 # GitHub und Scrum
 
-Mein [GitHub Account](https://github.com/mmuller88) is aktiv seit 2016. GitHub ist bei weitem meine liebste Git Provider Umgebung. Privat nutze ich GitHub sehr viel. Ich bin sehr froh, dass ich GitHub nun auch für die Arbeit verwenden kann. Im nächsten Abschnitt erkläre ich wie wir einige GitHub Funktionen zur bewältigung unserer Scrum Arbeitsweise verwenden.
+Mein [GitHub Account](https://github.com/mmuller88) is aktiv seit 2016. GitHub ist bei weitem meine liebste Git Provider Umgebung. Privat nutze ich GitHub sehr viel. Ich bin sehr froh, dass ich GitHub nun auch für die Arbeit verwenden kann. Unsere Hauptmotivation GitHub zur Organisation zu verwenden sind die geringen Kosten und die Tatsache, dass sich viele Entwickler bereits gut mit GitHub auskennen.
+
+Im nächsten Abschnitt erkläre ich wie wir einige GitHub Funktionen zur bewältigung unserer Scrum Arbeitsweise verwenden.
+
 ## GitHub Issues als Tickets
 
 Die Issues bei GitHub lassen sich perfekt nutzen als Tickets für Scrum. Über Labels ist es sogar möglich den Tickets eine Size zu geben. Sizen meint in dem Kontext, dass eine Zahl für die Komplexität des Tickets von den Entwicklern vergeben wird. Üblicherweise sind das die Fibonacci Zahlen 1 3 5 8 13 .
@@ -29,7 +32,7 @@ Auch können über Labels die Tickets ihrer jeweiligen Komponente zugewiesen wer
 
 ## GitHub Projects als Scrum Boards
 
-GitHub Projects eigenen sich hervorragend für die Scrum Boards. Wir haben 3 Projects für 3 Boards. Jedes Board repräsentiert dabei seinen eigenen Zeitbereich und Abstraktionslevel.
+GitHub Projects eigenen sich hervorragend für die Scrum Boards. Wir haben 3 Projects für 3 Boards. Jedes Board repräsentiert dabei seinen eigenen Zeitbereich und Abstraktionsgrad.
 
 ### Aktuelle Sprint Board
 
