@@ -1,10 +1,10 @@
 ---
 title: Scrum und GitHub
 show: 'no'
-date: '2021-02-07'
+date: '2021-02-10'
 image: 'git.jpg'
-tags: ['de', '2021', 'projen', 'docker', 'nofeed']
-engUrl: https://martinmueller.dev/projen-eng
+tags: ['de', '2021', 'projen', 'docker']
+engUrl: https://martinmueller.dev/github-scrum-eng
 pruneLength: 50
 ---
 
@@ -36,12 +36,12 @@ GitHub Projects eigenen sich hervorragend für die Scrum Boards. Wir haben 3 Pro
 
 ### Aktuelle Sprint Board
 
-Das wichtigste Board ist dabei natürlich das "Aktuelle Sprint Board". Wir machen einen zweiwöchigen Sprint und mit dem "Aktuelle Sprint Board" reflektieren wir die Arbeit bzw. die Tickets an denen wir aktuelle arbeiten und arbeiten wollen. Es besitzt drei Spalten ToDo, In Progress und Done.
+Das wichtigste Board ist dabei natürlich das "Aktuelle Sprint Board" (siehe mittig im Titelbild). Wir machen einen zweiwöchigen Sprint und mit dem "Aktuelle Sprint Board" reflektieren wir die Arbeit bzw. die Tickets an denen wir aktuelle arbeiten und arbeiten wollen. Es besitzt drei Spalten ToDo, In Progress und Done.
 
 Tickets aus dem Backlog Scrum Board, welches im nächsten Abschnitt vorgestellt wird, landen dann hier zuerst in der ToDo Spalte. Zu diesem Zeitpunkt sollten die Tickets verständlich und gesized sein. Am Ende jedes Sprints wird die Done Spalte geleert und die ToDo Spalte wieder aufgefüllt.
 
 ### Backlog Board
-Das Backlog Board ist Gedacht für Aufgaben in dem Zeitraum von 2 - 6 Wochen und umfasst alle Tickets die noch nicht im Aktuellen Sprint Board sind. Hier werden diese gesammelt und Stück für Stück verfeinert. Dafür existieren die vier Spalten von links nach rechts Backlog, Ready for Sizing, Ready for Sprint und Next Sprint.
+Das Backlog Board (siehe unten im Titelbild) ist Gedacht für Aufgaben in dem Zeitraum von 2 - 6 Wochen und umfasst alle Tickets die noch nicht im Aktuellen Sprint Board sind. Hier werden diese gesammelt und Stück für Stück verfeinert. Dafür existieren die vier Spalten von links nach rechts Backlog, Ready for Sizing, Ready for Sprint und Next Sprint.
 
 In jeder Spalte wird also das Ticket verfeinert z.B. wenn das Ticket von Backlog in Ready for Sizing gelangt muss es für alle Entwickler soweit verständlich sein, dass es gesized werden kann.
 
