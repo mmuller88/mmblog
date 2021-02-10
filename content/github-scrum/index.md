@@ -48,7 +48,7 @@ In jeder Spalte wird also das Ticket verfeinert z.B. wenn das Ticket von Backlog
 Wenn das Ticket in die Ready for Spring Spalte kommt, ist es nun soweit fertig um potentiell in den nächsten Sprint zu gelangen. In der Spalte Next Sprint einigen wir uns darauf welche Tickets wir im nächsten Sprint abfertigen wollen.
 
 ### Zukunft Board
-Das Zukunft Board ist für Ideen / Aufgaben die noch relativ unklar sind und in einem Zeitabstand von ca 6 Wochen bis hin zu einem Jahr sind. Bisher nutzen wir dieses Board noch kaum und haben Ideen in einem Miro Board.
+Das Zukunft Board ist für Ideen / Aufgaben die noch relativ unklar sind und in einem Zeitabstand von ca 6 Wochen bis hin zu einem Jahr sind. Bisher nutzen wir dieses Board noch kaum und haben Ideen in einem separiertem [Miro](https://miro.com) Board.
 
 # Zusammenfassung
 Ich bin immer noch total geflashed wie gut es mit den Tools auf GitHub es klappt in Scrum zu arbeiten. Die UI von GitHub wirkt sehr ausgeklügelt und erlaubt eine tolle Scrum Experience. Probiert es einfach mal aus :) !
