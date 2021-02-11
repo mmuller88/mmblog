@@ -1,6 +1,6 @@
 ---
 title: Scrum and GitHub
-date: '2021-02-10'
+date: '2021-02-11'
 image: 'git.jpg'
 tags: ['eng', '2021', 'projen', 'docker']
 gerUrl: https://martinmueller.dev/github-scrum

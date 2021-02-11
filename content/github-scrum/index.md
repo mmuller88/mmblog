@@ -1,7 +1,7 @@
 ---
 title: Scrum und GitHub
 show: 'no'
-date: '2021-02-10'
+date: '2021-02-11'
 image: 'git.jpg'
 tags: ['de', '2021', 'projen', 'docker']
 engUrl: https://martinmueller.dev/github-scrum-eng
