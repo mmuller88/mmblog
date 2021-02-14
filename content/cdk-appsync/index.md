@@ -10,12 +10,20 @@ pruneLength: 50
 
 Hi.
 
-* Todoliste mit AWS CDK, Appsync, Amplify, CDK Pipeline
-* Tolle DevOps Experience
-* Todoliste unterteilt in Backend und Frontend
+Schon lange träume ich von einer idealen Platform mit einer tollen DevOps Experience. Ich möchte so coole sachen darin haben wie:
+* Infrastructure as Code (IAC)
+* CI / CD (Continuous Integration / Continuous Deployment)
+* Ein Staging z.B. dev, qa, prod
+* automatisierte Tests
+
+Ich glaube das nun alles gefunden zu haben mit der Verwendung der folgenden Technologien. AWS CDK zum managen der Infrastructure as Code. AWS AppSync als Implementierung von GraphQL, AWS Amplify für die Frontend Webside und das managen von Usern. Weiterhing AWS CodePipeline enhanced mit meiner library [AWS CDK Staging Pipeline](https://github.com/mmuller88/aws-cdk-staging-pipeline).
+
+Anhand einer Todoliste will ich euch zeigen wie viel Power in meinem Deployment steckt. Aber zunächst will ich erstmal erklären was AWS CDK überhaupt ist.
 
 # AWS CDK
-* Was ist das
+[AWS CDK](https://github.com/aws/aws-cdk) ist ein Open Source Framework zu Erstellung und Verwaltung von AWS Ressourcen. Durch die Verwendung von dem Entwickler vertrauten Sprachen wie TypeScript oder Python wird die Infrastruktur als Code beschrieben. Dabei synthetisiert CDK den Code zu AWS CodeFormation templates und kann diese optional gleich deployen.
+
+AWS CDK erfährt seit 2019 ein stetigen Zuwachs von begeisterten Entwicklern und hat bereits eine starke und hilfsbereite [Slack Community](https://cdk-dev.slack.com). Es gibt natürlich noch viel mehr zu sagen über AWS CDK und ich empfehle euch es zu erforschen. Falls ihr Fragen habt, könnt ihr mich auch gerne fragen.
 
 # Backend AWS Appsync
 * Appsync ist eine Implementaiton von GraphQL
