@@ -17,7 +17,7 @@ Schon lange träume ich von dem Bau einer Platform mit einer tollen DevOps Exper
 * automatisierte Tests
 * das alles mit so wenig TypeScript Code wie nötig
 
-Ich glaube das nun alles gefunden zu haben mit der Verwendung der folgenden Technologien. AWS CDK zum managen der Infrastructure as Code. AWS AppSync als Implementierung von GraphQL, AWS Amplify für die Frontend Website und das managen von Usern. Weiterhin AWS CodePipeline erweitert mit meiner library [AWS CDK Staging Pipeline](https://github.com/mmuller88/aws-cdk-staging-pipeline).
+Ich glaube das nun gefunden zu haben mit der Verwendung der folgenden Technologien. AWS CDK zum managen der Infrastructure as Code. AWS AppSync als Implementierung von GraphQL, AWS Amplify für die Frontend Website und das managen von Usern. Weiterhin AWS CodePipeline erweitert mit meiner library [AWS CDK Staging Pipeline](https://github.com/mmuller88/aws-cdk-staging-pipeline).
 
 Anhand meins Todolisten Deployments will ich euch zeigen wie viel Power in meinem Deployment steckt. Aber zunächst will ich erstmal erklären was AWS CDK überhaupt ist.
 
