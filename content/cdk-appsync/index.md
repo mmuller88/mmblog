@@ -1,7 +1,7 @@
 ---
 title: Ein sehr coole DevOps AWS CDK Todolist
 show: 'no'
-date: '2021-02-21'
+date: '2021-02-22'
 image: 'pipeline.png'
 tags: ['de', '2021', 'projen', 'cdk', 'aws']
 engUrl: https://martinmueller.dev/cdk-appsync-eng
@@ -19,12 +19,12 @@ Schon lange träume ich von dem Bau einer Platform mit einer tollen DevOps Exper
 
 Ich glaube das nun gefunden zu haben mit der Verwendung der folgenden Technologien. AWS CDK zum managen der Infrastructure as Code. AWS AppSync als Implementierung von GraphQL, AWS Amplify für die Frontend Website und das managen von Usern. Weiterhin AWS CodePipeline erweitert mit meiner library [AWS CDK Staging Pipeline](https://github.com/mmuller88/aws-cdk-staging-pipeline).
 
-Anhand meins Todolisten Deployments will ich euch zeigen wie viel Power in meinem Deployment steckt. Aber zunächst will ich erstmal erklären was AWS CDK überhaupt ist.
+Anhand meins Todolisten Deployments will ich euch zeigen wie viel Power in meinem Deployment steckt. Aber zunächst werde ich erklären was AWS CDK ist.
 
 # AWS CDK
-[AWS CDK](https://github.com/aws/aws-cdk) ist ein Open Source Framework zu Erstellung und Verwaltung von AWS Ressourcen. Durch die Verwendung von dem Entwickler vertrauten Sprachen wie TypeScript oder Python wird die Infrastructure as Code beschrieben. Dabei synthetisiert CDK den Code zu AWS Cloudformation templates und kann diese optional gleich deployen.
+[AWS CDK](https://github.com/aws/aws-cdk) ist ein Open Source Framework zu Erstellung und Verwaltung von AWS Ressourcen. Durch die Verwendung von dem Entwickler vertrauten Sprachen wie TypeScript oder Python wird die Infrastructure as Code beschrieben. Dabei synthetisiert CDK den Code zu AWS Cloudformation Templates und kann diese optional gleich deployen.
 
-AWS CDK erfährt seit 2019 ein stetigen Zuwachs von begeisterten Entwicklern und hat bereits eine starke und hilfsbereite [Slack Community](https://cdk-dev.slack.com). Es gibt natürlich noch viel mehr zu sagen über AWS CDK und ich empfehle euch es zu erforschen. Schreibt mir, wenn ihr Fragen habt.
+AWS CDK erfährt seit 2019 ein stetigen Zuwachs von begeisterten Entwicklern und hat bereits eine starke und hilfsbereite Community die z.B. sehr auf [Slack](https://cdk-dev.slack.com) aktiv ist. Es gibt natürlich noch viel mehr zu sagen über AWS CDK und ich empfehle euch es zu erforschen. Schreibt mir, wenn ihr Fragen habt.
 
 # Backend AWS AppSync, AWS DynamoDB and AWS Cognito
 Der Code für das Backend ist in [GitHub aws-cdk-todolist](https://github.com/mmuller88/aws-cdk-todolist).
@@ -38,7 +38,7 @@ AWS Cognito ist ein Service für die Userverwaltung und Userauthentifikation üb
 Eine Deployment Pipeline deployed all diese Ressourcen in AWS Accounts. Die AWS Ressourcen für das Backend und die Deployment Pipeline selbst, werden mit AWS CDK als Infrastructure as Code bereitgestellt.
 
 # Frontend React, AWS Amplify, S3 Static Website
-Der Code für das Frontend ist in [GitHub aws-cdk-todolist](https://github.com/mmuller88/aws-cdk-todolist-ui).
+Der Code für das Frontend ist in [GitHub aws-cdk-todolist-ui](https://github.com/mmuller88/aws-cdk-todolist-ui).
 
 Der Frontend Stack besteht aus einem React Build mit AWS Amplify UI Erweiterungen wie @aws-amplify/auth @aws-amplify/ui-components @aws-amplify/ui-react. Diese Erweiterungen helfen massiv bei der Userverwaltung. So ist es z.B. einfach möglich über den Loginscreen neue Benutzer anzulegen oder das Passwort zu ändern, falls man es vergessen haben sollte.
 
