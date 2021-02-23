@@ -1,6 +1,6 @@
 ---
 title: A very cool DevOps AWS CDK Todolist
-date: '2021-02-22'
+date: '2021-02-23'
 image: 'pipeline.png'
 tags: ['eng', '2021', 'projen', 'cdk', 'aws']
 gerUrl: https://martinmueller.dev/cdk-appsync
@@ -16,19 +16,19 @@ For a long time I've been dreaming of building a platform with a great DevOps ex
 * automated tests
 * all this with as little TypeScript code as necessary
 
-I think I have found that now with the use of the following technologies. AWS CDK to manage the infrastructure as code. AWS AppSync as implementation of GraphQL, AWS Amplify for the frontend website and managing users. Furthermore AWS CodePipeline extended with my library [AWS CDK Staging Pipeline](https://github.com/mmuller88/aws-cdk-staging-pipeline).
+I have found that now with the use of the following technologies. AWS CDK to manage the infrastructure as code. AWS AppSync as implementation of GraphQL, AWS Amplify for the frontend website and managing users. Furthermore AWS CodePipeline extended with my library [AWS CDK Staging Pipeline](https://github.com/mmuller88/aws-cdk-staging-pipeline).
 
 With my Todolist deployment I want to show you how much power is in my deployment. But first I will explain what AWS CDK is.
 
 # AWS CDK
 [AWS CDK](https://github.com/aws/aws-cdk) is an open source framework for creating and managing AWS resources. By using languages familiar to the developer such as TypeScript or Python, Infrastructure as Code is described. In doing so, CDK synthesizes the code into AWS Cloudformation Templates and can optionally deploy them right away.
 
-AWS CDK has been experiencing a steady increase in enthusiastic developers since 2019 and already has a strong and helpful community that is very active on [Slack](https://cdk-dev.slack.com), for example. There is of course much more to say about AWS CDK and I recommend you explore it. Drop me a line if you have any questions.
+AWS CDK has been experiencing a steady increase in usage for developers since 2019 and already has a strong and helpful community that is very active like on [Slack](https://cdk-dev.slack.com). There is of course much more to say about AWS CDK and I recommend you explore it. Drop me a line if you have any questions.
 
 # Backend AWS AppSync, AWS DynamoDB and AWS Cognito
 The code for the backend is in [GitHub aws-cdk-todolist](https://github.com/mmuller88/aws-cdk-todolist).
 
-AWS AppSync is a GraphQL api implementation. GraphQL is an interesting new API technology. Since GraphQL is still a relative newcomer for me, I don't dare to make any big statements now and here. What I do like is that the connection to databases like AWS DynamoDB feels very native. I've always been annoyed by the necessary Lambda implementations with AWS Api Gateway and the creation of new endpoints. All of that seems no longer necessary with the use of AWS AppSync.
+AWS AppSync is a GraphQL api implementation. GraphQL is an interesting new API technology. Since GraphQL is still new for me, I don't dare to make any big statements now. What I do like is that the connection to databases like AWS DynamoDB feels very native. I've always been annoyed by the necessary Lambda implementations with AWS Api Gateway and the creation of new endpoints. All of that seems no longer necessary with the use of AWS AppSync.
 
 For storing items in the todo list I use DynamoDB. Each item gets its own ID, which is assigned by the AppSync resolver. In addition, each item has a body and a username.
 
@@ -51,10 +51,10 @@ My Todolisten deployment has such a deployment pipeline. Each of the [frontend](
 # Outlook
 The [AppSync Transformer](https://github.com/) looks very interesting. With it it is possible to use the [AWS Amplify GraphQL Transformer](https://docs.amplify.aws/cli/graphql-transformer/overview) more easily. Thus many lines of code can be saved by generating an extended GraphQL schema using cool labels like @model @connection.
 
-I am also in the process of writing a Udemy course on the Todolist deployment mentioned here. If you want a voucher for it, let me know and once it's done you'll get one.
+I do make a Udemy course about creating a platform like the Todolist. If you want a voucher for it, let me know and once it's done you'll get one.
 
 # Summary
-GraphQL is mega exciting. I think it's a forward looking API technology and I can't wait to work with it more in a professional environment.
+GraphQL is ultra exciting. I think it's a forward looking API technology and I can't wait to work with it more in a professional environment.
 
 Thanks to the [DeepL translater (free version)](https://DeepL.com/Translator) for helping with translating to english and saving me tons of time :).
 

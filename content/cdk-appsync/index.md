@@ -1,7 +1,7 @@
 ---
 title: Ein sehr coole DevOps AWS CDK Todolist
 show: 'no'
-date: '2021-02-22'
+date: '2021-02-23'
 image: 'pipeline.png'
 tags: ['de', '2021', 'projen', 'cdk', 'aws']
 engUrl: https://martinmueller.dev/cdk-appsync-eng
@@ -17,7 +17,7 @@ Schon lange träume ich von dem Bau einer Platform mit einer tollen DevOps Exper
 * automatisierte Tests
 * das alles mit so wenig TypeScript Code wie nötig
 
-Ich glaube das nun gefunden zu haben mit der Verwendung der folgenden Technologien. AWS CDK zum managen der Infrastructure as Code. AWS AppSync als Implementierung von GraphQL, AWS Amplify für die Frontend Website und das managen von Usern. Weiterhin AWS CodePipeline erweitert mit meiner library [AWS CDK Staging Pipeline](https://github.com/mmuller88/aws-cdk-staging-pipeline).
+Ich habe das nun gefunden mit der Verwendung der folgenden Technologien. AWS CDK zum managen der Infrastructure as Code. AWS AppSync als Implementierung von GraphQL, AWS Amplify für die Frontend Website und das managen von Usern. Weiterhin AWS CodePipeline erweitert mit meiner library [AWS CDK Staging Pipeline](https://github.com/mmuller88/aws-cdk-staging-pipeline).
 
 Anhand meins Todolisten Deployments will ich euch zeigen wie viel Power in meinem Deployment steckt. Aber zunächst werde ich erklären was AWS CDK ist.
 
@@ -29,7 +29,7 @@ AWS CDK erfährt seit 2019 ein stetigen Zuwachs von begeisterten Entwicklern und
 # Backend AWS AppSync, AWS DynamoDB and AWS Cognito
 Der Code für das Backend ist in [GitHub aws-cdk-todolist](https://github.com/mmuller88/aws-cdk-todolist).
 
-AWS AppSync ist eine GraphQL Api Implementierung. GraphQL ist eine interessante neue API Technologie. Da GraphQL noch eine relative neu für mich ist, wage ich keine großen Aussagen jetzt und hier. Was mir aber sehr gut gefällt ist, dass sich die Anbindung an Datenbanken wie AWS DynamoDB sehr nativ anfühlt. Mich haben schon immer die nötigen Lambda Implementierungen bei AWS Api Gateway und das Anlegen neuer Endpoints genervt. Das alles scheint nicht mehr nötig mit der Verwendung von AWS AppSync.
+AWS AppSync ist eine GraphQL Api Implementierung. GraphQL ist eine interessante neue API Technologie. Da GraphQL noch neu für mich ist, wage ich keine großen Aussagen jetzt und hier. Was mir aber sehr gut gefällt ist, dass sich die Anbindung an Datenbanken wie AWS DynamoDB sehr nativ anfühlt. Mich haben schon immer die nötigen Lambda Implementierungen bei AWS Api Gateway und das Anlegen neuer Endpoints genervt. Das alles scheint nicht mehr nötig mit der Verwendung von AWS AppSync.
 
 Für das Speichern von Items in der Todoliste verwende ich DynamoDB. Jedes Item bekommt dabei seine eigene ID, welche von dem AppSync Resolver zugewiesen wird. Darüber hinaus besitzt jedes Item einen Body und einen Username.
 
