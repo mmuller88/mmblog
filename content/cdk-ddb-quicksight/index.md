@@ -1,5 +1,5 @@
 ---
-title: Query DynamoDB mit QuickSight
+title: AWS DynamoDB Analysen mit QuickSight
 show: 'no'
 date: '2021-04-01'
 image: 'pipeline.png'
@@ -14,10 +14,14 @@ Hi.
 * Lösung ist das flattening in ein S3 Bucket. Dabei werden DDB daten als JSON Files in S3 gespeichert. Anschließend querien mit QuickSight
 
 # DynamoDB
-...
+* dokument store
+* daten in flexiblem format abspeichern ohne Schemavorgabe
+* extrem perfomant und scalable. Sehr klevere Partitionierungs Strategie
 
 # QuickSight
-...
+* what is quicksight
+* needs a lot permissions. can do manually or with aws cdk
+* analyse, dashboards erstellen
 
 # AWS CDK
 ...
@@ -25,6 +29,10 @@ Hi.
 # AWS CDK Stack
 ...
 
+# Probleme
+* AthenaDynamoDBConnector Lambda kann nicht mit AWS CDK einfach deployed werden. Es benutzt AWS SAM zum deployen. Das einfachste zurzeit is es manuell zu tun. 
+
+* QuickSight DataSets sind nicht Cloudformation unterstützt. As well it would be possible to create a DataSet AWS CDK Custom Construct with using CDK Custom Resource and https://docs.aws.amazon.com/quicksight/latest/APIReference/API_Operations.html to automate the creation of the DataSet. For now it will be created manually
 # Ausblick
 ...
 
