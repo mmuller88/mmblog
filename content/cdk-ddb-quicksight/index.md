@@ -16,7 +16,7 @@ Das ganze hat aber einen Haken. Dadurch, dass wir uns nicht mehr in der Welt der
 
 Top X verkauften Produkte im Zeitraum von t1 bis t2 grouped by Geschlecht
 
-In unserem Beispiel besitzen die User und die verkauften Produkte jeweils ihren eigenen Datensatz bzw. row in DynamoDB und sind indirekt über eine userId verbunden. Da DynamoDB keine Joins erlaubt, können wir keine Beziehung zwischen verkauften Produkt und Geschlecht herstellen.
+In unserem Beispiel befinden sich die User und die verkauften Produkte jeweils in ihrer eigenen DynamoDB Tabelle und sind indirekt über eine userId verbunden. Denkbar wäre aber auch dass sich beide in der gleichen Tabelle, aber in unterschiedlichen Datensätzen bzw. Rows befinden. DynamoDB erlaubt keine Joins und somit können wir keine Beziehung zwischen verkauften Produkt und dem Geschlecht herstellen.
 
 Die Lösung für das Problem ist AWS Athena, QuickSight, Lambda und S3. Mit einer Lambda können wir die DynamoDB Items als flache JSON File in ein S3 speichern und lassen Athena darauf zugreifen. QuickSight kann dann Athena als Datenengine benutzen um Joins, Analysen und Dashboards zu erstellen. Wie das alles geht erkläre ich in den nächsten Abschnitten.
 
