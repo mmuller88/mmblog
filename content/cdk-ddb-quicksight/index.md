@@ -3,28 +3,46 @@ title: AWS DynamoDB Analysen mit QuickSight
 show: 'no'
 date: '2021-04-01'
 image: 'pipeline.png'
-tags: ['de', '2021', 'projen', 'cdk', 'aws', 'nofeed']
+tags: ['de', '2021', 'projen', 'cdk', 'aws', 'nofeed'] #nofeed
 engUrl: https://martinmueller.dev/cdk-appsync-eng
 pruneLength: 50
 ---
 
 Hi.
 
-* Analyse von DynamoDB daten schwierig da sie sich nicht querien lassen wie z.B. Relationale Daten
-* Lösung ist das flattening in ein S3 Bucket. Dabei werden DDB daten als JSON Files in S3 gespeichert. Anschließend querien mit QuickSight
+AWS DynamoDB ist eine extrem performante und skalierbare NoSQL Datenbank. Durch das fehlen eines Schemas können Daten, in DynamoDb Items genannt, extrem flexibel sein. Das erlaubt auch eine Art evolutionäre Weiterentwicklung der Items indem einfach neue Spalten angelegt werden können.
 
-# DynamoDB
-* dokument store
-* daten in flexiblem format abspeichern ohne Schemavorgabe
-* extrem perfomant und scalable. Sehr klevere Partitionierungs Strategie
+Das ganze hat aber einen Haken. Dadurch, dass wir uns nicht mehr in der Welt der relationalen Daten befinden, können wir keine relationalen Operationen mehr ausführen wie Joins. Nun fragst du dich warum sollte ich Joins ausführen können, die haben uns doch schon genervt bei den relationalen Datenbanken? Wir können Joins zum Beispiel bei Analysen gebrauchen. Ich versuche das zu erklären anhand von Analysen eines Shops:
 
-# QuickSight
-* what is quicksight
-* needs a lot permissions. can do manually or with aws cdk
-* analyse, dashboards erstellen
+Top X verkauften Produkte im Zeitraum von t1 bis t2 grouped by Geschlecht
+
+In unserem Beispiel besitzen die User und die verkauften Produkte jeweils ihren eigenen Datensatz bzw. row in DynamoDB und sind indirekt über eine userId verbunden. Da DynamoDB keine Joins erlaubt, können wir keine Beziehung zwischen verkauften Produkt und Geschlecht herstellen.
+
+Die Lösung für das Problem ist AWS Athena, QuickSight, Lambda und S3. Mit einer Lambda können wir die DynamoDB Items als flache JSON File in ein S3 speichern und lassen Athena darauf zugreifen. QuickSight kann dann Athena als Datenengine benutzen um Joins, Analysen und Dashboards zu erstellen. Wie das alles geht erkläre ich in den nächsten Abschnitten.
+
+# AWS DynamoDB
+[AWS DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html) ist eine gemanagte NoSQL Datenbank mit sehr guter Performance und Skalierung. Durch das managen der Datenbank von AWS entfällen aufwendige Administrative Aufgaben wie Installation oder Wartung. DynamoDB besitzt auch tolle Backup Features wie on demand oder Point-in-Time recovery. 
+
+In DynamoDB müssen die eingefügten Daten keinem festdefiniertem Schema folgen wie in etwa bei relationen Datenbanken. Das ist super flexibel und sehr nützlich, kann aber auch zu Problemen wie Unübersichtlichkeit oder Inkonsistenzen bei den Spaltennamen führen. Von daher empfehle ich nur bestimmte Spalten in der Tabelle zuzulassen. Das kann z.B. erreicht werden durch eine Schemavaldierung im Api Gateway.
+
+# AWS Athena
+...
+# AWS QuickSight
+AWS QuickSight ist ein Service zum Erstellen und Analysieren von Visualisierungen der Kundendaten. Die Kundendaten können dabei in AWS Services liegen wie S3, RedShift oder wie in unserem Fall in DynamoDB. Zum Erstellen der Visualisierungen benutzt der Entwickler eine SQL ähnlich Query Language.
+
+QuickSight kann zum jetzigen Zeitpunkt noch nicht direkt Daten von DynamoDB einlesen und es muss ein kleiner Zwischenschritt gemacht werden. Die DynamoDB Daten müssen in einem S3 Bucket z.B. als JSON exportiert werden. Dann kann QuickSight die sich im S3 befindenden Daten einlesen.
+
+Um die Daten in den S3 Bucket zu schieben eignet sich der Ansatz eine AthenaDynamoDBConnector Lambda zu verwenden. Näheres darüber findest du im nächsten Abschnitt.
+
+# AthenaDynamoDBConnector Lambda
+* https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-dynamodb/athena-dynamodb.yaml
 
 # AWS CDK
-...
+[AWS CDK](https://github.com/aws/aws-cdk) ist ein Open Source Framework zu Erstellung und Verwaltung von AWS Ressourcen. Durch die Verwendung von dem Entwickler vertrauten Sprachen wie TypeScript oder Python wird die Infrastructure as Code beschrieben. Dabei synthetisiert CDK den Code zu AWS Cloudformation Templates und kann diese optional gleich deployen.
+
+AWS CDK erfährt seit 2019 ein stetigen Zuwachs von begeisterten Entwicklern und hat bereits eine starke und hilfsbereite Community die z.B. sehr auf [Slack](https://cdk-dev.slack.com) aktiv ist. Es gibt natürlich noch viel mehr zu sagen über AWS CDK und ich empfehle euch es zu erforschen. Schreibt mir, wenn ihr Fragen habt.
+
+Mit AWS CDK kann ich einen hohen Automatisierungsgrad bei der Erstellung des DynamoDB QuickSight Deployment erreichen. Dabei werden die benötigten AWS Ressourcen und dessen Konfigurationen schön als Code definiert und dann einfach ausgeführt.
 
 # AWS CDK Stack
 ...
