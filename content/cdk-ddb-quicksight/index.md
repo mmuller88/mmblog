@@ -4,7 +4,7 @@ show: 'no'
 date: '2021-04-04'
 image: 'ddb-quicksight.png'
 tags: ['de', '2021', 'projen', 'cdk', 'aws', 'nofeed'] #nofeed
-engUrl: https://martinmueller.dev/cdk-appsync-eng
+engUrl: https://martinmueller.dev/cdk-ddb-quicksight-eng
 pruneLength: 50
 ---
 
