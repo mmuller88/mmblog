@@ -18,7 +18,7 @@ Das ganze hat aber einen Haken. Dadurch, dass wir uns nicht mehr in der Welt der
 
 In unserem Beispiel befinden sich die User und die verkauften Produkte jeweils in ihrer eigenen DynamoDB Tabelle und sind indirekt über eine userId verbunden. Denkbar wäre aber auch dass sich beide in der gleichen Tabelle, aber in unterschiedlichen Datensätzen bzw. Rows befinden. DynamoDB erlaubt keine Joins und somit können wir keine Beziehung zwischen verkauften Produkten und dem Geschlecht herstellen.
 
-Die Lösung für das Problem ist AWS Athena, QuickSight, Lambda und S3. Mit einer Lambda werden die DynamoDB Items als flache JSON File in ein S3 gespeichert. Dann lassen wir Athena darauf zugreifen. QuickSight benutzt Athena dann als Datenengine um Joins, Analysen und Dashboards zu erstellen. Wie ihr das mit AWS CDK zum größtenteil automatisieren könnt und was die verwendeten Technologien sind seht ihr in den nächsten Abschnitten. Aber für die Ungeduldigen hier schonmal der [Code](https://github.com/mmuller88/ddb-quicksight)
+Die Lösung für das Problem ist AWS Athena, QuickSight, Lambda und S3. Mit einer Lambda werden die DynamoDB Items als flache JSON File in ein S3 gespeichert. Dann lassen wir Athena darauf zugreifen. QuickSight benutzt Athena dann als Datenengine um Joins, Analysen und Dashboards zu erstellen. Wie ihr das mit AWS CDK automatisiert und eine Beschreibung der verwendeten AWS Services folgen in den nächsten Abschnitten. Für die Ungeduldigen hier schonmal der [Code](https://github.com/mmuller88/ddb-quicksight)
 
 Zuvor möchte ich aber noch den Sponsor für diesen Blogpost und dem aufregenden Projekt um Analysen von DynamoDB Tabellen mittels QuickSight durchzuführen. [TAKE2](https://www.take2.co/) ist ein Softwareunternehmen zur ... . Vielen Dank an TAKE2 dass ich in eurem agilen und motiviertem Team sein darf um so aufregende AWS CDK Aufgaben wie diese arbeiten zu können.
 
@@ -32,13 +32,14 @@ Zum Zugriff auf die Daten die in einer relationalen Datenbank ähnlichen Form da
 
 Um DynamoDB als Datenquelle für Athena zu setzen braucht man einen Lambda Connector. Der Connector schreibt dabei alle Items aus der Tabelle in einen S3 Bucket. Zum Glück bietet AWS eine SAM Lambda bereits an die den Job übernimmt. Diese Lambda heißt [AthenaDynamoDBConnector](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-dynamodb)
 
-
 # AWS QuickSight
 AWS QuickSight ist ein Service zum Erstellen und Analysieren von Visualisierungen der Kundendaten. Die Kundendaten können dabei in AWS Services liegen wie S3, RedShift oder wie in unserem Fall in DynamoDB.
 
 QuickSight kann zum jetzigen Zeitpunkt noch nicht direkt Daten von DynamoDB einlesen und es muss ein kleiner Zwischenschritt gemacht werden. Die DynamoDB Daten müssen in einem S3 Bucket z.B. als JSON exportiert werden. Dann kann QuickSight die sich im S3 befindenden Daten einlesen.
 
 Um die Daten in den S3 Bucket zu schieben eignet sich der Ansatz eine AthenaDynamoDBConnector Lambda zu verwenden. Näheres darüber findest du im nächsten Abschnitt.
+
+Quicksight bietet viele coole Funktionen zum Verarbeiten und Visualsieren von Daten die ja zum Beispiel aus DynamoDB kommen können. Auch lassen diese sich teilweise mit CDK als Code definieren. Ich arbeite daran die erstellen QuickSight Analysen via CDK in Templates zu speichern um sie so cross account mäßig zugreifbar zu machen. Das ermöglicht dann Analysen auf einem dev account zu Erstellen und Testen und diese dann in den prod Account automatisiert zu via CDK zu deployn. Wie genau das alles von statten gehen soll erkläre im nächsten Blogpost.
 
 # AWS CDK
 [AWS CDK](https://github.com/aws/aws-cdk) ist ein Open Source Framework zu Erstellung und Verwaltung von AWS Ressourcen. Durch die Verwendung von dem Entwickler vertrauten Sprachen wie TypeScript oder Python wird die Infrastructure as Code beschrieben. Dabei synthetisiert CDK den Code zu AWS Cloudformation Templates und kann diese optional gleich deployen.
@@ -50,15 +51,11 @@ Mit AWS CDK kann ich einen hohen Automatisierungsgrad bei der Erstellung des Dyn
 # AWS CDK Stack
 Den AWS CDK Code für das DynamoDB Athena Deployment findet ihr in meinem [Repo](https://github.com/mmuller88/ddb-quicksight/blob/main/src/ddb-athena-stack.ts). Unbedingt dort auch die Readme ansehen da diese viele wichtige Anweisungen und Informationen enthällt. Leider konnte ich nicht alles in AWS CDK verfassen da z.B. die SAM Lambda AthenaDynamoDBConnector sich nicht oder nur schwierig in AWS CDK übersetzen lässt.
 
-# Probleme
-Wie bereits schon gesagt leider ist der SAM Lambda AthenaDynamoDBConnector nicht in AWS CDK erhältlich und somit muss dieser manuell deployed werden. Wie das geht ist in der Deployanweisung im Code Repo zu sehen. Noch
-
-* QuickSight DataSets sind nicht Cloudformation unterstützt. As well it would be possible to create a DataSet AWS CDK Custom Construct with using CDK Custom Resource and https://docs.aws.amazon.com/quicksight/latest/APIReference/API_Operations.html to automate the creation of the DataSet. For now it will be created manually
 # Ausblick
 Es wäre super cool wenn der AthenaDynamoDBConnector auch in AWS CDK erhältlich wäre. Auch scheinen mir die QuickSight Cloudformation Ressourcen noch sehr unausgereift da manches noch garnicht unterstütz wird wie z.B. das DataSet. Ein [GitHub Issue](https://github.com/aws-cloudformation/aws-cloudformation-coverage-roadmap/issues/274) wurde bereits schon erstellt. Auch hier wäre es super cool wenn AWS die Cloudformation.
 
 # Zusammenfassung
-...
+AWS QuickSight ist ein spannendes Analysetool zum Auswerten von Daten in einer DynamoDB Tabelle. Daten sind ja das neue Gold und von daher ist es extrem wichtig auch eher schwer zu verarbeitenen Daten wie zum Beispiel in einer DynamoDB Tabelle zu verarbeiten. Wenn dabei noch vertraute mechanismen wie SQL Queries, Aggregat Funktionen benutzt werden können ist das super. Auch bietet QuickSight wie coole graphische Lösungen zum Anzeigen von Analysen und Dashboards. Ich bin schon sehr gespannt mehr damit arbeiten zu dürfen.
 
 Vielen Dank auch an Jared Donboch für den extrem hilfreichen BlogPost [Using Athena data connectors to visualize DynamoDB data with AWS QuickSight](https://dev.to/jdonboch/finally-dynamodb-support-in-aws-quicksight-sort-of-2lbl) . Basierend darauf konnte ich so viel wie möglich automatisieren indem ich es in einen AWS CDK Stack verfasst habe.
 
