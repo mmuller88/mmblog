@@ -1,5 +1,5 @@
 ---
-title: AWS DynamoDB Analysen mit QuickSight
+title: AWS DynamoDB Analysen mit QuickSight and AWS CDK
 show: 'no'
 date: '2021-04-04'
 image: 'ddb-quicksight.png'
