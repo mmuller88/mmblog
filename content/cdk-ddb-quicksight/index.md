@@ -27,6 +27,8 @@ Zuvor möchte ich aber noch den Sponsor für diesen Blogpost und dem aufregenden
 
 In DynamoDB müssen die eingefügten Daten keinem festdefiniertem Schema folgen wie in etwa bei relationen Datenbanken. Das ist super flexibel und sehr nützlich, kann aber auch zu Problemen führen wie Unübersichtlichkeit oder Inkonsistenzen bei den Spaltennamen. Von daher empfehle ich nur bestimmte Spalten in der Tabelle zuzulassen. Das kann z.B. erreicht werden durch eine Schemavalidierung im Api Gateway oder der Verwendung eines GraphQL Schema in AWS AppSync.
 
+![pic](https://github.com/mmuller88/ddb-quicksight/blob/1d2dfa8ba6b6127a8d6e6f77f00f329ad0d5da2b/misc/ddb-quicksight.png)
+
 # AWS Athena
 AWS Athena erlaubt das Querien von Daten. Zum Zugriff auf die Daten benutzt der Entwickler Standard-SQL als Query Language. Als Datenquelle können verschiedene AWS Services dienen wie S3, RedShift und seit neuestem auch DynamoDB. Der Vorteil an Athena ist, dass es Serverless ist und man sich somit direkt auf die Datenabfrage konzentrieren kann.
 
