@@ -35,6 +35,8 @@ Um DynamoDB als Datenquelle für Athena zu setzen braucht man einen Lambda Conne
 # AWS QuickSight
 AWS QuickSight ist ein Service zum Erstellen und Analysieren von Visualisierungen der Kundendaten. Die Kundendaten können dabei in AWS Services liegen wie S3, RedShift oder wie in unserem Fall in DynamoDB.
 
+![pic](https://raw.githubusercontent.com/mmuller88/ddb-quicksight/main/misc/QS.png)
+
 QuickSight kann zum jetzigen Zeitpunkt noch nicht direkt Daten von DynamoDB einlesen und es muss ein kleiner Zwischenschritt gemacht werden. Die DynamoDB Daten müssen in einem S3 Bucket z.B. als JSON exportiert werden. Dann kann QuickSight die sich im S3 befindenden Daten einlesen.
 
 Um die Daten in den S3 Bucket zu schieben eignet sich der Ansatz eine AthenaDynamoDBConnector Lambda zu verwenden. Näheres darüber findest du im nächsten Abschnitt.
@@ -42,9 +44,6 @@ Um die Daten in den S3 Bucket zu schieben eignet sich der Ansatz eine AthenaDyna
 Quicksight bietet viele coole Funktionen zum Verarbeiten und Visualisieren von Daten die zum Beispiel aus DynamoDB kommen können. Auch lassen sich diese mit CDK als Code definieren.
 
 Ich arbeite daran die erstellen QuickSight Analysen via CDK in Templates zu speichern um sie so cross account mäßig zugreifbar zu machen. Das ermöglicht dann Analysen auf einem dev account zu Erstellen und Testen und diese dann in den prod Account automatisiert zu via CDK zu deployn. Wie genau das alles von statten gehen soll erkläre im nächsten Blogpost.
-
-![pic](https://raw.githubusercontent.com/mmuller88/ddb-quicksight/main/misc/QS.png)
-
 
 # AWS CDK
 [AWS CDK](https://github.com/aws/aws-cdk) ist ein Open Source Framework zu Erstellung und Verwaltung von AWS Ressourcen. Durch die Verwendung von dem Entwickler vertrauten Sprachen wie TypeScript oder Python wird die Infrastructure as Code beschrieben. Dabei synthetisiert CDK den Code zu AWS Cloudformation Templates und kann diese optional gleich deployen.
