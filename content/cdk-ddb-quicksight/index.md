@@ -59,7 +59,7 @@ Es wäre super cool wenn der AthenaDynamoDBConnector auch in AWS CDK erhältlich
 Wie schon in der QuickSight Sektion erwähnt, arbeite ich daran die Analysen von QuickSight mittel CDK zu persistieren und dann Cross Account mäßig verfügbar zu machen. Meine Findings werde ich dann im nächsten Blogpost zeigen.
 
 # Zusammenfassung
-AWS QuickSight ist ein spannendes Analysetool zum Auswerten von Daten in einer DynamoDB Tabelle. Daten sind ja das neue Gold und von daher ist es extrem wichtig auch eher schwer zu verarbeitenden Daten wie zum Beispiel in einer DynamoDB Tabelle zu verarbeiten. Wenn dabei noch vertraute mechanismen wie SQL Queries, Aggregat Funktionen benutzt werden können ist das super. Auch bietet QuickSight coole graphische Lösungen zum Anzeigen von Analysen und Dashboards. Ich bin schon sehr darauf gespannt mehr damit zu arbeiten.
+AWS QuickSight ist ein spannendes Analysetool zum Auswerten von Daten in einer DynamoDB Tabelle. Daten sind ja das neue Gold und von daher ist es extrem wichtig Daten aus einer DynamoDB Tabelle verarbeiten zu können. Wenn dabei noch vertraute mechanismen wie SQL Queries, Aggregat Funktionen benutzt werden können ist das super. Auch bietet QuickSight coole graphische Lösungen zum Anzeigen von Analysen und Dashboards. Ich bin schon sehr darauf gespannt mehr damit zu arbeiten.
 
 Vielen Dank auch an Jared Donboch für den extrem hilfreichen BlogPost [Using Athena data connectors to visualize DynamoDB data with AWS QuickSight](https://dev.to/jdonboch/finally-dynamodb-support-in-aws-quicksight-sort-of-2lbl) . Basierend darauf konnte ich so viel wie möglich automatisieren indem ich es in einen AWS CDK Stack verfasst habe.
 
