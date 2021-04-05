@@ -27,8 +27,6 @@ Zuvor möchte ich aber noch den Sponsor für diesen Blogpost und dem aufregenden
 
 In DynamoDB müssen die eingefügten Daten keinem festdefiniertem Schema folgen wie in etwa bei relationen Datenbanken. Das ist super flexibel und sehr nützlich, kann aber auch zu Problemen führen wie Unübersichtlichkeit oder Inkonsistenzen bei den Spaltennamen. Von daher empfehle ich nur bestimmte Spalten in der Tabelle zuzulassen. Das kann z.B. erreicht werden durch eine Schemavalidierung im Api Gateway oder der Verwendung eines GraphQL Schema in AWS AppSync.
 
-![pic](https://raw.githubusercontent.com/mmuller88/ddb-quicksight/main/misc/ddb-qs.jpg)
-
 # AWS Athena
 AWS Athena erlaubt das Querien von Daten. Zum Zugriff auf die Daten benutzt der Entwickler Standard-SQL als Query Language. Als Datenquelle können verschiedene AWS Services dienen wie S3, RedShift und seit neuestem auch DynamoDB. Der Vorteil an Athena ist, dass es Serverless ist und man sich somit direkt auf die Datenabfrage konzentrieren kann.
 
@@ -45,14 +43,18 @@ Quicksight bietet viele coole Funktionen zum Verarbeiten und Visualisieren von D
 
 Ich arbeite daran die erstellen QuickSight Analysen via CDK in Templates zu speichern um sie so cross account mäßig zugreifbar zu machen. Das ermöglicht dann Analysen auf einem dev account zu Erstellen und Testen und diese dann in den prod Account automatisiert zu via CDK zu deployn. Wie genau das alles von statten gehen soll erkläre im nächsten Blogpost.
 
+![pic](https://raw.githubusercontent.com/mmuller88/ddb-quicksight/main/misc/QS.png)
+
+
 # AWS CDK
 [AWS CDK](https://github.com/aws/aws-cdk) ist ein Open Source Framework zu Erstellung und Verwaltung von AWS Ressourcen. Durch die Verwendung von dem Entwickler vertrauten Sprachen wie TypeScript oder Python wird die Infrastructure as Code beschrieben. Dabei synthetisiert CDK den Code zu AWS Cloudformation Templates und kann diese optional gleich deployen.
 
 AWS CDK erfährt seit 2019 ein stetigen Zuwachs von begeisterten Entwicklern und hat bereits eine starke und hilfsbereite Community die z.B. sehr auf [Slack](https://cdk-dev.slack.com) aktiv ist. Es gibt natürlich noch viel mehr zu sagen über AWS CDK und ich empfehle euch es zu erforschen. Schreibt mir, wenn ihr Fragen habt.
 
-Mit AWS CDK habe ich einen hohen Automatisierungsgrad bei der Erstellung und Verwaltung des DynamoDB QuickSight Deployments erreicht. Dabei werden die benötigten AWS Ressourcen und dessen Konfigurationen schön als Code definiert und dann einfach ausgeführt.
+Mit AWS CDK habe ich einen hohen Automatisierungsgrad bei der Erstellung und Verwaltung des DynamoDB QuickSight Deployments erreicht. Dabei werden die benötigten AWS Ressourcen und dessen Konfigurationen schön als Code definiert und dann einfach ausgeführt. Und hier seht ihr ein Komponentendiagram:
 
-# AWS CDK Stack
+![pic](https://raw.githubusercontent.com/mmuller88/ddb-quicksight/main/misc/ddb-quicksight.png)
+
 Den AWS CDK Code für das DynamoDB Athena Deployment findet ihr in meinem [Repo](https://github.com/mmuller88/ddb-quicksight/blob/main/src/ddb-athena-stack.ts). Unbedingt dort auch die Readme ansehen da diese viele wichtige Anweisungen und Informationen enthält. Leider konnte ich nicht alles in AWS CDK verfassen da z.B. die SAM Lambda AthenaDynamoDBConnector lässt sich nicht oder nur schwierig in AWS CDK übersetzen und sie muss bis jetzt noch manuel deployed werden.
 
 # Ausblick
