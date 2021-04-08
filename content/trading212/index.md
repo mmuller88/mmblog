@@ -47,7 +47,7 @@ Auch wenn das Angebot der verfügbaren Aktien, in die investieren werden kann be
 
 Die [Trading212 Forum Community](https://community.trading212.com/) ist der perfekte Ort wenn man mehr über Trading mit Trading212 und generell lernen möchte. Die Community dort hat mich bei meiner Investmentstrategie stark unterstützt wofür ich sehr dankbar bin. Seit kurzem hat Trading212 auch einen [Discord Channel](https://discord.gg/yWy9scvP).
 
-Auch toll ist, dass Trading212 kostenlose Webinare zum Thema Trading auf ihrer Platform (also auch Apps) sowie auf [YouTube](https://https://youtube.com/user/Trading212) anbietet. Im nächsten Abschnitt erkläre ich meine Investmentstrategie.
+Auch toll ist, dass Trading212 kostenlose Webinare zum Thema Trading auf ihrer Platform (also auch Apps) sowie auf [YouTube](https://youtube.com/user/Trading212) anbietet. Im nächsten Abschnitt erkläre ich meine Investmentstrategie.
   
 # Meine Strategie
 Ich möchte langzeit investieren (mehr als 10 Jahre) in viele verschiedene Sektoren wie IT, Materialien, Energie usw. Welche Sektoren es gibt und was diese bedeuten findet ihr [hier](https://corporatefinanceinstitute.com/resources/knowledge/finance/the-sp-sectors/). Das Geld in viele verschiedene Sektoren zu investieren, anstatt in einen einzigen spezifischen Sektor, verringert das Verlustrisiko da diese Sektoren unabhängiger voneinander sind als es ein Sektor für sich wäre. Wenn man z.B. die Coronakriese betrachtet sieht man, dass der IT Sektor nicht so stark gelitten hat wie z.B. Real Estate.
@@ -71,8 +71,8 @@ Auch soll bald ein Exportfeature kommen, bei dem ich die Investitionen z.B. in e
 # Zusammenfassung
 Mit Trading212 macht Investieren in Aktien Spaß. Es gibt mir alle nötigen Tools um selber mein Aktienportfolio verwalten zu können. Das ist eine tolle Alternative zu Konten zum verwahren von Geld und darüber hinaus lernt man viele nützliche Sachen über den Aktienmarkt. Seine finanzielle Intelligenz auszubauen halte ich für wichtig und richtig. Trading212 kann auch dein Einstieg sein genau das zu tun!
 
-An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://https://facebook.com/martin.muller.10485). Vielen Dank :).
+An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://facebook.com/martin.muller.10485). Vielen Dank :).
 
 Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf https://github.com/mmuller88 . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:
 
-<a href="https://https://patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Werde ein Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+<a href="https://patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Werde ein Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>

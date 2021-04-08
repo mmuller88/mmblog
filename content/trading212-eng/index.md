@@ -45,7 +45,7 @@ Even though the range of available stocks to invest in at Trading212 is very lar
 
 The [Trading212 Forum Community](https://community.trading212.com/) is the perfect place if you want to learn more about trading with Trading212 and in general. The community there has been very supportive in my investment strategy for which I am very grateful. Recently Trading212 has also added a [Discord Channel](https://discord.gg/yWy9scvP).
 
-Also great is that Trading212 offers free webinars on trading on their platform (so apps too) as well as on [YouTube](https://https://youtube.com/user/Trading212). In the next section I explain my investment strategy.
+Also great is that Trading212 offers free webinars on trading on their platform (so apps too) as well as on [YouTube](https://youtube.com/user/Trading212). In the next section I explain my investment strategy.
   
 # My strategy
 I want to invest long term (more than 10 years) in many different sectors like IT, materials, energy etc. What sectors there are and what they mean you can find [here](https://corporatefinanceinstitute.com/resources/knowledge/finance/the-sp-sectors/). Investing money in many different sectors instead of one specific sector reduces the risk of loss because these sectors are more independent from each other than one sector would be. If you look at the Corona crisis, for example, you see that the IT sector did not suffer as much as real estate, for example.
@@ -71,8 +71,8 @@ Trading212 makes investing in stocks fun. It gives me all the tools I need to ma
 
 Thanks to the [DeepL translater (free version)](https://DeepL.com/Translator) for helping with translating to english and saving me tons of time :).
 
-To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://https://facebook.com/martin.muller.10485). Thank you very much :).
+To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://facebook.com/martin.muller.10485). Thank you very much :).
 
 I love to work on Content Management Open Source projects. A lot from my stuff you can already use on https://github.com/mmuller88 . If you like my work there and my blog posts, please consider supporting me on Patreon:
 
-<a href="https://https://patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Become a Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+<a href="https://patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Become a Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
