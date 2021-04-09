@@ -1,6 +1,5 @@
 ---
 title: AWS DynamoDB Analysis with QuickSight and AWS CDK
-show: 'no'
 date: '2021-04-08'
 image: 'ddb-quicksight.jpeg'
 tags: ['eng', '2021', 'projen', 'cdk', 'aws'] #nofeed
