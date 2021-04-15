@@ -19,7 +19,7 @@ Also nochmal kurz zusammengefasst. Die DynamoDB Tabelle ist viel zu groß und de
 
 Die genauen Anweisungen stehen auch im [repo](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-dynamodb#setting-up-databases--tables-in-glue). Kurz gesagt muss eine AWS Glue Table erstellt werden. Der Connector kann dann anhand der dort definierten Spalten die gewünschten Spalten erkennen.
 
-Um es anhand des auch im letzten Post verwendeten Komponentendiagrams zu visualisieren, muss lediglich die Glue Tabelle hinzugefügt werden:
+Um es anhand des auch im letzten Post verwendeten AWS Komponentendiagrams zu visualisieren, muss lediglich die Glue Tabelle hinzugefügt werden:
 
 ![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-ddb-quicksight-2/ddb-qs-complex.png)
 
@@ -64,6 +64,8 @@ export class GlueStack extends cdk.Stack {
 ```
 
 Die zu mappenen DynamoDB Spalten müssen einfach als columns in der Glue Table definiert werden. Hier aufgepasst! Glue Table unterstützt bestimmte Zeichen nicht wie Capslock und andere Sonderzeichen. Deswegen muss eventuell noch ein columnMapping vorgenommen werden!
+
+Nach dem deployen können die in **columns** definierten Spalten in Athena und QuickSight verwendet werden.
 
 # Zusammenfassung
 Das Analysieren von großen DynamoDB Tabellen ist nicht ganz so einfach. Mit der Verwendung von AWS Glue Tables kann der Lambda AthenaDynamoDBConnector aber trotzdem zuverlässig die gewünschten Spalten erkennen.
