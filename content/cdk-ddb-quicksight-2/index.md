@@ -3,7 +3,7 @@ title: AWS DynamoDB Analysen mit QuickSight und AWS CDK - Zu große Tabellen
 show: 'no'
 date: '2021-04-17'
 image: 'long-table.jpg'
-tags: ['de', '2021', 'projen', 'cdk', 'aws', 'nofeed'] #nofeed
+tags: ['de', '2021', 'projen', 'cdk', 'aws'] #nofeed
 engUrl: https://martinmueller.dev/cdk-ddb-quicksight-2-eng
 pruneLength: 50
 ---
@@ -13,6 +13,8 @@ Hi.
 In meinem [letzten Blogpost](https://martinmueller.dev/cdk-ddb-quicksight) habe ich über spannende Arbeiten mit AWS Athena und AWS QuickSight berichtet. Wenn ihr Analysen von kleinen AWS DynamoDB Tabellen machen wollt, sollte alles reibungslos funktionieren. Mit klein meine ich eine relativ geringe Anzahl von Spalten in der Tabelle.
 
 Mir passierte es nämlich das bei der Verarbeitung der [TAKE2](https://www.take2.co/) Daten, die benötigte Spalten für QuickSight garnicht angezeigt wurden. Nun ist die Anzahl der Spalten in den TAKE2 Daten mit mehr als 700 alles andere als klein! Wie ich das Problem gelöst habe und sogar mit AWS CDK in Code gießen konnte, erfahrt ihr in den nächsten Abschnitten.
+
+Zuvor möchte ich auch dieses mal den Sponsor [TAKE2](https://www.take2.co/) für diesen Blogpost danken.
 
 # Lösung
 Also nochmal kurz zusammengefasst. Die DynamoDB Tabelle ist viel zu groß und der Lambda [AthenaDynamoDBConnector](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-dynamodb) ist nicht mehr vernünftig in der Lage alle Spalten zu erkennen. Zum Glück haben die Programmierer des Connectors diesen Fall mitbedacht und eine Möglichkeit eingebaut, gezielt Spalten mit deren Namen und Typen definieren zu können.
@@ -52,13 +54,15 @@ export class GlueStack extends cdk.Stack {
       }, {
         name: 'firstname',
         type: glue.Schema.STRING,
-      }],
+      }
+      ...
+      ],
       dataFormat: glue.DataFormat.JSON,
     });
 
     const cfngluetable = gluetable.node.defaultChild as glue.CfnTable;
     cfngluetable.addPropertyOverride('TableInput.Parameters.classification', 'dynamodb');
-    cfngluetable.addPropertyOverride('TableInput.Parameters.columnMapping', 'userid=userId,firstname=firstName');
+    cfngluetable.addPropertyOverride('TableInput.Parameters.columnMapping', 'userid=userId,firstname=firstName,...');
   }
 }
 ```
