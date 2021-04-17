@@ -16,23 +16,23 @@ It happened to me that when processing the [TAKE2](https://www.take2.co/) data, 
 Before that I would like to thank the sponsor [TAKE2](https://www.take2.co/) for this blogpost as well.
 
 # Solution
-So again in short summary. The DynamoDB table is way too big and the Lambda [AthenaDynamoDBConnector](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-dynamodb) is no longer reasonably able to recognize all columns. Fortunately, the programmers of the connector have considered this case and have built in a possibility to define specific columns with their names and types.
+The problem is that the DynamoDB table is way too big and the Lambda [AthenaDynamoDBConnector](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-dynamodb) is no longer reasonably able to recognize all the columns. Fortunately, the programmers of the connector have considered this case and have built in a possibility to define specific columns with their names and types.
 
-The exact instructions are also in the [repo](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-dynamodb#setting-up-databases--tables-in-glue). In short, an AWS Glue Table must be created. The connector can then detect the desired columns based on the columns defined there.
+The exact instructions are in this [repo](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-dynamodb#setting-up-databases--tables-in-glue). In short, an AWS Glue Table must be created. The connector can then detect the desired columns based on the columns defined there.
 
-To visualize it using the AWS component diagram also used in the last post, all you need to do is add the Glue Table:
+To visualize it using the AWS component diagram also used in the last post, all you need to do is add a Glue Table:
 
 ![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-ddb-quicksight-2/ddb-qs-complex.png)
 
 # AWS CDK Code
-I abe packed the CDK Glue Table extension into its own [CDK Stack](https://github.com/mmuller88/ddb-quicksight/blob/main/src/glue-stack.ts). Here is the code:
+I packed the CDK Glue Table extension into its own [CDK Stack](https://github.com/mmuller88/ddb-quicksight/blob/main/src/glue-stack.ts). Here is the code snipped:
 
 ```ts
 import * as glue from '@aws-cdk/aws-glue';
 import * as cdk from '@aws-cdk/core';
 
 interface GlueStackProps extends cdk.StackProps {
-  readonly tableName: string;
+  readonly ddbTableName: string;
 }
 
 export class GlueStack extends cdk.Stack {
@@ -40,12 +40,12 @@ export class GlueStack extends cdk.Stack {
     super(scope, id, props);
 
     const database = new glue.Database(this, 'Database', {
-      databaseName: props.tableName,
+      databaseName: props.ddbTableName,
       locationUri: 'dynamo-db-flag',
     });
 
     const gluetable = new glue.Table(this, 'GlueTable', {
-      tableName: props.tableName,
+      tableName: props.ddbTableName,
       database: database,
       columns: [{
         name: 'userid',
@@ -66,12 +66,14 @@ export class GlueStack extends cdk.Stack {
 }
 ```
 
-The DynamoDB columns to be mapped must simply be defined as columns in the glue table. Watch out here! Glue Table does not support certain characters like capslock and other special characters. Therefore you may have to do a columnMapping!
+The DynamoDB columns you would like to be parsed you simply need to define as columns in the glue table. Watch out here! Glue Table does not support certain characters like capslock and special characters. Therefore you may have to do a columnMapping!
 
 After deployment the columns defined in **columns** can be used in Athena and QuickSight.
 
 # Summary
 Analyzing large DynamoDB tables is not that easy. However, with the use of AWS Glue Tables, the Lambda AthenaDynamoDBConnector can still reliably detect the desired columns.
+
+Thanks to the [DeepL translater (free version)](https://DeepL.com/Translator) for helping with translating to english and saving me tons of time :).
 
 To the wonderful readers of this article I'm saying that feedback of any kind is welcome. In the future I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://facebook.com/martin.muller.10485). Thank you very much :).
 

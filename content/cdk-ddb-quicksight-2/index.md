@@ -33,7 +33,7 @@ import * as glue from '@aws-cdk/aws-glue';
 import * as cdk from '@aws-cdk/core';
 
 interface GlueStackProps extends cdk.StackProps {
-  readonly tableName: string;
+  readonly ddbTableName: string;
 }
 
 export class GlueStack extends cdk.Stack {
@@ -41,12 +41,12 @@ export class GlueStack extends cdk.Stack {
     super(scope, id, props);
 
     const database = new glue.Database(this, 'Database', {
-      databaseName: props.tableName,
+      databaseName: props.ddbTableName,
       locationUri: 'dynamo-db-flag',
     });
 
     const gluetable = new glue.Table(this, 'GlueTable', {
-      tableName: props.tableName,
+      tableName: props.ddbTableName,
       database: database,
       columns: [{
         name: 'userid',
