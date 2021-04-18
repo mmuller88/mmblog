@@ -1,6 +1,6 @@
 ---
 title: AWS DynamoDB Analysis with QuickSight and AWS CDK - Quite big Tables
-date: '2021-04-17'
+date: '2021-04-18'
 image: 'long-table.jpg'
 tags: ['eng', '2021', 'projen', 'cdk', 'aws'] #nofeed
 gerUrl: https://martinmueller.dev/cdk-ddb-quicksight-2
