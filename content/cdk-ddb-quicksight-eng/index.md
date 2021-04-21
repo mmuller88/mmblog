@@ -47,7 +47,7 @@ I am working on storing the QuickSight analyses in templates via CDK in order to
 # AWS CDK
 AWS CDK](https://github.com/aws/aws-cdk) is an open source framework for creating and managing AWS resources. By using languages familiar to the developer such as TypeScript or Python, the infrastructure is described as code. In doing so, CDK synthesizes the code into AWS Cloudformation Templates and can optionally deploy them right away.
 
-AWS CDK has been experiencing a steady increase in enthusiastic developers since 2019 and already has a strong and helpful community that is very active on [Slack](https://cdk-dev.slack.com), for example. There is of course much more to say about AWS CDK and I recommend you explore it. Drop me a line if you have any questions.
+AWS CDK has been experiencing a steady increase in enthusiastic developers since 2019 and already has a strong and helpful community that is very active on [Slack](https://cdk-dev.slack.com). There is of course much more to say about AWS CDK and I recommend you explore it. Drop me a line if you have any questions.
 
 With AWS CDK, I have achieved a high level of automation in creating and managing the DynamoDB QuickSight deployment. This involves defining the required AWS resources and its configurations nicely as code and then simply executing them. And here you can see a component diagram:
 
