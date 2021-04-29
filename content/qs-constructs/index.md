@@ -12,7 +12,7 @@ Hi.
 
 In meinen vorherigen Blogposts habe ich bereits viel beschrieben und gezeigt wie man mit Hilfe von AWS QuickSight Analysen aus DynamoDB Tabelle generieren kann. Unglücklicherweise ist QuickSight nur minimal unterstützt von Cloudformation und QuickSight's DataSource und DataSet sind bisher nur auf der Roadmap https://github.com/aws-cloudformation/aws-cloudformation-coverage-roadmap/issues/274 . 
 
-Deshalb habe ich AWS CDK Custom Constructs für DataSource und DataSet entwickelt. In diesem Post gehe ich etwas genauer darauf ein was QuickSight DataSources und DataSets sind und wie ich mittels AWS CDK Custom Construct deploybar mache.
+Deshalb habe ich AWS CDK Custom Constructs für [DataSource und DataSet](https://github.com/mmuller88/cdk-quicksight-constructs) entwickelt. In diesem Post gehe ich etwas genauer darauf ein was QuickSight DataSources und DataSets sind und wie ich mittels AWS CDK Custom Construct deploybar mache.
 # AWS CDK
 [AWS CDK](https://github.com/aws/aws-cdk) ist ein Open Source Framework zu Erstellung und Verwaltung von AWS Ressourcen. Durch die Verwendung von dem Entwickler vertrauten Sprachen wie TypeScript oder Python wird die Infrastructure as Code beschrieben. Dabei synthetisiert CDK den Code zu AWS Cloudformation Templates und kann diese optional gleich deployen.
 
@@ -31,7 +31,7 @@ A DataSet then lets you define how concrete your Data coming from DataSources sh
 ...
 
 # Zusammenfassung
-...
+QuickSight ist ein cooles AWS Tool zum Visualisieren von Data Insights. Da ich ein riesen Fan von Infrastructure as Code bin will ich alle QuickSight Ressourcen in CDK haben. Leider sind die DataSource und DataSet noch nicht von Cloudformation unterstützt. Solange das noch so ist, werde ich und könnt ihr gerne meine CDK Custom Construct als Ersatz verwenden :).
 
 Nochmal vielen Dank an [TAKE2](https://www.take2.co/) für das Sponsoring dieses Blogposts.
 
