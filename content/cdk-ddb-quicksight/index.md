@@ -3,7 +3,7 @@ title: AWS DynamoDB Analysen mit QuickSight und AWS CDK
 show: 'no'
 date: '2021-04-08'
 image: 'ddb-qs.jpg'
-tags: ['de', '2021', 'projen', 'cdk', 'aws'] #nofeed
+tags: ['de', '2021', 'projen', 'cdk', 'quicksight', 'aws'] #nofeed
 engUrl: https://martinmueller.dev/cdk-ddb-quicksight-eng
 pruneLength: 50
 ---
