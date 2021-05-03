@@ -1,9 +1,9 @@
 ---
 title: AWS QuickSight DataSet und DataSource CDK Custom Constructs
 show: 'no'
-date: '2021-05-01'
+date: '2021-05-03'
 image: 'ddb-qs.jpg'
-tags: ['de', '2021', 'projen', 'cdk', 'aws', 'quicksight', 'nofeed'] #nofeed
+tags: ['de', '2021', 'projen', 'cdk', 'aws', 'quicksight'] #nofeed
 engUrl: https://martinmueller.dev/qs-quicksight-eng
 pruneLength: 50
 ---
@@ -119,8 +119,6 @@ Auch führe ich hier ein Daten Transformation durch. Ich möchte gerne das **age
 
 # Zusammenfassung
 QuickSight ist ein cooles AWS Tool zum Visualisieren von Data Insights. Da ich ein riesen Fan von Infrastructure as Code bin will ich alle QuickSight Ressourcen in CDK haben. Leider sind die DataSource und DataSet noch nicht von Cloudformation unterstützt. Solange das noch so ist, werde ich und könnt ihr gerne meine CDK Custom Construct als Ersatz verwenden :).
-
-Nochmal vielen Dank an [TAKE2](https://www.take2.co/) für das Sponsoring dieses Blogposts.
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
