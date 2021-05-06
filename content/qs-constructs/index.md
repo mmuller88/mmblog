@@ -1,7 +1,7 @@
 ---
 title: AWS QuickSight DataSet und DataSource CDK Custom Constructs
 show: 'no'
-date: '2021-05-03'
+date: '2021-05-06'
 image: 'ddb-qs.jpg'
 tags: ['de', '2021', 'projen', 'cdk', 'aws', 'quicksight'] #nofeed
 engUrl: https://martinmueller.dev/qs-quicksight-eng
@@ -28,18 +28,17 @@ Das konkrete Interface findet ihr [hier](https://github.com/mmuller88/cdk-quicks
 const users=['martin.mueller'];
 
 const datasource = new DataSource(this, 'DataSource', {
-  account: this.account,
   name: 'cdkdatasource',
   dataSourceParameters: {
-    AthenaParameters: {
-      WorkGroup: 'ddbworkgroup',
+    athenaParameters: {
+      workGroup: 'ddbworkgroup',
     },
   },
   users,
 });
 ```
 
-Das property **account** wird vom SDK benötigt und ist die account Id. **dataSourceParameters** ist der (getypte Parameter vom SDK)[https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/QuickSight.html#createDataSource-property]. Ich finde es ziemlich cool das wir hier nun Typesupport haben und so auch sehr einfach andere Quellen als DataSource wie Aurora oder RDS definieren können <3 . Die **WorkGroup** im Beispiel muss vorher erstellt sein. Das kann man manuell mit der AWS Console in Athena machen oder noch besser mit Athena. Wie genau das geht, habe ich bereits in einem vorherigen [Blogpost](https://martinmueller.dev/cdk-ddb-quicksight) erklärt.
+**dataSourceParameters** ist der (getypte Parameter vom SDK)[https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/QuickSight.html#createDataSource-property]. Ich finde es ziemlich cool das wir hier nun Typesupport haben und so auch sehr einfach andere Quellen als DataSource wie Aurora oder RDS definieren können <3 . Die **workGroup** im Beispiel muss vorher erstellt sein. Das kann man manuell mit der AWS Console in Athena machen oder noch besser mit Athena. Wie genau das geht, habe ich bereits in einem vorherigen [Blogpost](https://martinmueller.dev/cdk-ddb-quicksight) erklärt.
 
 # DataSet
 Eine DataSet kann dann verwendet werden um die DataSources zu verfeinern und zu konkretisieren. Dabei können zum Beispiel joins oder transforms definiert werden. Alle Möglichkeiten sehr ihr auch hier in der [DataSet SDK DoKumentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/QuickSight.html#createDataSet-property). Sehr wichtig zu wissen, es müssen die Permissions für DataSource und DataSet immer richtig gesetzt werden. Das habe ich zum Beispiel in den Constructs schon eingebaut.
@@ -47,64 +46,62 @@ Eine DataSet kann dann verwendet werden um die DataSources zu verfeinern und zu 
 Die Implementierung des DataSets ist [hier](https://github.com/mmuller88/cdk-quicksight-constructs/blob/main/src/dataset.ts). Nachfolgend schildere ich ein etwas komplexeres Beispiel bei dem logische Tabellen aus der DataSource gejoint werden.
 
 ```ts
-new DataSet(this, 'DataSet', {
-  account: this.account,
+new DataSetConstruct(stack, 'DataSetConstruct', {
   name: 'cdkdataset3',
-  users,
-  type: 'ATHENA',
+  users: users,
   physicalTableMap: {
     users: {
-      CustomSql: {
-        DataSourceArn: datasource.dataSourceArn,
-        Name: 'users',
-        SqlQuery: 'SELECT primarypractice, dateofbirth FROM "ddbconnector"."martin1"."martin1" WHERE groupid = \'users\' AND firstname is not null',
-        Columns: [
-          { Name: 'primarypractice', Type: 'STRING' },
-          { Name: 'dateofbirth', Type: 'STRING' },
+      customSql: {
+        dataSourceArn: datasource.dataSourceArn,
+        name: 'users',
+        sqlQuery: 'SELECT primarypractice, dateofbirth FROM "ddbconnector"."martin1"."martin1" WHERE groupid = \'users\' AND firstname is not null',
+        columns: [
+          { name: 'primarypractice', type: 'STRING' },
+          { name: 'dateofbirth', type: 'STRING' },
         ],
       },
     },
     practices: {
-      CustomSql: {
-        DataSourceArn: datasource.dataSourceArn,
-        Name: 'practices',
-        SqlQuery: 'SELECT id, name FROM "ddbconnector"."martin1"."martin1" WHERE groupid = \'medical-practices\' AND name is not null',
-        Columns: [
-          { Name: 'id', Type: 'STRING' },
-          { Name: 'name', Type: 'STRING' },
+      customSql: {
+        dataSourceArn: datasource.dataSourceArn,
+        name: 'practices',
+        sqlQuery: 'SELECT id, name FROM "ddbconnector"."martin1"."martin1" WHERE groupid = \'medical-practices\' AND name is not null',
+        columns: [
+          { name: 'id', type: 'STRING' },
+          { name: 'name', type: 'STRING' },
         ],
       },
     },
   },
   logicalTableMap: {
     'users': {
-      Alias: 'users',
-      Source: {
-        PhysicalTableId: 'users',
+      alias: 'users',
+      source: {
+        physicalTableId: 'users',
       },
     },
     'practices': {
-      Alias: 'practices',
-      Source: {
-        PhysicalTableId: 'practices',
+      alias: 'practices',
+      source: {
+        physicalTableId: 'practices',
       },
     },
     'users-practices': {
-      Alias: 'users-practices',
-      Source: {
-        JoinInstruction: {
-          LeftOperand: 'users',
-          RightOperand: 'practices',
-          Type: 'INNER',
-          OnClause: 'primarypractice = id',
+      alias: 'users-practices',
+      source: {
+        joinInstruction: {
+          leftOperand: 'users',
+          rightOperand: 'practices',
+          type: 'INNER',
+          onClause: 'primarypractice = id',
         },
       },
-      DataTransforms: [{
-        CreateColumnsOperation: {
-          Columns: [{
-            ColumnName: 'age',
-            ColumnId: 'age',
-            Expression: 'dateDiff(parseDate(dateofbirth, "YYYY-MM-dd\'T\'HH:mm:ssZ"),now(), "YYYY")',
+      dataTransforms: [{
+        createColumnsOperation: {
+          columns: [{
+            columnName: 'age',
+            columnId: 'age',
+            expression: 'dateDiff(parseDate(dateofbirth, "YYYY-MM-dd\'T\'HH:mm:ssZ"),now(), "YYYY")',
           }],
         },
       }],
