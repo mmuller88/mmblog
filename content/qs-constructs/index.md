@@ -38,10 +38,10 @@ const datasource = new DataSource(this, 'DataSource', {
 });
 ```
 
-**dataSourceParameters** ist der (getypte Parameter vom SDK)[https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/QuickSight.html#createDataSource-property]. Ich finde es ziemlich cool das wir hier nun Typesupport haben und so auch sehr einfach andere Quellen als DataSource wie Aurora oder RDS definieren können <3 . Die **workGroup** im Beispiel muss vorher erstellt sein. Das kann man manuell mit der AWS Console in Athena machen oder noch besser mit Athena. Wie genau das geht, habe ich bereits in einem vorherigen [Blogpost](https://martinmueller.dev/cdk-ddb-quicksight) erklärt.
+**dataSourceParameters** ist der [getypte Parameter vom SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/QuickSight.html#createDataSource-property). Ich finde es ziemlich cool das wir hier nun Typesupport haben und so auch sehr einfach andere Quellen als DataSource wie Aurora oder RDS definieren können <3 . Die **workGroup** im Beispiel muss vorher erstellt sein. Das kann man manuell mit der AWS Console in Athena machen oder noch besser mit Athena. Wie genau das geht, habe ich bereits in einem vorherigen [Blogpost](https://martinmueller.dev/cdk-ddb-quicksight) erklärt.
 
 # DataSet
-Eine DataSet kann dann verwendet werden um die DataSources zu verfeinern und zu konkretisieren. Dabei können zum Beispiel joins oder transforms definiert werden. Alle Möglichkeiten sehr ihr auch hier in der [DataSet SDK DoKumentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/QuickSight.html#createDataSet-property). Sehr wichtig zu wissen, es müssen die Permissions für DataSource und DataSet immer richtig gesetzt werden. Das habe ich zum Beispiel in den Constructs schon eingebaut.
+Eine DataSet kann dann verwendet werden um die DataSources zu verfeinern und zu konkretisieren. Dabei können zum Beispiel joins oder transforms definiert werden. Alle Möglichkeiten sehr ihr auch hier in der [DataSet SDK Dokumentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/QuickSight.html#createDataSet-property). Sehr wichtig zu wissen, es müssen die Permissions für DataSource und DataSet immer richtig gesetzt werden. Das habe ich zum Beispiel in den Constructs schon eingebaut.
 
 Die Implementierung des DataSets ist [hier](https://github.com/mmuller88/cdk-quicksight-constructs/blob/main/src/dataset.ts). Nachfolgend schildere ich ein etwas komplexeres Beispiel bei dem logische Tabellen aus der DataSource gejoint werden.
 

@@ -27,7 +27,6 @@ The concrete interface can be found [here](https://github.com/mmuller88/cdk-quic
 const users=['martin.mueller'];
 
 const datasource = new DataSource(this, 'DataSource', {
-  account: this.account,
   name: 'cdkdatasource',
   dataSourceParameters: {
     athenaParameters: {
@@ -38,10 +37,10 @@ const datasource = new DataSource(this, 'DataSource', {
 });
 ```
 
-**dataSourceParameters** is the (typed parameter from the SDK)[https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/QuickSight.html#createDataSource-property]. I think it's pretty cool that we have typesupport here now and so we can also define other sources as DataSource like Aurora or RDS very easily <3 . The **workGroup** in the example must be created before. You can do that manually with the AWS Console in Athena or even better with Athena. I already explained how exactly to do this in a previous [blogpost](https://martinmueller.dev/cdk-ddb-quicksight).
+**dataSourceParameters** is the [typed parameter from the SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/QuickSight.html#createDataSource-property). I think it's pretty cool that we have type support here now and so we can also define other sources as DataSource like Aurora or RDS very easily <3 . The **workGroup** in the example must be created before. You can do that manually with the AWS Console in Athena or even better with Athena. I already explained how exactly to do this in a previous [blogpost](https://martinmueller.dev/cdk-ddb-quicksight).
 
 # DataSet
-A DataSet can then be used to refine and concretize the DataSources. For example joins or transforms can be defined. All possibilities you can find here in the [DataSet SDK DoKumentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/QuickSight.html#createDataSet-property). Very important to know, the permissions for DataSource and DataSet must always be set correctly. I have already built this into the constructs for example.
+A DataSet can then be used to refine and concretize the DataSources. For example joins or transforms can be defined. All possibilities you can find here in the [DataSet SDK Documentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/QuickSight.html#createDataSet-property). Very important to know, the permissions for DataSource and DataSet must always be set correctly. I have already built this into the constructs for example.
 
 The implementation of the DataSet is [here](https://github.com/mmuller88/cdk-quicksight-constructs/blob/main/src/dataset.ts). In the following I describe a more complex example where logical tables are joined from the DataSource.
 
