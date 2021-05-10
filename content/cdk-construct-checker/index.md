@@ -20,8 +20,26 @@ Hi CDK Fans!
 
 AWS CDK erfährt seit 2019 ein stetigen Zuwachs von begeisterten Entwicklern und hat bereits eine starke und hilfsbereite Community die z.B. sehr auf [Slack](https://cdk-dev.slack.com) aktiv ist. Es gibt natürlich noch viel mehr zu sagen über AWS CDK und ich empfehle euch es zu erforschen. Schreibt mir, wenn ihr Fragen habt.
 
-# FitHub Workflow
+# GitHub Workflow
 ...
+
+# Getestete Versions Liste
+Mir kam dan noch die coole Idee zur Erstellung einer List von den bereits getesteten CDK Versionen. Es werden einfach die erstellten Pull Requests mit dem zuvor erstellten Label **cdk-version-test** versehen.
+
+```yaml
+- name: pull-request
+  uses: repo-sync/pull-request@v2
+  with:
+    source_branch: bump/${{ env.CDK_VERSION }}
+    pr_title: Testing CDK version to ${{ env.CDK_VERSION }}
+    pr_label: "cdk-version-test"  
+    destination_branch: "master"
+    github_token: ${{ secrets.PUSHABLE_GITHUB_TOKEN }}
+```
+
+Dann kann einfach per Link auf einen Filter mit dem Label verwiesen werden wie z.B. https://github.com/mmuller88/aws-cdk-build-badge/pulls?q=is%3Apr+is%3Aopen+label%3Acdk-version-test) . Und tada es werden alle PRs zum Versionstest angezeigt.
+
+![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-construct-checker/versions.png)
 
 # Zusammenfassung
 ...
