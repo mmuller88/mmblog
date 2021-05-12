@@ -21,13 +21,74 @@ In den nächsten Abschnitten möchte ich erklären wie der Kompatibilitätscheck
 
 AWS CDK erfährt seit 2019 ein stetigen Zuwachs von begeisterten Entwicklern und hat bereits eine starke und hilfsbereite Community die z.B. sehr auf [Slack](https://cdk-dev.slack.com) aktiv ist. Es gibt natürlich noch viel mehr zu sagen über AWS CDK und ich empfehle euch es zu erforschen. Schreibt mir, wenn ihr Fragen habt.
 
-# Kompatibilitäts Check
-* ein workflow curlt täglich die letzte releaste Versionsnummer
-* Baut dann einen Pull Request mit der upgedateten Versionsnummer
-* Build des PR schlägt bei Inkompatibilität fehl
-* Build testet zu einem die Interface der AWS CDK dependencies und führ Unit Tests aus. z.b. Lambdatests oder Cloudformation tests
-# GitHub Workflow
-...
+Im nächsten Abschnitt erkläre ich wie de Kompatibilitätscheck mit der AWS CDK Version funktioniert.
+
+# Kompatibilitätscheck
+Einmal am Tag curlt ein GitHub Workflow, hier Versionschecker genannt, auf die Seite https://github.com/aws/aws-cdk und extrahiert die letzte releaste CDK Version. Dann erstellt der Versionchecker einen Branch im Namenpattern bump/1.XX.X . Als also kürzlichst die Version 1.103.0 releast wurde erstellte der Versionschecker den Branch bump/1.103.0 . Dann erstellt der Versionchecker einen Pull Request gegen master. Der Pull Request beinhaltet nun die neue CDK Version. Das wird erreicht in dem der Versionschecker ein string Replace macht in der .projenrc.js File. Zum Beispiel wird:
+
+```ts
+const cdkVersion = '1.97.0';
+```
+
+ersetzt durch
+
+```ts
+const cdkVersion = '1.103.0';
+```
+
+Nun wird ein normaler Build aber mit neuer CDK Version durchgeführt. Der Build testet zu einem die Kompatibilität der CDK Interfaces bzw. dependencies und zum anderen werden die unit Tests automatisiert durchgeführt. Die Verwendung des Versionschecker bedingt also eine gute Unit Testingstrategie. Daher können getestet werden Lambda Code z.B.:
+
+```ts
+import * as AWS from '../__mocks__/aws-sdk';
+import { handler } from '../src/index.badge';
+
+const codebuild = new AWS.CodeBuild();
+
+describe('test index.badge.ts lambda', () => {
+  describe('failure when', () => {
+    test('queryStringParameters.projectName is not existing', async () => {
+      mockedApiEvent.queryStringParameters.projectName = undefined;
+      await handler(mockedApiEvent).catch((reason: any) => {
+        console.log(`reason: ${reason}`);
+        expect(JSON.stringify(reason)).toContain('projectName in query parameter is not existing or empty!');
+      });
+    ...
+```
+
+und die zu erwarteten synthetisierten Cloudformation Templates:
+
+```ts
+import { SynthUtils } from '@aws-cdk/assert';
+import * as core from '@aws-cdk/core';
+import { BuildBadge } from '../src';
+import '@aws-cdk/assert/jest';
+
+
+describe('Get', () => {
+  describe('BuildBadge', () => {
+    const app = new core.App();
+    const stack = new core.Stack(app, 'testing-stack');
+
+    describe('successful', () => {
+      test('with not defined hideAccountID', () => {
+        new BuildBadge(stack, 'BuildBadge1');
+        expect(stack).toHaveResourceLike('AWS::ApiGateway::Method');
+        expect(stack).toHaveResourceLike('AWS::Lambda::Function');
+        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).toContain('\"ACCOUNT\":\"123\"');
+      });
+      test('with hideAccountID = "no"', () => {
+        new BuildBadge(stack, 'BuildBadge2', { hideAccountID: 'no' });
+        expect(stack).toHaveResourceLike('AWS::ApiGateway::Method');
+        expect(stack).toHaveResourceLike('AWS::Lambda::Function');
+        expect(JSON.stringify(SynthUtils.toCloudFormation(stack))).toContain('"ACCOUNT\":{\"Ref\":\"AWS::AccountId\"}');
+      });
+      ...
+```
+
+Diese Beispiele wurden aus meinem [Build Badge](https://github.com/mmuller88/aws-cdk-build-badge) Construct kopiert.
+
+# Versionschecker - GitHub Workflow
+Der Versionschecker ist ein GitHub Workflow und wird täglich um 4 Uhr ausgeführt.
 
 ```yaml
 name: cdkversioncheck
@@ -82,6 +143,7 @@ jobs:
     container:
       image: jsii/superchain
 ```
+Es wäre auch möglich manuel gegen bestimmte Versionen zu testen. Dafür müssen einige Zeilen Code auskommentierten bzw. einkommentiert werden. Z.B. Zum manuellen Triggern muss der push master einkommentiert werden. Aucht muss die Action zum curlen der CDK Version auskommentiert und die darüber liegende CDK Version Action eikommentiert werden.
 
 # Getestete Versions Liste
 Mir kam dan noch die coole Idee zur Erstellung einer List von den bereits getesteten CDK Versionen. Es werden einfach die erstellten Pull Requests mit dem zuvor erstellten Label **cdk-version-test** versehen.
