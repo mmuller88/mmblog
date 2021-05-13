@@ -10,7 +10,7 @@ pruneLength: 50
 
 Hi CDK Fans!
 
-Mit Custom Constructs ist es möglich gewisse Funktionalitäten in level 2 AWS CDK Constructs zu implementieren. Tatsächlich sind viele der bereits verwendeten AWS CDK Construct bereits level 2 Constructs. Ich habe bereits einige Custom Constructs gebaut. Da wäre die [Build Badge](https://github.com/mmuller88/aws-cdk-build-badge) und die [Staging Pipeline](https://github.com/mmuller88/aws-cdk-staging-pipeline).
+Mit Custom Constructs ist es möglich gewisse Features als Level 2 AWS CDK Constructs zu implementieren. Tatsächlich sind viele der bereits verwendeten AWS CDK Construct bereits Level 2 Constructs. Ich habe bereits einige Custom Constructs gebaut. Da wäre die [Build Badge](https://github.com/mmuller88/aws-cdk-build-badge) und die [Staging Pipeline](https://github.com/mmuller88/aws-cdk-staging-pipeline).
 
 Wie wir alle wissen iteriert AWS CDK sehr schnell und es wird quasi wöchentlich eine neue Version released. Bei jedem Release besteht die Gefahr, dass meine Custom Constructs nicht mit der releasten CDK Version kompatibel ist. Von daher habe ich einen GitHub Workflow entwickelt der automatisch die Kompatibilität meiner Custom Constructs gegen die neue Version testet.
 
@@ -24,7 +24,7 @@ AWS CDK erfährt seit 2019 ein stetigen Zuwachs von begeisterten Entwicklern und
 Im nächsten Abschnitt erkläre ich wie de Kompatibilitätscheck mit der AWS CDK Version funktioniert.
 
 # Kompatibilitätscheck
-Einmal am Tag curlt ein GitHub Workflow, hier Versionschecker genannt, auf die Seite https://github.com/aws/aws-cdk und extrahiert die letzte releaste CDK Version. Dann erstellt der Versionchecker einen Branch im Namenpattern bump/1.XX.X . Als also kürzlichst die Version 1.103.0 releast wurde erstellte der Versionschecker den Branch bump/1.103.0 . Dann erstellt der Versionchecker einen Pull Request gegen master. Der Pull Request beinhaltet nun die neue CDK Version. Das wird erreicht in dem der Versionschecker ein string Replace macht in der .projenrc.js File. Zum Beispiel wird:
+Einmal am Tag curlt ein GitHub Workflow, hier Versionschecker genannt, auf die Seite https://github.com/aws/aws-cdk und extrahiert die letzte releaste CDK Version. Dann erstellt der Versionchecker einen Branch im Namenpattern bump/1.XX.X . Als also kürzlichst die Version 1.103.0 releast wurde, erstellte der Versionschecker den Branch bump/1.103.0 . Dann erstellt der Versionchecker einen Pull Request gegen master. Der Pull Request beinhaltet nun die neue CDK Version. Das wird erreicht in dem der Versionschecker ein string Replace macht in der .projenrc.js File. Zum Beispiel wird:
 
 ```ts
 const cdkVersion = '1.97.0';
