@@ -115,8 +115,8 @@ jobs:
       - name: Fetch CDK version
         run: |-
           echo "CDK_VERSION=$(curl --silent "https://api.github.com/repos/aws/aws-cdk/releases/latest" |
-          grep '"tag_name":' |
-          sed -E 's/.*"v([^"]+)".*/\1/')" >> $GITHUB_ENV
+          grep '"tag_name": "v1' |
+          sed -E 's/.*"([^"]+)".*/\1/')" >> $GITHUB_ENV
       - name: Synthesize project files
         continue-on-error: true
         run: |-
@@ -143,7 +143,9 @@ jobs:
     container:
       image: jsii/superchain
 ```
-Es wäre auch möglich manuel gegen bestimmte Versionen zu testen. Dafür müssen einige Zeilen Code auskommentierten bzw. einkommentiert werden. Z.B. Zum manuellen Triggern muss der push master einkommentiert werden. Aucht muss die Action zum curlen der CDK Version auskommentiert und die darüber liegende CDK Version Action eikommentiert werden.
+Der curl für die Versionsnummer akzeptiert nur v1.X Tags. v2.X ist per Design nicht kompatibel mit meinen CDK Stacks. Der PR würde also immer fehlschlagen.
+
+Es wäre auch möglich manuel gegen bestimmte Versionen zu testen. Dafür müssen einige Zeilen Code auskommentierten bzw. einkommentiert werden. Z.B. Zum manuellen Triggern muss der push master einkommentiert werden. Aucht muss die Action zum curlen der CDK Version auskommentiert und die darüber liegende CDK Version Action einkommentiert werden.
 
 # Getestete Versions Liste
 Mir kam dan noch die coole Idee zur Erstellung einer List von den bereits getesteten CDK Versionen. Es werden einfach die erstellten Pull Requests mit dem zuvor erstellten Label **cdk-version-test** versehen.
@@ -164,7 +166,7 @@ Dann kann einfach per Link auf einen Filter mit dem Label verwiesen werden wie z
 ![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-construct-checker/versions.png)
 
 # Zusammenfassung
-...
+AWS CDK ist nachwievor das optimale Framework für Infrastructure as Code in AWS. Mit meinen Custom Constructs hoffe ich der Community zurückzugeben. Um nun auch immer die beste Experience zu gewährleisten, habe ich einen Workflow entwickelt, der die CDK Versionskompatibilität überprüft. Den Workflow zu erstellen hat mir riesen Spaß gemacht. Noch toller ist jetzt aber eine PR Liste zu haben wo ich genau sehen kann ob die Versionschecks geklappt haben. Ich habe noch weitere spannende CDK Themen in meinem Forum: https://martinmueller.dev/tags/cdk
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
