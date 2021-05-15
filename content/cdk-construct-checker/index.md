@@ -1,8 +1,8 @@
 ---
-title: AWS CDK Custom Construct Version Compatibility Checker
+title: AWS CDK Custom Construct Versions Checker
 show: 'no'
 date: '2021-05-16'
-image: 'ddb-qs.jpg'
+image: 'version-prs.png'
 tags: ['de', '2021', 'projen', 'cdk', 'aws', 'construct', 'nofeed'] #nofeed
 engUrl: https://martinmueller.dev/cdk-construct-checker-eng
 pruneLength: 50
@@ -115,7 +115,7 @@ jobs:
       - name: Fetch CDK version
         run: |-
           echo "CDK_VERSION=$(curl --silent "https://api.github.com/repos/aws/aws-cdk/releases/latest" |
-          grep '"tag_name": "v1' |
+          grep '"tag_name": "1' |
           sed -E 's/.*"([^"]+)".*/\1/')" >> $GITHUB_ENV
       - name: Synthesize project files
         continue-on-error: true
