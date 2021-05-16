@@ -24,7 +24,7 @@ AWS CDK erfährt seit 2019 ein stetigen Zuwachs von begeisterten Entwicklern und
 Im nächsten Abschnitt erkläre ich wie de Kompatibilitätscheck mit der AWS CDK Version funktioniert.
 
 # Kompatibilitätscheck
-Einmal am Tag curlt ein GitHub Workflow, hier Versionschecker genannt, auf die Seite https://github.com/aws/aws-cdk und extrahiert die letzte releaste CDK Version. Dann erstellt der Versionchecker einen Branch im Namenpattern bump/1.XX.X . Als also kürzlichst die Version 1.103.0 releast wurde, erstellte der Versionschecker den Branch bump/1.103.0 . Dann erstellt der Versionchecker einen Pull Request gegen master. Der Pull Request beinhaltet nun die neue CDK Version. Das wird erreicht in dem der Versionschecker ein string Replace macht in der .projenrc.js File. Zum Beispiel wird:
+Einmal am Tag curlt ein GitHub Workflow, hier Versionschecker genannt, auf die Seite https://github.com/aws/aws-cdk und extrahiert die letzte releaste CDK Version. Dann erstellt der Versionchecker einen Branch im Namenpattern bump/1.X.X . Als also kürzlichst die Version 1.103.0 releast wurde, erstellte der Versionschecker den Branch bump/1.103.0 . Dann erstellt der Versionchecker einen Pull Request gegen master. Der Pull Request beinhaltet nun die neue CDK Version. Das wird erreicht in dem der Versionschecker ein string Replace macht in der .projenrc.js File. Zum Beispiel wird:
 
 ```ts
 const cdkVersion = '1.97.0';
@@ -161,7 +161,7 @@ Mir kam dan noch die coole Idee zur Erstellung einer List von den bereits getest
     github_token: ${{ secrets.PUSHABLE_GITHUB_TOKEN }}
 ```
 
-Dann kann einfach per Link auf einen Filter mit dem Label verwiesen werden wie z.B. https://github.com/mmuller88/aws-cdk-build-badge/pulls?q=is%3Apr+is%3Aopen+label%3Acdk-version-test) . Und tada es werden alle PRs zum Versionstest angezeigt.
+Dann kann einfach per Link auf einen Filter mit dem Label verwiesen werden wie z.B. https://github.com/mmuller88/aws-cdk-build-badge/pulls?q=is%3Apr+is%3Aopen+label%3Acdk-version-test . Und tada es werden alle PRs zum Versionstest angezeigt.
 
 ![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-construct-checker/versions.png)
 
