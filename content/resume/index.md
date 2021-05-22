@@ -17,7 +17,7 @@ Passionate Full Stack Developer. I like to have a broad collection of skills. Fr
 “What I don’t know, I will learn”
 
 # Highlights
-* Java, JavaScript, TypeScript, Kotlin, Angular, React
+* Java, JavaScript, TypeScript, Angular, React
 * AWS Professional Solution Architect certified [![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/resume/cert.png)](https://martinmueller.dev/aws-cert)
 * AWS Lambda, EC2, CDK, DynamoDB and many more
 * Maven, Gradle, SQL, ElasticSearch
