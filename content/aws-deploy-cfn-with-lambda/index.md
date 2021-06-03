@@ -10,7 +10,7 @@ pruneLength: 50
 
 Hi Leute!
 
-Ich arbeite zurzeit an einem spannenden Projekt bei dem es möglich sein soll flexibel über eine API Ec2 Instanzen zu erstellen. Diese Instanzen sollen dann dem Kunden zu Übungszwecken zur Verfügung gestellt werden. Die Instanzen sollen dabei für den Kunden customisiert werden, also ein bestimmtes Setting haben wie dem Ec2 Typen, ein paar spezielle Tags und einiges mehr.
+Ich arbeite zurzeit an einem spannenden Projekt bei dem es möglich sein soll flexibel über eine API, Ec2 Instanzen zu erstellen. Diese Instanzen sollen dann dem Kunden zu Übungszwecken zur Verfügung gestellt werden. Die Instanzen sollen dabei für den Kunden angepasst werden, also ein bestimmtes Setting haben wie dem Ec2 Typen, ein paar spezielle Tags und einiges mehr.
 
 Das Deployment der Ec2 Instanzen soll möglichst kostengünstig durch Lambdas geschehen. Vor ca einem Jahr hatte ich schonmal ein ähnliches Projekt gemacht bei dem dynamisch Ec2 Instanzen für ein Alfresco Deployment erzeugt werden. [Alfresco Provisioner](https://martinmueller.dev/alf-provisioner-eng)
 
@@ -24,7 +24,7 @@ AWS CDK erfährt seit 2019 ein stetigen Zuwachs von begeisterten Entwicklern und
 Im nächsten Abschnitt fasse ich kurz die Anforderungen für das dynamische Ec2 Deploying über eine API zusammen.
 
 # Anforderungen
-Die Ec2 Instanzen sollen dynamisch über eine API wie AWS ApiGateway, welches ein REST API implementiert oder AWS AppSync, welches ein GraphQL implementiert, deploybar sein. Dabei sollen gewisse Tags wie UserId oder VmType an die Ec2 Instanz gehefter werden. Damit lassen sich die Ec2 Instanzen dann wieder leicht auffinden und z.B. in einem React Frontend anzeigen.
+Die Ec2 Instanzen sollen dynamisch über eine API wie AWS ApiGateway, welches ein REST API implementiert oder AWS AppSync, welches ein GraphQL implementiert, deploybar sein. Dabei sollen gewisse Tags wie UserId oder VmType an die Ec2 Instanz geheftet werden. Damit lassen sich die Ec2 Instanzen dann wieder leicht auffinden und z.B. in einem React Frontend anzeigen.
 
 Für die Verwaltung, also Erstellung, Löschung und Update der zur Ec2 Instanz gehörenden Resourcen, soll mit Cloudformation (kurz: CFN) geschehen. Cloudformation ist ein praktischer AWS Service zur Verwaltung von solchen Resourcen. Somit kann der Ec2 Stack einfach erstellt, angepasst oder gelöscht werden. Ein weiterer Vorteil für die Verwendung von CFN ist, dass sich so dieser Teil auch separat von Rest wie der API testen lässt. Ich habe dafür sogar eine eigene Staging Pipeline erstellt [STAGINGLIB].
 
@@ -33,9 +33,13 @@ Für die Erstellung der CFN Templates möchte ich AWS CDK verwenden, da die Verw
 Das von CDK synthetisierte Ec2 CFN Template soll durch eine Lambda deployed werden.
 
 # Problem
-Leider ist AWS CDK alleine nicht für diesen Use Case geschaffen. Das Hauptproblem ist, dass die CFN Parameter nicht flexibel sein können und nach der Synth Phase die Parameter festgeschrieben wurden. Dieser Nachteil könnte umgangen werden indem man immer einen kompletten ```cdk deploy``` macht. Das ist aber sehr unpraktisch da es sehr viel Build time beansprucht und jedes mal ein neues CFN Template quasi erzeugt wird.
+Leider ist AWS CDK alleine nicht für diesen Use Case geschaffen. Das Hauptproblem ist, dass die CFN Parameter nicht flexibel sein können und nach der Synth Phase die Parameter festgeschrieben wurden. Dieser Nachteil könnte umgangen werden indem man immer einen kompletten deploy mit Context Parametern z.B.
+ ```
+ cdk deploy -c userId=Alice -c vmType=2
+ ```
+ macht. Das ist aber sehr unpraktisch da es sehr viel Build time beansprucht und jedes mal ein neues CFN Template quasi erzeugt wird.
 
-Somit verliert man den Vorteil der Deterministic. Um dieses Problem zu lösen habe ich mich entschieden Cloudformation direkt zu benutzen. Denn CFN hat das schöne Feature der Parameter. Bei jedem CFN Deployment können als Parameter spezifiziert werden um z.B. den Namen der Ec2 Instanz anzupassen. Genau das wonach ich gesucht habe.
+Um dieses Problem zu lösen habe ich mich entschieden Cloudformation direkt zu benutzen. Denn CFN hat das schöne Feature der Parameter. Bei jedem CFN Deployment können also Parameter spezifiziert werden um z.B. den Namen der Ec2 Instanz anzupassen. Genau das wonach ich gesucht habe.
 
 # Lösung
 Ich verwende also CDK für den Ec2 Stack und dem Lambda welches den Ec2 Stack dynamisch deployen soll. Fangen wir mal mit dem Lambda an:
