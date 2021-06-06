@@ -1,9 +1,9 @@
 ---
 title: AWS Cloudformation deploying mit Lambda
 show: 'no'
-date: '2021-06-05'
+date: '2021-06-07'
 # image: 'version-prs.png'
-tags: ['de', '2021', 'projen', 'cdk', 'aws', 'nofeed'] #nofeed
+tags: ['de', '2021', 'projen', 'cdk', 'aws'] #nofeed
 engUrl: https://martinmueller.dev/aws-deploy-cfn-with-lambda-eng
 pruneLength: 50
 ---
@@ -26,7 +26,7 @@ Im nächsten Abschnitt fasse ich kurz die Anforderungen für das dynamische Ec2 
 # Anforderungen
 Die Ec2 Instanzen sollen dynamisch über eine API wie AWS ApiGateway, welches ein REST API implementiert oder AWS AppSync, welches ein GraphQL implementiert, deploybar sein. Dabei sollen gewisse Tags wie UserId oder VmType an die Ec2 Instanz geheftet werden. Damit lassen sich die Ec2 Instanzen dann wieder leicht auffinden und z.B. in einem React Frontend anzeigen.
 
-Für die Verwaltung, also Erstellung, Löschung und Update der zur Ec2 Instanz gehörenden Resourcen, soll mit Cloudformation (kurz: CFN) geschehen. Cloudformation ist ein praktischer AWS Service zur Verwaltung von solchen Resourcen. Somit kann der Ec2 Stack einfach erstellt, angepasst oder gelöscht werden. Ein weiterer Vorteil für die Verwendung von CFN ist, dass sich so dieser Teil auch separat von Rest wie der API testen lässt. Ich habe dafür sogar eine eigene Staging Pipeline erstellt [STAGINGLIB].
+Für die Verwaltung, also Erstellung, Löschung und Update der zur Ec2 Instanz gehörenden Resourcen, soll mit Cloudformation (kurz: CFN) geschehen. Cloudformation ist ein praktischer AWS Service zur Verwaltung von solchen Resourcen. Somit kann der Ec2 Stack einfach erstellt, angepasst oder gelöscht werden. Ein weiterer Vorteil für die Verwendung von CFN ist, dass sich so dieser Teil auch separat von Rest wie der API testen lässt. Ich habe dafür sogar eine eigene Staging Pipeline erstellt [Stating Lib](https://martinmueller.dev/cdk-pipeline-lib).
 
 Für die Erstellung der CFN Templates möchte ich AWS CDK verwenden, da die Verwendung von CDK die Erstellung und Wartung des Ec2 Stacks extrem erleichtert.
 
