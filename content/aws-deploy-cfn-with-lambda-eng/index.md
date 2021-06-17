@@ -25,7 +25,7 @@ In the next section, I briefly summarize the requirements for dynamic Ec2 deploy
 # Requirements
 The Ec2 instances should be dynamically deployable via an API like AWS ApiGateway, which implements a REST API or AWS AppSync, which implements a GraphQL. In doing so, certain tags such as UserId or VmType shall be attached to the Ec2 instance. This allows the Ec2 instances to be easily retrieved and displayed in a React frontend, for example.
 
-For the administration, i.e. creation, deletion and update of the resources belonging to the Ec2 instance, Cloudformation (short: CFN) should be used. Cloudformation is a handy AWS service for managing such resources. Thus, the Ec2 stack can be easily created, modified or deleted. Another advantage for using CFN is that this part can be tested separately from the rest like the API. I even created my own staging pipeline for this [Stating Lib](https://martinmueller.dev/cdk-pipeline-lib).
+For the administration, i.e. creation, deletion and update of the resources belonging to the Ec2 instance, Cloudformation (short: CFN) should be used. Cloudformation is a handy AWS service for managing resources. Thus, the Ec2 stack can be easily created, modified or deleted. Another advantage for using CFN is that this part can be tested separately from the rest like the API for the Ec2 instance creation. I even created my own staging pipeline for this [Stating Lib](https://martinmueller.dev/cdk-pipeline-lib).
 
 For the creation of the CFN templates I want to use AWS CDK, because using CDK makes the creation and maintenance of the Ec2 stack extremely easy.
 
