@@ -1,5 +1,5 @@
 ---
-title: Wordpress mit Docker rules
+title: Lets make Wordpress fun
 show: 'no'
 date: '2021-06-27'
 # image: 'version-prs.png'
@@ -10,13 +10,13 @@ pruneLength: 50
 
 Hi Leute!
 
-* für neuen Kunden AWS Backend gesteuert von Wordpress
-* Hatte null Erfahrung mit Wordpress
-* Wordpress wird gehostet auf Raidbox.de
+Für meinen neusten Kunden habe ich ein tolles AWS Backend mit AWS AppSync und vielen tollen weiteren AWS Services gebaut. Nun stehe ich aber vor der spannende Aufgabe die AppSync bzw. GraphQL API in einem Wordpress Frontend aufrufbar zu machen. Ich habe schon viel über Wordpress gehört aber noch nie damit gearbeitet.
+
+Auch wird das Wordpress auf [Raidbox.de](https://raidbox.de) gehostet was es etwas schwierig macht das Deployment direkt zu verwalten. Kommend aus der DevOps Welt will ich natürlich das Wordpress Deployment so angenehm und automatisiert wie möglich haben.
 * Zwei Probleme alt es zu lösen. 1) Ich wollte Wordpress lokal zum Laufen bekommen 2) Es wäre cool wenn es versioniert wäre mit GitHub
 
 # Wordpress
-Wordpress ist ein Content Managment System (CMS). Es wurde entwickelt zum erstellen von Blogposts. Es hat sich aber extrem stark weiterentwickelt und wird nicht mehr nur für Blogposts benutzt. Über sogenannte Plugins werden neue Feature zu Wordpress hinzugefügt. Solche Features können sein eine Paymentfunktion. Wir selber verwenden [digimember](https://digimember.de) zum Verwalten eines Abobezahlsystems.
+Wordpress ist ein Content Management System (CMS). Es wurde entwickelt zum erstellen von Blogposts. Es hat sich aber stark weiterentwickelt und wird nicht mehr nur für Blogposts benutzt. Über sogenannte Plugins werden neue Feature zu Wordpress hinzugefügt. Solche Features können sein eine Bezahlfunktion. Wir selber verwenden [Digimember](https://digimember.de) zum Verwalten eines Abobezahlsystems.
 
 # Wordpress mit Docker
 Zur Lösung meines ersten Problems, also Docker lokal zum Laufen zu bekommen, habe ich mich dafür entschlossen Docker zu benutzen. Zum Glück war ich nicht der erste der das versucht bzw. erfolgreich geschafft hat. Es gibt viele gute Anleitungen im Internet wie ein Wordpress Deployment mit Docker aufsetzen kann. Zur Orchestrierung der Docker Container verwende ich Docker Compose und hier ist der Code:
@@ -69,7 +69,24 @@ services:
       MYSQL_ROOT_PASSWORD: geheim
 ```
 
+Der erste Docker Container **wordpress** ist natürlich für Wordpress. Mit dem volume wordpress_files persistiere ich die wordpress files.
 
+Danach kommt der **db** Container welche eine MySQL Datenbank deployed. Wordpress verwendet MySQL als Datenbank zum Speichern von Informationen wie Blogposts, Sites, User, Pluginconfigs und noch vielen mehr. Das Volume db persistiert dabei die Datenbank. Die nächsten zwei Volumes speichern SQL Scripte im Container unter /docker-entrypoint-initdb.d :
+
+```
+- ./wordpress_files/wp-content/mysql-dump/wordpress_staging.sql:/docker-entrypoint-initdb.d/1_wordpress_staging.sql:ro
+- ./scripts/wordpress_staging_replacing.sql:/docker-entrypoint-initdb.d/2_wordpress_staging_replacing.sql:ro
+```
+
+Dadurch werden die SQL Scripte beim ersten Start ausgeführt. Das erste Script wordpress_staging.sql beinhaltet die kompletten Wordpress MySQL Datenbank welche vorher als Dump exportiert wurde. Das zweite Script macht ein Text Replacing von der Domaine zu localhost:
+
+```sql
+UPDATE wp_options SET option_value = replace(option_value, 'https://www.example.com', 'http://localhost:8080') WHERE option_name = 'home' OR option_name = 'siteurl';
+UPDATE wp_posts SET post_content = replace(post_content, 'https://www.example.com', 'http://localhost:8080');
+UPDATE wp_postmeta SET meta_value = replace(meta_value,'https://www.example.com','http://localhost:8080');
+```
+
+Das ist nötig weil ich das Deployment ja lokal zum Laufen bekommen möchte.
 # GitHub
 Den Code also die Wordpress Files und das Docker Compose File nun zu einem GitHub Repository zu pushen ist ein leichtes. Dafür muss ja einfach nur ein neues GitHub Repository erstellt werden und die Dateien in dieses kopiert und gepusht werden.
 
