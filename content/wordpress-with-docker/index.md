@@ -12,14 +12,15 @@ Hi Leute!
 
 Für meinen neusten Kunden habe ich ein tolles AWS Backend mit AWS AppSync und vielen tollen weiteren AWS Services gebaut. Nun stehe ich aber vor der spannende Aufgabe die AppSync bzw. GraphQL API in einem Wordpress Frontend aufrufbar zu machen. Ich habe schon viel über Wordpress gehört aber noch nie damit gearbeitet.
 
-Auch wird das Wordpress auf [Raidbox.de](https://raidbox.de) gehostet was es etwas schwierig macht das Deployment direkt zu verwalten. Kommend aus der DevOps Welt will ich natürlich das Wordpress Deployment so angenehm und automatisiert wie möglich haben.
-* Zwei Probleme alt es zu lösen. 1) Ich wollte Wordpress lokal zum Laufen bekommen 2) Es wäre cool wenn es versioniert wäre mit GitHub
+Auch wird dieses Wordpress auf [Raidbox.de](https://raidbox.de) gehostet was es etwas schwierig macht das Deployment direkt zu verwalten. Kommend aus der DevOps Welt will ich natürlich das Wordpress Deployment so angenehm und automatisiert wie möglich konfigurieren.
+
+Drei Anforderungen wollte ich dabei vom dem Wordpress Deployment erfüllt haben. Erstens soll Wordpress lokal mit minimalem Aufwand ausführbar sein. Zweitens soll das Wordpress mit GitHub versioniert sein. Und drittens soll ein Synchronisation zwischen dem lokalen Wordpress und dem auf Raidbox gehosteten Wordpress stattfinden.
 
 # Wordpress
 Wordpress ist ein Content Management System (CMS). Es wurde entwickelt zum erstellen von Blogposts. Es hat sich aber stark weiterentwickelt und wird nicht mehr nur für Blogposts benutzt. Über sogenannte Plugins werden neue Feature zu Wordpress hinzugefügt. Solche Features können sein eine Bezahlfunktion. Wir selber verwenden [Digimember](https://digimember.de) zum Verwalten eines Abobezahlsystems.
 
 # Wordpress mit Docker
-Zur Lösung meines ersten Problems, also Docker lokal zum Laufen zu bekommen, habe ich mich dafür entschlossen Docker zu benutzen. Zum Glück war ich nicht der erste der das versucht bzw. erfolgreich geschafft hat. Es gibt viele gute Anleitungen im Internet wie ein Wordpress Deployment mit Docker aufsetzen kann. Zur Orchestrierung der Docker Container verwende ich Docker Compose und hier ist der Code:
+Zur Lösung meines ersten Problems, also Wordpress lokal zum Laufen zu bekommen, habe ich mich dafür entschlossen Docker zu benutzen. Zum Glück war ich nicht der erste der das versucht bzw. erfolgreich geschafft hat. Es gibt viele gute Anleitungen im Internet wie ein Wordpress Deployment mit Docker aufsetzen kann. Zur Orchestrierung der Docker Container verwende ich Docker Compose und hier ist der Code:
 
 ```yaml
 version: '3.3'
@@ -87,6 +88,9 @@ UPDATE wp_postmeta SET meta_value = replace(meta_value,'https://www.example.com'
 ```
 
 Das ist nötig weil ich das Deployment ja lokal zum Laufen bekommen möchte.
+
+Der letzt Container phpmyadmin ist eine graphische Verwaltung für die MySQL DB.
+
 # GitHub
 Den Code also die Wordpress Files und das Docker Compose File nun zu einem GitHub Repository zu pushen ist ein leichtes. Dafür muss ja einfach nur ein neues GitHub Repository erstellt werden und die Dateien in dieses kopiert und gepusht werden.
 
@@ -99,7 +103,7 @@ Wie Eingangs schon erwähnt, Raidbox.de ist unserer Hoster für Wordpress. Um nu
 4) apply the mysql-dump-export/wordpress.sql to the wordpress with using raidbox phpmyadmin
 5) run `./scripts/syncWithStaging.sh` for syncing / pushing the wp-content folder.
 
-Dieser Sync Workflow wird eventuell noch geändert in zukunft und die Anzahl der Schritte reduziert. So wie dieser jetzt gestaltet ist, lassen sich immer noch über den normalen, über Raidbox erreichbaren Wordpress Editor, z.B. Blogs hinzufügen. Diese neuen Blogposts gehen dann beim nächsten Sync Workflow nicht verloren. Nachfolgend zeige ich noch die verwendeten Scripts
+Dieser Sync Workflow wird eventuell noch geändert in Zukunft und die Anzahl der Schritte reduziert. So wie dieser jetzt gestaltet ist, lassen sich immer noch über den normalen, über Raidbox erreichbaren Wordpress Editor, z.B. Blogs hinzufügen. Diese neuen Blogposts gehen dann beim nächsten Sync Workflow nicht verloren. Nachfolgend zeige ich noch die verwendeten Scripts
 
 ## syncWithStaging.sh
 ```bash
@@ -115,6 +119,8 @@ ssh -i ~/.ssh/example wp@b9emwoc.myraidbox.de "mkdir -p /home/wp/disk/wordpress/
 rsync -avzh --no-perms --no-owner --no-group -e "ssh -i ~/.ssh/example"  wp@b9emwoc.myraidbox.de:/home/wp/disk/wordpress/wp-content ./wordpress_files
 ```
 
+Hier sieht man wie mittels rsync, ssh und einem private key (~/ssh/example) die wordpress files zuerst gepusht und dann gepullt werden. Zusätzlich wird noch die MySQL DB auf Raidbox gedumpt und mitgepullt
+
 ## createMySqlDumpExport.sh
 ```bash
 #!/bin/bash
@@ -126,6 +132,8 @@ docker exec $CONTAINER /usr/bin/mysqldump -u wordpressuser --no-tablespaces --pa
 # replacing http://localhost:8080 with https://www.example.com in the sql dump
 sed -i s#http://localhost:8080#https://www.example.com#g ./mysql-dump-export/wordpress.sql
 ```
+
+Dieses Script such nach dem MySQL Docker Container und erstellt einen DB dump. Anschließend werden die urls wieder zu den originalen url Namen umgeschrieben. Dieser Dump kann nun mit dem Wordpress auf Raidbox importiert werden. Üblicherweise passiert das mit PHP Admin in Raidbox.
 
 # HTML als Code
 Eine Sache die mich bei Wordpress sehr stört ist der Inline Editor für HTML und JavaScript Code. Im Vergleich zu z.B. Visual Studio Code bietet dieser null Funktionalität. Was ich als gerne hätte ist, dass die HTML und JavaScript Codeabschnitte im Wordpress über lokale Files gemacht werden kann.
