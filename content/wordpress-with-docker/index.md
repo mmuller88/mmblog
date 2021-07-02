@@ -1,9 +1,9 @@
 ---
-title: Lets make Wordpress fun
+title: Wordpress mit Docker
 show: 'no'
-date: '2021-06-27'
-# image: 'version-prs.png'
-tags: ['de', '2021', 'github', 'docker'] #nofeed
+date: '2021-07-03'
+image: 'docker-wordpress.png'
+tags: ['de', '2021', 'github', 'docker', 'wordpress'] #nofeed
 engUrl: https://martinmueller.dev/wordpress-with-docker-eng
 pruneLength: 50
 ---
@@ -147,7 +147,7 @@ Diese lokalen Files kann ich dann wie gewohnt mit meinem VS Code Editor bearbeit
 Ein Problem hat das Ganze aber wahrscheinlich noch. Es ist nicht Skalierbar bzw. Responsive wenn sich die größe des Bildschirms ändert weil man z.B. die Wordpress Seite mit einem Handy besucht.
 
 # Zusammenfassung
-...
+Wordpress ist eine interessante neue Erfahrung für mich. Ich mag den Wordpresseditor welcher ein graphisches Bauen der Webside ermöglicht. Allerdings habe ich viele out of the box DevOps Techniken vermisst. Macht aber nix mit den hier beschriebenen Ansätzen macht die Entwicklung mit Wordpress wesentlich mehr Spaß.
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
