@@ -3,7 +3,7 @@ title: Wordpress Beiträge automatisieren mit AWS CDK
 show: 'no'
 date: '2021-08-08'
 image: 'wp-aws.jpg'
-tags: ['de', '2021', 'github', 'docker', 'wordpress', 'cdk', 'nofeed'] #nofeed
+tags: ['de', '2021', 'github', 'docker', 'wordpress', 'cdk'] #nofeed
 engUrl: https://martinmueller.dev/wp-post-automation-cdk-eng
 pruneLength: 50
 ---
@@ -68,7 +68,7 @@ export class UploadBucketStack extends cdk.Stack {
 }
 ```
 
-Bei der Lambda habe ich mich für das [NodeJsFunction Construct](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lambda-nodejs.NodejsFunction.html) entschieden weil die einfach mit vielen Vorteilen kommt wie esbuild als Packagemanager und ich somit keine separate package.json für die Lambda bauen muss da esbuild sich den benötigten Library Code aus der Haupt package.json zusammensucht.
+Bei der Lambda habe ich mich für das [NodeJsFunction Construct](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-lambda-nodejs.NodejsFunction.html) entschieden weil es mit vielen Vorteilen kommt wie esbuild als Packagemanager und ich somit keine separate package.json für die Lambda erstellen muss da esbuild sich den benötigten Library Code aus der Haupt package.json zusammensucht.
 
 Das ssh2 Modul für die Lambda muss allerdings als external Modul geladen werden. Das bedeuted einfach, dass esbuild hierfür nicht als packagemanager verwendet wird und das Modul komplett geladen wird.
 
