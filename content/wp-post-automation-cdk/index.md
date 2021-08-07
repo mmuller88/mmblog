@@ -14,7 +14,7 @@ In meinem [letzten Post](https://martinmueller.dev/wordpress-with-docker) ging e
 
 # Wordpress AWS Lösung
 
-Wie oben beschrieben möchte ich, dass nach dem Video Upload zu S3 ein Wordpress Beitrag erstellt wird. Dafür brauche ich hauptsächlich die zwei AWS Services S3 und Lambda. Das Lambda muss dann so eingestellt werden, dass bei einem Upload zu S3 die Lambda Logik ausgeführt wird.
+Wie oben beschrieben möchte ich, dass nach dem Video Upload zu S3 ein Wordpress Beitrag erstellt wird. Und natürlich soll das Video dann in dem Post eingefügt sein. Dafür brauche ich hauptsächlich die zwei AWS Services S3 und Lambda. Das Lambda muss dann so eingestellt werden, dass bei einem Upload zu S3 die Lambda Logik ausgeführt wird.
 
 Das Lambda soll sich dann mittels SSH in die Wordpress Umgebung einloggen und per [WP CLI](https://developer.wordpress.org/cli/commands/post/create/) einen neuen Beitrag erstellen. Ich finde es ziemlich cool, dass Wordpress eine eigene CLI hat. Mit dieser kann ich dann z.B. einfach neue Beiträge erstellen.
 
@@ -140,7 +140,7 @@ Here will be some content ...
 };
 ```
 
-Wie ihr sehen könnt verwende ich die NodeSSH Klasse vom node-ssh package um mich zu dem wordpress Hoster zu verbinden. Dann pare ich einige Informationen vom S3 Objekt Key wie dem Titel oder die Lektion. Am Schluss erstelle ich einfach mit der wp cli die wordpress Beiträge.
+Wie ihr sehen könnt verwende ich die NodeSSH Klasse vom node-ssh package um mich zu dem wordpress Hoster zu verbinden. Dann pare ich einige Informationen vom S3 Objekt Key wie dem Titel oder die Lektion. Am Schluss erstelle ich einfach mit der WP CLI die wordpress Beiträge.
 
 # Zusammenfassung
 Die Erstellung von Wordpress Beiträgen mittels AWS Services zu automatisieren ist einfach mega cool. Dafür habe ich einen kleinen AWS CDK Stack gebaut. Ich bin schon sehr gespannt was sich eventuell noch in Wordpress automatisieren lässt :). Habt ihr vielleicht eine Idee? Dann schreibt mir!

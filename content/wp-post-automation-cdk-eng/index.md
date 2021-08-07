@@ -1,6 +1,5 @@
 ---
 title: Wordpress Posts automated with AWS CDK
-show: 'no'
 date: '2021-08-08'
 image: 'wp-aws.jpg'
 tags: ['eng', '2021', 'github', 'docker', 'wordpress', 'cdk'] #nofeed
@@ -10,11 +9,11 @@ pruneLength: 50
 
 Hi Folks!
 
-My [last post](https://martinmueller.dev/wordpress-with-docker-eng) was about how to make a wordpress deployment more DevOps friendly using Docker and some cool scripts. Today I want to talk about another exciting task. Namely, the customer wants new wordpress posts to be created automatically using AWS and uploading videos to S3. This sounds like an exciting task. In the next few paragraphs, I'll describe my solution.
+My [last post](https://martinmueller.dev/wordpress-with-docker-eng) was about how to make a wordpress deployment more DevOps friendly using Docker and some cool scripts. Today I want to talk about another exciting task. The customer wants new wordpress posts to be created automatically using AWS and when a video gets uploaded to S3. That sounds exciting so lets go. In the next few sections, I'll describe my solution.
 
 # Wordpress AWS solution
 
-As described above, I want a wordpress post to be created after the video upload to S3. For this I mainly need the two AWS services S3 and Lambda. The Lambda then needs to be set to run Lambda logic when uploading to S3.
+As described above, I want a wordpress post to be created after the video upload to S3. As well the video should be embedded in that post. For this I mainly need the two AWS services S3 and Lambda. The Lambda then needs to be set to run Lambda logic when uploading to S3.
 
 The Lambda should then log into the wordpress environment via SSH and create a new post via [WP CLI](https://developer.wordpress.org/cli/commands/post/create/). I think it's pretty cool that wordpress has its own CLI. I can then use this to easily create new posts, for example.
 
@@ -139,7 +138,7 @@ Here will be some content ...
 };
 ```
 
-As you can see I use the NodeSSH class from the node-ssh package to connect to the wordpress hoster. Then I pare some information from the S3 object key like the title or the lesson. At the end I just create the wordpress posts with the wp cli.
+As you can see I use the NodeSSH class from the node-ssh package to connect to the wordpress hoster. Then I pare some information from the S3 object key like the title or the lesson. At the end I just create the wordpress posts with the WP CLI.
 
 # Summary
 Automating the creation of wordpress posts using AWS services is just mega cool. I built a small AWS CDK stack for this purpose. I'm already very excited about what else can possibly be automated in wordpress :). Do you have any ideas? Then write me!
