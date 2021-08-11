@@ -24,6 +24,8 @@ Oder auch in der Codebuild Report group:
 
 ![Report group](report-group-out.png)
 
+Falls ihr irgendwelche Probleme mit der AMI haben solltet, bitte schreibt mir :).
+
 Mit dem Kauf der AMI unterstützt ihr auch meine freie Arbeit zur Erstellung solch cooler frei erhältlichen Produkte wie dem cdk-prowler construct und die Arbeit an meinen Blogpost. Vielen herzlichen Dank :)!
 
 In den nächsten Abschnitten möchte ich gerne erklären warum ich denke, dass ein CDK Costum Construct nützlich ist und will auch das cdk-prowler Custom Construct vorstellen. Dafür muss ich aber erstmal erklären was AWS CDK überhaupt ist.
@@ -38,6 +40,13 @@ AWS CDK erfährt seit 2019 ein stetigen Zuwachs von begeisterten Entwicklern und
 * Einfache Möglichkeit Prowler in AWS Account zu deployen und runnen
 * Dadurch dass in TypeScript ist das Custom Construct leichter zu warten und erweiterbar
 * Durch Verwendung JSII kan das Custom Construct auch in andere Sprachen wie Python, Java, CSharp übersetzt werden und es lässt sich so einfach mit anderen services zusammenschalten. Z.B. SES, Slack notification
+
+# Ausblick
+* Zusammenarbeit mit Tony De La Fluente
+* Multiaccount Prowler Stack
+* Weite Improvements geplant wie Fargate anstatt Codebuild
+* Speed up mit parallelem Security checks
+* Denke über eine QuickSight Anbindung nach
 
 # Zusammenfassung
 * Prowler ist megacool und ich liebe einfach dass es mir automatisiert Feedback über Security, Best Practises usw gibt. Das ginge sogar täglich.
