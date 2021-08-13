@@ -36,23 +36,40 @@ In den nächsten Abschnitten möchte ich gerne erklären warum ich denke, dass e
 AWS CDK erfährt seit 2019 ein stetigen Zuwachs von begeisterten Entwicklern und hat bereits eine starke und hilfsbereite Community die eg. sehr auf [Slack](https://cdk-dev.slack.com) aktiv ist. Es gibt natürlich noch viel mehr zu sagen über AWS CDK und ich empfehle euch es zu erforschen. Schreibt mir, wenn ihr Fragen habt.
 # Motivation
 
-* Warum in Custom Construct?
-* Einfache Möglichkeit Prowler in AWS Account zu deployen und runnen
-* Dadurch dass in TypeScript ist das Custom Construct leichter zu warten und erweiterbar
-* Durch Verwendung JSII kan das Custom Construct auch in andere Sprachen wie Python, Java, CSharp übersetzt werden und es lässt sich so einfach mit anderen services zusammenschalten. Z.B. SES, Slack notification
+AWS CDK Custom Constructs sind quasi eigene Library zum kapseln von Cloudformation Stacks. Diese können auf Registries wie npmjs.com oder pypi.org zum download Angeboten werden. Somit ist es extrem einfach cdk-prowler in seine CDK IDE Umgebung zu integrieren. Auch ist es sehr leicht Änderungen am cdk-prowler code durchzuführen und eine neue Version den jeweiligen Restries bereitzustellen. Vieles von diesen wichtigen aber doch mühseligen Arbeiten wird bereits durch [Projen AwsCdkConstructLibrary](https://github.com/projen/projen) stark vereinfacht.
+
+Ein weiterer Grund für das Custom Construct ist die [Jsii](https://github.com/aws/jsii) Library. Mit dieser mega coolen Library kann ich das cdk-prowler construct zu verschiedene Sprachen wie Python, Java oder CSharp übersetzen und der Entwickler kann weiterhing in seiner gewohnten CDK Sprache mit cdk-prowler entwickeln.
+
+# Beispiel
+
+```ts
+
+import { ProwlerAudit } from 'cdk-prowler';
+...
+
+const app = new App();
+
+const stack = new Stack(app, 'ProwlerAudit-stack');
+
+new ProwlerAudit(stack, 'ProwlerAudit');
+
+app.synth();
+```
+
+Der AWS CDK Code zeigt wie leicht cdk-prowler deployed werden kann. Viele Zusatzfunktionen wie einem Scheduler sind bereits erhältlich und über die Properties aktivier- und änderbar . Schaut dafür doch gerne in die [API.md](https://github.com/mmuller88/cdk-prowler/blob/main/API.md).
 
 # Ausblick
-* Zusammenarbeit mit Tony De La Fluente
-* Multiaccount Prowler Stack
-* Weite Improvements geplant wie Fargate anstatt Codebuild
-* Speed up mit parallelem Security checks
-* Denke über eine QuickSight Anbindung nach
+
+Viele coole Features für cdk-prowler sing geplant. Zu Absprache und Weiterentwicklung bin ich in engen Kontakt mit [Tony De La Fluente](https://twitter.com/ToniBlyx) dem Erfinder von Prowler.
+
+Geplant ist Prowler Multiaccount ready zu machen. Somit hat man dann einen zentralisierten Ort für Prowler um alle Accounts überprüfen zu können. Multiaccount soll mit und ohne AWS Organisation funktionieren.
+
+Zukünftig soll der Prowler nicht mehr mit Codebuild sondern mit Fargate ausgeführt werden. Das ermöglicht eine flexiblere Weiterentwicklung von Prowler um z.B. Scans zu parallelisieren. Die Prowler Scans zu parallelisieren ist ein wichtiges und sehr benötigtes Feature da mit über 180 Prowler Tests die sequentiell ausgeführt werden, die Ausführung sehr lange dauern kann.
+
+Auch denken Tony und ich über eine verbessertes UI Analyse Tool mit QuickSight nach. Der Prowler HTML Report ist zwar sehr nützlich aber es ist schwer komplexe Abfragen and den Report zu schicken. Mit QuickSight hat man z.B. die Möglichkeit zur Definition von Filtern, Variablen usw.
 
 # Zusammenfassung
-* Prowler ist megacool und ich liebe einfach dass es mir automatisiert Feedback über Security, Best Practises usw gibt. Das ginge sogar täglich.
-* Mit AWS CDK lässt sich ProwlerAudit leicht installieren und mit anderen Services verschachteln.
-* Testet das ProwlerAudit Construct und vielleicht habt ihr ja sogar Vorschläge um es noch cooler zu machen. Gerne könnt ihr dafür auch PRs in Github erstellen
-...
+Prowler ist mega cool und ich liebe dass es mir automatisiert Feedback über Security, Best Practises usw. gibt. Mit AWS CDK lässt sich ProwlerAudit leicht installieren und mit anderen Services verschachteln. Testet das ProwlerAudit Construct und gebt mir Vorschläge um es noch cooler zu machen. Gerne könnt ihr dafür auch PRs in Github erstellen.
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
