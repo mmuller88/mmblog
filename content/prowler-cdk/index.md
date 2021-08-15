@@ -2,19 +2,19 @@
 title: Automatisiertes AWS Security Feedback mit Prowler und AWS CDK
 show: 'no'
 date: '2021-08-15'
-image: 'wp-aws.jpg'
-tags: ['de', '2021', 'github', 'prowler', 'aws', 'cdk', 'nofeed'] #nofeed
+image: 'report-group-out.png'
+tags: ['de', '2021', 'github', 'prowler', 'aws', 'cdk'] #nofeed
 engUrl: https://martinmueller.dev/prowler-cdk-eng
 pruneLength: 50
 ---
 
 Hi Leute!
 
-Toni De La Fluente hat das super coole AWS Security Tool [Prowler](https://github.com/toniblyx/prowler) entwickelt. Prowler ist ein cli tool für die Durchführung und Beratung von AWS Security Assessment, Auditing, Hardening and Incident Response. Mit mehr als 180 checks bietet Prowler dabei das umfangreichste Security Check Angebot für AWS. Wenn ihr mehr über Prowler wissen wollt besucht die [Prowler Github](https://github.com/toniblyx/prowler) Seite.
+[Toni De La Fluente](https://twitter.com/ToniBlyx) hat das super coole AWS Security Tool [Prowler](https://github.com/toniblyx/prowler) entwickelt. Prowler ist ein cli tool für die Durchführung und Beratung von AWS Security Assessment, Auditing, Hardening and Incident Response. Mit mehr als 180 checks bietet Prowler dabei das umfangreichste Security Check Angebot für AWS. Wenn ihr mehr über Prowler wissen wollt besucht die [Prowler Github](https://github.com/toniblyx/prowler) Seite.
 
 Ich benutze Prowler sehr viel und habe mich entschlossen dafür ein AWS CDK Custom Construct zu schreiben. In der Vergangenheit habe ich schon einige Custom Constructs erstellt wie meinem Favoriten der [staging pipeline](https://github.com/mmuller88/aws-cdk-staging-pipeline) oder der [build badge](https://github.com/mmuller88/aws-cdk-build-badge).
 
-Falls ihr Prowler aber einfach nur für euren AWS Account ausführen möchtet und nicht das Custom Construct ausprobieren wollt, habe ich eine gute Nachricht. Für dem AWS Marketplace habe ich eine AMI erstellt welche das cdk-prowler construct automatisch in deinen Account installiert. Die AMI hat den Namen "..."
+Falls ihr Prowler aber einfach nur für euren AWS Account ausführen möchtet und nicht das Custom Construct ausprobieren wollt, habe ich eine gute Nachricht. Für dem AWS Marketplace habe ich eine AMI erstellt welche das cdk-prowler construct automatisch in deinen Account installiert. Die AMI ist erhältlich im AMI Store. Dafür einfach nach Prowler suchen oder ihr nutzt den [Prowler AMI Link](https://aws.amazon.com/marketplace/pp/prodview-jlwcdlc3weta6).
 
 Dann führt Prowler den Security Check durch und ihr findet die Security Findings in einem S3 Bucket mit Namen prowleraudit-stack-prowlerauditreportbucket den HTML Report:
 
@@ -26,7 +26,7 @@ Oder auch in der Codebuild Report group:
 
 Falls ihr irgendwelche Probleme mit der AMI haben solltet, bitte schreibt mir.
 
-Mit dem Kauf der AMI unterstützt ihr auch meine freie Arbeit zur Erstellung solcher frei erhältlichen Produkte wie dem cdk-prowler custom construct und die Arbeit an meinen Blogpost. Vielen herzlichen Dank :)!
+Mit dem Kauf der AMI unterstützt ihr auch meine freie Arbeit zur Erstellung solcher frei erhältlichen Produkte wie dem [cdk-prowler](https://github.com/mmuller88/cdk-prowler)  custom construct und die Arbeit an meinen Blogpost. Vielen herzlichen Dank :)!
 
 In den nächsten Abschnitten erkläre ich warum ich denke, dass ein CDK Custom Construct nützlich ist und und stelle euch das cdk-prowler Custom Construct vor. Vorweg muss ich aber erstmal erklären was AWS CDK überhaupt ist.
 
@@ -42,6 +42,8 @@ AWS CDK Custom Constructs sind quasi eigene Library zum kapseln von Cloudformati
 Ein weiterer Grund für das Custom Construct ist die [Jsii](https://github.com/aws/jsii) Library. Mit dieser mega coolen Library kann ich das cdk-prowler construct zu verschiedene Sprachen wie Python, Java oder CSharp übersetzen und der Entwickler kann weiterhing in seiner gewohnten CDK Sprache mit cdk-prowler entwickeln.
 
 # Beispiel
+
+Das cdk-Prowler Construct ist auf [GitHub](https://github.com/mmuller88/cdk-prowler). Es muss zuerst in der package.json als Dependency eingebunden werden und kann dann im CDK Stack verwendet werden.
 
 ```ts
 
