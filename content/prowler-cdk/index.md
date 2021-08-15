@@ -2,7 +2,7 @@
 title: Automatisiertes AWS Security Feedback mit Prowler und AWS CDK
 show: 'no'
 date: '2021-08-15'
-# image: 'report-group-out.png'
+image: 'logo.png'
 tags: ['de', '2021', 'github', 'prowler', 'aws', 'cdk'] #nofeed
 engUrl: https://martinmueller.dev/prowler-cdk-eng
 pruneLength: 50
