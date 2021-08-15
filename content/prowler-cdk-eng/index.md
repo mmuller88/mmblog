@@ -1,7 +1,7 @@
 ---
 title: Automated AWS Security Feedback with Prowler and AWS CDK
 date: '2021-08-15'
-image: 'report-group-out.png'
+# image: 'report-group-out.png'
 tags: ['eng', '2021', 'github', 'prowler', 'aws', 'cdk'] #nofeed
 gerUrl: https://martinmueller.dev/prowler-cdk
 pruneLength: 50
@@ -17,11 +17,11 @@ However, if you just want to run Prowler for your AWS account and don't want to 
 
 Then Prowler will run the security check and you will find the security findings in an S3 bucket named prowleraudit-stack-prowlerauditreportbucket the HTML report:
 
-![html results](html-out.png)
+![html results](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/prowler-cdk-eng/html-out.png)
 
 Or also in the codebuild report group:
 
-![Report group](report-group-out.png)
+![Report group](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/prowler-cdk-eng/report-group-out.png)
 
 If you have any problems with the AMI, please write me.
 
