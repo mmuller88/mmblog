@@ -23,15 +23,12 @@ Nach dem Durchlauf der Checks wird ein HTML Report in einen S3 Bucket mit Namen 
 
 # Run Prowler mit AMI
 Wie Eingangs erwähnt könnt ihr Prowler mit meiner [Prowler AMI](https://aws.amazon.com/marketplace/pp/prodview-jlwcdlc3weta6) in euren Account deployen. In diesen Abschnitt erkläre ich euch wie genau das geht.
-* Auf Link klicken, auswählen
-* Ec2Role mit Adminrechten
-* Warten bis Cloudformation Stack erstellt
 
-## Direkt Link
-...
+Zuerst klickt ihr natürlich auf den [Prowler AMI](https://aws.amazon.com/marketplace/pp/prodview-jlwcdlc3weta6) Link und subscribed zu der AMI. Das Subscriben dauert einen kleinen Moment. Nachdem die Subscription abgeschlossen ist klickt auf "Continue to Configure". Wählt dort nun die neueste Prowler Version aus und die Region in der ihr die Prowler Checks durchführen wollt. Anschließend klickt auf "Continue to Launch". Nun ganz wichtig bei Choose Action müsst ihr "Launch through Ec2" auswählen. Nun werdet ihr auf Ec2 in der AWS Console weitergeleitet.
 
-## Ec2 Console
-...
+Einfach den vorausgewählten Instance Typen auswählen welcher t2.micro sein sollte. Dann auf "Next: Configure Instance Details" klicken. Nun ganz wichtig! Bei der IAM role braucht ihr eine Ec2 Role die Administrator Privilege hat. Falls die Role noch nicht existiert klickt auf "Create new IAM role" und erstellt eine AWS service Role für Ec2 mit der AdministratorAccess Policy. Die Prowler AMI braucht diese Permission um den CDK stack bei euch deployen zu dürfen.
+
+Alternativ könnt ihr Prowler auch direkt über die Ec2 AWS Console aufrufen. Dafür einfach in der AWS Console auf Ec2 wechsel --> Instances --> Launch Instances und sucht dann nach Prowler. Der Rest verhält sich genauso wie im vorherigen Abschnitt beschrieben.
 
 # Rerun Prowler mit AMI
 Um erneut den Prowler Scan durchzuführen, müsst ihr einfach die AMI bzw. die Ec2 Instanz mit der AMI nochmal ausführen. Der Prowler Stack wird somit veranlasst den Scan nochmal durchzuführen.
