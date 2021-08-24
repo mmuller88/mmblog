@@ -30,6 +30,10 @@ Einfach den vorausgewählten Instance Typen auswählen welcher t2.micro sein sol
 
 Alternativ könnt ihr Prowler auch direkt über die Ec2 AWS Console aufrufen. Dafür einfach in der AWS Console auf Ec2 wechsel --> Instances --> Launch Instances und sucht dann nach Prowler. Der Rest verhält sich genauso wie im vorherigen Abschnitt beschrieben.
 
+Nun wird der Prowler Cloudformation Stack deployed und der Prowler Check mittels CodeBuild gestartet. Am ende landet der HTML Report im S3 Bucket prowleraudit-stack-prowlerauditreportbucket .
+
+Die Ec2 Instanz wird nur zum deployen des Cloudformation Stacks benötigt und sollte nach Fertigstellung des Stacks terminiert werden um Kosten zu sparen.
+
 # Rerun Prowler mit AMI
 Um erneut den Prowler Scan durchzuführen, müsst ihr einfach die AMI bzw. die Ec2 Instanz mit der AMI nochmal ausführen. Der Prowler Stack wird somit veranlasst den Scan nochmal durchzuführen.
 
