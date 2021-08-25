@@ -1,7 +1,7 @@
 ---
-title: Security, Best Practice und Hardening Checks mit Prowler
+title: Security, Best Practice und Hardening Checks mit der Prowler AMI
 show: 'no'
-date: '2021-08-24'
+date: '2021-08-25'
 image: 'logo.png'
 tags: ['de', '2021', 'github', 'prowler', 'aws', 'cdk', 'security'] #nofeed
 engUrl: https://martinmueller.dev/prowler-ami-eng
@@ -24,7 +24,7 @@ Nach dem Durchlauf der Checks wird ein HTML Report in einen S3 Bucket mit Namen 
 # Run Prowler mit AMI
 Wie Eingangs erwähnt könnt ihr Prowler mit meiner [Prowler AMI](https://aws.amazon.com/marketplace/pp/prodview-jlwcdlc3weta6) in euren Account deployen. In diesen Abschnitt erkläre ich euch wie genau das geht.
 
-Zuerst klickt ihr natürlich auf den [Prowler AMI](https://aws.amazon.com/marketplace/pp/prodview-jlwcdlc3weta6) Link und subscribed zu der AMI. Das Subscriben dauert einen kleinen Moment. Nachdem die Subscription abgeschlossen ist klickt auf "Continue to Configure". Wählt dort nun die neueste Prowler Version aus und die Region in der ihr die Prowler Checks durchführen wollt. Anschließend klickt auf "Continue to Launch". Nun ganz wichtig bei Choose Action müsst ihr "Launch through Ec2" auswählen. Nun werdet ihr auf Ec2 in der AWS Console weitergeleitet.
+Zuerst klickt ihr natürlich auf den [Prowler AMI](https://aws.amazon.com/marketplace/pp/prodview-jlwcdlc3weta6) Link und subscribed zu der AMI. Das Subscriben dauert einen kleinen Moment. Nachdem die Subscription abgeschlossen ist klickt auf "Continue to Configure". Wählt dort nun die neueste Prowler Version aus und die Region in der ihr die Prowler Checks durchführen wollt. Anschließend klickt auf "Continue to Launch". Nun ganz wichtig bei "Choose Action" müsst ihr "Launch through Ec2" auswählen. Nun werdet ihr auf Ec2 in der AWS Console weitergeleitet.
 
 Einfach den vorausgewählten Instance Typen auswählen welcher t2.micro sein sollte. Dann auf "Next: Configure Instance Details" klicken. Nun ganz wichtig! Bei der IAM role braucht ihr eine Ec2 Role die Administrator Privilege hat. Falls die Role noch nicht existiert klickt auf "Create new IAM role" und erstellt eine AWS service Role für Ec2 mit der AdministratorAccess Policy. Die Prowler AMI braucht diese Permission um den CDK stack bei euch deployen zu dürfen.
 
