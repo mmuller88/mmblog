@@ -1,12 +1,13 @@
 ---
 title: Security, Best Practice und Hardening Checks mit der Prowler AMI
 show: 'no'
-date: '2021-08-25'
-image: 'logo.png'
+date: '2021-08-27'
+# image: 'logo.png'
 tags: ['de', '2021', 'github', 'prowler', 'aws', 'cdk', 'security'] #nofeed
 engUrl: https://martinmueller.dev/prowler-ami-eng
 pruneLength: 50
 ---
+[![Prowler Video](https://img.youtube.com/vi/4JYaGylXEMc/0.jpg)](https://www.youtube.com/watch?v=4JYaGylXEMc)
 
 Hi Leute!
 
