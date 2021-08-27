@@ -20,6 +20,7 @@ const IndexPage = (props) => {
               ))
           } */}
       </div>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/4JYaGylXEMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <div>
         {postList.edges.map(({ node }, i) => (
           <Link to={node.fields.slug} key={i} className="link" >
