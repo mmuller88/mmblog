@@ -1,5 +1,5 @@
 ---
-title: Ongoing 2020
+title: Ongoing 2021
 description: Resume about me
 show: 'no'
 # date: '2020-05-30'
@@ -8,6 +8,12 @@ tags: [nofeed]
 gerUrl: https://martinmueller.dev/projects-ger
 pruneLength: 50
 ---
+
+## Prowler
+Prowler is a cli tool for performing and consulting AWS Security Assessment, Auditing, Hardening, Cost Saving and Incident Response. With more than 180 checks, Prowler provides the most comprehensive security checks offering for AWS. Easily deploy it with the [Prowler AMI](https://aws.amazon.com/marketplace/pp/prodview-jlwcdlc3weta6) or checkout the product video:
+
+[![Prowler Video](https://img.youtube.com/vi/4JYaGylXEMc/0.jpg)](https://www.youtube.com/watch?v=4JYaGylXEMc)
+(Click me :D)
 
 ## AWS APN Partner
 I became an AWS APN Partner. An AWS APN Partner helps customers to find AWS solutions such like migrating to the cloud. You can read more about the APN programm [here](https://aws.amazon.com/partners/).
