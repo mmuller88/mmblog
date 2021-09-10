@@ -1,5 +1,5 @@
 ---
-title: Prowler Landing Page mit Figma
+title: Prowler Landingpage mit Figma
 show: 'no'
 date: '2021-08-12'
 # image: 'logo.png'
@@ -12,14 +12,28 @@ pruneLength: 50
 
 Hi Leute!
 
-* [Prowler AMI](https://martinmueller.dev/prowler-ami) 
-* [cdk-prowler](https://github.com/mmuller88/cdk-prowler) 
-* DevOps, Fullstack aber mit ausbaufähigen Frontend skills.
-* Würde gerne eine Landing Page für die prowler AMI
+Erst kürzlich habe ich meine neuestes AWS Security Product die [Prowler AMI](https://martinmueller.dev/prowler-ami) vorgestellt. Damit kannst du deine AWS Konfiguration auf Security, Best Practises, Cost Savings und mehr automatisiert überprüfen. Die AMI hat sogar schon einige Anwender gefunden, was mich sehr freut. Natürlich wäre es super wenn ich noch mehr Leute überzeugen könnte Prowler auszuprobieren. Zum anwerben neuer Anwender habe ich mir vorgenommen eine Landingpage für die Prowler AMI zu bauen.
+
+Ich bezeichne mich zwar selbst als DevOps Fullstack Entwickler aber meine Stärken liegen klar im Backend Bereich. Für die Landingpage muss ich also weiter aus meiner Komfortzone gehen. Aber kein Problem ich mag das :).
+
+In den nächsten Abschnitten möchte ich meine Journey bei der Erstellung der Prowler Landingpage mit euch teilen. Doch zuerst beschreibe ich die Anforderungen der Landingpage
+
+# Anforderungen Landingpage
+Die Landingpage soll natürlich attraktiv auf die Prowler AMI aufmerksam machen. Dafür benötigt man ein Landingpage Gestaltungstool. Ich habe mich für [Figma](https://figma.com) entschieden. Genaueres habe ich im Figma Abschnitt beschrieben.
+
 * Soll mit HTML, CSS, SEO . Will diese Skills verbessern
+
+# Figma
+
+Figma ist ein ... . Die Landingpage soll sich dynamisch nach Gerät anpassen können. Das bedeutet Ich muss zwei verschiedene Layouts mit Figma gestalten. Einmal ein Layout für den normalen Desktop PC und für ein Mobilphone wie z.B. einem IPhone.
+
+![Figma Prowler Landing](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/prowler-landing/figma.png)
+
 * Aber zuerst brauche ich erstmal einen Prototypen. Mache ich mit Figma
 * Hatte mir eine Landing Page Beispiel aus der Community rausgesucht und tweake es
 * Figma ist cool und macht spaß, hat aber ne steile Lernkurve
+
+# 
 
 # Zusammenfassung
 ...
