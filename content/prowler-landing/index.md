@@ -12,7 +12,7 @@ pruneLength: 50
 
 Hi Leute!
 
-Erst kürzlich habe ich meine neuestes AWS Security Product die [Prowler AMI](https://martinmueller.dev/prowler-ami) vorgestellt. Damit kannst du deine AWS Konfiguration auf Security, Best Practises, Cost Savings und mehr automatisiert überprüfen. Die AMI hat sogar schon einige Anwender gefunden, was mich sehr freut. Natürlich wäre es super wenn ich noch mehr Leute überzeugen könnte Prowler auszuprobieren. Zum anwerben neuer Anwender habe ich mir vorgenommen eine Landingpage für die Prowler AMI zu bauen.
+Erst kürzlich habe ich meine neuestes AWS Security Product die [Prowler AMI](https://martinmueller.dev/prowler-ami) vorgestellt. Damit kannst du deine AWS Konfiguration auf Security, Best Practices, Cost Savings und mehr automatisiert überprüfen. Die AMI hat sogar schon einige Anwender gefunden, was mich sehr freut. Natürlich wäre es super wenn ich noch mehr Leute überzeugen könnte Prowler auszuprobieren. Zum anwerben neuer Anwender habe ich mir vorgenommen eine Landingpage für die Prowler AMI zu bauen.
 
 Ich bezeichne mich zwar selbst als DevOps Fullstack Entwickler aber meine Stärken liegen klar im Backend Bereich. Für die Landingpage muss ich also weiter aus meiner Komfortzone gehen. Aber kein Problem ich mag das :).
 
@@ -21,20 +21,24 @@ In den nächsten Abschnitten möchte ich meine Journey bei der Erstellung der Pr
 # Anforderungen Landingpage
 Die Landingpage soll natürlich attraktiv auf die Prowler AMI aufmerksam machen. Dafür benötigt man ein Landingpage Gestaltungstool. Ich habe mich für [Figma](https://figma.com) entschieden. Genaueres habe ich im Figma Abschnitt beschrieben.
 
-* Soll mit HTML, CSS, SEO . Will diese Skills verbessern
+Danach soll der Prototyp von Figma in eine Website überführt werden. Diese soll dann natürlich mittels HTML, JavaScript und CSS die Landingpage anzeigen können.
+
+Darüber hinaus will ich die Seite leicht für Suchengines wie die von Google erreichbar bzw. zugänglich machen. Das wird auch als SEO Search Engine Optimization bezeichnet.
 
 # Figma
-
-Figma ist ein ... . Die Landingpage soll sich dynamisch nach Gerät anpassen können. Das bedeutet Ich muss zwei verschiedene Layouts mit Figma gestalten. Einmal ein Layout für den normalen Desktop PC und für ein Mobilphone wie z.B. einem IPhone.
+Figma ist ein vektorbasierender Grafikeditor und Prototyping Tool im Web. Es kann hervorragend benutzt werden um die Prowler Landingpage zu prototypen. Die Landingpage soll sich dynamisch je nach Gerät anpassen können. Das bedeutet Ich muss zwei verschiedene Layouts mit Figma gestalten. Ein Layout für einen Desktop PC und einem Mobilphone wie z.B. dem IPhone.
 
 ![Figma Prowler Landing](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/prowler-landing/figma.png)
 
-* Aber zuerst brauche ich erstmal einen Prototypen. Mache ich mit Figma
-* Hatte mir eine Landing Page Beispiel aus der Community rausgesucht und tweake es
-* Figma ist cool und macht spaß, hat aber ne steile Lernkurve
+Zum erstellen meiner Landingpage habe ich einfach ein existierendes Landingpage Beispiel aus der [Figma Community](https://www.figma.com/community/search?model_type=hub_files&q=landing%20page) genommen und es nach meinen Vorstellungen angepasst.
 
-# 
+Figma hat eine steile Lernkurve aber der übersichtliche Editor gefällt mir sehr gut. In zukünftigen Projekten werde ich gerne wieder mit Figma arbeiten.
 
+# Website Setup mit Projen
+[Projen](https://github.com/projen/projen) ist ...
+
+* awscdk-app-ts und react-ts REPO
+* 
 # Zusammenfassung
 ...
 
