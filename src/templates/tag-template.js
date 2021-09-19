@@ -36,7 +36,7 @@ export const query = graphql`
 allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag, "eng"] } } }
+      filter: { frontmatter: { tags: { eq: "eng" } } }
     ) {
       edges {
         node {
