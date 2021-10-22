@@ -8,13 +8,12 @@ engUrl: https://martinmueller.dev/cdk-bitbucket-pipeline
 pruneLength: 50
 ---
 
-* Neuer Kunde. Verwendet BitBucket pipeline für builds
-* würde gerne AWS CDK zum managen von Infrastrucktur in verschiedenen Stages verwenden
-* stages sind dev, qa und prod
+Seit einiger Zeit arbeite ich für einen Kunden mit sehr aufregenden AWS CDK Aufgaben. Der Kunde ist stark im Atlassian Ecosystem unterwegs. Zum hosten des Codes wird da natürlich BitBucket verwendet. Nun will der Kunde stärker in den DevOps bereich vordringen und seine AWS Deployments auch mit AWS CDK managen. Dafür soll die vorhandene AWS Infrastruktur in CDK übersetzt werden. Zusätzlich soll eine Staging Deployment-Pipeline die CDK Apps auf den Stages dev, qa und prod deployen. Gerne helfe ich da weiter :).
 
 # Disclaimer
-* Disclaimer! habe nicht mit bitbucket pipeline vorher gearbeitet und habe bisher immer AWS CodeBuild mit CDK Pipeline Constructe verwendet!
-* Schreibe das hier als persöhnliches Tagebuch und weil es nicht viel Infos gibt für cdk bitbucket pipelines
+Hier folgt ein kleiner Disclaimer. Auch wenn ich bereits sehr viel Erfahrung mit CDK habe (siehe TAGS CDK), kenne ich mich so noch gar nicht mit BitBucket aus. Von daher weiß ich nicht ob mein Ansatz der ideale ist, aber zum Zeitpunkt des Schreibens dieses Artikels, funktioniert dieser ganz gut :).
+
+Ich schreibe diesen Artikel hauptsächlich da ich keine anderen hilfreichen Posts oder Anweisungen gefunden habe, wie man vernünftig eine CDK Staging Deployment-Pipeline baut mit BitBucket. Falls du also vielleicht eine ähnliche Aufgabe hast, kann ich dir damit den Einstieg eventuell erleichtern.
 
 # Welche Pipeline?
 * Musstens uns entscheiden zwischen AWS CodeBuild und dem dafür genialen CDK pipeline construct oder alles in der bitbucket pipeline selber machen.
