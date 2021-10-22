@@ -26,8 +26,13 @@ Passionate Full Stack Developer. I like to have a broad collection of skills. Fr
 * Alfresco Content Systems, Alfresco Process Systems (former Activiti) on premise, in the cloud or hybride
 
 # Experience
+AWS Consultant \
+Nov 2020 - current
+* Helping startups into the AWS Cloud
+* Leveraging AWS CDK to manage AWS resources
+
 Senior Software Engineer – www.unimed.de, GER \
-Sep 2020 – current
+Sep 2020 – Jan 2021
 * Working as an AWS Solution Architect to shift production workloads to AWS
 * Creating and Monitoring Docker applikations in a DevOps manner
 

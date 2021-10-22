@@ -24,8 +24,13 @@ Begeisterter Full Stack Entwickler. Ich mag es viele unterschiedliche und nützl
 * Alfresco Content Systems, Alfresco Process Systems (former Activiti) on premise, in the cloud or hybride
 
 # Erfahrungen
+AWS Berater \
+Nov 2020 - jetzt
+* Startups in die AWS Cloud helfen
+* AWS CDK um AWS Ressourcen zu managen
+
 Senior Software Engineer – www.unimed.de, GER \
-Sep 2020 – current
+Sep 2020 – Jan 2021
 * Arbeiten als AWS Solution Architect um Produktionsanwendungen in die Cloud zu bekommen
 * Erstellung und Monitoring von Docker Applikationen in DevOps Style
 
