@@ -43,13 +43,45 @@ So ein cooles Feature vermisse ich bei AWS CodePipeline. Auch verwendet der Kund
 
 Unter Berücksichtigung aller Vor- und Nachteile haben wir uns für BitBuckets's Codepipeline als CDK Staging Deployment-Pipeline entschieden.
 
+## Ordnerstrucktur
+Wie bereits gesagt, der Kunde hat ein Monorepo und das möchte dieser natürlich beibehalten. Wir haben uns nun für die folgender Ordnerstrucktur entschieden:
+
+```bash
+devops - Contains AWS CDK dependencies
+devops/${STAGE} - Contains stage specific scripts like bootstrap command
+devops/${STAGE}/vpc - VPC CDK App
+devops/${STAGE}/cognito - Cognito CDK App
+devops/${STAGE}/website - S3 Website CDK App
+...
+```
+STAGE ist entweder dev, qa oder prod .
+
+Im **devops** Ordner befinden sich die AWS CDK dependencies. Via package.json werden alle benötigten CDK Libraries geladen z.B. :
+```json
+  "dependencies": {
+    ...
+    "@aws-cdk/aws-s3": "1.128.0",
+    "@aws-cdk/aws-cloudfront": "1.128.0",
+    "@aws-cdk/aws-cloudfront-origins": "1.128.0",
+    "@aws-cdk/aws-s3-deployment": "1.128.0",
+    ...
+  }
+```
+Auch beinhaltet die package.json ein Script zum bootstrap des Build AWS Accounts und des Synthetisierens. Der Build AWS Account ist der Account von wo aus die Stages verwaltet werden. Synthetisieren bezeichnet man den Prozess bei der die CDK App in ein oder mehrere Cloudformation Templates überführt wird:
+
+```ts
+"scripts": {
+    ...
+    "synth": "yarn build && yarn cdk synth",
+    "bootstrap": "yarn build && yarn cdk bootstrap --trust 11111111,222222,3333333,44444444 --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess aws://12345678/us-east-1"
+  },
+```
+
 # Beispiel S3 Static Website Hosting
 * Kunde hat ReactTS App und hosted diese in einem S3 Static Website Bucket.
 * Soll über Staging
 
-## Ordnerstrucktur
-* STAGE ist entweder dev, qaprod prod
-devops/${STAGE}/website
+
 
 * devops/src
 * für main.ts für Synth step
@@ -63,7 +95,7 @@ devops/${STAGE}/website
 ....
 
 # What is next?
-* Dashboard für urls, z.B. Cloudfront, Hasura urls mit Commit version
+Im Sinne der Übersichtlichkeit fehlt uns noch eine Art Dashboard um die wichtigsten CfnOutput URLs anzuzeigen wie z.B. die Cloudfront Urls von den React Apps. Auch will man ja wissen welcher Commit bei dem jeweiligen Deploy verwendet wurde. Dafür würde sich sehr gut ein Dashboard eignen welches per Lambda die aktuellen Deployments sowie deren Commit ID herausfinden und wahrscheinlich auch direkt darstellen kann.
 
 # Zusammenfassung
 Mehr Erfahrung mit BitBucket und dem Atlassian Ecosystem zu sammeln was mega cool. Es hat mir viel Spaß gemacht unter diesen Umständen eine CDK Staging Deployment-Pipeline zu bauen. Hier habe ich grob beschrieben wie diese Pipeline aussieht und was unsere Gründe waren diese Pipeline so zu bauen.
