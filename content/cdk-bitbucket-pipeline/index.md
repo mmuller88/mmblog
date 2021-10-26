@@ -1,7 +1,7 @@
 ---
 title: Eine CDK BitBucket Staging Pipeline
 show: 'no'
-date: '2021-10-25'
+date: '2021-10-29'
 # image: 'logo.png'
 tags: ['de', '2021', 'bitbucket', 'aws', 'cdk', 'nofeed'] 
 engUrl: https://martinmueller.dev/cdk-bitbucket-pipeline
@@ -11,12 +11,12 @@ pruneLength: 50
 Seit einiger Zeit arbeite ich für einen Kunden mit sehr aufregenden AWS CDK Aufgaben. Der Kunde ist stark im Atlassian Ecosystem unterwegs. Zum hosten des Codes wird da natürlich BitBucket verwendet. Nun will der Kunde stärker in den DevOps bereich vordringen und seine AWS Deployments auch mit AWS CDK managen. Dafür soll die vorhandene AWS Infrastruktur in CDK übersetzt werden. Zusätzlich soll eine Staging Deployment-Pipeline die CDK Apps auf den Stages dev, qa und prod deployen. Gerne helfe ich da weiter :).
 
 # Disclaimer
-Hier folgt ein kleiner Disclaimer. Auch wenn ich bereits sehr viel Erfahrung mit CDK habe (siehe TAGS CDK), kenne ich mich so noch gar nicht mit BitBucket aus. Von daher weiß ich nicht ob mein Ansatz der ideale ist, aber zum Zeitpunkt des Schreibens dieses Artikels, funktioniert dieser ganz gut :).
+Hier folgt ein kleiner Disclaimer. Auch wenn ich bereits sehr viel Erfahrung mit CDK habe (siehe [hier](https://martinmueller.dev/tags/cdk)), kenne ich mich so noch gar nicht mit BitBucket aus. Von daher weiß ich nicht ob mein Ansatz der ideale ist, aber zum Zeitpunkt des Schreibens dieses Artikels, funktioniert dieser ganz gut :).
 
 Ich schreibe diesen Artikel hauptsächlich da ich keine anderen hilfreichen Posts oder Anweisungen gefunden habe, wie man vernünftig eine CDK Staging Deployment-Pipeline baut mit BitBucket. Falls du also vielleicht eine ähnliche Aufgabe hast, kann ich dir damit den Einstieg eventuell erleichtern.
 
 # Welche Pipeline?
-Nun stellte sich natürlich die frage wo soll die CDK Staging Deployment-Pipeline denn leben? Zu Auswahl standen AWS CodePipeline oder BitBucket's Pipeline. 
+Nun stellte sich natürlich die frage wo soll die CDK Staging Deployment-Pipeline denn leben? Zu Auswahl standen AWS CodePipeline oder BitBucket's Pipeline.
 
 ## Vielleicht AWS CodePipeline?
 Der Vorteil von AWS CodePipeline wäre das es dafür schon geniale AWS CDK Staging Pipeline Construct gibt wie z.B. der [CDK Pipeline]() . Damit hätte man fast alles was das DevOps Herz begehrt z.B. eine Synth Action wobei aus CDK das Cloudformation template generiert wird und Deploy Actions die dann zu den jeweiligen Stages deployen. Auch mega geniall von der CDK Pipeline sind die optionalen Actions die nach dem Deploy zu einer Stage ausgeführt werden können. Damit können z.B. Integrations Tests nach dem Deploy ausgeführt werden. Auch sehr schön ist, dass die Pipeline in TypeScript definiert ist und z.B. somit eine Dokumentation mitliefert und durch die Types einen gewissen Standard ja bereits schon vorgibt.
@@ -77,15 +77,53 @@ Auch beinhaltet die package.json ein Script zum bootstrap des Build AWS Accounts
   },
 ```
 
-# Beispiel S3 Static Website Hosting
-* Kunde hat ReactTS App und hosted diese in einem S3 Static Website Bucket.
-* Soll über Staging
+# Beispiel VPC
+In jeder Stage soll es ein VPC geben in der private Infrastruktur wie Postgres DBs deployed werden sollen. Jede Stage beinhaltet also ein VPC subdirectory devops/${STAGE}/vpc . Dort in einer main.ts befindet sich der CDK Code. Ich zeige das hier anhand von der dev stage:
 
+```ts
+import 'source-map-support/register';
+import * as cdk from '@aws-cdk/core';
+import { VpcStack } from '../../components/vpc-stack';
+const env = require('../package.json').env;
 
+export const DevVpcStack = (app: cdk.App) => new VpcStack(app, `${env.stage}-VpcStack`, { env });
+```
 
-* devops/src
-* für main.ts für Synth step
-* Etwas komisch, aber erhoffen uns so eine bessere Übersichtlichkeit. Ändern das vielleicht.
+Da jede stage einen VPC benötigt, macht es Sinn den gemeinsamen VPC CDK Code in eine shared Componente zu platzieren under dem Ordner devops/components :
+
+```ts
+export class VpcStack extends cdk.Stack {
+
+  vpc: ec2.Vpc;
+
+  constructor(scope: cdk.Construct, id: string, props: VpcStackProps) {
+    super(scope, id, props);
+
+    this.vpc = new ec2.Vpc(this, 'vpc', { maxAzs: 2 });
+  }
+}
+```
+
+In devops/src/main.ts wird dann das jeweilige VPC geladen:
+```ts
+import * as cdk from '@aws-cdk/core';
+import { DevVpcStack } from '../dev/vpc/main';
+import { ProdVpcStack } from '../prod/vpc/main';
+import { SqaVpcStack } from '../sqa/vpc/main';
+import { StagingVpcStack } from '../staging/vpc/main';
+
+const app = new cdk.App();
+
+// vpcs
+const devVpc = DevVpcStack(app).vpc;
+const sqaVpc = SqaVpcStack(app).vpc;
+const stagingVpc = StagingVpcStack(app).vpc;
+const prodVpc = ProdVpcStack(app).vpc;
+
+...
+```
+
+Zugegeben die künstliche Aufteilung der stages in devops/${STAGE}/vpc und anschließendem Zusammenführen in devops/src/main.ts ist etwas komisch und eventuell nicht ideal. Alternativ könnte man auch einfach alles in devops/src/main.ts schreiben. Wir erhoffen uns so aber eine bessere Übersichtlichkeit über die "einzelnen" CDK stacks.
 
 ## Scripte
 * Scripte in package.json unter devops/package.json, devops/${STAGE}/website/package.json
