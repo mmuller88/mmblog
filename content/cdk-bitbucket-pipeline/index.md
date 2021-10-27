@@ -105,6 +105,7 @@ export class VpcStack extends cdk.Stack {
 ```
 
 In devops/src/main.ts wird dann das jeweilige VPC geladen:
+
 ```ts
 import * as cdk from '@aws-cdk/core';
 import { DevVpcStack } from '../dev/vpc/main';
@@ -128,9 +129,84 @@ Zugegeben die künstliche Aufteilung der stages in devops/${STAGE}/vpc und ansch
 ## Scripte
 * Scripte in package.json unter devops/package.json, devops/${STAGE}/website/package.json
 
-# bitbucket pipeline
-* yml
-....
+# Bitbucket Pipeline
+Die Bitbucket Pipeline durchläuft nun grob die folgenden Schritte. Zuerst werden parallel Tests durchlaufen und Builds gebaut. Unter den Builds sind z.B. auch verschiedene React Builds für die verschiedenen stages. Danach wird der CDK synth mittels `yarn cdk synth` durchgeführt. Beim synth werden Assets wie z.B. die verschiedenen React Builds in S3 geuploaded:
+
+```yaml
+- step:
+  name: Synth CDK app
+  caches: 
+    - node-custom
+  condition:
+    changesets:
+      includePaths:
+        - "bitbucket-pipelines.yml"
+        - "devops/**"
+  script:
+    - export AWS_REGION=us-west-2
+    - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_BUILD
+    - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY_BUILD
+    - cd devops
+    - yarn synth
+  artifacts:
+    - devops/cdk.out/**
+```
+
+Nach dem synth kann nun die erste stage dev die per CDK synthetisierten Cloudformation Templates anwenden. Dafür benutze ich z.B. diesen CDK Command:
+
+```bash
+yarn cdk deploy -a 'cdk.out/' dev-VpcStack --require-approval never
+```
+
+Der cdk.out Ordner wurde vorher beim CDK synth step als Artifact ausgewiesen und wird nun für die jeweiligen stages (hier dev) und CDK stacks wiederverwendet. Der Pipeline yaml Code sieht folgendermaßen aus:
+
+```yaml
+- parallel:
+    - step:
+        name: Deploy vpc to dev
+        caches: 
+          - node-custom
+        condition:
+          changesets:
+            includePaths:
+              - "bitbucket-pipelines.yml"
+              - "devops/**"
+        script:
+          - export AWS_REGION=us-west-2
+          - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_BUILD
+          - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY_BUILD
+          - cd devops/dev/vpc && yarn deploy-cdk-stage
+          - cd ../hasura && yarn deploy-cdk-stage
+    - step:
+        name: Diff qa
+        caches: 
+          - node-custom
+        condition:
+          changesets:
+            includePaths:
+              - "bitbucket-pipelines.yml"
+              - "devops/**"
+        script:
+          - export AWS_REGION=us-west-2
+          - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_BUILD
+          - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY_BUILD
+          - cd devops/qa && yarn diff
+    - step:
+        name: Approval deploy qa
+        trigger: manual
+        condition:
+          changesets:
+            includePaths:
+              - "bitbucket-pipelines.yml"
+              - "devops/**"
+              - dashboard/**
+        script:
+          - echo "Deploy"
+  - parallel:
+        # qa stage simila looking to dev
+```
+
+Es wird also direkt in die dev stage deployed. Dabei wird auch parallel ein diff zur nächsten stage qa erzeugt. Um auch den qa deploy durchzuführen, muss via manual trigger beim **Approval deploy qa** step zugestimmt werden. Stimmt man zu läuft der ganze Prozess in qa analog zu dev ab.
 
 # What is next?
 Im Sinne der Übersichtlichkeit fehlt uns noch eine Art Dashboard um die wichtigsten CfnOutput URLs anzuzeigen wie z.B. die Cloudfront Urls von den React Apps. Auch will man ja wissen welcher Commit bei dem jeweiligen Deploy verwendet wurde. Dafür würde sich sehr gut ein Dashboard eignen welches per Lambda die aktuellen Deployments sowie deren Commit ID herausfinden und wahrscheinlich auch direkt darstellen kann.
