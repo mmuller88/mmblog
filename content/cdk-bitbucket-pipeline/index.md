@@ -233,9 +233,7 @@ Im Sinne der Übersichtlichkeit fehlt uns noch eine Art Dashboard um die wichtig
 
 ## Zusammenfassung
 
-Mehr Erfahrung mit BitBucket und dem Atlassian Ecosystem zu sammeln was mega cool. Es hat mir viel Spaß gemacht unter diesen Umständen eine CDK Staging Deployment-Pipeline zu bauen. Hier habe ich grob beschrieben wie diese Pipeline aussieht und was unsere Gründe waren diese Pipeline so zu bauen.
-
-Ob das eine gute Entscheidungen waren wird die Zukunft zeigen wenn der Kunde die Pipeline auch tatsächlich benutzt. Glaubst du wir haben etwas übersehen oder du hast Ideen was man besser machen kann? Dann schreibe mir doch bitte :).
+Mit BitBucket als Repository zu arbeiten, war mega cool. Es hat mir viel Spaß gemacht unter diesen Umständen eine CDK Staging Deployment-Pipeline zu bauen. Hier habe ich grob beschrieben wie diese Pipeline aussieht und was unsere Gründe waren diese Pipeline so zu bauen. Ob das gute Entscheidungen waren wird die Zukunft zeigen wenn der Kunde die Pipeline auch tatsächlich benutzt. Glaubst du wir haben etwas übersehen oder du hast Ideen was man besser machen kann? Dann schreibe mir doch bitte :).
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
