@@ -2,13 +2,13 @@
 title: Eine CDK BitBucket Staging Pipeline
 show: 'no'
 date: '2021-10-29'
-# image: 'logo.png'
+image: 'bitbucket.png'
 tags: ['de', '2021', 'bitbucket', 'aws', 'cdk', 'nofeed'] 
 engUrl: https://martinmueller.dev/cdk-bitbucket-pipeline
 pruneLength: 50
 ---
 
-Seit einiger Zeit arbeite ich für einen Kunden mit sehr aufregenden AWS CDK Aufgaben. Der Kunde ist stark im Atlassian Ecosystem unterwegs. Zum hosten des Codes wird da natürlich BitBucket verwendet. Nun will der Kunde stärker in den DevOps bereich vordringen und seine AWS Deployments auch mit AWS CDK managen. Dafür soll die vorhandene AWS Infrastruktur in CDK übersetzt werden. Zusätzlich soll eine Staging Deployment-Pipeline die CDK Apps auf den Stages dev, qa und prod deployen. Gerne helfe ich da weiter :).
+Seit einiger Zeit arbeite ich für einen Kunden mit sehr aufregenden AWS CDK Aufgaben. Der Kunde ist stark im Atlassian Ecosystem unterwegs. Zum hosten des Codes wird BitBucket verwendet. Nun will der Kunde stärker in den DevOps Bereich vordringen und seine AWS Deployments auch mit AWS CDK managen. Dafür soll die vorhandene AWS Infrastruktur in CDK übersetzt werden. Zusätzlich soll eine Staging Deployment-Pipeline die CDK Apps auf den Stages dev, qa und prod deployen. Gerne helfe ich da weiter :).
 
 ## Disclaimer
 
@@ -28,7 +28,7 @@ Der Vorteil von AWS CodePipeline wäre das es dafür schon geniale AWS CDK Stagi
 
 Der Kunde verwendet bereits BitBucket's Pipeline zum Testen, Linten und dem Erstellen von Builds. Von daher wäre es unschön wenn der Kunde gezwungen wäre zwischen den zwei Pipeline Dashboards AWS CodePipeline und BitBucket's Pipeline hin und her zu schalten. Außerdem lassen sich prinzipielle ja alle Funktionen von der AWS CodePipeline und dem CDK Pipeline Construct ja quasi nach programmieren mit BitBucket's Pipeline.
 
-Ein ziemlich cooles Feature welches AWS CodePipeline nicht hat ist das Skippen von Steps falls das angegebene Subdirectory nicht geändert wurde. Hier ist ein Beispiel:
+Ein ziemlich cooles Feature welches AWS CodePipeline nicht hat, ist das Skippen von Steps falls das angegebene Subdirectory nicht geändert wurde. Hier ist ein Beispiel:
 
 ```yaml
 - step:
@@ -84,7 +84,7 @@ Auch beinhaltet die devops/package.json ein Script zum bootstrap des Build AWS A
 },
 ```
 
-Der Bootstrap command erzeugt einen CDK Helper Stack im Build Account 44444444 und trusted allen stages dev = 11111111, qa = 222222, prod = 3333333. Trusted meint hier das der CDK Helper Stack Role eine Cross Account Deploy Erlaubnis hinzugefügt wird. Damit kann der Build Account in die verschiedenen Stage Accounts deployen. Sehr wichtig ist auch, dass jeweil die Stage Accounts einen Bootstrap durchführen müssen. Der Bootstrap command befindet sich dann jeweils in devops/${STAGE}/package.json z.B. für dev:
+Der Bootstrap command erzeugt einen CDK Helper Stack im Build Account 44444444 und trusted allen Stages dev = 11111111, qa = 222222, prod = 3333333. Trusted meint hier das der CDK Helper Stack Role eine Cross Account Deploy Erlaubnis hinzugefügt wird. Damit kann der Build Account in die verschiedenen Stage Accounts deployen. Sehr wichtig ist auch, dass jeweils die Stage Accounts einen Bootstrap durchführen müssen. Der Bootstrap command befindet sich dann jeweils in devops/${STAGE}/package.json z.B. für dev:
 
 ```ts
 "scripts": {
@@ -97,10 +97,9 @@ Wie man hier sieht muss auch umgekehrt der Stage Account z.b. dev=11111111 dem B
 
 ## Beispiel VPC
 
-In jeder Stage soll es ein VPC geben in der private Infrastruktur wie Postgres DBs deployed werden sollen. Jede Stage beinhaltet also ein VPC subdirectory devops/${STAGE}/vpc . Dort in einer main.ts befindet sich der CDK Code. Ich zeige das hier anhand von der dev stage:
+In jeder Stage soll es ein VPC geben in der private Infrastruktur wie Postgres DBs deployed werden sollen. Jede Stage beinhaltet also ein VPC subdirectory devops/${STAGE}/vpc . Dort in einer main.ts befindet sich der CDK Code. Ich zeige das hier anhand von der dev Stage:
 
 ```ts
-import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
 import { VpcStack } from '../../components/vpc-stack';
 const env = require('../package.json').env;
@@ -108,7 +107,7 @@ const env = require('../package.json').env;
 export const DevVpcStack = (app: cdk.App) => new VpcStack(app, `${env.stage}-VpcStack`, { env });
 ```
 
-Da jede stage einen VPC benötigt, macht es Sinn den gemeinsamen VPC CDK Code in eine shared Componente zu platzieren under dem Ordner devops/components :
+Da jede Stage einen VPC benötigt, macht es Sinn den gemeinsamen VPC CDK Code in eine shared Componente zu platzieren under dem Ordner devops/components :
 
 ```ts
 export class VpcStack extends cdk.Stack {
@@ -143,13 +142,10 @@ const prodVpc = ProdVpcStack(app).vpc;
 ...
 ```
 
-Zugegeben die künstliche Aufteilung der stages in devops/${STAGE}/vpc und anschließendem Zusammenführen in devops/src/main.ts ist etwas komisch und eventuell nicht ideal. Alternativ könnte man auch einfach alles in devops/src/main.ts schreiben. Wir erhoffen uns so aber eine bessere Übersichtlichkeit über die "einzelnen" CDK stacks.
-
-## Scripte
-* Scripte in package.json unter devops/package.json, devops/${STAGE}/website/package.json
+Zugegeben die künstliche Aufteilung der Stages in devops/${STAGE}/vpc und anschließendem Zusammenführen in devops/src/main.ts ist etwas komisch und eventuell nicht ideal. Alternativ könnte auch einfach alles in devops/src/main.ts geschrieben werden. Wir erhoffen uns so aber eine bessere Übersichtlichkeit über die "einzelnen" CDK stacks.
 
 # Bitbucket Pipeline
-Die Bitbucket Pipeline durchläuft nun grob die folgenden Schritte. Zuerst werden parallel Tests durchlaufen und Builds gebaut. Unter den Builds sind z.B. auch verschiedene React Builds für die verschiedenen stages. Danach wird der CDK synth mittels `yarn cdk synth` durchgeführt. Beim synth werden Assets wie z.B. die verschiedenen React Builds in S3 geuploaded:
+Die Bitbucket Pipeline durchläuft nun grob die folgenden Schritte. Zuerst werden parallel Tests durchlaufen und Builds gebaut. Unter den Builds sind z.B. auch verschiedene React Builds für die verschiedenen Stages. Danach wird der CDK synth mittels `yarn cdk synth` durchgeführt. Beim synth werden Assets wie z.B. die verschiedenen React Builds in S3 geuploaded:
 
 ```yaml
 - step:
@@ -171,13 +167,13 @@ Die Bitbucket Pipeline durchläuft nun grob die folgenden Schritte. Zuerst werde
     - devops/cdk.out/**
 ```
 
-Nach dem synth kann nun die erste stage dev die per CDK synthetisierten Cloudformation Templates anwenden. Dafür benutze ich z.B. diesen CDK Command:
+Nach dem synth kann nun die erste Stage dev die per CDK synthetisierten Cloudformation Templates anwenden. Dafür benutze ich z.B. diesen CDK Command:
 
 ```bash
 yarn cdk deploy -a 'cdk.out/' dev-VpcStack --require-approval never
 ```
 
-Der cdk.out Ordner wurde vorher beim CDK synth step als Artifact ausgewiesen und wird nun für die jeweiligen stages (hier dev) und CDK stacks wiederverwendet. Der Pipeline yaml Code sieht folgendermaßen aus:
+Der cdk.out Ordner wurde vorher beim CDK synth step als Artifact ausgewiesen und wird nun für die jeweiligen Stages (hier dev) und CDK stacks wiederverwendet. Der Pipeline yaml Code sieht folgendermaßen aus:
 
 ```yaml
 - parallel:
@@ -225,9 +221,9 @@ Der cdk.out Ordner wurde vorher beim CDK synth step als Artifact ausgewiesen und
         # qa stage simila looking to dev
 ```
 
-Es wird also direkt in die dev stage deployed. Dabei wird auch parallel ein diff zur nächsten stage qa erzeugt. Um auch den qa deploy durchzuführen, muss via manual trigger beim **Approval deploy qa** step zugestimmt werden. Stimmt man zu läuft der ganze Prozess in qa analog zu dev ab.
+Es wird also direkt in die dev Stage deployed. Dabei wird auch parallel ein diff zur nächsten Stage qa erzeugt. Um auch den qa deploy durchzuführen, muss via manual trigger beim **Approval deploy qa** step zugestimmt werden. Stimmt man zu läuft der ganze Prozess in qa analog zu dev ab.
 
-## What is next?
+## What next?
 
 Im Sinne der Übersichtlichkeit fehlt uns noch eine Art Dashboard um die wichtigsten CfnOutput URLs anzuzeigen wie z.B. die Cloudfront Urls von den React Apps. Auch will man ja wissen welcher Commit bei dem jeweiligen Deploy verwendet wurde. Dafür würde sich sehr gut ein Dashboard eignen welches per Lambda die aktuellen Deployments sowie deren Commit ID herausfinden und wahrscheinlich auch direkt darstellen kann.
 
