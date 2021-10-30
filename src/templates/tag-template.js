@@ -7,7 +7,7 @@ function Tags(props) {
     const { tag } = props.pageContext;
     let posts = props.data.allMarkdownRemark.edges;
     if(tag !== 'de') {
-      posts = posts.filter(({ node }) => node.frontmatter.tags.includes('eng'));
+      posts = posts.filter(({ node }) => node.frontmatter.tags?.includes('eng') ?? true);
     }
     return (
         <Layout>
