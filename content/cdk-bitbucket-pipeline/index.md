@@ -1,7 +1,7 @@
 ---
 title: Eine CDK BitBucket Staging Pipeline
 show: 'no'
-date: '2021-10-29'
+date: '2021-10-31'
 image: 'bitbucket.png'
 tags: ['de', '2021', 'bitbucket', 'aws', 'cdk', 'nofeed'] 
 engUrl: https://martinmueller.dev/cdk-bitbucket-pipeline
@@ -144,7 +144,8 @@ const prodVpc = ProdVpcStack(app).vpc;
 
 Zugegeben die künstliche Aufteilung der Stages in devops/${STAGE}/vpc und anschließendem Zusammenführen in devops/src/main.ts ist etwas komisch und eventuell nicht ideal. Alternativ könnte auch einfach alles in devops/src/main.ts geschrieben werden. Wir erhoffen uns so aber eine bessere Übersichtlichkeit über die "einzelnen" CDK stacks.
 
-# Bitbucket Pipeline
+## Bitbucket Pipeline
+
 Die Bitbucket Pipeline durchläuft nun grob die folgenden Schritte. Zuerst werden parallel Tests durchlaufen und Builds gebaut. Unter den Builds sind z.B. auch verschiedene React Builds für die verschiedenen Stages. Danach wird der CDK synth mittels `yarn cdk synth` durchgeführt. Beim synth werden Assets wie z.B. die verschiedenen React Builds in S3 geuploaded:
 
 ```yaml
