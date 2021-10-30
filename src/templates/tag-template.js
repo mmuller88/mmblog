@@ -4,8 +4,11 @@ import Layout from '../components/layout';
 import '../pages/post.css'
 
 function Tags(props) {
-    const posts = props.data.allMarkdownRemark.edges;
     const { tag } = props.pageContext;
+    let posts = props.data.allMarkdownRemark.edges;
+    if(tag !== 'de') {
+      posts = posts.filter(({ node }) => node.frontmatter.tags.includes('eng'));
+    }
     return (
         <Layout>
           <div className="header">
