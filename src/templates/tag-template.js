@@ -7,7 +7,7 @@ function Tags(props) {
     const { tag } = props.pageContext;
     let posts = props.data.allMarkdownRemark.edges;
     if(tag !== 'de') {
-      posts = posts.filter(({ node }) => node.frontmatter.tags?.includes('eng') ?? true);
+      posts = posts.filter(({ node }) => node.frontmatter.tags.includes('eng'));
     }
     return (
         <Layout>
@@ -47,6 +47,7 @@ allMarkdownRemark(
             date(formatString: "Do MMMM YYYY")
             title
             show
+            tags
           }
           fields {
             slug
