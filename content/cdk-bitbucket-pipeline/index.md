@@ -12,7 +12,7 @@ Seit einiger Zeit arbeite ich für einen Kunden mit sehr aufregenden AWS CDK Auf
 
 ## Disclaimer
 
-Hier folgt ein kleiner Disclaimer. Auch wenn ich bereits sehr viel Erfahrung mit CDK habe (siehe [hier](https://martinmueller.dev/tags/cdk)), kenne ich mich so noch gar nicht mit BitBucket aus. Von daher weiß ich nicht ob mein Ansatz der ideale ist, aber zum Zeitpunkt des Schreibens dieses Artikels, funktioniert dieser ganz gut :).
+Auch wenn ich bereits sehr viel Erfahrung mit CDK habe (siehe [hier](https://martinmueller.dev/tags/cdk)), kenne ich mich so noch gar nicht mit BitBucket aus. Von daher weiß ich nicht ob mein Ansatz der ideale ist, aber zum Zeitpunkt des Schreibens dieses Artikels, funktioniert dieser ganz gut :).
 
 Ich schreibe diesen Artikel hauptsächlich da ich keine anderen hilfreichen Posts oder Anweisungen gefunden habe, wie man vernünftig eine CDK Staging Deployment-Pipeline baut mit BitBucket. Falls du also vielleicht eine ähnliche Aufgabe hast, kann ich dir damit den Einstieg eventuell erleichtern.
 
@@ -52,7 +52,7 @@ Unter Berücksichtigung aller Vor- und Nachteile haben wir uns für BitBuckets's
 Wie bereits gesagt, der Kunde hat ein Monorepo und das möchte dieser natürlich beibehalten. Wir haben uns nun für die folgender Ordnerstruktur entschieden:
 
 ```bash
-devops # Contains AWS CDK dependencies
+devops # Contains AWS CDK dependencies and CDK Apps
 devops/${STAGE} # Contains stage specific scripts like bootstrap command
 devops/${STAGE}/vpc # VPC CDK App
 devops/${STAGE}/cognito # Cognito CDK App
