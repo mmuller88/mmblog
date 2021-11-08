@@ -10,15 +10,28 @@ pruneLength: 50
 
 Hallo CDK Fans
 
-* Neuer Kunde mit einem spannenden internet Scraping Projekt
-* Antworten zu fragen werden erfasst und dann asynchron mittels Eventbridge an einen Verarbeitungsstack geschickt. Zurzeit nur ein Lambda. Wird komplexer werden.
-* Focus hier auf AWS Eventbridge und wie ich damit Events von DynamoDB nach Lambda schicke und wieder zurückt zu DynamoDB wenn die Verarbeitung fertig ist
-* Habe bisher kaum AWS Eventbridge in diesem Use case gesehen und vor allem nicht in AWS CDK.
+Für ein Startup soll ich eine Security Internet Scraping Plattform bauen. Der grobe Ablauf zur Benutzung der Plattform ist in etwa so. Der Kunde beantwortet ein paar Fragen und bekommt dann eine Security Auswertung angezeigt. Für den Prototypen habe ich mich entschieden AWS EventBridge zu benutzen um eine Entkopplung und asynchrone Verarbeitung der Services zu einander, zu gewährleisten.
 
-# Setup
+Das war das erste mal, dass ich Eventbridge verwendet habe und ich bin sehr begeistert. Da es noch nicht all zu viel AWS CDK Eventbridge Material im Internet gibt, wollte ich dich gerne an meiner Experience teilhaben lassen.
+
+Nachfolgend beschreibe ich die Security Plattform etwas genauer und wie meine Architektur aussieht.
+
+## Security Plattform
+
+Also wie bereits gesagt die Plattform ist ein Security Scraper. Der Nutzer kann mittels Desktop App oder Mobile App einige Fragen beantworten. Die Antworten werden im User-Service gespeichert und asynchron an den Scraping-Service geschickt. Ist die Verarbeitung im Scraping-Service fertig bekommt der Nutzer das Ergebnis präsentiert.
+
+## Architektur
+
+Für den Prototypen haben für uns für drei Module. Diese drei Module sind jeweils mit ihrem eigenen CDK Stack implementiert. Das ist das Frontend, der User-Service und der Scraping-Service.
+### Frontend
 * Questionnaire Frontend bestehend aus ReactTS S3 Webhosting sendet Daten via AppSync in eine DynamoDB Tabelle im User Service. Seit einigen Monaten benutze ich nun schon dieses setup mit ReactTS welches mittels Amplify und Appsync eine moderne CRUD alternative zu REST Apis bietet. [Appsync](https://martinmueller.dev/tags/appsync)
+
+### User-Service
 * Die DynamoDB Tabelle soll dann neue oder geänderter Einträge asynchron mittels Eventbridge an den Scraping Service senden. Der Scraping Service führt dann das Scraping aus, kreiert einen Report und sendet den Report zurück in eine DynamoDB Tabelle im User Service.
 * Vom User Service aus, führen die Daten mittels GraphQL Subscription eine Update im Frontend aus
+
+### Scraping-Service
+...
 
 ## Zusammenfassung
 
