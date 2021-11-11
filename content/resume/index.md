@@ -26,6 +26,10 @@ Passionate Full Stack Developer. I like to have a broad collection of skills. Fr
 * Alfresco Content Systems, Alfresco Process Systems (former Activiti) on premise, in the cloud or hybride
 
 # Experience
+Senior Cloud Architect - www.kreuzwerker.de, GER \
+Jan 2022 - current
+* Guiding and building awesome AWS cloud solutions
+
 AWS Consultant \
 Nov 2020 - current
 * Helping startups into the AWS Cloud

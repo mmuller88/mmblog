@@ -2,7 +2,7 @@
 title: Asynchrone Kommunikation mit AWS CDK Eventbridge
 show: 'no'
 date: '2021-11-14'
-image: 'bitbucket.jpg'
+image: 'dia.png'
 tags: ['de', '2021', 'eventbridge', 'aws', 'cdk', 'dynamodb', 'nofeed'] 
 engUrl: https://martinmueller.dev/cdk-eventbridge
 pruneLength: 50
@@ -10,7 +10,7 @@ pruneLength: 50
 
 Hallo CDK Fans
 
-Für ein Startup soll ich eine Security Internet Security Plattform bauen. Der grobe Ablauf zur Benutzung der Plattform ist in etwa so. Der Kunde beantwortet ein paar Fragen und bekommt dann eine Security Auswertung angezeigt. Für den Prototypen habe ich mich entschieden AWS EventBridge zu benutzen um eine Entkopplung und asynchrone Verarbeitung der Services zu einander, zu gewährleisten.
+Für ein Startup soll ich eine Security Plattform bauen. Der grobe Ablauf zur Benutzung der Plattform ist in etwa so. Der Kunde beantwortet ein paar Fragen und bekommt dann eine Security Auswertung angezeigt. Für den Prototypen habe ich mich entschieden AWS EventBridge zu benutzen. Damit erreiche ich eine Entkopplung und asynchrone Verarbeitung der Services zu einander, zu gewährleisten.
 
 Das war das erste mal, dass ich Eventbridge verwendet habe und ich bin sehr begeistert. Da es noch nicht all zu viel AWS CDK Eventbridge Material im Internet gibt, wollte ich dich gerne an meiner Experience teilhaben lassen.
 
@@ -36,7 +36,7 @@ Der Nutzer soll nach dem Einloggen eine Reihe von Security Fragen beantworten. D
 
 Die Antworten werden nun im AppSync verarbeitet und in eine Antworten DynamoDB Tabelle gespeichert. Von dort aus lauscht eine DynamoDB Stream Lambda auf neu oder geänderte Antworten. Die Lambda schreibt dann die Antwort in den Eventbridge Eventbus. Der Eventbus leitet die Antwort als Event **AntwortEvent** weiter an den Security-Service.
 
-Nachdem der Security-Service das AntwortEvent verarbeitet hat sendet dieser ein **ReportEvent** an den User-Service via den EventBus zurück. Eine Report Lambda im User-Service erhält dann das ReportEvent und schreibt den Report via GraphQL Mutation in eine Report DynamoDB Tabelle.
+Nachdem der Security-Service das AntwortEvent verarbeitet hat sendet dieser ein **ReportEvent** an den User-Service via den Eventbus zurück. Eine Report Lambda im User-Service erhält dann das ReportEvent und schreibt den Report via GraphQL Mutation in eine Report DynamoDB Tabelle.
 
 Das Frontend besitzt eine GraphQl Subscription für neu erscheinende Reports und somit wird die Liste der Reports automatisch geupdated sofern ein neuer Report gespeichert wird.
 
@@ -44,11 +44,14 @@ Das Frontend besitzt eine GraphQl Subscription für neu erscheinende Reports und
 * Vom User Service aus, führen die Daten mittels GraphQL Subscription eine Update im Frontend aus
 
 ### Security-Service
-...
+
+Der Security-Service erhält ein AntwortEvent vom User-Service mittels Eventbus von EventBridge. Das AntwortEvent ist ein Wrapper und enthält neben der Antwort selbst noch Eventdaten wie Created, Updated, Status. Eine Report Lambda empfängt dann die Antwort und verarbeitet diese zu einem Report. Anschließend wird der Report in ein ReportEvent gepackt und zurück an den User-Service gesendet.
+
+Noch reicht es für die Erstellung des Reports eine Lambda zu verwenden. Das könnte sich in Zukunft aber auch ändern da der Report komplexer werden soll und z.B. auch third party APIs verwenden soll. Dann könnte ein etwas komplexerer Workflow anstehen. Mit der Verwendung dieser Eventarchitektur sollte das aber kein Problem werden.
 
 ## Zusammenfassung
 
-...
+Services asynchrom miteinander kommunizieren zu lassen ist mega toll und aufregend. Mit AWS Eventbridge und AWS CDK ist es zusäzlich noch eine wundervolle Developer Experience. Ich bin sehr gespannt wo sich die Security Plattform noch hinentwickelt :).
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 

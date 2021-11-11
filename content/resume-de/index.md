@@ -24,6 +24,10 @@ Begeisterter Full Stack Entwickler. Ich mag es viele unterschiedliche und nützl
 * Alfresco Content Systems, Alfresco Process Systems (former Activiti) on premise, in the cloud or hybride
 
 # Erfahrungen
+Senior Cloud Architect - www.kreuzwerker.de, GER \
+Jan 2022 - current
+* Zusammen mit dem Kunden tolle AWS Cloud Lösungen erstellen
+
 AWS Berater \
 Nov 2020 - jetzt
 * Startups in die AWS Cloud helfen
