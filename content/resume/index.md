@@ -28,7 +28,7 @@ Passionate Full Stack Developer. I like to have a broad collection of skills. Fr
 # Experience
 Senior Cloud Architect - www.kreuzwerker.de, GER \
 Jan 2022 - current
-* Guiding and building awesome AWS cloud solutions
+* Together with the customer building awesome AWS cloud solutions
 
 AWS Consultant \
 Nov 2020 - current
