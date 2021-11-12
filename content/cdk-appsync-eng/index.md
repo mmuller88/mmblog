@@ -2,7 +2,7 @@
 title: A very cool DevOps AWS CDK Todolist
 date: '2021-02-23'
 image: 'pipeline.png'
-tags: ['eng', '2021', 'projen', 'cdk', 'aws']
+tags: ['eng', '2021', 'projen', 'cdk', 'aws', 'appsync']
 gerUrl: https://martinmueller.dev/cdk-appsync
 pruneLength: 50
 ---
