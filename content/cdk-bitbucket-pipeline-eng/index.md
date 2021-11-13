@@ -3,7 +3,7 @@ title: A CDK BitBucket Staging Pipeline
 date: '2021-10-31'
 image: 'bitbucket.jpg'
 tags: ['eng', '2021', 'bitbucket', 'aws', 'cdk'] 
-engUrl: https://martinmueller.dev/cdk-bitbucket-pipeline
+gerUrl: https://martinmueller.dev/cdk-bitbucket-pipeline
 pruneLength: 50
 ---
 
