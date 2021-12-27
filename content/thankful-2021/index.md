@@ -2,7 +2,7 @@
 title: Dankbarkeit
 date: '2022-01-01'
 show: 'no'
-image: 'fam.jpeg'
+image: 'w2021.jpg'
 tags: ['de', '2022', 'notech', 'nofeed']
 engUrl: https://martinmueller.dev/thankful-2021-eng
 pruneLength: 50
