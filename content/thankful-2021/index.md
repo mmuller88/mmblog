@@ -10,62 +10,43 @@ pruneLength: 50
 
 Ein herzliches hallo,
 
-Auch dieses Jahr möchte ich wieder Danke sagen. Für das Jahr 2021 stand die Familie im Mittelpunkt. 
-
-* Tochter
-* Finanziell
-* Beruflich
-* Was mich in 2022 erwartet
+Auch dieses Jahr möchte ich wieder Danke sagen. Für das Jahr 2021 stand die Familie im Mittelpunkt. Natürlich gelten meine Danksagungen von meinen vorherigen [Post](https://martinmueller.dev/thankful) immer noch. In dieser Danksagung möchte ich speziell für 2021 und dessen Ereignisse Danke sagen.
 
 ## Gott
 
-Auch dieses Jahr hast du Gott deine schützende Hand über uns gelegt. Du hast uns mit Gesundheit und Liebe gesegnet.
+Auch dieses Jahr hast du Gott deine schützende Hand über uns gelegt. Du hast uns mit Gesundheit und Liebe gesegnet. Soweit sind wir von Corona verschont geblieben und ich wage auch zu behaupten, dass sich unserer Lebensstil durch Corona auch dieses Jahr nicht groß verändert hat. Bitte behüte uns auch in 2022. Armen.
 
 ## Oma
 
-Wisst ihr wer mein zweit größtes Vorbild ist? Nun mein größtes ist Jesus. Danach kommt aber sofort meine Oma Katharina Lauck. Sie ist vor ein paar Wochen verstorben. Mit 93 Jahren und 26 Uhrenkelkindern, hatte sie ein erfülltes Leben und ist nun bei ihrem Herren.
+Wisst ihr wer mein zweit größtes Vorbild ist? Nun mein größtes ist Jesus. Danach kommt meine Oma Katharina Lauck. Sie ist vor ein paar Wochen verstorben. Mit 93 Jahren und 26 Uhrenkelkindern, hatte sie ein erfülltes Leben und ist nun bei ihrem Herren.
 
 Sie war immer eine tolle Oma zu meinem Bruder und mir. Allerdings erst zur ihrer Beerdigung habe ich realsiert was für ein toller Mensch sie auch war. Es habe viele tolle Geschichten aus ihrer Vergangenheit gehört. Sie war wahrlich eine gutmütige Frau. Sie hat die Welt zu einem besseren Ort gemacht und das ist auch mein Ziel. Vielen Dank Oma für alles. Ruhe in Frieden.
 
-## Eltern
+## Wife and Daughters
 
-Vielen Dank möchte ich auch an meine Mama und Papa richten. Es sind zwei unglaublich tolle Menschen. Und vor allem sind sie herzensgut. Sie haben mir tolle Werte vermittelt. Meine Kindheit als Außenseiter war gewiss nicht leicht, aber durch die Hilfe und Zuneigung meiner Familie war es kein Problem durch diese relativ schwierige Zeit meines Lebens zu gelangen.
+Natürlich danke ich speziell euch beiden auch wieder 2021. Wir sind sehr gesegnet mit einer gesunden Tochter und einer tollen Mami und Ehefrau. Ihr zwei habt 2021 außergewöhnlich gemacht! Durch euch zwei fühle ich mich ununterbrochen stark und bereit alle Alltagsprobleme und berufliche Herausforderungen zu meistern. Vielen lieben Dank ihr zwei.
 
-Ganz besonders möchte ich meiner Mutter danken die maßgeblich für meine Entwicklung beigetragen hat. Für sie stand Bildung für mich und meinen Bruder immer an erster Stelle. Dafür bin ich ihr extrem dankbar, denn ohne diesen hohen Stellenwert hätte ich vielleicht meinen Traumberuf als Software Entwickler niemals gefunden.
+## Meine Mutter
 
-Sie ist eine herzensgute und starke Frau. Ich denke das hat mich insgeheim auch stark beeinflusst bei der Wahl meiner Frau die ebenfalls herzensgut und stark ist. Vielen Danke Mutti und Pappi.
+* Immer da für uns
+* Danke für das Leihen des Autos
+* Danke dass du eine so tolle Oma bist
 
-# Frau
-Den Dank eine meine Frau. Wo fange ich da nur an. Ich hab soviel über das ich Dankbar sein könnte wenn es zu meiner Frau kommt. Kennengelernt habe ich sie in England. Ich war dort seit fast zwei Jahren. Nach einem Praktikum bei Alfresco, bekam ich dort eine Festanstellung und entschied, länger in England zu bleiben.
+## Sogros
 
-Meine Frau war in England für fast einem Jahr. Sie kommt aus Brasilien und wollte unbedingt England kennen lernen. Wie der Zufall es wollte, trafen wir uns und hatten sofort eine Verbindung. Liebe auf dem ersten Blick!
+Mitte Dezember sind meine Schwiegereltern aus Brasilien zu uns gekommen. Ich bin sehr dankbar dass ihr hier seid und uns so toll unterstützt. Ich freue mich auf noch zwei weitere tolle Monate mit euch. Ich hab euch ganz doll lieb :) !
 
-Alles ging dann relativ schnell. Wir ziehten zusammen in eine Wohnung und verlobten uns nur wenige Monate nachdem wir uns kennengelernt hatten. Seit dem sind es nun schon 3 wunderschöne Jahre mit ihr. Unsere Beziehung ist sehr harmonisch und ich freue mich schon auf die vielen kommenden Jahren zusamen mit ihr.
+## Solarmon
 
-Vielen Dank an meine wunderschöne, kluge und tollen Frau, dafür das du immer an meiner Seite bist und gemeinsam mit mir durch das Abenteuer Leben gehst. Ich möchte keinen Tag ohne dich mehr sein. Und auch vielen Dank das du so eine tolle Mutter bist. Unsere Tochter hat so ein riesen Glück das sie eine so tolle Mutti hat.
+Aus tiefstem Herzen möchte ich Danke sagen zu meinen Ex-Kollegen aus dem Solarmon Projekt. Es war eine sehr aufregende Zeit und es hat mir viel Spaß gemacht neue Features mit Blazor und DotNet zu implementieren. Das Entwicklerteam bestand aus zwei Entwicklern und einem Produktowner.
 
-# Kind
-Ein besonderer Dank geht an meine Tochter. Sie ist noch nicht in der Lage diesen Text zu verstehen. Mal sehen vielleicht existiert dieser Blog ja noch, wenn sie es dann kann und sie freute sich vielleicht darüber. Anyway ich bin sehr stolz und glücklich dein Vater sein zu dürfen.
+Die Entwickler waren ein Senior und ein Junior dessen Position ich inne hatte. Vor allem mit dem Senior zusammenzuarbeiten hat mir am meisten Spaß gemacht. Wir hatten tolle professionelle Diskussionen.
 
-Du schenkst mir jeden Tag erneut dein Vertrauen und ich akzeptiere jeden Tag dieses kostbare Geschenk und verspreche dir, immer zu deinem Besten zu handeln. Vielen Dank das ich dein Vater sein darf.
+Gegen Ende des Jahres 2021 hatte ich dann aber den schweren Entschluss gefasst mich wieder stärker auf AWS zu fokussieren. Vielen vielen Dank für die tolle Zeit und ich wünsche euch viel Erfolg für 2022 mit dem Solarmon Projekt.
 
-# Allen Anderen
-Hier möchte ich gerne allen Danken die auch eine eigenen Abschnitt verdient hätten aber dann der Post extrem lang wäre.
+## Zusammenfassung
 
-Ein besonderer Dank geht an meinem Bruder. Er spielte und spielt eine wichtige Rolle in meinem Leben. Zusammen aufgewachsen waren wir beste Freunde. Wir sind zusammen durch dick und dünn gegangen während des Kindergartens und zum Teil sogar noch in der Schule. Vielen Dank.
-
-Vielen vielen Dank auch an meine nicht Kernfamilie wie meinen Tanten und Onkel sowie meinen Großeltern. Wir haben euch so unglaublich viel zu verdanken. Ihr habt meiner Frau und mir bei dem Umzug nach Deutschland stark geholfen. Ihr habt uns so toll unterstützt beim Hauskauf. Außerdem waren die vielen kleinen Unterstützungen wie Klamotten für Rebecca und die vielen kleinen Geschenke extrem hilfreich. Vielen Danke für eure Hilfe.
-
-Auch möchte ich meiner Familie aus Brasilien danken. Ich hatte das Glück diese 2018 in Brasilien zu besuchen und hoffe dass ich das wieder machen kann im Jahr 2021.
-
-Auch möchte ich meinen Exkollegen aus der Firma Alfresco und der Firma Object danken. Diese haben mich sehr geprägt und zu einem besseren Entwickler reifen lassen.
-
-Erst seit kurzem leben wir in der schönen Stadt Ludwigslust. Nicht weit von uns haben wir eine tolle junge Familie gefunden mit der wir gerne Zeit verbringen. Es sind herzensgute Menschen und liebevolle Eltern. Vielen Dank dass ihr da seit und wir euch als Freunde haben dürfen.
-
-Ganz anfänglich dankte ich Gott. Ich möchte auch Gottes Gemeinde hier in Ludwigslust Danken. Die Landeskirchliche Gemeinschaft Ludwigslust ist für mich eine wertvolle Gemeinschaft mit dem Ziel Gutes zu tun und forciert Gottes Wort zu verkünden. Vielen Dank dass ich euer Mitglied sein darf.
-
-# Zusammenfassung
-Dankbarkeit ist eine tolle Sache und macht das Leben schöner. Es erzeugt ein positives Gefühl für an dem der Dank gerichtet ist und demjenigen der den Dank äußert. Ich hoffe euch hat dieser etwas andere Stiel trotzdem gefallen. Schreibt mir wofür ihr dankbar seit.
+2021 war ein tolles Jahr. Auch wenn es noch viel mehr gibt wofür ich Danke sagen sollte, mache ich doch in diesem Post den Anfang. Für was seit ihr 2021 dankbar gewesen?
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
