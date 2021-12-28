@@ -10,27 +10,25 @@ pruneLength: 50
 
 Ein herzliches hallo,
 
-Auch dieses Jahr möchte ich wieder Danke sagen. Für das Jahr 2021 stand die Familie im Mittelpunkt. Natürlich gelten meine Danksagungen von meinen vorherigen [Post](https://martinmueller.dev/thankful) immer noch. In dieser Danksagung möchte ich speziell für 2021 und dessen Ereignisse Danke sagen.
+Auch dieses Jahr möchte ich wieder Danke sagen. Für das Jahr 2021 stand die Familie im Mittelpunkt. Natürlich gelten meine Danksagungen von meinen vorherigen [Post](https://martinmueller.dev/thankful) auch noch! In dieser Danksagung möchte ich speziell für 2021 und dessen Ereignisse Danke sagen.
 
 ## Gott
 
-Auch dieses Jahr hast du Gott deine schützende Hand über uns gelegt. Du hast uns mit Gesundheit und Liebe gesegnet. Soweit sind wir von Corona verschont geblieben und ich wage auch zu behaupten, dass sich unserer Lebensstil durch Corona auch dieses Jahr nicht groß verändert hat. Bitte behüte uns auch in 2022. Armen.
+Auch dieses Jahr hast du Gott deine schützende Hand über uns gelegt. Du hast uns mit Gesundheit und Liebe gesegnet. Soweit sind wir von Corona verschont geblieben und ich behaupte, dass sich unserer Lebensstil durch Corona auch dieses Jahr nicht groß verändert hat. Bitte behüte uns auch in 2022. Amen.
 
 ## Oma
 
-Wisst ihr wer mein zweit größtes Vorbild ist? Nun mein größtes ist Jesus. Danach kommt meine Oma Katharina Lauck. Sie ist vor ein paar Wochen verstorben. Mit 93 Jahren und 26 Uhrenkelkindern, hatte sie ein erfülltes Leben und ist nun bei ihrem Herren.
+Wisst ihr wer mein zweit größtes Vorbild ist? Nun mein größtes ist Jesus. Danach kommt meine Oma Katharina Lauck. Sie ist gegen Ende November verstorben. Mit 93 Jahren und 26 Uhrenkelkindern, hatte sie ein erfülltes Leben und ist nun bei ihrem Herren.
 
-Sie war immer eine tolle Oma zu meinem Bruder und mir. Allerdings erst zur ihrer Beerdigung habe ich realsiert was für ein toller Mensch sie auch war. Es habe viele tolle Geschichten aus ihrer Vergangenheit gehört. Sie war wahrlich eine gutmütige Frau. Sie hat die Welt zu einem besseren Ort gemacht und das ist auch mein Ziel. Vielen Dank Oma für alles. Ruhe in Frieden.
+Sie war immer eine tolle Oma. Allerdings erst zur ihrer Beerdigung habe ich realisiert was für ein toller Mensch sie auch war. Ich habe viele tolle Geschichten aus ihrer Vergangenheit gehört. Sie war wahrlich eine gutmütige Frau. Sie hat die Welt zu einem besseren Ort gemacht und das ist auch mein Ziel. Vielen Dank Oma für Alles. Ruhe in Frieden.
 
-## Wife and Daughters
+## Frau und Tochter
 
 Natürlich danke ich speziell euch beiden auch wieder 2021. Wir sind sehr gesegnet mit einer gesunden Tochter und einer tollen Mami und Ehefrau. Ihr zwei habt 2021 außergewöhnlich gemacht! Durch euch zwei fühle ich mich ununterbrochen stark und bereit alle Alltagsprobleme und berufliche Herausforderungen zu meistern. Vielen lieben Dank ihr zwei.
 
 ## Meine Mutter
 
-* Immer da für uns
-* Danke für das Leihen des Autos
-* Danke dass du eine so tolle Oma bist
+Auch in diesem Jahr möchte ich speziell meiner Mutter danken. Sie ist immer für uns da wenn wir sie brauchen. Auch bin ich ihr sehr dankbar, dass ich wir uns immer ihr Auto ausleihen können wenn wir es brauchen. Auch wunderschön ist die starke Verbindung zwischen dir und und Rebecca (unserer Tochter). Danke dass du eine so tolle hilfsbereite und liebenswerte Oma bist <3 .
 
 ## Sogros
 
