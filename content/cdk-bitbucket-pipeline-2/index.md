@@ -3,7 +3,7 @@ title: CDK BitBucket Staging Pipeline Learnings (Teil 2)
 show: 'no'
 date: '2022-01-07'
 image: 'bitbucket.jpg'
-tags: ['de', '2022', 'bitbucket', 'aws', 'cdk', 'nofeeds'] #nofeed
+tags: ['de', '2022', 'bitbucket', 'aws', 'cdk', 'nofeed'] #nofeed
 engUrl: https://martinmueller.dev/cdk-bitbucket-pipeline-2-eng
 pruneLength: 50
 ---
