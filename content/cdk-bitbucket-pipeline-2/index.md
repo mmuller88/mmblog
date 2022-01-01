@@ -10,21 +10,56 @@ pruneLength: 50
 
 Hi CDK folks.
 
-Vor ein paar Monaten berichtete ich euch über mein spannendes Projekt eine voll funktionsfähige [CDK BitBucket Staging Pipeline](https://martinmueller.dev/cdk-bitbucket-pipeline) zu bauen. Seit dem ist viel passiert und wir haben die Pipeline weiter den Kundenwünschen angepasst. Zunächst will ich aber erst kurz zusammenfassen wie der Stand bisher war und dann die neuen Anforderungen beschreiben.
+Vor ein paar Monaten berichtete ich euch über mein spannendes Projekt eine voll funktionsfähige [CDK BitBucket Staging Pipeline](https://martinmueller.dev/cdk-bitbucket-pipeline) zu bauen. Seit dem ist viel passiert und wir haben die Pipeline weiter entwickelt. 
 
-## Kurze Zusammenfassung
+## Probleme mit CDK Cross-Stack Referenzen
 
-Genaue Details können im Post [CDK BitBucket Staging Pipeline](https://martinmueller.dev/cdk-bitbucket-pipeline) nachgelesen werden. Wir hatten uns also dazu entschlossen BitBucket Pipeline zu verwenden um eine CDK Staging Pipeline zu bauen.
+CDK Cross-Stack Referenzen sind CDK Outputs die einem anderen CDK Stack übergeben werden. Folgendes Beispiel:
 
-## Probleme mit CDK Crossreferenzen
+```ts
+/**
+ * Stack that defines the bucket
+ */
+class Producer extends cdk.Stack {
+  public readonly myBucket: s3.Bucket;
 
-CDK Crossreferenzen sind CDK Outputs die einem anderen CDK Stack übergeben werden. Folgendes Beispiel:
+  constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
 
-...
+    const bucket = new s3.Bucket(this, 'MyBucket', {
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
+    });
+    this.myBucket = bucket;
+  }
+}
 
-* Wir hatten starke Probleme mit CDK Crossreferenzen
-* Gelößt durch Reduzierung der Anzahl von den Stacks und einer besseren Aufteilung der Services in die jeweiligen Stacks gemäß DDD
-* Haben nun 3 Stacks: FrontendSiteStack, FrontendBackendStack und MLStack
+interface ConsumerProps extends cdk.StackProps {
+  userBucket: s3.IBucket;
+}
+
+/**
+ * Stack that consumes the bucket
+ */
+class Consumer extends cdk.Stack {
+  constructor(scope: cdk.App, id: string, props: ConsumerProps) {
+    super(scope, id, props);
+
+    const user = new iam.User(this, 'MyUser');
+    props.userBucket.grantReadWrite(user);
+  }
+}
+
+const producer = new Producer(app, 'ProducerStack');
+new Consumer(app, 'ConsumerStack', { userBucket: producer.myBucket });
+```
+
+Das Beispiel ist entnommen von https://docs.aws.amazon.com/cdk/api/v1/docs/aws-s3-readme.html#sharing-buckets-between-stacks . Du siehst hier sehr gut wie im Producer Stack die **myBucket** Variable erzeugt wird und wie der Consumer Stack darauf zugreift. Das ist eine CDK Cross-Stack Referenz. Und genau solche sind in unserem Projekt problematisch geworden.
+
+Wenn num im Producer Stack etwas geändert wird was z.B. ein Löschen und anschließendes Neuerstellen der **myBucket** Variable zu folge hätte, würde Cloudformation mit einem Error antworten und ein Rollback veranlassen. Der Grund ist da der Consumer die Cross-Stack Referenz verwendet, kann diese nicht so ohne weiteres gelöscht werden. Solche und weitere Probleme haben uns das Entwickeln schwer gemacht.
+
+Wir denken und hoffen aber nun eine gute Lösung gefunden zu haben. Zu einem haben wir die Anzahl der Stacks reduziert von ungefähr 7 auf 4. Die Neuzuordnung der Services in die 4 Stacks orientiert sich am DDD (Domain Driven Design). Das bedeutet alle Services die zu einer Domain gehören wie z.B. der React App werden zu einem Stack gebündelt. Davor war die Aufteilung eher zufällig und orientierte sich Anhand der AWS Services wie der LambdaStack oder der CognitoStack. Nun sind die Stacks nach ihren Domaine bestimmt und heißen ähnlich wie FrontendSiteStack, FrontendBackendStack und MLStack.
+
+Diese neue Aufteilung hat die Anzahl der Cross-Stack Referenzen stark reduziert. So dass quasi nur noch wenige übrig geblieben sind die wir in den CommonStack ausgelagert haben. Der CommonStack dient allerdings als Parent Stack zu den drei anderen. Wenn nun nur Cross-Stack Referenzen zwischen Parent und Children Stacks herrschen, sollte das viel weniger Probleme verursachen als Referenzen zwischen Geschwister Stacks.
 
 ## Unabhängige Stacks
 
