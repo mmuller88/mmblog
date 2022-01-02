@@ -10,7 +10,7 @@ pruneLength: 50
 
 Hi CDK folks.
 
-Vor ein paar Monaten berichtete ich euch über mein spannendes Projekt eine voll funktionsfähige [CDK BitBucket Staging Pipeline](https://martinmueller.dev/cdk-bitbucket-pipeline) zu bauen. Seit dem ist viel passiert und wir haben die Pipeline weiter entwickelt. 
+Vor ein paar Monaten berichtete ich euch über mein spannendes Projekt eine voll funktionsfähige [CDK BitBucket Staging Pipeline](https://martinmueller.dev/cdk-bitbucket-pipeline) zu bauen. Seit dem ist viel passiert und wir haben die Pipeline weiter entwickelt.
 
 ## Probleme mit CDK Cross-Stack Referenzen
 
@@ -63,9 +63,30 @@ Diese neue Aufteilung hat die Anzahl der Cross-Stack Referenzen stark reduziert.
 
 ## Unabhängige Stacks
 
-* Ein weiteres Problem war, dass diese 3 Stacks auch unabhängig voneinander in die jeweilige Stage deploybar sein sollten.
-Bisher wurden immer alle 3 Stacks Deploye
-* Gelößt durch custom pipeline variablen deployFrontendSiteStack, deployFrontendBackendStack und deploy MLStack
+Die nächste Herausforderung war, dass die Entwickler es gerne möglich hätten die drei neuen Stacks FrontendSiteStack, FrontendBackendStack und MLStack unabhängig voneinander zu deployen. Bisher wurden alle drei immer gleichzeitig deployed.
+
+Um dieses Problem haben wir uns für [Custom Variables](https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/) entschieden. Custom Variables sind Variablen die bei Custom Pipelines beim Ausführen gesetzt werden können. Um nun die Stacks unabhänging voneinander deployen zu können, muss die Custom Pipeline mit den folgenden Variablen ausgeführt werden:
+
+```yaml
+custom:
+  cdkDeploy:
+    - variables:
+        - name: deployFrontendSite
+          default: false
+        - name: deployFrontendBackend
+          default: false
+        - name: deployML
+          default: false
+```
+
+Startet man die cdkDeploy Pipeline mit der BitBucket UI können die drei Variablen bei bedarf auf true geändert werden. Ein simples Bash Command checkt dann ob die Variable true ist oder nicht:
+
+```yaml
+script:
+  - if [ "$deployFrontendSite" != true ]; then exit 0; fi 
+```
+
+Somit kann interaktiv über die Ausführung der Custom Pipeline und dem Setzen der Variablen der gewünschte Stack deployed werden. Very cool!
 
 ## Stage Konzept
 
