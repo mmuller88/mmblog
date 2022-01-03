@@ -88,23 +88,61 @@ script:
 
 Somit kann interaktiv über die Ausführung der Custom Pipeline und dem Setzen der Variablen der gewünschte Stack deployed werden. Very cool!
 
-## Stage Konzept
+## Stage
 
-* Viel redundanter Code im main.ts file e.g.
+Das Konzept einer Stage kann den CDK Code wesentlich übersichtlicher machen. Eine Stage fasst alle CDK Stacks zusammen die zu einer Stage we dev oder prod gehören. Hier ist ein Beispiel.
 
 ```ts
+export class Stage {
+
+  /**
+     * A stage which is a collection of stacks.
+     *
+     */
+  constructor(scope: core.Construct, props: StageStackProps) {
+
+    const commonStack = new CommonStack(scope, props.stage + '-CommonStack', { stage: props.stage, env: props.env });
+
+    new FrontendBackendStack(scope, props.stage + '-FrontendBackendStack', {
+      stage: props.stage,
+      domainName: commonStack.domainName,
+      zone: commonStack.zone,
+      vpc: commonStack.vpc,
+      env: props.env,
+      userPoolId: props.userPoolId,
+    });
+
+    new MLStack(scope, props.stage + '-MLStack', {
+      stage: props.stage,
+      domainName: commonStack.domainName,
+      zone: commonStack.zone,
+      vpc: commonStack.vpc,
+      env: props.env,
+      enableAlarms: props.enableLambdaAlarms,
+    });
+  }
+}
 ```
 
-* Stage class eingeführt
+Die Stage wird nun einfach in den main.ts importiert:
+
+```ts
+new Stage(app, { stage: 'dev', env: devEnv, userPoolId: 'us-west-2_3zgoE123' });
+```
+
+Durch die Verwendung einer Stage Wrapper Klasse haben wir unseren Code wesentlich übersichtlicher und einfacher wartbar gestaltet.
 
 ## What next?
 
-* ephermal deployments
-* Lambda Rest API zum dynamischen pullen von CDK Backend Infos
+Eine Staging Pipeline ist schonmal ein gut Anfang um effektiv und schnell neue Features zu entwickeln und in die Produktion zu bringen. Um allerdings noch schneller und vor allem unabhängiger von anderen Entwickler Teams entwickeln zu können, werden ephermal Deployments benötigt.
+
+Ephermal Deployments bedeutet, dass bei jedem neuen Branch potentiell eine eine komplett neues CDK Deployment ausgespielt werden kann welches die Änderungen von dem Branch beinhaltet. Somit müssen sich die Entwickler z.B. die dev Umgebung nicht mehr teilen um neue Features auszuprobieren und zu testen. Ich bin mal gespannt wie wir das machen werden.
+
+Unser React Frontend benötigt zur Buildzeit Backend Informationen die AWS Amplify typisch in einer config File gespeichert werden. Diese müssen mühselig per hand aktuell gehalten werden. Von daher wäre es cool wenn wir ähnlich wie bei der Amplify CLI es ermöglichen können, dass der Config File dynamisch vor dem Build gebaut werden kann. Unsere initiale Idee ist es, das mit AWS Api Gateway zu ermöglichen. Der Endpoint würde uns dann immer die aktuellen Backenddaten übermitteln und wir können diese als Config File speichern.
 
 ## Zusammenfassung
 
-Es macht mir immer noch Spaß mit BitBucket Pipeline zu arbeiten. Damit lassen sich tolle CDK Deployment Pipelines bauen. In diesem Post habe ich beschrieben welche neuen Herausforderungen wir hatten und wie wir sie gelößt haben. Auch sehr freut mich das mittlerweile der Kunde auch selber in der Lage ist die CDK Pipeline zu benutzen und das auch vermehrt tut.
+Es macht mir immer noch Spaß mit BitBucket Pipeline zu arbeiten. Damit lassen sich tolle CDK Deployment Pipelines bauen. In diesem Post habe ich beschrieben welche neuen Herausforderungen wir hatten und wie wir sie gelöst haben. Auch sehr freut mich das mittlerweile der Kunde auch selber in der Lage ist die CDK Pipeline zu benutzen und das auch vermehrt tut.
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
