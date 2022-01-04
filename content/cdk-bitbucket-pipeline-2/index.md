@@ -3,7 +3,7 @@ title: CDK BitBucket Staging Pipeline Learnings (Teil 2)
 show: 'no'
 date: '2022-01-07'
 image: 'bitbucket.jpg'
-tags: ['de', '2022', 'bitbucket', 'aws', 'cdk', 'nofeed'] #nofeed
+tags: ['de', '2022', 'bitbucket', 'aws', 'cdk'] #nofeed
 engUrl: https://martinmueller.dev/cdk-bitbucket-pipeline-2-eng
 pruneLength: 50
 ---
@@ -14,7 +14,7 @@ Vor ein paar Monaten berichtete ich euch über mein spannendes Projekt eine voll
 
 ## Probleme mit CDK Cross-Stack Referenzen
 
-CDK Cross-Stack Referenzen sind CDK Outputs die einem anderen CDK Stack übergeben werden. Folgendes Beispiel:
+CDK Cross-Stack Referenzen sind CDK Outputs die einem anderen CDK Stack als Input übergeben werden. Hier ist ein Beispiel:
 
 ```ts
 /**
@@ -57,7 +57,7 @@ Das Beispiel ist entnommen von https://docs.aws.amazon.com/cdk/api/v1/docs/aws-s
 
 Wenn num im Producer Stack etwas geändert wird was z.B. ein Löschen und anschließendes Neuerstellen der **myBucket** Variable zu folge hätte, würde Cloudformation mit einem Error antworten und ein Rollback veranlassen. Der Grund ist da der Consumer die Cross-Stack Referenz verwendet, kann diese nicht so ohne weiteres gelöscht werden. Solche und weitere Probleme haben uns das Entwickeln schwer gemacht.
 
-Wir denken und hoffen aber nun eine gute Lösung gefunden zu haben. Zu einem haben wir die Anzahl der Stacks reduziert von ungefähr 7 auf 4. Die Neuzuordnung der Services in die 4 Stacks orientiert sich am DDD (Domain Driven Design). Das bedeutet alle Services die zu einer Domain gehören wie z.B. der React App werden zu einem Stack gebündelt. Davor war die Aufteilung eher zufällig und orientierte sich Anhand der AWS Services wie der LambdaStack oder der CognitoStack. Nun sind die Stacks nach ihren Domaine bestimmt und heißen ähnlich wie FrontendSiteStack, FrontendBackendStack und MLStack.
+Wir denken und hoffen aber nun eine gute Lösung gefunden zu haben. Zu einem haben wir die Anzahl der Stacks reduziert von ungefähr 7 auf 4. Die Neuzuordnung der Services in die 4 Stacks orientiert sich nun am DDD (Domain Driven Design). Das bedeutet alle Services die zu einer Domain gehören wie z.B. der React App werden zu einem Stack gebündelt. Davor war die Aufteilung eher zufällig und orientierte sich Anhand der AWS Services wie der LambdaStack oder der CognitoStack. Nun sind die Stacks nach ihren Domaine zugeordnet und heißen FrontendSiteStack, FrontendBackendStack und MLStack.
 
 Diese neue Aufteilung hat die Anzahl der Cross-Stack Referenzen stark reduziert. So dass quasi nur noch wenige übrig geblieben sind die wir in den CommonStack ausgelagert haben. Der CommonStack dient allerdings als Parent Stack zu den drei anderen. Wenn nun nur Cross-Stack Referenzen zwischen Parent und Children Stacks herrschen, sollte das viel weniger Probleme verursachen als Referenzen zwischen Geschwister Stacks.
 
@@ -134,7 +134,7 @@ Durch die Verwendung einer Stage Wrapper Klasse haben wir unseren Code wesentlic
 
 ## What next?
 
-Eine Staging Pipeline ist schonmal ein gut Anfang um effektiv und schnell neue Features zu entwickeln und in die Produktion zu bringen. Um allerdings noch schneller und vor allem unabhängiger von anderen Entwickler Teams entwickeln zu können, werden ephermal Deployments benötigt.
+Eine Staging Pipeline ist schon mal ein guter Anfang um effektiv und schnell neue Features zu entwickeln und in die Produktion zu bringen. Um allerdings noch schneller und vor allem unabhängiger von anderen Entwickler Teams entwickeln zu können, werden ephermal Deployments benötigt.
 
 Ephermal Deployments bedeutet, dass bei jedem neuen Branch potentiell eine eine komplett neues CDK Deployment ausgespielt werden kann welches die Änderungen von dem Branch beinhaltet. Somit müssen sich die Entwickler z.B. die dev Umgebung nicht mehr teilen um neue Features auszuprobieren und zu testen. Ich bin mal gespannt wie wir das machen werden.
 
