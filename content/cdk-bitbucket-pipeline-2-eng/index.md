@@ -9,7 +9,7 @@ pruneLength: 50
 
 Hi CDK folks.
 
-A few months ago I told you about my exciting project to build a fully functional [CDK BitBucket Staging Pipeline](https://martinmueller.dev/cdk-bitbucket-pipeline). Since then, a lot has happened and we have continued to develop the pipeline.
+A few months ago I told you about my exciting project to build a [CDK BitBucket Staging Pipeline](https://martinmueller.dev/cdk-bitbucket-pipeline-eng). Since then, a lot has happened and we have continued to develop the pipeline.
 
 ## Problems with CDK cross-stack references
 
@@ -56,9 +56,9 @@ The example is taken from https://docs.aws.amazon.com/cdk/api/v1/docs/aws-s3-rea
 
 If num changes something in the producer stack that would result in deleting and then recreating the **myBucket** variable, Cloudformation would respond with an error and cause a rollback. The reason is that since the consumer uses the cross-stack reference, it cannot be easily deleted. Such and other problems have made development difficult for us.
 
-But we think and hope that we have found a good solution now. First, we have reduced the number of stacks from about 7 to 4. The reallocation of services into the 4 stacks is now based on DDD (Domain Driven Design). This means that all services that belong to a domain, such as the React app, are bundled into one stack. Before, the division was rather random and based on the AWS services such as the LambdaStack or the CognitoStack. Now the stacks are assigned according to their domains and are called FrontendSiteStack, FrontendBackendStack and MLStack.
+But we think and hope that we have found a good solution. First, we have reduced the number of stacks from about 7 to 4. The reallocation of services into the 4 stacks is now based on DDD (Domain Driven Design). This means that all services that belong to a domain, such as the React app, are bundled into one stack. Before, the division was rather random and based on the AWS services such as the LambdaStack or the CognitoStack. Now the stacks are assigned according to their domains and are called FrontendSiteStack, FrontendBackendStack and MLStack.
 
-This new division has greatly reduced the number of cross-stack references. So that virtually only a few are left which we have outsourced to the CommonStack. However, the CommonStack serves as the parent stack to the other three. If now only cross-stack references between parent and children stacks prevail, this should cause much less problems than references between sibling stacks.
+This new division has greatly reduced the number of cross-stack references. So that virtually only a few are left which we have outsourced to the CommonStack. However, the CommonStack serves as the parent stack to the other three. If now only cross-stack references between parent and children stacks exist, this should cause much less problems than references between sibling stacks.
 
 ## Independent Stacks
 
@@ -89,7 +89,7 @@ So interactively by executing the custom pipeline and setting the variables the 
 
 ## Stage
 
-The concept of a stage can make the CDK code much clearer. A stage groups all CDK stacks that belong to a stage we dev or prod. Here is an example.
+The concept of a stage can make the CDK code much cleaner. A stage groups all CDK stacks that belong to a stage like dev or prod. Here is an example.
 
 ```ts
 export class Stage {
@@ -129,7 +129,7 @@ The stage is now simply imported into the main.ts:
 new Stage(app, { stage: 'dev', env: devEnv, userPoolId: 'us-west-2_3zgoE123' });
 ```
 
-By using a stage wrapper class, we have made our code much clearer and easier to maintain.
+By using a stage wrapper class, we have made our code much cleaner and easier to maintain.
 
 ## What next?
 
