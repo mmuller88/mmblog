@@ -1,28 +1,33 @@
 ---
-title: CDK BitBucket Staging Pipeline Learnings (Teil 2)
+title: Die ersten Tage bei kreuzwerker
 show: 'no'
-date: '2022-01-07'
+date: '2022-01-01'
 image: 'bitbucket.jpg'
 tags: ['de', '2022', 'bitbucket', 'aws', 'cdk', 'nofeed'] #nofeed
 engUrl: https://martinmueller.dev/first-week-xw-eng
 pruneLength: 50
 ---
 
-Hi
+Moin,
 
-* Warum ein neuer Job? Wollte wieder hauptberuflich mit AWS arbeiten.
+Für 2022 habe ich mich entschlossen wieder hauptberuflich mit AWS zu arbeiten. Auch wenn es mir viel Spaß gemacht hat in die Welt von Blazer und Dotnet zu tauchen, vermisse ich die Arbeit mit AWS einfach zu sehr. Also hab ich einfach mal in der Deutschen AWS Community herumgefragt ob noch wer für eine remote AWS DevOps Position sucht und sofort hat sich kreuzwerker bei mir gemeldet. In diesem Post möchte ich kurz die coole Experience bei den Interviews und beim Onboarding beschreiben.
 
 ## Interview
 
-* Mit Oliver und Manuel von Kreuzwerker. War ein Tolles
-* 20% Prozent Woche ähnlich wie damals Googel
+Die Interviews hatte ich mit Oliver und Manuel von kreuzwerker. Die Gespräche mit den beiden waren mega cool und ich habe sofort gemerkt, dass die Firma kreuzwerker sehr viel wert auf eine positive Kultur legt. Das Konzept der Kultur und vor allem einer positiven Kultur in einer Firma scheint im deutschsprachigen Raum noch nicht sehr verbreitet deshalb erkläre ich es hier kurz. Mit Kultur meint man in diesem Zusammenhang wie die Lebenswelt innerhalb der Firma ist, also wie z.B. die Mitarbeiter miteinander umgehen und ein positives Arbeitsumfeld geschaffen wird.
+
+Das ist auch nötig denn als AWS Berater Firma, welches kreuzwerker ja ist, müssen komplexe Probleme, wie das Designen und Bauen von ausgefeilten technologischen Lösungen, gelöst werden. Und das lässt sich nur erreichen wenn eine positive Kultur im Unternehmen geschaffen wird. Denn somit kann garantiert werden das jeder Mitarbeiter sein bestes gibt und geben kann.
+
+Und das kreuzwerker so eine positive Kultur hat, habe ich sofort gemerkt bei den Interviews mit Oliver und Manuel. Ich denke auch, dass die beiden gemerkt haben, dass ich gut in diese Kultur und zum Team passe. Ja und tatsächlich hat der Schein nicht getrübt. In meinen ersten Onboarding Tagen habe ich erleben können wie toll kreuzwerker ist.
 
 ## Onboarding
 
-* Macbook M1
+* Kreuzwerker Büro in Berline Montag und Dienstag. Den Rest der Woche von zu Hause.
+* Macbook
 * Kurse für Sicherhheit, Wie richte ich meinen Arbeitsplatz ergonomisch ein. Sehr liebevoll.
 * Beeindruckende Kultur. Mitarbeiterin 
 * Zwei Kollegen aus meinem Entwickler Team kennengelernt. Tolle Kollegen! Ich bin in der richtigen Umgebung!
+* Lecker Essen. Köchin die 
 
 ## Zusammenfassung
 
