@@ -22,8 +22,12 @@ Und das kreuzwerker so eine positive Kultur hat, habe ich sofort gemerkt bei den
 
 ## Onboarding
 
-* Kreuzwerker Büro in Berline Montag und Dienstag. Den Rest der Woche von zu Hause.
-* Macbook
+In dieser Sektion möchte ich etwas über die Tage im Onboarding berichten. Ich hatte mein Onboarding im Berliner kreuzwerker Büro. Das Büro ist sehr mittig von Berlin. Da ich etwas außerhalb von Berlin wohne und tatsächlich vorher noch nie in Berlin gearbeitet habe, fand ich es sehr spannend ins Büro zu kommen.
+
+Im Empfang wurde ich dann ganz herzlich von der Büromanagerin begrüßt und hatte eine kleine Raumführung. Da wir noch mitten in der Pandemie stecken und es zudem auch noch die erste Woche in 2022 war, war das Büro dünn besetzt. Dafür war es aber etwas einfacher sich die neuen Namen zu merken. Ich persönlich finde Namen sehr wichtig und gebe mir große Mühe diese in meinem Kopf zu behalten. Dafür schreibe ich mir neue Namen immer gerne in mein Notizbuch.
+
+Und dann ging es auch schon zu meinem ersten Termin bei dem mir vom IT Personal die verwendeten System erklärt wurden und mir meine Hardware übergeben wurde. Sehr spannend fand und finde ich mein neues MacBook mit dem M1 Chip. Es ist schon ein paar Jahre her gewesen als ich ein MacBook verwendet habe. Persönlich verwende ich zurzeit ja ausschließlich Ubuntu. Aber ich hab mich sofort wieder glücklich gefühlt mit dem MacBook.
+
 * Kurse für Sicherhheit, Wie richte ich meinen Arbeitsplatz ergonomisch ein. Sehr liebevoll.
 * Beeindruckende Kultur. Mitarbeiterin 
 * Zwei Kollegen aus meinem Entwickler Team kennengelernt. Tolle Kollegen! Ich bin in der richtigen Umgebung!
@@ -31,7 +35,7 @@ Und das kreuzwerker so eine positive Kultur hat, habe ich sofort gemerkt bei den
 
 ## Zusammenfassung
 
-...
+Das Interview und die ersten Onboardingtage bei kreuzwerker waren fantastisch. Ich habe hier kurz geschildert wie diese Erfahrung war. Ich bin kreuzwerker sehr dankbar jetzt auch zum Team zugehören und ich bin jetzt schon sehr gespannt wenn ich endlich mit unseren Kunden zusammenarbeiten kann um technische Lösungen zu bauen die sie lieben werden :).s
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
