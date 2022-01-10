@@ -28,14 +28,15 @@ Im Empfang wurde ich dann ganz herzlich von der Büromanagerin begrüßt und hat
 
 Und dann ging es auch schon zu meinem ersten Termin bei dem mir vom IT Personal die verwendeten System erklärt wurden und mir meine Hardware übergeben wurde. Sehr spannend fand und finde ich mein neues MacBook mit dem M1 Chip. Es ist schon ein paar Jahre her gewesen als ich ein MacBook verwendet habe. Persönlich verwende ich zurzeit ja ausschließlich Ubuntu. Aber ich hab mich sofort wieder glücklich gefühlt mit dem MacBook.
 
-* Kurse für Sicherhheit, Wie richte ich meinen Arbeitsplatz ergonomisch ein. Sehr liebevoll.
-* Beeindruckende Kultur. Mitarbeiterin 
-* Zwei Kollegen aus meinem Entwickler Team kennengelernt. Tolle Kollegen! Ich bin in der richtigen Umgebung!
-* Lecker Essen. Köchin die 
+Die nächsten Tage folgte eine übliche Onboardingroutine wie Onlinekurse über Sicherheit am Arbeitsplatz und mit Daten und wie ich z.B. meinen Arbeitsplatz ergonomisch richtig Gestalte. Durch schicke Videoanimationen in den Kursen wurde dieses eher trockene Thema doch recht unterhaltsam. Und tatsächlich hab ich noch das ein oder andere interessante über Datensicherheit gelernt :). Extrem cool finde ich auch dass es eine Köchin gibt die uns täglich mit einem leckerem und gesundem Mittag versorgt hat.
+
+Ich erwähnte ja bereits wie wichtig eine positive Kultur ist. Was mich total fasziniert hat ist, dass während meinen Tagen des Onboardings ich diese positive Kultur nicht nur zwischen den Entwicklern gemerkt habe, sondern auch bei allen anderen die bei kreuzwerker arbeiten. Ich finde das so toll, dass es kreuzwerker schafft alle Mitarbeiter zu einem positiven Umgang miteinander bewegt.
+
+Ich habe bereits zwei Entwickler aus meinem Team kennengelernt. Beide stehen noch recht am Anfang ihrer Karriere wobei ich schon ein paar Jährchen weiter bin ^^. Wir hatten tolle Gespräche und ich bin begeistert wie weite beide bereits in ihrer Entwicklung als Entwickler bereits sind. Ende Januar planen wir nach Frankfurt zu fahren um auch den Rest des Teams kennenzulernen. Darauf freue ich mich schon sehr.
 
 ## Zusammenfassung
 
-Das Interview und die ersten Onboardingtage bei kreuzwerker waren fantastisch. Ich habe hier kurz geschildert wie diese Erfahrung war. Ich bin kreuzwerker sehr dankbar jetzt auch zum Team zugehören und ich bin jetzt schon sehr gespannt wenn ich endlich mit unseren Kunden zusammenarbeiten kann um technische Lösungen zu bauen die sie lieben werden :).s
+Das Interview und die ersten Onboardingtage bei kreuzwerker waren fantastisch. Ich habe hier kurz geschildert wie diese Erfahrung war. Ich bin kreuzwerker sehr dankbar jetzt auch zum Team zugehören und ich bin jetzt schon sehr gespannt wenn ich endlich mit unseren Kunden zusammenarbeiten kann um technische Lösungen zu bauen die sie lieben werden :).
 
 An die tollen Leser dieses Artikels sei gesagt, dass Feedback jeglicher Art gerne gesehen ist. In Zukunft werde ich versuchen hier eine Diskussionsfunktion einzubauen. Bis dahin sendet mir doch bitte direkten Feedback über meine Sozial Media accounts wie [Twitter](https://twitter.com/MartinMueller_) oder [FaceBook](https://www.facebook.com/martin.muller.10485). Vielen Dank :).
 
