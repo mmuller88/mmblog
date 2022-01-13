@@ -14,7 +14,7 @@ Für 2022 habe ich mich entschlossen wieder hauptberuflich mit AWS zu arbeiten. 
 
 ## kreuzwerker
 
-[kreuzwerker](https://kreuzwerker.de/) ist eine AWS Beraterfirma mit Sitz in Frankfurt am Main, Berlin, München, Zürich und Warszawa (Polen). ...
+[kreuzwerker](https://kreuzwerker.de/) ist eine AWS Beraterfirma mit Sitz in Frankfurt am Main, Berlin, München, Zürich und Warszawa (Polen). Es wurde 2010 von Bernd, Joern Bathel und Tilmann Eing gegründet. Die Hauptmotivation zur Gründung war es ein besseres Umfeld für IT-Berater zu schaffen. kreuzwerker sollte eine Firma werden bei der die Mitarbeiter Spaß am Arbeiten haben. Und wie du im weiterem Verlauf merken wirst sie haben ihr Ziel erreicht!
 
 ## Interview
 
