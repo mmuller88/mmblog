@@ -2,7 +2,7 @@
 title: Die ersten Tage bei kreuzwerker
 show: 'no'
 date: '2022-01-21'
-image: 'bitbucket.jpg'
+image: 'title.png'
 tags: ['de', '2022', 'kreuzwerker', 'nofeed'] #nofeed
 engUrl: https://martinmueller.dev/first-week-xw-eng
 pruneLength: 50
