@@ -1,5 +1,5 @@
 ---
-title: Private S3 Assets mit Cloudfront, Lambda@Edge und AWS CDK
+title: Ersatz für AWS Amplify pull
 show: 'no'
 date: '2022-02-06'
 image: 'title.png'
@@ -10,12 +10,13 @@ pruneLength: 50
 
 Moin,
 
-* Private Assets wie Images sollen für User von Cognito verfügbar sein
-* Bisherige Lösungen nutzten immer eine presigned S3 URL
-* Nachteil ist, dass diese Lösung keine saubere Integration in ein Cognito darstellt und lediglich eine temporär verfügbarer Link erzeugt wird
-* Viel schöner wäre es wenn man über ein von Cognito generiertes valides User Token and das begehrt S3 Asset gelangt.
-* Das ist möglich mit der Kombination von Cloudfront und Lambda@Edge
+* Amplify ist ein tolles Tool zum Erstellen von React UI und AWS Backend
+* Was ist wenn ich zwar die Amplify UI nutzen möchte aber zum managen meines Backends lieber AWS CDK?
+* Das funktioniert sehr gut allerdings kann man nun nicht mehr amplify pull benutzen zum Updaten des config files normalerweise benannt awsconfiguration.json
 
+https://docs.amplify.aws/cli/start/workflows/#amplify-pull
+
+* Der Config File muss nun per Script oder schlimmer noch manuell geupdated werden.
 
 ## AWS CDK
 
