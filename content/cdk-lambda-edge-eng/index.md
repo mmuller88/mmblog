@@ -1,14 +1,13 @@
 ---
-title: Deploy Lambda@Edge mit AWS CDK und TypeScript
-show: 'no'
+title: Deploy Lambda@Edge with AWS CDK and TypeScript
 date: '2022-02-06'
 image: 'title.png'
-tags: ['de', '2022', 'aws', 'cdk'] #nofeed
-engUrl: https://martinmueller.dev/cdk-lambda-edge-eng
+tags: ['eng', '2022', 'aws', 'cdk'] #nofeed
+gerUrl: https://martinmueller.dev/cdk-lambda-edge
 pruneLength: 50
 ---
 
-Moin,
+Hi,
 
 Lambda@Edge sind Lambdas die in den AWS Cloudfront Locations ausgeführt werden. Somit kann die Performance erhöht und die Latency verringert werden im Vergleich zum normalen Lambda. Cloudfront zusammen mit Lambda@Edge lässt sich aber auch als Proxy für einen private S3 Asset Bucket verwenden.
 
@@ -231,7 +230,7 @@ function findDefiningFile(): string {
 }
 ```
 
-Wie du siehst habe ich viele private Funktionen aus der NodejsFunction übernommen. Das Construct wird nun folgendermaßen in meinen CDK Stack importiert:
+As you can see I have taken many private functions from the NodejsFunction. The construct is now imported into my CDK stack as follows:
 
 ```ts
 import { NodejsEdgeFunction } from './nodejs-edge-function';
@@ -241,12 +240,16 @@ import { NodejsEdgeFunction } from './nodejs-edge-function';
 const imageAccessFunction = new NodejsEdgeFunction(this, 'edge');
 ```
 
-Der Lambda@Edge code verhält sich nun genauso wie wir es gewöhnt sind von der NodejsFunction. Der TypeScript Lambda-Code kann nun im src Folder mit dem Namen STACK.edge.ts angelegt werden. Benötigte third party Libraries können bequem in der root package.json notiert werden. Webpack als packagmanager sorgt dan für eine effiziente Transformierung in das JavaScript Format.
+The Lambda@Edge code now behaves as we are used to from the NodejsFunction. The TypeScript Lambda code can now be created in the src folder with the name STACK.edge.ts. Required third party libraries can be conveniently noted in the root package.json. Webpack as packagmanager provides an efficient transformation into the JavaScript format.
 
-## Zusammenfassung
+## Summary
 
-Mega cool oder? Mit ein paar Handgriffen kann ich nun auch wie gewohnt meine Lambda@Edge in TypeScript schreiben. Natürlich plane ich den Code ins aws-cdk Repo zu kontribuierten. Hoffentlich wird mein PR dann baldig akzeptiert und ihr müsst euch nicht die Mühe machen meinen Code hier zu importieren. Findet ihr mein Construct hilfreich? Falls ja schreibt mir!
+Mega cool or? With a few steps I can now write my Lambda@Edge in TypeScript as usual. Of course I plan to contribute the code to the aws-cdk repo. Hopefully my PR will be accepted soon and you won't have to bother importing my code here. Do you find my construct helpful? If yes write me!
 
-Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf www.github.com/mmuller88 . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:
+Thanks to the [DeepL translater (free version)](https://DeepL.com/Translator) for helping with translating to English and saving me tons of time :).
 
-<a href="https://www.patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Werde ein Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+To the wonderful readers of this article, I'm saying that feedback of any kind is welcome. In the future, I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://facebook.com/martin.muller.10485). Thank you very much :).
+
+I love to work on Content Management Open Source projects. A lot from my stuff you can already use on https://github.com/mmuller88 . If you like my work there and my blog posts, please consider supporting me on Patreon:
+
+<a href="https://patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Become a Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
