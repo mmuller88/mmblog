@@ -241,7 +241,7 @@ import { NodejsEdgeFunction } from './nodejs-edge-function';
 const imageAccessFunction = new NodejsEdgeFunction(this, 'edge');
 ```
 
-Der Lambda@Edge code verhält sich nun genauso wie wir es gewöhnt sind von der NodejsFunction. Der TypeScript Lambda-Code kann nun im src Folder mit dem Namen STACK.edge.ts angelegt werden. Benötigte third party Libraries können bequem in der root package.json notiert werden. Webpack als packagmanager sorgt dan für eine effiziente Transformierung in das JavaScript Format.
+Der Lambda@Edge code verhält sich nun genauso wie wir es gewöhnt sind von der NodejsFunction. Der TypeScript Lambda-Code kann nun im src Folder mit dem Namen STACK.edge.ts angelegt werden. Benötigte third-party Libraries können bequem in der root package.json notiert werden. Webpack als module bundler sorgt dan für eine effiziente Transformierung in das JavaScript Format.
 
 ## Zusammenfassung
 

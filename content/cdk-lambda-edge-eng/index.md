@@ -9,15 +9,15 @@ pruneLength: 50
 
 Hi,
 
-Lambda@Edge sind Lambdas die in den AWS Cloudfront Locations ausgeführt werden. Somit kann die Performance erhöht und die Latency verringert werden im Vergleich zum normalen Lambda. Cloudfront zusammen mit Lambda@Edge lässt sich aber auch als Proxy für einen private S3 Asset Bucket verwenden.
+Lambda@Edge are Lambdas that are executed in the AWS Cloudfront Locations. That can increase performance and reduce latency compared to normal Lambda. Cloudfront together with Lambda@Edge can also being used as a proxy for a private S3 asset bucket.
 
-Ein Token ausgestellt von Cognito dient dann der Lambda@Edge zu Validierung ob der Requester erlaubt ist auf das Asset im S3 Bucket zuzugreifen. Näheres darüber möchte ich im nächsten Blogpost beschreiben. Hier soll es darum gehen wie ein Lambda@Edge mit AWS CDK und Typescript erstellt werden kann.
+A token issued by Cognito is then used by Lambda@Edge to validate if the requester is allowed to access the S3 asset. I will describe more about this in the next blogpost. Here we will talk about how to create a Lambda@Edge with AWS CDK and Typescript.
 
-## AWS CDK Lamda@Edge
+## AWS CDK Lambda@Edge
 
-Lambda@Edge gibt es bereits im CDK cloudfront package https://docs.aws.amazon.com/cdk/api/v1/docs/aws-cloudfront-readme.html . Leider ist es nicht direkt möglich den Lambda Code mit TypeScript zu schreiben und automatisch nach JavaScript zu transformieren so wie wir es bereits von der [NodejsFunction](https://docs.aws.amazon.com/cdk/api/v1/docs/@aws-cdk_aws-lambda-nodejs.NodejsFunction.html) kennen.
+Lambda@Edge already exists in the CDK cloudfront package https://docs.aws.amazon.com/cdk/api/v1/docs/aws-cloudfront-readme.html. Unfortunately, it is not directly possible to write the Lambda code with TypeScript as we are already used to it like from the [NodejsFunction](https://docs.aws.amazon.com/cdk/api/v1/docs/@aws-cdk_aws-lambda-nodejs.NodejsFunction.html).
 
-Tja nicht mit mir! Ich hab mir mal die NodejsFunction und die EdgeFunction genauer angeschaut und die die TypeScript Funktionalität von NodejsFunction auf die EdgeFunction übertragen. Dabei definiere ich einfach ein CDK Construct welches von EdgeFunction extended und übernehme Funktionen und Properties von der NodejsFunction. Und hier ist der Code von meinem nodejs-edge-function.ts Construct:
+Well not with me! I took a closer look at NodejsFunction and EdgeFunction and transferred the TypeScript functionality from NodejsFunction to EdgeFunction. I simply define a CDK construct which is extended by EdgeFunction and take functions and properties from NodejsFunction. And here is the code of my nodejs-edge-function.ts construct:
 
 ```ts
 import * as cloudfront from '@aws-cdk/aws-cloudfront';
@@ -240,11 +240,11 @@ import { NodejsEdgeFunction } from './nodejs-edge-function';
 const imageAccessFunction = new NodejsEdgeFunction(this, 'edge');
 ```
 
-The Lambda@Edge code now behaves as we are used to from the NodejsFunction. The TypeScript Lambda code can now be created in the src folder with the name STACK.edge.ts. Required third party libraries can be conveniently noted in the root package.json. Webpack as packagmanager provides an efficient transformation into the JavaScript format.
+The Lambda@Edge code now behaves as we are used to from the NodejsFunction. The TypeScript Lambda can now be created in the src folder with the name STACK.edge.ts. Third-party libraries can be kept in the root package.json. Webpack as module bundler provides an efficient transformation into the JavaScript format.
 
 ## Summary
 
-Mega cool or? With a few steps I can now write my Lambda@Edge in TypeScript as usual. Of course I plan to contribute the code to the aws-cdk repo. Hopefully my PR will be accepted soon and you won't have to bother importing my code here. Do you find my construct helpful? If yes write me!
+Mega cool or? With a few steps, I can now write my Lambda@Edge in TypeScript as usual. Of course, I plan to contribute the code to the aws-cdk repo. Hopefully my PR will be accepted soon and you won't have to bother importing my code here. Do you find my construct helpful? If so write me!
 
 Thanks to the [DeepL translater (free version)](https://DeepL.com/Translator) for helping with translating to English and saving me tons of time :).
 
