@@ -231,7 +231,7 @@ function findDefiningFile(): string {
 }
 ```
 
-Wie du siehst habe ich viele private Funktionen aus der NodejsFunction übernommen. Das Construct wird nun folgendermaßen in meinen CDK Stack importiert:
+Wie ihr seht habe ich viele private Funktionen aus der NodejsFunction übernommen. Das Construct wird nun folgendermaßen in meinen CDK Stack importiert:
 
 ```ts
 import { NodejsEdgeFunction } from './nodejs-edge-function';

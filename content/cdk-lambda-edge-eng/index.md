@@ -230,7 +230,7 @@ function findDefiningFile(): string {
 }
 ```
 
-As you can see I have taken many private functions from the NodejsFunction. The construct is now imported into my CDK stack as follows:
+As we can see, I have taken many private functions from the NodejsFunction. The construct is now imported into my CDK stack as follows:
 
 ```ts
 import { NodejsEdgeFunction } from './nodejs-edge-function';
