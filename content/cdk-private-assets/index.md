@@ -1,7 +1,7 @@
 ---
 title: Private S3 Assets mit Cloudfront, Lambda@Edge und AWS CDK
 show: 'no'
-date: '2022-02-06'
+date: '2022-02-13'
 image: 'title.png'
 tags: ['de', '2022', 'kreuzwerker', 'nofeed', 'cdk'] #nofeed
 engUrl: https://martinmueller.dev/first-week-xw-eng
@@ -20,13 +20,17 @@ https://presignedurldemo.s3.eu-west-2.amazonaws.com/image.png?X-Amz-Algorithm=AW
 
 Mhh wenn ich aber doch schon eine Userverwaltung mit z.B. AWS Cognito habe wäre es dann nicht viel eleganter wenn ich einfach mittels User JWT Token auf solche private Assets zugreifen könnte? Ja absolut! Und um den Programmieraufwand gering zu halten kann dafür Cloudfront und Lambda@Edge benutzt werden.
 
-In diesem Blogpost möchte ich euch beschreiben wie zusammen mit Cloudfront und Lambda@Edge einen Proxy bauen kann, der es authentisierten Usern erlaubt auf S3 Asset Urls wie z.B. https://image.example.com/funny.pic zuzugreifen. Wenn der dafür benötigte Token dann auch noch als Cookie gespeichert wird, kann man sogar das HTML img Tag z.B. <img src="https://image.example.com/funny.pic">funny.pic</img> verwenden.
+In diesem Blogpost möchte ich euch beschreiben wie zusammen mit Cloudfront und Lambda@Edge einen Proxy bauen kann, der es authentisierten Usern erlaubt auf S3 Asset Urls wie z.B. https://image.example.com/funny.png zuzugreifen. Wenn der dafür benötigte Token dann auch noch als Cookie gespeichert wird, kann man sogar das HTML img Tag z.B. <img src="https://image.example.com/funny.pic">funny.pic</img> verwenden.
 
 ## Lösungsansatz
 
 Ein Diagram beschreibt am besten wie genau der Cloudfront Proxy funktioniert.
 
-PICTURE
+![Diagram](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-private-assets/cdkPrivateAssetBucket.png)
+
+Der Flow zum Zugriff auf das Asset is sehr simpel. Zuerst holt sich der User ein gültiges Cognito Token. Das kann z.B. über die Amplify UI, der hosted Cognito login UI oder einer Lambda passieren. Dann wird auf das Asset mittels Request zugegriffen z.B. https://image.example.com/funny.png . Der Request benötigt ein Cookie mit dem Namen token und dem Cognito Token als Value.
+
+Zur Erinnerung das ist notwendig wenn man das HTML img tag verwenden möchte. Das img Tag akzeptiert keine Tokens im Header. Alternativ könnte man das Token wohl noch als URL Parameter codieren.
 
 ## AWS CDK Custom Construct
 
