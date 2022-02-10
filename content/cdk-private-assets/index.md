@@ -10,15 +10,15 @@ pruneLength: 50
 
 Moin,
 
-Private S3 Assets wie Bilder oder Videos sind ein oft benötigtes Feature für z.B. Apps. Nachdem sich der User eingeloggt hat sollen Bilder angezeigt werden die nur für ihn verfügbar sind und logischerweise sich in einem S3 Bucket. Dieser S3 Bucket darf natürlich nicht öffentlich verfügbar sein.
+Private S3 Assets wie Bilder oder Videos sind ein oft benötigtes Feature für z.B. Apps. Nachdem sich der User eingeloggt hat, sollen Bilder die nur für ihn verfügbar sind, angezeigt werden Diese befinden sich typischerweise in einem S3 Bucket. Dieser S3 Bucket darf nicht öffentlich verfügbar sein.
 
 Die bisherige Lösung für so ein Szenario sind [presigned URLs](https://medium.com/@aidan.hallett/securing-aws-s3-uploads-using-presigned-urls-aa821c13ae8d). Bei presigned URLs handelt es sich um speziell generierte URLs die dem Besitzer der URL den Zugriff auf das Asset erlauben. Die presigned URL kann dann z.B. so aussehen:
 
-```
+```txt
 https://presignedurldemo.s3.eu-west-2.amazonaws.com/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJJWZ7B6WCRGMKFGQ%2F20180210%2Feu-west-2%2Fs3%2Faws4_request&X-Amz-Date=20180210T171315Z&X-Amz-Expires=1800&X-Amz-Signature=12b74b0788aa036bc7c3d03b3f20c61f1f91cc9ad8873e3314255dc479a25351&X-Amz-SignedHeaders=host
 ```
 
-Mhh wenn ich aber doch schon eine Userverwaltung mit z.B. AWS Cognito habe wäre es dann nicht viel eleganter wenn ich einfach mittels User JWT Token auf solche private Assets zugreifen könnte? Ja absolut! Und um den Programmieraufwand gering zu halten kann dafür Cloudfront und Lambda@Edge benutzt werden.
+Mhh wenn ich aber doch schon eine User-Verwaltung z.B. AWS Cognito habe, wäre es dann nicht viel eleganter wenn ich einfach mittels User JWT Token auf solche private Assets zugreifen könnte? Ja absolut! Und um den Programmieraufwand gering zu halten kann dafür Cloudfront und Lambda@Edge benutzt werden.
 
 In diesem Blogpost möchte ich euch beschreiben wie zusammen mit Cloudfront und Lambda@Edge einen Proxy bauen kann, der es authentisierten Usern erlaubt auf S3 Asset Urls wie z.B. https://image.example.com/funny.png zuzugreifen. Wenn der dafür benötigte Token dann auch noch als Cookie gespeichert wird, kann man sogar das HTML img Tag z.B. <img src="https://image.example.com/funny.pic">funny.pic</img> verwenden.
 
@@ -34,11 +34,43 @@ Zur Erinnerung das ist notwendig wenn man das HTML img tag verwenden möchte. Da
 
 ## AWS CDK Custom Construct
 
-* bin gerade dabei dafür ein AWS CDK Custom Construct zu schreiben
-* Lässt sich dann einfach integrieren in eure CDK Apps
-* Falls ihr noch gewissen Features braucht erstellt Issue und eventuell nen PR oder schreibt mir
+Ich habe ein AWS CDK Custom Construct geschrieben um private Assets via Cognito Token einfach zu integrieren. In GitHub auf https://github.com/mmuller88/cdk-private-asset-bucket könnt ihr genau sehen wie das Construct funktioniert. Das Construct ein ein recht einfach Interface:
+
+```ts
+export interface PrivateAssetBucketProps {
+  readonly assetBucketName?: string;
+    /**
+     * if you want to use an imported bucket instead
+     */
+  readonly assetBucketNameImport?: string;
+  readonly customDomain?: CustomDomain;
+  readonly userPoolId: string;
+  readonly userPoolClientId: string;
+}
+
+export interface CustomDomain {
+  readonly zone: route53.IHostedZone;
+    /**
+     * domainName needs to be part of the hosted zone
+     * e.g.: image.example.com
+     */
+  readonly domainName: string;
+}
+```
+
+Mit dem optionalen **assetBucketName** wird dem erzeugtem Bucket ein Namen vergeben. Lässt man diese Property aus wird der Name vom CDK Naming-Algorithmus bestimmt also eine Zusammensetzung von Stackname, Constructname und zufälligem postfix. Möchte man aber lieber einen existierenden Bucket importieren kann das mit **assetBucketNameImport** gemacht werden. In diesem Fall wird die vorherige Property ignoriert. 
+
+Das **customDomain** Object mit den Properties **zone** und **domainName** erlaubt die Vergabe eines Custom Domain wie z.B. https://mail.example.com . Wichtig hierbei ist, dass die Zone sich in Kontrolle des ausführenden AWS Accounts befindet und das auch der domainName ein Teil der Zone ist. Zu guter Letzt werden die User Pool infos mit **userPoolId** und **userPoolClientId** angegeben. Dadurch weiß die Lambda@Edge gegen wohin das Token verifiziert werden muss.
+
+## Ausblick
+
+* andere Validierungen außer Cognito verfügbar machen
+* scoped asset areas for usernames
+* Cloudfront Function anstatt Lambda@Edge zum reduzieren der kosten
 
 ## Zusammenfassung
+
+Private S3 Assets wie Bilder oder Videos werden fast immer in modernen Apps benötigt. Bisher konnten solche nur per umständlichen presigned URLs private gehalten werden. Diese Lösung scheint aber nicht optimal da sie keine User Tokens verwendet um auf die Assets zuzugreifen. Hier in diesem Blogpost habe ich euch eine Variante vorgestellt bei der man mit Cognito User Tokens seine privaten S3 Assets Verfügbar machen kann. Wenn euch der Beitrag gefällt oder ihr Fragen und Anregungen habt, schreibt mir doch gerne.
 
 ...
 
