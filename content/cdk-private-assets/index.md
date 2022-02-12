@@ -4,7 +4,7 @@ show: 'no'
 date: '2022-02-13'
 image: 'bucket.jpg'
 tags: ['de', '2022', 'kreuzwerker', 's3', 'cdk'] #nofeed
-engUrl: https://martinmueller.dev/cdk-private-assets
+engUrl: https://martinmueller.dev/cdk-private-assets-eng
 pruneLength: 50
 ---
 
