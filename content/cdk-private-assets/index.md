@@ -2,15 +2,15 @@
 title: Private S3 Assets mit Cloudfront, Lambda@Edge und AWS CDK
 show: 'no'
 date: '2022-02-13'
-image: 'title.png'
-tags: ['de', '2022', 'kreuzwerker', 'nofeed', 'cdk'] #nofeed
-engUrl: https://martinmueller.dev/first-week-xw-eng
+image: 'bucket.jpg'
+tags: ['de', '2022', 'kreuzwerker', 's3', 'cdk'] #nofeed
+engUrl: https://martinmueller.dev/cdk-private-assets
 pruneLength: 50
 ---
 
 Moin,
 
-Private S3 Assets wie Bilder oder Videos sind ein oft benötigtes Feature für z.B. Apps. Nachdem sich der User eingeloggt hat, sollen Bilder die nur für ihn verfügbar sind, angezeigt werden Diese befinden sich typischerweise in einem S3 Bucket. Dieser S3 Bucket darf nicht öffentlich verfügbar sein.
+Private S3 Assets wie Bilder oder Videos sind ein oft benötigtes Feature für z.B. Apps. Nachdem sich der User eingeloggt hat, sollen Bilder die nur für ihn verfügbar sind, angezeigt werden. Diese befinden sich typischerweise in einem S3 Bucket. Dieser S3 Bucket darf nicht öffentlich verfügbar sein.
 
 Die bisherige Lösung für so ein Szenario sind [presigned URLs](https://medium.com/@aidan.hallett/securing-aws-s3-uploads-using-presigned-urls-aa821c13ae8d). Bei presigned URLs handelt es sich um speziell generierte URLs die dem Besitzer der URL den Zugriff auf das Asset erlauben. Die presigned URL kann dann z.B. so aussehen:
 
