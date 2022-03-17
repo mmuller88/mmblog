@@ -1,14 +1,15 @@
 ---
-title: Private S3 Assets mit Cloudfront, Lambda@Edge und AWS CDK
+title: AWS CDK Diagramme mit cdk-dia <3
 show: 'no'
-date: '2022-02-13'
+date: '2022-03-26'
 image: 'bucket.jpg'
-tags: ['de', '2022', 'kreuzwerker', 's3', 'cdk'] #nofeed
-engUrl: https://martinmueller.dev/cdk-private-assets-eng
+tags: ['de', '2022', 'cdk', 'nofeed'] #nofeed
+engUrl: https://martinmueller.dev/cdk-dia-eng
 pruneLength: 50
 ---
 
 * was ist cdk-dia?
+* wofür nutze ich es?
 * nutzt cdk construct level Abstractionen um weniger wichtige AWS Resourcen auszublenden oder auch collapsing genannt
 * das Einblenden dieser Resourcen ist aber auch möglich mit decollapsing [Source] . Habe ich aber bisher noch nicht ausprobiert
 
