@@ -5,13 +5,24 @@ date: '2022-03-26'
 image: 'bucket.jpg'
 tags: ['de', '2022', 'cdk', 'nofeed'] #nofeed
 engUrl: https://martinmueller.dev/cdk-dia-eng
-pruneLength: 50
+pruneLength: 50 #ihr
 ---
 
-* was ist cdk-dia?
-* wofür nutze ich es?
-* nutzt cdk construct level Abstractionen um weniger wichtige AWS Resourcen auszublenden oder auch collapsing genannt
-* das Einblenden dieser Resourcen ist aber auch möglich mit decollapsing [Source] . Habe ich aber bisher noch nicht ausprobiert
+Hi.
+
+AWS Komponenten Diagramme sind eine tolle Möglichkeit komplexe AWS Architekturen zu erklären. Für viele sind solche wesentlich intuitiver verständlich als z.B. CDK code. Ich selber arbeite sehr viel mit AWS Komponenten Diagrammen wenn ich neue AWS System entwickle. Was mich daran aber immer gestört hat ist, dass das Erstellen der Diagramme zeitaufwendig ist und diese regelmäßig angepasst werden müssen wenn sich die Architektur ändert.
+
+Nun wenn es euch auch so geht, probiert doch mal [cdk-dia](https://github.com/pistazie/cdk-dia) aus. In meinen letzten beiden CDK Projekten habe ich es verwendet und die Erfahrung war einfach überwältigend. 
+
+## Wie funktionierts?
+
+Das Tool cdk-dia erlaubt es mir AWS Komponenten Diagramme automatisch aus meinem CDK code zu erzeugen. Es folgt sogar dabei den CDK Construct Level 1 und 2 Abstraktionen. Das bedeutet, dass z.B. die großen Komponenten Symbole Level 2 Constructs sind und nur die Hauptkomponente, die üblicherweise **Resource** als ID bekommt. Somit werden nur die wirklich wichtigen AWS Komponenten gerendert. Das wird auch als collapsing bezeichnet.
+
+![collapsed](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-dia/decorate_example_collapsed.png)
+
+Möchtet ihr das collapsing verhindern, also auch wirklich alle unterliegenden Komponenten angezeigt bekommen, könnt ihr einen Decorater im Code benutzen. Wie genau das funktioniert wird sehr gut in der Dokumentation beschrieben https://github.com/pistazie/cdk-dia#example-1 . Ich selber habe ihn bisher noch nicht benötigt.
+
+![non-collapsed](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-dia/decorate_example_non-collapsed.png)
 
 ## Vergleich mit AWS Console Cloudformation template
 
