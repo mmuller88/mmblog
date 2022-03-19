@@ -10,9 +10,9 @@ pruneLength: 50 #ihr
 
 Hi.
 
-AWS Komponenten Diagramme sind eine tolle Möglichkeit komplexe AWS Architekturen zu erklären. Für viele sind solche wesentlich intuitiver verständlich als z.B. CDK code. Ich selber arbeite sehr viel mit AWS Komponenten Diagrammen wenn ich neue AWS System entwickle. Was mich daran aber immer gestört hat ist, dass das Erstellen der Diagramme zeitaufwendig ist und diese regelmäßig angepasst werden müssen wenn sich die Architektur ändert.
+AWS Komponenten Diagramme sind eine tolle Möglichkeit komplexe AWS Architekturen zu visualisieren. Für viele sind solche wesentlich intuitiver verständlich als z.B. CDK code. Ich selber arbeite sehr viel mit AWS Komponenten Diagrammen wenn ich neue AWS System entwickle. Was mich daran aber immer gestört hat ist, dass das Erstellen der Diagramme zeitaufwendig ist und diese regelmäßig angepasst werden müssen wenn sich die Architektur ändert.
 
-Nun wenn es euch auch so geht, probiert doch mal [cdk-dia](https://github.com/pistazie/cdk-dia) aus. In meinen letzten beiden CDK Projekten habe ich es verwendet und die Erfahrung war einfach überwältigend. 
+Probiert doch mal [cdk-dia](https://github.com/pistazie/cdk-dia) aus. In meinen letzten beiden CDK Projekten habe ich es verwendet und die Erfahrung war einfach überwältigend.
 
 ## Wie funktionierts?
 
@@ -26,7 +26,7 @@ Möchtet ihr das collapsing verhindern, also auch wirklich alle unterliegenden K
 
 ## Vergleich mit AWS Console Cloudformation template
 
-...
+Die AWS Console selbst besitzt auch ein Diagram Tool zum visualisieren von CloudFormation Stacks mit Name AWS CloudFormation Designer. Nähere Informationen findet ihr [hier](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.html). Ich habe also den Designer mit cdk-dia verglichen und ich finde cdk-dia um einiges besser. Cdk-dia schafft es durch das collapsing einen wesentlich besseren Abstraktionsgrad zu erlangen. Außerdem sind die Grafiken von cdk-dia wesentlich hübscher.
 
 ## cdk-dia script
 
@@ -38,7 +38,7 @@ Möchtet ihr das collapsing verhindern, also auch wirklich alle unterliegenden K
 
 ## Zusammenfassung
 
-...
+Wenn ihr auch gerne mit AWS Komponenten Diagrammen arbeitet probiert cdk-dia mal aus! Hier in dem Post habe ich beschrieben wie toll das Tool ist und wie einfach es geht. Schreibt mir gerne wenn ihr Fragen habt.
 
 Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf www.github.com/mmuller88 . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:
 
