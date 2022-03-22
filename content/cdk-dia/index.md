@@ -3,7 +3,7 @@ title: AWS CDK Diagramme mit cdk-dia <3
 show: 'no'
 date: '2022-03-26'
 image: 'diagram.png'
-tags: ['de', '2022', 'cdk', 'nofeed'] #nofeed
+tags: ['de', '2022', 'cdk'] #nofeed
 engUrl: https://martinmueller.dev/cdk-dia-eng
 pruneLength: 50 #ihr
 ---
@@ -12,7 +12,7 @@ Hi.
 
 AWS Komponenten Diagramme sind eine tolle Möglichkeit komplexe AWS Architekturen zu visualisieren. Für viele sind solche wesentlich intuitiver verständlich als z.B. CDK code. Ich selber arbeite sehr viel mit AWS Komponenten Diagrammen wenn ich neue AWS System entwickle. Was mich daran aber immer gestört hat ist, dass das Erstellen der Diagramme zeitaufwendig ist und diese regelmäßig angepasst werden müssen wenn sich die Architektur ändert.
 
-Probiert doch mal [cdk-dia](https://github.com/pistazie/cdk-dia) aus. In meinen letzten beiden CDK Projekten habe ich es verwendet und die Erfahrung war einfach überwältigend.
+Wenn es euch ähnlich geht probiert doch mal [cdk-dia](https://github.com/pistazie/cdk-dia) aus. In meinen letzten beiden CDK Projekten habe ich es verwendet und die Erfahrung war einfach überwältigend.
 
 ## Wie funktionierts?
 
@@ -20,13 +20,13 @@ Das Tool cdk-dia erlaubt es mir AWS Komponenten Diagramme automatisch aus meinem
 
 ![collapsed](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-dia/decorator_example_collapsed.png)
 
-Möchtet ihr das collapsing verhindern, also auch wirklich alle unterliegenden Komponenten angezeigt bekommen, könnt ihr einen Decorater im Code benutzen. Wie genau das funktioniert wird sehr gut in der Dokumentation beschrieben https://github.com/pistazie/cdk-dia#example-1 . Ich selber habe ihn bisher noch nicht benötigt.
+Möchtet ihr das collapsing verhindern, also auch wirklich alle unterliegenden Komponenten angezeigt bekommen, könnt ihr einen Decorater im Code definieren. Wie genau das funktioniert wird sehr gut in der Dokumentation beschrieben https://github.com/pistazie/cdk-dia#example-1 . Ich selber habe ihn bisher noch nicht benötigt.
 
 ![non-collapsed](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-dia/decorator_example_non-collapsed.png)
 
 ## Vergleich mit AWS Console Cloudformation template
 
-Die AWS Console selbst besitzt auch ein Diagram Tool zum visualisieren von CloudFormation Stacks mit Name AWS CloudFormation Designer. Nähere Informationen findet ihr [hier](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.html). Ich habe also den Designer mit cdk-dia verglichen und ich finde cdk-dia um einiges besser. Cdk-dia schafft es durch das collapsing einen wesentlich besseren Abstraktionsgrad zu erlangen. Außerdem sind die Grafiken von cdk-dia wesentlich hübscher.
+Die AWS Console selbst besitzt auch ein Diagram Tool zum visualisieren von CloudFormation Stacks mit Name AWS CloudFormation Designer. Nähere Informationen findet ihr [hier](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.html). Ich habe also den Designer mit cdk-dia verglichen und ich finde cdk-dia um einiges besser. cdk-dia schafft es durch das collapsing einen wesentlich besseren Abstraktionsgrad zu erlangen. Außerdem sind die Grafiken von cdk-dia wesentlich hübscher.
 
 Im nachfolgenden Abschnitt erkläre ich euch wie ihr in eurem CDK Projekt cdk-dia einbauen könnt.
 
@@ -44,7 +44,7 @@ Erstellt dann noch einen Ordner mit Namen diagrams und fügt diese Script in die
   },
 ```
 
-Das Script synthethisiert erst also erst mal die aktuellen CloudFormation Templates. Cdk-dia braucht diese um überhaupt das Diagram erzeugen zu können. Dann werden mit `yarn cdk-dia` das Diagram erzeugt und anschließend in den diagrams Ordner verschoben.
+Das Script synthethisiert erst die aktuellen CloudFormation Templates. cdk-dia braucht diese um überhaupt das Diagram erzeugen zu können. Dann wird mit `yarn cdk-dia` das Diagram erzeugt und anschließend in den diagrams Ordner verschoben.
 
 `yarn cdk-dia` erzeugt auch immer eine diagram.dot File. Ich empfehle euch die folgenden zwei files in den .gitignore zu packen:
 
