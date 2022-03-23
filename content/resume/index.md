@@ -12,7 +12,7 @@ pruneLength: 50
 # Summary
 office@martinmueller.dev
 
-Passionate Full Stack Developer. I like to have a broad collection of skills. From developing the backend and frontend applications written in Java, JavaScript or any other language, until developing a cost optimised cloud infrastructure solution. Enthusiastic agile player with strong communication skills. Looking for taking new challenges and learning new technologies.
+Passionate Full Stack Developer. I like to have a broad collection of skills. From developing the backend and frontend applications written in Java, JavaScript, or any other language, to developing a cost-optimized cloud infrastructure solution. An enthusiastic agile player with strong communication skills. Looking for taking on new challenges and learning new technologies.
 
 “What I don’t know, I will learn”
 
