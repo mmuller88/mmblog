@@ -1,7 +1,7 @@
 ---
 title: AWS CDK Diagramme mit cdk-dia <3
 show: 'no'
-date: '2022-03-26'
+date: '2022-03-23'
 image: 'diagram.png'
 tags: ['de', '2022', 'cdk'] #nofeed
 engUrl: https://martinmueller.dev/cdk-dia-eng
@@ -36,7 +36,7 @@ Zum kontinuierlichen updaten der cdk-dia Diagramme würde es sich anbieten ein k
 
 Erstellt dann noch einen Ordner mit Namen diagrams und fügt diese Script in die package.json.
 
-```ts
+```json
 "scripts": {
     ...
     "dia": "yarn cdk synth && yarn cdk-dia && mv diagram.png diagrams/dashboard.png",
@@ -55,7 +55,7 @@ diagram.png
 
 Wenn ihr gerne das Diagram in einzelne Bilder aufteilen wollt, könnt ihr auch gezielt nur einzelne CDK Stacks rendern lassen z.B.
 
-```ts
+```json
 "scripts": {
     ...
     "dia": "mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn cdk synth && yarn cdk-dia --stacks DashboardAppStack DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks LandingPageStack && mv diagram.png diagrams/landingpage.png",
