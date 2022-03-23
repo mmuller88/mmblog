@@ -18,7 +18,7 @@ If you feel the same way, try [cdk-dia](https://github.com/pistazie/cdk-dia). I 
 
 The cdk-dia tool allows me to automatically generate AWS component diagrams from my CDK code. It even follows the CDK Construct Level 1 and 2 abstractions. This means that e.g. the big components are symbols level 2 constructs and only the main component which usually gets **Resource** as ID. Thus, only the really important AWS components are rendered. This is also known as collapsing.
 
-![collapsed](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-dia/decorator_example_collapsed.png)(non-collapsed diagram)
+![collapsed](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-dia/decorator_example_collapsed.png)(collapsed diagram)
 
 If you want to prevent collapsing, so that all underlying components are displayed, you can define a decorater in the code. How exactly this works is described very well in the documentation https://github.com/pistazie/cdk-dia#example-1 . I have not needed it yet.
 
