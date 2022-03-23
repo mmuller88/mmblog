@@ -37,6 +37,16 @@ export default function HTML(props) {
       <footer>
         <div id="amzn-assoc-ad-5831d393-b227-4ce9-b453-2f59df9559cc"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=5831d393-b227-4ce9-b453-2f59df9559cc"></script>
       </footer>
+
+      <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('martinmuellerdev', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Support me',
+    'floating-chat.donateButton.background-color': '#00b9fe',
+    'floating-chat.donateButton.text-color': '#fff'
+  });
+</script>
       </body>
     </html>
   )
