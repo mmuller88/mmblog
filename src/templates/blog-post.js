@@ -49,7 +49,7 @@ function BlogPost(props) {
      />
     )}
     <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
-    {gerUrl
+    {tags.includes("de")
      ? "Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf www.github.com/mmuller88 . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:"
      : "I love to work on Content Management Open Source projects. A lot from my stuff you can already use on https://github.com/mmuller88 . If you like my work there and my blog posts, please consider supporting me on Patreon:"}
     <a
