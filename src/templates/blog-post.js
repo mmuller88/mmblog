@@ -49,19 +49,23 @@ function BlogPost(props) {
      />
     )}
     <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
-    {tags.includes("de")
-     ? "Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf www.github.com/mmuller88 . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:"
-     : "I love to work on Content Management Open Source projects. A lot from my stuff you can already use on https://github.com/mmuller88 . If you like my work there and my blog posts, please consider supporting me on Patreon:"}
-    <a
-     href="https://patreon.com/bePatron?u=29010217"
-     data-patreon-widget-type="become-patron-button"
-    >
-     Become a Patreon!
-    </a>
-    <script
-     async
-     src="https://c6.patreon.com/becomePatronButton.bundle.js"
-    ></script>
+    <p>
+     {tags.includes("de")
+      ? "Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf www.github.com/mmuller88 . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:"
+      : "I love to work on Content Management Open Source projects. A lot from my stuff you can already use on https://github.com/mmuller88 . If you like my work there and my blog posts, please consider supporting me on Patreon:"}
+    </p>
+    <p>
+     <a
+      href="https://patreon.com/bePatron?u=29010217"
+      data-patreon-widget-type="become-patron-button"
+     >
+      Become a Patreon!
+     </a>
+     <script
+      async
+      src="https://c6.patreon.com/becomePatronButton.bundle.js"
+     ></script>
+    </p>
     <p>
      <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
     </p>
