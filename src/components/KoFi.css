@@ -28,6 +28,8 @@ img.kofiimg {
   display: inline-block !important;
   white-space: nowrap;
   min-width: 160px;
+  font-family: sans-serif;
+  text-align: center;
 }
 span.kofitext {
   color: #fff !important;
