@@ -1,9 +1,9 @@
 ---
 title: AWS CDK diagrams with cdk-dia <3
-show: 'no'
-date: '2022-03-23'
-image: 'diagram.png'
-tags: ['eng', '2022', 'cdk'] #nofeed
+show: "no"
+date: "2022-03-23"
+image: "diagram.png"
+tags: ["eng", "2022", "cdk"] #nofeed
 gerUrl: https://martinmueller.dev/cdk-dia
 pruneLength: 50 #ihr
 ---
