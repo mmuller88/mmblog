@@ -60,6 +60,9 @@ function BlogPost(props) {
               <Share title={title} url={url} pathname={props.location.pathname} />
               <PrevNext prev={prev && prev.node} next={next && next.node} />
             </div>
+            <p>
+              <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
+            </p>
         </Layout>
     )
 }

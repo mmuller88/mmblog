@@ -39,9 +39,7 @@ export default function HTML(props) {
         <div id="amzn-assoc-ad-5831d393-b227-4ce9-b453-2f59df9559cc"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=5831d393-b227-4ce9-b453-2f59df9559cc"></script>
       </footer>
 
-      <p>
-        <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
-      </p>
+      
 
       {/* <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
 <script>
