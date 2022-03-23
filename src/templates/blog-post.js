@@ -49,6 +49,19 @@ function BlogPost(props) {
      />
     )}
     <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
+    <p>
+     <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
+    </p>
+    <a
+     href="https://patreon.com/bePatron?u=29010217"
+     data-patreon-widget-type="become-patron-button"
+    >
+     Become a Patreon!
+    </a>
+    <script
+     async
+     src="https://c6.patreon.com/becomePatronButton.bundle.js"
+    ></script>
     {showContact !== "no" ? <ContactForm /> : null}
     <div>
      <span>Tagged in </span>
@@ -61,9 +74,6 @@ function BlogPost(props) {
     <Share title={title} url={url} pathname={props.location.pathname} />
     <PrevNext prev={prev && prev.node} next={next && next.node} />
    </div>
-   <p>
-    <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
-   </p>
   </Layout>
  )
 }
