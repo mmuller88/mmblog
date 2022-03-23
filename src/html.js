@@ -5,8 +5,16 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
-        <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-        <script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#29abe0', 'T6T1BR59W');kofiwidget2.draw();</script>
+        <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+        <script>
+          kofiWidgetOverlay.draw('martinmuellerdev', {
+            'type': 'floating-chat',
+            'floating-chat.donateButton.text': 'Support me',
+            'floating-chat.donateButton.background-color': '#00b9fe',
+            'floating-chat.donateButton.text-color': '#fff'
+          });
+        </script>
+        
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
