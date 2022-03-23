@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import KoFi from "./components/KoFi";
 
 export default function HTML(props) {
   return (
@@ -39,7 +40,7 @@ export default function HTML(props) {
       </footer>
 
       <p>
-        <KoFi color="#29abe0" id="T6T1BR59W" label="Support Me on Ko-fi" />
+        <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
       </p>
 
       {/* <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
