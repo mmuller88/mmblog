@@ -5,7 +5,7 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
-        <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+        {/* <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
         <script>
           kofiWidgetOverlay.draw('martinmuellerdev', {
             'type': 'floating-chat',
@@ -13,7 +13,7 @@ export default function HTML(props) {
             'floating-chat.donateButton.background-color': '#00b9fe',
             'floating-chat.donateButton.text-color': '#fff'
           });
-        </script>
+        </script> */}
         
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
