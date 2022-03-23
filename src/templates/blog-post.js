@@ -6,7 +6,7 @@ import PrevNext from "../components/prevnext"
 import MetaTags from "../components/Metatags"
 import Share from "../components/share"
 import ContactForm from "../components/contactform"
-import KoFi from "./components/KoFi"
+import KoFi from "../components/KoFi"
 
 function BlogPost(props) {
  const url = props.data.site.siteMetadata.siteUrl
