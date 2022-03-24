@@ -29,6 +29,9 @@ Passionate Full Stack Developer. I like to have a broad collection of skills. Fr
 
 ## Experience
 
+AWS Community Builder \
+Mar 2022 - current
+
 Senior Cloud Architect - www.kreuzwerker.de, GER \
 Jan 2022 - current
 

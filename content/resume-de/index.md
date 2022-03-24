@@ -28,8 +28,11 @@ Begeisterter Full Stack Entwickler. Ich mag es viele unterschiedliche und nützl
 
 ## Erfahrungen
 
+AWS Community Builder \
+Mär 2022 - jetzt
+
 Senior Cloud Architect - www.kreuzwerker.de, GER \
-Jan 2022 - current
+Jan 2022 - jetzt
 
 - Zusammen mit dem Kunden tolle AWS Cloud Lösungen erstellen
 
