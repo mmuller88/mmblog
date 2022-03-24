@@ -1,9 +1,9 @@
 ---
 title: AWS CDK Diagramme mit cdk-dia <3
-show: 'no'
-date: '2022-03-23'
-image: 'diagram.png'
-tags: ['de', '2022', 'cdk'] #nofeed
+show: "no"
+date: "2022-03-25"
+image: "diagram.png"
+tags: ["de", "2022", "cdk"] #nofeed
 engUrl: https://martinmueller.dev/cdk-dia-eng
 pruneLength: 50 #ihr
 ---
@@ -20,9 +20,20 @@ Das Tool cdk-dia erlaubt es mir AWS Komponenten Diagramme automatisch aus meinem
 
 ![collapsed](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-dia/decorator_example_collapsed.png)(collapsed diagram)
 
-Möchtet ihr das collapsing verhindern, also auch wirklich alle unterliegenden Komponenten angezeigt bekommen, könnt ihr einen Decorater im Code definieren. Wie genau das funktioniert wird sehr gut in der Dokumentation beschrieben https://github.com/pistazie/cdk-dia#example-1 . Ich selber habe ihn bisher noch nicht benötigt.
+Möchtet ihr das collapsing verhindern, also auch wirklich alle unterliegenden Komponenten angezeigt bekommen, könnt ihr einen Decorater im Code definieren. Wie genau das funktioniert seht ihr [hier](https://github.com/pistazie/cdk-dia/tree/main/examples/experimental-decorator-example) .
 
 ![non-collapsed](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-dia/decorator_example_non-collapsed.png)(non-collapsed diagram)
+
+Das habe ich z.B. bei meinem [private asset bucket Construct](https://github.com/mmuller88/cdk-private-asset-bucket/blob/main/src/private-asset-bucket.ts) benutzt:
+
+```ts
+...
+@DiagramOptions({ collapse: CollapseTypes.FORCE_NON_COLLAPSE })
+export class PrivateAssetBucket extends core.Construct {
+...
+```
+
+Wenn ihr mehr über mein Prowler Construct wissen wollt schaut [hier](https://martinmueller.dev/cdk-private-assets).
 
 ## Vergleich mit AWS Console Cloudformation template
 
@@ -62,6 +73,18 @@ Wenn ihr gerne das Diagram in einzelne Bilder aufteilen wollt, könnt ihr auch g
     ...
   },
 ```
+
+Auch eine gute Idee ist es den cdk-dia command in den cdk synth Prozess zu integrieren. Das habe ich z.B. bei meinem [cdk Prowler Construct](https://github.com/mmuller88/cdk-prowler) mit eingebunden. In der package.json findet ihr das folgende Script:
+
+```json
+"scripts": {
+    ...
+    "synth": "yarn cdk synth && yarn cdk-dia && mv diagram.png diagrams/prowler.png",
+    ...
+  },
+```
+
+Nun wird bei jedem manuell ausgeführten cdk synth auch immer das cdk-dia diagram gerendert. Cool oder? Wenn ihr mehr über mein Prowler Construct wissen wollt schaut [hier](https://martinmueller.dev/prowler-cdk).
 
 ## Ideen
 

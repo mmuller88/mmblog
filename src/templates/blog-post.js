@@ -49,9 +49,11 @@ function BlogPost(props) {
      />
     )}
     <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
-    <p>
-     <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
-    </p>
+    <div>
+     <p>
+      <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
+     </p>
+    </div>
     {showContact !== "no" ? <ContactForm /> : null}
     <div>
      <span>Tagged in </span>
