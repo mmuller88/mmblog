@@ -33,7 +33,7 @@ export class PrivateAssetBucket extends core.Construct {
 ...
 ```
 
-If you want to know more about my Prowler Construct look [here](https://martinmueller.dev/cdk-private-assets).
+If you want to know more about my Prowler Construct look [here](https://martinmueller.dev/cdk-private-assets-eng).
 
 ## Comparison with AWS Console Cloudformation template
 
@@ -84,7 +84,7 @@ Also a good idea is to integrate the cdk-dia command into the cdk synth process.
   },
 ```
 
-Now every time you run cdk synth manually, the cdk-dia diagram is rendered as well. Cool or? If you want to know more about my Prowler Construct look [here](https://martinmueller.dev/prowler-cdk).
+Now every time you run cdk synth manually, the cdk-dia diagram is rendered as well. Cool or? If you want to know more about my Prowler Construct look [here](https://martinmueller.dev/prowler-cdk-eng).
 
 ## Ideas
 
