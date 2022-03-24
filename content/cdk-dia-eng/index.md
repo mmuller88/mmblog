@@ -1,7 +1,7 @@
 ---
 title: AWS CDK diagrams with cdk-dia <3
 show: "no"
-date: "2022-03-25"
+date: "2022-03-24"
 image: "diagram.png"
 tags: ["eng", "2022", "cdk"] #nofeed
 gerUrl: https://martinmueller.dev/cdk-dia
@@ -16,17 +16,28 @@ If you feel the same way, try [cdk-dia](https://github.com/pistazie/cdk-dia). I 
 
 ## How does it work?
 
-The cdk-dia tool allows me to automatically generate AWS component diagrams from my CDK code. It even follows the CDK Construct Level 1 and 2 abstractions. This means that e.g. the big components are symbols level 2 constructs and only the main component which usually gets **Resource** as ID. Thus, only the really important AWS components are rendered. This is also known as collapsing.
+The tool cdk-dia allows me to create AWS component diagrams automatically from my CDK code. It even follows the CDK Construct Level 1 and 2 abstractions. This means that e.g. the big components are symbols level 2 constructs and only the main component which usually gets **Resource** as ID. Thus, only the really important AWS components are rendered. This is also known as collapsing.
 
 ![collapsed](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-dia/decorator_example_collapsed.png)(collapsed diagram)
 
-If you want to prevent collapsing, so that all underlying components are displayed, you can define a decorater in the code. How exactly this works is described very well in the documentation https://github.com/pistazie/cdk-dia#example-1 . I have not needed it yet.
+If you want to prevent collapsing, so that all underlying components are displayed, you can define a decorater in the code. How exactly this works you can see [here](https://github.com/pistazie/cdk-dia/tree/main/examples/experimental-decorator-example) .
 
 ![non-collapsed](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-dia/decorator_example_non-collapsed.png)(non-collapsed diagram)
 
+This is what I used for my [private asset bucket construct](https://github.com/mmuller88/cdk-private-asset-bucket/blob/main/src/private-asset-bucket.ts) for example:
+
+```ts
+...
+@DiagramOptions({ collapse: CollapseTypes.FORCE_NON_COLLAPSE })
+export class PrivateAssetBucket extends core.Construct {
+...
+```
+
+If you want to know more about my Prowler Construct look [here](https://martinmueller.dev/cdk-private-assets).
+
 ## Comparison with AWS Console Cloudformation template
 
-The AWS Console itself also has a diagram tool for visualizing CloudFormation stacks called AWS CloudFormation Designer. You can find more information [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.html). So I compared the designer with cdk-dia and I think cdk-dia is a lot better. cdk-dia manages to achieve a much better level of abstraction through collapsing. Furthermore the graphics of cdk-dia are much nicer.
+The AWS Console itself also has a diagram tool to visualize CloudFormation stacks called AWS CloudFormation Designer. You can find more information [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.html). So I compared the designer with cdk-dia and I think cdk-dia is a lot better. cdk-dia manages to achieve a much better level of abstraction through collapsing. Also the graphics of cdk-dia are much nicer.
 
 In the following section I explain how you can implement cdk-dia in your CDK project.
 
@@ -46,7 +57,7 @@ Then create a folder named diagrams and add this script to package.json.
 
 The script first synthesizes the current CloudFormation templates. cdk-dia needs them to generate the diagram at all. Then `yarn cdk-dia` creates the diagram and moves it to the diagrams folder.
 
-`yarn cdk-dia` also creates a diagram.dot file. I recommend to put the following two files into the .gitignore:
+yarn cdk-dia` also creates a diagram.dot file. I recommend to put the following two files into the .gitignore:
 
 ```txt
 diagram.dot
@@ -63,15 +74,29 @@ If you like to split the diagram into single images, you can also render only si
   },
 ```
 
+Also a good idea is to integrate the cdk-dia command into the cdk synth process. I included this for example in my [cdk Prowler Construct](https://github.com/mmuller88/cdk-prowler). In the package.json you will find the following script:
+
+```json
+"scripts": {
+    ...
+    "synth": "yarn cdk synth && yarn cdk-dia && mv diagram.png diagrams/prowler.png",
+    ...
+  },
+```
+
+Now every time you run cdk synth manually, the cdk-dia diagram is rendered as well. Cool or? If you want to know more about my Prowler Construct look [here](https://martinmueller.dev/prowler-cdk).
+
 ## Ideas
 
-In the previous post, I presented a small script which generates the cdk-dia diagrams. Unfortunately, this script still has to be executed manually. It would be mega cool if these diagrams update themselves. This should be possible if you use Husky pre-commit hooks. I am currently trying this out. If you want to know more about it, let me know.
+In the previous post I introduced a small script that generates the cdk-dia diagrams. Unfortunately this script still has to be run manually. It would be mega cool if these diagrams update themselves quasi. This should be possible if you use Husky pre-commit hooks. I am currently trying this out. If you want to know more about it, let me know.
 
-Unfortunately, cdk-dia couldn't render my CDK CD staging pipeline properly and I had to create it by hand in <https://draw.io>. It would be super cool if cdk-dia could also map pipelines.
+Unfortunately cdk-dia couldn't render my CDK CD staging pipeline properly and I had to create it by hand in <https://draw.io>. It would be super cool if cdk-dia could also map pipelines.
 
 ## Summary
 
 If you also like to work with AWS component diagrams give cdk-dia a try! Here in the post I described how great the tool is and how easy it is to use. Feel free to contact me if you have any questions.
+
+Translated with www.DeepL.com/Translator (free version)
 
 Thanks to the [DeepL translater (free version)](https://DeepL.com/Translator) for helping with translating to English and saving me tons of time :).
 

@@ -1,7 +1,7 @@
 ---
 title: AWS CDK Diagramme mit cdk-dia <3
 show: "no"
-date: "2022-03-25"
+date: "2022-03-24"
 image: "diagram.png"
 tags: ["de", "2022", "cdk"] #nofeed
 engUrl: https://martinmueller.dev/cdk-dia-eng
