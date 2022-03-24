@@ -1,6 +1,6 @@
 ---
 title: AWS CDK diagrams with cdk-dia <3
-show: "no"
+show: "yes"
 date: "2022-03-24"
 image: "diagram.png"
 tags: ["eng", "2022", "cdk"] #nofeed
