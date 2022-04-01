@@ -1,10 +1,10 @@
 ---
-title: Export DynamoDB JSON items to S3
+title: DynamoDB JSON items nach S3 exportieren
 show: "no"
-date: "2022-02-13"
+date: "2022-04-03"
 image: "https://raw.githubusercontent.com/mmuller88/cdk-ddb-to-s3/main/diagrams/all.png"
-tags: ["de", "2022", "kreuzwerker", "s3", "cdk"] #nofeed
-engUrl: https://martinmueller.dev/cdk-private-assets-eng
+tags: ["de", "2022", "dynamodb", "lambda", "s3", "cdk", "nofeed"] #nofeed
+engUrl: https://martinmueller.dev/dynamodb-to-s3-eng
 pruneLength: 50 #ihr
 ---
 
