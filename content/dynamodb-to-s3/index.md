@@ -72,7 +72,6 @@ Super cool oder? Somit wurde die Anzahl der Lambda Aufrufe massiv reduziert.
 - be cautious when configuring the lambda and the dynamodb streams as you can run in a high lambda invocation number when you have a high frequenz when writing to ddb
 - I used the max batchSize of 10k and maxBatchingWindow of 5 minutes. That way my lambda only get invoked once all 5 minutes independent of how frequently the write to ddb is
 - with Athena you still can query the logs in your s3 bucket.
-
 - In some blog posts I saw the use of Kinesis Firehose for batching items but that is not necessary as DynamoDB streams is already batching them.
 
 ## Ausblick
