@@ -1,5 +1,5 @@
 ---
-title: DynamoDB JSON items nach S3 exportieren
+title: DynamoDB Items nach S3 exportieren
 show: "no"
 date: "2022-04-03"
 image: "https://raw.githubusercontent.com/mmuller88/cdk-ddb-to-s3/main/diagrams/all.png"
@@ -18,7 +18,7 @@ Stellt sich jetzt natürlich die Frage wie ihr das am geschicktesten machen kön
 
 ## Solution
 
-Ihr findet den Code natürlich in meinem GitHub repo <https://github.com/mmuller88/cdk-ddb-to-s3> . Die Architektur die ihr auch im Titelbild sehen könnt, ist recht einfach beschrieben. Es wird per DynamoDB streams eine Lambda getriggert, die die gelöschten Item nach S3 wegschreibt.
+Ihr findet den Code natürlich in meinem GitHub repo <https://github.com/mmuller88/cdk-ddb-to-s3> . Die Architektur die ihr auch im Titelbild sehen könnt, ist recht einfach beschrieben. Es wird per DynamoDB streams eine Lambda getriggert, die die gelöschten Item nach S3 wegschreibt. In meinem Beispiel sind die DynamoDB Items einfach JSON logs mit wenigen properties. In eurem Fall kann das DynamoDB Item komplett anders aussehen. Das Grundkonzept müsste aber trotzdem stimmen!
 
 ```ts
 const table = new ddb.Table(this, "table", {
@@ -68,6 +68,8 @@ Die **batchSize** mit 10000 und das **maxBatchingWindow** sind maximal gewählt 
 ![withProperBatching.png](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/dynamodb-to-s3/withProperBatching.png)
 
 Super cool oder? Somit wurde die Anzahl der Lambda Aufrufe massiv reduziert.
+
+Übrigens die batch size mit 10000 zu wählen ist in meinem Fall ok da es ja JSON Items sind und wir unter der maximalen Größe von 4 MB pro File bleiben wenn ich diese nach S3 wegschreibe. In eurem Fall könnte diese batch size zu hoch sein. Das müsst ihr am besten mit Testen mal ausprobieren. Ich habe dafür z.B. einfach mal 300 Log Items auf einmal gelöscht und es wurde trotzdem erfolgreich alles mit einem Lambda Aufruf nach S3 weggeschrieben.
 
 - be cautious when configuring the lambda and the dynamodb streams as you can run in a high lambda invocation number when you have a high frequenz when writing to ddb
 - I used the max batchSize of 10k and maxBatchingWindow of 5 minutes. That way my lambda only get invoked once all 5 minutes independent of how frequently the write to ddb is
