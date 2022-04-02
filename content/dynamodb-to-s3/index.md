@@ -18,7 +18,9 @@ Stellt sich jetzt natürlich die Frage wie ihr das am geschicktesten machen kön
 
 ## Solution
 
-Ihr findet den Code natürlich in meinem GitHub repo <https://github.com/mmuller88/cdk-ddb-to-s3> . Die Architektur die ihr auch im Titelbild sehen könnt, ist recht einfach beschrieben. Es wird per DynamoDB streams eine Lambda getriggert, die die gelöschten Item nach S3 wegschreibt. In meinem Beispiel sind die DynamoDB Items einfach JSON logs mit wenigen properties. In eurem Fall kann das DynamoDB Item komplett anders aussehen. Das Grundkonzept müsste aber trotzdem stimmen!
+Ihr findet den Code natürlich in meinem GitHub repo <https://github.com/mmuller88/cdk-ddb-to-s3>. Die Architektur die ihr auch im Titelbild sehen könnt, ist recht einfach beschrieben. Es wird per DynamoDB streams eine Lambda getriggert, die die gelöschten Item nach S3 wegschreibt. In meinem Beispiel sind die DynamoDB Items einfach JSON logs mit wenigen properties. In eurem Fall kann das DynamoDB Item komplett anders aussehen. Das Grundkonzept müsste aber trotzdem stimmen!
+
+By the way, if you're curious how I created the AWS Component Architecture Diagram, check it out [here](https://martinmueller.dev/dynamodb-to-s3-eng).
 
 ```ts
 const table = new ddb.Table(this, "table", {

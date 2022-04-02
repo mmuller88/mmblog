@@ -1,5 +1,5 @@
 ---
-title: DynamoDB Items nach S3 exportieren
+title: Export DynamoDB Items to S3
 show: "no"
 date: "2022-04-03"
 image: "dia.png"
@@ -19,6 +19,8 @@ The question now is how you can do this most sophisticated? For me the combinati
 ## Solution
 
 You can find the code in my GitHub repo <https://github.com/mmuller88/cdk-ddb-to-s3> . As you can see the architecture in the title image is simple. DynamoDB Streams invokes a Lambda, which writes the deleted item away to S3. In my example, the DynamoDB items are JSON logs with few properties. In your case, the DynamoDB item can look different. But the basic concept should still the same!
+
+Übrigens ihr neugierig seit wie ich das AWS Component Architektur Diagram erstellt habe schonmal [hier](https://martinmueller.dev/dynamodb-to-s3) rein.
 
 ```ts
 const table = new ddb.Table(this, "table", {
