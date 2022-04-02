@@ -14,11 +14,11 @@ Storing data like JSON logs in DynamoDB is a great idea as DynamoDB is more scal
 
 This all sounds very good but there is one hitch and that is the cost. As the number of items increases, so does the cost. So it would be advisable to delete the DynamoDB data from the table after a certain time, e.g. 30 days, and import it into an S3. The costs for S3 are much lower and it would even be possible to reduce them if you use a cheaper S3 tier like Glacier.
 
-The question now is how you can do this most sophisticated? For me the combination [DynamoDB TimeToLive](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html), [DynamoDB streams]() and Lambda which writes to a S3 bucket worked very well. In the following section I would like to describe my solution in more detail.
+The question now is how you can do this most sophisticated? For me the combination [DynamoDB Time To Live](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html), [DynamoDB Streams](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html) and Lambda which writes to an S3 bucket worked very well. In the following section, I will describe my solution.
 
 ## Solution
 
-You can find the code in my GitHub repo <https://github.com/mmuller88/cdk-ddb-to-s3> . The architecture you can see in the cover image is quite simple. It is triggered by DynamoDB streams a Lambda, which writes the deleted item away to S3. In my example the DynamoDB items are simply JSON logs with few properties. In your case the DynamoDB item can look completely different. But the basic concept should still be correct!
+You can find the code in my GitHub repo <https://github.com/mmuller88/cdk-ddb-to-s3> . As you can see the architecture in the title image is simple. DynamoDB Streams invokes a Lambda, which writes the deleted item away to S3. In my example, the DynamoDB items are JSON logs with few properties. In your case, the DynamoDB item can look different. But the basic concept should still the same!
 
 ```ts
 const table = new ddb.Table(this, "table", {
@@ -49,13 +49,13 @@ ddbArchiveBucket.addEventSourceMapping("archivelog", {
 })
 ```
 
-stream: ddb.StreamViewType.OLD_IMAGE` is set because I am only interested in the items that have been deleted.
+`stream: ddb.StreamViewType.OLD_IMAGE` is set because I am only interested in the items that have been deleted.
 
-In the table definition a TimeToLive attribute was set with `timeToLiveAttribute: 'ttl'` . It is then important that your component which writes the data to DynamoDB always sets the ttl attribute. This is a timestamp that describes when the table item should be deleted. In my project this was after 30 days.
+In the table definition a TimeToLive attribute was set with `timeToLiveAttribute: 'ttl'` . It is then important that your component which writes the data to DynamoDB always sets the ttl attribute. This is a timestamp that describes when the item should be deleted. In my project this was after 30 days.
 
-Usually you should only need one running lambda to write the data away to S3 `reservedConcurrentExecutions: 1`. This serves as an additional safeguard that there are not unexpectedly many calls to Lambda.
+Usually, you should only need one running Lambda to write the data away to S3 `reservedConcurrentExecutions: 1`. That serves as an additional safeguard against many unexpected invocations of Lambda.
 
-The **addEventSourceMapping** is probably the most exciting. What is pretty cool is that DynamoDB Streams provides a batching feature. The Lambda can then process the deleted items as a batch and this can reduce the number of Lambda calls and therefore the cost. The default DynamoDB default batching is not quite ideal for our use case here so I used AWS Console and the Lambda call metrics to optimize it:
+The **addEventSourceMapping** part is probably the most exciting. What is pretty cool is that DynamoDB Streams provides a batching feature. The Lambda can then process the deleted items as a batch. That reduces the number of Lambda calls and therefore the costs. The default DynamoDB default batching is not quite ideal for our use case here so I used AWS Console and the Lambda call metrics to optimize it:
 
 ```ts
 batchSize: 10000,
@@ -67,13 +67,13 @@ The **batchSize** with 10000 and the **maxBatchingWindow** are chosen maximally 
 ![withoutProperBatching.png](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/dynamodb-to-s3/withoutProperBatching.png)
 ![withProperBatching.png](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/dynamodb-to-s3/withProperBatching.png)
 
-Super cool or? So the number of lambda calls was massively reduced.
+Super cool or? So the number of Lambda calls was massively reduced.
 
-By the way, choosing the batch size with 10000 is ok in my case because they are JSON items and we stay under the maximum size of 4 MB per file if I write them away to S3. In your case this batch size could be too high. You have to try this out with testing. I just deleted 300 log items at once and it was still successfully written to S3 with a lambda call.
+By the way, choosing the batch size with 10000 is ok in my case because they are JSON items and we stay under the maximum size of 4 MB per file if I write them away to S3. In your case this batch size could be to high. You have to try this out with testing. I just deleted 300 log items at once and it was still successfully written to S3 with a Lambda call.
 
-With Athena and SQL like queries the data can be evaluated in the S3 bucket. How exactly this works I do not want to go into here. There are great tutorials that explain how Athena can be used to query for specific information in the S3 data such as JSON files.
+With Athena and SQL queries the data in the S3 bucket can be inspected. How exactly that works I do not want to go into here. There are great tutorials that explain how Athena can be used to query for specific information in the S3 data such as JSON files.
 
-Also I would like to mention that in some tutorials I have also seen the use of Kinesis Firehose. But I don't think you need that for your solution. DynamoDB Streams already has the ability to batch. But maybe it is another reason why Firehose was used. If you do see a useful use case for Firehose, please let me know.
+Also I would like to mention that in some tutorials I have also seen the use of Kinesis Firehose. But I don't think you need it for your solution. DynamoDB Streams already has the ability to batch. But maybe it is another reason why Firehose was used. If you do see a useful use case for Firehose, please let me know.
 
 ## Summary
 

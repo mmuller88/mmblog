@@ -14,7 +14,7 @@ Das Speichern von Daten wie JSON logs in DynamoDB ist eine super Idee da DynamoD
 
 Das klingt alles sehr gut aber es gibt einen Harken und zwar die Kosten. Mit steigender Anzahl von Items steigen auch die Kosten. Es wäre also ratsam die DynamoDB Daten nach einer gewissen Zeit z.B. 30 Tagen aus der Tabelle zu löschen und in einem S3 zu importieren. Die Kosten für S3 sind wesentlich geringer und es wäre sogar potentiell möglich diese noch weiter zu reduzieren wenn ihr einen günstigeren S3 Tier wie Glacier verwendet.
 
-Stellt sich jetzt natürlich die Frage wie ihr das am geschicktesten machen könnt? Für mich sehr gut geklappt hat die Kombination [DynamoDB TimeToLive](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html), [DynamoDB streams]() und Lambda welche dann in ein S3 Bucket schreibt. Im folgenden Abschnitt möchte ich meine Lösung gerne genauer beschreiben.
+Stellt sich jetzt natürlich die Frage wie ihr das am geschicktesten machen könnt? Für mich sehr gut geklappt hat die Kombination [DynamoDB Time To Live](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html), [DynamoDB streams](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html) und Lambda welche dann in ein S3 Bucket schreibt. Im folgenden Abschnitt möchte ich meine Lösung gerne genauer beschreiben.
 
 ## Solution
 
