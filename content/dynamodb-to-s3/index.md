@@ -2,7 +2,7 @@
 title: DynamoDB Items nach S3 exportieren
 show: "no"
 date: "2022-04-03"
-image: "https://raw.githubusercontent.com/mmuller88/cdk-ddb-to-s3/main/diagrams/all.png"
+image: "dia.png"
 tags: ["de", "2022", "dynamodb", "lambda", "s3", "cdk", "nofeed"] #nofeed
 engUrl: https://martinmueller.dev/dynamodb-to-s3-eng
 pruneLength: 50 #ihr
@@ -10,11 +10,11 @@ pruneLength: 50 #ihr
 
 Hi
 
-Das Speichern von daten wie JSON logs in DynamoDB ist eine super Idee da DynamoDB skalierbarer ist. Dazu kommt, dass es sehr einfach ist Daten in eine DynamoDB Tabelle zu transferieren mit z.B. Lambda und AWS SDK. Auch macht es das Analysieren der Logs leichter da z.B. die AWS Console tolle Filtermöglichkeiten bietet umd nach bestimmten sogenannten Tabellen Items zu suchen.
+Das Speichern von Daten wie JSON logs in DynamoDB ist eine super Idee da DynamoDB skalierbarer ist. Dazu kommt, dass es sehr einfach ist Daten in eine DynamoDB Tabelle zu transferieren mit z.B. Lambda und AWS SDK. Auch macht es das Analysieren der Logs leichter da z.B. die AWS Console tolle Filtermöglichkeiten bietet umd nach bestimmten sogenannten Tabellen Items zu suchen.
 
 Das klingt alles sehr gut aber es gibt einen Harken und zwar die Kosten. Mit steigender Anzahl von Items steigen auch die Kosten. Es wäre also ratsam die DynamoDB Daten nach einer gewissen Zeit z.B. 30 Tagen aus der Tabelle zu löschen und in einem S3 zu importieren. Die Kosten für S3 sind wesentlich geringer und es wäre sogar potentiell möglich diese noch weiter zu reduzieren wenn ihr einen günstigeren S3 Tier wie Glacier verwendet.
 
-Stellt sich jetzt natürlich die Frage wie ihr das am geschicktesten machen könnt? Für mich sehr gut geklappt hat die Kombination [DynamoDB TimeToLive](), [DynamoDB streams]() und Lambda welche dann in ein S3 Bucket schreibt. Im folgenden Abschnitt möchte ich meine Lösung gerne genauer beschreiben.
+Stellt sich jetzt natürlich die Frage wie ihr das am geschicktesten machen könnt? Für mich sehr gut geklappt hat die Kombination [DynamoDB TimeToLive](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html), [DynamoDB streams]() und Lambda welche dann in ein S3 Bucket schreibt. Im folgenden Abschnitt möchte ich meine Lösung gerne genauer beschreiben.
 
 ## Solution
 
@@ -71,16 +71,13 @@ Super cool oder? Somit wurde die Anzahl der Lambda Aufrufe massiv reduziert.
 
 Übrigens die batch size mit 10000 zu wählen ist in meinem Fall ok da es ja JSON Items sind und wir unter der maximalen Größe von 4 MB pro File bleiben wenn ich diese nach S3 wegschreibe. In eurem Fall könnte diese batch size zu hoch sein. Das müsst ihr am besten mit Testen mal ausprobieren. Ich habe dafür z.B. einfach mal 300 Log Items auf einmal gelöscht und es wurde trotzdem erfolgreich alles mit einem Lambda Aufruf nach S3 weggeschrieben.
 
-- be cautious when configuring the lambda and the dynamodb streams as you can run in a high lambda invocation number when you have a high frequenz when writing to ddb
-- I used the max batchSize of 10k and maxBatchingWindow of 5 minutes. That way my lambda only get invoked once all 5 minutes independent of how frequently the write to ddb is
-- with Athena you still can query the logs in your s3 bucket.
-- In some blog posts I saw the use of Kinesis Firehose for batching items but that is not necessary as DynamoDB streams is already batching them.
+Mit Athena und SQL ähnlichen Queries lassen sich dann die Daten nun im S3 Bucket auch auswerten. Wie genau das funktioniert möchte ich aber hier nicht eingehen. Es gibt tolle Tutorials die erklären wie mittels Athena nach bestimmten Informationen in den S3 Daten wie JSON files gequired werden kann.
 
-## Ausblick
+Auch noch möchte ich erwähnen, dass ich in manchen Tutorials auch die Verwendung von Kinesis Firehose gesehen habe. Ich glaube aber nicht, dass ihr das benötigt für eure Lösung. DynamoDB Streams hat schon die Möglichkeit zu Batchen. Vielleicht ist es aber auch ein anderer Grund warum Firehose verwendet wurde. Wenn ihr doch einen nützlichen Anwendungsfall für Firehose seht, sagt mir bitte Bescheid.
 
 ## Zusammenfassung
 
-...
+DynamoDB Items nach S3 wegzuschreiben um Kosten zu sparen ist super cool. Hier habe ich euch erklärt wie ihr es machen könnt. Habt ihr Feedback zu diesem Post oder andere Vorschläge über was ich berichten kann? Dann sagt mir Bescheid!
 
 Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf www.github.com/mmuller88 . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:
 
