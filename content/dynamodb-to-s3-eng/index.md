@@ -2,7 +2,7 @@
 title: DynamoDB Items nach S3 exportieren
 show: "no"
 date: "2022-04-03"
-image: "../dynamodb-to-s3/dia"
+image: "dia.png"
 tags: ["eng", "2022", "dynamodb", "lambda", "s3", "cdk", "nofeed"] #nofeed
 gerUrl: https://martinmueller.dev/dynamodb-to-s3
 pruneLength: 50 #ihr
