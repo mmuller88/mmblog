@@ -73,11 +73,11 @@ By the way, choosing the batch size with 10000 is ok in my case because they are
 
 With Athena and SQL queries the data in the S3 bucket can be inspected. How exactly that works I do not want to go into here. There are great tutorials that explain how Athena can be used to query for specific information in the S3 data such as JSON files.
 
-Also I would like to mention that in some tutorials I have also seen the use of Kinesis Firehose. But I don't think you need it for your solution. DynamoDB Streams already has the ability to batch. But maybe it is another reason why Firehose was used. If you do see a useful use case for Firehose, please let me know.
+Also I would like to mention that in some tutorials I have also seen the use of Kinesis Firehose. But I don't think you need it for your solution. DynamoDB Streams already has the ability to batch. But maybe it is another reason why Firehose was used. If you know why Kinesis Firehose might be useful write me!
 
 ## Summary
 
-Writing DynamoDB items away to S3 to save costs is super cool. Here I explained how you can do it. Do you have any feedback on this post or other suggestions on what I can cover? Then let me know!
+Writing DynamoDB items away to S3 to save costs is super cool. Here I explained how you do it. Do you have any feedback on this post or other suggestions on what I can cover? Then let me know!
 
 I love to work on Content Management Open Source projects. A lot from my stuff you can already use on https://github.com/mmuller88 . If you like my work there and my blog posts, please consider supporting me on Patreon:
 
