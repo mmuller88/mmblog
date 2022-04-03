@@ -1,9 +1,9 @@
 ---
 title: Export DynamoDB Items to S3
-show: "no"
+show: "yes"
 date: "2022-04-03"
 image: "dia.png"
-tags: ["eng", "2022", "dynamodb", "lambda", "s3", "cdk", "nofeed"] #nofeed
+tags: ["eng", "2022", "dynamodb", "lambda", "s3", "cdk"] #nofeed
 gerUrl: https://martinmueller.dev/dynamodb-to-s3
 pruneLength: 50 #ihr
 ---
