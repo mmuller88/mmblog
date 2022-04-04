@@ -20,7 +20,7 @@ The question now is how you can do this most sophisticated? For me the combinati
 
 You can find the code in my GitHub repo <https://github.com/mmuller88/cdk-ddb-to-s3> . As you can see the architecture in the title image is simple. DynamoDB Streams invokes a Lambda, which writes the deleted item away to S3. In my example, the DynamoDB items are JSON logs with few properties. In your case, the DynamoDB item can look different. But the basic concept should still the same!
 
-Übrigens ihr neugierig seit wie ich das AWS Component Architektur Diagram erstellt habe schonmal [hier](https://martinmueller.dev/dynamodb-to-s3) rein.
+By the way, if you are curious how I created the AWS Component Architecture Diagram, you can read it [here](https://martinmueller.dev/dynamodb-to-s3).
 
 ```ts
 const table = new ddb.Table(this, "table", {
