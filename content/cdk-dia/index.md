@@ -69,7 +69,7 @@ Wenn ihr gerne das Diagram in einzelne Bilder aufteilen wollt, könnt ihr auch g
 ```json
 "scripts": {
     ...
-    "dia": "mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn cdk synth && yarn cdk-dia --stacks DashboardAppStack DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks LandingPageStack && mv diagram.png diagrams/landingpage.png",
+    "dia": "yarn cdk synth && yarn cdk-dia --stacks DashboardAppStack DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks LandingPageStack && mv diagram.png diagrams/landingpage.png",
     ...
   },
 ```

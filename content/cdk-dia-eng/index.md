@@ -57,7 +57,7 @@ Then create a folder named diagrams and add this script to package.json.
 
 The script first synthesizes the current CloudFormation templates. cdk-dia needs them to generate the diagram at all. Then `yarn cdk-dia` creates the diagram and moves it to the diagrams folder.
 
-yarn cdk-dia` also creates a diagram.dot file. I recommend to put the following two files into the .gitignore:
+`yarn cdk-dia` also creates a diagram.dot file. I recommend to put the following two files into the .gitignore:
 
 ```txt
 diagram.dot
@@ -69,7 +69,7 @@ If you like to split the diagram into single images, you can also render only si
 ```json
 "scripts": {
     ...
-    "dia": "mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn cdk synth && yarn cdk-dia --stacks DashboardAppStack DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks LandingPageStack && mv diagram.png diagrams/landingpage.png",
+    "dia": "yarn cdk synth && yarn cdk-dia --stacks DashboardAppStack DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks LandingPageStack && mv diagram.png diagrams/landingpage.png",
     ...
   },
 ```
