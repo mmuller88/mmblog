@@ -10,13 +10,13 @@ pruneLength: 50 #du
 
 Hi.
 
-...
+Seit März 2022 bin ich ein AWS Community Builder. In diesem Post will ich dir erklären was ein AWS Community Builder ist und wie du einer werden kannst. Darüber hinaus will ich meine persönliche Motivation preisgeben, warum ich überhaupt ein AWS Builder werden wollte. Am Schluss erkläre ich was ich aus meiner Perspektive gut und was nicht so gut am AWS Community Builder Programm.
 
-## Was ist und wie wirst du ein AWS Builder?
+## Was ist und wie wirst du ein AWS Community Builder?
 
-Ein AWS Builder ...
+Die genau Beschreibung des AWS Community Builder findet ihr [hier](https://aws.amazon.com/developer/community/community-builders/). Kurz zusammengefasst bietet es die Möglichkeit sein AWS zentriertes Netzwerk weiter auszubauen. Ich habe bereits viele spannende Builder kennengelernt. Darüber hinaus helfen sich die Community Mitglieder gegenseitig.
 
-- Bewirb dich dann und dann
+Ein AWS Community Builder wirst du indem du dich in einem bestimmten Zeitfenster. Für mich war dieses Zeitfenster im Januar. Das nächste Zeitfenster wird sich voraussichtlich [Mitte 2022](https://aws.amazon.com/developer/community/community-builders/) wieder öffnen.
 
 ## Warum wollte ich ein AWS Builder werden?
 
