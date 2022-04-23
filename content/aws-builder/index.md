@@ -10,7 +10,7 @@ pruneLength: 50 #du
 
 Hi.
 
-Seit März 2022 bin ich ein AWS Community Builder. In diesem Post will ich dir erklären was ein AWS Community Builder ist und wie du einer werden kannst. Darüber hinaus will ich meine persönliche Motivation preisgeben, warum ich überhaupt ein AWS Builder werden wollte. Am Schluss erkläre ich was ich aus meiner Perspektive gut und was nicht so gut am AWS Community Builder Programm.
+Seit März 2022 bin ich ein AWS Community Builder. In diesem Post will ich dir erklären was ein AWS Community Builder ist und wie du einer werden kannst. Darüber hinaus werde ich meine persönliche Motivation, warum ich überhaupt ein AWS Builder werden wollte, preisgeben. Am Schluss erkläre ich was aus meiner Perspektive gut und nicht so gut ist am AWS Community Builder Programm.
 
 ## Was ist und wie wirst du ein AWS Community Builder?
 
@@ -20,22 +20,21 @@ Ein AWS Community Builder wirst du indem du dich in einem bestimmten Zeitfenster
 
 ## Warum wollte ich ein AWS Builder werden?
 
-- Sichtbarkeit erhöhen
-- Tolle und vor allem engagierte AWS Engineers kennenlernen
+In den letzten Jahren habe ich gelernt wie wertvoll und gut es ist sein professionelles Netzwerk auszubauen. Das ermöglicht tolle Gelegenheiten wie zum Beispiel einen neuen tollen Arbeitgeber\*in zu finden oder andere interessante Kooperationen einzugehen. Darüber hinaus habe ich in bestimmten Netzwerken wie Slack und auf Meetups viele tolle (AWS) Engineers kennengelernt die mir schon oft geholfen haben oder denen ich helfen durfte.
 
 ## Was gefällt mir soweit?
 
-- Im Austausch mit vielen und diversen AWS Buildern
-- Interessanter Austausch und Ideen zum Thema Diversität und Charity
+Am meisten gefällt mir der Austausch mit anderen AWS Buildern. Viele von ihnen sind sehr passionierte und engagierte Menschen. Auch ziemlich cool ist, dass Builder dort ihre Blogposts teilen die ich meistens mit Spannung lese.
 
 ## Was gefällt mir nicht
 
-- Ich finde es schade, dass nur ein geringer Anteil der Bewerbungen akzeptiert wurde, kann aber verstehen wieso. Nächstes mal hoffentlich mehr
-- Auch schade dass man sich bewerben muss
+Was ich nicht so toll finde ist, dass nur ein relativ geringer Anteil der Bewerbungen zum AWS Community Builder akzeptiert wurden. Es wäre toll sich mit noch mehr Buildern auszutauschen und auch Engineers, die noch nicht so ein hohe Sichtbarkeit haben wie ich, eine Change zu geben. Allerdings kann ich auch sehr gut verstehen warum AWS die Builder Community nicht zu schnell wachsen lassen sollte.
 
 ## Zusammenfassung
 
-- Wer nach einer ähnlich coolen AWS Community such joined gerne unseren AWS CDK Slack channel oder wenn ihr aus der DACH Region seit unseren AWS Slack DACH Channel
+Hier in diesem Post habe ich meine Gedanken und Gefühle zum AWS Community Builder zusammengefasst. Natürlich bin ich erst seit wenigen Wochen ein Mitglied und kann von daher kein 360 Grad Feedback geben. Von daher werde ich in ein paar Monaten erneut reflektieren und dich daran teilhaben lassen.
+
+Wenn du auch noch nach einer coolen AWS Community suchst kann ich dir wärmsten unsere [AWS CDK Slack Community](https://join.slack.com/t/cdk-dev/shared_invite/zt-xtpfmrqt-6ormYTA0hLdpMSAtTkM_2A) ans Herz legen. Auch sehr toll ist unsere [DACH AWS Community](https://join.slack.com/t/awscommunityde/shared_invite/zt-11ptmeylu-zpdZBIWmlbF9NNI3hY0Upw).
 
 Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf www.github.com/mmuller88 . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:
 
