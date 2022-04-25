@@ -1,7 +1,7 @@
 ---
 title: Weekly Newsletter from martinmueller.dev 2022/04/18-24
 show: "yes"
-date: "2022-03-25"
+date: "2022-04-25"
 image: "diagram.png"
 tags: ["eng", "2022", "newsletter"] #nofeed
 # gerUrl: https://martinmueller.dev/cdk-dia
