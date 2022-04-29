@@ -1,7 +1,7 @@
 ---
 title: AWS Builder Erfahrung bis jetzt
 show: "no"
-date: "2022-04-28"
+date: "2022-04-29"
 image: "title.png"
 tags: ["de", "2022", "builder"] #nofeed
 engUrl: https://martinmueller.dev/aws-builder-eng
@@ -38,6 +38,6 @@ Hier in diesem Post habe ich meine Gedanken und Gefühle zum AWS Community Build
 
 Wenn du auch noch nach einer coolen AWS Community suchst kann ich dir wärmsten unsere [AWS CDK Slack Community](https://join.slack.com/t/cdk-dev/shared_invite/zt-xtpfmrqt-6ormYTA0hLdpMSAtTkM_2A) ans Herz legen. Auch sehr toll ist unsere [DACH AWS Community](https://join.slack.com/t/awscommunityde/shared_invite/zt-11ptmeylu-zpdZBIWmlbF9NNI3hY0Upw).
 
-Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88) . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:
+Ich liebe es an Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88) . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:
 
 <a href="https://www.patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Werde ein Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
