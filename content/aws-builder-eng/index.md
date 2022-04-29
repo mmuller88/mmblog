@@ -3,7 +3,7 @@ title: AWS Builder Erfahrung bis jetzt
 show: "yes"
 date: "2022-04-28"
 image: "title.png"
-tags: ["de", "2022", "builder", "nofeed"] #nofeed
+tags: ["de", "2022", "builder"] #nofeed
 gerUrl: https://martinmueller.dev/aws-builder
 pruneLength: 50 #du
 ---
