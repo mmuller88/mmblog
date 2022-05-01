@@ -38,6 +38,6 @@ In this post, I have summarized my thoughts and feelings about the AWS Community
 
 If you are also looking for a cool AWS community, I highly recommend our [AWS CDK Slack Community](https://join.slack.com/t/cdk-dev/shared_invite/zt-xtpfmrqt-6ormYTA0hLdpMSAtTkM_2A). Also great is our [DACH AWS Community](https://join.slack.com/t/awscommunityde/shared_invite/zt-11ptmeylu-zpdZBIWmlbF9NNI3hY0Upw).
 
-I love to work on Open Source projects. A lot from my stuff you can already use on [github.com/mmuller88](https://github.com/mmuller88) . If you like my work there and my blog posts, please consider supporting me on Patreon:
+I love to work on Open Source projects. A lot from my stuff you can already use on [github.com/mmuller88](https://github.com/mmuller88) . If you like my work there and my blog posts, please consider supporting me on:
 
 <a href="https://www.patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Werde ein Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
