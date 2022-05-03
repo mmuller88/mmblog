@@ -67,11 +67,11 @@ https://dashbird.io/blog/ultimate-guide-aws-step-functions/
 
 A good roundup about AWS Step Functions. It is very good if you want to dive deep into the topic. As I have a lot with Step Functions already the article is a bit long. But yeah a highlight really is that you can used typed AWS CDK to define your Step Functions. Thanks to the author Mariliis Retter.
 
-## Title
+## Post Messages To Slack Using AWS Lambda Function URLs
 
 https://dev.to/josuebustos/post-messages-to-slack-using-aws-lambda-function-urls-5f2a
 
-A nice in depth article about how to post messages to slack with using AWS Function URLs.
+A nice in depth article about how to post messages to slack with using AWS Function URLs. Would be even cooler to create an AWS CDK construct to simplify that. Thanks to the author [Josue Bustos](https://dev.to/josuebustos)
 
 ...
 
