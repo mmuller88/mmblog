@@ -61,15 +61,17 @@ Super good roundup about sustainability with AWS. Explains the shared responsibi
 
 Super interesting article about how and why to use Lamba Layers. TBH I always avoided them but that might change because of this post. Thanks to [Aravind V](https://dev.to/aravindvcyber).
 
+## AWS Step Functions 101
+
+https://dashbird.io/blog/ultimate-guide-aws-step-functions/
+
+A good roundup about AWS Step Functions. It is very good if you want to dive deep into the topic. As I have a lot with Step Functions already the article is a bit long. But yeah a highlight really is that you can used typed AWS CDK to define your Step Functions. Thanks to the author Mariliis Retter.
+
 ## Title
 
-LINK
+https://dev.to/josuebustos/post-messages-to-slack-using-aws-lambda-function-urls-5f2a
 
-...
-
-## Title
-
-LINK
+A nice in depth article about how to post messages to slack with using AWS Function URLs.
 
 ...
 
