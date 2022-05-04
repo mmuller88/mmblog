@@ -63,15 +63,53 @@ Super interesting article about how and why to use Lamba Layers. TBH I always av
 
 ## AWS Step Functions 101
 
-https://dashbird.io/blog/ultimate-guide-aws-step-functions/
+<https://dashbird.io/blog/ultimate-guide-aws-step-functions/>
 
 A good roundup about AWS Step Functions. It is very good if you want to dive deep into the topic. As I have a lot with Step Functions already the article is a bit long. But yeah a highlight really is that you can used typed AWS CDK to define your Step Functions. Thanks to the author Mariliis Retter.
 
 ## Post Messages To Slack Using AWS Lambda Function URLs
 
-https://dev.to/josuebustos/post-messages-to-slack-using-aws-lambda-function-urls-5f2a
+<https://dev.to/josuebustos/post-messages-to-slack-using-aws-lambda-function-urls-5f2a>
 
 A nice in depth article about how to post messages to slack with using AWS Function URLs. Would be even cooler to create an AWS CDK construct to simplify that. Thanks to the author [Josue Bustos](https://dev.to/josuebustos)
+
+...
+
+## Terraform vs Pulumi vs Cloud SDKs - Keep It Simple, Silly
+
+<https://www.youtube.com/watch?v=Z3hyqmCddXc>
+
+This topic is super hot. Thanks to the creator [Michael Crilly](https://www.youtube.com/channel/UCp5CE3BD-fHc8rFqRJQklqA)
+
+## Website to PDF using AWS Lambda Function URLs
+
+<https://jobinbasani.com/2022/05/03/website-to-pdf-using-aws-lambda-function-urls/>
+
+In this article the author creates via AWS CDK and JS library chrome-aws-lambda a Lambda which can transform a website to PDF. Very cool. Thanks to the author [Jobi Basani](https://jobinbasani.com/)
+
+## Programmieren mit Python: Große Datenmengen verwalten mit vaex
+
+Programming with Python: How to manage a huge amount of data with vaex
+
+<https://www.heise.de/ratgeber/Python-Mit-vaex-grosse-Datenmengen-verwalten-7066766.html>
+
+With Python Panda you can not process your data anymore when they become to big. The library vaex is solving that problem. Thanks to the author [odi](odi@ix.de)
+
+## Pair Programming with a senior is invaluable
+
+<https://dev.to/w3ndo/pair-programming-with-a-senior-is-invaluable-2fdo>
+
+For me that topic is super important. I totally agree pair programming is invaluable. We have an unhealthy ratio between junior and senior engineers. So pair programming really helps to fix that. And in my opinion it is super helpful for the senior as well.
+
+## Title
+
+LINK
+
+...
+
+## Title
+
+LINK
 
 ...
 

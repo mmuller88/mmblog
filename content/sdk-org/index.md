@@ -1,5 +1,5 @@
 ---
-title: Dynamisch AWS Accounts erstellen und löschen mit AWS SDK und AWS Organizations
+title: Programmatisch AWS Accounts erstellen und löschen
 show: "no"
 date: "2022-05-10"
 image: "title.png"
@@ -10,9 +10,13 @@ pruneLength: 50 #du
 
 Hi.
 
-- Für AWS CI/CD möchte man dynamisch AWS Accounts erstellen und löschen. Z.B. Feature Branch zum testen von code changes. Entwickeln neuer Features usw. Sandbox accounts für neuer Mitarbeiter.
-- Manuelle Aufwand ist sehr hoch. Deswegen AWS Org zusammen mit AWS SDK benutzen um es dynamischer zu machen
-- habe zwei Scripts erzeugt: createSandbox und deleteSandbox
+In AWS ist es best practice neue Accounts zu erstellen wenn man zum Beispiel unterschiedliche Stages wie dev, qa und prod für seine Lösung bereitstellen möchte. Auch ist es üblich sogenannte Sandbox AWS Accounts zu erstellen um diese neuen Mitarbeiter zum Testen von AWS Services bereitzustellen. Es gibt noch viele weitere Gründe warum neue AWS Accounts erstellt werden sollte. Allen Gründen gemein ist aber dass so der maximale Grad an Separation in AWS erreicht wird.
+
+Nun das Erstellen solcher AWS Accounts kann recht aufwendig sein, wenn es manuell gemacht werden muss. Mit AWS Organizations, dem AWS SDK und ein wenig TypeScript Kenntnissen kann der Prozess zum Großteil automatisiert werden. In diesem Post stelle ich vor wie das funktioniert. Dafür erkläre ich zuerst was AWS Organizations überhaupt ist und dann stelle ich die zwei TypeScript Scripte die mittels AWS SDK die AWS Sandbox accounts Erstellen und Löschen können.
+
+## AWS Organizations
+
+...
 
 ## createSandbox
 
