@@ -101,17 +101,31 @@ With Python Panda you can not process your data anymore when they become to big.
 
 For me that topic is super important. I totally agree pair programming is invaluable. We have an unhealthy ratio between junior and senior engineers. So pair programming really helps to fix that. And in my opinion it is super helpful for the senior as well.
 
+## TypeScript vs JavaScript: What's the difference?
+
+https://dev.to/educative/typescript-vs-javascript-whats-the-difference-n5m
+
+Super good summary for what is JavaScript and what TypeScript and why to favor one over the other. In future I will refer just to this article.
+
+Thanks a lot to [Hunter Johnson](https://dev.to/huntereducative)
+
+## Infrastructure-as-Code: Vierte Pulumi-Hauptversion verspricht Universal IaC
+
+Translated: Infrastructure-as-Code: Fourth Pulumi-version promises universal IaC
+
+https://www.heise.de/news/Infrastructure-as-Code-Vierte-Pulumi-Hauptversion-verspricht-Universal-IaC-7076433.html
+
+Version 4 from Pulumi seems to make an interesting move with incorporating AWS CDK.
+
+Thanks a lot to the author [map](map@ix.de)
+
 ## Title
 
 LINK
 
 ...
 
-## Title
-
-LINK
-
-...
+Thanks a lot to the author []()
 
 ## Title
 
@@ -119,11 +133,31 @@ LINK
 
 ...
 
+Thanks a lot to the author []()
+
 ## Title
 
 LINK
 
 ...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
 
 ## Final Words
 
