@@ -103,7 +103,7 @@ For me that topic is super important. I totally agree pair programming is invalu
 
 ## TypeScript vs JavaScript: What's the difference?
 
-https://dev.to/educative/typescript-vs-javascript-whats-the-difference-n5m
+<https://dev.to/educative/typescript-vs-javascript-whats-the-difference-n5m>
 
 Super good summary for what is JavaScript and what TypeScript and why to favor one over the other. In future I will refer just to this article.
 
@@ -113,35 +113,38 @@ Thanks a lot to [Hunter Johnson](https://dev.to/huntereducative)
 
 Translated: Infrastructure-as-Code: Fourth Pulumi-version promises universal IaC
 
-https://www.heise.de/news/Infrastructure-as-Code-Vierte-Pulumi-Hauptversion-verspricht-Universal-IaC-7076433.html
+<https://www.heise.de/news/Infrastructure-as-Code-Vierte-Pulumi-Hauptversion-verspricht-Universal-IaC-7076433.html>
 
 Version 4 from Pulumi seems to make an interesting move with incorporating AWS CDK.
 
 Thanks a lot to the author [map](map@ix.de)
 
-## Title
+## Cloud Pricing Comparison: AWS vs. Azure vs. Google Cloud Platform in 2022
 
-LINK
+<https://dev.to/castai/cloud-pricing-comparison-aws-vs-azure-vs-google-cloud-platform-in-2022-no2>
 
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
+Interesting comparison between the three big cloud providers. In the article they use similar VMs from the different providers to compare those costs. That is a smart idea! As well they compared spot instances from the different providers.
 
 Thanks a lot to the author []()
 
-## Title
+## Developer shortage? No, just bad interviews
 
-LINK
+<https://dev.to/jssantana/developer-shortage-no-just-bad-interviews-1cpa>
 
-...
+The author explains why most of the companies are hiring wrong. Just those whitboard kind of tests doesn't evaluate the skills of the developer. I totally agree and those kind of tests always bothered me.
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Jean Santana](https://dev.to/jssantana)
+
+## AWS open source news and updates #111
+
+<https://dev.to/aws/aws-open-source-news-and-updates-111-1dj3>
+
+Here again where Ricardo presents exciting open source community projects. My favorites onces are:
+
+- The [cloudfront-manager](https://github.com/hseera/cloudfront-manager). Juggling CloudFront distribution in AWS is always not easy regarding Invalidate, Enable, Disable and Delete. This tool looks very promising in helping you with that! https://dev.to/aws-builders/aws-cloudfront-manager-a-windows-utility-for-cloudfront-17o0 . Thanks a lot to the author [Harinder Seera ](https://dev.to/harinderseera)
+- [amazon-cloudwatch-retention-period-setter](https://github.com/aws-samples/amazon-cloudwatch-retention-period-setter). This tool help you set the log retention period for CloudWatch logs per default. Otherwise they would stay in CloudWatch forever and accumulating costs. I usually prefer setting AWS CDK with the right properties to avoid that but yeah very often, I am lacy doing that so having something more globally like that would be awesome. https://aws.amazon.com/blogs/infrastructure-and-automation/reduce-log-storage-costs-by-automating-retention-settings-in-amazon-cloudwatch/. Thanks to author Mohamed Wali.
+
+And finally thank you so much Ricardo for picking and presenting all those cherries I missed in this week. And dear reader please support [Ricardo Sueiras](https://dev.to/094459)! Man I would loved to meat you in AWS Summit Berlin but I have to stay behind here in south Portugal Albufeira on the beach at my holidays. Not that bad actually :P.
 
 ## Title
 
