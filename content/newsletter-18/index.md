@@ -1,8 +1,8 @@
 ---
 title: Weekly Newsletter from martinmueller.dev 2022/05/02-08
-show: "no"
+show: "yes"
 date: "2022-05-08"
-tags: ["eng", "2022", "newsletter", "nofeed"] #nofeed
+tags: ["eng", "2022", "newsletter"] #nofeed
 pruneLength: 50
 ---
 
