@@ -35,38 +35,38 @@ So with that I just need line ginit or gall for quickly adding the commit. That 
 
 <https://dev.to/muthuannamalai12/17-ridiculously-funny-programming-memes-that-every-developer-can-relate-to-2gg3>
 
-A very good brain relax and it is super funny.
+A very good brain relaxes and it is super funny.
 
 ## AWS Step Functions 101
 
 <https://dashbird.io/blog/ultimate-guide-aws-step-functions/>
 
-A good roundup about AWS Step Functions. It is very good if you want to dive deep into the topic. As I have a lot with Step Functions already the article is a bit long. But yeah a highlight really is that you can used typed AWS CDK to define your Step Functions. Thanks to the author Mariliis Retter.
+A good roundup about AWS Step Functions. It is very good if you want to dive deep into the topic. As I have a lot with Step Functions already the article is a bit long. But yeah a highlight really is that you can use typed AWS CDK to define your Step Functions. Thanks to the author Mariliis Retter.
 
-## AWS open source news and updates #111
+## AWS open-source news and updates #111
 
 <https://dev.to/aws/aws-open-source-news-and-updates-111-1dj3>
 
-Here again where Ricardo presents exciting open source community projects. My favorites onces are:
+Here again where Ricardo presents exciting open source community projects. My favorites once are:
 
 - The [cloudfront-manager](https://github.com/hseera/cloudfront-manager). Juggling CloudFront distribution in AWS is always not easy regarding Invalidate, Enable, Disable and Delete. This tool looks very promising in helping you with that! <https://dev.to/aws-builders/aws-cloudfront-manager-a-windows-utility-for-cloudfront-17o0> . Thanks a lot to the author [Harinder Seera](https://dev.to/harinderseera)
-- [amazon-cloudwatch-retention-period-setter](https://github.com/aws-samples/amazon-cloudwatch-retention-period-setter). This tool help you set the log retention period for CloudWatch logs per default. Otherwise they would stay in CloudWatch forever and accumulating costs. I usually prefer setting AWS CDK with the right properties to avoid that but yeah very often, I am lacy doing that so having something more globally like that would be awesome. <https://aws.amazon.com/blogs/infrastructure-and-automation/reduce-log-storage-costs-by-automating-retention-settings-in-amazon-cloudwatch/>. Thanks to author Mohamed Wali.
+- [amazon-cloudwatch-retention-period-setter](https://github.com/aws-samples/amazon-cloudwatch-retention-period-setter). This tool help you set the log retention period for CloudWatch logs per default. Otherwise, they would stay in CloudWatch forever and accumulate costs. I usually prefer setting AWS CDK with the right properties to avoid that but yeah very often, I am lacy doing that so having something more globally like that would be awesome. <https://aws.amazon.com/blogs/infrastructure-and-automation/reduce-log-storage-costs-by-automating-retention-settings-in-amazon-cloudwatch/>. Thanks to author Mohamed Wali.
 
-And finally thank you so much Ricardo for picking and presenting all those cherries I missed in this week. And dear reader please support [Ricardo Sueiras](https://dev.to/094459)! Man I would loved to meat you in AWS Summit Berlin but I have to stay behind here in south Portugal Albufeira on the beach at my holidays. Not that bad actually :P.
+And finally thank you so much Ricardo for picking and presenting all those cherries I missed this week. And dear reader please support [Ricardo Sueiras](https://dev.to/094459)! Man, I would love to meet you at AWS Summit Berlin but I have to stay behind here in south Portugal Albufeira on the beach during my holidays. Not that bad actually :P.
 
 ## Obsidian - An IDE for your Brain
 
 <https://dev.to/envoy_/obsidian-an-ide-for-your-brain-1bn7>
 
-I used Obsidian for some weeks and is really cool. But I figured that VS Code is kind of better when it come to writing / organizing my content. Probably combining both like VS Code for writing and Obsidian for viewing seems interesting.
+I used Obsidian for some weeks and is really cool. But I figured that VS Code is kind of better when it comes to writing / organizing my content. Probably combining both like VS Code for writing and Obsidian for viewing seems interesting.
 
 ## Optimize your workloads for Sustainability
 
 <https://globaldatanet.com/tech-blog/optimize-your-workloads-for-sustainability>
 
-Super good roundup about sustainability with AWS. Explains the shared responsibility between AWS and customer and provides some very useful tips for how to reduce the resource footprint. Thanks to the author [David Krohn](https://globaldatanet.com/our-team/david-krohn).
+Super good roundup about sustainability with AWS. Explains the shared responsibility between AWS and customers and provides some very useful tips for how to reduce the resource footprint. Thanks to the author [David Krohn](https://globaldatanet.com/our-team/david-krohn).
 
-## 🤡 AWS CDK 101 - 🤾‍♂ Using layers in Lambda functions and saving JSON to S3
+## :clown_face: AWS CDK 101 - 🤾‍♂ Using layers in Lambda functions and saving JSON to S3
 
 <https://dev.to/aravindvcyber/aws-cdk-101-using-layers-in-lambda-functions-and-saving-json-to-s3-46fg>
 
@@ -76,13 +76,13 @@ Super interesting article about how and why to use Lamba Layers. TBH I always av
 
 <https://dev.to/josuebustos/post-messages-to-slack-using-aws-lambda-function-urls-5f2a>
 
-A nice in depth article about how to post messages to slack with using AWS Function URLs. Would be even cooler to create an AWS CDK construct to simplify that. Thanks to the author [Josue Bustos](https://dev.to/josuebustos)
+A nice in-depth article about how to post messages to slack using AWS Function URLs. Would be even cooler to create an AWS CDK construct to simplify that. Thanks to the author [Josue Bustos](https://dev.to/josuebustos)
 
 ## Website to PDF using AWS Lambda Function URLs
 
 <https://jobinbasani.com/2022/05/03/website-to-pdf-using-aws-lambda-function-urls/>
 
-In this article the author creates via AWS CDK and JS library chrome-aws-lambda a Lambda which can transform a website to PDF. Very cool. Thanks to the author [Jobi Basani](https://jobinbasani.com/)
+In this article, the author creates via AWS CDK and JS library chrome-aws-lambda a Lambda which can transform a website into PDF. Very cool. Thanks to the author [Jobi Basani](https://jobinbasani.com/)
 
 ## Terraform vs Pulumi vs Cloud SDKs - Keep It Simple, Silly
 
@@ -94,7 +94,7 @@ This topic is super hot. Thanks to the creator [Michael Crilly](https://www.yout
 
 <https://www.internetkatta.com/how-to-avoid-aws-unintentional-charges>
 
-Recommend to use "AWS Pricing Calculator" to evaluate your pricing model.
+Recommend using "AWS Pricing Calculator" to evaluate your pricing model.
 
 ## Programmieren mit Python: Große Datenmengen verwalten mit vaex
 
@@ -102,19 +102,19 @@ Programming with Python: How to manage a huge amount of data with vaex
 
 <https://www.heise.de/ratgeber/Python-Mit-vaex-grosse-Datenmengen-verwalten-7066766.html>
 
-With Python Panda you can not process your data anymore when they become to big. The library vaex is solving that problem. Thanks to the author [odi](odi@ix.de)
+With Python Panda you can not process your data anymore when they become too big. The library vaex is solving that problem. Thanks to the author [odi](odi@ix.de)
 
 ## Pair Programming with a senior is invaluable
 
 <https://dev.to/w3ndo/pair-programming-with-a-senior-is-invaluable-2fdo>
 
-For me that topic is super important. I totally agree pair programming is invaluable. We have an unhealthy ratio between junior and senior engineers. So pair programming really helps to fix that. And in my opinion it is super helpful for the senior as well.
+For me, that topic is super important. I totally agree pair programming is invaluable. We have an unhealthy ratio between junior and senior engineers. So pair programming really helps to fix that. And in my opinion, it is super helpful for the senior as well.
 
 ## TypeScript vs JavaScript: What's the difference?
 
 <https://dev.to/educative/typescript-vs-javascript-whats-the-difference-n5m>
 
-Super good summary for what is JavaScript and what TypeScript and why to favor one over the other. In future I will refer just to this article.
+Super good summary of what is JavaScript and what TypeScript is and why to favor one over the other. In the future, I will refer just to this article.
 
 Thanks a lot to [Hunter Johnson](https://dev.to/huntereducative)
 
@@ -124,7 +124,7 @@ Translated: Infrastructure-as-Code: Fourth Pulumi-version promises universal IaC
 
 <https://www.heise.de/news/Infrastructure-as-Code-Vierte-Pulumi-Hauptversion-verspricht-Universal-IaC-7076433.html>
 
-Version 4 from Pulumi seems to make an interesting move with incorporating AWS CDK.
+Version 4 from Pulumi seems to make an interesting move by incorporating AWS CDK.
 
 Thanks a lot to the author [map](map@ix.de)
 
@@ -132,7 +132,7 @@ Thanks a lot to the author [map](map@ix.de)
 
 <https://dev.to/castai/cloud-pricing-comparison-aws-vs-azure-vs-google-cloud-platform-in-2022-no2>
 
-Interesting comparison between the three big cloud providers. In the article they use similar VMs from the different providers to compare those costs. That is a smart idea! As well they compared spot instances from the different providers.
+Interesting comparison between the three big cloud providers. In the article, they use similar VMs from different providers to compare those costs. That is a smart idea! As well they compared spot instances from the different providers.
 
 Thanks a lot to the author [CAST AI](https://dev.to/castai)
 
@@ -140,7 +140,7 @@ Thanks a lot to the author [CAST AI](https://dev.to/castai)
 
 <https://dev.to/jssantana/developer-shortage-no-just-bad-interviews-1cpa>
 
-The author explains why most of the companies are hiring wrong. Just those whitboard kind of tests doesn't evaluate the skills of the developer. I totally agree and those kind of tests always bothered me.
+The author explains why most companies are hiring wrong. Just those whiteboard kinds of tests don't evaluate the skills of the developer. I totally agree and those kinds of tests always bothered me.
 
 Thanks a lot to the author [Jean Santana](https://dev.to/jssantana)
 
@@ -156,7 +156,7 @@ Thanks a lot to the author [markymarkus](https://dev.to/markymarkus)
 
 <https://dev.to/aws-builders/does-aws-lambda-good-for-etl-jobs-10i8>
 
-The author discusses if Lambda is good suited for ETL. I think it is until you reach a Lambda limit and than you change to other services like AWS Glue.
+The author discusses if Lambda is well suited for ETL. I think it is until you reach a Lambda limit and then you change to other services like AWS Glue.
 
 Thanks a lot to the author [Mohamed Latfalla](https://dev.to/imohd23)
 
