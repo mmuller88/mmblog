@@ -16,7 +16,7 @@ Nun das Erstellen solcher AWS Accounts kann recht aufwendig sein, wenn es manuel
 
 ## AWS Organizations
 
-AWS Organizations hilft dabei die AWS Accounts zu verwalten. In sogenannten Organizational Unites (OU) können Accounts zu Gruppen zusammengefasst werden. Darüber hinaus können Security Mechanismen wie Policies accountübergreifend definiert werden. AWS Organizations bietet noch viel viel mehr Funktionalität und ich möchte an dieser Stelle auf die öffentlich Dokumentation hinweisen. Interessant für diesen Beitrag ist, dass es für die AWS Organizations API auch ein [JavaScript SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Organizations.html) wrapper gibt den wir in den nächsten Abschnitten benutzen werden um dynamisch Accounts zu erstellen und zu löschen.
+AWS Organizations hilft dabei die AWS Accounts zu verwalten. In sogenannten Organizational Unites (OU) können Accounts zu Gruppen zusammengefasst werden. Darüber hinaus können Security Mechanismen wie Policies Account übergreifend definiert werden. AWS Organizations bietet noch viel viel mehr Funktionalität und ich möchte an dieser Stelle auf die öffentlich Dokumentation hinweisen. Interessant für diesen Beitrag ist, dass es für die AWS Organizations API auch ein [JavaScript SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Organizations.html) wrapper gibt den wir in den nächsten Abschnitten benutzen werden um dynamisch Accounts zu erstellen und zu löschen.
 
 ## createSandbox
 
