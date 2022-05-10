@@ -16,35 +16,35 @@ If you like my content follow me on my usual spots to hang around:
 - <https://dev.to/mmuller88>
 - <https://martinmueller.dev>
 
-## Title
+## Serverless Threat Modelling Part 2 🚀
 
-LINK
+https://leejamesgilmore.medium.com/serverless-threat-modelling-part-2-87e69d447fa8
 
-...
+A nice top down post on serverless threat modeling.
+
+Thanks a lot to the author [Lee James Gilmore](https://leejamesgilmore.medium.com/)
+
+## How to get remote software developer jobs in 2022 | high paying | international | remote job
+
+https://www.youtube.com/watch?v=ftC-jQgmcwI
+
+Contains very good tips for how to get a remote developer job.
+
+Thanks a lot to the author [Learn And Grow Everyday](https://www.youtube.com/channel/UCMQtriZHwNgXl6eff5dNTHQ)
+
+## Securing AWS Lambda function URLs
+
+https://www.wiz.io/blog/securing-aws-lambda-function-urls
+
+Nice roundup about what are vulnerbalities from AWS Lambda Function Urls
 
 Thanks a lot to the author []()
 
 ## Title
 
-LINK
+https://aws.amazon.com/blogs/compute/debugging-aws-step-functions-executions-with-the-new-console-experience/
 
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
+The capability that you can debug Step Functions became super important to me and this article is great to learn more about it. The new debug AWS Console experience for Step Functions looks super exciting. Can't wait to try it myself!
 
 Thanks a lot to the author []()
 
