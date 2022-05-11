@@ -55,6 +55,8 @@ The library is a lightweight wrapper around AWS SDK TypeScript v.2 . With `await
 
 In this blog post I explained why it is sometimes necessary to create new AWS accounts and how this can be done using AWS Organizations and the JavaScript SDK. For this I created a createAccount and a deleteAccount script and presented them here. Did you find the post helpful or do you have any suggestions for improvement? Let me know and write me :).
 
+Thanks to the [DeepL translater (free version)](https://DeepL.com/Translator) for helping with translating to english and saving me tons of time :).
+
 I love to work on Open Source projects. A lot of my stuff you can already use on <https://github.com/mmuller88> . If you like my work there and my blog posts, please consider supporting me on:
 
 [![Buy me a Ko-Fi](https://storage.ko-fi.com/cdn/useruploads/png_d554a01f-60f0-4969-94d1-7b69f3e28c2fcover.jpg?v=69a332f2-b808-4369-8ba3-dae0d1100dd4)](https://ko-fi.com/T6T1BR59W)
