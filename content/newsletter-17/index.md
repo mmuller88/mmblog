@@ -113,12 +113,6 @@ Amazing post about Apollo GraphQL and AppSync. Very cool is that it recommends C
 
 Great topic about how to get more women in tech. It seems it would be useful to provide young girls earlier with information about IT jobs.
 
-## Fine Details of AWS Lambda Function URL Feature
-
-<https://engineering.teknasyon.com/fine-details-of-aws-lambda-function-url-feature-f3b65b894c5f>
-
-...
-
 ## # How to control access to AWS resources based on AWS account, OU, or organization
 
 <https://aws.amazon.com/blogs/security/how-to-control-access-to-aws-resources-based-on-aws-account-ou-or-organization/>

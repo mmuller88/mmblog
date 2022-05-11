@@ -18,7 +18,7 @@ If you like my content follow me on my usual spots to hang around:
 
 ## Serverless Threat Modelling Part 2 🚀
 
-https://leejamesgilmore.medium.com/serverless-threat-modelling-part-2-87e69d447fa8
+<https://leejamesgilmore.medium.com/serverless-threat-modelling-part-2-87e69d447fa8>
 
 A nice top down post on serverless threat modeling.
 
@@ -26,7 +26,7 @@ Thanks a lot to the author [Lee James Gilmore](https://leejamesgilmore.medium.co
 
 ## How to get remote software developer jobs in 2022 | high paying | international | remote job
 
-https://www.youtube.com/watch?v=ftC-jQgmcwI
+<https://www.youtube.com/watch?v=ftC-jQgmcwI>
 
 Contains very good tips for how to get a remote developer job.
 
@@ -34,23 +34,23 @@ Thanks a lot to the author [Learn And Grow Everyday](https://www.youtube.com/cha
 
 ## Securing AWS Lambda function URLs
 
-https://www.wiz.io/blog/securing-aws-lambda-function-urls
+<https://www.wiz.io/blog/securing-aws-lambda-function-urls>
 
 Nice roundup about what are vulnerbalities from AWS Lambda Function Urls
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Amitai Cohen](https://www.wiz.io/blog/author/amitaico/)
 
-## Title
+## Debugging AWS Step Functions executions with the new console experience
 
-https://aws.amazon.com/blogs/compute/debugging-aws-step-functions-executions-with-the-new-console-experience/
+<https://aws.amazon.com/blogs/compute/debugging-aws-step-functions-executions-with-the-new-console-experience/>
 
 The capability that you can debug Step Functions became super important to me and this article is great to learn more about it. The new debug AWS Console experience for Step Functions looks super exciting. Can't wait to try it myself!
 
-Thanks a lot to the author []()
+Thanks a lot to the author Benjamin Smith.
 
 ## Simple Leave Management System with AWS Serverless
 
-https://dev.to/aws-builders/simple-leave-management-system-with-aws-serverless-3dnp
+<https://dev.to/aws-builders/simple-leave-management-system-with-aws-serverless-3dnp>
 
 Constructing a workflow like the explained simple leave management with AWS Step Functions is so cool. Furthermore the recently released [AWS SDK service integrations](https://docs.aws.amazon.com/step-functions/latest/dg/supported-services-awssdk.html) makes it fun to define such.
 
@@ -58,7 +58,7 @@ Thanks a lot to the author [Pubudu Jayawardana](https://dev.to/pubudusj)
 
 ## AWS Security Best Practices with Crowd Sentry
 
-https://blog.crowdsentry.io/aws-security-best-practices-with-crowd-sentry-b3605f1854bc
+<https://blog.crowdsentry.io/aws-security-best-practices-with-crowd-sentry-b3605f1854bc>
 
 A nice short summary about some AWS Security Best Practices and how to keep those.
 
@@ -66,7 +66,7 @@ Thanks a lot to the author [Mike Wade](https://medium.com/@MikeCrowdSentry)
 
 ## Architectural Patterns
 
-https://dev.to/dev0928/architectural-patterns-5f31
+<https://dev.to/dev0928/architectural-patterns-5f31>
 
 Nice roundup about the architectural patterns Monolith Architecture, N-tier Architecture, Service-oriented Architecture, Message-based Architecture, Microservice-based Architecture, Reactive Architecture and Serverless Architecture.
 
@@ -74,13 +74,13 @@ Thanks a lot to the author [dev0928](https://dev.to/dev0928)
 
 ## Redshift vs Athena
 
-https://www.reddit.com/r/aws/comments/umx793/redshift_vs_athena/
+<https://www.reddit.com/r/aws/comments/umx793/redshift_vs_athena/>
 
 Interesting discussion about AWS Redshift vs Athena. Athena seems to keep the costs low as it is serverless but it would be rather slow when you need a quick answering kind of API.
 
 ## 3 Reasons You Should Stay Away From AWS Step Functions
 
-https://www.readysetcloud.io/blog/allen.helton/when-not-to-use-step-functions/
+<https://www.readysetcloud.io/blog/allen.helton/when-not-to-use-step-functions/>
 
 Very nice deep dive in to AWS Step Functions. It is so cool that the author describes some problems and how to solve it from a view as an Step Functions Beginner, Intermediate and Advanced. Nice idea! Must read!
 
