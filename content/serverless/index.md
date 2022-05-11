@@ -1,14 +1,28 @@
 ---
 title: Was ist Serverless?
 show: "no"
-date: "2022-05-11"
+date: "2022-05-20"
 # image: "title.png"
 tags: ["de", "2022", "aws", "sdk", "organizations", "nofeed"] #nofeed
-engUrl: https://martinmueller.dev/sdk-org-eng
+engUrl: https://martinmueller.dev/serverless
 pruneLength: 50
 ---
 
-- Hier möchte ich Serverless erklären zu einer die nicht viel Ahnung von Backend hat
+Um gleich ein mögliches Missverständnis aufzuklären! Serverless heißt nicht dass es keine Server mehr gibt! Eher im Gegenteil Cloud Provider wie AWS die Serverless anbieten, verfügen über jede Menge Server sogar unglaublich viele an sehr vielen Standorten der Welt (siehe Bilder):
+
+AWS REGIONS
+AWS RECHENZENTRUM
+
+Serverless in diesem Zusammenhang bedeutet, dass ich mich als Cloud Entwickler nicht mehr um die Verwaltung (Hardware und Software) dieser Server kümmern muss und dieses AWS überlassen kann. Somit kann ich mich direkter auf die Businesslogik meiner Applikation in der Cloud konzentrieren.
+
+## Aber wie funktioniert Serverless?
+
+- Cloud wie AWS erster Schritt keine locale Hardware mehr nötig
+  - benutzen APIs um dieses Angebot möglich zu machen
+- zweiter Schritt is Serverless
+- Beispiel S3 und Lambda
+
+- was wird der dritte Schritt sein? Monada arbeitet dran!
 
 ## Zusammenfassung
 
