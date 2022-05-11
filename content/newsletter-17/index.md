@@ -1,5 +1,5 @@
 ---
-title: Weekly Newsletter from martinmueller.dev 2022/05/25-01
+title: Newsletter martinmueller.dev 2022 week 17
 show: "yes"
 date: "2022-05-01"
 image: "diagram.png"

@@ -1,5 +1,5 @@
 ---
-title: Weekly Newsletter from martinmueller.dev 2022/05/09-15
+title: Weekly Newsletter martinmueller.dev 2022/05/09-15
 show: "no"
 date: "2022-05-15"
 tags: ["eng", "2022", "newsletter", "nofeed"] #nofeed
@@ -78,13 +78,13 @@ https://www.reddit.com/r/aws/comments/umx793/redshift_vs_athena/
 
 Interesting discussion about AWS Redshift vs Athena. Athena seems to keep the costs low as it is serverless but it would be rather slow when you need a quick answering kind of API.
 
-## Title
+## 3 Reasons You Should Stay Away From AWS Step Functions
 
-LINK
+https://www.readysetcloud.io/blog/allen.helton/when-not-to-use-step-functions/
 
-...
+Very nice deep dive in to AWS Step Functions. It is so cool that the author describes some problems and how to solve it from a view as an Step Functions Beginner, Intermediate and Advanced. Nice idea! Must read!
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Allen Helton](https://twitter.com/AllenHeltonDev)
 
 ## Title
 

@@ -1,5 +1,5 @@
 ---
-title: Weekly Newsletter from martinmueller.dev 2022/05/02-08
+title: Newsletter martinmueller.dev 2022 week 18
 show: "yes"
 date: "2022-05-08"
 tags: ["eng", "2022", "newsletter"] #nofeed
