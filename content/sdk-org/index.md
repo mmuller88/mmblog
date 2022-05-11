@@ -1,8 +1,8 @@
 ---
 title: Programmatisch AWS Accounts erstellen und löschen
 show: "no"
-date: "2022-05-10"
-image: "title.png"
+date: "2022-05-11"
+# image: "title.png"
 tags: ["de", "2022", "aws", "sdk", "organizations"] #nofeed
 engUrl: https://martinmueller.dev/sdk-org-eng
 pruneLength: 50
@@ -20,7 +20,7 @@ AWS Organizations hilft dabei die AWS Accounts zu verwalten. In sogenannten Orga
 
 ## createAccount and deleteAccount
 
-Ich habe eine kleine Helferbibliothek in [GitHub](https://github.com/mmuller88/aws-accounts) erstellt um das programmatische Erstellen und Löschen von AWS Accounts zu vereinfachen. Ein AWS SDK Script ließe sich dann so ganz leicht bauen wie zum Beispiel:
+Ich habe eine kleine Helfer-Bibliothek in [GitHub](https://github.com/mmuller88/aws-accounts) erstellt um das programmatische Erstellen und Löschen von AWS Accounts zu vereinfachen. Ein AWS SDK Script ließe sich dann so ganz leicht bauen wie zum Beispiel:
 
 ```ts
 import {
@@ -51,16 +51,14 @@ Der Code ist auch im Repo [hier](https://github.com/mmuller88/aws-accounts/blob/
 
 Die Bibliothek is ein leichter Wrapper um AWS SDK TypeScript v.2 . Mit `await createAccount(accountName)` wird zuerst der Account erstellt. Anschließend mit `await getAccountIdFromName(accountName)` und `await moveAccountToOU(accountId)` wird der Account in die definierte OU (Organizational Unit) verschoben.
 
-## Ausblick
-
-- Wäre cool die Scripts mit einer Pipeline z.B. AWS CodePipeline oder BitBucket Pipeline oder GitHub Actions zu verbinden um automatisch neue Accounts anzulegen
-
 ## Zusammenfassung
 
-In diesem Blog Post habe ich erklärt warum es manchmal erforderlich ist neue AWS Accounts zu erstellen und wie dies gemacht werden kann mit AWS Organizations und dem JavaScript SDK. Dafür habe ich ein createSandbox und ein deleteSandbox Script erstellt und hier vorgestellt. Fandet ihr den Beitrag hilfreich oder habt ihr Verbesserungsvorschläge? Lasses es mich wissen und schreibt mir :).
+In diesem Blog Post habe ich erklärt warum es manchmal erforderlich ist neue AWS Accounts zu erstellen und wie dies gemacht werden kann mit AWS Organizations und dem JavaScript SDK. Dafür habe ich ein createAccount und ein deleteAccount Script erstellt und hier vorgestellt. Fandet ihr den Beitrag hilfreich oder habt ihr Verbesserungsvorschläge? Lasses es mich wissen und schreibt mir :).
 
-Wenn du auch noch nach einer coolen AWS Community suchst kann ich dir wärmsten unsere [AWS CDK Slack Community](https://join.slack.com/t/cdk-dev/shared_invite/zt-xtpfmrqt-6ormYTA0hLdpMSAtTkM_2A) ans Herz legen. Auch sehr toll ist unsere [DACH AWS Community](https://join.slack.com/t/awscommunityde/shared_invite/zt-11ptmeylu-zpdZBIWmlbF9NNI3hY0Upw).
+Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88) . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen:
 
-Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88) . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:
+[![Buy me a Ko-Fi](https://storage.ko-fi.com/cdn/useruploads/png_d554a01f-60f0-4969-94d1-7b69f3e28c2fcover.jpg?v=69a332f2-b808-4369-8ba3-dae0d1100dd4)](https://ko-fi.com/T6T1BR59W)
 
-<a href="https://www.patreon.com/bePatron?u=29010217" data-patreon-widget-type="become-patron-button">Werde ein Patreon!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+Oder
+
+[![Buy me a Ko-Fi](https://theastrologypodcast.com/wp-content/uploads/2015/06/become-my-patron-05.jpg)](https://www.patreon.com/bePatron?u=29010217)

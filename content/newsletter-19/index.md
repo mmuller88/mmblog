@@ -48,6 +48,52 @@ The capability that you can debug Step Functions became super important to me an
 
 Thanks a lot to the author []()
 
+## Simple Leave Management System with AWS Serverless
+
+https://dev.to/aws-builders/simple-leave-management-system-with-aws-serverless-3dnp
+
+Constructing a workflow like the explained simple leave management with AWS Step Functions is so cool. Furthermore the recently released [AWS SDK service integrations](https://docs.aws.amazon.com/step-functions/latest/dg/supported-services-awssdk.html) makes it fun to define such.
+
+Thanks a lot to the author [Pubudu Jayawardana](https://dev.to/pubudusj)
+
+## AWS Security Best Practices with Crowd Sentry
+
+https://blog.crowdsentry.io/aws-security-best-practices-with-crowd-sentry-b3605f1854bc
+
+A nice short summary about some AWS Security Best Practices and how to keep those.
+
+Thanks a lot to the author [Mike Wade](https://medium.com/@MikeCrowdSentry)
+
+## Architectural Patterns
+
+https://dev.to/dev0928/architectural-patterns-5f31
+
+Nice roundup about the architectural patterns Monolith Architecture, N-tier Architecture, Service-oriented Architecture, Message-based Architecture, Microservice-based Architecture, Reactive Architecture and Serverless Architecture.
+
+Thanks a lot to the author [dev0928](https://dev.to/dev0928)
+
+## Redshift vs Athena
+
+https://www.reddit.com/r/aws/comments/umx793/redshift_vs_athena/
+
+Interesting discussion about AWS Redshift vs Athena. Athena seems to keep the costs low as it is serverless but it would be rather slow when you need a quick answering kind of API.
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
 ## Title
 
 LINK
