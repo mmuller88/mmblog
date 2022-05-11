@@ -3,7 +3,7 @@ title: Was ist Serverless?
 show: "no"
 date: "2022-05-11"
 # image: "title.png"
-tags: ["de", "2022", "aws", "sdk", "organizations"] #nofeed
+tags: ["de", "2022", "aws", "sdk", "organizations", "nofeed"] #nofeed
 engUrl: https://martinmueller.dev/sdk-org-eng
 pruneLength: 50
 ---
