@@ -86,6 +86,54 @@ Very nice deep dive in to AWS Step Functions. It is so cool that the author desc
 
 Thanks a lot to the author [Allen Helton](https://twitter.com/AllenHeltonDev)
 
+## Annahita Esmailzadeh: „Ich entspreche nicht dem Stereotyp eines IT-lers“
+
+<https://t3n.de/news/annahita-esmailzadeh-stereotype-it-tech-branche-1471342/?utm_source=rss&utm_medium=feed&utm_campaign=news>
+
+Super interesting talk about less women in IT and how hard it is for women to be acknowledged in the IT area. Unlucky it is in German but you can use a translation service :).
+
+Thanks a lot to the author []()
+
+## On DevOps: 1. What It Is
+
+<https://dev.to/devstream/on-devops-1-what-it-is-3lmd>
+
+Interesting discussion about DevOps and DevOps Culture. Like what it is and more. As well in this context what leadership means.
+
+Thanks a lot to the author [Tiexin Guo](https://dev.to/ironcore864)
+
+## Starter Guide & “Things I wish I knew before” for AWS Lambda
+
+<https://towardsaws.com/starter-guide-things-i-wish-i-knew-before-for-aws-lambda-fe36ce2fd4cb>
+
+A nice deep dive into AWS Lambda regarding pricing, when to use it, limitations and much more. It even tackles the cold start problem and gives good advice how to minimize that burden. Super cool!
+
+Thanks a lot to the author [Tobias Schmidt](https://blog.tpschmidt.com/)
+
+## Automating machine learning lifecycle with AWS
+
+<https://trojrobert.medium.com/automating-machine-learning-lifecycle-on-aws-trojrobert-385a66b82fbf>
+
+A very broad listing of useful AWS services related to machine learning. Though I don't believe that it shall only take 11 minutes to read :D !!
+
+Thanks a lot to the author [Robert John](https://trojrobert.medium.com/)
+
+## Shortcut for AWS CDK credentials: insanely simple setup for SSO, SAML, and named profiles
+
+<https://dev.to/aws-builders/shortcut-for-aws-cdk-credentials-insanely-simple-setup-for-sso-saml-and-named-profiles-35a9>
+
+And interesting post for how to use SSO SAML and named Profiles for AWS CDK deployments. TBH I never used CDK deploy --profile $PROFILE_NAME but yeah if I have to this article explains it in very good details.
+
+Thanks a lot to the author [Alessandro Gaggia](https://dev.to/urz9999)
+
+## AWS open source news and updates, #112
+
+<https://dev.to/aws/aws-open-source-news-and-updates-112-5bjp>
+
+And again a nice weekly summary. My highlight is the [aws-dataall](https://github.com/awslabs/aws-dataall) as it looks super interesting for sharing ML data company internally and event externally mhh. Lots to think here. But as always there is tons of other gold so you have to explore that!
+
+Thanks again to the author [Ricardo Sueiras](https://dev.to/094459) . I hope you enjoyed the Summit in Berlin ^^. Next time count me in!
+
 ## Title
 
 LINK
