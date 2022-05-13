@@ -8,12 +8,25 @@ engUrl: https://martinmueller.dev/serverless
 pruneLength: 50
 ---
 
-Um gleich ein mögliches Missverständnis aufzuklären! Serverless heißt nicht dass es keine Server mehr gibt! Eher im Gegenteil Cloud Provider wie AWS die Serverless anbieten, verfügen über jede Menge Server sogar unglaublich viele an sehr vielen Standorten der Welt (siehe Bilder):
+Um gleich ein mögliches Missverständnis aufzuklären! Serverless heißt nicht dass es keinen oder keine Server mehr gibt! Im Gegenteil! Cloud Provider wie zum Beispiel AWS, die Serverless anbieten, verfügen über sehr viele Server weltweit.
 
 AWS REGIONS
 AWS RECHENZENTRUM
 
-Serverless in diesem Zusammenhang bedeutet, dass ich mich als Cloud Entwickler nicht mehr um die Verwaltung (Hardware und Software) dieser Server kümmern muss und dieses AWS überlassen kann. Somit kann ich mich direkter auf die Businesslogik meiner Applikation in der Cloud konzentrieren.
+Jetzt und im Folgenden möchte ich für die jeweilige Sektion anhand von S3 und Lambda als Beispiel erklären.
+
+S3 ist ein AWS Service der als object storage genutzt werden kann.
+
+Lambda ist ebenfalls ein AWS Service der zum compute verwendet werden kann. Das wird in der Regel dafür benutzt um die Businesslogik von meiner Cloud Applikation zu implementieren.
+
+## Warum Serverless?
+
+**Geringere Komplexität**. Als Cloud Entwickler muss ich mich nicht mehr um die Verwaltung (Hardware und Software) der Server. Somit kann ich mich direkter auf die Businesslogik meiner Applikation in der Cloud konzentrieren.
+Mit S3 kann ich als Entwickler einfach und unkompliziert über die S3 API Daten speichern. Bei Lambda kann ich die Businesslogik direkt als Code z.B. TypeScript oder Python definieren und an die Lambda API übergeben. Der AWS Lambda Service übernimmt dann den Rest. Ich brauche mich nicht um irgendwelche Betriebssystem-relevante Sachen wie zum Beispiel bei Ec2 zu kümmern.
+
+**Bessere Skalierbarkeit**. Serverless Angebote skalieren automatisch per default. So können in S3 beliebig viele Objekte gespeichert werden ohne, dass es der Entwickler das Volumen anpassen muss wie zum Beispiel bei [AWS EBS](). Auch Lambda kann fast beliebig skalieren. Steigt die Nachfrage zur Ausführung der Businesslogik werden sogar mehrere Lambda Instanzen gestartet um die zeitnahe Abarbeitung zu gewährleisten. Falls keine Ausführung der jeweiligen Businesslogik benötigt wird, werden auch keine Lambda Instanzen gestartet.
+
+**Kostenoptimierung**. Schon durch den vorherigen Punkt über die bessere Skalierbarkeit lässt sich vermuten dass dadurch Kostenersparnisse zu möglichen Alternativen ergeben können. Dies muss aber nicht immer unbedingt der Fall sein und auch generell Kosten von Serverless mit Alternativen zu vergleichen ist schwierig. Deswegen behandel ich Kostenoptimierungen in diesem Artikel nicht weiter. Nur soviel sei gesagt, dass ich persönlich gerne auf die Serverless Angebote von AWS zugreife da dieses vor allem in der Anfangsphase zu sehr geringe Kosten führt.
 
 ## Aber wie funktioniert Serverless?
 
