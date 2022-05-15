@@ -1,8 +1,8 @@
 ---
-title: Newsletter martinmueller.dev 2022 week 19
-show: "yes"
-date: "2022-05-15"
-tags: ["eng", "2022", "newsletter"] #nofeed
+title: Newsletter martinmueller.dev 2022 week 20
+show: "no"
+date: "2022-05-22"
+tags: ["eng", "2022", "newsletter", "nofeed"] #nofeed
 pruneLength: 50
 ---
 
@@ -34,7 +34,7 @@ Thanks again to the author [Ricardo Sueiras](https://dev.to/094459) . I hope you
 
 ## Simple Serverless Scheduler
 
-<https://dev.to/aws-builders/simple-serverless-scheduler-25c7>
+https://dev.to/aws-builders/simple-serverless-scheduler-25c7
 
 A cool article for how to solve an interesting business case like when a user cancel their subscription but still needs to have access until the end of the paying period time. The author compared different possible solution for how to implement such a serverless scheduler.
 
@@ -84,7 +84,7 @@ Thanks a lot to the author [Allen Helton](https://twitter.com/AllenHeltonDev)
 
 Super interesting talk about less women in IT and how hard it is for women to be acknowledged in the IT area. Unlucky it is in German but you can use a translation service :).
 
-Thanks a lot to the author [Andreas Weck](https://t3n.de/redaktion/andreas-weck)
+Thanks a lot to the author []()
 
 ## On DevOps: 1. What It Is
 
@@ -146,9 +146,17 @@ Thanks a lot to the author [Mike Wade](https://medium.com/@MikeCrowdSentry)
 
 <https://github.com/thomasrooney/reamplify>
 
-An Open Source CDK Community project which I find super interesting. It is doing cherry picking from AWS Amplify UI and AWS CDK for deployment. I do that in my private projects as well for example <https://github.com/senjuns/senjuns>. I think the author could enhance / simplify its repo even more with using <https://github.com/projen/projen> for the project setup.
+An Open Source CDK Community project which I find super interesting. It is doing cherry picking from AWS Amplify UI and AWS CDK for deployment. I do that in my private projects as well for example https://github.com/senjuns/senjuns. I think the author could enhance / simplify its repo even more with using https://github.com/projen/projen for the project setup.
 
 Thanks a lot to the author [Thomas Rooney](https://github.com/ThomasRooney)
+
+## How to become a good developer?
+
+<https://dev.to/this-is-learning/how-to-become-a-good-developer-7no>
+
+Speaks to the bottom of my heart.
+
+Thanks a lot to the author [MD Sarfaraj](https://dev.to/yourmdsarfaraj)
 
 ## Securely Use Secrets In Your AWS CDK Deployed Lambda Function
 
@@ -160,27 +168,27 @@ Thanks a lot to the author [Wesley Cheek](https://dev.to/wesleycheek)
 
 ## How Pair Programming Helps The Team
 
-<https://dev.to/michaelprosario/how-pair-programming-helps-the-team-3045>
+https://dev.to/michaelprosario/how-pair-programming-helps-the-team-3045
 
 I find the topic pair programming super interesting. I never had the opportunity to do that but I will change that! This article is a very good roundup why pair programming is nice. As well it gives details for how to do pair programming.
 
 Thanks a lot to the author [Michael Rosario](https://dev.to/michaelprosario)
 
-## How to become a good developer?
-
-<https://dev.to/this-is-learning/how-to-become-a-good-developer-7no>
-
-Speaks to the bottom of my heart.
-
-Thanks a lot to the author [MD Sarfaraj](https://dev.to/yourmdsarfaraj)
-
 ## Serverless apps : Why IaC should be the direction
 
-<https://zachjonesnoel.hashnode.dev/serverless-apps-why-iac-should-be-the-direction>
+https://zachjonesnoel.hashnode.dev/serverless-apps-why-iac-should-be-the-direction
 
 A nice article for why to use Infrastructure as Code (IAC).
 
 Thanks a lot to the author [Jones Zachariah Noel N](https://hashnode.com/@zachjonesnoel)
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
 
 ## Final Words
 

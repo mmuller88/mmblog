@@ -30,10 +30,11 @@ Mit S3 kann ich als Entwickler einfach und unkompliziert über die S3 API Daten 
 
 ## Aber wie funktioniert Serverless?
 
-- Cloud wie AWS erster Schritt keine locale Hardware mehr nötig
-  - benutzen APIs um dieses Angebot möglich zu machen
-- zweiter Schritt is Serverless
-- Beispiel S3 und Lambda
+Falls dich die Gründe warum Serverless überzeugt haben, stellst du dir jetzt vielleicht die Frage wie es funktioniert?
+
+Wie alle AWS Service Angebote funktioniert die Kommunikation mit Serverless Services wie S3 und Lambda per HTTP/S API. Das bedeutet per HTTP Requests können Erstellung- und Änderungsanfragen gestellt werden. Die S3 API findest du in der Documentation [hier](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html) und für die Lambda API [hier](https://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html).
+
+Nun muss sicher der Entwickler aber nicht mit HTTP Requests rumplagen und kann alternativ auch quasi API Wrapper benutzen wie der AWS CLI oder AWS SDK in verschiedenen Programmiersprachen wie TypeScript oder Python. Eine noch bessere und von mir bevorzugte Alternative ist AWS CDK welches m
 
 - was wird der dritte Schritt sein? Monada arbeitet dran!
 
