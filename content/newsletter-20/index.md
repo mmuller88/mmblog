@@ -2,7 +2,7 @@
 title: Newsletter martinmueller.dev 2022 week 20
 show: "no"
 date: "2022-05-22"
-tags: ["eng", "2022", "newsletter", "nofeed"] #nofeed
+tags: ["eng", "2022", "newsletter", "aws", "devops", "nofeed"] #nofeed
 pruneLength: 50
 ---
 
