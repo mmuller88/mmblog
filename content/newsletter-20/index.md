@@ -16,29 +16,29 @@ If you like my content follow me on my usual spots to hang around:
 - <https://dev.to/mmuller88>
 - <https://martinmueller.dev>
 
-## Title
+## What exactly is Frontmatter?
 
-LINK
+https://dev.to/dailydevtips1/what-exactly-is-frontmatter-123g
 
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
+Explains what Frontmatter is. I didn't realized that I already use it for my blog post Gatsby side martinmueller.dev :D.
 
 Thanks a lot to the author []()
 
-## Title
+## How to work around CloudFormation circular dependencies
 
-LINK
+https://theburningmonk.com/2022/05/how-to-work-around-cloudformation-circular-dependencies/
 
-...
+Super interesting. CloudFormation circular dependencies are an often encountered problem when working with CloudFormation or with AWS CDK (which is basically CloudFormation). So this article is super useful for how to resolve those.
 
-Thanks a lot to the author []()
+Thanks a lot to the Serverless Hero [Yan Cui](https://theburningmonk.com/)
+
+## Why CI/CD? How was a life without CI/CD & how is it now?
+
+https://dev.to/wardaliaqat01/why-cicd-how-was-a-life-without-cicd-how-is-it-now-46bl
+
+A good and comprehensive article for why CI/CD is so awesome. Use this article to sell CI/CD to whomever ^^.
+
+Thanks a lot to the author [Warda Liaqat](https://dev.to/wardaliaqat01)
 
 ## Title
 
