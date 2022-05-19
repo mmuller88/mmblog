@@ -10,11 +10,11 @@ pruneLength: 50 #ihr
 
 Um gleich ein mögliches Missverständnis aufzuklären! Serverless heißt nicht dass es keinen oder keine Server mehr gibt! Im Gegenteil! Cloud Provider wie zum Beispiel AWS, die Serverless anbieten, verfügen über sehr viele Server weltweit. Im nachfolgenden Bild könnt ihr die aktuell verfügbaren AWS Regionen sehen. Das bedeutet an all diesen Plätzen auf der Welt hat AWS mindestens zwei Rechenzentren.
 
-AWS REGIONS
+PICTURE AWS REGIONS
 
 So ein Rechenzentrum selbst ist ein riesiges Gebäude mit viel Servertechnik.
 
-AWS RECHENZENTRUM
+PICTURE AWS RECHENZENTRUM
 
 Jetzt und im Folgenden möchte ich für die jeweilige Sektion anhand von S3 und Lambda als Beispiel erklären.
 
