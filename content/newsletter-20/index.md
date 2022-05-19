@@ -72,6 +72,44 @@ Nice article about how to write meaningful documentation. Highlights the importa
 
 Thanks a lot to the author [Megan Sullivan](https://dev.to/meganesulli)
 
+## What makes a good DevOps manager?
+
+https://www.reddit.com/r/devops/comments/ustzqj/what_makes_a_good_devops_manager
+
+A great discussion about what makes a great DevOps Manager.
+
+## What Are AWS CDK Constructs, Stacks and How To Use Them
+
+https://interweave.cloud/2022/05/17/what-are-aws-cdk-constructs-stacks-and-how-to-use-them/
+
+A good explanation about AWS CDK level 1, 2 and 3 constructs.
+
+Thanks a lot to the author [Faizan Raza](https://interweave.cloud/author/faizanraza-interweave/)
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
 ## Title
 
 LINK
