@@ -49,7 +49,7 @@ Das tolle an Serverless ist für mich, dass es eine tolle Abstraktion ist und da
 
 In diesem Artikel habe ich euch erklärt was Serverless ist und warum ich es so toll finde. Ich glaube aber fest daran dass Serverless noch nicht das Ende der Cloud-Abstraktionen sind. Kürzlich bin ich der Firma Monada beigetreten die genau das als Ziel verfolgen. Wir wollen eine noch bessere Abstraktion als Serverless schaffen um das Arbeiten mit der Cloud zu ermöglichen. Habt ihr Feedback zu diesem Artikel dann bitte lasst es mich wissen :)! Let's build!
 
-Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88) . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen:
+Ich liebe es an Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88) . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen:
 
 [![Buy me a Ko-Fi](https://storage.ko-fi.com/cdn/useruploads/png_d554a01f-60f0-4969-94d1-7b69f3e28c2fcover.jpg?v=69a332f2-b808-4369-8ba3-dae0d1100dd4)](https://ko-fi.com/T6T1BR59W)
 
