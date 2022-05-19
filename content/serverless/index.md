@@ -5,19 +5,22 @@ date: "2022-05-20"
 # image: "title.png"
 tags: ["de", "2022", "aws", "sdk", "organizations", "nofeed"] #nofeed
 engUrl: https://martinmueller.dev/serverless
-pruneLength: 50
+pruneLength: 50 #ihr
 ---
 
-Um gleich ein mögliches Missverständnis aufzuklären! Serverless heißt nicht dass es keinen oder keine Server mehr gibt! Im Gegenteil! Cloud Provider wie zum Beispiel AWS, die Serverless anbieten, verfügen über sehr viele Server weltweit.
+Um gleich ein mögliches Missverständnis aufzuklären! Serverless heißt nicht dass es keinen oder keine Server mehr gibt! Im Gegenteil! Cloud Provider wie zum Beispiel AWS, die Serverless anbieten, verfügen über sehr viele Server weltweit. Im nachfolgenden Bild könnt ihr die aktuell verfügbaren AWS Regionen sehen. Das bedeutet an all diesen Plätzen auf der Welt hat AWS mindestens zwei Rechenzentren.
 
 AWS REGIONS
+
+So ein Rechenzentrum selbst ist ein riesiges Gebäude mit viel Servertechnik.
+
 AWS RECHENZENTRUM
 
 Jetzt und im Folgenden möchte ich für die jeweilige Sektion anhand von S3 und Lambda als Beispiel erklären.
 
 S3 ist ein AWS Service der als object storage genutzt werden kann.
 
-Lambda ist ebenfalls ein AWS Service der zum compute verwendet werden kann. Das wird in der Regel dafür benutzt um die Businesslogik von meiner Cloud Applikation zu implementieren.
+Lambda ist ebenfalls ein AWS Service der aber zum compute also zum berechnen verwendet werden kann. Das wird in der Regel dafür benutzt um die Businesslogik von der Cloud Applikation zu implementieren.
 
 ## Warum Serverless?
 
@@ -36,11 +39,15 @@ Wie alle AWS Service Angebote funktioniert die Kommunikation mit Serverless Serv
 
 Nun muss sicher der Entwickler aber nicht mit HTTP Requests rumplagen und kann alternativ auch quasi API Wrapper benutzen wie der AWS CLI oder AWS SDK in verschiedenen Programmiersprachen wie TypeScript oder Python. Eine noch bessere und von mir bevorzugte Alternative ist AWS CDK welches m
 
+## Was gefällt mir an Serverless?
+
+Das tolle an Serverless ist für mich, dass es eine tolle Abstraktion ist und das Entwickeln in der Cloud super einfach macht. Somit bin ich gezielt in der Lage die Wünsche und Anforderungen meiner Kunden an ihre Cloud Projekt umzusetzen.
+
 - was wird der dritte Schritt sein? Monada arbeitet dran!
 
 ## Zusammenfassung
 
-...
+In diesem Artikel habe ich euch erklärt was Serverless ist und warum ich es so toll finde. Ich glaube aber fest daran dass Serverless noch nicht das Ende der Cloud-Abstraktionen sind. Kürzlich bin ich der Firma Monada beigetreten die genau das als Ziel verfolgen. Wir wollen eine noch bessere Abstraktion als Serverless schaffen um das Arbeiten mit der Cloud zu ermöglichen. Habt ihr Feedback zu diesem Artikel dann bitte lasst es mich wissen :)! Let's build!
 
 Ich liebe es an Content Management Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88) . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen:
 

@@ -40,6 +40,46 @@ A good and comprehensive article for why CI/CD is so awesome. Use this article t
 
 Thanks a lot to the author [Warda Liaqat](https://dev.to/wardaliaqat01)
 
+## Improve DX by publishing an API SDK - a CDK Serverless example
+
+https://www.rehanvdm.com/blog/improve-dx-publishing-an-api-sdk-cdk-serverless
+
+Uii an API SDK is a nice idea. For me that looks similar to OpenAPI / Swagger SDKs. It seems to be a smart combination of OpenAPI SDK and TypeScript. Plus with a sophisticated CI/CD flow like posting to slack you can make developer earlier aware of SDK changes. Interesting idea please read the full article!
+
+Thanks a lot to the author [Rehan van der Merwe](https://www.rehanvdm.com/)
+
+## Security Iceberg: AWS Security Hub the right way
+
+https://cloudonaut.io/security-iceberg-aws-security-hub-the-right-way/
+
+A nice introduction and roundup about AWS Security Hub. Gives as well some tips when working with it.
+
+Thanks a lot to the author [Andreas Wittig](https://twitter.com/andreaswittig)
+
+## Solutions Architect Tips: How to Build Your First Architecture Diagram
+
+https://www.readysetcloud.io/blog/allen.helton/how-to-build-your-first-architecture-diagram/
+
+An interesting article about architecture diagrams. It introduced and recommends the use of c4model which is super interesting https://c4model.com/#SystemContextDiagram .
+
+Thanks a lot to the author [Allen Helton](https://www.readysetcloud.io/)
+
+## Docs for Everyone!
+
+https://dev.to/meganesulli/docs-for-everyone-28pm
+
+Nice article about how to write meaningful documentation. Highlights the importance of diagrams.
+
+Thanks a lot to the author [Megan Sullivan](https://dev.to/meganesulli)
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
 ## Title
 
 LINK
