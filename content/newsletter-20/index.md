@@ -18,7 +18,7 @@ If you like my content follow me on my usual spots to hang around:
 
 ## What exactly is Frontmatter?
 
-https://dev.to/dailydevtips1/what-exactly-is-frontmatter-123g
+<https://dev.to/dailydevtips1/what-exactly-is-frontmatter-123g>
 
 Explains what Frontmatter is. I didn't realized that I already use it for my blog post Gatsby side martinmueller.dev :D.
 
@@ -26,7 +26,7 @@ Thanks a lot to the author []()
 
 ## How to work around CloudFormation circular dependencies
 
-https://theburningmonk.com/2022/05/how-to-work-around-cloudformation-circular-dependencies/
+<https://theburningmonk.com/2022/05/how-to-work-around-cloudformation-circular-dependencies/>
 
 Super interesting. CloudFormation circular dependencies are an often encountered problem when working with CloudFormation or with AWS CDK (which is basically CloudFormation). So this article is super useful for how to resolve those.
 
@@ -34,7 +34,7 @@ Thanks a lot to the Serverless Hero [Yan Cui](https://theburningmonk.com/)
 
 ## Why CI/CD? How was a life without CI/CD & how is it now?
 
-https://dev.to/wardaliaqat01/why-cicd-how-was-a-life-without-cicd-how-is-it-now-46bl
+<https://dev.to/wardaliaqat01/why-cicd-how-was-a-life-without-cicd-how-is-it-now-46bl>
 
 A good and comprehensive article for why CI/CD is so awesome. Use this article to sell CI/CD to whomever ^^.
 
@@ -42,7 +42,7 @@ Thanks a lot to the author [Warda Liaqat](https://dev.to/wardaliaqat01)
 
 ## Improve DX by publishing an API SDK - a CDK Serverless example
 
-https://www.rehanvdm.com/blog/improve-dx-publishing-an-api-sdk-cdk-serverless
+<https://www.rehanvdm.com/blog/improve-dx-publishing-an-api-sdk-cdk-serverless>
 
 Uii an API SDK is a nice idea. For me that looks similar to OpenAPI / Swagger SDKs. It seems to be a smart combination of OpenAPI SDK and TypeScript. Plus with a sophisticated CI/CD flow like posting to slack you can make developer earlier aware of SDK changes. Interesting idea please read the full article!
 
@@ -50,7 +50,7 @@ Thanks a lot to the author [Rehan van der Merwe](https://www.rehanvdm.com/)
 
 ## Security Iceberg: AWS Security Hub the right way
 
-https://cloudonaut.io/security-iceberg-aws-security-hub-the-right-way/
+<https://cloudonaut.io/security-iceberg-aws-security-hub-the-right-way/>
 
 A nice introduction and roundup about AWS Security Hub. Gives as well some tips when working with it.
 
@@ -58,15 +58,15 @@ Thanks a lot to the author [Andreas Wittig](https://twitter.com/andreaswittig)
 
 ## Solutions Architect Tips: How to Build Your First Architecture Diagram
 
-https://www.readysetcloud.io/blog/allen.helton/how-to-build-your-first-architecture-diagram/
+<https://www.readysetcloud.io/blog/allen.helton/how-to-build-your-first-architecture-diagram/>
 
-An interesting article about architecture diagrams. It introduced and recommends the use of c4model which is super interesting https://c4model.com/#SystemContextDiagram .
+An interesting article about architecture diagrams. It introduced and recommends the use of c4model which is super interesting <https://c4model.com/#SystemContextDiagram> .
 
 Thanks a lot to the author [Allen Helton](https://www.readysetcloud.io/)
 
-## Docs for Everyone!
+## Docs for Everyone
 
-https://dev.to/meganesulli/docs-for-everyone-28pm
+<https://dev.to/meganesulli/docs-for-everyone-28pm>
 
 Nice article about how to write meaningful documentation. Highlights the importance of diagrams.
 
@@ -74,13 +74,13 @@ Thanks a lot to the author [Megan Sullivan](https://dev.to/meganesulli)
 
 ## What makes a good DevOps manager?
 
-https://www.reddit.com/r/devops/comments/ustzqj/what_makes_a_good_devops_manager
+<https://www.reddit.com/r/devops/comments/ustzqj/what_makes_a_good_devops_manager>
 
 A great discussion about what makes a great DevOps Manager.
 
 ## What Are AWS CDK Constructs, Stacks and How To Use Them
 
-https://interweave.cloud/2022/05/17/what-are-aws-cdk-constructs-stacks-and-how-to-use-them/
+<https://interweave.cloud/2022/05/17/what-are-aws-cdk-constructs-stacks-and-how-to-use-them/>
 
 A good explanation about AWS CDK level 1, 2 and 3 constructs.
 
@@ -88,43 +88,43 @@ Thanks a lot to the author [Faizan Raza](https://interweave.cloud/author/faizanr
 
 ## Introduction to AWS Developer Tools - Part 1
 
-https://dev.to/kcdchennai/introduction-to-aws-developer-tools-part-1-590b
+<https://dev.to/kcdchennai/introduction-to-aws-developer-tools-part-1-590b>
 
 Super cool overview and summary of existing AWS Developer Tools. My highlight is [cloud9](https://aws.amazon.com/cloud9/). Look at the article if you want to know why.
 
 Thanks a lot to the author [MakendranG](https://dev.to/makendrang)
 
-## Title
+## Source Control your AWS CloudFormation templates with GitHub
 
-LINK
+<https://dev.to/techielass/source-control-your-aws-cloudformation-templates-with-github-8im>
 
-...
+This is a cool article about how to manage you CloudFormation template via GitHub Actions like linting and more. But yeah I would recommend not using CloudFormation directly and use AWS CDK :).
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Sarah Lean](https://dev.to/techielass)
 
-## Title
+## Getting started with testing DynamoDB code in Python
 
-LINK
+<https://dev.to/aws-builders/getting-started-with-testing-dynamodb-code-in-python-dif>
 
-...
+Interesting post about testing DynamoDB code in Python. You can use the python package moto to mock the AWS Service. That is super cool and how I used to when I am working with jest in TypeScript. Super cool that Python has something similar :). So I recommend read the full article if you are interested in programming AWS CDK or AWS SDK with Python.
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Maurice Borgmeier](https://dev.to/mauricebrg)
 
-## Title
+## Is This Thing On? Giving an Effective Talk In Person
 
-LINK
+https://dev.to/aws-builders/is-this-thing-on-giving-an-effective-talk-in-person-887
 
-...
+An interesting talk about public speaking. The author gives tips for how to improve public speaking.
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Kristi Perreault](https://dev.to/kristiperreault)
 
-## Title
+## ESLint and Prettier
 
-LINK
+https://dev.to/suchintan/eslint-and-prettier-51e0
 
-...
+Nice post about why eslint and prettier are important.
 
-Thanks a lot to the author []()
+Thanks a lot to the author [SUCHINTAN DAS](https://dev.to/suchintan)
 
 ## Title
 
