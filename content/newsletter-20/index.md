@@ -86,13 +86,13 @@ A good explanation about AWS CDK level 1, 2 and 3 constructs.
 
 Thanks a lot to the author [Faizan Raza](https://interweave.cloud/author/faizanraza-interweave/)
 
-## Title
+## Introduction to AWS Developer Tools - Part 1
 
-LINK
+https://dev.to/kcdchennai/introduction-to-aws-developer-tools-part-1-590b
 
-...
+Super cool overview and summary of existing AWS Developer Tools. My highlight is [cloud9](https://aws.amazon.com/cloud9/). Look at the article if you want to know why.
 
-Thanks a lot to the author []()
+Thanks a lot to the author [MakendranG](https://dev.to/makendrang)
 
 ## Title
 
