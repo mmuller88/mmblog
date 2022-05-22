@@ -16,13 +16,21 @@ If you like my content follow me on my usual spots to hang around:
 - <https://dev.to/mmuller88>
 - <https://martinmueller.dev>
 
-## What exactly is Frontmatter?
+## Improve DX by publishing an API SDK - a CDK Serverless example
 
-<https://dev.to/dailydevtips1/what-exactly-is-frontmatter-123g>
+<https://www.rehanvdm.com/blog/improve-dx-publishing-an-api-sdk-cdk-serverless>
 
-Explains what Frontmatter is. I didn't realize that I already use it for my blog post Gatsby side martinmueller.dev :D.
+Uii an API SDK is a nice idea. For me, that looks similar to OpenAPI / Swagger SDKs. It seems to be a smart combination of OpenAPI SDK and TypeScript. Plus with a sophisticated CI/CD flow like posting to slack you can make developers earlier aware of SDK changes. Interesting idea please read the full article!
 
-Thanks a lot to the author [Chris Bongers](https://dev.to/dailydevtips1)
+Thanks a lot to the author [Rehan van der Merwe](https://www.rehanvdm.com/)
+
+## Getting started with testing DynamoDB code in Python
+
+<https://dev.to/aws-builders/getting-started-with-testing-dynamodb-code-in-python-dif>
+
+Interesting post about testing DynamoDB code in Python. You can use the python package moto to mock the AWS Service. That is super cool and how I used to when I am working with jest in TypeScript. Super cool that Python has something similar :). So I recommend reading the full article if you are interested in programming AWS CDK or AWS SDK with Python.
+
+Thanks a lot to the author [Maurice Borgmeier](https://dev.to/mauricebrg)
 
 ## How to work around CloudFormation circular dependencies
 
@@ -32,6 +40,38 @@ Super interesting. CloudFormation circular dependencies are an often encountered
 
 Thanks a lot to the Serverless Hero [Yan Cui](https://theburningmonk.com/)
 
+## Solutions Architect Tips: How to Build Your First Architecture Diagram
+
+<https://www.readysetcloud.io/blog/allen.helton/how-to-build-your-first-architecture-diagram/>
+
+An interesting article about architecture diagrams. It introduced and recommends the use of c4model which is super interesting <https://c4model.com/#SystemContextDiagram> .
+
+Thanks a lot to the author [Allen Helton](https://www.readysetcloud.io/)
+
+## Introduction to AWS Developer Tools - Part 1
+
+<https://dev.to/kcdchennai/introduction-to-aws-developer-tools-part-1-590b>
+
+Super cool overview and summary of existing AWS Developer Tools. My highlight is [cloud9](https://aws.amazon.com/cloud9/). Look at the article if you want to know why.
+
+Thanks a lot to the author [MakendranG](https://dev.to/makendrang)
+
+## Source Control your AWS CloudFormation templates with GitHub
+
+<https://dev.to/techielass/source-control-your-aws-cloudformation-templates-with-github-8im>
+
+This is a cool article about how to manage your CloudFormation template via GitHub Actions like linting and more. But yeah I would recommend not using CloudFormation directly and using AWS CDK :).
+
+Thanks a lot to the author [Sarah Lean](https://dev.to/techielass)
+
+## What exactly is Frontmatter?
+
+<https://dev.to/dailydevtips1/what-exactly-is-frontmatter-123g>
+
+Explains what Frontmatter is. I didn't realize that I already use it for my blog post Gatsby side martinmueller.dev :D.
+
+Thanks a lot to the author [Chris Bongers](https://dev.to/dailydevtips1)
+
 ## Why CI/CD? How was a life without CI/CD & how is it now?
 
 <https://dev.to/wardaliaqat01/why-cicd-how-was-a-life-without-cicd-how-is-it-now-46bl>
@@ -40,14 +80,6 @@ A good and comprehensive article on why CI/CD is so awesome. Use this article to
 
 Thanks a lot to the author [Warda Liaqat](https://dev.to/wardaliaqat01)
 
-## Improve DX by publishing an API SDK - a CDK Serverless example
-
-<https://www.rehanvdm.com/blog/improve-dx-publishing-an-api-sdk-cdk-serverless>
-
-Uii an API SDK is a nice idea. For me, that looks similar to OpenAPI / Swagger SDKs. It seems to be a smart combination of OpenAPI SDK and TypeScript. Plus with a sophisticated CI/CD flow like posting to slack you can make developers earlier aware of SDK changes. Interesting idea please read the full article!
-
-Thanks a lot to the author [Rehan van der Merwe](https://www.rehanvdm.com/)
-
 ## Security Iceberg: AWS Security Hub the right way
 
 <https://cloudonaut.io/security-iceberg-aws-security-hub-the-right-way/>
@@ -55,14 +87,6 @@ Thanks a lot to the author [Rehan van der Merwe](https://www.rehanvdm.com/)
 A nice introduction and roundup about AWS Security Hub. Gives as well some tips when working with it.
 
 Thanks a lot to the author [Andreas Wittig](https://twitter.com/andreaswittig)
-
-## Solutions Architect Tips: How to Build Your First Architecture Diagram
-
-<https://www.readysetcloud.io/blog/allen.helton/how-to-build-your-first-architecture-diagram/>
-
-An interesting article about architecture diagrams. It introduced and recommends the use of c4model which is super interesting <https://c4model.com/#SystemContextDiagram> .
-
-Thanks a lot to the author [Allen Helton](https://www.readysetcloud.io/)
 
 ## Docs for Everyone
 
@@ -85,30 +109,6 @@ A great discussion about what makes a great DevOps Manager.
 A good explanation about AWS CDK level 1, 2 and 3 constructs.
 
 Thanks a lot to the author [Faizan Raza](https://interweave.cloud/author/faizanraza-interweave/)
-
-## Introduction to AWS Developer Tools - Part 1
-
-<https://dev.to/kcdchennai/introduction-to-aws-developer-tools-part-1-590b>
-
-Super cool overview and summary of existing AWS Developer Tools. My highlight is [cloud9](https://aws.amazon.com/cloud9/). Look at the article if you want to know why.
-
-Thanks a lot to the author [MakendranG](https://dev.to/makendrang)
-
-## Source Control your AWS CloudFormation templates with GitHub
-
-<https://dev.to/techielass/source-control-your-aws-cloudformation-templates-with-github-8im>
-
-This is a cool article about how to manage your CloudFormation template via GitHub Actions like linting and more. But yeah I would recommend not using CloudFormation directly and using AWS CDK :).
-
-Thanks a lot to the author [Sarah Lean](https://dev.to/techielass)
-
-## Getting started with testing DynamoDB code in Python
-
-<https://dev.to/aws-builders/getting-started-with-testing-dynamodb-code-in-python-dif>
-
-Interesting post about testing DynamoDB code in Python. You can use the python package moto to mock the AWS Service. That is super cool and how I used to when I am working with jest in TypeScript. Super cool that Python has something similar :). So I recommend reading the full article if you are interested in programming AWS CDK or AWS SDK with Python.
-
-Thanks a lot to the author [Maurice Borgmeier](https://dev.to/mauricebrg)
 
 ## Is This Thing On? Giving an Effective Talk In Person
 
