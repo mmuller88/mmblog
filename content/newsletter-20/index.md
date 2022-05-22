@@ -1,6 +1,6 @@
 ---
 title: Newsletter martinmueller.dev 2022 week 20
-show: "no"
+show: "yes"
 date: "2022-05-22"
 tags: ["eng", "2022", "newsletter", "aws", "devops", "nofeed"] #nofeed
 pruneLength: 50
@@ -20,9 +20,9 @@ If you like my content follow me on my usual spots to hang around:
 
 <https://dev.to/dailydevtips1/what-exactly-is-frontmatter-123g>
 
-Explains what Frontmatter is. I didn't realized that I already use it for my blog post Gatsby side martinmueller.dev :D.
+Explains what Frontmatter is. I didn't realize that I already use it for my blog post Gatsby side martinmueller.dev :D.
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Chris Bongers](https://dev.to/dailydevtips1)
 
 ## How to work around CloudFormation circular dependencies
 
@@ -36,7 +36,7 @@ Thanks a lot to the Serverless Hero [Yan Cui](https://theburningmonk.com/)
 
 <https://dev.to/wardaliaqat01/why-cicd-how-was-a-life-without-cicd-how-is-it-now-46bl>
 
-A good and comprehensive article for why CI/CD is so awesome. Use this article to sell CI/CD to whomever ^^.
+A good and comprehensive article on why CI/CD is so awesome. Use this article to sell CI/CD to whomever ^^.
 
 Thanks a lot to the author [Warda Liaqat](https://dev.to/wardaliaqat01)
 
@@ -44,7 +44,7 @@ Thanks a lot to the author [Warda Liaqat](https://dev.to/wardaliaqat01)
 
 <https://www.rehanvdm.com/blog/improve-dx-publishing-an-api-sdk-cdk-serverless>
 
-Uii an API SDK is a nice idea. For me that looks similar to OpenAPI / Swagger SDKs. It seems to be a smart combination of OpenAPI SDK and TypeScript. Plus with a sophisticated CI/CD flow like posting to slack you can make developer earlier aware of SDK changes. Interesting idea please read the full article!
+Uii an API SDK is a nice idea. For me, that looks similar to OpenAPI / Swagger SDKs. It seems to be a smart combination of OpenAPI SDK and TypeScript. Plus with a sophisticated CI/CD flow like posting to slack you can make developers earlier aware of SDK changes. Interesting idea please read the full article!
 
 Thanks a lot to the author [Rehan van der Merwe](https://www.rehanvdm.com/)
 
@@ -98,7 +98,7 @@ Thanks a lot to the author [MakendranG](https://dev.to/makendrang)
 
 <https://dev.to/techielass/source-control-your-aws-cloudformation-templates-with-github-8im>
 
-This is a cool article about how to manage you CloudFormation template via GitHub Actions like linting and more. But yeah I would recommend not using CloudFormation directly and use AWS CDK :).
+This is a cool article about how to manage your CloudFormation template via GitHub Actions like linting and more. But yeah I would recommend not using CloudFormation directly and using AWS CDK :).
 
 Thanks a lot to the author [Sarah Lean](https://dev.to/techielass)
 
@@ -106,7 +106,7 @@ Thanks a lot to the author [Sarah Lean](https://dev.to/techielass)
 
 <https://dev.to/aws-builders/getting-started-with-testing-dynamodb-code-in-python-dif>
 
-Interesting post about testing DynamoDB code in Python. You can use the python package moto to mock the AWS Service. That is super cool and how I used to when I am working with jest in TypeScript. Super cool that Python has something similar :). So I recommend read the full article if you are interested in programming AWS CDK or AWS SDK with Python.
+Interesting post about testing DynamoDB code in Python. You can use the python package moto to mock the AWS Service. That is super cool and how I used to when I am working with jest in TypeScript. Super cool that Python has something similar :). So I recommend reading the full article if you are interested in programming AWS CDK or AWS SDK with Python.
 
 Thanks a lot to the author [Maurice Borgmeier](https://dev.to/mauricebrg)
 
@@ -114,7 +114,7 @@ Thanks a lot to the author [Maurice Borgmeier](https://dev.to/mauricebrg)
 
 https://dev.to/aws-builders/is-this-thing-on-giving-an-effective-talk-in-person-887
 
-An interesting talk about public speaking. The author gives tips for how to improve public speaking.
+An interesting talk about public speaking. The author gives tips on how to improve public speaking.
 
 Thanks a lot to the author [Kristi Perreault](https://dev.to/kristiperreault)
 
@@ -126,13 +126,15 @@ Nice post about why eslint and prettier are important.
 
 Thanks a lot to the author [SUCHINTAN DAS](https://dev.to/suchintan)
 
-## Title
+## Open Source Projects
 
-LINK
+In this section, I list Open Source projects I find super interesting!
 
-...
+## json-schema-to-typescript
 
-Thanks a lot to the author []()
+<https://www.npmjs.com/package/json-schema-to-typescript>
+
+Import TypeScript type from JSON. That was always a disadvantage when a client wanted me to use a JSON file as input for CDK properties. It is super cool that it seems you easily can infer the type.
 
 ## Final Words
 
