@@ -1,20 +1,20 @@
 ---
 title: Was ist Serverless?
 show: "no"
-date: "2022-05-20"
+date: "2022-05-24"
 # image: "title.png"
-tags: ["de", "2022", "aws", "sdk", "organizations", "nofeed"] #nofeed
-engUrl: https://martinmueller.dev/serverless
+tags: ["de", "2022", "aws"] #nofeed
+engUrl: https://martinmueller.dev/serverless-eng
 pruneLength: 50 #ihr
 ---
 
-Um gleich ein mögliches Missverständnis aufzuklären! Serverless heißt nicht dass es keinen oder keine Server mehr gibt! Im Gegenteil! Cloud Provider wie zum Beispiel AWS, die Serverless anbieten, verfügen über sehr viele Server weltweit. Im nachfolgenden Bild könnt ihr die aktuell verfügbaren AWS Regionen sehen. Das bedeutet an all diesen Plätzen auf der Welt hat AWS mindestens zwei Rechenzentren.
+Um gleich ein mögliches Missverständnis aufzuklären! Serverless heißt nicht dass es keine Server mehr gibt! Im Gegenteil! Cloud Provider wie zum Beispiel AWS, die Serverless anbieten, verfügen über sehr viele Server weltweit. Im nachfolgenden Bild könnt ihr die aktuell verfügbaren AWS Regionen sehen. Das bedeutet an all diesen Plätzen auf der Welt hat AWS mindestens zwei Rechenzentren.
 
-PICTURE AWS REGIONS
+![regions](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/serverless/regions.jpeg)
 
 So ein Rechenzentrum selbst ist ein riesiges Gebäude mit viel Servertechnik.
 
-PICTURE AWS RECHENZENTRUM
+![servercenter](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/serverless/servercenter.png)
 
 Jetzt und im Folgenden möchte ich für die jeweilige Sektion anhand von S3 und Lambda als Beispiel erklären.
 
@@ -27,7 +27,7 @@ Lambda ist ebenfalls ein AWS Service der aber zum compute also zum berechnen ver
 **Geringere Komplexität**. Als Cloud Entwickler muss ich mich nicht mehr um die Verwaltung (Hardware und Software) der Server. Somit kann ich mich direkter auf die Businesslogik meiner Applikation in der Cloud konzentrieren.
 Mit S3 kann ich als Entwickler einfach und unkompliziert über die S3 API Daten speichern. Bei Lambda kann ich die Businesslogik direkt als Code z.B. TypeScript oder Python definieren und an die Lambda API übergeben. Der AWS Lambda Service übernimmt dann den Rest. Ich brauche mich nicht um irgendwelche Betriebssystem-relevante Sachen wie zum Beispiel bei Ec2 zu kümmern.
 
-**Bessere Skalierbarkeit**. Serverless Angebote skalieren automatisch per default. So können in S3 beliebig viele Objekte gespeichert werden ohne, dass es der Entwickler das Volumen anpassen muss wie zum Beispiel bei [AWS EBS](). Auch Lambda kann fast beliebig skalieren. Steigt die Nachfrage zur Ausführung der Businesslogik werden sogar mehrere Lambda Instanzen gestartet um die zeitnahe Abarbeitung zu gewährleisten. Falls keine Ausführung der jeweiligen Businesslogik benötigt wird, werden auch keine Lambda Instanzen gestartet.
+**Bessere Skalierbarkeit**. Serverless Angebote skalieren automatisch per default. So können in S3 beliebig viele Objekte gespeichert werden ohne, dass es der Entwickler das Volumen anpassen muss wie zum Beispiel bei [AWS EBS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html). Auch Lambda kann fast beliebig skalieren. Steigt die Nachfrage zur Ausführung der Businesslogik werden sogar mehrere Lambda Instanzen gestartet um die zeitnahe Abarbeitung zu gewährleisten. Falls keine Ausführung der jeweiligen Businesslogik benötigt wird, werden auch keine Lambda Instanzen gestartet.
 
 **Kostenoptimierung**. Schon durch den vorherigen Punkt über die bessere Skalierbarkeit lässt sich vermuten dass dadurch Kostenersparnisse zu möglichen Alternativen ergeben können. Dies muss aber nicht immer unbedingt der Fall sein und auch generell Kosten von Serverless mit Alternativen zu vergleichen ist schwierig. Deswegen behandel ich Kostenoptimierungen in diesem Artikel nicht weiter. Nur soviel sei gesagt, dass ich persönlich gerne auf die Serverless Angebote von AWS zugreife da dieses vor allem in der Anfangsphase zu sehr geringe Kosten führt.
 
@@ -43,11 +43,9 @@ Nun muss sicher der Entwickler aber nicht mit HTTP Requests rumplagen und kann a
 
 Das tolle an Serverless ist für mich, dass es eine tolle Abstraktion ist und das Entwickeln in der Cloud super einfach macht. Somit bin ich gezielt in der Lage die Wünsche und Anforderungen meiner Kunden an ihre Cloud Projekt umzusetzen.
 
-- was wird der dritte Schritt sein? Monada arbeitet dran!
-
 ## Zusammenfassung
 
-In diesem Artikel habe ich euch erklärt was Serverless ist und warum ich es so toll finde. Ich glaube aber fest daran dass Serverless noch nicht das Ende der Cloud-Abstraktionen sind. Kürzlich bin ich der Firma Monada beigetreten die genau das als Ziel verfolgen. Wir wollen eine noch bessere Abstraktion als Serverless schaffen um das Arbeiten mit der Cloud zu ermöglichen. Habt ihr Feedback zu diesem Artikel dann bitte lasst es mich wissen :)! Let's build!
+In diesem Artikel habe ich euch erklärt was Serverless ist und warum ich es so toll finde. Ich glaube aber fest daran dass Serverless noch nicht das Ende der Cloud-Abstraktionen sind. Kürzlich bin ich der Firma [Monada](https://www.linkedin.com/company/monadahq/about/) beigetreten die genau das als Ziel verfolgen. Wir wollen eine noch bessere Abstraktion als Serverless schaffen um das Arbeiten mit der Cloud noch toller zu machen. Habt ihr Feedback zu diesem Artikel dann bitte lasst es mich wissen :)! Let's build!
 
 Ich liebe es an Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88) . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen:
 

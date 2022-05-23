@@ -26,11 +26,11 @@ Thanks a lot to the author []()
 
 ## Title
 
-LINK
+https://dev.to/aws-builders/new-aws-config-rules-lambdaless-and-rusty-hbe
 
-...
+Exciting article from my German fellaw Gernot Glawe. He describes how to add more easy add custom AWS Config rules with Lambda. I didn't worked much with AWS Config but this article made me excited to do so :).
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Gernot Glawe](https://dev.to/megaproaktiv)
 
 ## Title
 
