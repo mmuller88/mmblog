@@ -24,13 +24,53 @@ LINK
 
 Thanks a lot to the author []()
 
-## Title
+## New AWS Config Rules - LambdaLess and rusty
 
-https://dev.to/aws-builders/new-aws-config-rules-lambdaless-and-rusty-hbe
+<https://dev.to/aws-builders/new-aws-config-rules-lambdaless-and-rusty-hbe>
 
 Exciting article from my German fellaw Gernot Glawe. He describes how to add more easy add custom AWS Config rules with Lambda. I didn't worked much with AWS Config but this article made me excited to do so :).
 
 Thanks a lot to the author [Gernot Glawe](https://dev.to/megaproaktiv)
+
+## AWS S3 Replication: Same Region Replication(SSR)
+
+<https://programmersblock.hashnode.dev/aws-s3-same-region-replication>
+
+A nice roundup article about S3 Same Region Replication.
+
+Thanks a lot to the author [Himanshu Gupta](https://hashnode.com/@himanshugupta0007)
+
+## DevOps: An Introduction
+
+<https://dev.to/abhishe89636035/devops-an-introduction-5cdp>
+
+Gives a quick introduction about DevOps and then lists different areas in the DevOps space and tools you can use for those.
+
+Thanks a lot to the author [Abhishek Shrivastava](https://dev.to/abhishe89636035)
+
+## Do we really need AWS?
+
+<https://dev.to/jordan_t/do-we-really-need-aws-3hao>
+
+I will not spoiler but the answer will not surprise you :P. But yeah it is a nice summary about AWS.
+
+Thanks a lot to the author [Jordan Tingling](https://dev.to/jordan_t)
+
+## 5 VSCode Extension that Make Maintenance Easy🌱
+
+https://dev.to/alexomeyer/5-vscode-extension-that-make-maintenance-easy-4eb1
+
+Has some cool VS Code extension tips. Check it out!
+
+Thanks a lot to the author [Alex Omeyer](https://dev.to/alexomeyer)
+
+## How to use EventBridge as a Cross-Account Event Backbone
+
+https://dev.to/eoinsha/how-to-use-eventbridge-as-a-cross-account-event-backbone-5fik
+
+Long post but super interesting how you can leverage AWS EventBridge for cross account events. The author even gives a little example consisting of 3 AWS Accounts which are interchanging events via EventBridge.
+
+Thanks a lot to the author [Eoin Shanaghy](https://dev.to/eoinsha)
 
 ## Title
 
