@@ -58,7 +58,7 @@ Thanks a lot to the author [Jordan Tingling](https://dev.to/jordan_t)
 
 ## 5 VSCode Extension that Make Maintenance Easy🌱
 
-https://dev.to/alexomeyer/5-vscode-extension-that-make-maintenance-easy-4eb1
+<https://dev.to/alexomeyer/5-vscode-extension-that-make-maintenance-easy-4eb1>
 
 Has some cool VS Code extension tips. Check it out!
 
@@ -66,19 +66,71 @@ Thanks a lot to the author [Alex Omeyer](https://dev.to/alexomeyer)
 
 ## How to use EventBridge as a Cross-Account Event Backbone
 
-https://dev.to/eoinsha/how-to-use-eventbridge-as-a-cross-account-event-backbone-5fik
+<https://dev.to/eoinsha/how-to-use-eventbridge-as-a-cross-account-event-backbone-5fik>
 
 Long post but super interesting how you can leverage AWS EventBridge for cross account events. The author even gives a little example consisting of 3 AWS Accounts which are interchanging events via EventBridge.
 
 Thanks a lot to the author [Eoin Shanaghy](https://dev.to/eoinsha)
 
+## Kafka on the Serverless Shore: Building event-driven applications with Kafka
+
+<https://dev.to/aws-builders/kafka-on-the-serverless-shore-building-event-driven-applications-with-kafka-23df>
+
+Super interesting article about Serverless Kafka combined with AWS CDK.
+
+Thanks a lot to the author [Ibrahim Cesar](https://dev.to/ibrahimcesar)
+
+## Overview of AWS Developer Tools - Part 2
+
+<https://dev.to/makendrang/overview-of-aws-developer-tools-part-2-kei>
+
+And here the second part of the AWS Developer Tools series. My personal highlight is the AWS Fault Injection Simulator which you can use for chaos engineering testing. Super cool!
+
+Thanks a lot to the author [MakendranG](https://dev.to/makendrang)
+
+## AWS SNS vs. SQS - What Are the Main Differences?
+
+<https://blog.serverlessq.com/aws-sns-vs-sqs-what-are-the-main-differences>
+
+A super good explanation about SNS and SQS and what are the differences. I never paid to much notice what differentiate those services so I am very glad that the author is doing that. As well the author explains when to use SNS, SQS and even Kinesis. Must read!
+
+Thanks a lot to the author [Sandro Volpicella](https://hashnode.com/@SandroVolpicella)
+
+## Zero Maintenance AWS Canary Tokens That Scale
+
+<https://medium.com/@williambengtson/zero-maintenance-aws-canary-tokens-that-scale-b470c6f60da>
+
+An exciting article about Honey tokens like how you can do them in AWS and how they help you to monitor malicious behavior. Very cool!
+
+Thanks a lot to the author [William Bengtson](https://medium.com/@williambengtson)
+
+## The tale of migration to Serverless
+
+<https://dev.to/ymwjbxxq/the-tale-of-migration-to-serverless-24b3>
+
+A nice and creative sports analogy / story / tale for serverless covering how we got to serverless and why to use it.
+
+Thanks a lot to the author [Daniele Frasca](https://dev.to/ymwjbxxq)
+
+## Softwareentwicklung: Dem IT-Fachkräftemangel mit interdisziplinären Teams begegnen
+
+https://t3n.de/news/softwareentwicklung-teams-fachkraeftemangel-1475059
+
+Interesting article in German for why interdisciplinary teams are so important and successful.
+
+Thanks a lot to the author [Elisabeth Urban](https://t3n.de/redaktion/elisabeth-urban)
+
 ## Title
 
 LINK
 
 ...
 
-Thanks a lot to the author []()
+## Title
+
+LINK
+
+...
 
 ## Title
 
@@ -86,7 +138,11 @@ LINK
 
 ...
 
-Thanks a lot to the author []()
+## Title
+
+LINK
+
+...
 
 ## Title
 
