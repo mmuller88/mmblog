@@ -1,8 +1,8 @@
 ---
 title: Newsletter martinmueller.dev 2022 week 21
-show: "no"
+show: "yes"
 date: "2022-05-29"
-tags: ["eng", "2022", "newsletter", "aws", "devops", "nofeed"] #nofeed
+tags: ["eng", "2022", "newsletter", "aws", "devops"] #nofeed
 pruneLength: 50
 ---
 
@@ -16,19 +16,11 @@ If you like my content follow me on my usual spots to hang around:
 - <https://dev.to/mmuller88>
 - <https://martinmueller.dev>
 
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
-
 ## New AWS Config Rules - LambdaLess and rusty
 
 <https://dev.to/aws-builders/new-aws-config-rules-lambdaless-and-rusty-hbe>
 
-Exciting article from my German fellaw Gernot Glawe. He describes how to add more easy add custom AWS Config rules with Lambda. I didn't worked much with AWS Config but this article made me excited to do so :).
+Exciting article from my German fellow Gernot Glawe. He describes how to add more easily add custom AWS Config rules with Lambda. I didn't work much with AWS Config but this article made me excited to do so :).
 
 Thanks a lot to the author [Gernot Glawe](https://dev.to/megaproaktiv)
 
@@ -44,7 +36,7 @@ Thanks a lot to the author [Himanshu Gupta](https://hashnode.com/@himanshugupta0
 
 <https://dev.to/abhishe89636035/devops-an-introduction-5cdp>
 
-Gives a quick introduction about DevOps and then lists different areas in the DevOps space and tools you can use for those.
+Gives a quick introduction to DevOps and then lists different areas in the DevOps space and tools you can use for those.
 
 Thanks a lot to the author [Abhishek Shrivastava](https://dev.to/abhishe89636035)
 
@@ -56,7 +48,7 @@ I will not spoiler but the answer will not surprise you :P. But yeah it is a nic
 
 Thanks a lot to the author [Jordan Tingling](https://dev.to/jordan_t)
 
-## 5 VSCode Extension that Make Maintenance Easy🌱
+## 5 VSCode Extension that makes Maintenance Easy:seedling:
 
 <https://dev.to/alexomeyer/5-vscode-extension-that-make-maintenance-easy-4eb1>
 
@@ -68,7 +60,7 @@ Thanks a lot to the author [Alex Omeyer](https://dev.to/alexomeyer)
 
 <https://dev.to/eoinsha/how-to-use-eventbridge-as-a-cross-account-event-backbone-5fik>
 
-Long post but super interesting how you can leverage AWS EventBridge for cross account events. The author even gives a little example consisting of 3 AWS Accounts which are interchanging events via EventBridge.
+Long post but super interesting how you can leverage AWS EventBridge for cross-account events. The author even gives a little example consisting of 3 AWS Accounts that are interchanging events via EventBridge.
 
 Thanks a lot to the author [Eoin Shanaghy](https://dev.to/eoinsha)
 
@@ -84,7 +76,7 @@ Thanks a lot to the author [Ibrahim Cesar](https://dev.to/ibrahimcesar)
 
 <https://dev.to/makendrang/overview-of-aws-developer-tools-part-2-kei>
 
-And here the second part of the AWS Developer Tools series. My personal highlight is the AWS Fault Injection Simulator which you can use for chaos engineering testing. Super cool!
+And here is the second part of the AWS Developer Tools series. My personal highlight is the AWS Fault Injection Simulator which you can use for chaos engineering testing. Super cool!
 
 Thanks a lot to the author [MakendranG](https://dev.to/makendrang)
 
@@ -92,7 +84,7 @@ Thanks a lot to the author [MakendranG](https://dev.to/makendrang)
 
 <https://blog.serverlessq.com/aws-sns-vs-sqs-what-are-the-main-differences>
 
-A super good explanation about SNS and SQS and what are the differences. I never paid to much notice what differentiate those services so I am very glad that the author is doing that. As well the author explains when to use SNS, SQS and even Kinesis. Must read!
+A super good explanation about SNS and SQS and what are the differences. I never paid too much notice of what differentiates those services so I am very glad that the author is doing that. As well the author explains when to use SNS, SQS and even Kinesis. Must read!
 
 Thanks a lot to the author [Sandro Volpicella](https://hashnode.com/@SandroVolpicella)
 
@@ -108,59 +100,31 @@ Thanks a lot to the author [William Bengtson](https://medium.com/@williambengtso
 
 <https://dev.to/ymwjbxxq/the-tale-of-migration-to-serverless-24b3>
 
-A nice and creative sports analogy / story / tale for serverless covering how we got to serverless and why to use it.
+A nice and creative sports analogy/story/tale for serverless covering how we got to serverless and why to use it.
 
 Thanks a lot to the author [Daniele Frasca](https://dev.to/ymwjbxxq)
 
 ## Softwareentwicklung: Dem IT-Fachkräftemangel mit interdisziplinären Teams begegnen
 
-https://t3n.de/news/softwareentwicklung-teams-fachkraeftemangel-1475059
+<https://t3n.de/news/softwareentwicklung-teams-fachkraeftemangel-1475059>
 
-Interesting article in German for why interdisciplinary teams are so important and successful.
+Interesting article in German on why interdisciplinary teams are so important and successful.
 
 Thanks a lot to the author [Elisabeth Urban](https://t3n.de/redaktion/elisabeth-urban)
 
-## Title
+## AWS open-source news and updates, #114
 
-LINK
+<https://dev.to/aws/aws-open-source-news-and-updates-114-51ng>
 
-...
+Nice summary of new AWS open-source-related projects. My highlight is [auto-close-aws-accounts which](https://github.com/raajheshkannaa/auto-close-aws-accounts) as it makes deleting AWS accounts super easy!
 
-## Title
+## Please, don't give up on programming
 
-LINK
+<https://dev.to/alesbe/please-dont-give-up-on-programming-4pop>
 
-...
+Engages you to keep programming even if it seems to be tough. Totally agree with that. Try to keep your goal in front of your eyes and perhaps do a little bit every day. For more tips read the article :).
 
-## Title
-
-LINK
-
-...
-
-## Title
-
-LINK
-
-...
-
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
-
-## Open Source Projects
-
-In this section I list Open Source projects I find super interesting!
-
-## Title
-
-LINK
-
-...
+Thanks a lot to the author [alesbe](https://dev.to/alesbe)
 
 ## Final Words
 
