@@ -16,6 +16,14 @@ If you like my content follow me on my usual spots to hang around:
 - <https://dev.to/mmuller88>
 - <https://martinmueller.dev>
 
+## AWS SNS vs. SQS - What Are the Main Differences?
+
+<https://blog.serverlessq.com/aws-sns-vs-sqs-what-are-the-main-differences>
+
+A super good explanation about SNS and SQS and what are the differences. I never paid too much notice of what differentiates those services so I am very glad that the author is doing that. As well the author explains when to use SNS, SQS and even Kinesis. Must read!
+
+Thanks a lot to the author [Sandro Volpicella](https://hashnode.com/@SandroVolpicella)
+
 ## New AWS Config Rules - LambdaLess and rusty
 
 <https://dev.to/aws-builders/new-aws-config-rules-lambdaless-and-rusty-hbe>
@@ -23,14 +31,6 @@ If you like my content follow me on my usual spots to hang around:
 Exciting article from my German fellow Gernot Glawe. He describes how to add more easily add custom AWS Config rules with Lambda. I didn't work much with AWS Config but this article made me excited to do so :).
 
 Thanks a lot to the author [Gernot Glawe](https://dev.to/megaproaktiv)
-
-## AWS S3 Replication: Same Region Replication(SSR)
-
-<https://programmersblock.hashnode.dev/aws-s3-same-region-replication>
-
-A nice roundup article about S3 Same Region Replication.
-
-Thanks a lot to the author [Himanshu Gupta](https://hashnode.com/@himanshugupta0007)
 
 ## DevOps: An Introduction
 
@@ -40,22 +40,6 @@ Gives a quick introduction to DevOps and then lists different areas in the DevOp
 
 Thanks a lot to the author [Abhishek Shrivastava](https://dev.to/abhishe89636035)
 
-## Do we really need AWS?
-
-<https://dev.to/jordan_t/do-we-really-need-aws-3hao>
-
-I will not spoiler but the answer will not surprise you :P. But yeah it is a nice summary about AWS.
-
-Thanks a lot to the author [Jordan Tingling](https://dev.to/jordan_t)
-
-## 5 VSCode Extension that makes Maintenance Easy:seedling:
-
-<https://dev.to/alexomeyer/5-vscode-extension-that-make-maintenance-easy-4eb1>
-
-Has some cool VS Code extension tips. Check it out!
-
-Thanks a lot to the author [Alex Omeyer](https://dev.to/alexomeyer)
-
 ## How to use EventBridge as a Cross-Account Event Backbone
 
 <https://dev.to/eoinsha/how-to-use-eventbridge-as-a-cross-account-event-backbone-5fik>
@@ -64,14 +48,6 @@ Long post but super interesting how you can leverage AWS EventBridge for cross-a
 
 Thanks a lot to the author [Eoin Shanaghy](https://dev.to/eoinsha)
 
-## Kafka on the Serverless Shore: Building event-driven applications with Kafka
-
-<https://dev.to/aws-builders/kafka-on-the-serverless-shore-building-event-driven-applications-with-kafka-23df>
-
-Super interesting article about Serverless Kafka combined with AWS CDK.
-
-Thanks a lot to the author [Ibrahim Cesar](https://dev.to/ibrahimcesar)
-
 ## Overview of AWS Developer Tools - Part 2
 
 <https://dev.to/makendrang/overview-of-aws-developer-tools-part-2-kei>
@@ -79,14 +55,6 @@ Thanks a lot to the author [Ibrahim Cesar](https://dev.to/ibrahimcesar)
 And here is the second part of the AWS Developer Tools series. My personal highlight is the AWS Fault Injection Simulator which you can use for chaos engineering testing. Super cool!
 
 Thanks a lot to the author [MakendranG](https://dev.to/makendrang)
-
-## AWS SNS vs. SQS - What Are the Main Differences?
-
-<https://blog.serverlessq.com/aws-sns-vs-sqs-what-are-the-main-differences>
-
-A super good explanation about SNS and SQS and what are the differences. I never paid too much notice of what differentiates those services so I am very glad that the author is doing that. As well the author explains when to use SNS, SQS and even Kinesis. Must read!
-
-Thanks a lot to the author [Sandro Volpicella](https://hashnode.com/@SandroVolpicella)
 
 ## Zero Maintenance AWS Canary Tokens That Scale
 
@@ -104,19 +72,13 @@ A nice and creative sports analogy/story/tale for serverless covering how we got
 
 Thanks a lot to the author [Daniele Frasca](https://dev.to/ymwjbxxq)
 
-## Softwareentwicklung: Dem IT-Fachkräftemangel mit interdisziplinären Teams begegnen
-
-<https://t3n.de/news/softwareentwicklung-teams-fachkraeftemangel-1475059>
-
-Interesting article in German on why interdisciplinary teams are so important and successful.
-
-Thanks a lot to the author [Elisabeth Urban](https://t3n.de/redaktion/elisabeth-urban)
-
 ## AWS open-source news and updates, #114
 
 <https://dev.to/aws/aws-open-source-news-and-updates-114-51ng>
 
 Nice summary of new AWS open-source-related projects. My highlight is [auto-close-aws-accounts which](https://github.com/raajheshkannaa/auto-close-aws-accounts) as it makes deleting AWS accounts super easy!
+
+Thanks a lot to the author [Ricardo Sueiras](https://dev.to/094459)
 
 ## Please, don't give up on programming
 
@@ -125,6 +87,46 @@ Nice summary of new AWS open-source-related projects. My highlight is [auto-clos
 Engages you to keep programming even if it seems to be tough. Totally agree with that. Try to keep your goal in front of your eyes and perhaps do a little bit every day. For more tips read the article :).
 
 Thanks a lot to the author [alesbe](https://dev.to/alesbe)
+
+## AWS S3 Replication: Same Region Replication(SSR)
+
+<https://programmersblock.hashnode.dev/aws-s3-same-region-replication>
+
+A nice roundup article about S3 Same Region Replication.
+
+Thanks a lot to the author [Himanshu Gupta](https://hashnode.com/@himanshugupta0007)
+
+## Do we really need AWS?
+
+<https://dev.to/jordan_t/do-we-really-need-aws-3hao>
+
+I will not spoiler but the answer will not surprise you :P. But yeah it is a nice summary about AWS.
+
+Thanks a lot to the author [Jordan Tingling](https://dev.to/jordan_t)
+
+## 5 VSCode Extension that makes Maintenance Easy:seedling:
+
+<https://dev.to/alexomeyer/5-vscode-extension-that-make-maintenance-easy-4eb1>
+
+Has some cool VS Code extension tips. Check it out!
+
+Thanks a lot to the author [Alex Omeyer](https://dev.to/alexomeyer)
+
+## Kafka on the Serverless Shore: Building event-driven applications with Kafka
+
+<https://dev.to/aws-builders/kafka-on-the-serverless-shore-building-event-driven-applications-with-kafka-23df>
+
+Super interesting article about Serverless Kafka combined with AWS CDK.
+
+Thanks a lot to the author [Ibrahim Cesar](https://dev.to/ibrahimcesar)
+
+## Softwareentwicklung: Dem IT-Fachkräftemangel mit interdisziplinären Teams begegnen
+
+<https://t3n.de/news/softwareentwicklung-teams-fachkraeftemangel-1475059>
+
+Interesting article in German on why interdisciplinary teams are so important and successful.
+
+Thanks a lot to the author [Elisabeth Urban](https://t3n.de/redaktion/elisabeth-urban)
 
 ## Final Words
 
