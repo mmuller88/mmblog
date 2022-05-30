@@ -16,13 +16,13 @@ If you like my content follow me on my usual spots to hang around:
 - <https://dev.to/mmuller88>
 - <https://martinmueller.dev>
 
-## Title
+## Exploring Aurora Serverless V2 for MySQL
 
-LINK
+https://mydbops.wordpress.com/2022/05/22/exploring-aurora-serverless-v2-for-mysql/
 
-...
+A nice deep dive into AWS Aurora Serverless v2. Such posts are rearly as Aurora offers a wide set of cool features and explaining those is time consuming.
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Kabilesh P R](https://mydbops.wordpress.com/author/kabilesh/)
 
 ## Title
 
