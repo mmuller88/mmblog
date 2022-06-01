@@ -24,13 +24,43 @@ A nice deep dive into AWS Aurora Serverless v2. Such posts are rearly as Aurora 
 
 Thanks a lot to the author [Kabilesh P R](https://mydbops.wordpress.com/author/kabilesh/)
 
+## ALL YOU NEED TO KNOW ABOUT AMAZON ROUTE 53
+
+https://dev.to/joshbek/all-you-need-to-know-about-amazon-route-53-8a6
+
+Nice roundup about AWS Route 53
+
+Thanks a lot to the author [Joshua O. Berkoh](https://dev.to/joshbek)
+
+## Writing and Testing a stdin script with TypeScript
+
+https://dev.to/viglioni/writing-and-testing-a-stdin-script-with-typescript-57mb
+
+About how to test a TypeScript Script which has stdin input. I would have needed the solution a while back as I couldn't figure out how to do that. So this article seems pretty useful.
+
+Thanks a lot to the author [Laura Viglioni](https://dev.to/viglioni)
+
 ## Title
 
-LINK
+https://docs.multy.dev/blog/challenges-of-building-multi-cloud
 
-...
+High level overview about building in multi cloud and how [multy](https://multy.dev) helps to make it easier.
 
 Thanks a lot to the author []()
+
+## Enable Autocomplete for boto3 in VSCode
+
+https://dev.to/aws-builders/enable-autocomplete-for-boto3-in-vscode-3jb4
+
+How you can configure autocomplete for Python boto3 in VSCode. Super important when you develop your AWS SDK script or lambda with python!
+
+Thanks a lot to the author [Maurice Borgmeier](https://dev.to/mauricebrg)
+
+## How do I handle brutal feedback from colleague?
+
+https://dev.to/sloan/how-do-i-handle-brutal-feedback-from-colleague-3oda
+
+Discussion about bullies at the developer working place. That is of course not acceptable and the commenter are giving very good advices for how to improve the situation if you are the victim.
 
 ## Title
 
