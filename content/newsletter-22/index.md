@@ -62,13 +62,13 @@ https://dev.to/sloan/how-do-i-handle-brutal-feedback-from-colleague-3oda
 
 Discussion about bullies at the developer working place. That is of course not acceptable and the commenter are giving very good advices for how to improve the situation if you are the victim.
 
-## Title
+## Tips for Junior Developers
 
-LINK
+https://dev.to/sahan/tips-for-junior-developers-5ggj
 
-...
+Super empowering post for junior developers how to grow as such :).
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Sahan](https://dev.to/sahan)
 
 ## Title
 
