@@ -70,6 +70,44 @@ Super empowering post for junior developers how to grow as such :).
 
 Thanks a lot to the author [Sahan](https://dev.to/sahan)
 
+## Are You Really API-First Or Do You Just Think It?
+
+https://www.readysetcloud.io/blog/allen.helton/are-you-really-api-first/
+
+Super cool post about how you design your product with API first. I totally agree with the author. I personally like to use GraphQL APIs where I just define my API as typed schema. That has nice advantages against like the more old fashioned REST API :).
+
+Thanks a lot to the author [Allen Helton](https://www.readysetcloud.io/)
+
+## AWS Step Functions launches an interactive workshop for building and deploying application workflows
+
+https://aws.amazon.com/about-aws/whats-new/2022/06/aws-step-functions-interactive-workshop-building-deploying-application-workflows/
+
+An interesting AWS StepFunction Workshop. It uses AWS CDK for Infrastructure as Code (IaC).
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
 ## Title
 
 LINK
