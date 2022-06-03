@@ -1,11 +1,11 @@
 import React from "react"
-import Layout from "../components/layout"
+import Layout from "../layout"
 import Img from "gatsby-image"
 import { graphql } from "gatsby"
 import PrevNext from "../components/prevnext"
 import MetaTags from "../components/Metatags"
 import Share from "../components/share"
-import ContactForm from "../components/contactform"
+import ContactForm from "./contactform"
 import KoFi from "../components/KoFi"
 
 function BlogPost(props) {
@@ -72,35 +72,35 @@ function BlogPost(props) {
 
 export default BlogPost
 
-export const query = graphql`
- query PostQuery($slug: String!) {
-  markdownRemark(fields: { slug: { eq: $slug } }) {
-   html
-   excerpt
-   frontmatter {
-    date(formatString: "Do MMMM YYYY")
-    title
-    show
-    tags
-    engUrl
-    gerUrl
-    showContact
-    image {
-     childImageSharp {
-      resize(width: 1000, height: 420) {
-       src
-      }
-      fluid(maxWidth: 786) {
-       ...GatsbyImageSharpFluid
-      }
-     }
-    }
-   }
-  }
-  site {
-   siteMetadata {
-    siteUrl
-   }
-  }
- }
-`
+// export const query = graphql`
+//  query PostQuery($slug: String!) {
+//   markdownRemark(fields: { slug: { eq: $slug } }) {
+//    html
+//    excerpt
+//    frontmatter {
+//     date(formatString: "Do MMMM YYYY")
+//     title
+//     show
+//     tags
+//     engUrl
+//     gerUrl
+//     showContact
+//     image {
+//      childImageSharp {
+//       resize(width: 1000, height: 420) {
+//        src
+//       }
+//       fluid(maxWidth: 786) {
+//        ...GatsbyImageSharpFluid
+//       }
+//      }
+//     }
+//    }
+//   }
+//   site {
+//    siteMetadata {
+//     siteUrl
+//    }
+//   }
+//  }
+// `

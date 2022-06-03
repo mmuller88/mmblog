@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Martin Mueller's Blog `,
-    description: `tech blog about aws`,
+    title: 'Martin Mueller\'s Blog ',
+    description: 'tech blog about aws',
     siteUrl: 'https://martinmueller.dev',
+    author: '@mmuller88',
     social: {
       twitter: 'MartinMueller_',
       github: 'mmuller88',
@@ -22,29 +23,29 @@ module.exports = {
         url: '/projects',
       },
     ],
-    author: `@mmuller88`,
-    blogPathPrefix: '/'
+    blogPathPrefix: '',
+    subscriptionCallbackUrl: 'null',
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-gdpr-cookies`,
+      resolve: 'gatsby-plugin-gdpr-cookies',
       options: {
         googleAnalytics: {
           trackingId: 'UA-170834724-1',
         },
-        environments: ['production', 'development']
+        environments: ['production', 'development'],
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: "UA-170834724-1",
+        trackingId: 'UA-170834724-1',
       },
     },
     {
       resolve: 'gatsby-plugin-feed',
-        options: {
-          query: `
+      options: {
+        query: `
             {
               site {
                 siteMetadata {
@@ -56,31 +57,28 @@ module.exports = {
               }
             }
           `,
-          feeds: [
-            {
-              serialize: ({ query: { site, allMarkdownRemark } }) => {
-                return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("eng") && !edge.node.frontmatter.tags.includes("nofeed")).map(edge => {
-                  return Object.assign({}, edge.node.frontmatter, {
-                    description: edge.node.excerpt,
-                    date: edge.node.frontmatter.date,
-                    url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    categories: edge.node.frontmatter.tags,
-                    enclosure: edge.node.frontmatter.image && {
-                      url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
-                    },
-                    custom_elements: [
-                      { "content:encoded": edge.node.html },
-                      {
-                        featuredImage:  edge.node.frontmatter.image ?
-                          site.siteMetadata.siteUrl +
-                          edge.node.frontmatter.image.publicURL : undefined
-                      },
-                    ],
-                  })
-                })
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.edges.filter((edge) => edge.node.frontmatter.tags.includes('eng') && !edge.node.frontmatter.tags.includes('nofeed')).map((edge) => ({
+              ...edge.node.frontmatter,
+              description: edge.node.excerpt,
+              date: edge.node.frontmatter.date,
+              url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+              guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+              categories: edge.node.frontmatter.tags,
+              enclosure: edge.node.frontmatter.image && {
+                url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
               },
-              query: `
+              custom_elements: [
+                { 'content:encoded': edge.node.html },
+                {
+                  featuredImage: edge.node.frontmatter.image
+                    ? site.siteMetadata.siteUrl
+                          + edge.node.frontmatter.image.publicURL : undefined,
+                },
+              ],
+            })),
+            query: `
                 {
                   allMarkdownRemark(
                     sort: { order: DESC, fields: [frontmatter___date] }
@@ -103,33 +101,30 @@ module.exports = {
                   }
                 }
               `,
-              output: "/rss.xml",
-              title: "Martin Mueller's Blog",
-            },
-            {
-              serialize: ({ query: { site, allMarkdownRemark } }) => {
-                return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("de") && !edge.node.frontmatter.tags.includes("nofeed")).map(edge => {
-                  return Object.assign({}, edge.node.frontmatter, {
-                    description: edge.node.excerpt,
-                    date: edge.node.frontmatter.date,
-                    url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    categories: edge.node.frontmatter.tags,
-                    enclosure: edge.node.frontmatter.image && {
-                      url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
-                    },
-                    custom_elements: [
-                      { "content:encoded": edge.node.html },
-                      {
-                        featuredImage:  edge.node.frontmatter.image ?
-                          site.siteMetadata.siteUrl +
-                          edge.node.frontmatter.image.publicURL : undefined
-                      },
-                    ],
-                  })
-                })
+            output: '/rss.xml',
+            title: "Martin Mueller's Blog",
+          },
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.edges.filter((edge) => edge.node.frontmatter.tags.includes('de') && !edge.node.frontmatter.tags.includes('nofeed')).map((edge) => ({
+              ...edge.node.frontmatter,
+              description: edge.node.excerpt,
+              date: edge.node.frontmatter.date,
+              url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+              guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+              categories: edge.node.frontmatter.tags,
+              enclosure: edge.node.frontmatter.image && {
+                url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
               },
-              query: `
+              custom_elements: [
+                { 'content:encoded': edge.node.html },
+                {
+                  featuredImage: edge.node.frontmatter.image
+                    ? site.siteMetadata.siteUrl
+                          + edge.node.frontmatter.image.publicURL : undefined,
+                },
+              ],
+            })),
+            query: `
                 {
                   allMarkdownRemark(
                     sort: { order: DESC, fields: [frontmatter___date] }
@@ -152,17 +147,17 @@ module.exports = {
                   }
                 }
               `,
-              output: "/rss-ger.xml",
-              title: "Martin Mueller's Blog Ger",
-            },
-          ]
-        },
+            output: '/rss-ger.xml',
+            title: "Martin Mueller's Blog Ger",
+          },
+        ],
+      },
     },
     'gatsby-plugin-react-helmet',
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
-      resolve: `gatsby-remark-images`,
+      resolve: 'gatsby-remark-images',
       options: {
         // It's important to specify the maxWidth (in pixels) of
         // the content container as this plugin uses this as the
@@ -173,9 +168,9 @@ module.exports = {
         showCaptions: true,
       },
     },
-    `gatsby-plugin-sitemap`,
+    'gatsby-plugin-sitemap',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Martin Muellers Blog',
         short_name: 'mmblog',
@@ -186,10 +181,10 @@ module.exports = {
         icon: 'src/images/avatarIcon.jpeg', // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-catch-links`,
+    'gatsby-plugin-catch-links',
     'gatsby-plugin-offline',
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
     },
     {
       resolve: 'gatsby-source-filesystem',
@@ -199,11 +194,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: `blog`,
+        name: 'blog',
         path: `${__dirname}/content`,
-      }
+      },
     },
     {
       resolve: 'gatsby-plugin-mdx',
@@ -240,4 +235,4 @@ module.exports = {
     'gatsby-plugin-anchor-links',
     'gatsby-plugin-emotion',
   ],
-}
+};

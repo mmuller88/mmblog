@@ -1,73 +1,110 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import "./post.css"
-import Layout from "../components/layout"
+import React from 'react';
+import { graphql } from 'gatsby';
 
-const IndexPage = (props) => {
- const postList = props.data.posts
- //const data = props.data.tags.group;
- return (
-  <Layout>
-   <div className="href">
-    <a href={`tags/de`}>de</a>, <a href={`tags/eng`}>eng</a>,{" "}
-    <a href={`tags`}>tags</a>, <a href={`rss.xml`}>rss</a>,{" "}
-    <a href={`rss-ger.xml`}>rss-ger</a>
-    {/* {
-              data.filter((tag) => (tag.fieldValue === "eng" || tag.fieldValue === "de")).map(tag => (
-                  
-                  // <a href={`tags/${tag.fieldValue}`}>{tag.fieldValue} {`(${tag.totalCount})`}</a>
-                  // <Link to={`tags/${tag.fieldValue}`} >
-                  //     {tag.fieldValue} {`(${tag.totalCount})`}
-                  // </Link>
-              ))
-          } */}
-   </div>
-   {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/4JYaGylXEMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
-   <div>
-    {postList.edges.map(({ node }, i) => (
-     <Link to={node.fields.slug} key={i} className="link">
-      <div className="post-list">
-       <h1>{node.frontmatter.title}</h1>
-       <span>{node.frontmatter.date}</span>
-       <p>{node.excerpt}</p>
-      </div>
-     </Link>
-    ))}
-   </div>
-  </Layout>
- )
-}
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Hero from '../components/hero';
+import {
+  Title,
+  MainTitle,
+  Subtitle,
+} from '../components/title';
+import {
+  BlogListing,
+  BlogSection,
+} from '../templates/display/blog-list-template';
+import BlogCard from '../components/blog-card';
+import TitleButtonIcon from '../components/title-button';
+import { SubscriptionForm } from '../components/subscribe-form';
 
-export default IndexPage
+const Index = ({ data }) => {
+  const posts = data.blog?.nodes;
+  return (
+    <Layout>
+      <SEO title="All posts" />
+      <Hero>
+        <MainTitle>
+          Hi! My name is Martin Mueller.
+          <p>
+            I’m a
+            <span tw="text-indigo-500"> Full Stack developer</span>
+          </p>
+          located in Germany.
+        </MainTitle>
+        <Subtitle>
+          I like to have a broad collection of skills.
+          From developing the backend and frontend applications written in Java, JavaScript,
+          or any other language, to developing a cost-optimized cloud infrastructure solution.
+          An enthusiastic agile player with strong communication skills.
+          Looking for taking on new challenges and learning new technologies.
+        </Subtitle>
+      </Hero>
+      <BlogSection>
+        <div tw="flex justify-between items-center">
+          <Title>
+            Blog
+          </Title>
+          <button type="button">
+            <TitleButtonIcon />
+          </button>
+        </div>
+        <BlogListing>
+          {posts.length > 0
+            && posts.map((post) => {
+              const {
+                image, title, description, slug, date,
+              } = post;
+              return (
+                <BlogCard
+                  key={slug}
+                  title={title}
+                  date={date}
+                  description={description}
+                  image={image.childImageSharp.gatsbyImageData}
+                  link={slug}
+                />
+              );
+            })}
+        </BlogListing>
+      </BlogSection>
+      <SubscriptionForm />
+    </Layout>
+  );
+};
 
-export const pageQuery = graphql`
- query {
-  posts: allMarkdownRemark(
-   sort: { order: DESC, fields: [frontmatter___date] }
-   filter: {
-    fileAbsolutePath: { regex: "/content/" }
-    frontmatter: { show: { ne: "no" } }
-   }
-  ) {
-   edges {
-    node {
-     fields {
-      slug
-     }
-     excerpt(pruneLength: 250)
-     frontmatter {
-      date(formatString: "Do MMMM YYYY")
-      title
-      show
-     }
+export default Index;
+
+export const mainPageQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        title
+        author {
+          name
+        }
+      }
     }
-   }
+    blog: allSitePost(
+      sort: { fields: [date], order: ASC }
+      limit: 2
+    ) {
+      nodes {
+        excerpt
+        slug
+        date(formatString: "DD.MM.YYYY")
+        title
+        description
+        image {
+          childImageSharp {
+            gatsbyImageData(
+              width: 746
+              quality: 97
+              layout: CONSTRAINED
+              aspectRatio: 1.87
+            )
+          }
+        }
+      }
+    }
   }
-  tags: allMarkdownRemark(limit: 2000) {
-   group(field: frontmatter___tags) {
-    fieldValue
-    totalCount
-   }
-  }
- }
-`
+`;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby'
-import Layout from '../components/layout';
+import Layout from '../layout';
 import '../pages/post.css'
 
 function Tags(props) {
@@ -33,28 +33,28 @@ function Tags(props) {
 export default Tags;
 
 
-export const query = graphql`
+// export const query = graphql`
 
- query TagsQuery($tag: String!) {
-allMarkdownRemark(
-      limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } }}
-    ) {
-      edges {
-        node {
-          frontmatter {
-            date(formatString: "Do MMMM YYYY")
-            title
-            show
-            tags
-          }
-          fields {
-            slug
-          }
-          excerpt(pruneLength: 250)
-        }
-      }
-    }
-}
-`
+//  query TagsQuery($tag: String!) {
+// allMarkdownRemark(
+//       limit: 2000
+//       sort: { fields: [frontmatter___date], order: DESC }
+//       filter: { frontmatter: { tags: { in: [$tag] } }}
+//     ) {
+//       edges {
+//         node {
+//           frontmatter {
+//             date(formatString: "Do MMMM YYYY")
+//             title
+//             show
+//             tags
+//           }
+//           fields {
+//             slug
+//           }
+//           excerpt(pruneLength: 250)
+//         }
+//       }
+//     }
+// }
+// `
