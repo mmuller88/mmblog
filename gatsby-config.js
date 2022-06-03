@@ -1,9 +1,29 @@
 module.exports = {
   siteMetadata: {
     title: `Martin Mueller's Blog `,
-    description: `My first blog`,
+    description: `tech blog about aws`,
     siteUrl: 'https://martinmueller.dev',
+    social: {
+      twitter: 'MartinMueller_',
+      github: 'mmuller88',
+      linkedin: 'martinmueller88',
+    },
+    menu: [
+      {
+        name: 'blog',
+        url: '/blog',
+      },
+      {
+        name: 'resume',
+        url: '/resume',
+      },
+      {
+        name: 'projects',
+        url: '/projects',
+      },
+    ],
     author: `@mmuller88`,
+    blogPathPrefix: '/'
   },
   plugins: [
     {
@@ -11,20 +31,13 @@ module.exports = {
       options: {
         googleAnalytics: {
           trackingId: 'UA-170834724-1',
-          // Setting this parameter is optional
-          // anonymize: true
         },
-        // facebookPixel: {
-        //   pixelId: 'YOUR_FACEBOOK_PIXEL_ID'
-        // },
-        // Defines the environments where the tracking should be available  - default is ["production"]
         environments: ['production', 'development']
       },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
         trackingId: "UA-170834724-1",
       },
     },
@@ -164,8 +177,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'Martin Muellers Blog',
+        short_name: 'mmblog',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',
@@ -177,13 +190,6 @@ module.exports = {
     'gatsby-plugin-offline',
     {
       resolve: `gatsby-transformer-remark`,
-      // options: {
-      //   plugins: [
-      //     {
-      //       resolve: `gatsby-remark-highlight-code`
-      //     },
-      //   ],
-      // },
     },
     {
       resolve: 'gatsby-source-filesystem',
@@ -195,9 +201,43 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
+        name: `blog`,
         path: `${__dirname}/content`,
       }
-    }
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: ['.mdx', '.md'],
+        defaultLayouts: {
+          default: require.resolve('./src/templates/display/page.jsx'),
+        },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 720,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-responsive-iframe',
+            options: {
+              wrapperStyle: 'margin-bottom: 1.0725rem',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              icon: false,
+            },
+          },
+          'gatsby-remark-prismjs',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
+        ],
+      },
+    },
+    'gatsby-plugin-anchor-links',
+    'gatsby-plugin-emotion',
   ],
 }
