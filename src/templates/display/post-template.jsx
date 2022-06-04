@@ -116,13 +116,13 @@ const PostTemplate = ({
         <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
       </div>
       {engUrl && (
-        <div tw="pb-4">
+        <div tw="pl-8 pb-4">
           <Link to={engUrl} tw="text-primary text-xl">Translate To English</Link>
           <br />
         </div>
       )}
       {gerUrl && (
-        <div tw="pb-4">
+        <div tw="pl-8 pb-4">
           <Link to={gerUrl} tw="text-primary text-xl">Translate To German</Link>
           <br />
         </div>
