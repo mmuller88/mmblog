@@ -128,7 +128,7 @@ const PostTemplate = ({
         </div>
       )}
       <SubscriptionForm />
-      {tags && (
+      {tags && tags.length > 0 && (
         <div tw="pl-8 text-primary">
           <p tw="text-2xl">Tagged in </p>
           {tags.map((tag) => (
