@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 const SEO = ({
-  description, lang, meta, title,
+  description, lang, meta, title, image = null,
 }) => {
   const { site } = useStaticQuery(
     graphql`
@@ -49,6 +49,27 @@ const SEO = ({
           content: 'website',
         },
         {
+          property: 'og:image',
+          content: image && image,
+        },
+        {
+          property: 'og:image:secure_url',
+          content: image && image,
+        },
+        {
+          property: 'og:image:width',
+          content: '1200',
+        },
+
+        {
+          property: 'og:image:height',
+          content: '630',
+        },
+        {
+          name: 'twitter:image',
+          content: image && image,
+        },
+        {
           name: 'twitter:card',
           content: 'summary',
         },
@@ -64,6 +85,11 @@ const SEO = ({
           name: 'twitter:description',
           content: metaDescription,
         },
+        { property: 'og:type', content: 'website' },
+        { name: 'robots', content: 'index, follow' },
+
+        { name: 'twitter:creator', content: '@MartinMueller_' },
+        { property: 'og:site_name', content: 'martinmueller.dev' },
       ].concat(meta)}
     />
   );

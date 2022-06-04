@@ -52,7 +52,7 @@ export const PostNavigationTitle = tw.h4`
   text-xl text-slate-800 mt-3
 `;
 
-export const PostImageContainer = tw.div`flex shadow-2xl overflow-hidden`;
+export const PostImageContainer = tw.div`flex overflow-hidden`;
 
 export const PostImage = tw(GatsbyImage)`
   w-full mx-auto max-w-full rounded-md

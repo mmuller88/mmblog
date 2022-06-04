@@ -5,19 +5,27 @@ import Layout from '../../components/layout';
 import SEO from '../../components/seo';
 import PostTemplate from '../display/post-template';
 
-const BlogPostTemplate = ({ data }) => (
-  <Layout>
-    <SEO
-      title={data.post.title}
-      description={data.post.description || data.post.excerpt}
-    />
-    <PostTemplate
-      post={data.post}
-      previous={data.previous}
-      next={data.next}
-    />
-  </Layout>
-);
+const BlogPostTemplate = ({ data }) => {
+  const {
+    image, title, description, excerpt,
+  } = data.post;
+  const thumbnail = image
+  && image.childImageSharp.gatsbyImageData.images.fallback.src;
+  return (
+    <Layout>
+      <SEO
+        title={title}
+        image={thumbnail}
+        description={description || excerpt}
+      />
+      <PostTemplate
+        post={data.post}
+        previous={data.previous}
+        next={data.next}
+      />
+    </Layout>
+  );
+};
 
 export default BlogPostTemplate;
 
