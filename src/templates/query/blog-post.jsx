@@ -9,6 +9,7 @@ const BlogPostTemplate = ({ data }) => {
   const {
     image, title, description, excerpt,
   } = data.post;
+  console.log('post', data.post);
   const thumbnail = image
   && image.childImageSharp.gatsbyImageData.images.fallback.src;
   return (
@@ -47,6 +48,7 @@ export const blogQuery = graphql`query BlogPostBySlug($previousPostId: String, $
     description
     engUrl
     gerUrl
+    tags
     image {
       childImageSharp {
         gatsbyImageData(quality: 97, layout: FULL_WIDTH)

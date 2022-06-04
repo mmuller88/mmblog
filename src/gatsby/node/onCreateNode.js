@@ -23,6 +23,7 @@ module.exports = ({
     let excerpt = content.substring(fmEnd, excerptEnd) + ellipsis;
     excerpt = excerpt.trim();
     const fieldData = {
+      ...node.frontmatter,
       slug: node.frontmatter.slug || generateSlug('/', filePath),
       title: node.frontmatter.title,
       subtitle: node.frontmatter.subtitle,

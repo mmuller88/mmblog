@@ -11,7 +11,7 @@ export const BlogListing = tw.div`
 `;
 
 export const BlogSection = tw(Container)`
-  flex flex-col font-sans pb-7 md:pb-20 lg:pb-28 md:pt-14 lg:pt-28
+  flex flex-col font-sans pb-7 md:pb-20 lg:pb-28 md:pt-14 lg:pt-24
 `;
 
 const BlogListTemplate = ({

@@ -5,7 +5,7 @@ import tw, { styled } from 'twin.macro';
 import { Button, ButtonIconArrow } from './button';
 
 export const PaginationContainer = styled.div(({ hasChildren }) => [
-  tw`flex flex-row justify-end w-full font-sans items-end pt-6 md:pb-64 md:pt-14`,
+  tw`flex flex-row justify-end w-full font-sans items-end pt-6 md:pt-14`,
   hasChildren && tw`md:pt-20`,
 ]);
 
@@ -38,8 +38,10 @@ export const NumberPagination = ({ numberOfPages, currentPage, pathPrefix = '' }
   );
 };
 
-export const Pagination = ({ previousPagePath, nextPagePath, children = null }) => (
-  <PaginationContainer hasChildren={children}>
+export const Pagination = ({
+  previousPagePath, nextPagePath, children = null, ...props
+}) => (
+  <PaginationContainer hasChildren={children} {...props}>
     {previousPagePath && (
       <div tw="pr-6 flex items-end">
         <NavButton to={`${previousPagePath}`} rel="prev" label="previous" tw="justify-end flex items-center">

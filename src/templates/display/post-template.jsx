@@ -87,7 +87,7 @@ const PostTemplate = ({
   const postTitle = post.title;
   const { pathname } = useLocation();
   const {
-    engUrl, gerUrl, image, body,
+    engUrl, gerUrl, image, body, tags,
   } = post;
   return (
     <Container>
@@ -128,6 +128,16 @@ const PostTemplate = ({
         </div>
       )}
       <SubscriptionForm />
+      {tags && (
+        <div tw="pl-8 text-primary">
+          <p tw="text-2xl">Tagged in </p>
+          {tags.map((tag) => (
+            <a href={`/tags/${tag}`} key={tag} tw="mr-2 text-xl underline">
+              {tag}
+            </a>
+          ))}
+        </div>
+      )}
       <Share title={postTitle} url={url} pathname={pathname} />
       <Pagination
         previousPagePath={previous ? previous.slug : null}
