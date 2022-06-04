@@ -29,10 +29,10 @@ Passionate Full Stack Developer. I like to have a broad collection of skills. Fr
 
 ## Experience
 
-Senior Cloud Architect - www.monada.co, ISR \
+Senior Engineer - www.monada.co, Israel \
 Jun 2022 - current
 
-- Together with the customer building awesome AWS cloud solutions
+- Monada is a startup which will reinvent of how developer are using the cloud.
 
 AWS Community Builder \
 Mar 2022 - current
