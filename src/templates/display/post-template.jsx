@@ -3,9 +3,14 @@ import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import tw, { styled } from 'twin.macro';
+// eslint-disable-next-line import/no-unresolved
+import { useLocation } from '@reach/router';
 
 import Container from '../../components/container';
 import { SubscriptionForm } from '../../components/subscribe-form';
+import { Pagination } from '../../components/pagination';
+import Share from '../../components/share';
+import KoFi from '../../components/KoFi';
 
 export const PostTitle = tw.h1`flex justify-start font-sans text-3xl md:text-4xl lg:text-8xl font-bold pb-12 text-primary`;
 
@@ -73,17 +78,23 @@ export const PostNavigationButton = ({
   </PostNavigationButtonContainer>
 );
 
-const PostTemplate = ({ post }) => {
+const PostTemplate = ({
+  post, previous, next, url,
+}) => {
   const postTitle = post.title;
+  const { pathname } = useLocation();
+  const {
+    engUrl, gerUrl, image, body,
+  } = post;
   return (
     <Container>
       <header tw="pt-16 xl:pt-32">
         <PostTitle itemProp="headline">{postTitle}</PostTitle>
       </header>
       <PostImageContainer>
-        {post.image && (
+        {image && (
           <PostImage
-            image={getImage(post.image.childImageSharp.gatsbyImageData)}
+            image={getImage(image.childImageSharp.gatsbyImageData)}
             alt={postTitle}
           />
         )}
@@ -95,10 +106,30 @@ const PostTemplate = ({ post }) => {
           itemType="http://schema.org/Article"
           tw="max-w-full"
         >
-          <MDXRenderer>{post.body}</MDXRenderer>
+          <MDXRenderer>{body}</MDXRenderer>
         </StyledArticle>
       </PostContainer>
+      <div tw="p-8">
+        <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
+      </div>
+      {engUrl && (
+        <div tw="pb-4">
+          <Link to={engUrl} tw="text-primary text-xl">Translate To English</Link>
+          <br />
+        </div>
+      )}
+      {gerUrl && (
+        <div tw="pb-4">
+          <Link to={gerUrl} tw="text-primary text-xl">Translate To German</Link>
+          <br />
+        </div>
+      )}
       <SubscriptionForm />
+      <Share title={postTitle} url={url} pathname={pathname} />
+      <Pagination
+        previousPagePath={previous ? previous.slug : null}
+        nextPagePath={next ? next.slug : null}
+      />
     </Container>
   );
 };

@@ -62,6 +62,7 @@ module.exports = ({ actions }) => {
       featured: Boolean
       date: Date @dateformat
       engUrl: String
+      gerUrl: String
       slug: String
       show: String
       excerpt(pruneLength: Int = 255): String

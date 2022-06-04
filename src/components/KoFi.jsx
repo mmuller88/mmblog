@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react';
 
-import "./KoFi.css";
+import './KoFi.css';
 
 export default function KoFi(props) {
   const { color, id, label } = props;
   return (
-    <div class="btn-container">
+    <div className="btn-container">
       <a
         title={label}
-        class="kofi-button"
+        className="kofi-button"
         style={{ backgroundColor: color }}
-        href={"https://ko-fi.com/" + id}
+        href={`https://ko-fi.com/${id}`}
         target="_blank"
         rel="noopener noreferrer"
       >
-        <span class="kofitext">
+        <span className="kofitext">
           <img
             src="https://ko-fi.com/img/cup-border.png"
-            class="kofiimg"
+            className="kofiimg"
             alt="Ko-Fi button"
           />
           {label}

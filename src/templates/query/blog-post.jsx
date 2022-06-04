@@ -22,6 +22,7 @@ const BlogPostTemplate = ({ data }) => {
         post={data.post}
         previous={data.previous}
         next={data.next}
+        url={data.site.siteMetadata.siteUrl}
       />
     </Layout>
   );
@@ -33,6 +34,7 @@ export const blogQuery = graphql`query BlogPostBySlug($previousPostId: String, $
   site {
     siteMetadata {
       title
+      siteUrl
     }
   }
   post: sitePost(slug: {eq: $slug}) {
@@ -43,6 +45,8 @@ export const blogQuery = graphql`query BlogPostBySlug($previousPostId: String, $
     title
     date(formatString: "MMMM DD, YYYY")
     description
+    engUrl
+    gerUrl
     image {
       childImageSharp {
         gatsbyImageData(quality: 97, layout: FULL_WIDTH)

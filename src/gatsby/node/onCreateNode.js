@@ -32,6 +32,8 @@ module.exports = ({
       image: node.frontmatter.image,
       images: node.frontmatter.images,
       featured: node.frontmatter.featured,
+      gerUrl: node.frontmatter.gerUrl,
+      engUrl: node.frontmatter.engUrl,
     };
     actions.createNode({
       ...node,
