@@ -11,14 +11,14 @@ const getInitialTheme = () => {
     if (userMedia.matches) {
       return 'dark';
     }
-    return 'light';
+    return 'dark';
   }
 
-  return 'light';
+  return 'dark';
 };
 
 const ThemeContext = createContext({
-  theme: 'light', 
+  theme: 'dark', 
   setTheme: () => {}
 });
 
@@ -34,7 +34,7 @@ const rawSetTheme = (theme) => {
 
 const ThemeProvider = ({ initialTheme, children }) => {
   const initialThemeFromLS = getInitialTheme();
-  const [theme, setTheme] = useState(initialThemeFromLS || 'light');
+  const [theme, setTheme] = useState(initialThemeFromLS || 'dark');
 
   if (initialTheme) {
     rawSetTheme(initialTheme);
