@@ -23,7 +23,7 @@ module.exports = {
         url: '/projects',
       },
     ],
-    blogPathPrefix: '',
+    blogPathPrefix: '/blog',
     subscriptionCallbackUrl: 'null',
   },
   plugins: [
@@ -235,4 +235,7 @@ module.exports = {
     'gatsby-plugin-anchor-links',
     'gatsby-plugin-emotion',
   ],
+  flags: {
+    PARALLEL_QUERY_RUNNING: true,
+  },
 };

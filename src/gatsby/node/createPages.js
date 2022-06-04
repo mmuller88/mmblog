@@ -19,7 +19,7 @@ module.exports = async ({ graphql, actions, reporter }, options) => {
     return;
   }
 
-  const blogPosts = result.data.allSitePost.nodes.filter((post) => post.posttype !== 'project');
+  const blogPosts = result.data.allSitePost.nodes;
 
   if (blogPosts.length > 0) {
     blogPosts.forEach((post, index) => {
@@ -43,6 +43,6 @@ module.exports = async ({ graphql, actions, reporter }, options) => {
     component: blogListTemplate,
     items: blogPosts,
     itemsPerPage: options.postsPerPage || 10,
-    pathPrefix: '/',
+    pathPrefix: '/blog',
   });
 };

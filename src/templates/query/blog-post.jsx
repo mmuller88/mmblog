@@ -15,7 +15,6 @@ const BlogPostTemplate = ({ data }) => (
       post={data.post}
       previous={data.previous}
       next={data.next}
-      postType="blog"
     />
   </Layout>
 );

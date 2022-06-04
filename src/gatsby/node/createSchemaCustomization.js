@@ -61,10 +61,10 @@ module.exports = ({ actions }) => {
       description: String
       featured: Boolean
       date: Date @dateformat
-      posttype: String
       engUrl: String
       slug: String
-      excerpt(pruneLength: Int = 140): String
+      show: String
+      excerpt(pruneLength: Int = 255): String
       tableOfContents: JSON! @mdxpassthrough(fieldName: "tableOfContents")
       body: String! @mdxpassthrough(fieldName: "body")
       html: String! @mdxpassthrough(fieldName: "html")

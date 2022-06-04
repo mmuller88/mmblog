@@ -29,15 +29,18 @@ export const blogListQuery = graphql`query ($skip: Int!, $limit: Int!) {
   allSitePost(
     sort: {fields: [date], order: DESC}
     limit: $limit
+    filter: {
+      show: { ne: "no" } 
+     }
     skip: $skip
-    filter: {posttype: {eq: "blog"}}
   ) {
     nodes {
-      excerpt
+      excerpt(pruneLength: 253)
       featured
       slug
       date(formatString: "DD.MM. YYYY")
       title
+      show
       description
       image {
         childImageSharp {

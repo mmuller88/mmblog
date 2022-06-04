@@ -34,16 +34,16 @@ const BlogListTemplate = ({
     <BlogListing>
       {posts.length > 0 && posts.map((post) => {
         const {
-          title: postTitle, description, image, slug, date,
+          title: postTitle, description, excerpt, image, slug, date,
         } = post;
         return (
           <BlogCard
             key={slug}
-            link={`/blog${slug}`}
-            date={<p>{date}</p>}
+            link={slug}
+            date={date}
             title={postTitle}
-            description={description}
-            image={image.childImageSharp.gatsbyImageData}
+            description={description || excerpt}
+            image={image?.childImageSharp.gatsbyImageData}
           />
         );
       })}

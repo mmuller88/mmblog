@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -40,27 +40,26 @@ const Index = ({ data }) => {
         </Subtitle>
       </Hero>
       <BlogSection>
-        <div tw="flex justify-between items-center">
+        <Link to="/blog" tw="flex justify-between items-center">
           <Title>
             Blog
           </Title>
-          <button type="button">
+          <button type="button" tw="text-primary fill-current">
             <TitleButtonIcon />
           </button>
-        </div>
+        </Link>
         <BlogListing>
           {posts.length > 0
             && posts.map((post) => {
               const {
-                image, title, description, slug, date,
+                title, excerpt, description, slug, date,
               } = post;
               return (
                 <BlogCard
                   key={slug}
                   title={title}
                   date={date}
-                  description={description}
-                  image={image.childImageSharp.gatsbyImageData}
+                  description={description || excerpt}
                   link={slug}
                 />
               );
@@ -85,25 +84,19 @@ export const mainPageQuery = graphql`
       }
     }
     blog: allSitePost(
-      sort: { fields: [date], order: ASC }
+      sort: { fields: [date], order: DESC }
       limit: 2
+      filter: {
+        show: { ne: "no" } 
+      }
     ) {
       nodes {
-        excerpt
+        excerpt(pruneLength: 253)
         slug
         date(formatString: "DD.MM.YYYY")
         title
+        show
         description
-        image {
-          childImageSharp {
-            gatsbyImageData(
-              width: 746
-              quality: 97
-              layout: CONSTRAINED
-              aspectRatio: 1.87
-            )
-          }
-        }
       }
     }
   }

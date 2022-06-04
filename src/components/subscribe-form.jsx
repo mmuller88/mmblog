@@ -39,7 +39,7 @@ export const SubscriptionForm = ({ actionTitle = 'Get in touch', headingLabel = 
   };
 
   return (
-    <div tw="mb-16 md:mb-72 px-6">
+    <div tw="mb-16 md:mb-48 px-6">
       <Container tw="bg-secondary font-sans flex flex-col justify-center shadow-2xl rounded-md">
         <div>
           <p tw="flex text-primary font-bold justify-center text-xl pt-7 pb-5 md:text-5xl md:pl-6 md:pt-32 md:pb-16">
