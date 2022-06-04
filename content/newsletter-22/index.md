@@ -84,6 +84,46 @@ https://aws.amazon.com/about-aws/whats-new/2022/06/aws-step-functions-interactiv
 
 An interesting AWS StepFunction Workshop. It uses AWS CDK for Infrastructure as Code (IaC).
 
+## AWS Cognito — Web Application Integration Basics
+
+https://jawadhasan80.medium.com/aws-cognito-web-application-integration-basics-dc18b42f47c4
+
+A cool bottom up post about Cognito and how to use it combined with Amplify.
+
+Thanks a lot to the author [Jawadhasan](https://jawadhasan80.medium.com/)
+
+## What are your debugging tips?
+
+https://dev.to/ben/what-are-your-debugging-tips-3lgm
+
+A super high-level und super useful discussion for how to debug efficiently. Must read!
+
+Thanks to the author asking the question and all the commenter
+
+## Cloud Computing and AWS
+
+https://dev.to/aws-builders/cloud-computing-and-aws-14g0
+
+Nice post to explain what cloud computing is to an audience which is not familiar with cloud at all. It explains very nice the cloud computing model where you devide the cloud offerings usually in Infrastructure as Code (IAAS), Platform as a Service (PAAS) and Software as a Service (SAAS). For more context please read the amazing post :)
+
+Thanks a lot to the author [Akande Olalekan Toheeb](https://dev.to/muhtoyyib)
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
 ## Title
 
 LINK
