@@ -19,7 +19,7 @@ const BlogListTemplate = ({
 }) => (
   <BlogSection>
     <div>
-      <MainTitle>{pageContext.category || title}</MainTitle>
+      <MainTitle tw="capitalize">{pageContext.tag || title}</MainTitle>
       {subtitle && (
       <Subtitle tw="max-w-6xl md:pr-1.5 lg:pr-2.5">{subtitle}</Subtitle>
       )}

@@ -56,7 +56,7 @@ module.exports = async ({ graphql, actions, reporter }, options) => {
         itemsPerPage: options.postsPerPage || 10,
         pathPrefix: `${tagsPathPrefix}/${tag}`,
         context: {
-          category: tag.fieldValue,
+          tag,
           tagsPathPrefix,
         },
       });

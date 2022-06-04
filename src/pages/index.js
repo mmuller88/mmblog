@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
+import 'twin.macro';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -66,6 +67,21 @@ const Index = ({ data }) => {
             })}
         </BlogListing>
       </BlogSection>
+      <div tw="flex justify-center text-2xl text-primary pb-8 font-semibold underline">
+        <Link to="/tags/de">de</Link>
+        ,
+        {' '}
+        <Link to="/tags/eng">eng</Link>
+        ,
+        {' '}
+        <Link to="/tags">tags</Link>
+        ,
+        {' '}
+        <Link to="/rss.xml">rss</Link>
+        ,
+        {' '}
+        <Link to="/rss-ger.xml">rss-ger</Link>
+      </div>
       <SubscriptionForm />
     </Layout>
   );
