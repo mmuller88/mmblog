@@ -21,7 +21,7 @@ const Index = ({ data }) => {
   const posts = data.blog?.nodes;
   return (
     <Layout>
-      <SEO title="All posts" />
+      <SEO title="Martin Mueller Blog" />
       <Hero>
         <MainTitle>
           Hi! My name is Martin Mueller.

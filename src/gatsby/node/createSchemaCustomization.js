@@ -65,6 +65,7 @@ module.exports = ({ actions }) => {
       gerUrl: String
       slug: String
       show: String
+      tags: [String!]
       excerpt(pruneLength: Int = 255): String
       tableOfContents: JSON! @mdxpassthrough(fieldName: "tableOfContents")
       body: String! @mdxpassthrough(fieldName: "body")

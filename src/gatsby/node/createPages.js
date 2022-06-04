@@ -45,4 +45,21 @@ module.exports = async ({ graphql, actions, reporter }, options) => {
     itemsPerPage: options.postsPerPage || 10,
     pathPrefix: '/blog',
   });
+  const tags = result.data.tags.group.map((x) => x.fieldValue);
+  const tagsPathPrefix = '/tags';
+  if (tags.length > 0) {
+    tags.forEach((tag) => {
+      paginate({
+        createPage,
+        component: blogListTemplate,
+        items: blogPosts.filter((post) => post.tags && post.tags.includes(tag)),
+        itemsPerPage: options.postsPerPage || 10,
+        pathPrefix: `${tagsPathPrefix}/${tag}`,
+        context: {
+          category: tag.fieldValue,
+          tagsPathPrefix,
+        },
+      });
+    });
+  }
 };
