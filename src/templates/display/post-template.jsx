@@ -16,7 +16,7 @@ export const PostTitle = tw.h1`flex justify-start font-sans text-3xl md:text-4xl
 
 export const StyledArticle = styled.article`
   ${tw`font-sans max-w-full py-36`}
-  p, a, li {
+  p, a, li, strong {
     ${tw`font-sans! text-primary! md:text-3xl!`}
   }
   h1,
@@ -37,6 +37,9 @@ export const StyledArticle = styled.article`
   }
   span.gatsby-resp-image-wrapper {
     ${tw`max-w-full! xl:py-20 md:py-20 shadow-2xl md:rounded-3xl`}
+  }
+  code.language-text {
+    ${tw`bg-secondary text-primary`}
   }
 `;
 
