@@ -1,4 +1,6 @@
-import React, { useState, useEffect, createContext, useContext } from 'react';
+import React, {
+  useState, useEffect, createContext, useContext,
+} from 'react';
 
 const getInitialTheme = () => {
   if (typeof window !== 'undefined' && window.localStorage) {
@@ -18,8 +20,8 @@ const getInitialTheme = () => {
 };
 
 const ThemeContext = createContext({
-  theme: 'dark', 
-  setTheme: () => {}
+  theme: 'dark',
+  setTheme: () => {},
 });
 
 const rawSetTheme = (theme) => {

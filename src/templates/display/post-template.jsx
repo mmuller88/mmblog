@@ -11,7 +11,7 @@ export const PostTitle = tw.h1`flex justify-start font-sans text-3xl md:text-4xl
 
 export const StyledArticle = styled.article`
   ${tw`font-sans max-w-full py-36`}
-  p {
+  p, a, li {
     ${tw`font-sans! text-primary! md:text-3xl!`}
   }
   h1,
