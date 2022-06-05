@@ -20,7 +20,12 @@ https://presignedurldemo.s3.eu-west-2.amazonaws.com/image.png?X-Amz-Algorithm=AW
 
 Mhh wenn ich aber doch schon eine User-Verwaltung z.B. AWS Cognito habe, wäre es dann nicht viel eleganter wenn ich einfach mittels User JWT Token auf solche private Assets zugreifen könnte? Ja absolut! Und um den Programmieraufwand gering zu halten kann dafür Cloudfront und Lambda@Edge benutzt werden.
 
-In diesem Blogpost möchte ich euch erklären wie mit Cloudfront und Lambda@Edge ein Proxy gebaut werden kann, der es authentisierten Usern erlaubt auf S3 Asset Urls wie z.B. https://image.example.com/funny.png zuzugreifen. Wenn der dafür benötigte Token dann auch noch als Cookie gespeichert wird, kann man sogar das HTML img Tag z.B. <img src="https://image.example.com/funny.png">funny.png</img> verwenden.
+In diesem Blogpost möchte ich euch erklären wie mit Cloudfront und Lambda@Edge ein Proxy gebaut werden kann, der es authentisierten Usern erlaubt auf S3 Asset Urls wie z.B. https://image.example.com/funny.png zuzugreifen. Wenn der dafür benötigte Token dann auch noch als Cookie gespeichert wird, kann man sogar das HTML img Tag z.B. 
+
+```html
+<img src="https://image.example.com/funny.png">funny.png</img> 
+```
+verwenden.
 
 ## Lösungsansatz
 
