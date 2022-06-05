@@ -23,6 +23,7 @@ module.exports = {
         url: '/projects',
       },
     ],
+    contactLabel: 'Hire me',
     blogPathPrefix: '/blog',
     subscriptionCallbackUrl: 'null',
   },

@@ -35,9 +35,9 @@ function TagsPage(props) {
 
 export default TagsPage;
 
-export const pageQuery = graphql`
- query {
-  allMarkdownRemark(
+export const tagPageQuery = graphql`
+{
+  allSitePost(
    filter: { frontmatter: { tags: { eq: "eng" } } }
    limit: 2000
   ) {
