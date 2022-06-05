@@ -8,7 +8,7 @@ import SEO from '../components/seo';
 import Container from '../components/container';
 
 function TagsPage(props) {
-  const data = props.data.allMarkdownRemark.group;
+  const data = props.data.allSitePost.group;
 
   return (
     <Layout>
