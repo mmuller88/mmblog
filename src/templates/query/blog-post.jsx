@@ -9,7 +9,6 @@ const BlogPostTemplate = ({ data }) => {
   const {
     image, title, description, excerpt,
   } = data.post;
-  console.log('post', data.post);
   const thumbnail = image
   && image.childImageSharp.gatsbyImageData.images.fallback.src;
   return (

@@ -7,7 +7,7 @@ module.exports = async ({ graphql, actions, reporter }, options) => {
   // Define templates
   const blogPostTemplate = require.resolve('../../templates/query/blog-post.jsx');
   const blogListTemplate = require.resolve('../../templates/query/blog-list.jsx');
-
+  const blogListTagTemplate = require.resolve('../../templates/query/blog-list-by-tag.jsx');
   // Get all markdown blog posts sorted by date
   const result = await graphql(query.data.posts);
 
@@ -41,7 +41,7 @@ module.exports = async ({ graphql, actions, reporter }, options) => {
   paginate({
     createPage,
     component: blogListTemplate,
-    items: blogPosts,
+    items: blogPosts.filter((post) => post.show !== 'no'),
     itemsPerPage: options.postsPerPage || 10,
     pathPrefix: '/blog',
   });
@@ -51,7 +51,7 @@ module.exports = async ({ graphql, actions, reporter }, options) => {
     tags.forEach((tag) => {
       paginate({
         createPage,
-        component: blogListTemplate,
+        component: blogListTagTemplate,
         items: blogPosts.filter((post) => post.tags && post.tags.includes(tag)),
         itemsPerPage: options.postsPerPage || 10,
         pathPrefix: `${tagsPathPrefix}/${tag}`,

@@ -21,7 +21,7 @@ const BlogListTemplate = ({
     <div>
       <MainTitle tw="capitalize">{pageContext.tag || title}</MainTitle>
       {subtitle && (
-      <Subtitle tw="max-w-6xl md:pr-1.5 lg:pr-2.5">{subtitle}</Subtitle>
+        <Subtitle tw="max-w-6xl md:pr-1.5 lg:pr-2.5">{subtitle}</Subtitle>
       )}
     </div>
     {!posts && (
