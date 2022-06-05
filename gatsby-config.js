@@ -164,7 +164,6 @@ module.exports = {
         // base for generating different widths of each image.
         maxWidth: 800,
         linkImagesToOriginal: true,
-        sizeByPixelDensity: true,
         showCaptions: true,
       },
     },
@@ -235,7 +234,4 @@ module.exports = {
     'gatsby-plugin-anchor-links',
     'gatsby-plugin-emotion',
   ],
-  flags: {
-    PARALLEL_QUERY_RUNNING: true,
-  },
 };
