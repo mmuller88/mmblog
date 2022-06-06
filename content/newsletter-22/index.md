@@ -18,7 +18,7 @@ If you like my content follow me on my usual spots to hang around:
 
 ## Exploring Aurora Serverless V2 for MySQL
 
-https://mydbops.wordpress.com/2022/05/22/exploring-aurora-serverless-v2-for-mysql/
+<https://mydbops.wordpress.com/2022/05/22/exploring-aurora-serverless-v2-for-mysql/>
 
 A nice deep dive into AWS Aurora Serverless v2. Such posts are rearly as Aurora offers a wide set of cool features and explaining those is time consuming.
 
@@ -26,7 +26,7 @@ Thanks a lot to the author [Kabilesh P R](https://mydbops.wordpress.com/author/k
 
 ## ALL YOU NEED TO KNOW ABOUT AMAZON ROUTE 53
 
-https://dev.to/joshbek/all-you-need-to-know-about-amazon-route-53-8a6
+<https://dev.to/joshbek/all-you-need-to-know-about-amazon-route-53-8a6>
 
 Nice roundup about AWS Route 53
 
@@ -34,7 +34,7 @@ Thanks a lot to the author [Joshua O. Berkoh](https://dev.to/joshbek)
 
 ## Writing and Testing a stdin script with TypeScript
 
-https://dev.to/viglioni/writing-and-testing-a-stdin-script-with-typescript-57mb
+<https://dev.to/viglioni/writing-and-testing-a-stdin-script-with-typescript-57mb>
 
 About how to test a TypeScript Script which has stdin input. I would have needed the solution a while back as I couldn't figure out how to do that. So this article seems pretty useful.
 
@@ -42,7 +42,7 @@ Thanks a lot to the author [Laura Viglioni](https://dev.to/viglioni)
 
 ## Title
 
-https://docs.multy.dev/blog/challenges-of-building-multi-cloud
+<https://docs.multy.dev/blog/challenges-of-building-multi-cloud>
 
 High level overview about building in multi cloud and how [multy](https://multy.dev) helps to make it easier.
 
@@ -50,7 +50,7 @@ Thanks a lot to the author []()
 
 ## Enable Autocomplete for boto3 in VSCode
 
-https://dev.to/aws-builders/enable-autocomplete-for-boto3-in-vscode-3jb4
+<https://dev.to/aws-builders/enable-autocomplete-for-boto3-in-vscode-3jb4>
 
 How you can configure autocomplete for Python boto3 in VSCode. Super important when you develop your AWS SDK script or lambda with python!
 
@@ -58,13 +58,13 @@ Thanks a lot to the author [Maurice Borgmeier](https://dev.to/mauricebrg)
 
 ## How do I handle brutal feedback from colleague?
 
-https://dev.to/sloan/how-do-i-handle-brutal-feedback-from-colleague-3oda
+<https://dev.to/sloan/how-do-i-handle-brutal-feedback-from-colleague-3oda>
 
 Discussion about bullies at the developer working place. That is of course not acceptable and the commenter are giving very good advices for how to improve the situation if you are the victim.
 
 ## Tips for Junior Developers
 
-https://dev.to/sahan/tips-for-junior-developers-5ggj
+<https://dev.to/sahan/tips-for-junior-developers-5ggj>
 
 Super empowering post for junior developers how to grow as such :).
 
@@ -72,7 +72,7 @@ Thanks a lot to the author [Sahan](https://dev.to/sahan)
 
 ## Are You Really API-First Or Do You Just Think It?
 
-https://www.readysetcloud.io/blog/allen.helton/are-you-really-api-first/
+<https://www.readysetcloud.io/blog/allen.helton/are-you-really-api-first/>
 
 Super cool post about how you design your product with API first. I totally agree with the author. I personally like to use GraphQL APIs where I just define my API as typed schema. That has nice advantages against like the more old fashioned REST API :).
 
@@ -80,13 +80,13 @@ Thanks a lot to the author [Allen Helton](https://www.readysetcloud.io/)
 
 ## AWS Step Functions launches an interactive workshop for building and deploying application workflows
 
-https://aws.amazon.com/about-aws/whats-new/2022/06/aws-step-functions-interactive-workshop-building-deploying-application-workflows/
+<https://aws.amazon.com/about-aws/whats-new/2022/06/aws-step-functions-interactive-workshop-building-deploying-application-workflows/>
 
 An interesting AWS StepFunction Workshop. It uses AWS CDK for Infrastructure as Code (IaC).
 
 ## AWS Cognito — Web Application Integration Basics
 
-https://jawadhasan80.medium.com/aws-cognito-web-application-integration-basics-dc18b42f47c4
+<https://jawadhasan80.medium.com/aws-cognito-web-application-integration-basics-dc18b42f47c4>
 
 A cool bottom up post about Cognito and how to use it combined with Amplify.
 
@@ -94,7 +94,7 @@ Thanks a lot to the author [Jawadhasan](https://jawadhasan80.medium.com/)
 
 ## What are your debugging tips?
 
-https://dev.to/ben/what-are-your-debugging-tips-3lgm
+<https://dev.to/ben/what-are-your-debugging-tips-3lgm>
 
 A super high-level und super useful discussion for how to debug efficiently. Must read!
 
@@ -102,19 +102,53 @@ Thanks to the author asking the question and all the commenter
 
 ## Cloud Computing and AWS
 
-https://dev.to/aws-builders/cloud-computing-and-aws-14g0
+<https://dev.to/aws-builders/cloud-computing-and-aws-14g0>
 
 Nice post to explain what cloud computing is to an audience which is not familiar with cloud at all. It explains very nice the cloud computing model where you devide the cloud offerings usually in Infrastructure as Code (IAAS), Platform as a Service (PAAS) and Software as a Service (SAAS). For more context please read the amazing post :)
 
 Thanks a lot to the author [Akande Olalekan Toheeb](https://dev.to/muhtoyyib)
 
-## Title
+## 7 Reasons Why Serverless Encourages Useful Engineering Practices
 
-LINK
+<https://www.serverless.com//blog/7-reasons-why-serverless-encourages-useful-engineering-practices>
 
-...
+A great summary about the reasons why serverless is useful. The author proves having much experience with serverless. The reasons are well picked and good explained. My favorite reasons is number 6 "It enforces Infrastructure as Code". I encourage you to read the full article!
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Anna Geller](https://www.serverless.com/author/anna-geller)
+
+## Is Serverless Just a Stopover for Event-Driven Architecture?
+
+<https://thenewstack.io/is-serverless-just-a-stopover-for-event-driven-architecture/>
+
+This article is super mind blowing. I think the author is correct and serverless is kind of super related to event driven architecture. Must read!
+
+Thanks a lot to the author [MARK HINKLE](https://thenewstack.io/author/markhinkle/)
+
+## A Beginner's Guide to Create AWS CDK Construct Library with projen
+
+<https://dev.to/aws-builders/a-beginner-s-guide-to-create-aws-cdk-construct-library-with-projen-5eh4>
+
+Super nice detailed post about a Projen setup for the CDK Construct library Projen type. Nice :)!
+
+Thanks a lot to the author [hayao-k](https://dev.to/hayao_k)
+
+## Frauen in der Innovation: „Das ist keine Nettigkeit, sondern wirtschaftlicher Faktor!“
+
+Translation: Women in innovation: "It's not a nicety, it's an economic factor!"
+
+<https://t3n.de/news/frauen-innovation-diversity-womenpower-1477339>
+
+Super interesting article which makes aware that still way to much women are part of innovation processes. It explains as well why that is bad and how to solve it.
+
+Thanks a lot to the author [Josefine Kramer](https://t3n.de/redaktion/josefine-kramer)
+
+## How to Easily Deploy a Spring Boot Application on AWS Fargate
+
+<https://dev.to/aws-builders/how-to-easily-deploy-a-spring-boot-application-on-aws-fargate-38nh>
+
+A small guide for how to deploy a spring boot application on AWS with AWS Fargate. Nice guide. Probably worth to enhance the deployment with AWS CDK as Infrastructure as Code (IaC) instead of clicking in the AWS Console.
+
+Thanks a lot to the author [Wilson K. KOMLAN](https://dev.to/komlanwilson)
 
 ## Title
 
