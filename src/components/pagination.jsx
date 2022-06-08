@@ -25,9 +25,7 @@ export const NumberPagination = ({ numberOfPages, currentPage, pathPrefix = '' }
   const pagesNumArr = Array.from(Array(numberOfPages + 1).keys()).slice(1);
   const pagesNumArrHead = pagesNumArr.length > 3 && pagesNumArr.slice(0, 3);
   const pagesNumArrTail = pagesNumArr.length > 7 && pagesNumArr.slice(-3);
-  console.log('pagesNumArrHead', pagesNumArrHead);
-  console.log('pagesNumArrTail', pagesNumArrTail);
-  if (pagesNumArr.length <= 3) {
+  if (!pagesNumArrHead || !pagesNumArrTail) {
     return (
       <div tw="flex items-end">
         {pagesNumArr.map((x) => (

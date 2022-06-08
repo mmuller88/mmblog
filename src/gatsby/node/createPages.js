@@ -21,6 +21,9 @@ module.exports = async ({ graphql, actions, reporter }, options) => {
 
   const blogPosts = result.data.allSitePost.nodes;
 
+  console.log('blog post count', blogPosts.length);
+  console.log('blog post data:', blogPosts[0]);
+
   if (blogPosts.length > 0) {
     blogPosts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : blogPosts[index - 1].id;

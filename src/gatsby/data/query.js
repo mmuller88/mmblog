@@ -9,6 +9,7 @@ module.exports.data = {
           id
           slug
           title
+          show
         }
       }
       tags: allSitePost(limit: 2000) {
