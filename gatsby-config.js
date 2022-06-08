@@ -43,119 +43,109 @@ module.exports = {
         trackingId: 'UA-170834724-1',
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-feed',
-    //   options: {
-    //     query: `
-    //         {
-    //           site {
-    //             siteMetadata {
-    //               title
-    //               description
-    //               siteUrl
-    //               site_url: siteUrl
-    //             }
-    //           }
-    //         }
-    //       `,
-    //     feeds: [
-    //       {
-    // eslint-disable-next-line max-len
-    //         serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.edges.filter((edge) => edge.node.frontmatter.tags.includes('eng') && !edge.node.frontmatter.tags.includes('nofeed')).map((edge) => ({
-    //           ...edge.node.frontmatter,
-    //           description: edge.node.excerpt,
-    //           date: edge.node.frontmatter.date,
-    //           url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-    //           guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-    //           categories: edge.node.frontmatter.tags,
-    //           enclosure: edge.node.frontmatter.image && {
-    //             url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
-    //           },
-    //           custom_elements: [
-    //             { 'content:encoded': edge.node.html },
-    //             {
-    //               featuredImage: edge.node.frontmatter.image
-    //                 ? site.siteMetadata.siteUrl
-    //                       + edge.node.frontmatter.image.publicURL : undefined,
-    //             },
-    //           ],
-    //         })),
-    //         query: `
-    //             {
-    //               allMarkdownRemark(
-    //                 sort: { order: DESC, fields: [frontmatter___date] }
-    //               ) {
-    //                 edges {
-    //                   node {
-    //                     excerpt
-    //                     html
-    //                     fields { slug }
-    //                     frontmatter {
-    //                       title
-    //                       date
-    //                       tags
-    //                       image {
-    //                         publicURL
-    //                       }
-    //                     }
-    //                   }
-    //                 }
-    //               }
-    //             }
-    //           `,
-    //         output: '/rss.xml',
-    //         title: "Martin Mueller's Blog",
-    //       },
-    //       {
-    // eslint-disable-next-line max-len
-    //         serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.edges.filter((edge) => edge.node.frontmatter.tags.includes('de') && !edge.node.frontmatter.tags.includes('nofeed')).map((edge) => ({
-    //           ...edge.node.frontmatter,
-    //           description: edge.node.excerpt,
-    //           date: edge.node.frontmatter.date,
-    //           url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-    //           guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-    //           categories: edge.node.frontmatter.tags,
-    //           enclosure: edge.node.frontmatter.image && {
-    //             url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
-    //           },
-    //           custom_elements: [
-    //             { 'content:encoded': edge.node.html },
-    //             {
-    //               featuredImage: edge.node.frontmatter.image
-    //                 ? site.siteMetadata.siteUrl
-    //                       + edge.node.frontmatter.image.publicURL : undefined,
-    //             },
-    //           ],
-    //         })),
-    //         query: `
-    //             {
-    //               allMarkdownRemark(
-    //                 sort: { order: DESC, fields: [frontmatter___date] }
-    //               ) {
-    //                 edges {
-    //                   node {
-    //                     excerpt
-    //                     html
-    //                     fields { slug }
-    //                     frontmatter {
-    //                       title
-    //                       date
-    //                       tags
-    //                       image {
-    //                         publicURL
-    //                       }
-    //                     }
-    //                   }
-    //                 }
-    //               }
-    //             }
-    //           `,
-    //         output: '/rss-ger.xml',
-    //         title: "Martin Mueller's Blog Ger",
-    //       },
-    //     ],
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-feed',
+      options: {
+        query: `
+            {
+              site {
+                siteMetadata {
+                  title
+                  description
+                  siteUrl
+                  site_url: siteUrl
+                }
+              }
+            }
+          `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allSitePost } }) => allSitePost.nodes.filter((node) => node.tags.includes('eng') && !node.node.tags.includes('nofeed')).map((node) => ({
+              ...node,
+              description: node.excerpt,
+              date: node.date,
+              url: site.siteMetadata.siteUrl + node.slug,
+              guid: site.siteMetadata.siteUrl + node.slug,
+              categories: node.tags,
+              enclosure: node.image && {
+                url: site.siteMetadata.siteUrl + node.image.publicURL,
+              },
+              custom_elements: [
+                { 'content:encoded': node.html },
+                {
+                  featuredImage: node.image
+                    ? site.siteMetadata.siteUrl
+                          + node.image.publicURL : undefined,
+                },
+              ],
+            })),
+            query: `
+                {
+                  allSitePost(
+                    sort: { order: DESC, fields: [date] }
+                  ) {
+                    nodes {
+                      excerpt
+                      html
+                      slug
+                      title
+                      date
+                      tags
+                      image {
+                        publicURL
+                      }
+                    }
+                  }
+                }
+              `,
+            output: '/rss.xml',
+            title: "Martin Mueller's Blog",
+          },
+          {
+            serialize: ({ query: { site, allSitePost } }) => allSitePost.nodes.filter((node) => node.tags.includes('de') && !node.tags.includes('nofeed')).map((node) => ({
+              ...node,
+              description: node.excerpt,
+              date: node.date,
+              url: site.siteMetadata.siteUrl + node.slug,
+              guid: site.siteMetadata.siteUrl + node.slug,
+              categories: node.tags,
+              enclosure: node.image && {
+                url: site.siteMetadata.siteUrl + node.image.publicURL,
+              },
+              custom_elements: [
+                { 'content:encoded': node.html },
+                {
+                  featuredImage: node.image
+                    ? site.siteMetadata.siteUrl
+                          + node.image.publicURL : undefined,
+                },
+              ],
+            })),
+            query: `
+                {
+                  allSitePost(
+                    sort: { order: DESC, fields: [date] }
+                  ) {
+                    nodes {
+                      excerpt
+                      html
+                      slug
+                      title
+                      date
+                      tags
+                      image {
+                        publicURL
+                      }
+                    }
+                  }
+                }
+              `,
+            output: '/rss-ger.xml',
+            title: "Martin Mueller's Blog Ger",
+          },
+        ],
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
