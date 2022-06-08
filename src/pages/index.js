@@ -16,7 +16,6 @@ import {
 } from '../templates/display/blog-list-template';
 import BlogCard from '../components/blog-card';
 import TitleButtonIcon from '../components/title-button';
-import { SubscriptionForm } from '../components/subscribe-form';
 
 const Index = ({ data }) => {
   const posts = data.blog?.nodes;
@@ -82,7 +81,6 @@ const Index = ({ data }) => {
         {' '}
         <Link to="/rss-ger.xml">rss-ger</Link>
       </div>
-      <SubscriptionForm />
     </Layout>
   );
 };

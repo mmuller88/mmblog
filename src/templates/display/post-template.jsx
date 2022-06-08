@@ -7,7 +7,6 @@ import tw, { styled } from 'twin.macro';
 import { useLocation } from '@reach/router';
 
 import Container from '../../components/container';
-import { SubscriptionForm } from '../../components/subscribe-form';
 import { Pagination } from '../../components/pagination';
 import Share from '../../components/share';
 import KoFi from '../../components/KoFi';
@@ -127,7 +126,6 @@ const PostTemplate = ({
           <br />
         </div>
       )}
-      <SubscriptionForm />
       {tags && tags.length > 0 && (
         <div tw="pl-8 text-primary">
           <p tw="text-2xl">Tagged in </p>

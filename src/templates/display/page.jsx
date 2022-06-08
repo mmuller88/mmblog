@@ -6,7 +6,6 @@ import 'twin.macro';
 import Container from '../../components/container';
 import Layout from '../../components/layout';
 import SEO from '../../components/seo';
-import { SubscriptionForm } from '../../components/subscribe-form';
 import { Button } from '../../components/button';
 import {
   PostTitle, PostContainer, StyledArticle,
@@ -43,7 +42,6 @@ const PageTemplate = ({
             </MDXProvider>
           </StyledArticle>
         </PostContainer>
-        <SubscriptionForm />
       </Container>
     </Layout>
   );
