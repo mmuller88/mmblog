@@ -1,99 +1,228 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0780d1cb-3c7c-430b-b772-d4e71f6066b7/deploy-status)](https://app.netlify.com/sites/jolly-murdock-2892cc/deploys)
+After pulling redesign changes, remove cache and node files:
 
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+```sh
+rm -rf .cache/
+rm -rf node_modules/
+```
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+Then install deps using yarn:
+```sh
+yarn
+```
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+For project start use yarn:
+```sh
+yarn develop
+```
 
-## 🚀 Quick start
+### Content
 
-1.  **Create a Gatsby site.**
+It's better to close html tags, it may mess with build
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+### Node version
 
-    ```sh
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+Actual version in .nvmrc
 
-1.  **Start developing.**
+## Kyoto Gatsby Portfolio Theme Readme:
 
-    Navigate into your new site’s directory and start it up.
+## Features
 
-    ```sh
-    cd my-default-starter/
-    gatsby develop
-    ```
+- Gatsby V4 support
+- Minimal and elegant design
+- Portfolio section and post type
+- Blog section and post type
+- Built-in social media icons
+- MDX posts support
+- Good SEO
+- Styles using tailwind css inside styled-components powered by Emotion
+- Image slider using Embla Carousel
+- Contact form
 
-1.  **Open the source code and start editing!**
+## What's new?
 
-    Your site is now running at `http://localhost:8000`!
+- Complete redesign
+- All deps are up-to-date
+- Code clean-up and refactoring
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+## Installation
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-## 🧐 What's inside?
+### Using Starter
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+This will generate a new themed site to use Gatsby Theme kyoto with default content and pages.
+Clone starter from [this repo](https://github.com/vse-volod/gatsby-starter-kyoto)
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+From current directory, run:
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+```sh
+gatsby new project-name ./gatsby-starter-kyoto
+```
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+### Using a theme at development stage
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+After you purchased kyoto theme on gumroad, you was redirected to it's github repo and was added as a collaborator. So now you can install theme either from source repo or fork it:
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+1. Make fork of theme
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+2. Install theme:
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+```sh
+npm i "git+ssh://git@github.com:USER_NAME/gatsby-theme-kyoto.git" 
+```
+where USER_NAME is your actual github username
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+3. Create tailwind.config.js in root of your project with re-export of theme tailwind config:
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+```javascript
+// tailwind.config.js
+module.exports = require("gatsby-theme-kyoto/tailwind.config.js");
+```
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+4. Add the theme to your `gatsby-config.js`
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+```javascript
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-theme-kyoto',
+      options: {
+        // Scroll docs to see more info about configuration
+      },
+    },
+  ],
+}
+```
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+### Deploying a site with theme
+To successfully deploy our site to vercel or netlify, we need first to create [github token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
+Then, change source of gatsby-theme-kyoto package in package.json:
+```json
+"gatsby-theme-kyoto": "git+https://ACCESS_TOKEN@github.com/USER_NAME/gatsby-theme-kyoto.git"
+```
+Where ACCESS_TOKEN is your access token you just generated, and USER_NAME is your github username.
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+## Usage
 
-## 🎓 Learning Gatsby
+### Theme Options
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+| Key                 | Default Value | Description                                                                                                 |
+| ------------------- | ------------- | ----------------------------------------------------------------------------------------------------------- |
+| `basePath`          | `/`           | Root URL for this theme.                                                                                     |
+| `contentPath`       | `content/blog`     | Location of markdown files used for the posts.      
+| `projectsPath`       | `content/portfolio`     | Location of markdown files used for the portfolio section.                                                            |  |
+| `assetsPath`       | `content/assets`     | Location of hero images, etc                                                              |  |
+| `blogPathPrefix`       | -     | Path prefix for blog pages.                             |  
+| `postsPerPage`      | `10`           | How much posts shown on each page of blog posts page template
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+#### Example Usage
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+```javascript
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-theme-kyoto',
+      options: {
+        postsPerPage: 7,
+      },
+    },
+  ],
+}
+```
 
-## 💫 Deploy
+### Additional Configuration
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+In addition to the theme options, there are a handful of items you can customize via the `siteMetadata` object in your site's `gatsby-config.js`.
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+```javascript
+// gatsby-config.js
+module.exports = {
+  siteMetadata: {
+    // site title, also displayed on hero component
+    title: 'kyoto',
+    author:  {
+      name: 'GatsbyTemplates',
+      summary: 'premium portfolio theme',
+    },
+    // displayed on hero component 
+    description: 'Hi! I’m Frank and I’ll tell you the story of my life',
+    siteUrl: 'https://gatsbytemplates.io/',
+  
+    // link to your social network profiles on about page, supported all below:
+    social: {
+        twitter: 'gatsbytemplates',
+        instagram: ' ',
+        behance: ' ',
+        github: ' ',
+        linkedin: ' ',
+    },
+    // Defining menu links to your pages:
+    menu: [
+        {
+          name: 'portfolio',
+          url: '/#portfolio',
+        },
+        {
+          name: 'blog',
+          url: '/blog',
+        },
+    ],
+  },
+}
+
+```
+### Style customization
+
+This theme using tailwind-ui inside of styled components powered by Emotion. Example:
+
+```javascript
+import tw from 'twin.macro';
+import styled from '@emotion/styled';
+
+const Date = styled.div`
+  ${tw`
+    uppercase px-6 font-body
+  `}
+`;
+
+export default Date;
+```
+
+inside ${tw``} you define tailwind styles, and outside you can use ordinary styled components style, including ThemeUI pre-defined colors.
+
+For tailwind classes customization, use tailwind.config.js* in root of your project. Refer to official [tailwind docs](https://tailwindcss.com/docs/configuration/). Don't forget to import gatsby-theme-california tailwind config. 
+
+*changes of this file my require reload of gatsby development server(due to current twin.macro limitations)
+
+### Components customization
+
+Use component shadowing, following [official docs](https://www.gatsbyjs.org/docs/themes/shadowing/)
+
+### Writing Content
+
+Posts can be written in markdown / mdx format with either `.md` or `.mdx` and placed in the `content/blog` directory at the root of the site unless a different `contentPath` is defined in the theme options. There are four frontmatter variables used in the theme which are shown below.
+
+```markdown
+---
+title: Hello World
+date: 2020-02-02
+image: image.jpg
+posttype: "blog"
+---
+```
+Portfolio projects must match following structure:
+```markdown
+---
+title: My first project
+subtitle: When your work becomes an art
+date: "2019-05-01T22:12:03.284Z"
+posttype: project
+description: "project description"
+images: 
+  - ./first.jpg
+  - ./second.jpg
+  - ./third.jpg
+---
+```
+notice the difference between blog and project posts - former has one image that used as post image, and latter have array of images that used in carousel on main page at portfolio section
