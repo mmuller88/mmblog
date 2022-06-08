@@ -18,7 +18,7 @@ const BlogListTemplate = ({
   posts, title = 'Blog', subtitle = null, pageContext, categoryPathPrefix, blogPathPrefix,
 }) => (
   <BlogSection>
-    <div>
+    <div tw="pb-8">
       <MainTitle tw="capitalize">{pageContext.tag || title}</MainTitle>
       {subtitle && (
         <Subtitle tw="max-w-6xl md:pr-1.5 lg:pr-2.5">{subtitle}</Subtitle>
@@ -37,14 +37,15 @@ const BlogListTemplate = ({
           title: postTitle, description, excerpt, image, slug, date,
         } = post;
         return (
-          <BlogCard
-            key={slug}
-            link={slug}
-            date={date}
-            title={postTitle}
-            description={description || excerpt}
-            image={image?.childImageSharp.gatsbyImageData}
-          />
+          <div tw="pb-4" key={slug}>
+            <BlogCard
+              link={slug}
+              date={date}
+              title={postTitle}
+              description={description || excerpt}
+              image={image?.childImageSharp.gatsbyImageData}
+            />
+          </div>
         );
       })}
     </BlogListing>

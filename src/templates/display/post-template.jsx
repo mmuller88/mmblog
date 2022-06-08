@@ -14,7 +14,7 @@ import KoFi from '../../components/KoFi';
 export const PostTitle = tw.h1`flex justify-start font-sans text-3xl md:text-4xl lg:text-8xl font-bold pb-12 text-primary`;
 
 export const StyledArticle = styled.article`
-  ${tw`font-sans max-w-full py-36`}
+  ${tw`font-sans max-w-full md:py-36`}
   p, a, li, strong {
     ${tw`font-sans! text-primary! md:text-3xl!`}
   }

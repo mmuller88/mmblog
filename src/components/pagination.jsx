@@ -14,7 +14,7 @@ const NavButton = tw(Button)`
 `;
 
 export const PageNumber = styled(Link)(({ isActive }) => [
-  tw`md:text-3xl text-lg text-primary px-3 font-bold `,
+  tw`md:text-3xl text-lg text-primary px-2 md:px-3 font-bold `,
   isActive && tw`text-xl md:text-4xl`,
 ]);
 
@@ -23,9 +23,40 @@ export const NumberPagination = ({ numberOfPages, currentPage, pathPrefix = '' }
     return null;
   }
   const pagesNumArr = Array.from(Array(numberOfPages + 1).keys()).slice(1);
+  const pagesNumArrHead = pagesNumArr.length > 3 && pagesNumArr.slice(0, 3);
+  const pagesNumArrTail = pagesNumArr.length > 7 && pagesNumArr.slice(-3);
+  console.log('pagesNumArrHead', pagesNumArrHead);
+  console.log('pagesNumArrTail', pagesNumArrTail);
+  if (pagesNumArr.length <= 3) {
+    return (
+      <div tw="flex items-end">
+        {pagesNumArr.map((x) => (
+          <PageNumber
+            key={x}
+            to={x === 1 ? pathPrefix : `${pathPrefix}/${x}`}
+            isActive={x === currentPage}
+          >
+            {x}
+          </PageNumber>
+        ))}
+      </div>
+    );
+  }
   return (
     <div tw="flex items-end">
-      {pagesNumArr.map((x) => (
+      {pagesNumArrHead.map((x) => (
+        <PageNumber
+          key={x}
+          to={x === 1 ? pathPrefix : `${pathPrefix}/${x}`}
+          isActive={x === currentPage}
+        >
+          {x}
+        </PageNumber>
+      ))}
+      <div tw="md:text-3xl text-lg text-primary px-2 font-bold">
+        ...
+      </div>
+      {pagesNumArrTail.map((x) => (
         <PageNumber
           key={x}
           to={x === 1 ? pathPrefix : `${pathPrefix}/${x}`}
@@ -51,11 +82,11 @@ export const Pagination = ({
       </div>
     )}
     {children && (
-      <div tw="px-8 flex items-end">{children}</div>
+      <div tw="px-0 md:px-8 flex items-end">{children}</div>
     )}
     {nextPagePath && (
-      <div tw="pl-6 flex items-end">
-        <NavButton to={`${nextPagePath}`} rel="next" label="next" tw="flex w-24 justify-end items-center">
+      <div tw="pl-4 md:pl-6 flex items-end">
+        <NavButton to={`${nextPagePath}`} rel="next" label="next" tw="flex w-16 md:w-24 justify-end items-center">
           Next
           <div tw="pl-4">
             <ButtonIconArrow />

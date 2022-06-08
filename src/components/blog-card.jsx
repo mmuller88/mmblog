@@ -18,7 +18,7 @@ export const BlogCardDescription = tw.p`text-xl md:pr-6 md:text-2xl lg:pr-6 lg:t
 const BlogCard = ({
   title, description, link, date,
 }) => (
-  <Card itemProp="Url" tw="flex flex-col p-9" to={link}>
+  <Card itemProp="Url" tw="flex flex-col p-7 md:p-9 h-full" to={link}>
     <article
       className="post-list-item"
       itemScope
