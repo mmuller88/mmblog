@@ -3,7 +3,7 @@ title: OpenApi generated Restic REST Server
 description: How with OpenApi Specs create an Restic REST Server
 date: '2020-06-06'
 image: 'swagger.png'
-tags: ['eng', '2020', 'openApi', 'automate', 'github-actions', 'postman']
+tags: ['eng', '2020', 'openapi', 'automate', 'github-actions', 'postman']
 gerUrl: https://martinmueller.dev/openapi-server
 pruneLength: 50
 ---

@@ -38,10 +38,10 @@ export default TagsPage;
 export const tagPageQuery = graphql`
 {
   allSitePost(
-   filter: { frontmatter: { tags: { eq: "eng" } } }
+   filter: { tags: { eq: "eng" } }
    limit: 2000
   ) {
-   group(field: frontmatter___tags) {
+   group(field: tags) {
     fieldValue
     totalCount
    }

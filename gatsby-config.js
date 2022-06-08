@@ -60,7 +60,7 @@ module.exports = {
           `,
         feeds: [
           {
-            serialize: ({ query: { site, allSitePost } }) => allSitePost.nodes.filter((node) => node.tags.includes('eng') && !node.node.tags.includes('nofeed')).map((node) => ({
+            serialize: ({ query: { site, allSitePost } }) => allSitePost.nodes.filter((node) => node.tags.includes('eng') && !node.tags.includes('nofeed')).map((node) => ({
               ...node,
               description: node.excerpt,
               date: node.date,
