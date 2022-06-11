@@ -163,7 +163,7 @@ Mir kam dan noch die coole Idee zur Erstellung einer List von den bereits getest
 
 Dann kann einfach per Link auf einen Filter mit dem Label verwiesen werden wie z.B. https://github.com/mmuller88/aws-cdk-build-badge/pulls?q=is%3Apr+is%3Aopen+label%3Acdk-version-test . Und tada es werden alle PRs zum Versionstest angezeigt.
 
-![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-construct-checker/versions.png)
+![pic](../cdk-construct-checker/versions.png)
 
 # Zusammenfassung
 AWS CDK ist nachwievor das optimale Framework für Infrastructure as Code in AWS. Mit meinen Custom Constructs hoffe ich der Community zurückzugeben. Um nun auch immer die beste Experience zu gewährleisten, habe ich einen Workflow entwickelt, der die CDK Versionskompatibilität überprüft. Den Workflow zu erstellen hat mir riesen Spaß gemacht. Noch toller ist jetzt aber eine PR Liste zu haben wo ich genau sehen kann ob die Versionschecks geklappt haben. Ich habe noch weitere spannende CDK Themen in meinem Forum: https://martinmueller.dev/tags/cdk

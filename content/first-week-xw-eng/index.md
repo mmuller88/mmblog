@@ -27,15 +27,15 @@ And that kreuzwerker has such a positive culture, I noticed immediately during t
 
 In this section, I would like to tell you about my onboarding days. I had my onboarding in the Berlin kreuzwerker office. The office is very central in Berlin. Since I live a good two hours outside of Berlin and have never worked in Berlin before, I found it very exciting to come into the office.
 
-![berlin](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/first-week-xw/berlin.jpg)
+![berlin](../first-week-xw/berlin.jpg)
 
 In the reception, I was greeted very warmly by the office manager and had a small room tour. Since we are still in the middle of the pandemic and it was also the first week in 2022, the office was less staffed. But that made it easier to remember the new names. I think names are very important and I try to keep them in my head.
 
-![xw1](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/first-week-xw/xw1.jpg)
+![xw1](../first-week-xw/xw1.jpg)
 
 And then it was off to my first appointment with the IT staff. The IT staff explained the systems I used and handed over my hardware. I found and still find my new MacBook with the M1 chip very exciting. It has been a few years since I used a MacBook. I currently use Ubuntu exclusively. But I immediately felt happy again with the MacBook.
 
-![xw2](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/first-week-xw/xw2.jpg)
+![xw2](../first-week-xw/xw2.jpg)
 
 The following days contained usual onboarding stuff. I did online courses about security at work, with data and how to design my workstation ergonomically correct or how to use JIRA. The fancy video animations in the courses made this rather dry part quite entertaining. And actually, I learned one or two interesting things about data security :). I also find it extremely cool that there is a cook who provides us with a delicious and healthy lunch every day.
 

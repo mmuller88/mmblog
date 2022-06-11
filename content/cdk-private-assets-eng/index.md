@@ -29,7 +29,7 @@ In this blogpost I want to explain how Cloudfront and Lambda@Edge can be used to
 
 This diagram best describes how the Cloudfront Proxy works.
 
-![Diagram](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-private-assets/cdkPrivateAssetBucket.png)
+![Diagram](../cdk-private-assets/cdkPrivateAssetBucket.png)
 
 The flow to access the asset is very simple. First the user gets a valid Cognito token. This can be done via the Amplify UI, the hosted Cognito login UI or a Lambda. Then the asset is accessed via a GET request, for example https://image.example.com/funny.png . The request requires a cookie with the name token and the Cognito token as value.
 

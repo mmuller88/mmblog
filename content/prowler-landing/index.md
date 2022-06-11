@@ -28,7 +28,7 @@ Darüber hinaus will ich die Seite leicht für Suchengines wie die von Google er
 # Figma
 Figma ist ein vektorbasierender Grafikeditor und Prototyping Tool im Web. Es kann hervorragend benutzt werden um die Prowler Landingpage zu prototypen. Die Landingpage soll sich dynamisch je nach Gerät anpassen können. Das bedeutet Ich muss zwei verschiedene Layouts mit Figma gestalten. Ein Layout für einen Desktop PC und einem Mobilphone wie z.B. dem IPhone.
 
-![Figma Prowler Landing](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/prowler-landing/figma.png)
+![Figma Prowler Landing](../prowler-landing/figma.png)
 
 Zum erstellen meiner Landingpage habe ich einfach ein existierendes Landingpage Beispiel aus der [Figma Community](https://www.figma.com/community/search?model_type=hub_files&q=landing%20page) genommen und es nach meinen Vorstellungen angepasst.
 

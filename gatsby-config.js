@@ -158,6 +158,7 @@ module.exports = {
         maxWidth: 800,
         linkImagesToOriginal: true,
         showCaptions: true,
+        disableBgImage: true,
       },
     },
     'gatsby-plugin-sitemap',

@@ -162,7 +162,7 @@ I had the cool idea to create a list of the already tested CDK versions. Simply 
 
 Then you can simply link to a filter with the label like https://github.com/mmuller88/aws-cdk-build-badge/pulls?q=is%3Apr+is%3Aopen+label%3Acdk-version-test . And voila all PRs for the version test are displayed.
 
-![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-construct-checker/versions.png)
+![pic](../cdk-construct-checker/versions.png)
 
 # Summary
 AWS CDK is still the perfect framework for Infrastructure as Code in AWS. With my Custom Constructs I hope to give back to the community. To ensure the best experience at all times, I have developed a workflow that checks CDK version compatibility. Creating the workflow was a lot of fun. But even more fun is to have a PR list where I can see if the version checks worked. I have more exciting CDK topics in my forum: https://martinmueller.dev/tags/cdk

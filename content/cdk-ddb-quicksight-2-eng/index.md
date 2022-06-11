@@ -22,7 +22,7 @@ The exact instructions are in this [repo](https://github.com/awslabs/aws-athena-
 
 To visualize it using the AWS component diagram also used in the last post, all you need to do is add a Glue Table:
 
-![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-ddb-quicksight-2/ddb-qs-complex.png)
+![pic](../cdk-ddb-quicksight-2/ddb-qs-complex.png)
 
 # AWS CDK Code
 I packed the CDK Glue Table extension into its own [CDK Stack](https://github.com/mmuller88/ddb-quicksight/blob/main/src/glue-stack.ts). Here is the code snipped:

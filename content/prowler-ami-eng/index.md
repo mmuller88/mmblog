@@ -13,7 +13,7 @@ Hi Folks!
 
 Developing in AWS is fun and the possibilities to build cool stuff seem endless. But are these cool things secure and do they follow AWS's best practices? With [Prowler AMI](https://aws.amazon.com/marketplace/pp/prodview-jlwcdlc3weta6) you can check just that with far over 180 checks for many services in all your regions. For just $1, an Ec2 instance started with the Prowler AMI builds the [cdk-prowler](https://github.com/mmuller88/cdk-prowler) into your account. This will automatically start a CodeBuild that runs the checks. At the end you get an evaluation of the checks. The report contains information if the check was successful, the severity, a risk description and how to fix the problem.
 
-![HTML Report](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/prowler-ami/html-out.png)
+![HTML Report](../prowler-ami/html-out.png)
 
 In the next section I explain how exactly Prowler performs the checks.
 

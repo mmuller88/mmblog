@@ -35,7 +35,7 @@ export const StyledArticle = styled.article`
     }
   }
   span.gatsby-resp-image-wrapper {
-    ${tw`max-w-full! xl:py-20 md:py-20 shadow-2xl md:rounded-3xl`}
+    ${tw`shadow-2xl md:rounded-3xl`}
   }
   code.language-text {
     ${tw`bg-secondary text-primary`}
@@ -108,7 +108,7 @@ const PostTemplate = ({
           itemType="http://schema.org/Article"
           tw="max-w-full"
         >
-          <MDXRenderer>{body}</MDXRenderer>
+          <MDXRenderer localImages={PostImage}>{body}</MDXRenderer>
         </StyledArticle>
       </PostContainer>
       <div tw="p-8">

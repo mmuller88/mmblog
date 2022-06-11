@@ -10,11 +10,11 @@ pruneLength: 50 #ihr
 
 To clear up a possible misunderstanding right away! Serverless does not mean that there are no more servers! On the contrary! Cloud providers such as AWS, which offer serverless, have many servers worldwide. In the image below you can see the currently available AWS regions. This means in all these places in the world AWS has at least two data centers.
 
-![regions](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/serverless/regions.jpeg)
+![regions](../serverless/regions.jpeg)
 
 Such a data center itself is a huge building with a lot of server technology.
 
-![servercenter](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/serverless/servercenter.png)
+![servercenter](../serverless/servercenter.png)
 
 Now and in the following, I would like to explain for each section using S3 and Lambda as an example.
 

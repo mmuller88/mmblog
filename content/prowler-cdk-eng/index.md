@@ -17,11 +17,11 @@ However, if you just want to run Prowler for your AWS account and don't want to 
 
 Then Prowler will run the security check and you will find the security findings in an S3 bucket named prowleraudit-stack-prowlerauditreportbucket the HTML report:
 
-![html results](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/prowler-cdk-eng/html-out.png)
+![html results](../prowler-cdk-eng/html-out.png)
 
 Or also in the codebuild report group:
 
-![Report group](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/prowler-cdk-eng/report-group-out.png)
+![Report group](../prowler-cdk-eng/report-group-out.png)
 
 If you have any problems with the AMI, please write me.
 

@@ -28,15 +28,15 @@ Und das kreuzwerker so eine positive Kultur hat, habe ich sofort gemerkt bei den
 
 In dieser Sektion möchte ich etwas über die Tage im Onboarding berichten. Ich hatte mein Onboarding im Berliner kreuzwerker Büro. Das Büro ist sehr mittig von Berlin. Da ich gute zwei Stunden außerhalb von Berlin wohne und tatsächlich vorher noch nie in Berlin gearbeitet habe, fand ich es sehr spannend ins Büro zu kommen.
 
-![berlin](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/first-week-xw/berlin.jpg)
+![berlin](../first-week-xw/berlin.jpg)
 
 Im Empfang wurde ich dann ganz herzlich von der Büromanagerin begrüßt und hatte eine kleine Raumführung. Da wir noch mitten in der Pandemie stecken und es zudem auch noch die erste Woche in 2022 war, war das Büro dünn besetzt. Dafür war es aber etwas einfacher sich die neuen Namen zu merken. Ich persönlich finde Namen sehr wichtig und gebe mir große Mühe diese in meinem Kopf zu behalten.
 
-![xw1](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/first-week-xw/xw1.jpg)
+![xw1](../first-week-xw/xw1.jpg)
 
 Und dann ging es auch schon zu meinem ersten Termin mit dem IT Personal. Vom IT Personal wurden mir die verwendeten Systeme erklärt und es wurde mir meine Hardware übergeben. Sehr spannend fand und finde ich mein neues MacBook mit dem M1 Chip. Es ist schon ein paar Jahre her gewesen als ich ein MacBook verwendet habe. Persönlich verwende ich zurzeit ja ausschließlich Ubuntu. Aber ich hab mich sofort wieder glücklich gefühlt mit dem MacBook.
 
-![xw2](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/first-week-xw/xw2.jpg)
+![xw2](../first-week-xw/xw2.jpg)
 
 Die nächsten Tage folgte eine übliche Routine eines Onboardings wie Onlinekurse über Sicherheit am Arbeitsplatz und mit Daten und wie ich z.B. meinen Arbeitsplatz ergonomisch richtig Gestalte oder wie man mit JIRA umgeht. Durch die schicken Videoanimationen in den Kursen wurde dieser eher trockene Teil doch recht unterhaltsam. Und tatsächlich hab ich noch das ein oder andere interessante über Datensicherheit gelernt :). Extrem cool finde ich auch dass es eine Köchin gibt die uns täglich mit einem leckerem und gesundem Mittag versorgt hat.
 

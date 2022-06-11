@@ -31,7 +31,7 @@ verwenden.
 
 Dieses Diagram beschreibt am besten wie der Cloudfront Proxy funktioniert.
 
-![Diagram](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-private-assets/cdkPrivateAssetBucket.png)
+![Diagram](../cdk-private-assets/cdkPrivateAssetBucket.png)
 
 Der Flow zum Zugriff auf das Asset is sehr simpel. Zuerst holt sich der User ein gültiges Cognito Token. Das kann z.B. über die Amplify UI, der hosted Cognito login UI oder einer Lambda passieren. Dann wird auf das Asset mittels GET Request zugegriffen z.B. https://image.example.com/funny.png . Der Request benötigt ein Cookie mit dem Namen token und dem Cognito Token als Value.
 
