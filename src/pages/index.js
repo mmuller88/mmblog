@@ -22,23 +22,6 @@ const Index = ({ data }) => {
   return (
     <Layout>
       <SEO title="Martin Mueller Blog" />
-      <Hero>
-        <MainTitle>
-          Hi! My name is Martin Mueller.
-          <p>
-            I’m a
-            <span tw="text-indigo-500"> Full Stack developer</span>
-          </p>
-          located in Germany.
-        </MainTitle>
-        <Subtitle>
-          I like to have a broad collection of skills.
-          From developing the backend and frontend applications written in Java, JavaScript,
-          or any other language, to developing a cost-optimized cloud infrastructure solution.
-          An enthusiastic agile player with strong communication skills.
-          Looking for taking on new challenges and learning new technologies.
-        </Subtitle>
-      </Hero>
       <BlogSection>
         <Link to="/blog" tw="flex justify-between items-center">
           <Title>
