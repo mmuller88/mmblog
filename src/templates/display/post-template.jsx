@@ -108,7 +108,7 @@ const PostTemplate = ({
           itemType="http://schema.org/Article"
           tw="max-w-full"
         >
-          <MDXRenderer localImages={PostImage}>{body}</MDXRenderer>
+          <MDXRenderer>{body}</MDXRenderer>
         </StyledArticle>
       </PostContainer>
       <div tw="p-8">
