@@ -18,11 +18,11 @@ Falls ihr Prowler aber einfach nur für euren AWS Account ausführen möchtet un
 
 Dann führt Prowler den Security Check durch und ihr findet die Security Findings in einem S3 Bucket mit Namen prowleraudit-stack-prowlerauditreportbucket den HTML Report:
 
-![html results](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/prowler-cdk-eng/html-out.png)
+![html results](../prowler-cdk-eng/html-out.png)
 
 Oder auch in der Codebuild Report group:
 
-![Report group](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/prowler-cdk-eng/report-group-out.png)
+![Report group](../prowler-cdk-eng/report-group-out.png)
 
 Falls ihr irgendwelche Probleme mit der AMI haben solltet, bitte schreibt mir.
 

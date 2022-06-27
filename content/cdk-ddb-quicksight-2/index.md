@@ -23,7 +23,7 @@ Die genauen Anweisungen stehen auch im [repo](https://github.com/awslabs/aws-ath
 
 Um es anhand des auch im letzten Post verwendeten AWS Komponentendiagrams zu visualisieren, muss lediglich die Glue Tabelle hinzugefügt werden:
 
-![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-ddb-quicksight-2/ddb-qs-complex.png)
+![pic](../cdk-ddb-quicksight-2/ddb-qs-complex.png)
 
 # AWS CDK Code
 Ich abe die CDK Glue Table Erweiterung in ihren eigenen [CDK Stack](https://github.com/mmuller88/ddb-quicksight/blob/main/src/glue-stack.ts) gepackt. Hier ist der Code:

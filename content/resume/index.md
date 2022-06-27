@@ -19,7 +19,7 @@ Passionate Full Stack Developer. I like to have a broad collection of skills. Fr
 
 ## Highlights
 
-- AWS Professional Solution Architect certified [![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/resume/cert.png)](https://martinmueller.dev/aws-cert)
+- AWS Professional Solution Architect certified [![pic](../resume/cert.png)](https://martinmueller.dev/aws-cert)
 - AWS Community Builder
 - TypeScript, Java, JavaScript, Angular, React
 - AWS Lambda, EC2, CDK, DynamoDB and many more
@@ -29,16 +29,21 @@ Passionate Full Stack Developer. I like to have a broad collection of skills. Fr
 
 ## Experience
 
+Senior Engineer - www.monada.co, Israel \
+Jun 2022 - current
+
+- Monada is a startup which will reinvent of how developer are using the cloud.
+
 AWS Community Builder \
 Mar 2022 - current
 
 Senior Cloud Architect - www.kreuzwerker.de, GER \
-Jan 2022 - current
+Jan 2022 - May 2022
 
 - Together with the customer building awesome AWS cloud solutions
 
 AWS Consultant \
-Nov 2020 - current
+Nov 2020 - May 2022
 
 - Helping startups into the AWS Cloud
 - Leveraging AWS CDK to manage AWS resources

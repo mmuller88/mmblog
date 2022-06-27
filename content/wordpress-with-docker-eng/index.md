@@ -140,7 +140,7 @@ One thing that bothers me a lot with Wordpress is the inline editor for HTML and
 I can then edit these local files as usual with my VS code editor and get great help like syntax correction, syntax highlighting and many more. I did this by converting the HTML and JavaScript into iFrames, which point to the files:
 
 ``html
-<iframe src="/wp-content/themes/Impreza/get-vms.html">
+<iframe src="/wp-content/themes/Impreza/get-vms.html" />
 ```
 
 But the whole thing probably still has one problem. It is not scalable or responsive when the size of the screen changes because you visit the wordpress site with a cell phone for example.

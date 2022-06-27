@@ -66,8 +66,8 @@ maxBatchingWindow: core.Duration.minutes(5),
 
 The **batchSize** with 10000 and the **maxBatchingWindow** are chosen maximally to call a Lambda really only every 5 minutes:
 
-![withoutProperBatching.png](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/dynamodb-to-s3/withoutProperBatching.png)
-![withProperBatching.png](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/dynamodb-to-s3/withProperBatching.png)
+![withoutProperBatching.png](../dynamodb-to-s3/withoutProperBatching.png)
+![withProperBatching.png](../dynamodb-to-s3/withProperBatching.png)
 
 Super cool or? So the number of Lambda calls was massively reduced.
 

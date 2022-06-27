@@ -4,7 +4,7 @@ description: Wie man mit OpenApi Specs REST Server
 show: 'no'
 date: '2020-06-06'
 image: 'swagger.png'
-tags: ['de', '2020', 'openApi', 'automate', 'github-actions', 'postman']
+tags: ['de', '2020', 'openapi', 'automate', 'github-actions', 'postman']
 engUrl: https://martinmueller.dev/openapi-server-eng
 pruneLength: 50
 ---

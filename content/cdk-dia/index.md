@@ -18,11 +18,11 @@ Wenn es euch ähnlich geht probiert doch mal [cdk-dia](https://github.com/pistaz
 
 Das Tool cdk-dia erlaubt es mir AWS Komponenten Diagramme automatisch aus meinem CDK code zu erzeugen. Es folgt sogar dabei den CDK Construct Level 1 und 2 Abstraktionen. Das bedeutet, dass z.B. die großen Komponenten Symbole Level 2 Constructs sind und nur die Hauptkomponente, die üblicherweise **Resource** als ID bekommt. Somit werden nur die wirklich wichtigen AWS Komponenten gerendert. Das wird auch als collapsing bezeichnet.
 
-![collapsed](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-dia/decorator_example_collapsed.png)(collapsed diagram)
+![collapsed](../cdk-dia/decorator_example_collapsed.png)(collapsed diagram)
 
 Möchtet ihr das collapsing verhindern, also auch wirklich alle unterliegenden Komponenten angezeigt bekommen, könnt ihr einen Decorater im Code definieren. Wie genau das funktioniert seht ihr [hier](https://github.com/pistazie/cdk-dia/tree/main/examples/experimental-decorator-example) .
 
-![non-collapsed](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-dia/decorator_example_non-collapsed.png)(non-collapsed diagram)
+![non-collapsed](../cdk-dia/decorator_example_non-collapsed.png)(non-collapsed diagram)
 
 Das habe ich z.B. bei meinem [private asset bucket Construct](https://github.com/mmuller88/cdk-private-asset-bucket/blob/main/src/private-asset-bucket.ts) benutzt:
 

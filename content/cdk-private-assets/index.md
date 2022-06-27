@@ -20,13 +20,18 @@ https://presignedurldemo.s3.eu-west-2.amazonaws.com/image.png?X-Amz-Algorithm=AW
 
 Mhh wenn ich aber doch schon eine User-Verwaltung z.B. AWS Cognito habe, wäre es dann nicht viel eleganter wenn ich einfach mittels User JWT Token auf solche private Assets zugreifen könnte? Ja absolut! Und um den Programmieraufwand gering zu halten kann dafür Cloudfront und Lambda@Edge benutzt werden.
 
-In diesem Blogpost möchte ich euch erklären wie mit Cloudfront und Lambda@Edge ein Proxy gebaut werden kann, der es authentisierten Usern erlaubt auf S3 Asset Urls wie z.B. https://image.example.com/funny.png zuzugreifen. Wenn der dafür benötigte Token dann auch noch als Cookie gespeichert wird, kann man sogar das HTML img Tag z.B. <img src="https://image.example.com/funny.png">funny.png</img> verwenden.
+In diesem Blogpost möchte ich euch erklären wie mit Cloudfront und Lambda@Edge ein Proxy gebaut werden kann, der es authentisierten Usern erlaubt auf S3 Asset Urls wie z.B. https://image.example.com/funny.png zuzugreifen. Wenn der dafür benötigte Token dann auch noch als Cookie gespeichert wird, kann man sogar das HTML img Tag z.B. 
+
+```html
+<img src="https://image.example.com/funny.png">funny.png</img> 
+```
+verwenden.
 
 ## Lösungsansatz
 
 Dieses Diagram beschreibt am besten wie der Cloudfront Proxy funktioniert.
 
-![Diagram](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/cdk-private-assets/cdkPrivateAssetBucket.png)
+![Diagram](../cdk-private-assets/cdkPrivateAssetBucket.png)
 
 Der Flow zum Zugriff auf das Asset is sehr simpel. Zuerst holt sich der User ein gültiges Cognito Token. Das kann z.B. über die Amplify UI, der hosted Cognito login UI oder einer Lambda passieren. Dann wird auf das Asset mittels GET Request zugegriffen z.B. https://image.example.com/funny.png . Der Request benötigt ein Cookie mit dem Namen token und dem Cognito Token als Value.
 
