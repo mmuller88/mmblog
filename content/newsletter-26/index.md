@@ -16,6 +16,38 @@ If you like my content follow me on my usual spots to hang around:
 - <https://dev.to/mmuller88>
 - <https://martinmueller.dev>
 
+## Setting up a CI/CD Pipeline for AWS Fargate using Github Actions - NodeJS version (Including creation of Infrastructure using AWS CDK)
+
+<https://www.cloudtechsimplified.com/ci-cd-pipeline-aws-fargate-github-actions-nodejs/>
+
+Nice in deep article about how to setup AWS ECS with Fargate with AWS CDK. That topic can be qutie difficult so it is nice to have articles like this one to help you with,
+
+Thanks a lot to the author [Mugilan Ragupathi](https://www.cloudtechsimplified.com/author/mugilan-ragupathi/)
+
+## Large object storage strategies for Amazon DynamoDB
+
+<https://aws.amazon.com/blogs/database/large-object-storage-strategies-for-amazon-dynamodb>
+
+Article about storing large object as reference in AWS DynamoDB.
+
+Thanks a lot to the author Josh Hart
+
+## What Is Serverless Enablement And Why Is It Important?
+
+<https://www.readysetcloud.io/blog/allen.helton/what-is-serverless-enablement/>
+
+Super interesting article about serverless. The author is explaining why serverless is useful and how you can start with it.
+
+Thanks a lot to the author [Allen Helton](https://www.readysetcloud.io/)
+
+## Nobody talks about this in the IT world
+
+https://dev.to/antoomartini/nobody-talks-about-this-in-the-it-world-31ph
+
+An article about imposter syndrome. It is so important to speak about it more in our area. I personally never felt affected by it but I would love to help persons who do. In the discussion the community gives nice tips how to overcome the imposter syndrome.
+
+Thanks a lot to the author [Maria Antonella 🦋](https://dev.to/antoomartini)
+
 ## Title
 
 LINK
@@ -39,6 +71,15 @@ LINK
 ...
 
 Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
 
 ## Title
 
