@@ -72,6 +72,46 @@ Oh boy, how cool is that? Workflow collections to show best practices examples f
 
 Thanks a lot to the author Benjamin Smith
 
+## The AWS CDK, Or Why I Stopped Being a CDK Skeptic
+
+<https://dev.to/mradzikowski/the-aws-cdk-or-why-i-stopped-being-a-cdk-skeptic-4o2o>
+
+A nice summary about AWS CDK and cool story for how and why from switching from YAML to a programming language for defining infrastructure. But as well it has some valid AWS CDK cons
+
+Thanks a lot to the author [Maciej Radzikowski](https://dev.to/mradzikowski)
+
+## Better dev experience starts from a proper document
+
+<https://dev.to/jennieji/better-dev-experience-starts-from-a-proper-document-30o5>
+
+Provide good tips for how to create proper documentation for your code projects.
+
+Thanks a lot to the author [Jennie](https://dev.to/jennieji)
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
 ## Title
 
 LINK
