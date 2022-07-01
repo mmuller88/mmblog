@@ -3,7 +3,7 @@ title: AWS Initialisierung mit Superwerker
 show: "no"
 date: "2022-07-01"
 image: "splash.jpeg"
-tags: ["de", "2022", "builder"] #nofeed
+tags: ["de", "2022", "aws", "nofeed"] #nofeed
 engUrl: https://martinmueller.dev/aws-superwerker-eng
 pruneLength: 50 #du
 ---
@@ -46,7 +46,6 @@ Falls du also auch die folgenden Error logs in der RootMailReady Lambda bekommst
 ```
 
 Falls jemand auf ein gleiches oder ähnliches Problem stoßen sollte, habe ich ei
-* Troubleshoot hinzugefügt
 
 ## Fazit
 
