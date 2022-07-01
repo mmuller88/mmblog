@@ -64,13 +64,13 @@ Interesting pros and const about the new-ish AWS Lambda Function Url.
 
 Thanks a lot to the author [Ben Brazier](https://dev.to/bentorvo)
 
-## Title
+## Introducing the new AWS Step Functions Workflows Collection
 
-LINK
+<https://aws.amazon.com/blogs/compute/introducing-the-new-aws-step-functions-workflows-collection/>
 
-...
+Oh boy, how cool is that? Workflow collections to show best practices examples for AWS Step Functions. And you even can submit your workflows. Fantastic!
 
-Thanks a lot to the author []()
+Thanks a lot to the author Benjamin Smith
 
 ## Title
 
