@@ -42,35 +42,27 @@ Thanks a lot to the author [Allen Helton](https://www.readysetcloud.io/)
 
 ## Nobody talks about this in the IT world
 
-https://dev.to/antoomartini/nobody-talks-about-this-in-the-it-world-31ph
+<https://dev.to/antoomartini/nobody-talks-about-this-in-the-it-world-31ph>
 
 An article about imposter syndrome. It is so important to speak about it more in our area. I personally never felt affected by it but I would love to help persons who do. In the discussion the community gives nice tips how to overcome the imposter syndrome.
 
 Thanks a lot to the author [Maria Antonella 🦋](https://dev.to/antoomartini)
 
-## Title
+## Why developers must start blogging and how to start?
 
-LINK
+<https://dev.to/atapas/why-developers-must-start-blogging-and-how-to-start-543c>
 
-...
+Obviously, I totally agree with that developers must start blogging. The author adds good explanation why writing blogs about your work as a developer is useful. For me it was super hard to start with but it started to getting easier and now I love it! I would like to add that it helps to increase your language skills.
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Tapas Adhikary](https://dev.to/atapas)
 
-## Title
+## The Pros and Cons of AWS Lambda Function URLs
 
-LINK
+<https://dev.to/bentorvo/the-pros-and-cons-of-aws-lambda-function-urls-524d>
 
-...
+Interesting pros and const about the new-ish AWS Lambda Function Url.
 
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
+Thanks a lot to the author [Ben Brazier](https://dev.to/bentorvo)
 
 ## Title
 
@@ -80,6 +72,13 @@ LINK
 
 Thanks a lot to the author []()
 
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
 
 ## Title
 

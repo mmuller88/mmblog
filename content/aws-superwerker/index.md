@@ -1,16 +1,16 @@
 ---
 title: AWS Initialisierung mit Superwerker 
 show: "no"
-date: "2022-04-29"
-image: "title.png"
+date: "2022-07-01"
+image: "splash.jpeg"
 tags: ["de", "2022", "builder"] #nofeed
-engUrl: https://martinmueller.dev/aws-builder-eng
+engUrl: https://martinmueller.dev/aws-superwerker-eng
 pruneLength: 50 #du
 ---
 
 Hi Leute.
 
-Seit längerem wollte ich mein [senjuns project](github.com/senjuns/senjuns) auf stabilere Beine stellen. Bisher hatte ich es nur in meinem AWS Ausprobier Account ohne die Verwendung von zum Beispiel einer Landingpage, ControlTower, SecurityHub und noch vielem mehr. Da kam das [Superwerker CFN Template](https://github.com/superwerker/superwerker) gerade recht. Dieses hat es mir ermöglicht einen neuen Account mit vielen tollen AWS Services zu erstellen. In den folgenden Abschnitten möchte ich gerne darauf eingehen was Superwerker genau ist und wie ich es dann verwendet habe.
+Seit längerem wollte ich mein [senjuns project](github.com/senjuns/senjuns) auf stabilere Beine stellen. Bisher hatte ich es nur in meinem AWS ausprobiert alten developer Account ohne die Verwendung von zum Beispiel einer AWS SSO, ControlTower, SecurityHub und noch vielem mehr. Da kam das [Superwerker CFN Template](https://github.com/superwerker/superwerker) gerade recht. Dieses hat es mir ermöglicht einen neuen Account mit vielen tollen AWS Services zu konfigurieren. In den folgenden Abschnitten möchte ich gerne darauf eingehen was Superwerker genau ist und wie ich es verwendet habe.
 
 ## Was ist Superwerker?
 
@@ -18,11 +18,9 @@ Seit längerem wollte ich mein [senjuns project](github.com/senjuns/senjuns) auf
 
 ## Superwerker Experience
 
-* Anweisung ist hier ... zu finden. Sollten genau befolgt werden.
-* Hatte ein paar Probleme da ich meine domain senjuns.com und die Hosted Zone nicht vernünftig von dem alten AWS Account migriert habe.
-* Dann lief Superwerker durch
-* Troubleshoot hinzugefügt
-* [Migrating a hosted zone to a different AWS account](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-migrating.html)
+Die Anweisungen zum Ausführen von Superwerker findest du [hier](https://superwerker.awsworkshop.io/). Für mich ging die Installation recht reibungslos. Eine Ausnahme stellte aber der [RootMail](https://github.com/superwerker/superwerker/blob/main/docs/adrs/rootmail.md) Nested Stack da. Ich hatte zuvor meine Domaine senjuns.com und die dazugehörige Hosted Zone aus einem anderen AWS Account importiert. Allerdings habe ich die Name Server von der Domaine nicht ordnungsgemäß in der dafür vorgesehenen Hosted Zone konfiguriert. Durch debuggen der Superwerker Lambdas ist mir dieser Fehler aufgefallen.
+
+Falls du also auch die folgenden Error logs in der RootMailReady Lambda bekommst, musst du einfach mal überprüfen ob du deine Domaine und die Hosted Zone richtig konfiguriert hast.
 
 ```json
 {
@@ -47,6 +45,8 @@ Seit längerem wollte ich mein [senjuns project](github.com/senjuns/senjuns) auf
     ...
 ```
 
+Falls jemand auf ein gleiches oder ähnliches Problem stoßen sollte, habe ich ei
+* Troubleshoot hinzugefügt
 
 ## Fazit
 
