@@ -28,15 +28,15 @@ Das Superwerker Deployment hat eine Menge von coolen Features die alle sehr gut 
 
 ### Control Tower
 
-[Control Tower](https://github.com/superwerker/superwerker/blob/main/docs/adrs/control-tower.md)
+[Control Tower](https://github.com/superwerker/superwerker/blob/main/docs/adrs/control-tower.md) vereinfacht das Verwalten von mehreren AWS Accounts mit AWS SSO. Für mich ist das der Hauptgrund warum ich Superwerker verwende. Somit kann ich sehr einfach auf meine verschiedenen AWS Accounts wie build, dev und prod zugreifen. Sehr toll finde ich auch, dass ich mit AWS SSO einfach die AWS Account credentials kopieren und für die AWS CLI verwenden kann.
 
 ### GuardDuty
 
-[GuardDuty](https://github.com/superwerker/superwerker/blob/main/docs/adrs/guardduty.md)
+[GuardDuty](https://github.com/superwerker/superwerker/blob/main/docs/adrs/guardduty.md) ist ein AWS Service zum finden von möglichen Security Gefahren.
 
 ### Living Documentation
 
-[Living Documentation](https://github.com/superwerker/superwerker/blob/main/docs/adrs/living-documentations.md)
+[Living Documentation](https://github.com/superwerker/superwerker/blob/main/docs/adrs/living-documentation.md) ist ein ziemlich cooles Feature welches eine Documentation via AWS CloudWatch Dashboard erzeugt. Diese gibt dann Informationen über zum Beispiel wie ein SSO setup mit externen Identity Providern wie Google gemacht werden kann und noch vieles mehr. Extrem cool ist wie sich diese Documentation auch selber updated wenn bereits gewisse Konfigurationen vorgenommen wurden. Deswegen heißt es ja auch Living Documentation.
 
 ### Notifications
 
