@@ -26,6 +26,30 @@ Das Superwerker Deployment hat eine Menge von coolen Features die alle sehr gut 
 
 [Budget](https://github.com/superwerker/superwerker/blob/main/docs/adrs/budget.md) hilft die Kosten in AWS zu überschauen und gibt rechtzeitig eine Warnung falls mehr Kosten als üblich anfallen. Das macht es dadurch, dass der Mittelwert der letzten drei Monate berechnet wird und falls dieser überschritten wird, kommt eine Warnung. Eine echt coole Idee finde ich.
 
+### Control Tower
+
+[Control Tower](https://github.com/superwerker/superwerker/blob/main/docs/adrs/control-tower.md)
+
+### GuardDuty
+
+[GuardDuty](https://github.com/superwerker/superwerker/blob/main/docs/adrs/guardduty.md)
+
+### Living Documentation
+
+[Living Documentation](https://github.com/superwerker/superwerker/blob/main/docs/adrs/living-documentations.md)
+
+### Notifications
+
+[Notifications](https://github.com/superwerker/superwerker/blob/main/docs/adrs/notifications.md)
+
+### RootMail
+
+[RootMail](https://github.com/superwerker/superwerker/blob/main/docs/adrs/rootmail.md)
+
+### Security Hub
+
+[Security Hub](https://github.com/superwerker/superwerker/blob/main/docs/adrs/securityhub.md)
+
 Im nächsten Abschnitt möchte ich gerne mehr über meine Experience mit Superwerker berichten.
 
 ## Superwerker Experience
