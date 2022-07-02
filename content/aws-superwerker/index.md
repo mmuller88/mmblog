@@ -14,7 +14,19 @@ Seit längerem wollte ich mein [senjuns project](github.com/senjuns/senjuns) auf
 
 ## Was ist Superwerker?
 
-[Superwerker](https://github.com/superwerker/superwerker) ist eine Open Source AWS CloudFormation Lösung welches die Einrichtung eines AWS Accounts erleichtert. Dabei folgt es best practices für Security und Effizienz. Entwickelt und Maintained wurde/wird das Projekt von AWS Advanced Partnern [kreuzwerker](https://github.com/superwerker/superwerker) und [superluminar](https://superluminar.io/). Es hat sogar seine eigene Landingpage (superwerker.cloud)[https://superwerker.cloud/] mit tollen Inhalten wie einem kurzen Video und mehr. Kaum zu glauben, dass dies ein kostenloses Produkt ist. Im nächsten Abschnitt möchte ich gerne mehr über meine Experience mit Superwerker berichten.
+[Superwerker](https://github.com/superwerker/superwerker) ist eine Open Source AWS CloudFormation Lösung welches die Einrichtung eines AWS Accounts erleichtert. Dabei folgt es best practices für Security und Effizienz. Entwickelt und Maintained wurde/wird das Projekt von AWS Advanced Partnern [kreuzwerker](https://github.com/superwerker/superwerker) und [superluminar](https://superluminar.io/). Es hat sogar seine eigene [Landingpage](superwerker.cloud)[https://superwerker.cloud/] mit tollen Inhalten wie einem kurzen Video und mehr. Kaum zu glauben, dass dies ein kostenloses Produkt ist. 
+
+Das Superwerker Deployment hat eine Menge von coolen Features die alle sehr gut in den Docs [hier](https://github.com/superwerker/superwerker/tree/main/docs/adrs) erklärt sind. Nachfolgend erkläre ich kurz diese Features.
+
+### Backup
+
+[Backup](https://github.com/superwerker/superwerker/blob/main/docs/adrs/backup.md) aktiviert den AWS Backup Service und per default wird jeden Tag ein Backup, von allen Datenbanken die von AWS Backup unterstützt werden, erzeugt.
+
+### Budget
+
+[Budget](https://github.com/superwerker/superwerker/blob/main/docs/adrs/budget.md) hilft die Kosten in AWS zu überschauen und gibt rechtzeitig eine Warnung falls mehr Kosten als üblich anfallen. Das macht es dadurch, dass der Mittelwert der letzten drei Monate berechnet wird und falls dieser überschritten wird, kommt eine Warnung. Eine echt coole Idee finde ich.
+
+Im nächsten Abschnitt möchte ich gerne mehr über meine Experience mit Superwerker berichten.
 
 ## Superwerker Experience
 
