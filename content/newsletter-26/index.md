@@ -1,10 +1,14 @@
 ---
 title: Newsletter martinmueller.dev 2022 week 26
-show: "no"
+show: "yes"
 date: "2022-07-03"
-tags: ["eng", "2022", "newsletter", "aws", "devops", "nofeed"] #nofeed
+tags: ["eng", "2022", "newsletter", "aws", "devops"] #nofeed
 pruneLength: 50
 ---
+
+Hello friends.
+
+Another week passed by! My highlights of the week were the German CDK Happy Hour Meetup on Wednesday where an AWS CDK project was presented which leverages AWS ECS with Blue/Green deployments. That is super exciting as that is not natively supported by ECS CloudFormation at all. Another highlight was that I helped a friend move house and carrying furniture around like that is a good workout :).
 
 In this weekly newsletter, I write a summary of posts that got my attention during the week. I center around topics AWS, DevOps, Architecture, AWS CDK, Serverless, Data Engineering, Data Analytics and much more.
 
@@ -15,6 +19,22 @@ If you like my content follow me on my usual spots to hang around:
 - <https://github.com/mmuller88>
 - <https://dev.to/mmuller88>
 - <https://martinmueller.dev>
+
+## Nobody talks about this in the IT world
+
+<https://dev.to/antoomartini/nobody-talks-about-this-in-the-it-world-31ph>
+
+An article about imposter syndrome. It is so important to speak about it more in our area. I personally never felt affected by it but I would love to help persons who do. In the discussion the community gives nice tips how to overcome the imposter syndrome.
+
+Thanks a lot to the author [Maria Antonella :butterfly:](https://dev.to/antoomartini)
+
+## Why developers must start blogging and how to start?
+
+<https://dev.to/atapas/why-developers-must-start-blogging-and-how-to-start-543c>
+
+Obviously, I totally agree with that developers must start blogging. The author adds good explanation why writing blogs about your work as a developer is useful. For me it was super hard to start with but it started to getting easier and now I love it! I would like to add that it helps to increase your language skills.
+
+Thanks a lot to the author [Tapas Adhikary](https://dev.to/atapas)
 
 ## Setting up a CI/CD Pipeline for AWS Fargate using Github Actions - NodeJS version (Including creation of Infrastructure using AWS CDK)
 
@@ -40,27 +60,11 @@ Super interesting article about serverless. The author is explaining why serverl
 
 Thanks a lot to the author [Allen Helton](https://www.readysetcloud.io/)
 
-## Nobody talks about this in the IT world
-
-<https://dev.to/antoomartini/nobody-talks-about-this-in-the-it-world-31ph>
-
-An article about imposter syndrome. It is so important to speak about it more in our area. I personally never felt affected by it but I would love to help persons who do. In the discussion the community gives nice tips how to overcome the imposter syndrome.
-
-Thanks a lot to the author [Maria Antonella 🦋](https://dev.to/antoomartini)
-
-## Why developers must start blogging and how to start?
-
-<https://dev.to/atapas/why-developers-must-start-blogging-and-how-to-start-543c>
-
-Obviously, I totally agree with that developers must start blogging. The author adds good explanation why writing blogs about your work as a developer is useful. For me it was super hard to start with but it started to getting easier and now I love it! I would like to add that it helps to increase your language skills.
-
-Thanks a lot to the author [Tapas Adhikary](https://dev.to/atapas)
-
 ## The Pros and Cons of AWS Lambda Function URLs
 
 <https://dev.to/bentorvo/the-pros-and-cons-of-aws-lambda-function-urls-524d>
 
-Interesting pros and const about the new-ish AWS Lambda Function Url.
+Interesting pros and cons about the new-ish AWS Lambda Function Url.
 
 Thanks a lot to the author [Ben Brazier](https://dev.to/bentorvo)
 
@@ -76,7 +80,7 @@ Thanks a lot to the author Benjamin Smith
 
 <https://dev.to/mradzikowski/the-aws-cdk-or-why-i-stopped-being-a-cdk-skeptic-4o2o>
 
-A nice summary about AWS CDK and cool story for how and why from switching from YAML to a programming language for defining infrastructure. But as well it has some valid AWS CDK cons
+A nice summary about AWS CDK and a cool story for how and why from switching from YAML to a programming language for defining infrastructure. But as well it has some valid AWS CDK cons
 
 Thanks a lot to the author [Maciej Radzikowski](https://dev.to/mradzikowski)
 
@@ -84,73 +88,9 @@ Thanks a lot to the author [Maciej Radzikowski](https://dev.to/mradzikowski)
 
 <https://dev.to/jennieji/better-dev-experience-starts-from-a-proper-document-30o5>
 
-Provide good tips for how to create proper documentation for your code projects.
+Provide good tips on how to create proper documentation for your code projects.
 
 Thanks a lot to the author [Jennie](https://dev.to/jennieji)
-
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
-
-## Open Source Projects
-
-In this section I list Open Source projects I find super interesting!
-
-## Title
-
-LINK
-
-...
-
-## Title
-
-LINK
-
-...
 
 ## Final Words
 
