@@ -40,7 +40,7 @@ Thanks a lot to the author [Tapas Adhikary](https://dev.to/atapas)
 
 <https://www.cloudtechsimplified.com/ci-cd-pipeline-aws-fargate-github-actions-nodejs/>
 
-Nice in deep article about how to setup AWS ECS with Fargate with AWS CDK. That topic can be qutie difficult so it is nice to have articles like this one to help you with,
+Nice in deep article about how to setup AWS ECS with Fargate with AWS CDK. That topic can be qutie difficult so it is nice to have articles like this one to help you with.
 
 Thanks a lot to the author [Mugilan Ragupathi](https://www.cloudtechsimplified.com/author/mugilan-ragupathi/)
 

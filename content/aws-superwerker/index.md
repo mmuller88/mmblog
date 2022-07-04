@@ -1,7 +1,7 @@
 ---
 title: AWS Initialisierung mit Superwerker 
 show: "no"
-date: "2022-07-01"
+date: "2022-07-10"
 image: "splash.jpeg"
 tags: ["de", "2022", "aws", "nofeed"] #nofeed
 engUrl: https://martinmueller.dev/aws-superwerker-eng
@@ -14,13 +14,13 @@ Seit längerem wollte ich mein [senjuns project](github.com/senjuns/senjuns) auf
 
 ## Was ist Superwerker?
 
-[Superwerker](https://github.com/superwerker/superwerker) ist eine Open Source AWS CloudFormation Lösung welches die Einrichtung eines AWS Accounts erleichtert. Dabei folgt es best practices für Security und Effizienz. Entwickelt und Maintained wurde/wird das Projekt von AWS Advanced Partnern [kreuzwerker](https://github.com/superwerker/superwerker) und [superluminar](https://superluminar.io/). Es hat sogar seine eigene [Landingpage](superwerker.cloud)[https://superwerker.cloud/] mit tollen Inhalten wie einem kurzen Video und mehr. Kaum zu glauben, dass dies ein kostenloses Produkt ist. 
+[Superwerker](https://github.com/superwerker/superwerker) ist eine Open Source AWS CloudFormation Lösung welches die Einrichtung eines AWS Accounts erleichtert. Dabei folgt es best practices für Security und Effizienz. Entwickelt und Maintained wurde/wird das Projekt von AWS Advanced Partnern [kreuzwerker](https://github.com/superwerker/superwerker) und [superluminar](https://superluminar.io/). Es hat sogar seine eigene [Landingpage](superwerker.cloud)[https://superwerker.cloud/] mit tollen Inhalten wie einem kurzen Video und mehr. Kaum zu glauben, dass dies ein kostenloses Produkt ist.
 
-Das Superwerker Deployment hat eine Menge von coolen Features die alle sehr gut in den Docs [hier](https://github.com/superwerker/superwerker/tree/main/docs/adrs) erklärt sind. Nachfolgend erkläre ich kurz diese Features.
+Das Superwerker Deployment hat eine Menge von coolen Features die alle sehr gut in den Docs [hier](https://github.com/superwerker/superwerker/tree/main/docs/adrs) erklärt sind. Sehr gut finde ich, dass es zum Beschreiben der einzelnen Features [Architectural Decision Records](https://adr.github.io/) verwendet. Nachfolgend erkläre ich die Features in eigenen Worten.
 
 ### Backup
 
-[Backup](https://github.com/superwerker/superwerker/blob/main/docs/adrs/backup.md) aktiviert den AWS Backup Service und per default wird jeden Tag ein Backup, von allen Datenbanken die von AWS Backup unterstützt werden, erzeugt.
+[Backup](https://github.com/superwerker/superwerker/blob/main/docs/adrs/backup.md) aktiviert den AWS Backup Service und per default wird jeden Tag ein Backup erzeugt. Dabei werden Backups erzeugt von Datenbanken die auch von AWS Backup unterstützt werden.
 
 ### Budget
 
@@ -40,15 +40,15 @@ Das Superwerker Deployment hat eine Menge von coolen Features die alle sehr gut 
 
 ### Notifications
 
-[Notifications](https://github.com/superwerker/superwerker/blob/main/docs/adrs/notifications.md)
+Superwerker erstellt OpsItems in OpsCenter wenn wenn Emails vom der RootMail Feature versendet werden. Mit dem [Notifications](https://github.com/superwerker/superwerker/blob/main/docs/adrs/notifications.md) Feature werden dann Emails an die spezifizierte Adressen versendet. Somit muss der User sich nicht manuell in die AWS Console einloggen und OpsCenter überprüfen. Durch die Email hat man somit auch eine zentralisierte Sammelstelle für mehrere Accounts.
 
 ### RootMail
 
-[RootMail](https://github.com/superwerker/superwerker/blob/main/docs/adrs/rootmail.md)
+[RootMail](https://github.com/superwerker/superwerker/blob/main/docs/adrs/rootmail.md) erstellt die uniformierten Email Adressen für die vom Control Tower erstellten Accounts audit und log archive. Dafür wird eine eigene Hosted Zone zum Beispiel aws.mycompany.test mit Route53 angelegt und die benötigten Einstellungen mit AWS SES zum Erhalt der Emails vorgenommen.
 
 ### Security Hub
 
-[Security Hub](https://github.com/superwerker/superwerker/blob/main/docs/adrs/securityhub.md)
+Das [Security Hub](https://github.com/superwerker/superwerker/blob/main/docs/adrs/securityhub.md) Feature aktiviert AWS Security Hub für alle Accounts. Der User muss sich in den Audit Account einloggen um die aggregierte Security Hub View zu betrachten.
 
 Im nächsten Abschnitt möchte ich gerne mehr über meine Experience mit Superwerker berichten.
 
@@ -81,7 +81,13 @@ Falls du also auch die folgenden Error logs in der RootMailReady Lambda bekommst
     ...
 ```
 
-Falls jemand auf ein gleiches oder ähnliches Problem stoßen sollte, habe ich ei
+Falls jemand auf ein gleiches oder ähnliches Problem stoßen sollte, habe ich ein Pull Request mit Troubleshooting Informationen erstellt.
+
+## Ausblick
+
+* viele neue Features geplant
+* Features auf die ich gespannt bin ...
+* Es wäre toll wenn du bei der Umsetzung der Features helfen könntest
 
 ## Fazit
 
