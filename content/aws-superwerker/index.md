@@ -1,5 +1,5 @@
 ---
-title: AWS Initialisierung mit Superwerker 
+title: Mach die AWS prod Umgebung super mit Superwerker 
 show: "no"
 date: "2022-07-10"
 image: "splash.jpeg"
@@ -86,6 +86,7 @@ Falls jemand auf ein gleiches oder ähnliches Problem stoßen sollte, habe ich e
 ## Ausblick
 
 * viele neue Features geplant
+* Roadmap https://github.com/superwerker/superwerker/projects/3
 * Features auf die ich gespannt bin ...
 * Es wäre toll wenn du bei der Umsetzung der Features helfen könntest
 
