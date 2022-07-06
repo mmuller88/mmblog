@@ -10,7 +10,7 @@ pruneLength: 50 #du
 
 Hi Leute.
 
-Ich will mein [senjuns project](github.com/senjuns/senjuns) production ready machen. Bisher hatte ich es nur in meinem developer AWS Account deployed. Mein developer Account hate kine AWS Services konfiguriert die für eine Vernünftige Produktionsumgebung benötigt werden. Das sind zum Beispiel AWS SSO, ControlTower, SecurityHub und noch einige mehr. Da kam das [Superwerker CFN Template](https://github.com/superwerker/superwerker) gerade recht. Dieses hat es mir ermöglicht einen neuen AWS Account mit vielen tollen AWS Services fur den Produktionsbetrieb zu konfigurieren. In den folgenden Abschnitten möchte ich gerne darauf eingehen was Superwerker genau ist und wie ich es verwendet habe.
+Ich will mein [senjuns project](https://github.com/senjuns/senjuns) production ready machen. Bisher hatte ich es nur in meinem developer AWS Account deployed. Mein developer Account hate kine AWS Services konfiguriert die für eine Vernünftige Produktionsumgebung benötigt werden. Das sind zum Beispiel AWS SSO, ControlTower, SecurityHub und noch einige mehr. Da kam das [Superwerker CFN Template](https://github.com/superwerker/superwerker) gerade recht. Dieses hat es mir ermöglicht einen neuen AWS Account mit vielen tollen AWS Services fur den Produktionsbetrieb zu konfigurieren. In den folgenden Abschnitten möchte ich gerne darauf eingehen was Superwerker genau ist und wie ich es verwendet habe.
 
 ## Was ist Superwerker?
 
