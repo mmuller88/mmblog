@@ -18,9 +18,9 @@ If you like my content follow me on my usual spots to hang around:
 
 ## Title
 
-LINK
+https://thenewstack.io/what-made-golang-so-popular-the-languages-creators-look-back/
 
-...
+An interesting history telling about GoLang and how it became so popular. TBH, I didn't worked much with GoLang so far so it is hard for me to see the gold. If you have a project with GoLang and need some help, let me know :)!
 
 Thanks a lot to the author []()
 

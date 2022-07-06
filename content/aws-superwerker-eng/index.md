@@ -14,7 +14,7 @@ I want to make my [senjuns project](github.com/senjuns/senjuns) production-ready
 
 ## What is Superwerker?
 
-[Superwerker](https://github.com/superwerker/superwerker) is an open-source AWS CloudFormation solution that simplifies the setup of an AWS account. It follows best practices for security and efficiency. It was/is developed and maintained by AWS Advanced Partners [kreuzwerker](https://github.com/superwerker/superwerker) and [superluminar](https://superluminar.io/). It even has its own [landing page](superwerker.cloud)[https://superwerker.cloud/] with great content like a short video and more. Hard to believe this is a free product.
+[Superwerker](https://github.com/superwerker/superwerker) is an open-source AWS CloudFormation solution that simplifies the setup of an AWS account. It follows best practices for security and efficiency. It was/is developed and maintained by AWS Advanced Partners [kreuzwerker](https://github.com/superwerker/superwerker) and [superluminar](https://superluminar.io/). It even has its own [landing page](https://superwerker.cloud) with great content like a short video and more. Hard to believe this is a free product.
 
 The Superwerker deployment has a lot of cool features which are all explained very well in the docs [here](https://github.com/superwerker/superwerker/tree/main/docs/adrs). I really like that it uses [Architectural Decision Records](https://adr.github.io/) to describe each feature. Below I explain the features in my own words.
 
