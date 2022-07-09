@@ -48,6 +48,54 @@ Why and how you can use feature flags. A very appealing part for feature flags, 
 
 Thanks a lot to the author [Ben Brazier](https://dev.to/bentorvo)
 
+## GitHub Copilot and Open Source: A Love Story That Won’t End Well?
+
+https://thenewstack.io/github-copilot-and-open-source-a-love-story-that-wont-end-well/
+
+There are currently a lot hot topics around GitHub Copilot. This article summarizes the problem very good. TBH I for myself don't have a strong position. On one hand I like GitHub as a Git-provider with super nice extra features. On the other hand violating the taking code from developer which didn't agreed to that is aweful. The conclusion from the author is nice and makes sense to me.
+
+Thanks a lot to the author [SASHA MEDVEDOVSKY](https://thenewstack.io/author/sasha-medvedovsky/)
+
+## Open-Source contribution, a beginner's guide (in 2 minutes).
+
+https://dev.to/mohsenkamrani/open-source-contribution-a-beginners-guide-in-2-minutes-2g58
+
+A nice short intro to GitHub. I personally love working with GitHub.
+
+Thanks a lot to the author [mohsen](https://dev.to/mohsenkamrani)
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
 ## Title
 
 LINK
