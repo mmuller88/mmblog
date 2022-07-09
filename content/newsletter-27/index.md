@@ -18,7 +18,7 @@ If you like my content follow me on my usual spots to hang around:
 
 ## Title
 
-https://thenewstack.io/what-made-golang-so-popular-the-languages-creators-look-back/
+<https://thenewstack.io/what-made-golang-so-popular-the-languages-creators-look-back/>
 
 An interesting history telling about GoLang and how it became so popular. TBH, I didn't worked much with GoLang so far so it is hard for me to see the gold. If you have a project with GoLang and need some help, let me know :)!
 
@@ -26,27 +26,27 @@ Thanks a lot to the author []()
 
 ## Title
 
-LINK
+<https://dev.to/novu/building-in-public-4i73>
 
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
+Uh that is super attractive. Building a complete open-source company. I super like that idea. Being an open-source would include sharing the salary
 
 Thanks a lot to the author []()
 
-## Title
+## Cloud and the shared responsibility model misconceptions
 
-LINK
+<https://dev.to/aws-builders/cloud-and-the-shared-responsibility-model-misconceptions-2lem>
 
-...
+The author explains some misconceptions which can occur when a user start to use a cloud provider.
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Eyal Estrin](https://dev.to/eyalestrin)
+
+## How to Use Feature Flags
+
+<https://dev.to/bentorvo/how-to-use-feature-flags-39md>
+
+Why and how you can use feature flags. A very appealing part for feature flags, I find the possiblity to roll the feature out to production but disable it quickly if it is causing problems. As well in combination with A/B Testing feature flags can be used to rollout the changes only to a part of the customers.
+
+Thanks a lot to the author [Ben Brazier](https://dev.to/bentorvo)
 
 ## Title
 
