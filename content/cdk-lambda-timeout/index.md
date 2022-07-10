@@ -30,7 +30,7 @@ new timeoutAlarm - new cw.Alarm(this, 'TimeoutAlarm') {
 
 const topic = new sns.Topic(
     this,
-    `ErrorTopic`
+    'ErrorTopic',
 );
 topic.addSubscription(
     new subscriptions.EmailSubscription('alice@bob.com')
