@@ -3,7 +3,7 @@ title: Catch AWS Lambda Timeouts
 show: "no"
 date: "2022-07-10"
 image: "lambda.png"
-tags: ["de", "2022", "aws", "nofeed"] #nofeed
+tags: ["de", "2022", "aws"] #nofeed
 engUrl: https://martinmueller.dev/cdk-lambda-timeout-eng
 pruneLength: 50 #du
 ---
@@ -40,7 +40,7 @@ timeoutAlarm.addAlarmAction(
 );
 ```
 
-Wie du hier sehen kannst, wird am Anfang eine einfach Lambda JS Function erstellt. Übrigens das lambdajs.NodejsFunction Construct unterstützt auch TypeScript. Dann wird der Timeout Alarm definiert der die Duration Metrik und den Timeout Value von der Lambda benutzt zu Konfiguration.
+Wie du hier sehen kannst, wird am Anfang eine einfach Lambda JS Function erstellt. Übrigens das [NodejsFunction construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs.NodejsFunction.html) Construct unterstützt auch TypeScript. Dann wird der Timeout Alarm definiert der die Duration Metrik und den Timeout Value von der Lambda benutzt zu Konfiguration.
 
 Danach wird eine Error Topic erstellt über die mittels einer EmailSubscription der ausgelöste Alarm per Email weitergeleitet wird.
 
