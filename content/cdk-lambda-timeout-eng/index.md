@@ -11,8 +11,6 @@ pruneLength: 50 #du
 [![cdk-lambda-timeout-eng](https://img.youtube.com/vi/9Oeu9ewrwXQ/0.jpg)](https://www.youtube.com/watch?v=9Oeu9ewrwXQ)
 (Click me :D)
 
-<iframe width="420" height="315" src="https://www.youtube.com/watch?v=9Oeu9ewrwXQ"></iframe>
-
 Ahoy,
 
 AWS Lambda is probably one of the most famous if not the most famous compute service from AWS. In fact, Lambda is also my favorite AWS service because it makes implementing business logic very easy and straightforward. However, a few times I had the problem that the timeout of Lambda was too low and thus the code was not completely executed. Debugging or catching this error was also often exhausting and annoying. A good solution for me was to use the Lambda Duration Metrics to define an alarm.
