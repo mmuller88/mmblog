@@ -2,11 +2,14 @@
 title: Catch AWS Lambda Timeouts 
 show: "yes"
 date: "2022-07-10"
-image: "lambda.png"
+# image: "lambda.png"
 tags: ["eng", "2022", "aws"] #nofeed
 gerUrl: https://martinmueller.dev/cdk-lambda-timeout
 pruneLength: 50 #du
 ---
+
+[![cdk-lambda-timeout-eng](https://img.youtube.com/vi/9Oeu9ewrwXQ/0.jpg)](https://www.youtube.com/watch?v=9Oeu9ewrwXQ)
+(Click me :D)
 
 Ahoy,
 

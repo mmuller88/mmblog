@@ -16,19 +16,57 @@ If you like my content follow me on my usual spots to hang around:
 - <https://dev.to/mmuller88>
 - <https://martinmueller.dev>
 
+## Automating AWS account bootstrapping with AWS-CDK
+
+<https://medium.com/@andrewfrazer/automating-aws-account-bootstrapping-with-aws-cdk-117e5ead1c51>
+
+Super interesting article for how to CDK bootstrap new accounts in a more DevOps way. Very cool is the idea that whenever a new account is created with Control Tower that will trigger an AWS CodeBuild job to bootstrap he account.
+
+Thanks a lot to the author [Andrew Frazer](https://medium.com/@andrewfrazer). And thank you for being a very active member in the CDK Community.
+
+## The best password manager on Linux?
+
+<https://dev.to/robole/the-best-password-manager-on-linux-f3c>
+
+Highlights KeePassXC as non cloud hosted password manager. I use it since some years now and I like it too :). I use it for Mac laptops as well.
+
+Thanks a lot to the author [Rob OLeary](https://dev.to/robole)
+
+## Programming Myths vs Facts
+
+<https://dev.to/qavsdev/programming-myths-vs-facts-5cja>
+
+A nice Myths vs Facts for programming. It gives a better insight what programmers are doing and clarifies some wrong expectations. I like!
+
+Thanks a lot to the author [QAvsDEV](https://dev.to/qavsdev)
+
+## Help - A little overwhelmed in DevOps
+
+<https://www.reddit.com/r/devops/comments/vwgu5b/help_a_little_overwhelmed_in_devops/>
+
+A nice discussion to give a kind of a small roadmap for DevOps and helps to understand wrong expectations about DevOps.
+
+## The Cost of Production Blindness
+
+https://dev.to/codenameone/the-cost-of-production-blindness-48aj
+
+Super nice input in one of my favorite topics production. I totally agree that we need to peek more into production. What is the problem when you don't do that and some attempts how to do it are explained in this article.
+
+Thanks a lot to the author [Shai Almog](https://dev.to/codenameone)
+
+## AppSync and DynamoDB Lessons Learned
+
+https://instil.co/blog/appsync-dynamodb-lessons-learned/
+
+Exciting discussion with like DynamoDB single vs multi table design. I personally favor multi table design supported with Amplify AppSync.
+
+Thanks a lot to the author Matthew Wilson
+
 ## Title
 
-LINK
+https://dev.to/littleironical/history-of-apis-281j
 
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
+An interesting history roundtrip about APIs
 
 Thanks a lot to the author []()
 
