@@ -29,24 +29,19 @@ Passionate Full Stack Developer. I like to have a broad collection of skills. Fr
 
 ## Experience
 
-Senior Engineer - www.monada.co, Israel \
-Jun 2022 - current
-
-- Monada is a startup which will reinvent of how developer are using the cloud.
-
 AWS Community Builder \
 Mar 2022 - current
+
+AWS Consultant \
+Nov 2020 - current
+
+- Helping startups into the AWS Cloud
+- Leveraging AWS CDK to manage AWS resources
 
 Senior Cloud Architect - www.kreuzwerker.de, GER \
 Jan 2022 - May 2022
 
 - Together with the customer building awesome AWS cloud solutions
-
-AWS Consultant \
-Nov 2020 - May 2022
-
-- Helping startups into the AWS Cloud
-- Leveraging AWS CDK to manage AWS resources
 
 Senior Software Engineer – www.unimed.de, GER \
 Sep 2020 – Jan 2021

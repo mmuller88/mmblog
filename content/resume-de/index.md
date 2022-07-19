@@ -28,24 +28,19 @@ Begeisterter Full Stack Entwickler. Ich mag es viele unterschiedliche und nützl
 
 ## Erfahrungen
 
-Senior Engineer - www.monada.co, Israel \
-Jun 2022 - jetzt
-
-- Monada ist ein Startup welches die Art und Weise wie Entwickler mit der Cloud interagieren neue erfinden wird.
-
 AWS Community Builder \
 Mär 2022 - jetzt
+
+AWS Berater \
+Nov 2020 - jetzt
+
+- Startups in die AWS Cloud helfen
+- AWS CDK um AWS Ressourcen zu managen
 
 Senior Cloud Architect - www.kreuzwerker.de, GER \
 Jan 2022 - May 2022
 
 - Zusammen mit dem Kunden tolle AWS Cloud Lösungen erstellen
-
-AWS Berater \
-Nov 2020 - May 2022
-
-- Startups in die AWS Cloud helfen
-- AWS CDK um AWS Ressourcen zu managen
 
 Senior Software Engineer – www.unimed.de, GER \
 Sep 2020 – Jan 2021

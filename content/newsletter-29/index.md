@@ -16,21 +16,21 @@ If you like my content follow me on my usual spots to hang around:
 - <https://dev.to/mmuller88>
 - <https://martinmueller.dev>
 
-## Title
+## Simplifying serverless best practices with AWS Lambda Powertools for TypeScript
 
-LINK
+https://aws.amazon.com/blogs/compute/simplifying-serverless-best-practices-with-aws-lambda-powertools-for-typescript/
 
-...
+A summary about the AWS Lambda Powertools for TypeScript. This looks very interesting and for my next more complex Lambda, I will give it a try!
 
-Thanks a lot to the author []()
+Thanks a lot to the author Julian Wood
 
-## Title
+## 😲 My Top 5 List of Resources that I Wish I Knew When I Started Programming
 
-LINK
+https://dev.to/eludadev/my-top-5-list-of-resources-that-i-wish-i-knew-when-i-started-programming-j04
 
-...
+Contains some useful tips for how to improve your programming skills. My favorite one is to connect with with a developer community. One community my heart belongs to is the AWS CDK community. Come and join us. Is a lot of fun and helpful people. https://join.slack.com/t/cdk-dev/shared_invite/zt-xtpfmrqt-6ormYTA0hLdpMSAtTkM_2A
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Eluda](https://dev.to/eludadev)
 
 ## Title
 
