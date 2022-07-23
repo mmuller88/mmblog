@@ -40,6 +40,9 @@ class ContactForm extends Component {
         console.log("====================================")
       })
   }
+
+  url = typeof window !== 'undefined' ? window.location.href : '';
+
   render() {
     return (
       <form
@@ -56,6 +59,12 @@ class ContactForm extends Component {
           <label>
             Don’t fill this out:{" "}
             <input name="bot-field" onChange={this.handleChange} />
+          </label>
+        </p>
+        <p hidden>
+          <label>
+            Don’t fill this out:{" "}
+            <input type="text" name="url" value={url} onChange={this.handleChange} />
           </label>
         </p>
         <p>

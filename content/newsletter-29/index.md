@@ -18,7 +18,7 @@ If you like my content follow me on my usual spots to hang around:
 
 ## Simplifying serverless best practices with AWS Lambda Powertools for TypeScript
 
-https://aws.amazon.com/blogs/compute/simplifying-serverless-best-practices-with-aws-lambda-powertools-for-typescript/
+<https://aws.amazon.com/blogs/compute/simplifying-serverless-best-practices-with-aws-lambda-powertools-for-typescript/>
 
 A summary about the AWS Lambda Powertools for TypeScript. This looks very interesting and for my next more complex Lambda, I will give it a try!
 
@@ -26,11 +26,107 @@ Thanks a lot to the author Julian Wood
 
 ## 😲 My Top 5 List of Resources that I Wish I Knew When I Started Programming
 
-https://dev.to/eludadev/my-top-5-list-of-resources-that-i-wish-i-knew-when-i-started-programming-j04
+<https://dev.to/eludadev/my-top-5-list-of-resources-that-i-wish-i-knew-when-i-started-programming-j04>
 
-Contains some useful tips for how to improve your programming skills. My favorite one is to connect with with a developer community. One community my heart belongs to is the AWS CDK community. Come and join us. Is a lot of fun and helpful people. https://join.slack.com/t/cdk-dev/shared_invite/zt-xtpfmrqt-6ormYTA0hLdpMSAtTkM_2A
+Contains some useful tips for how to improve your programming skills. My favorite one is to connect with with a developer community. One community my heart belongs to is the AWS CDK community. Come and join us. Is a lot of fun and helpful people. <https://join.slack.com/t/cdk-dev/shared_invite/zt-xtpfmrqt-6ormYTA0hLdpMSAtTkM_2A>
 
 Thanks a lot to the author [Eluda](https://dev.to/eludadev)
+
+## Lambda Powertools TypeScript is Generally Available
+
+<https://dev.to/aws-builders/lambda-powertools-typescript-is-generally-available-1dm8>
+
+A super nice deep dive into the Lambda PowerTools TypeScript and it features. The structured log capability looks super interesting. And I didn't know about the embedded metric for CloudWatch. That is super cool!
+
+Thanks a lot to the author [Matt Morgan](https://dev.to/elthrasher)
+
+## The truth behind being a good programmer
+
+<https://dev.to/bekbrace/the-truth-behind-being-a-good-programmer-171b>
+
+Yep it has fair points for what makes a good programmer :).
+
+Thanks a lot to the author [Bek Brace](https://dev.to/bekbrace)
+
+## What Software Developers can learn from Gutenberg
+
+<https://dev.to/polterguy/what-software-developers-can-learn-from-gutenberg-5bpa>
+
+A sweet enlightenment for how important Johannes Gutenberg was to the software development community and everything else.
+
+Thanks a lot to the author [Thomas Hansen](https://dev.to/polterguy)
+
+## Why do I think snapshot tests are a bad idea
+
+<https://dev.to/syeo66/why-do-i-think-snapshot-tests-are-a-bad-idea-1imp>
+
+An interesting explenation why snapshot testing is a bad idea.
+
+Thanks a lot to the author [Red Ochsenbein](https://dev.to/syeo66)
+
+## 5 Questions to Ask When Developing an Automation Strategy
+
+<https://thenewstack.io/5-questions-to-ask-when-developing-an-automation-strategy/>
+
+A nice top down article about automation when developing. But it feels a bit like fitting into a context of a bigger software company.
+
+Thanks a lot to the author [CHRIS TOZZI](https://thenewstack.io/author/chris-tozzi/)
+
+## What Is Data Gravity And Is It Important With Serverless?
+
+<https://www.readysetcloud.io/blog/allen.helton/what-is-data-gravity-and-is-it-important/>
+
+An interesting article for how accumalating data (data gravity) makes it hard to move like potentially change the cloud provider. The author explains how to reduce the burden of data gravity.
+
+Thanks a lot to the author Allen Helton
+
+## 5 things to keep in mind as a programmer
+
+<https://dev.to/devsimc/5-things-to-keep-in-mind-as-a-programmer-1c24>
+
+A routine of continuous learning is my favorite out of those 5. But the others are important too so read it!
+
+Thanks a lot to the author [simc dev](https://dev.to/devsimc)
+
+## Single Sign-On (SSO) using AWS Cognito and Azure AD
+
+https://blog.getambassador.io/single-sign-on-sso-using-aws-cognito-and-azure-ad-356951536218
+
+Interesting to see how you can leverage your Azure Active Directory (AD) for setting as Identity Provider (IdP) for AWS Cognito.
+
+Thanks a lot to the author [Supratip Banerjee](https://supratip-banerjee.medium.com/)
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
 
 ## Title
 
