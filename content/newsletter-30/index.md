@@ -1,12 +1,10 @@
 ---
 title: Newsletter martinmueller.dev 2022 week 29
-show: "yes"
+show: "no"
 date: "2022-07-24"
-tags: ["eng", "2022", "newsletter", "aws", "devops"] #nofeed
+tags: ["eng", "2022", "newsletter", "aws", "devops", "nofeed"] #nofeed
 pruneLength: 50
 ---
-
-This week was hot in Germany. Not just in terms of cool news around DevOps and more, it was physically hot :). My highlight of this week was the in-person AWS UG Meetup in Berlin. It was super amazing to see some AWS CDK friends in real :)!
 
 In this weekly newsletter, I write a summary of posts that got my attention during the week. I center around topics AWS, DevOps, Architecture, AWS CDK, Serverless, Data Engineering, Data Analytics and much more.
 
@@ -18,11 +16,19 @@ If you like my content follow me on my usual spots to hang around:
 - <https://dev.to/mmuller88>
 - <https://martinmueller.dev>
 
-## :astonished: My Top 5 List of Resources that I Wish I Knew When I Started Programming
+## Simplifying serverless best practices with AWS Lambda Powertools for TypeScript
+
+<https://aws.amazon.com/blogs/compute/simplifying-serverless-best-practices-with-aws-lambda-powertools-for-typescript/>
+
+A summary about the AWS Lambda Powertools for TypeScript. This looks very interesting and for my next more complex Lambda, I will give it a try!
+
+Thanks a lot to the author Julian Wood
+
+## 😲 My Top 5 List of Resources that I Wish I Knew When I Started Programming
 
 <https://dev.to/eludadev/my-top-5-list-of-resources-that-i-wish-i-knew-when-i-started-programming-j04>
 
-Contains some useful tips for how to improve your programming skills. My favorite one is to connect with a developer community. One community my heart belongs to is the AWS CDK community. Come and join us. Is a lot of fun and helpful people. <https://join.slack.com/t/cdk-dev/shared_invite/zt-xtpfmrqt-6ormYTA0hLdpMSAtTkM_2A>
+Contains some useful tips for how to improve your programming skills. My favorite one is to connect with with a developer community. One community my heart belongs to is the AWS CDK community. Come and join us. Is a lot of fun and helpful people. <https://join.slack.com/t/cdk-dev/shared_invite/zt-xtpfmrqt-6ormYTA0hLdpMSAtTkM_2A>
 
 Thanks a lot to the author [Eluda](https://dev.to/eludadev)
 
@@ -30,39 +36,15 @@ Thanks a lot to the author [Eluda](https://dev.to/eludadev)
 
 <https://dev.to/aws-builders/lambda-powertools-typescript-is-generally-available-1dm8>
 
-A super nice deep dive into the Lambda PowerTools TypeScript and its features. The structured log capability looks super interesting. And I didn't know about the embedded metric for CloudWatch. That is super cool!
+A super nice deep dive into the Lambda PowerTools TypeScript and it features. The structured log capability looks super interesting. And I didn't know about the embedded metric for CloudWatch. That is super cool!
 
 Thanks a lot to the author [Matt Morgan](https://dev.to/elthrasher)
-
-## What Is Data Gravity And Is It Important With Serverless?
-
-<https://www.readysetcloud.io/blog/allen.helton/what-is-data-gravity-and-is-it-important/>
-
-An interesting article on how accumulating data (data gravity) makes it hard to move like potentially changing the cloud provider. The author explains how to reduce the burden of data gravity.
-
-Thanks a lot to the author Allen Helton
-
-## AWS open-source news and updates, #121
-
-<https://dev.to/aws/aws-open-source-news-and-updates-121-1h18>
-
-As always a very good summary of the week. The [spot-interruption-simulation](https://github.com/aws-samples/spot-interruption-simulation) project got my attention. It sounds super cool for simulating the use of Ec2 spot instances.
-
-Thanks a lot to the author [Ricardo Sueiras](https://dev.to/094459)
-
-## Simplifying serverless best practices with AWS Lambda Powertools for TypeScript
-
-<https://aws.amazon.com/blogs/compute/simplifying-serverless-best-practices-with-aws-lambda-powertools-for-typescript/>
-
-A summary of the AWS Lambda Powertools for TypeScript. This looks very interesting and for my next more complex Lambda, I will give it a try!
-
-Thanks a lot to the author Julian Wood
 
 ## The truth behind being a good programmer
 
 <https://dev.to/bekbrace/the-truth-behind-being-a-good-programmer-171b>
 
-Yep, it has fair points for what makes a good programmer :).
+Yep it has fair points for what makes a good programmer :).
 
 Thanks a lot to the author [Bek Brace](https://dev.to/bekbrace)
 
@@ -70,7 +52,7 @@ Thanks a lot to the author [Bek Brace](https://dev.to/bekbrace)
 
 <https://dev.to/polterguy/what-software-developers-can-learn-from-gutenberg-5bpa>
 
-A sweet enlightenment of how important Johannes Gutenberg was to the software development community and everything else.
+A sweet enlightenment for how important Johannes Gutenberg was to the software development community and everything else.
 
 Thanks a lot to the author [Thomas Hansen](https://dev.to/polterguy)
 
@@ -78,7 +60,7 @@ Thanks a lot to the author [Thomas Hansen](https://dev.to/polterguy)
 
 <https://dev.to/syeo66/why-do-i-think-snapshot-tests-are-a-bad-idea-1imp>
 
-An interesting explanation of why snapshot testing is a bad idea.
+An interesting explenation why snapshot testing is a bad idea.
 
 Thanks a lot to the author [Red Ochsenbein](https://dev.to/syeo66)
 
@@ -86,9 +68,17 @@ Thanks a lot to the author [Red Ochsenbein](https://dev.to/syeo66)
 
 <https://thenewstack.io/5-questions-to-ask-when-developing-an-automation-strategy/>
 
-A nice top-down article about automation when developing. But it feels a bit like fitting into a context of a bigger software company.
+A nice top down article about automation when developing. But it feels a bit like fitting into a context of a bigger software company.
 
 Thanks a lot to the author [CHRIS TOZZI](https://thenewstack.io/author/chris-tozzi/)
+
+## What Is Data Gravity And Is It Important With Serverless?
+
+<https://www.readysetcloud.io/blog/allen.helton/what-is-data-gravity-and-is-it-important/>
+
+An interesting article for how accumalating data (data gravity) makes it hard to move like potentially change the cloud provider. The author explains how to reduce the burden of data gravity.
+
+Thanks a lot to the author Allen Helton
 
 ## 5 things to keep in mind as a programmer
 
@@ -105,6 +95,64 @@ Thanks a lot to the author [simc dev](https://dev.to/devsimc)
 Interesting to see how you can leverage your Azure Active Directory (AD) for setting as Identity Provider (IdP) for AWS Cognito.
 
 Thanks a lot to the author [Supratip Banerjee](https://supratip-banerjee.medium.com/)
+
+## AWS open source news and updates, #121
+
+<https://dev.to/aws/aws-open-source-news-and-updates-121-1h18>
+
+As always a very good summary of the week. The [spot-interruption-simulation](https://github.com/aws-samples/spot-interruption-simulation) project got my attention. It sound super cool for simulating the use of Ec2 spot instances.
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Open Source Projects
+
+In this section I list Open Source projects I find super interesting!
+
+## Title
+
+LINK
+
+...
 
 ## Final Words
 
