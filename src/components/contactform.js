@@ -41,9 +41,8 @@ class ContactForm extends Component {
       })
   }
 
-  url = typeof window !== 'undefined' ? window.location.href : '';
-
   render() {
+    let url = typeof window !== 'undefined' ? window.location.href : '';
     return (
       <form
         name="contact"
