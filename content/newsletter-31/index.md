@@ -16,6 +16,92 @@ If you like my content follow me on my usual spots to hang around:
 - <https://dev.to/mmuller88>
 - <https://martinmueller.dev>
 
+## Allow only what your Lambda code needs
+
+<https://dev.to/aws-builders/allow-only-what-your-lambda-code-needs-59f2>
+
+A nice article to explain the necessity of least-privilege IAM permissions.
+
+Thanks a lot to the author [Jones Zachariah Noel](https://dev.to/zachjonesnoel)
+
+## Pros and Cons of Public Cloud WAFs
+
+<https://thenewstack.io/pros-and-cons-of-public-cloud-wafs/>
+
+A critical summary of public Cloud WAF and when you should and shouldn't use them.
+
+Thanks a lot to the author [Alessandro Fael Garcia](https://www.linkedin.com/in/alessfg)
+
+## It's never too late: Mechanical engineer to Web developer
+
+<https://dev.to/sagarpanchal0055/its-never-too-late-mechanical-engineer-to-web-developer-58di>
+
+An impressive short story from an engineer changing career from a mechanical engineer to a web developer. Very cool and inspiring :)!
+
+Thanks a lot to the author [Sagar Panchal](https://dev.to/sagarpanchal0055)
+
+## Aurora Serverless v2 PostgreSQL vs. provisioned Aurora PostgreSQL
+
+<https://towardsaws.com/aurora-serverless-v2-postgresql-vs-provisioned-aurora-postgresql-f60a93b99b83>
+
+That is an interesting article which compares the costs from Aurora Serverless v2 PostgreSQL vs Aurora PostgreSQL . And as you can read in the article it isn't always more cheap! Actually it seems Aurora Serverless should be avoided when you have high DB traffic. So therefore perhaps use it for development and later consider switching to Aurora on-demand!
+
+Thanks a lot to the author [Ian Binder](https://medium.com/@ianbinder)
+
+## Styled Components in Material UI (MUI) with Styled Utility
+
+<https://dev.to/rasaf_ibrahim/styled-components-in-material-ui-mui-with-styled-utility-3l3j>
+
+Nice example for how to use React styled components together with MUI / (former Material UI).
+
+Thanks a lot to the author [Rasaf Ibrahim](https://dev.to/rasaf_ibrahim)
+
+## CDK: Certificate Handling with Custom Resources
+
+<https://blog.56k.cloud/cdk-certificate-handling-with-custom-resources/>
+
+In this article the author uses AWS CDK Custom Resources to solve a problem with DNS validating a certificate. As the custom domain isn't managed by Route 53 you can't use the standard route53 constructs to do that. Super smart how the author solved it with using a custom resource.
+
+Thanks a lot to the author [Jochen Zehnder](https://blog.56k.cloud/author/jochen/)
+
+## What Does The Future Hold For Serverless?
+
+https://www.readysetcloud.io/blog/allen.helton/what-does-the-future-hold-for-serverless/
+
+Super exciting article about the future development of serverless. I totally agree that more analytic tools/capabilities for how to optimize the architecture would be great.
+
+Thanks a lot to the author Allen Helton.
+
+## Is AWS support really this terrible?
+
+https://www.reddit.com/r/aws/comments/wf79q9/is_aws_support_really_this_terrible/
+
+An interesting discussion about how the support with AWS is and how it can be improved.
+
+## Selling an AMI and a CloudFormation template as an alternative to SaaS
+
+https://cloudonaut.io/selling-ami-cloudformation-alternative-saas/
+
+Interesting article for how to use the AWS Marketplace with AMI and CloudFormation type to earn money. As well the story of product marbot from cloudonaut.io is super fascinating.
+
+Thanks a lot to the author Andreas Wittig
+
+## DynamoDB Pros & Cons
+
+https://dev.to/roy8/dynamodb-pros-cons-k2a
+
+A short introduction into AWS DynamoDB. Really good if you don't know much about DynamoDB.
+
+Thanks a lot to the author [Roy](https://dev.to/roy8)
+
+## Managing Secrets in Your DevOps Pipeline 
+
+https://thenewstack.io/managing-secrets-in-your-devops-pipeline/
+
+Contains some useful guidelines when managing secrets.
+
+Thanks a lot to the author [PAVAN BELAGATTI](https://thenewstack.io/author/pavan-belagatti/)
+
 ## Title
 
 LINK
