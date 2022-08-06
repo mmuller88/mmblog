@@ -102,13 +102,13 @@ Contains some useful guidelines when managing secrets.
 
 Thanks a lot to the author [PAVAN BELAGATTI](https://thenewstack.io/author/pavan-belagatti/)
 
-## Title
+## A Simple Guide to CI/CD For Total Beginners in 2022
 
-LINK
+https://dev.to/hackmamba/a-simple-guide-to-cicd-for-total-beginners-in-2022-2kgp
 
-...
+Explains the idea od CI/CD and why we need it. Gives a quick round trip for some CI/CD tools.
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Scofield Idehen](https://dev.to/scofieldidehen)
 
 ## Title
 
