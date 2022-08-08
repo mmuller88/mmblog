@@ -6,6 +6,8 @@ tags: ["eng", "2022", "newsletter", "aws", "devops", "nofeed"] #nofeed
 pruneLength: 50
 ---
 
+This week was my first week solely working as a freelancer. That is scary but exciting too :)!
+
 In this weekly newsletter, I write a summary of posts that got my attention during the week. I center around topics AWS, DevOps, Architecture, AWS CDK, Serverless, Data Engineering, Data Analytics and much more.
 
 If you like my content follow me on my usual spots to hang around:
@@ -15,6 +17,30 @@ If you like my content follow me on my usual spots to hang around:
 - <https://github.com/mmuller88>
 - <https://dev.to/mmuller88>
 - <https://martinmueller.dev>
+
+## Aurora Serverless v2 PostgreSQL vs. provisioned Aurora PostgreSQL
+
+<https://towardsaws.com/aurora-serverless-v2-postgresql-vs-provisioned-aurora-postgresql-f60a93b99b83>
+
+That is an interesting article which compares the costs from Aurora Serverless v2 PostgreSQL vs Aurora PostgreSQL . And as you can read in the article it isn't always more cheap! Actually it seems Aurora Serverless should be avoided when you have high DB traffic. So therefore perhaps use it for development and later consider switching to Aurora on-demand!
+
+Thanks a lot to the author [Ian Binder](https://medium.com/@ianbinder)
+
+## CDK: Certificate Handling with Custom Resources
+
+<https://blog.56k.cloud/cdk-certificate-handling-with-custom-resources/>
+
+In this article the author uses AWS CDK Custom Resources to solve a problem with DNS validating a certificate. As the custom domain isn't managed by Route 53 you can't use the standard route53 constructs to do that. Super smart how the author solved it with using a custom resource.
+
+Thanks a lot to the author [Jochen Zehnder](https://blog.56k.cloud/author/jochen/)
+
+## Containers vs Serverless
+
+<https://greengocloud.com/2018/10/07/Containers-vs-Serverless/>
+
+Super experiment article about containers vs serverless. It gives a short introduction to each and then the author gives his opinion. I agree with the author. If you want to know whom we are betting one then read the article!
+
+Thanks a lot to the author [Blake Green](https://greengocloud.com/about/).
 
 ## Allow only what your Lambda code needs
 
@@ -40,14 +66,6 @@ An impressive short story from an engineer changing career from a mechanical eng
 
 Thanks a lot to the author [Sagar Panchal](https://dev.to/sagarpanchal0055)
 
-## Aurora Serverless v2 PostgreSQL vs. provisioned Aurora PostgreSQL
-
-<https://towardsaws.com/aurora-serverless-v2-postgresql-vs-provisioned-aurora-postgresql-f60a93b99b83>
-
-That is an interesting article which compares the costs from Aurora Serverless v2 PostgreSQL vs Aurora PostgreSQL . And as you can read in the article it isn't always more cheap! Actually it seems Aurora Serverless should be avoided when you have high DB traffic. So therefore perhaps use it for development and later consider switching to Aurora on-demand!
-
-Thanks a lot to the author [Ian Binder](https://medium.com/@ianbinder)
-
 ## Styled Components in Material UI (MUI) with Styled Utility
 
 <https://dev.to/rasaf_ibrahim/styled-components-in-material-ui-mui-with-styled-utility-3l3j>
@@ -56,17 +74,9 @@ Nice example for how to use React styled components together with MUI / (former 
 
 Thanks a lot to the author [Rasaf Ibrahim](https://dev.to/rasaf_ibrahim)
 
-## CDK: Certificate Handling with Custom Resources
-
-<https://blog.56k.cloud/cdk-certificate-handling-with-custom-resources/>
-
-In this article the author uses AWS CDK Custom Resources to solve a problem with DNS validating a certificate. As the custom domain isn't managed by Route 53 you can't use the standard route53 constructs to do that. Super smart how the author solved it with using a custom resource.
-
-Thanks a lot to the author [Jochen Zehnder](https://blog.56k.cloud/author/jochen/)
-
 ## What Does The Future Hold For Serverless?
 
-https://www.readysetcloud.io/blog/allen.helton/what-does-the-future-hold-for-serverless/
+<https://www.readysetcloud.io/blog/allen.helton/what-does-the-future-hold-for-serverless/>
 
 Super exciting article about the future development of serverless. I totally agree that more analytic tools/capabilities for how to optimize the architecture would be great.
 
@@ -74,13 +84,13 @@ Thanks a lot to the author Allen Helton.
 
 ## Is AWS support really this terrible?
 
-https://www.reddit.com/r/aws/comments/wf79q9/is_aws_support_really_this_terrible/
+<https://www.reddit.com/r/aws/comments/wf79q9/is_aws_support_really_this_terrible/>
 
 An interesting discussion about how the support with AWS is and how it can be improved.
 
 ## Selling an AMI and a CloudFormation template as an alternative to SaaS
 
-https://cloudonaut.io/selling-ami-cloudformation-alternative-saas/
+<https://cloudonaut.io/selling-ami-cloudformation-alternative-saas/>
 
 Interesting article for how to use the AWS Marketplace with AMI and CloudFormation type to earn money. As well the story of product marbot from cloudonaut.io is super fascinating.
 
@@ -88,15 +98,15 @@ Thanks a lot to the author Andreas Wittig
 
 ## DynamoDB Pros & Cons
 
-https://dev.to/roy8/dynamodb-pros-cons-k2a
+<https://dev.to/roy8/dynamodb-pros-cons-k2a>
 
 A short introduction into AWS DynamoDB. Really good if you don't know much about DynamoDB.
 
 Thanks a lot to the author [Roy](https://dev.to/roy8)
 
-## Managing Secrets in Your DevOps Pipeline 
+## Managing Secrets in Your DevOps Pipeline
 
-https://thenewstack.io/managing-secrets-in-your-devops-pipeline/
+<https://thenewstack.io/managing-secrets-in-your-devops-pipeline/>
 
 Contains some useful guidelines when managing secrets.
 
@@ -104,61 +114,11 @@ Thanks a lot to the author [PAVAN BELAGATTI](https://thenewstack.io/author/pavan
 
 ## A Simple Guide to CI/CD For Total Beginners in 2022
 
-https://dev.to/hackmamba/a-simple-guide-to-cicd-for-total-beginners-in-2022-2kgp
+<https://dev.to/hackmamba/a-simple-guide-to-cicd-for-total-beginners-in-2022-2kgp>
 
 Explains the idea od CI/CD and why we need it. Gives a quick round trip for some CI/CD tools.
 
 Thanks a lot to the author [Scofield Idehen](https://dev.to/scofieldidehen)
-
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
-
-...
-
-Thanks a lot to the author []()
-
-## Open Source Projects
-
-In this section I list Open Source projects I find super interesting!
-
-## Title
-
-LINK
-
-...
 
 ## Final Words
 
