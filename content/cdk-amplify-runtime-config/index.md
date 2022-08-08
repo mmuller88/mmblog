@@ -10,13 +10,13 @@ pruneLength: 50 #du
 
 Ahoi,
 
-Die nahtlose Integration von AWS CDK und Amplify war bisher super umständlich! Mit einer runtime-config für die Frontend React App ist es nun wesentlich einfacher. Hier möchte ich dir gerne die Idee der runtime-config vorstellen die bereits mir und Mitgliedern aus der CDK Community das Deployment erleichtert haben.
+Die nahtlose Integration von AWS CDK und Amplify Apps war bisher sehr umständlich! Mit einer runtime-config für die Amplify Frontend React App ist es nun wesentlich einfacher. Hier möchte ich dir gerne die Idee der runtime-config vorstellen die bereits mir und Mitgliedern aus der CDK Community das Deployment erleichtert haben.
 
 In meinen Fullstack Projekten nutze ich regelmäßig AWS CDK als Backend. Dabei ist AppSync als GraphQL Implementation die Schnittstelle zwischen dem Frontend und Backend. Das Frontend ist normalerweise eine React SPA (Single Page Application) gehostet in einem S3. Zum Verwalten und Authentifizieren der User nutze ich AWS Cognito. Die Frontend React App konfiguriere ich üblicherweise mit AWS Amplify.
 
-## Konzept
+## Idee runtime-config
 
-Die runtime-config erlaubt die Konfiguration von Amplify nach der Build-Phase erst zur Runtime. Dabei wird dem dist Folder der SPA einem File z.B. runtime-config.json mitgegeben welcher zur Runtime der App ausgelesen wird.
+Die runtime-config erlaubt die Konfiguration von Amplify nach der Build-Phase zur Runtime. Dabei wird dem dist Folder der SPA einem File z.B. runtime-config.json mitgegeben welcher zur Runtime der App ausgelesen wird.
 
 ## Workflows
 

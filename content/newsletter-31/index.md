@@ -1,8 +1,8 @@
 ---
 title: Newsletter martinmueller.dev 2022 week 31
-show: "no"
+show: "yes"
 date: "2022-09-07"
-tags: ["eng", "2022", "newsletter", "aws", "devops", "nofeed"] #nofeed
+tags: ["eng", "2022", "newsletter", "aws", "devops"] #nofeed
 pruneLength: 50
 ---
 
@@ -22,7 +22,7 @@ If you like my content follow me on my usual spots to hang around:
 
 <https://towardsaws.com/aurora-serverless-v2-postgresql-vs-provisioned-aurora-postgresql-f60a93b99b83>
 
-That is an interesting article which compares the costs from Aurora Serverless v2 PostgreSQL vs Aurora PostgreSQL . And as you can read in the article it isn't always more cheap! Actually it seems Aurora Serverless should be avoided when you have high DB traffic. So therefore perhaps use it for development and later consider switching to Aurora on-demand!
+That is an interesting article that compares the costs from Aurora Serverless v2 PostgreSQL vs Aurora PostgreSQL. And as you can read in the article it isn't always cheaper! Actually, it seems Aurora Serverless should be avoided when you have high DB traffic. So therefore perhaps use it for development and later consider switching to Aurora on-demand!
 
 Thanks a lot to the author [Ian Binder](https://medium.com/@ianbinder)
 
@@ -30,7 +30,7 @@ Thanks a lot to the author [Ian Binder](https://medium.com/@ianbinder)
 
 <https://blog.56k.cloud/cdk-certificate-handling-with-custom-resources/>
 
-In this article the author uses AWS CDK Custom Resources to solve a problem with DNS validating a certificate. As the custom domain isn't managed by Route 53 you can't use the standard route53 constructs to do that. Super smart how the author solved it with using a custom resource.
+In this article, the author uses AWS CDK Custom Resources to solve a problem with DNS validating a certificate. As the custom domain isn't managed by Route 53 you can't use the standard route53 constructs to do that. Super smart how the author solved it by using a custom resource.
 
 Thanks a lot to the author [Jochen Zehnder](https://blog.56k.cloud/author/jochen/)
 
@@ -38,7 +38,7 @@ Thanks a lot to the author [Jochen Zehnder](https://blog.56k.cloud/author/jochen
 
 <https://greengocloud.com/2018/10/07/Containers-vs-Serverless/>
 
-Super experiment article about containers vs serverless. It gives a short introduction to each and then the author gives his opinion. I agree with the author. If you want to know whom we are betting one then read the article!
+Super experiment article about containers vs serverless. It gives a short introduction to each and then the author gives his opinion. I agree with the author. If you want to know whom we are betting on then read the article!
 
 Thanks a lot to the author [Blake Green](https://greengocloud.com/about/).
 
@@ -70,7 +70,7 @@ Thanks a lot to the author [Sagar Panchal](https://dev.to/sagarpanchal0055)
 
 <https://dev.to/rasaf_ibrahim/styled-components-in-material-ui-mui-with-styled-utility-3l3j>
 
-Nice example for how to use React styled components together with MUI / (former Material UI).
+A nice example of how to use React-styled components together with MUI / (former Material UI).
 
 Thanks a lot to the author [Rasaf Ibrahim](https://dev.to/rasaf_ibrahim)
 
@@ -78,7 +78,7 @@ Thanks a lot to the author [Rasaf Ibrahim](https://dev.to/rasaf_ibrahim)
 
 <https://www.readysetcloud.io/blog/allen.helton/what-does-the-future-hold-for-serverless/>
 
-Super exciting article about the future development of serverless. I totally agree that more analytic tools/capabilities for how to optimize the architecture would be great.
+Super exciting article is about the future development of serverless. I totally agree that more analytic tools/capabilities on how to optimize the architecture would be great.
 
 Thanks a lot to the author Allen Helton.
 
@@ -92,7 +92,7 @@ An interesting discussion about how the support with AWS is and how it can be im
 
 <https://cloudonaut.io/selling-ami-cloudformation-alternative-saas/>
 
-Interesting article for how to use the AWS Marketplace with AMI and CloudFormation type to earn money. As well the story of product marbot from cloudonaut.io is super fascinating.
+Interesting article on how to use the AWS Marketplace with AMI and CloudFormation type to earn money. As well the story of product marbot from cloudonaut.io is super fascinating.
 
 Thanks a lot to the author Andreas Wittig
 
@@ -100,7 +100,7 @@ Thanks a lot to the author Andreas Wittig
 
 <https://dev.to/roy8/dynamodb-pros-cons-k2a>
 
-A short introduction into AWS DynamoDB. Really good if you don't know much about DynamoDB.
+A short introduction to AWS DynamoDB. Really good if you don't know much about DynamoDB.
 
 Thanks a lot to the author [Roy](https://dev.to/roy8)
 
@@ -116,7 +116,7 @@ Thanks a lot to the author [PAVAN BELAGATTI](https://thenewstack.io/author/pavan
 
 <https://dev.to/hackmamba/a-simple-guide-to-cicd-for-total-beginners-in-2022-2kgp>
 
-Explains the idea od CI/CD and why we need it. Gives a quick round trip for some CI/CD tools.
+Explains the idea of CI/CD and why we need it. Gives a quick round trip for some CI/CD tools.
 
 Thanks a lot to the author [Scofield Idehen](https://dev.to/scofieldidehen)
 
