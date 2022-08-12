@@ -10,13 +10,59 @@ pruneLength: 50 #du
 
 Ahoi,
 
-Die nahtlose Integration von AWS CDK und Amplify Apps war bisher sehr umständlich! Mit einer runtime-config für die Amplify Frontend React App ist es nun wesentlich einfacher. Hier möchte ich dir gerne die Idee der runtime-config vorstellen die bereits mir und Mitgliedern aus der CDK Community das Deployment erleichtert haben.
+Die nahtlose Integration von AWS CDK und Amplify Apps war bisher sehr umständlich! Mit einer runtime-config für die Amplify Frontend React App ist es nun wesentlich einfacher. Hier möchte ich dir gerne die Idee der runtime-config vorstellen.
 
 In meinen Fullstack Projekten nutze ich regelmäßig AWS CDK als Backend. Dabei ist AppSync als GraphQL Implementation die Schnittstelle zwischen dem Frontend und Backend. Das Frontend ist normalerweise eine React SPA (Single Page Application) gehostet in einem S3. Zum Verwalten und Authentifizieren der User nutze ich AWS Cognito. Die Frontend React App konfiguriere ich üblicherweise mit AWS Amplify.
 
 ## Idee runtime-config
 
-Die runtime-config erlaubt die Konfiguration von Amplify nach der Build-Phase zur Runtime. Dabei wird dem dist Folder der SPA einem File z.B. runtime-config.json mitgegeben welcher zur Runtime der App ausgelesen wird.
+Die runtime-config erlaubt die Konfiguration von Amplify nach der Build-Phase zur Runtime. Dabei wird dem dist Folder der SPA einem File z.B. runtime-config.json im public Folder mitgegeben welcher zur Runtime der App ausgelesen wird. Diese kann dan zum Beispiel so aussehen:
+
+```json
+{
+  "region": "eu-central-1",
+  "identityPoolId": "eu-central-1:cda9c404-0e74-439d-b40c-90204a0e1234",
+  "userPoolId": "eu-central-1_Uv0E91234",
+  "userPoolWebClientId": "1t6jbsr5b7utg6c9urhj51234",
+  "appSyncGraphqlEndpoint": "https://wr2cf4zklfbt3pxw26bik12345.appsync-api.eu-central-1.amazonaws.com/graphql"
+}
+```
+
+Die runtime-config wird dann dynamisch in der React App geladen:
+
+```ts
+useEffect(() => {
+    fetch('/runtime-config.json')
+      .then((response) => response.json())
+      .then((runtimeContext) => {
+        runtimeContext.region &&
+          runtimeContext.userPoolId &&
+          runtimeContext.userPoolWebClientId &&
+          runtimeContext.identityPoolId &&
+          Amplify.configure({
+            aws_project_region: runtimeContext.region,
+            aws_cognito_identity_pool_id: runtimeContext.identityPoolId,
+            aws_cognito_region: runtimeContext.region,
+            aws_user_pools_id: runtimeContext.userPoolId,
+            aws_user_pools_web_client_id: runtimeContext.userPoolWebClientId,
+            aws_appsync_graphqlEndpoint: runtimeContext.appSyncGraphqlEndpoint,
+            aws_appsync_region: runtimeContext.region,
+            aws_appsync_authenticationType: 'AMAZON_COGNITO_USER_POOLS',
+            Auth: {
+              region: runtimeContext.region,
+              userPoolId: runtimeContext.userPoolId,
+              userPoolWebClientId: runtimeContext.userPoolWebClientId,
+              identityPoolId: runtimeContext.identityPoolId,
+            },
+          });
+      })
+      .catch((e) => console.log(e));
+  }, []);
+```
+
+Wie du siehst wird ein fetch zum laden der runtime-config.json initial ausgeführt. Danach wird Amplify mit der extrahierten properties konfiguriert.
+
+Es können auch [HTML window variablen]() zum setzen der Amplify Parameter verwendet werden. Allerdings bevorzuge ich die hier vorgestellt fetch Lösung weil damit potentiell besser auf eine fehlende runtime-config.json oder einzeln fehlende Properties reagiert werden kann. Außerdem sollten window Variablen vermieden werden da diese globalen Zugriff auf den DOM bekommen.
 
 ## Workflows
 
