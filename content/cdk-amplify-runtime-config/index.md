@@ -28,7 +28,7 @@ Die runtime-config erlaubt die Konfiguration von Amplify nach der Build-Phase zu
 }
 ```
 
-Die runtime-config wird dann dynamisch in der React App geladen:
+Die runtime-config wird dann dynamisch in der React App geladen via useEffect:
 
 ```ts
 useEffect(() => {
@@ -73,7 +73,7 @@ Der typische Workflow ohne die runtime-config zum builden und deployen der React
 * build react app
 * cdk deploy react dist folder to S3
 
-Build Pipeline Workflow with runtime config:
+Build Pipeline Workflow mit runtime-config:
 
 * build react app
 * cdk deploy react dist folder and runtime config to S3
@@ -99,7 +99,7 @@ Der Komplette Code is in meinem [GitHub Senjuns Projekt](https://github.com/senj
 });
 ```
 
-Die StaticWebsite ist ein simples L2 CDK Construct mit einem S3 static website bucket als Haupt-Ressource. Mehr Details siehst du [hier](https://github.com/senjuns/senjuns/blob/main/backend/src/construcs/static-website.ts). Die interessanten Details befinden sich aber im **runtimeOptions** Objekt. Dort werden also die Endpoints für die runtime config für Amplify hinterlegt. Dahinter steckt dann das S3 Bucket Deployment construct welches die Endpoints via **s3deploy.Source.jsonData(...)** in die JSON Datei runtime-config.json überführt:
+Die StaticWebsite ist ein simples L3 CDK Construct mit einem S3 static website bucket als Haupt-Ressource. Mehr Details siehst du [hier](https://github.com/senjuns/senjuns/blob/main/backend/src/construcs/static-website.ts). Die interessanten Details befinden sich aber im **runtimeOptions** Objekt. Dort werden also die Endpoints für die runtime config für Amplify hinterlegt. Dahinter steckt dann das S3 Bucket Deployment Construct welches die Endpoints via **s3deploy.Source.jsonData(...)** in die JSON Datei runtime-config.json überführt:
 
 ```ts
 const DEFAULT_RUNTIME_CONFIG_FILENAME = 'runtime-config.json';
@@ -133,12 +133,37 @@ Das ist doch mal ne coole CDK integration :) !
 
 ## Workaround mit nested Stack Outputs
 
-* 
-* verwende keine nested stacks wenn möglich
+Während meiner Arbeit mit der runtime-config bin ich auf ein Problem gestoßen. Es ist nämlich nicht möglich CDK Outputs von einem Nested Stack für die runtime-config zu verwenden. Es gibt aber den Workaround mittels AWS Systems Manager Parameter:
+
+```ts
+const graphqlUrl = new ssm.StringParameter(this, 'GraphqlUrl', {
+    parameterName: 'GraphqlUrl',
+    stringValue: appSyncTransformer.appsyncAPI.graphqlUrl,
+});
+
+...
+
+const dashboard = new StaticWebsite(this, 'dashboard', {
+    build: '../dashboard/build',
+    recordName: 'dashboard',
+    domainName: props.domainName,
+    runtimeOptions: {
+    jsonPayload: {
+        region: core.Stack.of(this).region,
+        identityPoolId: identityPool.ref,
+        userPoolId: userPool.userPoolId,
+        userPoolWebClientId: userPoolWebClient.userPoolClientId,
+        appSyncGraphqlEndpoint: graphqlUrl.stringValue,
+    },
+    },
+});
+```
+
+Cool oder? Der Nested Stack Output wird einfach in einem SSM String Parameter gespeichert und kann dann später ausgelesen werden. Vielen dank an Adrian Dimech für den tollen [Workaround](https://github.com/aws/aws-prototyping-sdk/issues/84) 🙏.
 
 ## Fazit
 
-Das catchen von Lambda Timeouts ist nervig. Mit ein wenig AWS CDK Code und der Lambda Duration Metrik ist das Problem schnell gelöst.
+AWS CDK und Amplify sind eine starke Kombination. Mit der hier vorgestellten runtime-config fühlt sich diese Kombination wesentlich besser an! Ich hoffe ich konnte auch dir damit einen Anreiz geben mal die runtime-config auszuprobieren. Erzähl mir gerne wie es war.
 
 Ich liebe es an Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88) . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:
 
