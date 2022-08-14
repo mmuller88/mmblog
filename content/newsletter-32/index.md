@@ -81,21 +81,21 @@ This article is around the topic of multi-tenancy in serverless applications. In
 
 Thanks a lot to the author Allen Helton
 
-## Title
+## Low-cost best practices in AWS
 
-LINK
+https://dev.to/aws-builders/low-cost-best-practices-in-aws-234
 
-...
+A very good article which highlights best practices in terms of security and saving costs.
 
-Thanks a lot to the author []()
+Thanks a lot to the author [guilleojeda](https://dev.to/guilleojeda)
 
-## Title
+## I got my first Pull Request merged!
 
-LINK
+https://dev.to/jhhornn/i-got-my-first-pull-request-merged-3ei9
 
-...
+A super encouraging article about first time contribution to an open source project. So cool!
 
-Thanks a lot to the author []()
+Thanks a lot to the author [Awosise Oluwaseun](https://dev.to/jhhornn)
 
 ## Title
 
