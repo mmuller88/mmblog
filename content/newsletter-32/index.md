@@ -1,8 +1,8 @@
 ---
 title: Newsletter martinmueller.dev 2022 week 32
-show: "no"
+show: "yes"
 date: "2022-09-14"
-tags: ["eng", "2022", "newsletter", "aws", "devops", "nofeed"] #nofeed
+tags: ["eng", "2022", "newsletter", "aws", "devops"] #nofeed
 pruneLength: 50
 ---
 
@@ -18,15 +18,31 @@ If you like my content follow me on my usual spots to hang around:
 
 ## Hey CDK, how do cross-account deployments work?
 
-https://garbe.io/blog/2022/08/01/hey-cdk-how-to-cross-account-deployments/
+<https://garbe.io/blog/2022/08/01/hey-cdk-how-to-cross-account-deployments/>
 
-A nice deep dive into how CDK bootstrap works and which roles for what purpose it creates. Further more the author explains the different options for how to deploy a CDK stack and when your should use which method. Read it!
+A nice deep dive into how CDK bootstrap works and which roles for what purpose it creates. Furthermore the author explains the different options for how to deploy a CDK stack and when your should use which method. Read it!
 
 Thanks a lot to the author [Philipp Garbe](https://garbe.io/)
 
+## Why Developers Are Building So Many Side Projects
+
+<https://future.com/developers-side-projects/>
+
+Why developers are working or should work on side projects? It is super exciting to read why developers are working on side projects. I myself am working on side projects as well and it is a lot of fun :). Though my dream would be to get a somewhat successful product running.
+
+Thanks a lot to the author [Ben Stokes](https://future.com/author/ben-stokes/)
+
+## 3 Things to Know Before Building a Multi-Tenant Serverless App
+
+<https://www.readysetcloud.io/blog/allen.helton/things-to-know-before-building-a-multi-tenant-serverless-app/>
+
+This article is around the topic of multi-tenancy in serverless applications. In this, the author reports about his past experience when working on implementing a multi-tenant solution and which problems he has encountered. Super interesting read!
+
+Thanks a lot to the author Allen Helton
+
 ## SHOULD YOU PAY FOR CI/CD IN 2022?
 
-https://blog.symops.com/2022/08/10/pay-for-continuous-integration/
+<https://blog.symops.com/2022/08/10/pay-for-continuous-integration/>
 
 Gives a historical roundtrip of the CI/CD history.
 
@@ -34,86 +50,59 @@ Thanks a lot to the author [Adam Buggia](https://twitter.com/abuggia) and [Brian
 
 ## Amazon CloudFront for your tech stack
 
-https://dev.to/aws-builders/amazon-cloudfront-for-your-tech-stack-5ggk
+<https://dev.to/aws-builders/amazon-cloudfront-for-your-tech-stack-5ggk>
 
-A nice article about one of my favorite AWS services CloudFront. It explains what you can do with CloudFront like reducing latency via caching, implementing geo restrictions and much more.
+A nice article about one of my favorite AWS services CloudFront. It explains what you can do with CloudFront like reducing latency via caching, implementing geo restrictions, and much more.
 
 Thanks a lot to the author [Jones Zachariah Noel](https://dev.to/zachjonesnoel)
 
 ## Title
 
-https://dev.to/logrocket/micro-frontend-with-react-and-nextjs-n6h
+<https://dev.to/logrocket/micro-frontend-with-react-and-nextjs-n6h>
 
-Explains an interesting way of how to create micro frontends with react and nextjs. 
+Explains an interesting way how to create micro frontends with react and nextjs.
 
 Thanks a lot to the author []()
 
-## How to develop strong problem solving skills as a software developer
+## How to develop strong problem-solving skills as a software developer
 
-https://dev.to/nathan20/how-to-develop-strong-problem-solving-skills-as-a-software-developer-25nb
+<https://dev.to/nathan20/how-to-develop-strong-problem-solving-skills-as-a-software-developer-25nb>
 
-Offers a good summary of different ways of how to solve complex problems as a software developer (probably not just there)! Further the author explains how to improve the your problem solving skills.
+Offers a good summary of different ways how to solve complex problems as a software developer (probably not just there)! Further, the author explains how to improve your problem-solving skills.
 
 Thanks a lot to the author [Nathan](https://dev.to/nathan20)
 
 ## Thinking like containers
 
-https://dev.to/leandronsp/thinking-like-containers-3k24
+<https://dev.to/leandronsp/thinking-like-containers-3k24>
 
-Explains very on the point what containers are about. And how to persist data from the container via volumes is described very good as well.
+Explains very on the point what containers are about. And how to persist data from the container via volumes is described very well as well.
 
 Thanks a lot to the author [Leandro Proença](https://dev.to/leandronsp)
 
-## Why Developers Are Building So Many Side Projects
-
-https://future.com/developers-side-projects/
-
-Why developers are working or should work on side projects. It is super exciting to read why developers are working on side projects. I myself are working on side projects as well and it is a lof of fun :). Though my dream would be to get a somewhat successful product running.
-
-Thanks a lot to the author [Ben Stokes](https://future.com/author/ben-stokes/)
-
-
-## 3 Things to Know Before Building a Multi-Tenant Serverless App
-
-https://www.readysetcloud.io/blog/allen.helton/things-to-know-before-building-a-multi-tenant-serverless-app/
-
-This article is around the topic of multi-tenancy in serverless applications. In this the author reports about his past experience when working implementing a multi-tenant solution and which problems he has encountered. Super interesting read!
-
-Thanks a lot to the author Allen Helton
-
 ## Low-cost best practices in AWS
 
-https://dev.to/aws-builders/low-cost-best-practices-in-aws-234
+<https://dev.to/aws-builders/low-cost-best-practices-in-aws-234>
 
-A very good article which highlights best practices in terms of security and saving costs.
+A very good article that highlights best practices in terms of security and saving costs.
 
 Thanks a lot to the author [guilleojeda](https://dev.to/guilleojeda)
 
-## I got my first Pull Request merged!
+## I got my first Pull Request merged
 
-https://dev.to/jhhornn/i-got-my-first-pull-request-merged-3ei9
+<https://dev.to/jhhornn/i-got-my-first-pull-request-merged-3ei9>
 
-A super encouraging article about first time contribution to an open source project. So cool!
+A super encouraging article about first-time contributions to an open source project. So cool!
 
 Thanks a lot to the author [Awosise Oluwaseun](https://dev.to/jhhornn)
 
-## Title
+## Make Errors User-Friendly with React Error Boundaries
 
-LINK
+<https://dev.to/thisurathenuka/make-errors-user-friendly-with-react-error-boundaries-9e7>
 
-...
+An interesting read of React Error Boundaries for rendering JavaScript errors in a nicer way.
 
-Thanks a lot to the author []()
-
-## Open Source Projects
-
-In this section I list Open Source projects I find super interesting!
-
-## Title
-
-LINK
-
-...
+Thanks a lot to the author [Thisura Thenuka](https://dev.to/thisurathenuka)
 
 ## Final Words
 
