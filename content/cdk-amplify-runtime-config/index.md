@@ -1,8 +1,8 @@
 ---
 title: AWS CDK und Amplify UI runtime-config
 show: "no"
-date: "2022-08-10"
-image: "lambda.png"
+date: "2022-08-27"
+image: "title.png"
 tags: ["de", "2022", "aws", "cdk"] #nofeed
 engUrl: https://martinmueller.dev/cdk-amplify-runtime-config-eng
 pruneLength: 50 #du
@@ -68,7 +68,7 @@ Es können auch [HTML window variablen]() zum setzen der Amplify Parameter verwe
 
 Der typische Workflow ohne die runtime-config zum builden und deployen der React App lief bisweilen so ab:
 
-* curl and store current endpoints wie user pool id, AppSynch endpoint and more
+* curl and store current endpoints like user pool id, AppSynch endpoint and more
 * build Amplify config file
 * build react app
 * cdk deploy react dist folder to S3
@@ -124,12 +124,7 @@ new s3deploy.BucketDeployment(this, 'BucketDeployment', {
 });
 ```
 
-Das ist doch mal ne coole CDK integration :) !
-
-## Vorteile
-
-* Keine aufwendigen Scripts mehr nötig die die Endpoints curlen müssen
-* 
+Das ist doch mal ne coole CDK integration :) ! Dem BucketDeployment Construct einfach die zwei Parameter wie dem React dist und der runtime-config mitzugeben ist schon eine ziemlich schlaue Idee.
 
 ## Workaround mit nested Stack Outputs
 
@@ -163,7 +158,9 @@ Cool oder? Der Nested Stack Output wird einfach in einem SSM String Parameter ge
 
 ## Fazit
 
-AWS CDK und Amplify sind eine starke Kombination. Mit der hier vorgestellten runtime-config fühlt sich diese Kombination wesentlich besser an! Ich hoffe ich konnte auch dir damit einen Anreiz geben mal die runtime-config auszuprobieren. Erzähl mir gerne wie es war.
+AWS CDK und Amplify sind eine starke Kombination. Mit der hier vorgestellten runtime-config fühlt sich diese Kombination wesentlich besser an! Ich habe mir diese Lösung vom [aws-prototyping-sdk](https://github.com/aws/aws-prototyping-sdk) abgeschaut. In diesem Repo werden interessante AWS CDK Constructs entwickelt. Ihr solltet es also definitiv mal auschecken!
+
+Ich hoffe ich konnte auch dir damit einen Anreiz geben mal die runtime-config auszuprobieren. Erzähl mir gerne wie es war.
 
 Ich liebe es an Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88) . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:
 

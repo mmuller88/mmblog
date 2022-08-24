@@ -1,10 +1,12 @@
 ---
-title: Newsletter martinmueller.dev 2022 week 33
+title: Newsletter martinmueller.dev 2022 week 34
 show: "no"
-date: "2022-09-21"
+date: "2022-09-28"
 tags: ["eng", "2022", "newsletter", "aws", "devops", "nofeed"] #nofeed
 pruneLength: 50
 ---
+
+Last week newsletter didn't appeared as I needed to relax a bit. 
 
 In this weekly newsletter, I write a summary of posts that got my attention during the week. I center around topics AWS, DevOps, Architecture, AWS CDK, Serverless, Data Engineering, Data Analytics and much more.
 
@@ -16,17 +18,17 @@ If you like my content follow me on my usual spots to hang around:
 - <https://dev.to/mmuller88>
 - <https://martinmueller.dev>
 
+## What's a framework? All about software frameworks
+
+https://dev.to/contentful/whats-a-framework-all-about-software-frameworks-33l6
+
+Frameworks are usually nice abstractions to solve certain kind of problems. This article explains what a framework is, why we use frameworks at all, the different kind of frameworks and much more.
+
+Thanks a lot to the author [Luke Stahl](https://dev.to/stahlwalker)
+
 ## Title
 
-LINK
-
-...
-
-Thanks a lot to the author []()
-
-## Title
-
-LINK
+https://dev.to/aws-builders/how-we-use-aws-config-and-security-hub-for-cloud-governance-2ke6
 
 ...
 
