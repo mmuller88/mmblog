@@ -1,5 +1,5 @@
 ---
-title: AWS CDK und Amplify UI runtime-config
+title: AWS CDK und Amplify runtime-config
 show: "no"
 date: "2022-08-27"
 image: "title.png"
