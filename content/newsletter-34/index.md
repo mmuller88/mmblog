@@ -1,7 +1,7 @@
 ---
 title: Newsletter martinmueller.dev 2022 week 34
 show: "no"
-date: "2022-09-28"
+date: "2022-08-28"
 tags: ["eng", "2022", "newsletter", "aws", "devops", "nofeed"] #nofeed
 pruneLength: 50
 ---
