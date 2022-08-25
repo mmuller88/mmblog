@@ -1,7 +1,7 @@
 ---
-title: AWS CDK und Amplify UI runtime-config
-show: "no"
-date: "2022-08-27"
+title: AWS CDK and Amplify UI runtime-config
+show: "yes"
+date: "2022-08-25"
 image: "title.png"
 tags: ["eng", "2022", "aws", "cdk"] #nofeed
 gerUrl: https://martinmueller.dev/cdk-amplify-runtime-config
@@ -10,13 +10,13 @@ pruneLength: 50 #du
 
 Hi,
 
-Seamless integration of AWS CDK and Amplify apps used to be very cumbersome! With a runtime-config for the Amplify frontend React app, it's now much easier. Here I would like to introduce you to the idea of runtime-config.
+Seamless integration of AWS CDK and Amplify apps used to be very cumbersome! With a runtime-config for the Amplify frontend React app, it's now much easier. Here I would like to introduce you to the idea of a runtime-config.
 
-In my fullstack projects, I regularly use AWS CDK as a backend. Here AppSync as a GraphQL implementation is the interface between the frontend and backend. The frontend is usually a React SPA (Single Page Application) hosted in an S3. I use AWS Cognito to manage and authenticate the users. I usually configure the frontend React app using AWS Amplify.
+In my fullstack projects, I regularly use AWS CDK as backend. AppSync as a GraphQL implementation is the interface between the frontend and backend. The frontend is usually a React SPA (Single Page Application) hosted in an S3 bucket. I use AWS Cognito to manage and authenticate the users and usually configure the frontend React app using AWS Amplify.
 
 ## Idea runtime-config
 
-The runtime-config allows you to configure Amplify after the build phase to runtime. The dist folder of the SPA is given a file e.g. runtime-config.json in the public folder which is read out for the runtime of the app. This can look like this for example:
+The runtime-config allows you to configure Amplify after the build phase on runtime. The dist folder of the SPA is given a file like runtime-config.json in the public folder which fetched ruding the runtime of the app. Here you see an example for the runtime-config.json:
 
 ```json
 {
@@ -28,7 +28,7 @@ The runtime-config allows you to configure Amplify after the build phase to runt
 }
 ```
 
-The runtime-config is then dynamically loaded in the React app via useEffect:
+The runtime-config is then dynamically loaded in the React app via useEffect and fetch:
 
 ```ts
 useEffect(() => {
@@ -62,7 +62,7 @@ useEffect(() => {
 
 As you can see, a fetch to load the runtime-config.json is executed initially. After that Amplify is configured with the extracted properties.
 
-You can also use [HTML window variables]() to set the Amplify parameters. However, I prefer the fetch solution presented here because it is potentially more responsive to a missing runtime-config.json or single missing properties. Also, window variables should be avoided as they get global access to the DOM.
+You can also use [HTML window variables](https://developer.mozilla.org/en-US/docs/Web/API/Window) to set the Amplify parameters. However, I prefer the fetch solution presented here because it is potentially more responsive to a missing runtime-config.json or single missing properties. Also, window variables should be avoided as they get global access to the DOM.
 
 ## Workflows
 
@@ -83,7 +83,12 @@ Build pipeline workflow with runtime-config:
 The complete code is available in my [GitHub Senjuns project](https://github.com/senjuns/senjuns/blob/main/backend/src/dashboard-stack.ts).
 
 ```ts
- const dashboard = new StaticWebsite(this, 'dashboard', {
+const userPool = new cognito.UserPool(...)
+...
+const identityPool = new cognito.CfnIdentityPool(...)
+...
+
+const dashboard = new StaticWebsite(this, 'dashboard', {
     build: '../dashboard/build',
     recordName: 'dashboard',
     domainName: props.domainName,

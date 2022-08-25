@@ -12,7 +12,7 @@ Ahoi,
 
 Die nahtlose Integration von AWS CDK und Amplify Apps war bisher sehr umständlich! Mit einer runtime-config für die Amplify Frontend React App ist es nun wesentlich einfacher. Hier möchte ich dir gerne die Idee der runtime-config vorstellen.
 
-In meinen Fullstack Projekten nutze ich regelmäßig AWS CDK als Backend. Dabei ist AppSync als GraphQL Implementation die Schnittstelle zwischen dem Frontend und Backend. Das Frontend ist normalerweise eine React SPA (Single Page Application) gehostet in einem S3. Zum Verwalten und Authentifizieren der User nutze ich AWS Cognito. Die Frontend React App konfiguriere ich üblicherweise mit AWS Amplify.
+In meinen Fullstack Projekten nutze ich regelmäßig AWS CDK als Backend. Dabei ist AppSync als GraphQL Implementation die Schnittstelle zwischen dem Frontend und Backend. Das Frontend ist normalerweise eine React SPA (Single Page Application) gehostet in einem S3 Bucket. Zum Verwalten und Authentifizieren der User nutze ich AWS Cognito. Die Frontend React App konfiguriere ich üblicherweise mit AWS Amplify.
 
 ## Idee runtime-config
 
@@ -28,7 +28,7 @@ Die runtime-config erlaubt die Konfiguration von Amplify nach der Build-Phase zu
 }
 ```
 
-Die runtime-config wird dann dynamisch in der React App geladen via useEffect:
+Die runtime-config wird dann dynamisch in der React App geladen via useEffect und fetch:
 
 ```ts
 useEffect(() => {
@@ -62,7 +62,7 @@ useEffect(() => {
 
 Wie du siehst wird ein fetch zum laden der runtime-config.json initial ausgeführt. Danach wird Amplify mit der extrahierten properties konfiguriert.
 
-Es können auch [HTML window variablen]() zum setzen der Amplify Parameter verwendet werden. Allerdings bevorzuge ich die hier vorgestellt fetch Lösung weil damit potentiell besser auf eine fehlende runtime-config.json oder einzeln fehlende Properties reagiert werden kann. Außerdem sollten window Variablen vermieden werden da diese globalen Zugriff auf den DOM bekommen.
+Es können auch [HTML window variablen](https://developer.mozilla.org/en-US/docs/Web/API/Window) zum setzen der Amplify Parameter verwendet werden. Allerdings bevorzuge ich die hier vorgestellt fetch Lösung weil damit potentiell besser auf eine fehlende runtime-config.json oder einzeln fehlende Properties reagiert werden kann. Außerdem sollten window Variablen vermieden werden da diese globalen Zugriff auf den DOM bekommen.
 
 ## Workflows
 
@@ -83,7 +83,12 @@ Build Pipeline Workflow mit runtime-config:
 Der Komplette Code is in meinem [GitHub Senjuns Projekt](https://github.com/senjuns/senjuns/blob/main/backend/src/dashboard-stack.ts) einsehbar.
 
 ```ts
- const dashboard = new StaticWebsite(this, 'dashboard', {
+const userPool = new cognito.UserPool(...)
+...
+const identityPool = new cognito.CfnIdentityPool(...)
+...
+
+const dashboard = new StaticWebsite(this, 'dashboard', {
     build: '../dashboard/build',
     recordName: 'dashboard',
     domainName: props.domainName,
