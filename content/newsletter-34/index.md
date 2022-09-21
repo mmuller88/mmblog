@@ -26,9 +26,41 @@ Frameworks are usually nice abstractions to solve certain kind of problems. This
 
 Thanks a lot to the author [Luke Stahl](https://dev.to/stahlwalker)
 
+## AWS CDK Costs to Slack
+
+https://greenchapel.dev/2022/08/23/aws-cdk-costs-to-slack/
+
+That is a nice short article about how to send Slack messages via AWS CDK.
+
+Thanks a lot to the author [GREENCHAPEL JOHN](https://greenchapel.dev/author/johnpgreen/)
+
+## Sign your AWS Lambda packages
+
+https://faun.pub/sign-your-aws-lambda-packages-39d3be4b18b8
+
+It is about AWS Signer to put a signature on your Lambda code package. That is for security to make sure that no one tempered with your Lambda code. That is super cool and I didn't even know that you can do that. Though there are some manual steps needed to sign a package. I am curious if I somehow could automate that more with AWS CDK. If you know the answer let me know ^^.
+
+Thanks a lot to the author [Jean Velez Torres](https://medium.com/@jean.velez2?source=post_page-----39d3be4b18b8--------------------------------)
+
+## Deploy AWS resources using serverless framework
+
+https://dev.to/rashwanlazkani/deploy-aws-resources-using-serverless-framework-2772
+
+A short on the point article for how to create AWS resources with the [serverless framework](https://www.serverless.com/).
+
+Thanks a lot to the author [Rashwan Lazkani](https://dev.to/rashwanlazkani)
+
 ## Title
 
-https://dev.to/aws-builders/how-we-use-aws-config-and-security-hub-for-cloud-governance-2ke6
+LINK
+
+...
+
+Thanks a lot to the author []()
+
+## Title
+
+LINK
 
 ...
 
