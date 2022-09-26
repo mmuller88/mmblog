@@ -14,18 +14,19 @@ Terraform CI/CD Staging Pipelines, wobei das CD für Continuous Deployment steht
 
 Wie so eine Terraform CI/CD Staging mit AWS als Cloud Provider aussehen kann, möchte ich hier gerne vorstellen.
 
-## Warum eine CI/CD Staging Pipeline mit CircleCI?
+## Warum eine CI/CD Staging Pipeline?
 
-* Der Kunde plan ein komplexes AWS Setup mit Hasura, RDS, ECS und vielen weiteren Services
-* Änderungen möchten wir gerne auf einer DEV Umgebung testen die möglichst ähnlich zu PROD ist
-* Änderungen sollen dann auch möglichst schnell auf PROD übertragen werden können
-* Ich habe viel Erfahrung mit CI/CD Staging Pipelines von AWS CDK deshalb transferiere ich einige Methoden von dort
-* CicleCI als Pipeline-Tool hat sich der Kunde gewünscht. Es war herausfordernd da CircleCI für mich noch neu war.
+Zusammen mit dem Kunden planen und entwickeln wir ein ein komplexes AWS Setup mit [Hasura](https://hasura.io/), RDS, ECS und vielen weiteren Services. Dieses Setup soll unter anderem auch mit der existierenden Produktionsumgebung in Salesforce interagieren. Es ist also von größter Wichtigkeit neue Funktionalitäten auf einer DEV und QA Umgebung zu testen. 
+
+Diese Umgebungen DEV und QA, sollen sich dabei möglichst ähnlich zur originalen Umgebung PROD verhalten. Darüber hinaus sollen Änderungen möglichst schnell auf die PROD Umgebung ausführbar sein mit möglichst wenig benötigten manuellen Schritten. Genau für diese Anforderungen eignet sich eine CI/CD Staging Pipeline.
 
 ## Multi-Account Setup
 
-* accounts Folder mit staging files
-* https://cloudly.engineer/2021/terraform-aws-multi-account-setup/aws/
+Um eine CI/CD Staging Pipelines zu erstellen ist es best practice für jede stage wie DEV, QA oder PROD einen eigenen AWS Account zu verwenden. Das Pipeline Setup muss also in der Lage sein diese Accounts mit Terraform zu bootstrappen bzw. zu initialisieren und anschließend Änderungen auszurollen.
+
+Für das Multi-Account Setup habe ich mir den Artikel [Terraform AWS Multi-Account Setup](https://cloudly.engineer/2021/terraform-aws-multi-account-setup/aws/) zum Vorbild genommen bei dem mittels Config Files wie [accounts/dev/backend.conf](https://github.com/mmuller88/tf-pipeline-circleci/blob/main/accounts/dev/backend.conf) und [accounts/dev/terraform.tfvars](https://github.com/mmuller88/tf-pipeline-circleci/blob/main/accounts/dev/terraform.tfvars) die jeweilige Stage konfiguriert wird. Super cool ist nun, dass damit die gleiche [main.tf](https://github.com/mmuller88/tf-pipeline-circleci/blob/main/main.tf) für alle Staging Umgebungen verwendet werden kann.
+
+Zu oft sehe ich bei Kunden die mit Terraform arbeiten, dass für jede Staging Umgebung eigene TF Files erzeugt werden und Ressourcen hin und her kopiert werden. Das muss aufhören und der hier beschriebene Ansatz kann dabei helfen!
 
 ## CircleCI Staging Pipeline
 
