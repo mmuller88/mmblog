@@ -96,8 +96,6 @@ Unfortunately cdk-dia couldn't render my CDK CD staging pipeline properly and I 
 
 If you also like to work with AWS component diagrams give cdk-dia a try! Here in the post I described how great the tool is and how easy it is to use. Feel free to contact me if you have any questions.
 
-Translated with www.DeepL.com/Translator (free version)
-
 Thanks to the [DeepL translater (free version)](https://DeepL.com/Translator) for helping with translating to English and saving me tons of time :).
 
 To the wonderful readers of this article, I'm saying that feedback of any kind is welcome. In the future, I will try to include a discussion and comment feature here. In the meantime, please feel free to send me feedback via my social media accounts such as [Twitter](https://twitter.com/MartinMueller_) or [FaceBook](https://facebook.com/martin.muller.10485). Thank you very much :).

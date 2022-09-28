@@ -12,13 +12,13 @@ Hi,
 
 Terraform CI/CD Staging Pipelines, wobei das CD für Continuous Deployment steht, erlauben ein sicheres und kontinuierliches Entwickeln von Infrastruktur mit Terraform. Üblicherweise wird durch ein Commit im main Branch die Pipeline gestartet und die gewünschten Änderungen zuerst auf der DEV Stage ausgeführt. Durch ein manuelles Approval können dann die Änderungen auf die QA Stage und anschließend auf die PROD Stage mit der Pipeline ausgerollt werden.
 
-Wie so eine Terraform CI/CD Staging mit AWS als Cloud Provider aussehen kann, möchte ich hier gerne vorstellen.
+Wie so eine Terraform CI/CD Staging Pipeline mit AWS als Cloud Provider aussehen kann, möchte ich hier gerne vorstellen.
 
 ## Warum eine CI/CD Staging Pipeline?
 
-Zusammen mit dem Kunden planen und entwickeln wir ein ein komplexes AWS Setup mit [Hasura](https://hasura.io/), RDS, ECS und vielen weiteren Services. Dieses Setup soll unter anderem auch mit der existierenden Produktionsumgebung in Salesforce interagieren. Es ist also von größter Wichtigkeit neue Funktionalitäten auf einer DEV und QA Umgebung zu testen. 
+Zusammen mit dem Kunden planen und entwickeln wir ein ein komplexes AWS Setup mit [Hasura](https://hasura.io/), RDS, ECS und vielen weiteren AWS Services. Dieses Setup soll unter anderem auch mit der existierenden Produktionsumgebung in Salesforce interagieren. Es ist also von größter Wichtigkeit neue Funktionalitäten auf einer DEV und QA Umgebung zu testen.
 
-Diese Umgebungen DEV und QA, sollen sich dabei möglichst ähnlich zur originalen Umgebung PROD verhalten. Darüber hinaus sollen Änderungen möglichst schnell auf die PROD Umgebung ausführbar sein mit möglichst wenig benötigten manuellen Schritten. Genau für diese Anforderungen eignet sich eine CI/CD Staging Pipeline.
+Diese Umgebungen DEV und QA, sollen sich dabei möglichst ähnlich zur PROD Umgebung verhalten. Darüber hinaus sollen Änderungen schnell auf die PROD Umgebung ausführbar sein mit möglichst wenig benötigten manuellen Schritten. Genau für diese Anforderungen eignet sich eine CI/CD Staging Pipeline.
 
 ## Multi-Account Setup
 
@@ -49,7 +49,7 @@ Somit können die geplanten Infrastruktur-Änderungen erst begutachtet und dann 
 
 ## Ausblick
 
-Als nächstes möchte ich [CDKTF](https://github.com/hashicorp/terraform-cdk) einführen damit die Infrastruktur mit TypeScript definiert werden kann. Ähnlich wie es für mich auch der Fall mit AWS CDK war, verspreche ich mir dadurch ein schnelleres Entwickeln mit Terraform. Der Typen-Support erlaubt mir fehlende Terraform properties schon früh zu erkennen. Auch ist die Dokumentation von den Properties sehr angenehm und ich muss somit kaum noch in der Terraform Dokumentation nachsehen.
+Als nächstes möchte ich [CDKTF](https://github.com/hashicorp/terraform-cdk) einführen damit die Infrastruktur mit TypeScript definiert werden kann. Ähnlich wie es für mich auch der Fall mit AWS CDK war, verspreche ich mir dadurch ein schnelleres Entwickeln mit Terraform. Der Typen-Support erlaubt mir fehlende Terraform Properties schon früh zu erkennen. Auch ist die Dokumentation von den Properties sehr angenehm und ich muss somit kaum noch in der Terraform Dokumentation nachsehen.
 
 Danach bin ich auch schon sehr gespannt wie AWS Ressourcen wie Aurora, ECS, VPC und so weiter mit Terraform integriert werden. Das Ganze erweitert mein Set an Tools mit denen ich coole Sachen in AWS bauen kann.
 
@@ -63,4 +63,4 @@ Ich liebe es an Open Source Projekte zu arbeiten. Vieles kannst du bereits frei 
 
 Oder
 
-[![Buy me a Ko-Fi](https://theastrologypodcast.com/wp-content/uploads/2015/06/become-my-patron-05.jpg)](https://www.patreon.com/bePatron?u=29010217)
+[![Be my Patron](https://theastrologypodcast.com/wp-content/uploads/2015/06/become-my-patron-05.jpg)](https://www.patreon.com/bePatron?u=29010217)
