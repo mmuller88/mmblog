@@ -3,7 +3,7 @@ title: Terraform CI/CD Staging Pipeline mit CircleCI
 show: "no"
 date: "2022-10-01"
 image: "title.png"
-tags: ["de", "2022", "aws", "terraform", "serverless", "nofeed"] #nofeed
+tags: ["de", "2022", "aws", "terraform", "serverless"] #nofeed
 engUrl: https://martinmueller.dev/tf-pipeline-eng
 pruneLength: 50 #du
 ---
