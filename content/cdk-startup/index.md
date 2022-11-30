@@ -1,18 +1,37 @@
 ---
-title: Catch AWS Lambda Timeouts 
+title: Erstelle ein Startup mit AWS CDK
 show: "no"
 date: "2022-07-10"
 image: "lambda.png"
-tags: ["de", "2022", "aws"] #nofeed
-engUrl: https://martinmueller.dev/cdk-lambda-timeout-eng
+tags: ["de", "2022", "aws", "cdk" "nofeed"] #nofeed
+engUrl: https://martinmueller.dev/cdk-startup-eng
 pruneLength: 50 #du
 ---
 
-* bin dabei den cdk-bill-blot von Christian auszuprobieren
-* ich erhoffe mir dadurch eine bessere und zeitnahere Analyse der Kosten in AWS
-* Ausserdem bin ich sehr begeistert an das Thema Data Engineering und Data Analytics
+Ahoi,
 
-## Vorteile
+* Was ist AWS CDK?
+* Welche anderen Technologien: Amplify AppSync, DynamoDB, React, Cognito
+* Motivation: geringe kosten, wenig Code, meine Expertise
+
+## Was ist AWS CDK?
+
+...
+
+## Welche anderen Technologien
+
+### Amplify AppSync
+
+...
+
+### DynamoDB
+
+...
+
+### Cognito
+
+* Userverwaltung
+* Einfache Integration zu AppSync
 
 ## Fazit
 
