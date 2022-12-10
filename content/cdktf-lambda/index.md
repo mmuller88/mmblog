@@ -16,7 +16,7 @@ In diesem Blog Post möchte ich kurz erklären was cdktf ist und wie damit eine 
 
 Das Cloud Development Kit for Terraform (cdktf) ist ein Toolkit zum Erstellen un managen von Cloud Infrastruktur wie AWS oder Azure mit Terraform. Es erlaubt dir die Infrastruktur mittels einer Programmiersprache wie TypeScript oder Python zu definieren.
 
-## Code
+## Setup cdktf
 
 Den gesamten Code findest du in meinem Repository [hier](https://github.com/mmuller88/cdktf-lambda). Ich beschreibe aber noch nachfolgend kurz wie das Repository erstellt wurde. Initialisiere dein cdktf repo mit:
 
@@ -27,6 +27,68 @@ cdktf provider add "aws@~>4.0"
 
 * Prettier und Linter hinzufügen
 * Adding Lambda module from community
+
+```bash
+cdktf get
+```
+
+Falls die Lambda eigene Dependencies hat müssen diese noch installiert werden mit:
+
+```bash
+cd src/lambda
+npm install
+```
+
+Deploye den cdktf stack mit:
+
+```bash
+cdktf deploy
+```
+
+## Code
+
+Die Lambda kann dann zum Beispiel in die main.ts so integriert werden:
+
+```ts
+import { NodejsFunction } from './constructs/nodejs-function';
+
+class MyStack extends TerraformStack {
+  constructor(scope: Construct, name: string) {
+    super(scope, name);
+
+    const code = new NodejsFunction(this, 'code', {
+      path: path.join(__dirname, 'lambda/filter-aurora.ts'),
+    });
+
+    new Lambda(this, 'FilterAuroraEventsLambda', {
+      functionName: 'filter-aurora',
+      handler: 'filter-aurora.handler',
+      runtime: 'nodejs14.x',
+      sourcePath: code.bundledPath,
+      timeout: 15 * 60,
+      attachPolicyStatements: true,
+      policyStatements: {
+        kms: {
+          effect: 'Allow',
+          actions: ['*'],
+          resources: ['*'],
+        },
+        s3: {
+          effect: 'Allow',
+          actions: ['s3:*'],
+          resources: ['*'],
+        },
+      },
+    });
+  }
+}
+
+const app = new App();
+new MyStack(app, 'cdktf-lambda');
+app.synth();
+```
+
+Ich benutze also das custom construct __NodejsFunction__ to bundle the code from TypeScript yo JavaScript and point the Lambda where to find the bundled JavaScript code.
 
 ## Fazit
 
