@@ -1,22 +1,24 @@
 ---
 title: TypeScript Lambda mit CDKTF
 show: "no"
-date: "2022-07-10"
+date: "2022-12-11"
 image: "lambda.png"
 tags: ["de", "2022", "aws", "cdktf" "nofeed"] #nofeed
 engUrl: https://martinmueller.dev/cdktf-lambda-eng
 pruneLength: 50 #du
 ---
 
-Ahoi,
+Hi,
 
-* Was ist AWS CDKTF
-* StackOverflow https://stackoverflow.com/questions/74740782/how-to-deploy-lambda-using-terraform-created-by-cdktf
-* cdktf code
+In diesem Blog Post möchte ich kurz erklären was cdktf ist und wie damit eine TypeScript Lambda erstellt werden kann. Die Motivation dafür kam durch einen [StackOverflow Beitrag](https://stackoverflow.com/questions/74740782/how-to-deploy-lambda-using-terraform-created-by-cdktf).
+
+## Was ist cdktf
+
+Das Cloud Development Kit for Terraform (cdktf) ist ein Toolkit zum Erstellen un managen von Cloud Infrastruktur wie AWS oder Azure mit Terraform. Es erlaubt dir die Infrastruktur mittels einer Programmiersprache wie TypeScript oder Python zu definieren.
 
 ## Code
 
-Initialsiere das cdktf repo mit:
+Den gesamten Code findest du in meinem Repository [hier](https://github.com/mmuller88/cdktf-lambda). Ich beschreibe aber noch nachfolgend kurz wie das Repository erstellt wurde. Initialisiere dein cdktf repo mit:
 
 ```bash
 cdktf init --template="typescript"
@@ -26,24 +28,9 @@ cdktf provider add "aws@~>4.0"
 * Prettier und Linter hinzufügen
 * Adding Lambda module from community
 
-## Welche anderen Technologien
-
-### Amplify AppSync
-
-...
-
-### DynamoDB
-
-...
-
-### Cognito
-
-* Userverwaltung
-* Einfache Integration zu AppSync
-
 ## Fazit
 
-...
+TypeScript Lambdas mit cdktf zu bauen bedarf etwas mehr Aufwand verglichen zu aws cdk TypeScript Lambdas. Trotzdem hält sich dieser Aufwand in Grenzen und ich habe dir hier gezeigt wir du es machen kannst. Falls du den Beitrag hilfreich fandest, lass es mich doch bitte wissen :)!
 
 Ich liebe es an Open Source Projekte zu arbeiten. Vieles kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88) . Wenn du meine dortige Arbeit sowie meine Blog Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen und ein Patreon zu werden:
 
