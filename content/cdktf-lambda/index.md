@@ -1,7 +1,7 @@
 ---
 title: TypeScript Lambda mit CDKTF
 show: "no"
-date: "2022-12-11"
+date: "2022-12-14"
 image: "lambda.png"
 tags: ["de", "2022", "aws", "cdktf" "nofeed"] #nofeed
 engUrl: https://martinmueller.dev/cdktf-lambda-eng
@@ -10,9 +10,9 @@ pruneLength: 50 #du
 
 Hi,
 
-In diesem Blog Post möchte ich kurz erklären was cdktf ist und wie damit eine TypeScript Lambda erstellt werden kann. Die Motivation dafür kam durch einen [StackOverflow Beitrag](https://stackoverflow.com/questions/74740782/how-to-deploy-lambda-using-terraform-created-by-cdktf).
+In diesem Blog Post möchte ich kurz erklären was cdktf ist und wie damit eine TypeScript Lambda erstellt werden kann. Die Motivation dafür kam durch einen [StackOverflow Beitrag](https://stackoverflow.com/questions/74740782/how-to-deploy-lambda-using-terraform-created-by-cdktf). Zuerst erkläre ich kurz was cdktf überhaupt ist und wie es Initialisiert werden kann. Danach zeige ich die Lösung für die TypeScript Lambda.
 
-## Was ist cdktf
+## Was ist cdktf?
 
 Das Cloud Development Kit for Terraform (cdktf) ist ein Toolkit zum Erstellen un managen von Cloud Infrastruktur wie AWS oder Azure mit Terraform. Es erlaubt dir die Infrastruktur mittels einer Programmiersprache wie TypeScript oder Python zu definieren.
 
@@ -25,11 +25,31 @@ cdktf init --template="typescript"
 cdktf provider add "aws@~>4.0"
 ```
 
-* Prettier und Linter hinzufügen
-* Adding Lambda module from community
+Optional kannst du noch Prettier und Linter hinzufügen. In den meisten meiner Projekte verwende ich diese da sie mir ein schnelles Entwickeln erlauben ohne das ich mir Gedanken um die Formatierung machen muss.
+
+Ich verwende das [Community Terraform Lambda Modul](https://github.com/terraform-aws-modules/terraform-aws-lambda) für die Lambda. Es erlaubt mir in nur wenigen Zeilen eine Lambda zu definieren welches mit einer Rolle konfiguriert wird und auch einfach um Policies erweitert werden kann. Das coole ist, dass cdktf eine Type-Importierung unterstützt. Dafür muss einfach in dem cdktf.json file folgendes Modul hinzugefügt werden:
+
+```json
+"terraformModules": [
+    {
+      "name": "lambda",
+      "source": "terraform-aws-modules/lambda/aws",
+      "version": "~> 3.0"
+    }
+  ],
+```
+
+Anschließend wird der cdktf get befehl ausgeführt:
 
 ```bash
 cdktf get
+```
+
+Nun kann im cdktf code das Modul verwendet werden:
+
+```ts
+import { Lambda } from './../.gen/modules/lambda';
+...
 ```
 
 Falls die Lambda eigene Dependencies hat müssen diese noch installiert werden mit:
@@ -47,7 +67,7 @@ cdktf deploy
 
 ## Code
 
-Die Lambda kann dann zum Beispiel in die main.ts so integriert werden:
+Die Lambda kann dann zum Beispiel in die main.ts integriert werden:
 
 ```ts
 import { NodejsFunction } from './constructs/nodejs-function';
