@@ -3,7 +3,7 @@ title: Erstelle ein Startup mit AWS CDK
 show: "no"
 date: "2022-07-10"
 image: "lambda.png"
-tags: ["de", "2022", "aws", "cdk" "nofeed"] #nofeed
+tags: ["de", "2022", "aws", "cdk", "nofeed"] #nofeed
 engUrl: https://martinmueller.dev/cdk-startup-eng
 pruneLength: 50 #du
 ---
