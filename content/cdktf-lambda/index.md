@@ -2,7 +2,7 @@
 title: TypeScript Lambda mit CDKTF
 show: "no"
 date: "2022-12-14"
-image: "lambda.png"
+image: "index.png"
 tags: ["de", "2022", "aws", "cdktf" "nofeed"] #nofeed
 engUrl: https://martinmueller.dev/cdktf-lambda-eng
 pruneLength: 50 #du
