@@ -10,7 +10,7 @@ pruneLength: 50 #du
 
 Hi,
 
-In this blog post, I want to briefly explain what cdktf is and how you can use it to create a TypeScript Lambda. The motivation for this came from a [StackOverflow post](https://stackoverflow.com/questions/74740782/how-to-deploy-lambda-using-terraform-created-by-cdktf). First, I briefly explain what cdktf is in the first place and how to initialize it. Then I show the solution for the TypeScript lambda.
+In this blog post, I want to briefly explain what cdktf is and how you can use it to create a TypeScript Lambda. The motivation for this came from a [StackOverflow post](https://stackoverflow.com/questions/74740782/how-to-deploy-lambda-using-terraform-created-by-cdktf).
 
 ## What is cdktf?
 
@@ -32,9 +32,9 @@ I use the [Community Terraform Lambda Module](https://github.com/terraform-aws-m
 ```json
 "terraformModules": [
     {
-      }, "name": "lambda",
+      "name": "lambda",
       "source": "terraform-aws-modules/lambda/aws",
-      "version": ``3.0"
+      "version": "~> 3.0"
     }
   ],
 ```
