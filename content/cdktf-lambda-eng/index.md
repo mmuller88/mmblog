@@ -25,9 +25,9 @@ cdktf init --template="typescript"
 cdktf provider add "aws@~>4.0"
 ```
 
-Optionally you can add prettier and linter. In most of my projects I use these because they allow me to develop quickly without having to worry about formatting.
+Optionally you can add prettier and linter. In most of my projects, I use these because they allow me to develop quickly without having to worry about formatting.
 
-I use the [Community Terraform Lambda Module](https://github.com/terraform-aws-modules/terraform-aws-lambda) to define the lambda. It allows me to define a lambda in just a few lines that is configured with a role and can also be easily extended with policies. The cool thing is that cdktf supports a type import. To do this, simply add the following module to the cdktf.json file:
+I use the [Community Terraform Lambda Module](https://github.com/terraform-aws-modules/terraform-aws-lambda) to define the lambda. It allows me to define a lambda in just a few lines that are configured with a role and can also be easily extended with policies. The cool thing is that cdktf supports a type import. To do this, simply add the following module to the cdktf.json file:
 
 ```json
 "terraformModules": [
@@ -162,11 +162,11 @@ As can be seen, esbuild bundles the TypeScript code to JavaScript code every tim
 
 ## Conclusion
 
-Building TypeScript lambdas with cdktf requires a bit more effort compared to aws cdk TypeScript lambdas. Still, that effort is kept in check and I've shown you how to do it here. If you found the post helpful, please let me know!
+Building TypeScript lambdas with cdktf require a bit more effort compared to aws cdk TypeScript lambdas. Still, that effort is kept in check and I've shown you how to do it here. If you found the post helpful, please let me know!
 
 Ich liebe es, an Open-Source-Projekten zu arbeiten. Viele Dinge kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88). Wenn du meine Arbeit dort und meine Blog-Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen:
 
-I love to work on Open Source projects. A lot of my stuff you can already use on <https://github.com/mmuller88> . If you like my work there and my blog posts, please consider supporting me on:
+I love to work on Open Source projects. A lot of my stuff you can already use on <https://github.com/mmuller88> . If you like my work there and my blog posts, please consider supporting me on the:
 
 [![Buy me a Ko-Fi](https://storage.ko-fi.com/cdn/useruploads/png_d554a01f-60f0-4969-94d1-7b69f3e28c2fcover.jpg?v=69a332f2-b808-4369-8ba3-dae0d1100dd4)](https://ko-fi.com/T6T1BR59W)
 
