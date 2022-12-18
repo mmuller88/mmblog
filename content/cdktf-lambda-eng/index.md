@@ -108,7 +108,57 @@ new MyStack(app, 'cdktf-lambda');
 app.synth();
 ```
 
-So I use the custom construct NodejsFunction to bundle the code from TypeScript into JavaScript and show the lambda where to find the bundled JavaScript code.
+So I use the custom construct NodejsFunction to bundle the code from TypeScript into JavaScript and show the lambda where to find the bundled JavaScript code. The NodejsFunction Construct looks like that:
+
+```ts
+import { AssetType, TerraformAsset } from 'cdktf';
+import { Construct } from 'constructs';
+import { buildSync } from 'esbuild';
+import * as path from 'path';
+
+export interface NodejsFunctionProps {
+  readonly path: string;
+}
+
+const bundle = (workingDirectory: string, entryPoint: string) => {
+  buildSync({
+    entryPoints: [entryPoint],
+    platform: 'node',
+    target: 'es2018',
+    bundle: true,
+    format: 'cjs',
+    sourcemap: 'external',
+    outdir: 'dist',
+    absWorkingDir: workingDirectory,
+  });
+
+  return path.join(workingDirectory, 'dist');
+};
+
+export class NodejsFunction extends Construct {
+  public readonly asset: TerraformAsset;
+  public readonly bundledPath: string;
+
+  constructor(scope: Construct, id: string, props: NodejsFunctionProps) {
+    super(scope, id);
+
+    const workingDirectory = path.resolve(path.dirname(props.path));
+    const distPath = bundle(workingDirectory, path.basename(props.path));
+
+    this.bundledPath = path.join(
+      distPath,
+      `${path.basename(props.path, '.ts')}.js`,
+    );
+
+    this.asset = new TerraformAsset(this, 'lambda-asset', {
+      path: distPath,
+      type: AssetType.ARCHIVE,
+    });
+  }
+}
+```
+
+As can be seen, esbuild bundles the TypeScript code to JavaScript code every time `cdktf deploy` is executed.
 
 ## Conclusion
 
