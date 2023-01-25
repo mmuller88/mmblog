@@ -10,7 +10,7 @@ pruneLength: 50 #du
 
 Hi,
 
-Mich reizt es sehr ein SaaS Produkt zu entwickeln. Ich besitze zwar die nötigen technischen Skills aber leider fehlt mir die Idee. In der [Minimalempires Community](https://community.minimalempires.de/) habe ich einen tollen CoFounder mit einer tollen Idee gefunden. Mit der Low-Code Plattform [ninox.com](https://ninox.com) wollen wir diese Idee validieren und bauen ein MVP (Minimal Viable Product). Bisher hatte ich noch keine Erfahrungen mit Low-Code und konnte mir auch nicht vorstellen, dass solche nützlich für mich sind, da ich bereits viel Erfahrung mit Frontend und Backend besitze. Ich wurde ganz klar eines besseren belehrt! In den nächsten Absätzen will ich erklären was ninox.com ist und wie es uns hilft einen Prototypen zu entwickeln.
+Mich reizt es sehr ein SaaS Produkt zu entwickeln. In der [Minimalempires Community](https://community.minimalempires.de/) habe ich einen tollen CoFounder mit einer tollen Idee gefunden. Mit der Low-Code Plattform [ninox.com](https://ninox.com) wollen wir diese Idee validieren und bauen ein Prototypen. Bisher hatte ich noch keine Erfahrungen mit Low-Code und konnte mir auch nicht vorstellen, dass solche nützlich für mich sind, da ich bereits viel Erfahrung mit Frontend und Backend besitze. Ich wurde ganz klar eines besseren belehrt! In den nächsten Absätzen will ich erklären was ninox.com ist und wie es uns hilft einen Prototypen zu entwickeln.
 
 ## ninox.com
 
@@ -18,7 +18,7 @@ Mich reizt es sehr ein SaaS Produkt zu entwickeln. Ich besitze zwar die nötigen
 
 ## Meine Erfahrung mit ninox.com
 
-Die Entwicklung eines Prototypen geht mit ninox.com super schnell. Die Definition der Tabelle, also welche Spalten und Spaltentypen die jeweilige Tabelle inne hat, dient quasi auch zur Erstellung der UI. Somit kann super schnell ein Datenmodell und eine darauf aufbauende UI entwickelt werden. Ninox.com hat sich echt coole in pfiffige Ideen überlegt wie Datenbanken sinnvoll und nativ mit einer konfigurierbaren UI verbunden werden kann.
+Die Entwicklung eines Prototypen geht mit ninox.com super schnell. Die Definition der Tabelle, also welche Spalten und Spaltentypen die jeweilige Tabelle inne hat, dient quasi auch zur Erstellung der UI. Somit kann super schnell ein Datenmodell und eine darauf aufbauende UI entwickelt werden. Ninox.com hat sich echt coole in pfiffige Ideen überlegt wie eine Datenbanken sinnvoll und nativ mit einer konfigurierbaren UI verbunden werden kann.
 
 Auch die bereits vorhandene Userverwaltung funktioniert sehr gut. Damit lassen sich einfache Rollen und Permission Schemata gut abbilden.
 
