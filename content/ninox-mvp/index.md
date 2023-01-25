@@ -1,7 +1,7 @@
 ---
-title: Mit ninox.com zum MVP
+title: Mit ninox.com zum Prototypen deines SaaS Produkt
 show: "no"
-date: "2023-01-03"
+date: "2023-02-01"
 image: "index.png"
 tags: ["de", "2023", "ninox", "nofeed"]
 engUrl: https://martinmueller.dev/ninox-mvp-eng
@@ -10,7 +10,7 @@ pruneLength: 50 #du
 
 Hi,
 
-Mich reizt es sehr ein SaaS Produkt zu entwickeln. Ich besitze zwar die nötigen technischen Skills aber leider fehlt mir die Idee. In der [Minimalempires Community](https://community.minimalempires.de/) habe ich einen tollen CoFounder mit einer tollen Idee gefunden. Mit der Low-Code Plattform [ninox.com](https://ninox.com) wollen wir diese Idee validieren und bauen ein MVP (Minimal Viable Product). Bisher hatte ich noch keine Erfahrungen mit Low-Code und konnte mir auch nicht vorstellen, dass solche nützlich für mich sind, da ich bereits viel Erfahrung mit Frontend und Backend besitze. Ich wurde ganz klar eines besseren belehrt! In den nächsten Absätzen will ich erklären was ninox.com ist und wie es uns hilft ein MVP zu entwickeln.
+Mich reizt es sehr ein SaaS Produkt zu entwickeln. Ich besitze zwar die nötigen technischen Skills aber leider fehlt mir die Idee. In der [Minimalempires Community](https://community.minimalempires.de/) habe ich einen tollen CoFounder mit einer tollen Idee gefunden. Mit der Low-Code Plattform [ninox.com](https://ninox.com) wollen wir diese Idee validieren und bauen ein MVP (Minimal Viable Product). Bisher hatte ich noch keine Erfahrungen mit Low-Code und konnte mir auch nicht vorstellen, dass solche nützlich für mich sind, da ich bereits viel Erfahrung mit Frontend und Backend besitze. Ich wurde ganz klar eines besseren belehrt! In den nächsten Absätzen will ich erklären was ninox.com ist und wie es uns hilft einen Prototypen zu entwickeln.
 
 ## ninox.com
 
@@ -18,13 +18,21 @@ Mich reizt es sehr ein SaaS Produkt zu entwickeln. Ich besitze zwar die nötigen
 
 ## Meine Erfahrung mit ninox.com
 
-* super schnelles entwickeln
-* Toller Userverwaltung
-* Kann es kaum erwarten mit unserem ersten Kunden zu arbeiten
+Die Entwicklung eines Prototypen geht mit ninox.com super schnell. Die Definition der Tabelle, also welche Spalten und Spaltentypen die jeweilige Tabelle inne hat, dient quasi auch zur Erstellung der UI. Somit kann super schnell ein Datenmodell und eine darauf aufbauende UI entwickelt werden. Ninox.com hat sich echt coole in pfiffige Ideen überlegt wie Datenbanken sinnvoll und nativ mit einer konfigurierbaren UI verbunden werden kann.
+
+Auch die bereits vorhandene Userverwaltung funktioniert sehr gut. Damit lassen sich einfache Rollen und Permission Schemata gut abbilden.
+
+Die Community von ninox.com ist sehr aktiv und super hilfsbereit. Diese hat mir immer weitergeholfen wenn ich Probleme bei der Implementierung hatte. Probleme bei der Implementierung hatte ich hauptsächlich nur wenn ich die ninox.com native Programmiersprache verwenden musste. Das war zum Beispiel der Fall wenn die datenbank queries brauchte und auf diesem bestimmte Berechnungen machen musste.
+
+## Mit ninox.com zum vollständigen Produkt?
+
+Nein! Wir stossen wir jetzt schon auf Limitationen die mit herkömmlichen Tech-Stacks wie [MERN](https://www.mongodb.com/mern-stack) leichter behebbar wären. Auch das fehlen einer Git-Integration was die Entwicklung schwerer macht, da wichtige Tools wie Versionierung und Pull Requests fehlen.
 
 ## Fazit
 
-* Ninox is super für die schnelle Entwicklung eines MVP. Allerdings stossen wir jetzt schon auf Limitationen die mit herkömmlichen tech Stacks wie MERN leichter beheba wären.
+Ninox is super für die schnelle Entwicklung eines Prototypen. Darüber hinaus eignet es sich wahrscheinlich nicht für die Entwicklung eines SaaS Produkts. Das war und ist auch nicht der Use-Case von ninox.com weshalb das auch total ok ist. Trotzdem bin ich super beeindruckt wie gut es sich für unseren Prototypen geeignet hat und bin mehr als bereit ninox.com wiederzuverwenden!
+
+Vielen Dank auch an meinen CoFounder. Es macht mir super viel Spass mit dir zusammen an unserem Produkt, Vision und Zukunft zu arbeiten. Du bist super motiviert und engagiert. Ich freue mich schon wahnsinnig auf unsere weitere Zusammenarbeiten 2023 :)!
 
 Ich liebe es, an Open-Source-Projekten zu arbeiten. Viele Dinge kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88). Wenn du meine Arbeit dort und meine Blog-Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen:
 
