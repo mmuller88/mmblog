@@ -164,8 +164,6 @@ As can be seen, esbuild bundles the TypeScript code to JavaScript code every tim
 
 Building TypeScript lambdas with cdktf require a bit more effort compared to aws cdk TypeScript lambdas. Still, that effort is kept in check and I've shown you how to do it here. If you found the post helpful, please let me know!
 
-Ich liebe es, an Open-Source-Projekten zu arbeiten. Viele Dinge kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88). Wenn du meine Arbeit dort und meine Blog-Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen:
-
 I love to work on Open Source projects. A lot of my stuff you can already use on <https://github.com/mmuller88> . If you like my work there and my blog posts, please consider supporting me on the:
 
 [![Buy me a Ko-Fi](https://storage.ko-fi.com/cdn/useruploads/png_d554a01f-60f0-4969-94d1-7b69f3e28c2fcover.jpg?v=69a332f2-b808-4369-8ba3-dae0d1100dd4)](https://ko-fi.com/T6T1BR59W)

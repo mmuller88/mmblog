@@ -1,7 +1,7 @@
 ---
 title: Mit ninox.com zum Prototypen deines SaaS Produkt
 show: "no"
-date: "2023-02-01"
+date: "2023-01-29"
 image: "index.png"
 tags: ["de", "2023", "ninox", "nofeed"]
 engUrl: https://martinmueller.dev/ninox-mvp-eng
@@ -22,7 +22,7 @@ Die Entwicklung eines Prototypen geht mit ninox.com super schnell. Die Definitio
 
 Auch die bereits vorhandene Userverwaltung funktioniert sehr gut. Damit lassen sich einfache Rollen und Permission Schemata gut abbilden.
 
-Die Community von ninox.com ist sehr aktiv und super hilfsbereit. Diese hat mir immer weitergeholfen wenn ich Probleme bei der Implementierung hatte. Probleme bei der Implementierung hatte ich hauptsächlich nur wenn ich die ninox.com native Programmiersprache verwenden musste. Das war zum Beispiel der Fall wenn die datenbank queries brauchte und auf diesem bestimmte Berechnungen machen musste.
+Die Community von ninox.com ist sehr aktiv und super hilfsbereit. Diese hat mir immer weitergeholfen wenn ich Probleme bei der Implementierung hatte. Probleme bei der Implementierung hatte ich hauptsächlich nur wenn ich die ninox.com native Programmiersprache verwenden musste. Das war zum Beispiel der Fall wenn die Datenbank queries brauchte und auf diesem bestimmte Berechnungen machen musste.
 
 ## Mit ninox.com zum vollständigen Produkt?
 
