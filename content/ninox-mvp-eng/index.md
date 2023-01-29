@@ -1,16 +1,16 @@
 ---
 title: Building a Prototype with ninox.com for your SaaS Product
-show: "no"
+show: "yes"
 date: "2023-01-29"
 image: "index.png"
-tags: ["eng", "2023", "ninox", "nofeed"]
+tags: ["eng", "2023", "ninox"] #"nofeed"
 gerUrl: https://martinmueller.dev/ninox-mvp
 pruneLength: 50 #du
 ---
 
 Hi,
 
-I am very excited to develop a SaaS product. In the [Minimalempires Community](https://community.minimalempires.de/) I found a great CoFounder with a great idea. With the low-code platform [ninox.com](https://ninox.com) we want to validate this idea and build a prototype. So far I had no experience with low-code and could not imagine that such would be useful for me, since I already have a lot of experience with frontend and backend. I was clearly taught better! In the next paragraphs I will explain what ninox.com is and how it helps us to develop a prototype.
+I am very excited to work on our SaaS product. In the [Minimalempires Community](https://community.minimalempires.de/) I found a great CoFounder with a great idea. With the low-code platform [ninox.com](https://ninox.com) we want to validate this idea and build a prototype. So far I had no experience with low-code and could not imagine that such would be useful for me, since I already have a lot of experience with frontend and backend. I was clearly taught better! In the next paragraphs I will explain what ninox.com is and how it helps us to develop a prototype.
 
 ## ninox.com
 

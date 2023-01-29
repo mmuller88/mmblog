@@ -10,7 +10,7 @@ pruneLength: 50 #du
 
 Hi,
 
-Mich reizt es sehr ein SaaS Produkt zu entwickeln. In der [Minimalempires Community](https://community.minimalempires.de/) habe ich einen tollen CoFounder mit einer tollen Idee gefunden. Mit der Low-Code Plattform [ninox.com](https://ninox.com) wollen wir diese Idee validieren und bauen ein Prototypen. Bisher hatte ich noch keine Erfahrungen mit Low-Code und konnte mir auch nicht vorstellen, dass solche nützlich für mich sind, da ich bereits viel Erfahrung mit Frontend und Backend besitze. Ich wurde ganz klar eines besseren belehrt! In den nächsten Absätzen will ich erklären was ninox.com ist und wie es uns hilft einen Prototypen zu entwickeln.
+Es macht mir viel Spaß unser SaaS Produkt zu entwickeln. In der [Minimalempires Community](https://community.minimalempires.de/) habe ich einen tollen CoFounder mit einer tollen Idee gefunden. Mit der Low-Code Plattform [ninox.com](https://ninox.com) wollen wir diese Idee validieren und bauen ein Prototypen. Bisher hatte ich noch keine Erfahrungen mit Low-Code und konnte mir auch nicht vorstellen, dass solche nützlich für mich sind, da ich bereits viel Erfahrung mit Frontend und Backend besitze. Ich wurde ganz klar eines besseren belehrt! In den nächsten Absätzen will ich erklären was ninox.com ist und wie es uns hilft einen Prototypen zu entwickeln.
 
 ## ninox.com
 
