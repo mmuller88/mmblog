@@ -3,7 +3,7 @@ title: Mit ninox.com zum Prototypen deines SaaS Produkt
 show: "no"
 date: "2023-01-29"
 image: "index.png"
-tags: ["de", "2023", "ninox", "nofeed"]
+tags: ["de", "2023", "ninox"] #"nofeed"
 engUrl: https://martinmueller.dev/ninox-mvp-eng
 pruneLength: 50 #du
 ---
