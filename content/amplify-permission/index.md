@@ -3,7 +3,7 @@ title: Amplify AppSync Permission
 show: "no"
 date: "2023-02-10"
 image: "index.png"
-tags: ["de", "2023", "aws", "cdk", "amplify"]
+tags: ["de", "2023", "aws", "cdk", "amplify", "nofeed"]
 engUrl: https://martinmueller.dev/amplify-permission-eng
 pruneLength: 50 #ihr
 ---
