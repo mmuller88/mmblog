@@ -104,7 +104,9 @@ type Project
 
 Die Lösung besticht durch den reduzieren Platz in der DynamoDB Tabelle. Bei einer grossen Menge an Items würde es aber eine grosse Anzahl an Lambda-Aufrufen bedeuten welche die Kosten in die Höhe treiben. Auch kann der Delay durch den Lambda-Aufruf zu signifikant sein.
 
-## OwnerField
+## JWT Claim
+
+Diese Idee ist wohl die kreativste. Über den pre-token-generation Trigger Lambda kann ein claim gesetzt werden welcher signalisiert, auf welches Item wir zugreifen können. Der Code für Amplify AppSync sieht in etwas so aus:
 
 ```graphql
 type Project
@@ -122,13 +124,62 @@ type Project
 }
 ```
 
-## Permission
+Der Identity-Claim __currentProjectId__ wird durch den pre-token-generation Trigger Lambda gesetzt. Diese Methode finde ich am elegantesten und ich verwende diese in meinen Projekten. 
 
+Der Code für die Lambda könnte in etwas so aussehen:
 
+```ts
+import AppsyncClient from 'appsync-client';
+import * as lambda from 'aws-lambda';
+import {
+  CreateUserDocument,
+  GetUserDocument,
+  Role,
+} from './../../stueli/src/lib/api';
+
+const { APPSYNC_URL } = process.env;
+
+const client = new AppsyncClient({ apiUrl: APPSYNC_URL });
+
+/**
+ * https://www.npmjs.com/package/appsync-client
+ * @param event
+ */
+export async function handler(event: lambda.PreTokenGenerationTriggerEvent) {
+  console.debug(`event: ${JSON.stringify(event)}`);
+
+  const { getUser } = await client.request({
+    query: GetUserDocument,
+    variables: {
+      email: event.request.userAttributes.email,
+    },
+  });
+
+  console.debug(`getUser=${JSON.stringify(getUser ?? {})}`);
+
+  event.response.claimsOverrideDetails = {
+    claimsToAddOrOverride: {
+      ...(getUser?.currentProjectId
+        ? { currentProjectId: getUser.currentProjectId }
+        : {}),
+    },
+  };
+
+  console.debug(
+    `event.response.claimsOverrideDetails=${JSON.stringify(
+      event.response.claimsOverrideDetails,
+    )}`,
+  );
+
+  return event;
+}
+```
+
+Die Lambda ermittelt zuerst auf welches Project der User zugreifen darf mit __currentProjectId__ und dann setzt sie das Claim `currentProjectId:1234`. Nun muss natürlich noch implementiert werden wie der User die currentProjectId überhaupt wechseln bzw. setzen kann und wie anschliessend das JWT Token neu geladen wird. Bei mir passiert dass wenn der User auf Über den React Router auf das Project klickt. Zuerst wird der currentProjectId Eintrag in der User Tabelle getätigt und dann wird mittels des JWT Refresh Tokens das JWT Token neu geladen. Wenn ihr das gerne im Detail haben möchtet, dann schreibt mir gerne eine Nachricht.
 
 ## Fazit
 
-...
+Ich habe hier unterschiedliche Methoden vorgestellt wie Permissions mit der Amplify AppSync directive @auth realisiert werden können. Wenn ihr noch andere coole Ideen habt, dann lasst es mich gerne wissen.
 
 Ich liebe es, an Open-Source-Projekten zu arbeiten. Viele Dinge kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88). Wenn du meine Arbeit dort und meine Blog-Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen:
 
