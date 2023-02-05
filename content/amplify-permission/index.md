@@ -2,7 +2,7 @@
 title: Amplify AppSync Permission
 show: "no"
 date: "2023-02-10"
-image: "index.png"
+image: "index.jpg"
 tags: ["de", "2023", "aws", "cdk", "amplify", "nofeed"]
 engUrl: https://martinmueller.dev/amplify-permission-eng
 pruneLength: 50 #ihr
@@ -39,7 +39,7 @@ Ziemlich cool oder? Mir nur diesen wenigen Zeilen Amplify AppSync GraphQL Code b
 
 ## Permission für Shared Items
 
-Die Permission zu definieren mit @auth funktioniert sehr gut für einfache Fälle wie dem hier gezeigtem User Beispiel. Aber was ist wenn auf Items von mehreren Benutzern zugegriffen werden soll? Nun hier gibt es verschiedene Möglichkeiten die ich vorstellen möchte und für welche ich mich entschieden habe. Aber zuerst stelle ich die Tabelle mit den gesteilten Items vor:
+Die Permission zu definieren mit @auth funktioniert sehr gut für einfache Fälle wie dem hier gezeigtem User Beispiel. Aber was ist wenn auf Items von mehreren Benutzern zugegriffen werden soll? Nun hier gibt es verschiedene Möglichkeiten die ich vorstellen möchte. Aber zuerst stelle ich die Tabelle mit den gemeinsam genutzten Items vor:
 
 ```graphql
 type Project
@@ -106,7 +106,7 @@ Die Lösung besticht durch den reduzieren Platz in der DynamoDB Tabelle. Bei ein
 
 ## JWT Claim
 
-Diese Idee ist wohl die kreativste. Über den pre-token-generation Trigger Lambda kann ein claim gesetzt werden welcher signalisiert, auf welches Item wir zugreifen können. Der Code für Amplify AppSync sieht in etwas so aus:
+Diese Idee ist wohl die Kreativste. Über den pre-token-generation Trigger Lambda kann ein claim gesetzt werden welcher signalisiert, auf welches Item zugegriffen werden darf. Der Code für Amplify AppSync sieht in etwa so aus:
 
 ```graphql
 type Project
@@ -124,9 +124,9 @@ type Project
 }
 ```
 
-Der Identity-Claim __currentProjectId__ wird durch den pre-token-generation Trigger Lambda gesetzt. Diese Methode finde ich am elegantesten und ich verwende diese in meinen Projekten. 
+Der Identity-Claim __currentProjectId__ wird durch den pre-token-generation Trigger Lambda gesetzt. Diese Methode finde ich am elegantesten und verwende diese in meinen Projekten.
 
-Der Code für die Lambda könnte in etwas so aussehen:
+Der Code für die Lambda könnte in etwa so aussehen:
 
 ```ts
 import AppsyncClient from 'appsync-client';
@@ -175,7 +175,7 @@ export async function handler(event: lambda.PreTokenGenerationTriggerEvent) {
 }
 ```
 
-Die Lambda ermittelt zuerst auf welches Project der User zugreifen darf mit __currentProjectId__ und dann setzt sie das Claim `currentProjectId:1234`. Nun muss natürlich noch implementiert werden wie der User die currentProjectId überhaupt wechseln bzw. setzen kann und wie anschliessend das JWT Token neu geladen wird. Bei mir passiert dass wenn der User auf Über den React Router auf das Project klickt. Zuerst wird der currentProjectId Eintrag in der User Tabelle getätigt und dann wird mittels des JWT Refresh Tokens das JWT Token neu geladen. Wenn ihr das gerne im Detail haben möchtet, dann schreibt mir gerne eine Nachricht.
+Die Lambda ermittelt zuerst auf welches Project der User zugreifen darf mit __currentProjectId__ und dann setzt sie das Claim `currentProjectId:1234`. Nun muss natürlich noch implementiert werden wie der User die currentProjectId überhaupt wechseln bzw. setzen kann und wie anschliessend das JWT Token neu geladen wird. Bei mir passiert dass wenn der User auf Über den React Router auf das Project klickt. Zuerst wird der currentProjectId Eintrag in der User Tabelle getätigt und dann wird mittels des JWT Refresh Tokens das JWT Token neu geladen. Wenn ihr das gerne im Detail haben möchtet, dann schreibt mir.
 
 ## Fazit
 
