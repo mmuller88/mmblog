@@ -1,16 +1,18 @@
 ---
 title: Amplify AppSync Permission
 show: "no"
-date: "2023-02-10"
+date: "2023-02-05"
 image: "index.jpg"
-tags: ["de", "2023", "aws", "cdk", "amplify", "nofeed"]
+tags: ["de", "2023", "aws", "cdk", "amplify"]
 engUrl: https://martinmueller.dev/amplify-permission-eng
 pruneLength: 50 #ihr
 ---
 
 Hi,
 
-Mit Amplify AppSync ist es möglich mit deklarativem Code ein AWS AppSync zu konfigurieren. Mit [Directives](https://docs.amplify.aws/cli-legacy/graphql-transformer/directives/) wie __@model__, __auth__ oder __function__ können andere AWS Services wie DynamoDB, Cognito oder Lambda sinnvoll mit AppSync verbunden werden. Das macht es in meinen Augen zu einem sehr mächtigen Werkzeug. Mit nur wenigen Zeilen GraphQL Code kann quasi schon sehr viel in AWS konfiguriert werden. Nachfolgend siehst du ein Amplify AppSync Beispiel:
+Mit Amplify AppSync ist es möglich mit deklarativem Code ein AWS AppSync zu konfigurieren. Mit [Directives](https://docs.amplify.aws/cli-legacy/graphql-transformer/directives/) wie __@model__, __@auth__ oder __@function__ können andere AWS Services wie DynamoDB, Cognito oder Lambda sinnvoll mit AppSync verbunden werden. Das macht es einem mächtigen Werkzeug. Mit nur wenigen Zeilen GraphQL Code kann quasi schon sehr viel in AWS konfiguriert werden.
+
+Nachfolgend siehst du ein Amplify AppSync Beispiel:
 
 ```graphql
 type User
@@ -29,9 +31,9 @@ type User
 }
 ```
 
-Hier passiert eine ganze Menge! Mit der @model Directive wird automatisch eine DynamoDB Tabelle mit dem Namen User erzeugt welche die User Einträge als DynamoDB Items speichert. Mit @key wird die email als PK (Partition Key) festgelegt. Die Permission, wer also auf die Items zugreifen darf, wird mit @auth festgelegt. Ein User in der Admin Group darf also alle Items querien, mutieren und subscriben.
+Hier passiert eine ganze Menge! Mit der @model Directive wird automatisch eine DynamoDB Tabelle mit dem Namen User erzeugt welche die User Einträge als DynamoDB Items speichert. Mit @key wird die email als PK (Partition Key) festgelegt. Die Permission, wer also auf die Items zugreifen darf, wird mit @auth definiert. Ein User in der Admin Group darf also alle Items querien, mutieren und subscriben.
 
-Mit { allow: private, provider: iam } darf eine IAM Entität welche die erforderlichen Permissions besitzt ebenfalls die Items querien, mutieren und subscriben. Das verwende ich zum Beispiel bei Lambdas die bestimmte Aufgaben durchführen sollen wie dem Erstellen von neuen Usern.
+Mit { allow: private, provider: iam } darf eine IAM Entität welche die erforderlichen Permissions besitzt ebenfalls die Items querien, mutieren und subscriben. Das verwende ich zum Beispiel bei Lambdas die bestimmte Aufgaben durchführen sollen wie dem Erstellen von neuen Usern in der Tabelle wenn sich diese zum ersten mal via Cognito anmelden.
 
 Zu guter Letzt mit { allow: owner, ownerField: "email", identityClaim: "email" } dürfen Cognito User, welche sich über oauth2 identifiziert haben auf ihre Items zugreifen. Der identity claim email wird dabei über das Cognito JWT Token mitgeliefert und wird anschliessend mit der im Item definierten email abgeglichen.
 
@@ -102,7 +104,7 @@ type Project
 }
 ```
 
-Die Lösung besticht durch den reduzieren Platz in der DynamoDB Tabelle. Bei einer grossen Menge an Items würde es aber eine grosse Anzahl an Lambda-Aufrufen bedeuten welche die Kosten in die Höhe treiben. Auch kann der Delay durch den Lambda-Aufruf zu signifikant sein.
+Die Lösung besticht durch den reduzierten Platz in der DynamoDB Tabelle. Bei einer grossen Menge an Items würde es aber eine grosse Anzahl an Lambda-Aufrufen bedeuten welche die Kosten in die Höhe treiben. Auch kann der Delay durch den Lambda-Aufruf zu signifikant sein.
 
 ## JWT Claim
 
@@ -175,7 +177,9 @@ export async function handler(event: lambda.PreTokenGenerationTriggerEvent) {
 }
 ```
 
-Die Lambda ermittelt zuerst auf welches Project der User zugreifen darf mit __currentProjectId__ und dann setzt sie das Claim `currentProjectId:1234`. Nun muss natürlich noch implementiert werden wie der User die currentProjectId überhaupt wechseln bzw. setzen kann und wie anschliessend das JWT Token neu geladen wird. Bei mir passiert dass wenn der User auf Über den React Router auf das Project klickt. Zuerst wird der currentProjectId Eintrag in der User Tabelle getätigt und dann wird mittels des JWT Refresh Tokens das JWT Token neu geladen. Wenn ihr das gerne im Detail haben möchtet, dann schreibt mir.
+Die Lambda ermittelt zuerst auf welches Project der User zugreifen darf mit __currentProjectId__ und dann setzt sie das Claim `currentProjectId:1234`. Nun muss natürlich noch implementiert werden wie der User die currentProjectId überhaupt wechseln bzw. setzen kann und wie anschliessend das JWT Token neu geladen wird.
+
+Bei mir passiert dass wenn der User über den React Router auf das Project klickt. Zuerst wird der currentProjectId Eintrag in der User Tabelle getätigt und dann wird mittels des JWT Refresh Tokens das JWT Token neu geladen. Wenn ihr das gerne im Detail haben möchtet, dann schreibt mir.
 
 ## Fazit
 
