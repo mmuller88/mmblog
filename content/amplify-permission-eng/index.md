@@ -31,13 +31,13 @@ type User
 }
 ```
 
-There is a lot going on here! With the @model directive a DynamoDB table with the name User is automatically created which stores the user entries as DynamoDB items. With @key the email is set as PK (Partition Key). The permission, who is allowed to access the items, is defined with @auth. A user in the admin group is allowed to querry, mutate and subscribe to all items.
+There is a lot going on here! With the @model directive, a DynamoDB table with the name User is automatically created which stores the user entries as DynamoDB items. With @key the email is set as PK (Partition Key). The permission, who is allowed to access the items, is defined with @auth. A user in the admin group is allowed to query, mutate and subscribe to all items.
 
-With { allow: private, provider: iam } an IAM entity that has the required permissions is also allowed to querry, mutate and subscribe to the items. I use this for example with lambdas that should perform certain tasks like creating new users in the table when they log in via cognito for the first time.
+With { allow: private, provider: iam } an IAM entity that has the required permissions is also allowed to querry, mutate and subscribe to the items. I use this for example with lambdas that should perform certain tasks like creating new users in the table when they log in via Cognito for the first time.
 
 Last but not least with { allow: owner, ownerField: "email", identityClaim: "email" } Cognito users who have identified themselves via oauth2 are allowed to access their items. The identity claim email is supplied by the Cognito JWT token and is then matched with the email defined in the item.
 
-Pretty cool, isn't it? With just these few lines of Amplify AppSync GraphQL code we get a lot of functionality.
+Pretty cool, isn't it? With just these few lines of Amplify AppSync GraphQL code, we get a lot of functionality.
 
 ## Permission for shared items
 
@@ -58,7 +58,7 @@ type Project
 }
 ```
 
-A project should be accessible for several users. The simplest approach would be to store the users in a string list.
+A project should be accessible to several users. The simplest approach would be to store the users in a string list.
 
 ## String-List
 
@@ -104,7 +104,7 @@ type Project
 }
 ```
 
-The solution is impressive because of the reduced space in the DynamoDB table. However, with a large amount of items it would mean a large number of lambda calls which would drive up the cost. Also the delay due to the lambda call can be too significant.
+The solution is impressive because of the reduced space in the DynamoDB table. However, with a large number of items it would mean a large number of lambda calls which would drive up the cost. Also, the delay due to the lambda call can be too significant.
 
 ## JWT Claim
 
@@ -177,13 +177,13 @@ export async function handler(event: lambda.PreTokenGenerationTriggerEvent) {
 }
 ```
 
-The Lambda determines first which Project the user may access with __currentProjectId__ and then it sets the claim `currentProjectId:1234`. Now must be implemented of course still like the user the currentProjectId at all change and/or set can and like afterwards the JWT Token is reloaded.
+The Lambda determines first which Project the user may access with __currentProjectId__ and then it sets the claim `currentProjectId:1234`. Now must be implemented of course still like the user the currentProjectId at all change and/or set can and like afterward the JWT Token is reloaded.
 
-In my case this happens when the user clicks on the project via the React router. First the currentProjectId entry is made in the user table and then the JWT token is reloaded using the JWT Refresh token. If you would like to have this in detail, please write me.
+In my case, this happens when the user clicks on the project via the React router. First, the currentProjectId entry is made in the user table and then the JWT token is reloaded using the JWT Refresh token. If you would like to have this in detail, please write me.
 
 ## Conclusion
 
-I have presented here different methods how permissions can be realized with the Amplify AppSync directive @auth. If you have any other cool ideas, feel free to let me know.
+I have presented here different methods of how permissions can be realized with the Amplify AppSync directive @auth. If you have any other cool ideas, feel free to let me know.
 
 I love to work on Open Source projects. A lot of my stuff you can already use on <https://github.com/mmuller88> . If you like my work there and my blog posts, please consider supporting me on the:
 
