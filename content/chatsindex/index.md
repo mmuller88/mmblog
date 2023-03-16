@@ -1,22 +1,36 @@
 ---
 title: Chatsindex - Discord Chat Indexieren
 show: "no"
-date: "2023-02-05"
+date: "2023-03-22"
 image: "index.jpg"
 tags: ["de", "2023", "seo", "chatsindex", "nofeed"]
 engUrl: https://martinmueller.dev/chatsindex-eng
 pruneLength: 50 #ihr
 ---
 
+
+Mit Chatsindex.com kombinierst du SEO und Discord. ...
+
 * Chatsindex zum indexieren deines Discord Chats so dass dieser mit Googel gefunden werden kann
-* Vergrößere deine Followerschaft auf Discord
+* WARUM SEO? -> Vergrößere deine Followerschaft auf Discord
+![pic](./seo.gif)
+
+## Probanden
+
 * Ich suche Probanden um die Idee zu testen.
 
-![pic](./seo.gif)
+## Wie funktiert es?
+
+* Bot in Discord schreibt Messages auf Datenbank
+* Techstack T3-Stack. Alles lokal. NextJS, TailwindCSS, tRPC, Prisma
+
+## Ausblick
+
+* Will es irgendwann nach Vercel oder AWS Amplify deployen wenn es sich lohnt.
 
 ## Fazit
 
-Ich habe hier unterschiedliche Methoden vorgestellt wie Permissions mit der Amplify AppSync directive @auth realisiert werden können. Wenn ihr noch andere coole Ideen habt, dann lasst es mich gerne wissen.
+...
 
 Ich liebe es, an Open-Source-Projekten zu arbeiten. Viele Dinge kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88). Wenn du meine Arbeit dort und meine Blog-Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen:
 
