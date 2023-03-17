@@ -5,24 +5,26 @@ date: "2023-03-22"
 image: "index.jpg"
 tags: ["de", "2023", "seo", "chatsindex", "nofeed"]
 engUrl: https://martinmueller.dev/chatsindex-eng
-pruneLength: 50 #ihr
+pruneLength: 50 #dein
 ---
 
+Vergrößere deine Discord Community mit Chatsindex.com. Chatsindex.com indexiert Messages von ausgewählten Discord Channels und macht diese auffindbar für Suchmaschinen wie Google. Durch SEO wird sichergestellt, dass die Einträge möglichst hoch in den Suchergebnissen erscheinen. So können neue User auf deinen Discord Server gelockt werden.
 
-Mit Chatsindex.com kombinierst du SEO und Discord. ...
+Nachfolgend siehst du ein Beispiel wie ein Discord Channel und die Suchergebnisse aussehen können:
 
-* Chatsindex zum indexieren deines Discord Chats so dass dieser mit Googel gefunden werden kann
-* WARUM SEO? -> Vergrößere deine Followerschaft auf Discord
-![pic](./seo.gif)
+![seo.gif](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/chatsindex/seo.gif)
+
+Die Google Seite ist dabei nur gemocked da es sich noch um einen Prototypen handelt.
 
 ## Probanden
 
-* Ich suche Probanden um die Idee zu testen.
+Klingt diese Idee interessant für dich? Dann melde dich gerne bei mir [https://MartinMueller.dev](https://MartinMueller.dev). Ich suche Probanden mit Discord Servern um die Idee zu testen.
 
 ## Wie funktiert es?
 
-* Bot in Discord schreibt Messages auf Datenbank
-* Techstack T3-Stack. Alles lokal. NextJS, TailwindCSS, tRPC, Prisma
+Ganz grob funktioniert die Idee mit einem Discord Bot der die Nachrichten mitschreibt und in eine Datenbank speichert. Die Datenbank wird dann von einem NextJS Server abgefragt und in eine Suchmaschinen optimierte Seite (SEO) gerendert. Die Seite wird dann von Google gecrawlt und die Einträge sind dann auffindbar.
+
+Der Prototyp ist mit dem [T3 Stack](https://martinmueller.dev/t3-stack) erstellt. Der T3 Stack ist ein NextJS Stack mit TailwindCSS, tRPC und Prisma. Die Datenbank besteht zurzeit noch aus SQLite und wird mit tRPC und Prisma abgefragt. Die Seite wird mit NextJS und TailwindCSS gerendert.
 
 ## Ausblick
 
