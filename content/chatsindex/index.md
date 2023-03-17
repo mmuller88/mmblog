@@ -2,7 +2,7 @@
 title: Chatsindex - Discord Chat Indexieren
 show: "no"
 date: "2023-03-22"
-image: "index.jpg"
+image: "index.png"
 tags: ["de", "2023", "seo", "chatsindex", "nofeed"]
 engUrl: https://martinmueller.dev/chatsindex-eng
 pruneLength: 50 #dein
