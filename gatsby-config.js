@@ -6,21 +6,21 @@ module.exports = {
     author: `@mmuller88`,
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-        googleAnalytics: {
-          trackingId: 'UA-170834724-1',
-          // Setting this parameter is optional
-          // anonymize: true
-        },
-        // facebookPixel: {
-        //   pixelId: 'YOUR_FACEBOOK_PIXEL_ID'
-        // },
-        // Defines the environments where the tracking should be available  - default is ["production"]
-        environments: ['production', 'development']
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-gdpr-cookies`,
+    //   options: {
+    //     googleAnalytics: {
+    //       trackingId: 'UA-170834724-1',
+    //       // Setting this parameter is optional
+    //       // anonymize: true
+    //     },
+    //     // facebookPixel: {
+    //     //   pixelId: 'YOUR_FACEBOOK_PIXEL_ID'
+    //     // },
+    //     // Defines the environments where the tracking should be available  - default is ["production"]
+    //     environments: ['production', 'development']
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
