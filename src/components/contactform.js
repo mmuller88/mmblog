@@ -16,9 +16,12 @@ class ContactForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+
   handleSubmit = e => {
     e.preventDefault()
     const form = this.ContactForm.current
+
+    let url = window?.location?.href ?? 'nothing';
 
     fetch("/", {
       method: "POST",
@@ -26,7 +29,7 @@ class ContactForm extends Component {
       body: this.encode({
         "form-name": form.getAttribute("name"),
         ...this.state,
-        "url": 'test-blub',
+        "url": url,
       }),
     })
       .then(response => {
@@ -43,7 +46,6 @@ class ContactForm extends Component {
   }
 
   render() {
-    let url = typeof window !== 'undefined' ? window.location.href : '';
     return (
       <form
         name="contact"
