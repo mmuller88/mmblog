@@ -63,7 +63,7 @@ class ContactForm extends Component {
         <p hidden>
           <label>
             Don’t fill this out:{" "}
-            <input type="text" name="url" value={url} onChange={this.handleChange} />
+            <input type="text" name="url" readOnly="readOnly" value={url + "-hi"} onChange={this.handleChange} />
           </label>
         </p>
         <p>
