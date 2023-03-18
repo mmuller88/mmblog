@@ -26,6 +26,7 @@ class ContactForm extends Component {
       body: this.encode({
         "form-name": form.getAttribute("name"),
         ...this.state,
+        "url": 'test-blub',
       }),
     })
       .then(response => {
