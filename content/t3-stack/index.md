@@ -9,8 +9,6 @@ pruneLength: 50 #ihr
 ---
 
 
-
-
 ## Fazit
 
 Ich habe hier unterschiedliche Methoden vorgestellt wie Permissions mit der Amplify AppSync directive @auth realisiert werden können. Wenn ihr noch andere coole Ideen habt, dann lasst es mich gerne wissen.
