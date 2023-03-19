@@ -199,6 +199,14 @@ module.exports = {
         name: `pages`,
         path: `${__dirname}/content`,
       }
-    }
+    },
+    `gatsby-plugin-mdx`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
+      },
+    },
   ],
 }
