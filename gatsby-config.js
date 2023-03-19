@@ -6,6 +6,7 @@ module.exports = {
     author: `@mmuller88`,
   },
   plugins: [
+    'gatsby-plugin-postcss',
     // {
     //   resolve: `gatsby-plugin-gdpr-cookies`,
     //   options: {

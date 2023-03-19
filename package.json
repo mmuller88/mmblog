@@ -32,7 +32,11 @@
     "sharp": "^0.31.3"
   },
   "devDependencies": {
-    "prettier": "^2.8.4"
+    "autoprefixer": "^10.4.14",
+    "gatsby-plugin-postcss": "^6.7.0",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.4",
+    "tailwindcss": "^3.2.7"
   },
   "keywords": [
     "gatsby"
