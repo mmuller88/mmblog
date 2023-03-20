@@ -1,5 +1,5 @@
 ---
-title: Chatsindex - Discord Chat Indexieren
+title: [Chatsindex.com](https://Chatsindex.com) - Discord Chat Indexieren
 show: "no"
 date: "2023-03-22"
 image: "index.png"
@@ -8,13 +8,13 @@ engUrl: https://martinmueller.dev/chatsindex-eng
 pruneLength: 50 #dein
 ---
 
-Vergrößere deine Discord Community mit Chatsindex.com. Chatsindex.com indexiert Messages von ausgewählten Discord Channels und macht diese auffindbar für Suchmaschinen wie Google. Durch SEO wird sichergestellt, dass die Einträge möglichst hoch in den Suchergebnissen erscheinen. So können neue User auf deinen Discord Server gelockt werden.
+Vergrößere deine Discord Community mit [Chatsindex.com](https://Chatsindex.com). [Chatsindex.com](https://Chatsindex.com) indexiert Messages von ausgewählten Discord Channels und macht diese auffindbar für Suchmaschinen wie Google. Durch SEO wird sichergestellt, dass die Einträge möglichst hoch in den Suchergebnissen erscheinen. So können neue User auf deinen Discord Server gelockt werden.
 
 Nachfolgend siehst du ein Beispiel wie ein Discord Channel und die Suchergebnisse aussehen können:
 
 ![seo.gif](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/chatsindex/seo.gif)
 
-Die Google Seite ist dabei nur gemocked da es sich noch um einen Prototypen handelt.
+Die Google Seite ist dabei nur gemocked ([Chatsindex.com/search](https://Chatsindex.com/search)) da es sich noch um einen Prototypen handelt.
 
 ## Probanden
 
@@ -22,7 +22,7 @@ Klingt diese Idee interessant für dich? Dann melde dich gerne bei mir [https://
 
 ## Wie funktioniert es?
 
-Ganz grob funktioniert die Idee mit einem Discord Bot der die Nachrichten mitschreibt und in eine Datenbank speichert. Die Datenbank wird dann von einem NextJS Server abgefragt und in eine Suchmaschinen optimierte Seite (SEO) gerendert. Die Seite wird dann von Google gecrawlt und die Einträge sind dann auffindbar.
+Ein Discord Bot schreibt die Nachrichten in eine Datenbank. Die Datenbank wird dann von einem NextJS Server abgefragt und in eine Suchmaschinen optimierte Seite (SEO) gerendert. Die Seite wird dann von Google gecrawlt und die Einträge sind dann auffindbar.
 
 Der Prototyp ist mit dem [T3 Stack](https://martinmueller.dev/t3-stack) erstellt. Der T3 Stack ist ein NextJS Stack mit TailwindCSS, tRPC und Prisma. Die Datenbank besteht zurzeit noch aus SQLite und wird mit tRPC und Prisma abgefragt. Die Seite wird mit NextJS und TailwindCSS gerendert.
 
