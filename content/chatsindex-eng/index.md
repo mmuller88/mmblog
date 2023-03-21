@@ -1,5 +1,5 @@
 ---
-title: Discord Chat Indexing with Chatsindex.com
+title: Chat Indexing with Chatsindex.com
 show: "yes"
 date: "2023-03-21"
 image: "index.png"
@@ -8,7 +8,7 @@ gerUrl: https://martinmueller.dev/chatsindex
 pruneLength: 50 #dein
 ---
 
-Would you like to grow your Discord community? [Chatsindex.com](https://Chatsindex.com) indexes messages from selected Discord channels and makes them findable for search engines like Google. Well will be as this is still a prototype! Through SEO (Search Engine Optimization) it is ensured that the entries appear as high as possible in the search results. This way new users can be attracted to your Discord server.
+Would you like to grow your chat community? [Chatsindex.com](https://Chatsindex.com) indexes chat messages and makes them findable for search engines like Google. Well will be as this is still a prototype! Through SEO (Search Engine Optimization) it is ensured that the entries appear as high as possible in the search results. This way new users can be attracted to your Discord server.
 
 Below you can see an example how a Discord channel and the search results can look like:
 
