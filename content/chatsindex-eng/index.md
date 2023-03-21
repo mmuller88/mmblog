@@ -1,9 +1,9 @@
 ---
 title: Discord Chat Indexing with Chatsindex.com
 show: "yes"
-date: "2023-03-22"
+date: "2023-03-21"
 image: "index.png"
-tags: ["eng", "2023", "seo", "chatsindex", "nofeed"]
+tags: ["eng", "2023", "seo", "chatsindex"]
 gerUrl: https://martinmueller.dev/chatsindex
 pruneLength: 50 #dein
 ---
@@ -18,7 +18,7 @@ The Google page is only mocked ([Chatsindex.com/search](https://Chatsindex.com/s
 
 ## How does it work?
 
-A Discord bot writes the messages into a database. The database is then queried by a NextJS server and rendered into a search engine optimized (SEO) page. The page is then crawled by Google and the entries are then discoverable.
+A Discord bot writes the messages into a database. The database gets queried by a NextJS server and rendered into a search engine optimized (SEO) pages. Google crawls the page and the entries are discoverable.
 
 The prototype is built using the [T3 Stack](https://martinmueller.dev/t3-stack). The T3 stack is a NextJS stack with TailwindCSS, tRPC and Prisma. The database is currently SQLite and is queried with tRPC and Prisma. The page is rendered using NextJS and TailwindCSS.
 
@@ -35,6 +35,8 @@ Another idea of mine is to implement an overarching search for private chats lik
 ## Conclusion
 
 I think the combination of SEO and Discord servers is an exciting idea. For now I want to test the idea and see if there is any demand for it. If you are interested, feel free to contact me.
+
+Using the [T3 Stack](https://martinmueller.dev/t3-stack) was super fun and it took me just like a weekend to sketch out this little prototype. If you need help with your idea or project reach out to me as well!
 
 Thanks to the [DeepL translater (free version)](https://DeepL.com/Translator) for helping with translating to english and saving me tons of time :).
 

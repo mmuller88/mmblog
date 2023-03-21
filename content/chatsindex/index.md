@@ -1,9 +1,9 @@
 ---
 title: Discord Chat Indexieren mit Chatsindex.com
 show: "no"
-date: "2023-03-22"
+date: "2023-03-21"
 image: "index.png"
-tags: ["de", "2023", "seo", "chatsindex", "nofeed"]
+tags: ["de", "2023", "seo", "chatsindex"]
 engUrl: https://martinmueller.dev/chatsindex-eng
 pruneLength: 50 #dein
 ---
@@ -35,6 +35,8 @@ Eine weitere Idee von mir ist eine übergreifende Suche für private Chats wie D
 ## Fazit
 
 Die Kombination aus SEO und Discord Servern empfinde ich als eine spannende Idee. Jetzt geht es mir erstmal darum die Idee zu testen und zu schauen ob es überhaupt eine Nachfrage gibt. Falls du Interesse hast, melde dich gerne bei mir.
+
+Den [T3 Stack](https://martinmueller.dev/t3-stack) zu verwenden hat viel Spaß gemacht und ich habe nur ein Wochenende benötigt für diesen Prototypen. Falls du Hilfe bei deiner Idee oder Projekten braucht, kontaktiere mich gerne.
 
 Ich liebe es, an Open-Source-Projekten zu arbeiten. Viele Dinge kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88). Wenn du meine Arbeit dort und meine Blog-Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen:
 
