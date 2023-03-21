@@ -8,7 +8,7 @@ engUrl: https://martinmueller.dev/chatsindex-eng
 pruneLength: 50 #dein
 ---
 
-Möchtest du deine Discord Community vergrößern? [Chatsindex.com](https://Chatsindex.com) indexiert Messages von ausgewählten Discord Channels und macht diese auffindbar für Suchmaschinen wie Google. Durch SEO (Search Engine Optimization) wird sichergestellt, dass die Einträge möglichst hoch in den Suchergebnissen erscheinen. So können neue User auf deinen Discord Server gelockt werden.
+Möchtest du deine Discord Community vergrößern? [Chatsindex.com](https://Chatsindex.com) indexiert Messages von ausgewählten Discord Channels und macht diese auffindbar für Suchmaschinen wie Google. Zugegeben es wird das machen weil es zurzeit noch ein Prototype ist! Durch SEO (Search Engine Optimization) wird sichergestellt, dass die Einträge möglichst hoch in den Suchergebnissen erscheinen. So können neue User auf deinen Discord Server gelockt werden.
 
 Nachfolgend siehst du ein Beispiel wie ein Discord Channel und die Suchergebnisse aussehen können:
 
