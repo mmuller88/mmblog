@@ -1,5 +1,5 @@
 ---
-title: [Chatsindex.com](https://Chatsindex.com) - Discord Chat Indexieren
+title: Discord Chat Indexieren mit Chatsindex.com
 show: "no"
 date: "2023-03-22"
 image: "index.png"
