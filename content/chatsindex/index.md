@@ -8,7 +8,7 @@ engUrl: https://martinmueller.dev/chatsindex-eng
 pruneLength: 50 #dein
 ---
 
-Vergrößere deine Discord Community mit [Chatsindex.com](https://Chatsindex.com). [Chatsindex.com](https://Chatsindex.com) indexiert Messages von ausgewählten Discord Channels und macht diese auffindbar für Suchmaschinen wie Google. Durch SEO wird sichergestellt, dass die Einträge möglichst hoch in den Suchergebnissen erscheinen. So können neue User auf deinen Discord Server gelockt werden.
+Möchtest du deine Discord Community vergrößern? [Chatsindex.com](https://Chatsindex.com) indexiert Messages von ausgewählten Discord Channels und macht diese auffindbar für Suchmaschinen wie Google. Durch SEO (Search Engine Optimization) wird sichergestellt, dass die Einträge möglichst hoch in den Suchergebnissen erscheinen. So können neue User auf deinen Discord Server gelockt werden.
 
 Nachfolgend siehst du ein Beispiel wie ein Discord Channel und die Suchergebnisse aussehen können:
 
@@ -16,21 +16,21 @@ Nachfolgend siehst du ein Beispiel wie ein Discord Channel und die Suchergebniss
 
 Die Google Seite ist dabei nur gemocked ([Chatsindex.com/search](https://Chatsindex.com/search)) da es sich noch um einen Prototypen handelt.
 
-## Probanden
-
-Klingt diese Idee interessant für dich? Dann melde dich gerne bei mir [https://MartinMueller.dev](https://MartinMueller.dev). Ich suche Probanden mit Discord Servern um die Idee zu testen.
-
 ## Wie funktioniert es?
 
 Ein Discord Bot schreibt die Nachrichten in eine Datenbank. Die Datenbank wird dann von einem NextJS Server abgefragt und in eine Suchmaschinen optimierte Seite (SEO) gerendert. Die Seite wird dann von Google gecrawlt und die Einträge sind dann auffindbar.
 
 Der Prototyp ist mit dem [T3 Stack](https://martinmueller.dev/t3-stack) erstellt. Der T3 Stack ist ein NextJS Stack mit TailwindCSS, tRPC und Prisma. Die Datenbank besteht zurzeit noch aus SQLite und wird mit tRPC und Prisma abgefragt. Die Seite wird mit NextJS und TailwindCSS gerendert.
 
+## Probanden
+
+Klingt diese Idee interessant für dich? Dann melde dich gerne bei mir [https://MartinMueller.dev](https://MartinMueller.dev). Ich suche Probanden mit Discord Servern um die Idee zu testen.
+
 ## Ausblick
 
-Falls die Idee gut ankommt, möchte ich gerne andere private Chatsysteme wie WhatsApp Gruppen, Telegram Gruppen, Slack Workspaces, etc. indexieren.
+Falls die Idee gut ankommt, möchte ich gerne andere private Chatsysteme wie WhatsApp Gruppen, Telegram Gruppen, Slack, etc. indexieren.
 
-Eine weitere Idee wäre es quasi eine Chatsysteme (WhatsApp Gruppen, Telegram Gruppen, Slack Workspaces usw.) übergreifende Suche für bestimmte Schlagwörter oder Kategorien zu implementieren. Ähnlich wie YouTube es erlaubt mit wenigen Schlagwörtern Videos zu finden, könnte man somit nach Discord Servern mit bestimmten Themeninhalten suchen. Z.B. Wenn ich mich für finanzielle Bildung interessiere, kann ich dann einfach in der Suche Finanzen eingeben und es werden mir Discord Server, WhatsApp/Telegram Gruppen usw. mit dem Themenschwerpunkt Finanzen vorgestellt. Wenn euch die Idee gefällt, wendet euch gerne an mich.
+Eine weitere Idee von mir ist eine übergreifende Suche für private Chats wie Discord, WhatsApp Gruppen, Telegram Gruppen und Slack zu implementieren. Mit bestimmten Schlagwörtern oder Kategorien können dann private Chats mit bestimmten Themeninhalten gefunden werden. Zum Beispiel wenn ich mich für finanzielle Bildung interessiere, kann ich dann einfach in der Suche Finanzen eingeben und es werden mir Discord Server, WhatsApp/Telegram Gruppen usw. mit dem Themenschwerpunkt Finanzen vorgestellt. Wenn euch die Idee gefällt, wendet euch gerne an mich.
 
 ## Fazit
 
