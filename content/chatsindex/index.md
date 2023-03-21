@@ -3,7 +3,7 @@ title: Chat Indexieren mit Chatsindex.com
 show: "no"
 date: "2023-03-21"
 image: "index.png"
-tags: ["de", "2023", "seo", "chatsindex"]
+tags: ["de", "2023", "seo", "nextjs", "prisma", "trpc"]
 engUrl: https://martinmueller.dev/chatsindex-eng
 pruneLength: 50 #dein
 ---
