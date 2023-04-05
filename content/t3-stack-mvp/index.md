@@ -1,9 +1,9 @@
 ---
-title: Prototype / MVP - What, Why and How
-show: "no"
+title: Create your Prototype or MVP with the T3 Stack
+show: "yes"
 date: "2023-04-05"
 image: "index.png"  
-tags: ["eng", "2023", "mvp", "nextjs", "prisma", "trpc", "t3", "nofeed"]
+tags: ["eng", "2023", "mvp", "nextjs", "prisma", "trpc", "t3"]
 pruneLength: 50
 ---
 
