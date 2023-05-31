@@ -29,8 +29,17 @@ Passionate Full Stack Developer. I like to have a broad collection of skills. Fr
 
 ## Testimonials
 
-[![pic](../resume/testimonialAdrian.png)](https://www.linkedin.com/in/adrian-logan-a52027b5)
-[![pic](../resume/testimonialEric.png)](https://www.linkedin.com/in/ericamberg)
+### Adrian Logan
+
+[![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/resume/testimonialAdrian.png)](https://www.linkedin.com/in/adrian-logan-a52027b5)
+
+I cannot recommend Martin Muller highly enough for his exceptional work in setting up our web application backend using the AWS CDK. Martin's expertise and efficiency have been instrumental in meeting project deadlines and ensuring a smooth deployment. The quality of his work is consistently top-notch, which gives me the utmost confidence in the final product. Additionally, Martin's ability to work quickly without sacrificing attention to detail has been invaluable to our team. His dedication and professionalism have made it a pleasure to collaborate with him, and I am confident that anyone who works with Martin will be similarly impressed by his talents.
+
+### Eric Amberg
+
+[![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/resume/testimonialEric.png)](https://www.linkedin.com/in/ericamberg)
+
+Martin built the sophisticated AWS infrastructure for our online lab environments. Working with him was characterized by very good communication and a very fast implementation of the tasks set. Martin works very professionally and has great experience with AWS environments. He is able to quickly grasp the requirements and promptly develop solution approaches. His concepts are scalable and comply with best practices in cloud environments. Thanks to his support, we got a stable cloud environment for our HackLabs in a very short time, which we still use today.
 
 ## Experience
 
