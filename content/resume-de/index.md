@@ -26,6 +26,20 @@ Begeisterter Full Stack Entwickler. Ich mag es viele unterschiedliche und nützl
 - Docker, Kubernetes, Helm
 - Spring, GitHub (Actions), Travis, GitLab, BitBucket
 
+## Testimonials
+
+### Adrian Logan
+
+[![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/resume/testimonialAdrian.png)](https://www.linkedin.com/in/adrian-logan-a52027b5)
+
+Ich kann Martin nur wärmstens empfehlen für seine außergewöhnliche Arbeit bei der Einrichtung unseres Webanwendungs-Backends mithilfe von AWS CDK. Martins Fachwissen und Effizienz haben maßgeblich dazu beigetragen, die Projektfristen einzuhalten und eine reibungslose Bereitstellung sicherzustellen. Die Qualität seiner Arbeit ist stets erstklassig, was mir größtes Vertrauen in das Endprodukt gibt. Darüber hinaus war Martins Fähigkeit, schnell zu arbeiten, ohne die Liebe zum Detail zu opfern, für unser Team von unschätzbarem Wert. Sein Engagement und seine Professionalität haben die Zusammenarbeit mit ihm zu einer Freude gemacht, und ich bin zuversichtlich, dass jeder, der mit Martin zusammenarbeitet, von seinen Talenten gleichermaßen beeindruckt sein wird.
+
+### Eric Amberg
+
+[![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/resume/testimonialEric.png)](https://www.linkedin.com/in/ericamberg)
+
+Martin hat die anspruchsvolle AWS-Infrastuktur für unsere Online-Laborumgebungen aufgebaut. Die Arbeit mit ihm war gekennzeichnet durch sehr gute Kommunikation und eine sehr schnelle Umsetzung der gestellte Aufgaben. Martin arbeitet sehr professionell und verfügt über große Erfahrung mit AWS-Umgebungen. Er ist in der Lage, die Anforderungen schnell zu erfassen und umgehend Lösungsansätze zu entwickeln. Seine Konzepte sind skalierbar und entsprechen Best Practices in Cloud-Umgebungen. Dank seiner Unterstützung haben wir in sehr kurzer Zeit eine stabile Cloud-Umgebung für unsere HackLabs erhalten, die wir bis heute unverändert nutzen.
+
 ## Erfahrungen
 
 AWS Community Builder \
