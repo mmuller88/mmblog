@@ -7,13 +7,15 @@ tags: ["de", "2023", "nextjs", "tailwind", "trpc", "prisma", "nofeed"]
 pruneLength: 50 #ihr
 ---
 
-For developing an MVP (Minimal Viable Product), I'm all in to the [T3 Stack](https://martinmueller.dev/t3-stack-mvp). The T3 Stack consist of the following components: NextJS, TailwindCSS, trpc and prisma. That gives you an amazing developer experience when developing. I really think it can beat no-code and low-code solutions when developing your MVP. [Theo]() was so kind to record a video for how to develop a [Twitter clone with the T3 Stack](https://www.youtube.com/watch?v=YkOSUVzOAA4). I surely learned a ton out of that video and not only about the T3 Stack, moreover of how to become a better developer. I will share my learnings with you in this post.
+For developing an MVP (Minimal Viable Product), I'm all with the [T3 Stack](https://martinmueller.dev/t3-stack-mvp). The T3 Stack consist of the following components: NextJS, TailwindCSS, trpc and prisma. That gives you an amazing developer experience when developing. I really think it can beat no-code and low-code experiences when developing your MVP. [Theo]() was so kind to record a video for how to develop a [Twitter clone with the T3 Stack](https://www.youtube.com/watch?v=YkOSUVzOAA4). I surely learned a ton out of that video and not only about the T3 Stack, moreover of how to become a better frontend developer at all. I will share my learnings with you in this post.
 
 ## My Background
 
 I consider myself as a full-stack developer. I started out like 2016 with Java in backend worlds. With 2017 I got fascinated to the AWS Cloud and shifted my focus to AWS DevOps. In 2021 I started to learn React which was super tough for me and I didn't felt like making fast progress as I was used to from backend. But I fell in love with TypeScript and starting from them it was my preferred choice of programming language. So until now I never felt super confident as a React frontend developer. I was super pumped when I saw the T3 Stack and it has an been an amazing journey so far.
 
 ## What I learned
+
+In the following sections, I want to share the highlights, I learned through watching and understanding [Theo's Video](https://www.youtube.com/watch?v=YkOSUVzOAA4).
 
 ## Don' split
 

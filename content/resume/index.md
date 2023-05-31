@@ -27,6 +27,11 @@ Passionate Full Stack Developer. I like to have a broad collection of skills. Fr
 - Docker, Kubernetes, Helm
 - Spring, GitHub (Actions), Travis, GitLab, BitBucket
 
+## Testimonials
+
+[![pic](../resume/testimonialAdrian.png)](https://www.linkedin.com/in/adrian-logan-a52027b5)
+[![pic](../resume/testimonialEric.png)](https://www.linkedin.com/in/ericamberg)
+
 ## Experience
 
 AWS Community Builder \
