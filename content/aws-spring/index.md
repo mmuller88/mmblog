@@ -3,7 +3,7 @@ title: Refurbish a Java Spring App in AWS - The Hallo Casa Journey
 show: "no"
 date: "2023-08-27"
 image: "index.jpg"  
-tags: ["eng", "2023", "aws", "docker", "java", "cdk", "nofeed"] #nofeed
+tags: ["eng", "2023", "aws", "hallocasa", "docker", "java", "cdk", "nofeed"] #nofeed
 pruneLength: 50
 ---
 
@@ -44,20 +44,20 @@ Further utilized this to feed AWS ECS, making deployments consistent. Additional
 
 Implemented a CI/CD staging pipeline that first deploys changes onto QA and subsequently to PROD. Ensured robustness by integrating testing with Postman. We setup a dedicated AWS account for each stage, ensuring clear demarcation and management.
 
-![Pipeline](https://github.com/mmuller88/mmblog/blob/master/content/aws-spring/pipeline.png)
+![Pipeline](https://github.com/mmuller88/mmblog/blob/master/content/aws-spring/pipeline.png?raw=true)
 
 ### DB Migration with Flyway
 
 Adopted Flyway to empower our Java App to manage the database, eliminating the need to provide access to the database for schema modifications.
 
-![dbmigration](https://github.com/mmuller88/mmblog/blob/master/content/aws-spring/dbmigration.png)
+![dbmigration](https://github.com/mmuller88/mmblog/blob/master/content/aws-spring/dbmigration.png?raw=true)
 
 ### Monitoring Metrics
 
 Introduced plenty of metrics to monitor our backend. For an informed decision on crucial metrics, I sought advice from ChatGPT about the most essential metrics for a Java application.
 Our revamped production setup went live on 01/08/23, and the migration was seamless.
 
-![Monitoring](https://github.com/mmuller88/mmblog/blob/master/content/aws-spring/monitoring.png)
+![Monitoring](https://github.com/mmuller88/mmblog/blob/master/content/aws-spring/monitoring.png?raw=true)
 
 ## Reflecting on the Journey
 
