@@ -1,5 +1,5 @@
 ---
-title: Refurbish a Java Spring App in AWS - The Hallo Casa Journey
+title: Java Spring CI/CD in AWS - The Hallo Casa Journey
 show: "no"
 date: "2023-08-27"
 image: "index.jpg"  
@@ -7,7 +7,7 @@ tags: ["eng", "2023", "aws", "hallocasa", "docker", "java", "cdk", "nofeed"] #no
 pruneLength: 50
 ---
 
-A fresh start can be daunting, especially when it comes to revamping an existing Java Spring application. This was my journey with the Hallo Casa real estate platform, and here's how we took it from deployment nightmares to smooth, cloud-based operations.
+A fresh start can be daunting, especially when it comes to revamping an existing Java Spring application. This was my journey with the Hallo Casa real estate platform, and here's how we took it from deployment nightmares to smooth, cloud-based operations. If you would like to improve your Java Spring CI/CD experience as well. Reach out to me!
 
 ## Introducing Hallo Casa
 
@@ -20,11 +20,9 @@ Working with a co-founder who was not only business-savvy but also had a knack f
 
 In the beginning, our deployment process could only be described as patchwork:
 
-Setting up Maven, Tomcat, and MySQL locally.
-Creating a war file and then SSHing into an EC2 VM to transfer it.
-Manually restarting the Tomcat server each time.
-Our NextJS frontend wasn't much different. We had to SSH into our EC2 VM and manually run “npm start”.
-And to make matters a bit more convoluted, our frontend was in BitBucket while the backend resided in AWS CodeCommit.
+Setting up Maven, Tomcat, and MySQL locally. Creating a war file and then SSHing into an EC2 VM to transfer it. Manually restarting the Tomcat server each time.
+
+Our NextJS frontend wasn't much different. We had to SSH into our EC2 VM and manually run “npm start”. And to make matters a bit more convoluted, our frontend was in BitBucket while the backend resided in AWS CodeCommit.
 
 ## Deploying the New and Improved Way
 
