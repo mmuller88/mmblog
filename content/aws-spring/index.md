@@ -11,7 +11,7 @@ A fresh start can be daunting, especially when it comes to revamping an existing
 
 ## Introducing HalloCasa
 
-[HalloCasa](https://hallocasa.com) is a dynamic Real Estate Platform designed to make property dealings seamless.
+[HalloCasa](https://hallocasa.com) is a dynamic Real Estate Platform designed to allow  real estate agents to create their own business card within a couple of minutes. It also serves as a directory and a referral network.
 
 My motivations to work on HalloCasa are that I had the chance to contribute to the development of a powerful product. My expertise in AWS could be applied effectively.
 Working with a co-founder who was not only business-savvy but also had a knack for generating compelling content in the real estate area. He has his own podcast https://blog.hallocasa.com/podcasts/. Make sure to check it out!
