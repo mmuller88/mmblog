@@ -1,5 +1,5 @@
 ---
-title: Create your Prototype or MVP with the T3 Stack
+title: AWS User Group (UG) Meetups organisieren
 show: "yes"
 date: "2023-06-09"
 image: "index.png"  
@@ -7,6 +7,16 @@ tags: ["de", "2023", "aws", "social"]
 engUrl: https://martinmueller.dev/aws-ug-eng
 pruneLength: 50
 ---
+
+AWS UG Meetups sind eine tolle Möglichkeit um sich mit anderen AWS Enthusiasten auszutauschen. Ich zeige dir wie ich das AWS UG Lisbon Meetup organisiert habe.
+
+## Vorgeschichte
+
+Anfang 2023 sind wir von Deutschland nach Lissabon in Portugal umgezogen. Mit Entsetzen habe ich festgestellt, dass es keine AWS Meetup Events in Lissabon gibt. Also habe ich mich entschieden die Organisierer des AWS UG Meetup anzuschreiben und meine Hilfe anzubieten. Die wurde dankend angenommen und ich bin seit Anfang des Jahres 2023 ein Co-Organisierer des AWS UG Lisbon Meetup.
+
+## Mein erstes Meetup als Organisierer
+
+
 
 * Ich zeige wie ich das AWS UG Lisbon Meetup organisiert habe
 * Seit Anfang des Jahres 2023 bin ich ein Co-Organisierer des AWS UG Lisbon Meetup.
