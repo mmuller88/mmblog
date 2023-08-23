@@ -1,5 +1,5 @@
 ---
-title: Java Spring CI/CD in AWS - The Hallo Casa Journey
+title: Java Spring CI/CD in AWS - The HalloCasa Journey
 show: "no"
 date: "2023-08-27"
 image: "index.jpg"  
@@ -7,13 +7,13 @@ tags: ["eng", "2023", "aws", "hallocasa", "docker", "java", "cdk", "nofeed"] #no
 pruneLength: 50
 ---
 
-A fresh start can be daunting, especially when it comes to revamping an existing Java Spring application. This was my journey with the Hallo Casa real estate platform, and here's how we took it from deployment nightmares to smooth, cloud-based operations. If you would like to improve your Java Spring CI/CD experience as well. Reach out to me!
+A fresh start can be daunting, especially when it comes to revamping an existing Java Spring application. This was my journey with the HalloCasa real estate platform, and here's how we took it from deployment nightmares to smooth, cloud-based operations. If you would like to improve your Java Spring CI/CD experience as well. Reach out to me!
 
-## Introducing Hallo Casa
+## Introducing HalloCasa
 
-[Hallo Casa](https://hallocasa.com) is a dynamic Real Estate Platform designed to make property dealings seamless.
+[HalloCasa](https://hallocasa.com) is a dynamic Real Estate Platform designed to make property dealings seamless.
 
-My motivations to work on Hallo Casa are that I had the chance to contribute to the development of a powerful product. My expertise in AWS could be applied effectively.
+My motivations to work on HalloCasa are that I had the chance to contribute to the development of a powerful product. My expertise in AWS could be applied effectively.
 Working with a co-founder who was not only business-savvy but also had a knack for generating compelling content in the real estate area. He has his own podcast https://blog.hallocasa.com/podcasts/. Make sure to check it out!
 
 ## The Deployment Dilemma
@@ -59,11 +59,11 @@ Our revamped production setup went live on 01/08/23, and the migration was seaml
 
 ## Reflecting on the Journey
 
-The refurbishment of Hallo Casa reaffirmed several beliefs:
+The refurbishment of HalloCasa reaffirmed several beliefs:
 
 Docker is a lifesaver. The portability and consistency it brings to applications are unparalleled. CI/CD is a game-changer. It automates manual tasks and ensures faster, reliable deliveries. AWS CDK is powerful. It simplifies cloud resource provisioning and management. CDK Pipelines streamline deployments. With it, managing multiple stages of deployment becomes a breeze. One revelation that stood out was how the lines between infrastructure and application seemed blurred in our setup. And this convergence was a positive one, indicating tight integration and consistency.
 
-The Hallo Casa journey is a testament to the power of continuous learning, adaptation, and innovation. Our users now enjoy a more robust platform, and we can sleep better at night, knowing that our deployment is smoother than ever. If you have a Java application which needs a bit polishing, reach out to me!
+The HalloCasa journey is a testament to the power of continuous learning, adaptation, and innovation. Our users now enjoy a more robust platform, and we can sleep better at night, knowing that our deployment is smoother than ever. If you have a Java application which needs a bit polishing, reach out to me!
 
 I hope you enjoyed this post and I look forward to seeing you in the next one.
 
