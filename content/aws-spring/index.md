@@ -2,7 +2,7 @@
 title: Refurbish a Java Spring App in AWS - The Hallo Casa Journey
 show: "no"
 date: "2023-08-27"
-image: "index.png"  
+image: "index.jpg"  
 tags: ["eng", "2023", "aws", "docker", "java", "cdk", "nofeed"] #nofeed
 pruneLength: 50
 ---
