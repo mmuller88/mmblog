@@ -1,13 +1,13 @@
 ---
 title: Java Spring CI/CD in AWS - The HalloCasa Journey
 show: "no"
-date: "2023-08-27"
+date: "2023-08-28"
 image: "index.jpg"  
 tags: ["eng", "2023", "aws", "hallocasa", "docker", "java", "cdk", "nofeed"] #nofeed
 pruneLength: 50
 ---
 
-A fresh start can be daunting, especially when it comes to revamping an existing Java Spring application. This was my journey with the HalloCasa real estate platform, and here's how we took it from deployment nightmares to smooth, cloud-based operations. If you would like to improve your Java Spring CI/CD experience as well. Reach out to me!
+A fresh start can be daunting, especially when it comes to revamping an existing Java Spring application. This was my journey with the HalloCasa real estate platform, and here's how we took it from deployment nightmares to smooth, cloud-native operations. If you would like to improve your Java Spring CI/CD experience as well. Reach out to me!
 
 ## Introducing HalloCasa
 
