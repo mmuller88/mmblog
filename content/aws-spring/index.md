@@ -9,6 +9,8 @@ pruneLength: 50
 
 A fresh start can be daunting, especially when it comes to revamping an existing Java Spring application. This was my journey with the HalloCasa real estate platform, and here's how we took it from deployment nightmares to smooth, cloud-native operations. If you would like to improve your Java Spring CI/CD experience as well. Reach out to me!
 
+As well I have a recording about the Java Spring CI/CD experience on YouTube. Check it out [here](https://youtu.be/-N1tq2vzTR8)
+
 ## Introducing HalloCasa
 
 [HalloCasa](https://hallocasa.com) is a dynamic Real Estate Platform designed to allow  real estate agents to create their own business card within a couple of minutes. It also serves as a directory and a referral network.
