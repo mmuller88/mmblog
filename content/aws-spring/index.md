@@ -1,6 +1,6 @@
 ---
 title: Java Spring CI/CD in AWS - The HalloCasa Journey
-show: "no"
+show: "tes"
 date: "2023-08-28"
 image: "index.jpg"  
 tags: ["eng", "2023", "aws", "hallocasa", "docker", "java", "cdk"] #nofeed
