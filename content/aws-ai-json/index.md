@@ -8,14 +8,14 @@ tags: ["eng", "2023", "aws", "bedrock", "nofeed"] #nofeed
 pruneLength: 50
 ---
 
-Working with the AWS Bedrock API is an exhilarating experience! I came across an interesting business case where I needed to develop an AI MVP. The MVP generates JSON data based on a prompt and utilizes the [anthropic.claude-v2:1](https://docs.anthropic.com/claude/docs) model.
+Working with the AWS Bedrock API is an exhilarating experience! I came across an interesting business case where I needed to develop an AI MVP. The MVP generates JSON data based on a prompt and utilizes the [anthropic.claude-v2:1](https://docs.anthropic.com/claude/docs) model in (AWS Bedrock)[https://aws.amazon.com/bedrock/].
 
-I encountered an issue where the response I received was not pure JSON. It contained additional characters that I couldn't remove. Seeking help from the AWS Community, I was able to find a solution to this problem. In this post, I will share the solution with you.
+I encountered an issue where the response I received was not pure JSON. It contained additional characters that I couldn't remove like `" format: {\"one\":\"Supplier\",\"many\":\"Time\"}"`. Seeking help from the AWS Community, I was able to find a solution to this problem. In this post, I will share the solution with you.
 
 ## The Problem
 
 ```txt
-\n\nHuman: $YOUR_PROMPT . Answer in JSON format\n\nAssistant:{,
+Human: $YOUR_PROMPT . Answer in JSON formatAssistant:{,
 ```
 
 This technique is known as "Put words in Claude’s mouth". It involves providing a prompt to Claude and letting it generate the rest of the response on its own. While there may be alternative approaches to solving this issue, I am currently happy with this solution.
@@ -26,7 +26,7 @@ I would like to express my gratitude to the AWS Community for their invaluable a
 
 A special thanks goes to [Corvus Lee](https://www.linkedin.com/in/corvus/) for providing the advice that ultimately solved the problem.
 
-I would also like to thank [Ken Collins](https://www.linkedin.com/in/metaskills/) for bringing the [Claude 2 docs sheet](https://docs.google.com/presentation/d/1tjvAebcEyR8la3EmVwvjC7PHR8gfSrcsGKfTPAaManw/edit#slide=id.g297e9aa6f0f_0_1222) to my attention.
+I would also like to thank [Ken Collins](https://www.linkedin.com/in/metaskills/) for bringing the [Claude 2 docs sheet](https://docs.google.com/presentation/d/1tjvAebcEyR8la3EmVwvjC7PHR8gfSrcsGKfTPAaManw) to my attention.
 
 Once again, thank you all for your support and contributions.
 
