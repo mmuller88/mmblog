@@ -3,14 +3,20 @@ title: AWS Bedrock Claude 2.1 - Return only JSON
 show: "yes"
 date: "2023-12-07"
 image: "index.png"
-tags: ["eng", "2023", "aws", "bedrock"] #nofeed
+tags: ["eng", "2023", "aws", "bedrock", "claude"] #nofeed
 # engUrl: https://martinmueller.dev/cdk-cost-spikes-eng
 pruneLength: 50
 ---
 
-Working with the AWS Bedrock API is an exhilarating experience! I came across an interesting business case where I needed to develop an AI MVP. The MVP generates JSON data based on a prompt and utilizes the [anthropic.claude-v2:1](https://docs.anthropic.com/claude/docs) model in (AWS Bedrock)[https://aws.amazon.com/bedrock/].
+Working with the AWS Bedrock API is an exhilarating experience! I came across an interesting business case where I needed to develop an AI MVP. The MVP generates JSON data based on a prompt and utilizes the [anthropic.claude-v2:1](https://docs.anthropic.com/claude/docs) model in [AWS Bedrock](https://aws.amazon.com/bedrock).
 
-I encountered an issue where the response I received was not pure JSON. It contained additional characters that I couldn't remove like `" format: {\"one\":\"Supplier\",\"many\":\"Time\"}"`. Seeking help from the AWS Community, I was able to find a solution to this problem. In this post, I will share the solution with you.
+I encountered an issue where the response I received was not pure JSON. It contained additional characters that I couldn't remove like:
+
+```txt
+" format: {\"one\":\"Supplier\",\"many\":\"Time\"}"
+```
+
+Seeking help from the AWS Community, I was able to find a solution to this problem. In this post, I will share the solution with you.
 
 ## The Problem
 
@@ -32,7 +38,7 @@ Once again, thank you all for your support and contributions.
 
 ## Conclusion
 
-Working with AWS Bedrock AI is incredibly enjoyable. The field is constantly evolving, and there is always something new to learn. In this post, I demonstrated how to obtain a pure JSON response from AWS Bedrock Claude 2. As AI technology continues to advance rapidly, you may not encounter this issue in the future. However, if you are working with Claude 2, be sure to refer to the [documentation](https://docs.anthropic.com/claude/docs) for more information.
+Working with AWS Bedrock AI is incredibly enjoyable. The field is constantly evolving, and there is always something new to learn. In this post, I demonstrated how to obtain a pure JSON response from AWS Bedrock Claude 2.1. As AI technology continues to advance rapidly, you may not encounter this issue in the future. However, if you are working with Claude 2.1 or newer, be sure to refer to the [documentation](https://docs.anthropic.com/claude/docs) for more information.
 
 I hope you found this post helpful, and I look forward to sharing more with you in the future.
 
