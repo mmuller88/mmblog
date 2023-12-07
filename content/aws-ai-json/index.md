@@ -1,5 +1,5 @@
 ---
-title: AWS Bedrock Claude 2 - Return only JSON
+title: AWS Bedrock Claude 2.1 - Return only JSON
 show: "no"
 date: "2023-12-08"
 image: "index.png"
