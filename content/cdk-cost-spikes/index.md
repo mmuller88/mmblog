@@ -14,7 +14,7 @@ pruneLength: 50
 * A message will be sent to Slack which makes you aware of the cost spike
 * choice between deploying to the root account and monitoring all costs at once or deploying to each environment account. Prefer the second one. Use a pipeline for CD.
 
-Developing and running workloads in aws is fun. But you don't want spend more money then you really need. For that cost analysing tools like the AWS Cost Explorer are super important. Useful as well is the AWS Budget Service which allows you to setup a target budget and get notified if you are about to reach the target.
+Developing and running workloads in aws is fun. But you don't want spend more money then you really need. For that cost analyzing tools like the AWS Cost Explorer are super important. Useful as well is the AWS Budget Service which allows you to setup a target budget and get notified if you are about to reach the target.
 
 Just last year 2022 AWS released the [auto-adjusting AWS Budget](https://aws.amazon.com/about-aws/whats-new/2022/02/auto-adjusting-budgets/) which really great to catch sudden spike costs. It allows your to calculate the cost average over the last x days and if you reach more than 120 % of the average you get notified.
 
