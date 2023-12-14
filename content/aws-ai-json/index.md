@@ -3,7 +3,7 @@ title: AWS Bedrock Claude 2.1 - Return only JSON
 show: "yes"
 date: "2023-12-07"
 image: "index.png"
-tags: ["eng", "2023", "aws", "bedrock", "claude"] #nofeed
+tags: ["eng", "2023", "aws", "bedrock", "claude", "ai"] #nofeed
 # engUrl: https://martinmueller.dev/cdk-cost-spikes-eng
 pruneLength: 50
 ---

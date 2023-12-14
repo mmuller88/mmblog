@@ -1,9 +1,9 @@
 ---
-title: Validate your AWS Bedrock response
+title: Validate your AWS Bedrock LLM responses
 show: "no"
 date: "2023-12-17"
 image: "index.webp"
-tags: ["eng", "2023", "aws", "bedrock", "nofeed"] #nofeed
+tags: ["eng", "2023", "aws", "bedrock", "ai", "nofeed"] #nofeed
 # engUrl: https://martinmueller.dev/cdk-cost-spikes-eng
 pruneLength: 50
 ---
@@ -22,7 +22,59 @@ Responses from Language Learning Models (LLMs) are often non-deterministic, mean
 
 ### Validate the Shape
 
-In many cases, the response may contain deterministic parts that can be used to partially validate it. For instance, I rely on Claude to provide a JSON response. I have taught Claude the schema of the JSON response, and by performing a schema validation test, I can verify if Claude adheres to the schema.
+In many cases, the response may contain deterministic parts that can be used to partially validate it. For instance, I rely on Claude to provide a JSON response. I have taught Claude the schema of the JSON response, and by performing a schema validation test, I can verify if Claude adheres to the schema. Verifying a JSON schema is very simple. 
+
+Each programming language has a library that can be used to validate the schema. For instance, in TypeScript, I use the [zod library](https://github.com/colinhacks/zod) to create and validate the schema. Which looks like that:
+
+```ts
+import { z } from 'zod';
+
+export const NinoxFieldSchema = z.strictObject({
+  base: z
+    .enum([
+      'string',
+      'boolean',
+      ...
+    ])
+    .optional(),
+  caption: z.string().optional(),
+  captions: z.record(z.string()).optional(),
+  required: z.boolean().optional(),
+  order: z.number().optional(),
+  ...
+});
+
+export type NinoxField = z.infer<typeof NinoxFieldSchema>;
+
+export const NinoxTableSchema = z.strictObject({
+  nextFieldId: z.number().optional(),
+  caption: z.string().optional(),
+  captions: z.record(z.string()).optional(),
+  hidden: z.boolean().optional(),
+  ...
+});
+
+export type NinoxTable = z.infer<typeof NinoxTableSchema>;
+
+```
+
+And as part of my unit tests:
+
+```ts
+test('check schema', async () => {
+    ...
+
+    const body = JSON.parse(response.body);
+
+    const validationResult = NinoxTableSchema.safeParse(
+        JSON.parse(body.json),
+    );
+    if (!validationResult.success) {
+        console.log(validationResult.error.message);
+    }
+    expect(validationResult.success).toBeTruthy();
+});
+```
 
 ### Validate Sub-Prompts
 
