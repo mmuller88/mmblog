@@ -82,7 +82,7 @@ The deterministic prompt classifies a user's intent into a specific category. Fo
 
 ### Golden Response
 
-This is an idea from the AI community that shows promise. Although I haven't personally tested it yet, the concept is to compare the response with a "golden response" to ensure its correctness. By generating the golden response using the same Language Learning Model (LLM) and comparing it with the actual response, we can determine if they are identical or very similar. This approach holds potential and I'm eager to try it out soon.
+This is an idea from the AI community that shows promise. Although I haven't personally tested it yet, the concept is to compare the response with a "golden response" to ensure its correctness. The golden response can be compared with the actual response with the same Language Learning Model (LLM). We can then determine if they are identical or very similar. This approach holds potential and I'm eager to try it out soon.
 
 ## Thanks
 
