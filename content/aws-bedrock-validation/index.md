@@ -1,5 +1,5 @@
 ---
-title: Validate your AWS Bedrock LLM responses
+title: Automatically validate your AWS Bedrock LLM responses
 show: "no"
 date: "2023-12-17"
 image: "index.webp"
@@ -85,11 +85,6 @@ The deterministic prompt classifies a user's intent into a specific category. Fo
 ### Golden Response
 
 This is an idea from the AI community that shows promise. Although I haven't personally tested it yet, the concept is to compare the response with a "golden response" to ensure its correctness. By generating the golden response using the same Language Learning Model (LLM) and comparing it with the actual response, we can determine if they are identical or very similar. This approach holds potential and I'm eager to try it out soon.
-
-## Example
-
-* Response is JSON. JSON has a schema we can check on
-* Making multiple prompts and some of them are indeed deterministic
 
 ## Thanks
 
