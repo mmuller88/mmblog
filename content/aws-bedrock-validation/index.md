@@ -1,5 +1,5 @@
 ---
-title: Automatically validate your AWS Bedrock LLM responses
+title: Automatically validate your AWS Bedrock LLM Responses
 show: "no"
 date: "2023-12-17"
 image: "index.webp"
@@ -8,9 +8,7 @@ tags: ["eng", "2023", "aws", "bedrock", "ai", "nofeed"] #nofeed
 pruneLength: 50
 ---
 
-Validating the response from your Language Learning Model (LLM) is a critical step in the development process. It ensures that the response is in the correct format and contains the expected data. Manual evaluation can quickly become tiresome, especially when making frequent changes to your LLM. Automating or partially automating the validation process is highly recommended to save time and effort.
-
-To ensure efficiency and accuracy, it is highly recommended to automate or partially automate the validation process. In this post, I will demonstrate how you can achieve this automation.
+Validating the response from your Language Learning Model (LLM) is a critical step in the development process. It ensures that the response is in the correct format and contains the expected data. Manual evaluation can quickly become tiresome, especially when making frequent changes to your LLM. Automating or partially automating the validation process is highly recommended to save time and effort. In this post, I will demonstrate how you can achieve this automation.
 
 ## Before
 
