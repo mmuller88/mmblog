@@ -74,11 +74,11 @@ test('check schema', async () => {
 });
 ```
 
-### Validate Sub-Prompts
+### Validate Sub-Responses
 
-In my current AI application, I utilize multiple prompts to generate the final response. While validating the entire response may be challenging, I can easily validate some of the sub-prompts. For instance, I have a deterministic prompt for which I can verify the response.
+In my current AI application, I utilize multiple LLM calls to generate the final response. While validating the entire response may be challenging, I can easily validate some of the sub-responses. For instance, I have a deterministic response for which I can verify the response.
 
-The deterministic prompt classifies a user's intent into a specific category. For example, if the user asks to create a table, the intent is classified as "create_table". I can then use a deterministic prompt to generate a response for the "create_table" intent. To test the accuracy of the classification, you can use well-known methods such as splitting the training data into subsets for training and validation. For instance, you could use 90 percent of the data for training and 10 percent for validation. Then, you can use the validation data to test the accuracy of the classification. Additionally, you can use permutation to shift the 10 percent of the validation data.
+The deterministic response classifies a user's intent into a specific category. For example, if the user asks to create a table, the intent is classified as "create_table". That will generate a deterministic sub-response in my AWS Lambda for the "create_table" intent. To test the accuracy of the classification, you can use well-known methods such as splitting the training data into subsets for training and validation. For instance, you could use 90 percent of the data for training and 10 percent for validation. Then, you can use the validation data to test the accuracy of the classification. Additionally, you can use permutation to shift the 10 percent of the validation data.
 
 ### Golden Response
 
