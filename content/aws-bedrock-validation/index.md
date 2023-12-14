@@ -80,6 +80,8 @@ test('check schema', async () => {
 
 In my current AI application, I utilize multiple prompts to generate the final response. While validating the entire response may be challenging, I can easily validate some of the sub-prompts. For instance, I have a deterministic prompt for which I can verify the response.
 
+The deterministic prompt classifies a user's intent into a specific category. For example, if the user asks to create a table, the intent is classified as "create_table". I can then use a deterministic prompt to generate a response for the "create_table" intent. To test the accuracy of the classification, you can use well-known methods such as splitting the training data into subsets for training and validation. For instance, you could use 90 percent of the data for training and 10 percent for validation. Then, you can use the validation data to test the accuracy of the classification. Additionally, you can use permutation to shift the 10 percent of the validation data.
+
 ### Golden Response
 
 This is an idea from the AI community that shows promise. Although I haven't personally tested it yet, the concept is to compare the response with a "golden response" to ensure its correctness. By generating the golden response using the same Language Learning Model (LLM) and comparing it with the actual response, we can determine if they are identical or very similar. This approach holds potential and I'm eager to try it out soon.
