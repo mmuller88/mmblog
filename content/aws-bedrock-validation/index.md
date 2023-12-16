@@ -4,11 +4,11 @@ show: "no"
 date: "2023-12-17"
 image: "index.webp"
 tags: ["eng", "2023", "aws", "bedrock", "ai", "nofeed"] #nofeed
-# engUrl: https://martinmueller.dev/cdk-cost-spikes-eng
+# engUrl: https://martinmueller.dev/aws-bedrock-validation
 pruneLength: 50
 ---
 
-Validating the response from your Language Learning Model (LLM) is a critical step in the development process. It ensures that the response is in the correct format and contains the expected data. Manual evaluation can quickly become tiresome, especially when making frequent changes to your LLM. Automating or partially automating the validation process is highly recommended to save time and effort. In this post, I will demonstrate how you can achieve this automation.
+Validating the response from your Language Learning Model (LLM) is a critical step in the development process. It ensures that the response is in the correct format and contains the expected data. Manual evaluation can quickly become tiresome, especially when making frequent changes to your LLM. Automating or partially automating the validation process is highly recommended to save time and effort. In this post, I will discuss and demonstrate some ideas how you can achieve this automation.
 
 ## Before
 
@@ -20,7 +20,7 @@ Responses from Language Learning Models (LLMs) are often non-deterministic, mean
 
 ### Validate the Shape
 
-In many cases, the response may contain deterministic parts that can be used to partially validate it. For instance, I rely on Claude to provide a JSON response. I have taught Claude the schema of the JSON response, and by performing a schema validation test, I can verify if Claude adheres to the schema. Verifying a JSON schema is very simple. 
+In many cases, the response may contain deterministic parts that can be used to partially validate it. For instance, I rely on Claude to provide a JSON response. I have taught Claude the schema of the JSON response, and by performing a schema validation test, I can verify if Claude adheres to the schema. Verifying a JSON schema is very simple.
 
 Each programming language has a library that can be used to validate the schema. For instance, in TypeScript, I use the [zod library](https://github.com/colinhacks/zod) to create and validate the schema. Which looks like that:
 
@@ -76,9 +76,250 @@ test('check schema', async () => {
 
 ### Validate Sub-Responses
 
-In my current AI application, I utilize multiple LLM calls to generate the final response. While validating the entire response may be challenging, I can easily validate some of the sub-responses. For instance, I have a deterministic response for which I can verify the response.
+In my current AI application, I utilize multiple LLM calls to generate the final response. While validating the entire response may be challenging, I can easily validate some of the sub-responses. For instance, I have a deterministic response for which I can verify the response. The deterministic response classifies a user's intent into a specific category. For example, if the user asks to create a table, the intent is classified as "create_table". That will generate a deterministic sub-response in my AWS Lambda for the "create_table" intent. To test the accuracy of the classification, you can use well-known methods such as train-validation-test Split the training data into subsets for training and validation. I'll describe this technique more in the next section.
 
-The deterministic response classifies a user's intent into a specific category. For example, if the user asks to create a table, the intent is classified as "create_table". That will generate a deterministic sub-response in my AWS Lambda for the "create_table" intent. To test the accuracy of the classification, you can use well-known methods such as splitting the training data into subsets for training and validation. For instance, you could use 90 percent of the data for training and 10 percent for validation. Then, you can use the validation data to test the accuracy of the classification. Additionally, you can use permutation to shift the 10 percent of the validation data.
+### Train-Validation-Test Split
+
+The [train-validation-test Split](https://medium.com/@evertongomede/the-significance-of-train-validation-test-split-in-machine-learning-91ee9f5b98f3) is very crucial to messsure the performance of the LLM. One methods of those splits is the k-fold cross validation. I try to explain this approach in easy words. Make sure to check the far more technical artical from [Everton Gomede, PhD, The Significance of Train-Validation-Test Split in Machine Learning](https://medium.com/@evertongomede/the-significance-of-train-validation-test-split-in-machine-learning-91ee9f5b98f3)!
+
+For instance, you could use 90 percent of the data for training and 10 percent for validation. Then, you can use the validation data to test the accuracy of the classification. Additionally, you can use permutation to shift the 10 percent of the validation data. I implemented a simple algorithm in TypeScript which helps me to calculate the accuracy of the classification:
+
+```ts
+import { test } from '@jest/globals';
+import * as ArcbotStackStream from '../src/arcbot-stack.stream';
+import {
+  call_bedrock,
+  generate_intent_identification_prompt,
+  generate_table_identification_prompt,
+  modify_table_prompt,
+  relationship_json_prompt,
+} from '../src/arcbot-stack.stream';
+import {
+  intentTrainingsData,
+  modifyTableTrainingsData,
+  oneToManyTrainingsData,
+  tableIdentificationData,
+} from '../src/training-data';
+
+const runEvaluation = async <T extends { [s: string]: string[] }>(
+  trainingData: T,
+  jestSpy: jest.SpyInstance<T, [], any>,
+  promptRefinement: (userInput: string) => Promise<string>,
+  jsonResponse?: boolean,
+) => {
+  const getTrainingAndEvaluationPermutations = (trainingsData: T) => {
+    // Split trainings data into training and evaluation data
+    const sliceTrainingsData = (fromPercentage: number, toPercentage: number) =>
+      Object.entries(trainingsData).reduce(
+        (acc, data) => {
+          const evaluationSlice = data[1].slice(
+            data[1].length * fromPercentage,
+            data[1].length * toPercentage,
+          );
+          const trainingSlice = data[1].filter(
+            (d) => !evaluationSlice.includes(d),
+          );
+          return {
+            training: { ...acc.training, [data[0]]: trainingSlice } as T,
+            evaluations: {
+              ...acc.evaluations,
+              [data[0]]: evaluationSlice,
+            } as T,
+          };
+        },
+        {
+          training: {} as T,
+          evaluations: {} as T,
+        },
+      );
+    const trainingPercentage = 0.9;
+    const validationPercentage = 1 - trainingPercentage;
+
+    // permute the training and evaluation data
+    const trainingValidationPermutations = [
+      sliceTrainingsData(0, 0 + validationPercentage),
+    ];
+    for (
+      let i = 0 + validationPercentage;
+      i < 1;
+      i = i + validationPercentage
+    ) {
+      trainingValidationPermutations.push(
+        sliceTrainingsData(i, i + validationPercentage),
+      );
+    }
+
+    console.log(
+      `trainingValidationPermutations: ${JSON.stringify(
+        trainingValidationPermutations,
+      )}`,
+    );
+    return trainingValidationPermutations;
+  };
+
+  let correctResponses = 0;
+  let wrongResponses = 0;
+
+  const trainingRecords = getTrainingAndEvaluationPermutations(trainingData);
+
+  for (const trainingPermutation of trainingRecords) {
+    console.log(`trainingPermutation=${JSON.stringify(trainingPermutation)}`);
+
+    jestSpy.mockImplementation(() => trainingPermutation.training);
+
+    for (const evaluationRecords of Object.entries(
+      trainingPermutation.evaluations,
+    )) {
+      for (const input of evaluationRecords[1]) {
+        const intent_prompt = await promptRefinement(input);
+        const response = await call_bedrock(intent_prompt, jsonResponse);
+
+        let received = response;
+
+        // trim to JSON string
+        if (jsonResponse) {
+          received = JSON.stringify(JSON.parse(received));
+        }
+
+        console.log(`Expected ${evaluationRecords[0]}\nReceived ${received}`);
+
+        if (evaluationRecords[0] === received) {
+          correctResponses++;
+        } else {
+          wrongResponses++;
+        }
+      }
+    }
+  }
+  console.log(
+    ` correctResponses: ${correctResponses}\n wrongResponses: ${wrongResponses} \n ${
+      correctResponses / (correctResponses + wrongResponses)
+    } accuracy`,
+  );
+};
+
+test('evaluate one to many', async () => {
+  const mockTrainingsData = jest.spyOn(
+    ArcbotStackStream,
+    'getOneToManyTrainingData',
+  );
+
+  const oneToManyPromptRefinement = async (userInput: string) =>
+    relationship_json_prompt(
+      {
+        CUSTOMER: { caption: 'Customer' },
+        EMPLOYEE: { caption: 'Employee' },
+        INVOICE: { caption: 'Invoice' },
+      },
+      userInput,
+    );
+
+  await runEvaluation(
+    oneToManyTrainingsData,
+    mockTrainingsData,
+    oneToManyPromptRefinement,
+    true,
+  );
+});
+
+test('evaluate intent', async () => {
+  const mockTrainingsData = jest.spyOn(
+    ArcbotStackStream,
+    'getIntentTrainingData',
+  );
+
+  const generate_intent_identification_promptRefinement = async (
+    userInput: string,
+  ) => generate_intent_identification_prompt(userInput);
+
+  await runEvaluation(
+    intentTrainingsData,
+    mockTrainingsData,
+    generate_intent_identification_promptRefinement,
+  );
+});
+
+test('evaluate table identification', async () => {
+  const mockTrainingsData = jest.spyOn(
+    ArcbotStackStream,
+    'getTableIdentificationData',
+  );
+
+  const generate_table_identification_promptRefinement = async (
+    userInput: string,
+  ) => {
+    const prompt = generate_table_identification_prompt(
+      userInput,
+      Object.keys(tableIdentificationData),
+    );
+
+    return prompt;
+  };
+
+  await runEvaluation(
+    tableIdentificationData,
+    mockTrainingsData,
+    generate_table_identification_promptRefinement,
+  );
+});
+
+test('evaluate modify table', async () => {
+  const mockTrainingsData = jest.spyOn(
+    ArcbotStackStream,
+    'getModifyTableTrainingsData',
+  );
+
+  modifyTableTrainingsData;
+
+  const modify_table_promptRefinement = async (userInput: string) => {
+    const prompt = await modify_table_prompt({}, userInput);
+
+    return prompt;
+  };
+
+  await runEvaluation(
+    modifyTableTrainingsData,
+    mockTrainingsData,
+    modify_table_promptRefinement,
+    true,
+  );
+});
+```
+
+I think the most interesting part here is the method interface `getTrainingAndEvaluationPermutations(trainingData)` as that always expect the same format as input and gives you back a permuted test validation split of the input training data. The training data have to be in record string list shape:
+
+```ts
+<T extends { [s: string]: string[] }>
+```
+
+Where the key represents the expected result / classification class / LLM output and the value represents possible inputs which leads to the result. One traing data example would be:
+
+```ts
+export const intentTrainingsData: { [key: string]: string[] } = {
+  create_new_table: [
+    'Create table to store invoices',
+    'I need to store my customers information',
+    'I need a table for my employees',
+  ],
+  modify_existing_table: [
+    'Customers table should also have an address',
+    'Add address to the customer table',
+    'Invoice should have a date',
+  ],
+  link_two_tables: [
+    'Customer should have multiple invoices',
+    'Each employee should be responsible for multiple customers',
+  ],
+  do_not_know: [
+    'How are you today?',
+    'What is your name?',
+    'What is the weather today?',
+    '2 + 3',
+  ],
+};
+```
+
+This training set is to teach the model the intent recognition of the user.
 
 ### Golden Response
 
@@ -94,7 +335,7 @@ Once again, thank you all for your support and contributions.
 
 ## Conclusion
 
-Working with AWS Bedrock AI is incredibly enjoyable. The field is constantly evolving, and there is always something new to learn. In this post, I explained how to validate your LLM responses.
+Working with AWS Bedrock AI is incredibly enjoyable. The field is constantly evolving, and there is always something new to learn. In this post, I explained how to partly validate your LLM responses.
 
 I hope you found this post helpful, and I look forward to sharing more with you in the future.
 
