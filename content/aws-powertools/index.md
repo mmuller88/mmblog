@@ -1,5 +1,5 @@
 ---
-title: Getting started with AWS Lambda Powertools Typescript
+title: Getting started with Powertools for AWS Lambda (TypeScript)
 show: "no"
 date: "2023-12-20"
 image: "index.webp"
@@ -8,22 +8,29 @@ tags: ["eng", "2023", "aws", "powertools" "nofeed"] #nofeed
 pruneLength: 50
 ---
 
-* new to Lambda Powertools
-* mainly want to enhance logging for my AI Lambda. Refer to other blog post https://martinmueller.dev/aws-bedrock-validation .
-* found idiomacity feature which we need for reducing AWS Bedrock costs
+Hi there,
+
+I'm new to the [Powertools for AWS Lambda (TypeScript)](https://docs.powertools.aws.dev/lambda/typescript/latest/) library. Though I hear a lot of my DevOps friends say that it's a great tool for building serverless applications, I've never had the chance to use it myself. So I decided to give it a try and see what all the fuss is about. What can I say, I totally love it. In the next sections I will explain what the.
+
+## What is Powertools for AWS Lambda
+
+Powertools for AWS Lambda is a collection of utilities, patterns, and best practices for writing AWS Lambda functions in Python, Typescript, Java and DotNet. It includes logging, tracing, custom metrics, and more. The goal of this project is to enable developers to build scalable and robust serverless applications easily.
+
+## Why I am using AWS Lambda Powertools
+
+I'm a huge DevOps fanboy so I'm all over for techniques like Infrastructure as Code (IaC) or Serverless. Pretty cool about those that it helps me to focus on my business logic of my software product rather then wasting time in setting it up. Powertools feels pretty similar as it helps me to easy implement certain goodies as logging or tracing without the need to spend much time.
+
+Certainly my main motivation is the Powertools logger library. The logger library helps you to write my Lambda logs in specific format to enable features like log levels and log queries with AWS CloudWatch Logs Insights. So far that is amazingly great and it gives me a powerful insight into my Lambda.
+
+I'm using Powertools for me newest AI MVP. Part of the MVP is a Lambda where I call the AWS Bedrock API. Furthermore I automatically validate the LLM response. For more details see https://martinmueller.dev/aws-bedrock-validation.
+
+## How to start?
+
 * Started here https://github.com/aws-powertools/powertools-lambda-typescript with AWS CDK example to integrate.
 
-## Blub
+## Outlook
 
-...
-
-## Thanks
-
-I would like to express my gratitude to the AWS Community for their invaluable assistance in helping me.
-
-A special thanks goes to [Chris Miller](https://www.linkedin.com/in/chris-t-miller) for giving me a lot of thoughts and feedback on my validation approach. [Neylson Crepalde](https://www.linkedin.com/in/neylsoncrepalde/) for making me aware and explaining the golden response validation method.
-
-Once again, thank you all for your support and contributions.
+The idempotency feature seems super cool and we could totally us it for our AI MVP. It could help to reduce the quite high costs of using the AWS Bedrock API. But unfortunately idempotency doesn't seem to be combinable with Lambda stream response. Hopefully that will change in future 🤞.
 
 ## Conclusion
 
