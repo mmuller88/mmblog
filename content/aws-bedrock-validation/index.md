@@ -1,9 +1,9 @@
 ---
 title: Automatically validate your AWS Bedrock LLM Responses
-show: "no"
-date: "2023-12-17"
-image: "index.webp"
-tags: ["eng", "2023", "aws", "bedrock", "ai", "nofeed"] #nofeed
+show: "yes"
+date: "2023-12-18"
+image: "index.jpg"
+tags: ["eng", "2023", "aws", "bedrock", "ai"] #nofeed
 # engUrl: https://martinmueller.dev/aws-bedrock-validation
 pruneLength: 50
 ---
@@ -12,11 +12,13 @@ Validating the response from your Language Learning Model (LLM) is a critical st
 
 ## Before
 
-When I refer to LLM, I am talking about the use of existing foundation models through AWS Bedrock, such as Claude, LLama2, and others. You can learn more about AWS Bedrock [here](https://aws.amazon.com/bedrock/). Additionally, there are other techniques you can use to enhance the response, such as prompt refinements, RAG (Retrieval Augmentation using Vector Databases), or fine-tuning.
+When I refer to LLM, I am talking about the use of existing foundation models through AWS Bedrock, such as Claude, LLama2, and others. You can learn more about AWS Bedrock [here](https://aws.amazon.com/bedrock/). There are techniques you can use to enhance the response, such as prompt refinements, RAG (Retrieval Augmentation using Vector Databases), or fine-tuning.
+
+Responses from Language Learning Models (LLMs) are often non-deterministic, meaning that different responses can be generated even with the same prompt. However, this behavior can be adjusted to some extent using LLM parameters such as temperature.
 
 ## Ideas
 
-Responses from Language Learning Models (LLMs) are often non-deterministic, meaning that different responses can be generated even with the same prompt. However, this behavior can be adjusted to some extent using LLM parameters such as temperature.
+In the following sections I will present some ideas for creating automated tests for your LLM responses. I will also provide some examples of how I implemented these ideas in my own projects.
 
 ### Validate the Shape
 
@@ -80,7 +82,7 @@ In my current AI application, I utilize multiple LLM calls to generate the final
 
 ### Train-Validation-Test Split
 
-The [train-validation-test Split](https://medium.com/@evertongomede/the-significance-of-train-validation-test-split-in-machine-learning-91ee9f5b98f3) is very crucial to messsure the performance of the LLM. One methods of those splits is the k-fold cross validation. I try to explain this approach in easy words. Make sure to check the far more technical artical from [Everton Gomede, PhD, The Significance of Train-Validation-Test Split in Machine Learning](https://medium.com/@evertongomede/the-significance-of-train-validation-test-split-in-machine-learning-91ee9f5b98f3)!
+The [train-validation-test split](https://medium.com/@evertongomede/the-significance-of-train-validation-test-split-in-machine-learning-91ee9f5b98f3) is very crucial to messsure the performance of the LLM. One methods of those splits is the k-fold cross validation. I try to explain this approach in easy words. Make sure to check the far more technical artical from [Everton Gomede, PhD, The Significance of Train-Validation-Test Split in Machine Learning](https://medium.com/@evertongomede/the-significance-of-train-validation-test-split-in-machine-learning-91ee9f5b98f3)!
 
 For instance, you could use 90 percent of the data for training and 10 percent for validation. Then, you can use the validation data to test the accuracy of the classification. Additionally, you can use permutation to shift the 10 percent of the validation data. I implemented a simple algorithm in TypeScript which helps me to calculate the accuracy of the classification:
 

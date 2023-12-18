@@ -9,7 +9,7 @@ pruneLength: 50
 ---
 
 * new to Lambda Powertools
-* mainly want to enhance logging for my AI Lambda. Refer to other blog post.
+* mainly want to enhance logging for my AI Lambda. Refer to other blog post https://martinmueller.dev/aws-bedrock-validation .
 * found idiomacity feature which we need for reducing AWS Bedrock costs
 * Started here https://github.com/aws-powertools/powertools-lambda-typescript with AWS CDK example to integrate.
 
@@ -42,4 +42,3 @@ OR
 And don't forget to visit my site
 
 [![martinmueller.dev](https://martinmueller.dev/static/84caa5292a6d0c37c48ae280d04b5fa6/a7715/joint.jpg)](https://martinmueller.dev/resume)
-```
