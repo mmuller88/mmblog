@@ -1,8 +1,8 @@
 ---
-title: Getting started with Powertools for AWS Lambda (TypeScript)
+title: My experience with Powertools for AWS Lambda (TypeScript)
 show: "yes"
 date: "2023-12-23"
-image: "index.webp"
+image: "index.png"
 tags: ["eng", "2023", "aws", "powertools"] #nofeed
 # engUrl: https://martinmueller.dev/aws-powertools
 pruneLength: 50
