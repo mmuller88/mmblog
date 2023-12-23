@@ -45,7 +45,9 @@ The idempotency feature seems super useful. It could help to reduce the quite hi
 Here's a list of examples I found helpful to learn how to apply Powertools:
 
 - https://github.com/aws-powertools/powertools-lambda-typescript
-- https://github.com/leegilmorecode/embedded-aws-cloudwatch-dashboards/tree/main [Lee Gilmore](https://github.com/leegilmorecode)
+
+[Lee Gilmore](https://github.com/leegilmorecode)
+- https://github.com/leegilmorecode/embedded-aws-cloudwatch-dashboards/tree/main 
 
 ## Conclusion
 
