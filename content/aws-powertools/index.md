@@ -44,7 +44,7 @@ The idempotency feature seems super useful. It could help to reduce the quite hi
 
 Here's a list of examples I found helpful to learn how to apply Powertools:
 
-Examples from the GitHub Repo"
+Examples from the GitHub Repo:
 - https://github.com/aws-powertools/powertools-lambda-typescript
 
 Powertools has ana amazing Discord community. Make sure to not miss it!:
@@ -57,15 +57,15 @@ Powertools has ana amazing Discord community. Make sure to not miss it!:
 
 Working with AWS Lambda Powertools Typescript totally make sense and I love it. It will definitely be my default choice when developing my next Lambda. I still need to learn how to use it properly! Please if you have any feedback how I can utilize Powertools better, reach out to me!
 
-I hope you found this post helpful, and I look forward to sharing more with you in the future.
+I am passionate about contributing to Open Source projects. You can find many of my projects on [GitHub](https://github.com/mmuller88) that you can already benefit from.
 
-I love to work on Open Source projects. A lot of my stuff you can already use on <https://github.com/mmuller88> . If you like my work there and my blog posts, please consider supporting me on the:
+If you found this post valuable and would like to show your support, consider supporting me back. Your support will enable me to write more posts like this and work on projects that provide value to you. You can support me by:
 
 [![Buy me a Ko-Fi](https://storage.ko-fi.com/cdn/useruploads/png_d554a01f-60f0-4969-94d1-7b69f3e28c2fcover.jpg?v=69a332f2-b808-4369-8ba3-dae0d1100dd4)](https://ko-fi.com/T6T1BR59W)
 
 OR
 
-[![Buy me a Ko-Fi](https://theastrologypodcast.com/wp-content/uploads/2015/06/become-my-patron-05.jpg)](https://www.patreon.com/bePatron?u=29010217)
+[![Pateron](https://theastrologypodcast.com/wp-content/uploads/2015/06/become-my-patron-05.jpg)](https://www.patreon.com/bePatron?u=29010217)
 
 And don't forget to visit my site
 
