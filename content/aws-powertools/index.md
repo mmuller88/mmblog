@@ -1,7 +1,7 @@
 ---
-title: My experience with Powertools for AWS Lambda (TypeScript)
+title: My first experience with Powertools for AWS Lambda (TypeScript)
 show: "yes"
-date: "2023-12-23"
+date: "2023-12-24"
 image: "index.png"
 tags: ["eng", "2023", "aws", "powertools"] #nofeed
 # engUrl: https://martinmueller.dev/aws-powertools
@@ -44,14 +44,18 @@ The idempotency feature seems super useful. It could help to reduce the quite hi
 
 Here's a list of examples I found helpful to learn how to apply Powertools:
 
+Examples from the GitHub Repo"
 - https://github.com/aws-powertools/powertools-lambda-typescript
 
-[Lee Gilmore](https://github.com/leegilmorecode)
+Powertools has ana amazing Discord community. Make sure to not miss it!:
+- [Discord](https://discord.gg/82CkmT97ja)
+
+[Lee Gilmore](https://github.com/leegilmorecode):
 - https://github.com/leegilmorecode/embedded-aws-cloudwatch-dashboards/tree/main 
 
 ## Conclusion
 
-Working with AWS Lambda Powertools Typescript totally make sense and I love it. It will definitely be my default choice when developing my next Lambda. I still need to learn how to use it properly. Please if you have any feedback how I can utilize Powertools better, reach out to me!
+Working with AWS Lambda Powertools Typescript totally make sense and I love it. It will definitely be my default choice when developing my next Lambda. I still need to learn how to use it properly! Please if you have any feedback how I can utilize Powertools better, reach out to me!
 
 I hope you found this post helpful, and I look forward to sharing more with you in the future.
 
