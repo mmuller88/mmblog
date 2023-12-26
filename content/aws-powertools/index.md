@@ -1,5 +1,5 @@
 ---
-title: My first experience with Powertools for AWS Lambda (TypeScript)
+title: My first Experience with Powertools for AWS Lambda (TypeScript)
 show: "yes"
 date: "2023-12-24"
 image: "index.png"
