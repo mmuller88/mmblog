@@ -41,7 +41,7 @@ const IndexPage = (props) => {
           >
            {" "}
            <img
-            src={`${imagePreviewUrl}?state=preview`}
+            src={imagePreviewUrl}
             alt="Title"
             style={{
              width: "50%",
