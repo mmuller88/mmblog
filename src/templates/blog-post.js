@@ -13,7 +13,7 @@ function BlogPost(props) {
  const thumbnail =
   props.data.markdownRemark.frontmatter.image &&
   props.data.markdownRemark.frontmatter.image.childImageSharp.resize.src
- const { title, image, tags, date, engUrl, gerUrl, showContact } =
+ const { title, image, imageUrl, tags, date, engUrl, gerUrl, showContact } =
   props.data.markdownRemark.frontmatter
  const { prev, next } = props.pageContext
  return (
@@ -46,6 +46,12 @@ function BlogPost(props) {
      <Img
       fluid={image.childImageSharp.fluid}
       imgStyle={{ objectFit: "contain" }}
+     />
+    )}
+    {imageUrl && (
+     <img
+      src={imageUrl}
+      alt="Title"
      />
     )}
     <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
@@ -95,6 +101,7 @@ export const query = graphql`
       }
      }
     }
+    imageUrl
    }
   }
   site {
