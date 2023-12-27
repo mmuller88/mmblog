@@ -1,6 +1,6 @@
 ---
 title: How to become or stay a successful software engineer in the age of AI
-show: "No"
+show: "no"
 date: "2023-12-29"
 image: "index.jpg"
 tags: ["eng", "2023", "aws", "bedrock", "ai", "nofeed"] #nofeed

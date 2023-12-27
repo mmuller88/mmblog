@@ -1,6 +1,6 @@
 ---
 title: How to Unit Testing your AWS Bedrock AI Lambda
-show: "No"
+show: "no"
 date: "2023-12-18"
 image: "index.jpg"
 tags: ["eng", "2023", "aws", "bedrock", "ai", "nofeed"] #nofeed
