@@ -49,7 +49,7 @@ function BlogPost(props) {
      />
     )}
     {imageUrl && (
-     <img src={`${imageUrl}?date=${new Date().getTime()}`} alt="Title" />
+     <img src={`${imageUrl}?state=visitor`} alt="Title" />
     )}
     <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
     <div>

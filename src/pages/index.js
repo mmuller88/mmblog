@@ -41,7 +41,7 @@ const IndexPage = (props) => {
           >
            {" "}
            <img
-            src={`${imageUrl}?date=${new Date().getTime()}`}
+            src={`${imageUrl}?state=preview`}
             alt="Title"
             style={{
              width: "50%",
