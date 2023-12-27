@@ -3,7 +3,8 @@ title: My first Experience with Powertools for AWS Lambda (TypeScript)
 show: "yes"
 date: "2023-12-24"
 # image: "https://nwjl3sera1.execute-api.us-east-1.amazonaws.com"
-imageUrl: "https://nwjl3sera1.execute-api.us-east-1.amazonaws.com"
+imagePreviewUrl: "https://nwjl3sera1.execute-api.us-east-1.amazonaws.com?projectId=powertools&state=preview"
+imageVisitorUrl: "https://nwjl3sera1.execute-api.us-east-1.amazonaws.com?projectId=powertools&state=visitor"
 tags: ["eng", "2023", "aws", "powertools"] #nofeed
 # engUrl: https://martinmueller.dev/aws-powertools
 pruneLength: 50
@@ -31,7 +32,7 @@ The Powertools GitHub repository offers nice examples to integrate and learn fro
 
 ## Logger
 
-The logger is super fun to use! It gives me a powerful insight into my lambdas. Though I'm still not super sure when to use the different log levels and when and what objects I should put into the object logger part. But I will keep learning from my DevOps friends and make my own experience. Ultimately I will know better when I truly need insight via Logs Insights.
+The logger is super fun to use! It gives me a powerful insight about my Lambda functions. Though I'm still not super sure when to use the different log levels and when and what objects I should put into the object logger part. But I will keep learning from my DevOps friends and make my own experience. Ultimately I will know better when I truly need insight via Logs Insights.
 
 ## Parameters
 

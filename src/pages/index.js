@@ -25,13 +25,13 @@ const IndexPage = (props) => {
    {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/4JYaGylXEMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
    <div>
     {postList.edges.map(({ node }, i) => {
-     const { imageUrl } = node.frontmatter
+     const { imagePreviewUrl } = node.frontmatter
      return (
       <Link to={node.fields.slug} key={i} className="link">
        <div className="post-list">
         <h1>{node.frontmatter.title}</h1>
         <div style={{ display: "flex", alignItems: "center" }}>
-         {imageUrl && (
+         {imagePreviewUrl && (
           <div
            style={{
             display: "flex",
@@ -41,7 +41,7 @@ const IndexPage = (props) => {
           >
            {" "}
            <img
-            src={`${imageUrl}?state=preview`}
+            src={`${imagePreviewUrl}?state=preview`}
             alt="Title"
             style={{
              width: "50%",
@@ -86,7 +86,7 @@ export const pageQuery = graphql`
      frontmatter {
       date(formatString: "Do MMMM YYYY")
       title
-      imageUrl
+      imagePreviewUrl
       show
      }
     }
