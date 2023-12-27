@@ -24,15 +24,43 @@ const IndexPage = (props) => {
    </div>
    {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/4JYaGylXEMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
    <div>
-    {postList.edges.map(({ node }, i) => (
-     <Link to={node.fields.slug} key={i} className="link">
-      <div className="post-list">
-       <h1>{node.frontmatter.title}</h1>
-       <span>{node.frontmatter.date}</span>
-       <p>{node.excerpt}</p>
-      </div>
-     </Link>
-    ))}
+    {postList.edges.map(({ node }, i) => {
+     const { imageUrl } = node.frontmatter
+     return (
+      <Link to={node.fields.slug} key={i} className="link">
+       <div className="post-list">
+        <h1>{node.frontmatter.title}</h1>
+        <div style={{ display: "flex", alignItems: "center" }}>
+         {imageUrl && (
+          <div
+           style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+           }}
+          >
+           {" "}
+           <img
+            src={`${imageUrl}?date=${new Date().getTime()}`}
+            alt="Title"
+            style={{
+             width: "50%",
+             height: "auto",
+             alignContent: "center",
+             justifySelf: "center",
+            }}
+           />
+          </div>
+         )}
+         <div>
+          <span>{node.frontmatter.date}</span>
+          <p>{node.excerpt}</p>
+         </div>
+        </div>
+       </div>
+      </Link>
+     )
+    })}
    </div>
   </Layout>
  )
@@ -58,6 +86,7 @@ export const pageQuery = graphql`
      frontmatter {
       date(formatString: "Do MMMM YYYY")
       title
+      imageUrl
       show
      }
     }
