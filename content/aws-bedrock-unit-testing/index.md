@@ -1,25 +1,69 @@
 ---
 title: How to Unit Testing your AWS Bedrock AI Lambda
 show: "no"
-date: "2023-12-18"
-image: "index.jpg"
+date: "2023-12-30"
+imagePreviewUrl: "https://nwjl3sera1.execute-api.us-east-1.amazonaws.com?projectId=unittesting&state=preview"
+imageVisitorUrl: "https://nwjl3sera1.execute-api.us-east-1.amazonaws.com?projectId=unittesting&state=visitor"
 tags: ["eng", "2023", "aws", "bedrock", "ai", "nofeed"] #nofeed
 # engUrl: https://martinmueller.dev/aws-bedrock-validation
 pruneLength: 50
 ---
 
-* Playing with the AWS Bedrock API for AI MVPs is super fun. Recently wrote https://martinmueller.dev/aws-bedrock-validation.
-* I love being to quickly iterate my ideas for MVPs so unit testing is super important.
+Using the AWS Bedrock API for MVPs is super fun! I just recently wrote an article how you can make the LLM Claude respond in JSON. Check it out [here](https://martinmueller.dev/aws-bedrock-validation). Even it is super fun it can become tiresome and annoying to test your LLM settings and prompts. In this article I will explain how you can unit test your Lambda function that calls the AWS Bedrock API. Being able to unit test your prompt lets you quickly iterate to your desired MVP or project state you have in mind.
 
 ## Lambda Unit Testing
 
-* When using Lambda to call the AWS Bedrock API writing Lambda unit tests is super powerful to quickly evaluate and test your LLM settings and prompts.
+As it core a Lambda is really just a function that executes code. So unit testing it is pretty simple. You just need to call the function with the desired arguments and validate the response. And if you use node jest makes it easy to run your test code.
 
 ## Lambda Streaming Response & Unit Testing
 
-* I'm using the Lambda Streaming Response feature. For having an earlier feedback from the LLM similar as you experience when using ChatGPT. As I use the Lambda Streaming response the exact arguments for the handler function are a bit tricky. Streaming Response Example blog posts.
+The Lambda Streaming Response allows to leverage the streaming response from your LLM. Using the streaming response from your LLM is important as it gives your early feedback. That is pretty much what is happening when ChatGPT gives your those word by word streaming response.
 
-## Examples
+## Lambda
+
+Here I show you a bit from the Lambda Function I want to unit test later.
+
+```ts
+async function handler(
+  event: APIGatewayProxyEventV2WithRequestContext<APIGatewayEventRequestContextV2>,
+  responseStream: lambdaStream.ResponseStream,
+  ctx?: Context,
+) {
+  console.log(`event: ${JSON.stringify(event)}`);
+
+  const body = event.body ? JSON.parse(event.body) : undefined;
+  const { userInput, ninoxTables } = body;
+
+  ...
+
+  const bedrockParams: InvokeModelCommandInput = {
+    modelId: 'anthropic.claude-v2:1',
+    contentType: 'application/json',
+    accept: '*/*',
+    body: JSON.stringify({
+      prompt: `\n\nHuman: ${prompt}\n\nAssistant:{`,
+      // prompt: `\n\nHuman: ${prompt}\n\nAssistant:`,
+      temperature: 0,
+      top_k: 250,
+      top_p: 0.999,
+      max_tokens_to_sample: 4096,
+    }),
+  };
+  console.log(`bedrockParams: ${JSON.stringify(bedrockParams)}`);
+
+  const command = new InvokeModelWithResponseStreamCommand(bedrockParams);
+
+  //InvokeModelWithResponseStreamCommandOutput
+  const response: any = await client.send(command);
+  ...
+
+  responseStream.end();
+}
+```
+
+## Unit Testing
+
+And here is the unit test in a file living next to my Lambda function.
 
 ```ts
 import { ArcbotLambdaInput, handler } from '../src/arcbot-stack.stream';
@@ -78,21 +122,9 @@ const mockEvent = ({ userInput }: ArcbotLambdaInput) => {
 };
 ```
 
-## Golden Response
-
-...
-
-## Thanks
-
-I would like to express my gratitude to the AWS Community for their invaluable assistance in helping me.
-
-A special thanks goes to [Chris Miller](https://www.linkedin.com/in/chris-t-miller) for giving me a lot of thoughts and feedback on my validation approach. [Neylson Crepalde](https://www.linkedin.com/in/neylsoncrepalde/) for making me aware and explaining the golden response validation method.
-
-Once again, thank you all for your support and contributions.
-
 ## Conclusion
 
-Working with AWS Bedrock AI is incredibly enjoyable. The field is constantly evolving, and there is always something new to learn. In this post, I explained how to partly validate your LLM responses.
+Unit testing your Lambda function that calls the AWS Bedrock API is super important. It allows you to quickly iterate to your desired MVP or project state you have in mind. I hope this article was helpful for you. If you have any questions or feedback please reach out to me.
 
 I am passionate about contributing to Open Source projects. You can find many of my projects on [GitHub](https://github.com/mmuller88) that you can already benefit from.
 
