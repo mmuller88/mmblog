@@ -2,8 +2,8 @@
 title: How to Unit Testing your AWS Bedrock AI Lambda
 show: "no"
 date: "2023-12-30"
-imagePreviewUrl: "https://nwjl3sera1.execute-api.us-east-1.amazonaws.com?projectId=unittesting&state=preview"
-imageVisitorUrl: "https://nwjl3sera1.execute-api.us-east-1.amazonaws.com?projectId=unittesting&state=visitor"
+imagePreviewUrl: "https://tkk5c8odl5.execute-api.us-east-1.amazonaws.com?projectId=unittesting&state=preview"
+imageVisitorUrl: "https://tkk5c8odl5.execute-api.us-east-1.amazonaws.com?projectId=unittesting&state=visitor"
 tags: ["eng", "2023", "aws", "bedrock", "ai", "nofeed"] #nofeed
 # engUrl: https://martinmueller.dev/aws-bedrock-validation
 pruneLength: 50
