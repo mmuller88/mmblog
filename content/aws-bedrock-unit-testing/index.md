@@ -9,11 +9,11 @@ tags: ["eng", "2023", "aws", "bedrock", "ai", "nofeed"] #nofeed
 pruneLength: 50
 ---
 
-Using the AWS Bedrock API for MVPs is super fun! I just recently wrote an article how you can make the LLM Claude respond in JSON. Check it out [here](https://martinmueller.dev/aws-bedrock-validation). Even it is super fun it can become tiresome and annoying to test your LLM settings and prompts. In this article I will explain how you can unit test your Lambda function that calls the AWS Bedrock API. Being able to unit test your prompt lets you quickly iterate to your desired MVP or project state you have in mind.
+Using the AWS Bedrock API for MVPs is incredibly enjoyable! I recently wrote an article on how you can make the LLM Claude respond in JSON. You can check it out [here](https://martinmueller.dev/aws-bedrock-validation). While it's a lot of fun, testing your LLM settings and prompts can become tiresome and frustrating. In this article, I will explain how you can effectively unit test your Lambda function that calls the AWS Bedrock API. By being able to unit test your prompts, you can iterate quickly towards your desired MVP or project state.
 
 ## Lambda Unit Testing
 
-As it core a Lambda is really just a function that executes code. So unit testing it is pretty simple. You just need to call the function with the desired arguments and validate the response. And if you use node jest makes it easy to run your test code.
+Unit testing a Lambda function is straightforward since it is essentially a function that executes code. To test it, you can simply call the function with the necessary arguments and verify the response. If you are using Node.js, Jest provides a convenient way to run your test code.
 
 ## Lambda Streaming Response & Unit Testing
 
