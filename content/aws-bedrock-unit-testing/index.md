@@ -2,8 +2,10 @@
 title: How to Unit Testing your AWS Bedrock AI Lambda
 show: "no"
 date: "2023-12-30"
-imagePreviewUrl: "https://tkk5c8odl5.execute-api.us-east-1.amazonaws.com?projectId=unittesting&state=preview"
-imageVisitorUrl: "https://tkk5c8odl5.execute-api.us-east-1.amazonaws.com?projectId=unittesting&state=visitor"
+# imagePreviewUrl: "https://tkk5c8odl5.execute-api.us-east-1.amazonaws.com?projectId=unittesting&state=preview"
+imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=unittesting&state=preview"
+# imageVisitorUrl: "https://tkk5c8odl5.execute-api.us-east-1.amazonaws.com?projectId=unittesting&state=visitor"
+imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=unittesting&state=visitor"
 tags: ["eng", "2023", "aws", "bedrock", "ai", "nofeed"] #nofeed
 # engUrl: https://martinmueller.dev/aws-bedrock-validation
 pruneLength: 50
@@ -41,12 +43,9 @@ async function handler(
     contentType: 'application/json',
     accept: '*/*',
     body: JSON.stringify({
-      prompt: `\n\nHuman: ${prompt}\n\nAssistant:{`,
-      // prompt: `\n\nHuman: ${prompt}\n\nAssistant:`,
+      prompt: `\n\nHuman: ${prompt}\n\nAssistant:`,
       temperature: 0,
-      top_k: 250,
-      top_p: 0.999,
-      max_tokens_to_sample: 4096,
+      ...
     }),
   };
   console.log(`bedrockParams: ${JSON.stringify(bedrockParams)}`);
