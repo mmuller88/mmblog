@@ -8,6 +8,8 @@ tags: ["eng", "2024", "aws", "sst", "nextjs"] #nofeed
 # engUrl: https://martinmueller.dev/sst-nextjs-app-router
 pruneLength: 50
 ---
+(Btw. this picture is one of two alternatives randomly chosen from my A/B picture testing tool. If you want to try the tool by yourself write me!)
+
 
 * Just started using SST and I'm totally amazed
 * It is a nice abstraction on top of AWS CDK. You easily can and have to use CDK constructs in your sst.config.ts file
