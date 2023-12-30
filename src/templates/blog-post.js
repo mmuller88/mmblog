@@ -21,7 +21,7 @@ function BlogPost(props) {
    <MetaTags
     title={title}
     description={props.data.markdownRemark.excerpt}
-    thumbnail={thumbnail && url + thumbnail}
+    thumbnail={(thumbnail && url + thumbnail) || imagePreviewUrl && url + imagePreviewUrl}
     url={url}
     pathname={props.location.pathname}
    />
@@ -99,6 +99,16 @@ export const query = graphql`
      }
     }
     imageVisitorUrl
+    imagePreviewUrl {
+     childImageSharp {
+      resize(width: 1000, height: 420) {
+       src
+      }
+      fluid(maxWidth: 786) {
+       ...GatsbyImageSharpFluid
+      }
+     }
+    }
    }
   }
   site {
