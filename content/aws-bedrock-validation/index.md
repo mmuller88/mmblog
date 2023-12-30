@@ -8,7 +8,6 @@ tags: ["eng", "2023", "aws", "bedrock", "ai"] #nofeed
 # engUrl: https://martinmueller.dev/aws-bedrock-validation
 pruneLength: 50
 ---
-(Btw. this picture is one of two alternatives randomly chosen from my A/B picture testing tool. If you want to try the tool by yourself write me!)
 
 Validating the response from your Language Learning Model (LLM) is a critical step in the development process. It ensures that the response is in the correct format and contains the expected data. Manual evaluation can quickly become tiresome, especially when making frequent changes to your LLM. Automating or partially automating the validation process is highly recommended to save time and effort. In this post, I will discuss and demonstrate some ideas how you can achieve this automation.
 

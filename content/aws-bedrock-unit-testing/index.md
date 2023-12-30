@@ -8,7 +8,6 @@ tags: ["eng", "2023", "aws", "bedrock", "ai"] #nofeed
 # engUrl: https://martinmueller.dev/aws-bedrock-unit-testing
 pruneLength: 50
 ---
-(Btw. this picture is one of two alternatives randomly chosen from my A/B picture testing tool. If you want to try the tool by yourself write me!)
 
 Using the AWS Bedrock API for MVPs is incredibly enjoyable! I recently wrote an article on how you can make the LLM Claude respond in JSON. You can check it out [here](https://martinmueller.dev/aws-bedrock-validation). While it's a lot of fun, testing your LLM settings and prompts can become tiresome and frustrating. In this article, I will explain how you can effectively unit test your Lambda function that calls the AWS Bedrock API. By being able to unit test your prompts, you can iterate quickly towards your desired MVP or project state.
 

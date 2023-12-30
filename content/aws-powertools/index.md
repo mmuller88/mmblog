@@ -7,7 +7,6 @@ imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=powertools&state=vi
 tags: ["eng", "2023", "aws", "powertools"]
 pruneLength: 50
 ---
-(Btw. this picture is one of two alternatives randomly chosen from my A/B picture testing tool. If you want to try the tool by yourself write me!)
 
 Hi there,
 
