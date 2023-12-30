@@ -2,8 +2,8 @@
 title: Automatically validate your AWS Bedrock LLM Responses
 show: "yes"
 date: "2023-12-18"
-imagePreviewUrl: "https://api.ab.martinmueller.dev?validation=unittesting&state=preview"
-imageVisitorUrl: "https://api.ab.martinmueller.dev?validation=unittesting&state=visitor"
+imagePreviewUrl: "https://api.ab.martinmueller.dev?validation=validate&state=preview"
+imageVisitorUrl: "https://api.ab.martinmueller.dev?validation=validate&state=visitor"
 tags: ["eng", "2023", "aws", "bedrock", "ai"] #nofeed
 # engUrl: https://martinmueller.dev/aws-bedrock-validation
 pruneLength: 50

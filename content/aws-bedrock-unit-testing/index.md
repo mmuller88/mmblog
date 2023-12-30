@@ -1,11 +1,11 @@
 ---
-title: How to Unit Testing your AWS Bedrock AI Lambda
+title: How to Perform Unit Testing on your AWS Bedrock AI Lambda
 show: "yes"
 date: "2023-12-30"
 imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=unittesting&state=preview"
 imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=unittesting&state=visitor"
 tags: ["eng", "2023", "aws", "bedrock", "ai"] #nofeed
-# engUrl: https://martinmueller.dev/aws-bedrock-validation
+# engUrl: https://martinmueller.dev/aws-bedrock-unit-testing
 pruneLength: 50
 ---
 (Btw. this picture is one of two alternatives randomly chosen from my A/B picture testing tool. If you want to try the tool by yourself write me!)
