@@ -21,7 +21,7 @@ function BlogPost(props) {
    <MetaTags
     title={title}
     description={props.data.markdownRemark.excerpt}
-    thumbnail={(thumbnail && url + thumbnail) || imagePreviewUrl && url + imagePreviewUrl}
+    thumbnail={(thumbnail && url + thumbnail) || imagePreviewUrl}
     url={url}
     pathname={props.location.pathname}
    />
