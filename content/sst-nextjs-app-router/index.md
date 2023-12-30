@@ -1,127 +1,24 @@
 ---
-title: How to Unit Testing your AWS Bedrock AI Lambda
+title: Create a NextJs App Router S3 Picture Uploader with SST
 show: "no"
 date: "2023-12-30"
-imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=unittesting&state=preview"
-imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=unittesting&state=visitor"
-tags: ["eng", "2023", "aws", "bedrock", "ai", "nofeed"] #nofeed
-# engUrl: https://martinmueller.dev/aws-bedrock-validation
+imagePreviewUrl: "https://api.ab.martinmueller.dev?sst=unittesting&state=preview"
+imageVisitorUrl: "https://api.ab.martinmueller.dev?sst=unittesting&state=visitor"
+tags: ["eng", "2024", "aws", "sst", "nextjs"] #nofeed
+# engUrl: https://martinmueller.dev/sst-nextjs-app-router
 pruneLength: 50
 ---
 
-Using the AWS Bedrock API for MVPs is incredibly enjoyable! I recently wrote an article on how you can make the LLM Claude respond in JSON. You can check it out [here](https://martinmueller.dev/aws-bedrock-validation). While it's a lot of fun, testing your LLM settings and prompts can become tiresome and frustrating. In this article, I will explain how you can effectively unit test your Lambda function that calls the AWS Bedrock API. By being able to unit test your prompts, you can iterate quickly towards your desired MVP or project state.
-
-## Lambda Unit Testing
-
-Unit testing a Lambda function is straightforward since it is essentially a function that executes code. To test it, you can simply call the function with the necessary arguments and verify the response. If you are using Node.js, Jest provides a convenient way to run your test code.
-
-## Lambda Streaming Response & Unit Testing
-
-The Lambda Streaming Response allows to leverage the streaming response from your LLM. Using the streaming response from your LLM is important as it gives your early feedback. That is pretty much what is happening when ChatGPT gives your those word by word streaming response.
-
-## Lambda
-
-Here I show you a bit from the Lambda Function I want to unit test later.
-
-```ts
-async function handler(
-  event: APIGatewayProxyEventV2WithRequestContext<APIGatewayEventRequestContextV2>,
-  responseStream: lambdaStream.ResponseStream,
-  ctx?: Context,
-) {
-  console.log(`event: ${JSON.stringify(event)}`);
-
-  const body = event.body ? JSON.parse(event.body) : undefined;
-  const { userInput, ninoxTables } = body;
-
-  ...
-
-  const bedrockParams: InvokeModelCommandInput = {
-    modelId: 'anthropic.claude-v2:1',
-    contentType: 'application/json',
-    accept: '*/*',
-    body: JSON.stringify({
-      prompt: `\n\nHuman: ${prompt}\n\nAssistant:`,
-      temperature: 0,
-      ...
-    }),
-  };
-  console.log(`bedrockParams: ${JSON.stringify(bedrockParams)}`);
-
-  const command = new InvokeModelWithResponseStreamCommand(bedrockParams);
-
-  //InvokeModelWithResponseStreamCommandOutput
-  const response: any = await client.send(command);
-  ...
-
-  responseStream.end();
-}
-```
-
-## Unit Testing
-
-And here is the unit test in a file living next to my Lambda function.
-
-```ts
-import { ArcbotLambdaInput, handler } from '../src/arcbot-stack.stream';
-
-...
-
-test('userInput: How is the weather?', async () => {
-  const response = await handler(
-    mockEvent({
-      userInput: 'How is the weather?',
-    }),
-    //@ts-ignore
-    '',
-  );
-  console.log(response);
-
-  // do some validation
-  expect(response.statusCode).toEqual(200);
-  expect(JSON.parse(response.body)).toEqual({
-    respond: 'I do not understand. Please rephrase!',
-  });
-});
-
-test('Create a customer table', async () => {
-  const response = await handler(
-    mockEvent({
-      userInput: 'Create a customer table',
-    }),
-    //@ts-ignore
-    '',
-  );
-
-  // do some validation
-  commonExpects(response);
-  const body = JSON.parse(response.body) as Record<string, NinoxTable>;
-  console.log(`body: ${JSON.stringify(body, null, 2)}`);
-
-  const validationResult = z.record(NinoxTableSchema).safeParse(body);
-  if (!validationResult.success) {
-    console.log(validationResult.error.message);
-  }
-  expect(validationResult.success).toBeTruthy();
-
-  expect(Object.entries(body)[0][0]).toBe('customer');
-  expect(Object.entries(body)[0][1].caption).toBe('Customer');
-});
-
-const mockEvent = ({ userInput }: ArcbotLambdaInput) => {
-  const event: lambda.APIGatewayProxyEventV2 = {
-    version: '',
-    ...
-    body: JSON.stringify({ userInput } as ArcbotLambdaInput),
-  };
-
-  return event;
-};
-```
+* Just started using SST and I'm totally amazed
+* It is a nice abstraction on top of AWS CDK. You easily can and have to use CDK constructs in your sst.config.ts file
+* It is totally incredable how nice the nextJsSite construct is easy to setup and to use
+* basically all infra code like for the nextJs construct, S3 or Lambda and React code is living next to each other in the src folder. Which makes it super easy to work with
+* the SST initialization is super easy and an amazing experience compared to all my other experiences so far like using Projen to setup AWS CDK and NextJS.
+* I'm super pumped to work further with SST to make my clients happy and first of all make myself happy :)
 
 ## Conclusion
 
-Unit testing your Lambda function that calls the AWS Bedrock API is crucial. It enables you to iterate quickly towards your desired MVP or project state. I hope this article has been helpful to you. If you have any questions or feedback, please don't hesitate to reach out to me.
+...
 
 I am passionate about contributing to Open Source projects. You can find many of my projects on [GitHub](https://github.com/mmuller88) that you can already benefit from.
 
