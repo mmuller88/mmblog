@@ -2,8 +2,8 @@
 title: Create a NextJs App Router S3 Picture Uploader with SST
 show: "no"
 date: "2023-12-30"
-imagePreviewUrl: "https://api.ab.martinmueller.dev?sst=unittesting&state=preview"
-imageVisitorUrl: "https://api.ab.martinmueller.dev?sst=unittesting&state=visitor"
+imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=preview"
+imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=visitor"
 tags: ["eng", "2024", "aws", "sst", "nextjs"] #nofeed
 # engUrl: https://martinmueller.dev/sst-nextjs-app-router
 pruneLength: 50
