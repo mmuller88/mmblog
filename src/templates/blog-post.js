@@ -13,7 +13,7 @@ function BlogPost(props) {
  const thumbnail =
   props.data.markdownRemark.frontmatter.image &&
   props.data.markdownRemark.frontmatter.image.childImageSharp.resize.src
- const { title, image, imageVisitorUrl, tags, date, engUrl, gerUrl, showContact } =
+ const { title, image, imageVisitorUrl, imagePreviewUrl, tags, date, engUrl, gerUrl, showContact } =
   props.data.markdownRemark.frontmatter
  const { prev, next } = props.pageContext
  return (
@@ -99,16 +99,7 @@ export const query = graphql`
      }
     }
     imageVisitorUrl
-    imagePreviewUrl {
-     childImageSharp {
-      resize(width: 1000, height: 420) {
-       src
-      }
-      fluid(maxWidth: 786) {
-       ...GatsbyImageSharpFluid
-      }
-     }
-    }
+    imagePreviewUrl 
    }
   }
   site {
