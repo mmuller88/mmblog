@@ -1,7 +1,7 @@
 ---
 title: Create a NextJs Server Component S3 File Uploader with SST
 show: "no"
-date: "2023-12-30"
+date: "2024-01-02"
 imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=preview"
 imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=visitor"
 tags: ["eng", "2024", "aws", "sst", "nextjs", "nofeed"] #nofeed
