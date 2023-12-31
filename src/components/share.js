@@ -14,7 +14,7 @@ const Share = props => {
     return (
         <div>
             <h3 className="center">Share</h3>
-            <ul className="social">
+            <ul className="social">  
                 <li>
                     <a href={fb} target="blank">
                         <img src={fbIcon} alt="facebook" />

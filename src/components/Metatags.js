@@ -58,6 +58,10 @@ function Metatags(props) {
                     name: 'twitter:image',
                     content: props.thumbnail && props.thumbnail,
                 },
+                {
+                    name: 'x:image',
+                    content: props.thumbnail && props.thumbnail,
+                },
                 { property: 'og:type', content: 'website' },
                 { name: 'robots', content: 'index, follow' },
 
