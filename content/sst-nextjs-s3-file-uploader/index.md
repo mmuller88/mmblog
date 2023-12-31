@@ -4,7 +4,7 @@ show: "no"
 date: "2023-12-30"
 imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=preview"
 imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=visitor"
-tags: ["eng", "2024", "aws", "sst", "nextjs"] #nofeed
+tags: ["eng", "2024", "aws", "sst", "nextjs", "nofeed"] #nofeed
 # engUrl: https://martinmueller.dev/sst-nextjs-s3-file-uploader
 pruneLength: 50
 ---
