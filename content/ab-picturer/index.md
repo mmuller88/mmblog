@@ -2,8 +2,8 @@
 title: Make your picture rock with the AB Picturer 
 show: "no"
 date: "2024-01-05"
-imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=ab-picture&state=preview"
-imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=ap-picture&state=visitor"
+imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=preview"
+imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=visitor"
 tags: ["eng", "2024", "aws", "abpicturer", "nofeed"] #nofeed
 # engUrl: https://martinmueller.dev/ab-picture
 pruneLength: 50
@@ -15,7 +15,7 @@ Pictures are crucial for effective advertising! With AI, generating pictures has
 
 I like to write technical blog posts on my [blog](https://martinmueller.dev) . For those post I like to use a main picture which can be used as a thumbnail and main picture for the post.
 
-![Pateron](https://github.com/mmuller88/mmblog/blob/master/content/ab-picture/ABPicturerBlog.png)
+![Pateron](https://github.com/mmuller88/mmblog/blob/master/content/ab-picture/blog.png)
 
 I build a tool I call **AB Picturer**. With that I can measure performance of the picture variants. In the next section I explain how it works.
 
@@ -33,7 +33,7 @@ The picture preview url is the beginning of the AB Picturer Flow. When the user 
 
 The AB Picturer Dashboard shows you the CTR and other statistics for each picture. The picture with the higher CTR wins and can be used as the main picture for the post. So far it is only a very simple dashboard but I plan to improve it in the future.
 
-![Pateron](https://github.com/mmuller88/mmblog/blob/master/content/ab-picture/ABPicturerDashboard.png)
+![Pateron](https://github.com/mmuller88/mmblog/blob/master/content/ab-picture/dashboard.png)
 
 As you can see I simply show both picture variants
 
