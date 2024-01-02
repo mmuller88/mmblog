@@ -1,11 +1,11 @@
 ---
-title: Make your picture rock with the AB Picturer 
+title: DRAFTING!! Make your picture rock with the AB Picturer 
 show: "no"
 date: "2024-01-05"
 imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=preview"
 imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=visitor"
 tags: ["eng", "2024", "aws", "abpicturer", "nofeed"] #nofeed
-# engUrl: https://martinmueller.dev/ab-picture
+# engUrl: https://martinmueller.dev/ab-picturer
 pruneLength: 50
 ---
 
@@ -15,7 +15,9 @@ Pictures are crucial for effective advertising! With AI, generating pictures has
 
 I like to write technical blog posts on my [blog](https://martinmueller.dev) . For those post I like to use a main picture which can be used as a thumbnail and main picture for the post.
 
-![Pateron](https://github.com/mmuller88/mmblog/blob/master/content/ab-picture/blog.png)
+![martinmueller.dev blog](https://github.com/mmuller88/mmblog/blob/master/content/ab-picture/blog.png)
+
+Actually it is super easy to create pictures with the help of like ChatGPT. I'll simply prompting it like `Make a cute cloud singing "I've got the power". Keep the ratio of 1000:420.` and it generates beautiful picture I love to useThe ratio 1000:420 is specifically good for sharing your posts on social medias.
 
 I build a tool I call **AB Picturer**. With that I can measure performance of the picture variants. In the next section I explain how it works.
 
@@ -37,13 +39,13 @@ The AB Picturer Dashboard shows you the CTR and other statistics for each pictur
 
 As you can see I simply show both picture variants
 
-## Join the A/B Picturer Discord
+## Join the A/B Picturer Discord & Newsletter
 
 I've setup a Discord for helping you guys to try out the A/B Picturer and provide feedback to me. I'm super curious about your feedback as I plan to develop more features based on your needs.
 
-Additionally I think it is pretty cool to be part of a community. So join the A/B Picturer Discord and let's have fun together.
+Additionally I think it is pretty cool to be part of a community. So join the [A/B Picturer Discord](https://discord.com/assets/2c21aeda16de354ba5334551a883b481.png) and let's have fun together.
 
-[![Discord](https://discord.com/assets/2c21aeda16de354ba5334551a883b481.png)](https://discord.gg/9Y8yVhZ)
+And please subscribe to my newsletter if you want regularly updates about the A/B Picturer.
 
 In the next section, I will show you how to integrate and use the A/B Picture Testing Tool.
 
