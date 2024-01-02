@@ -23,7 +23,7 @@ The NextjsSite construct allows you to effortlessly create and manage [open-next
 
 ## Server Components
 
-Server Components are a new way to build with Next.js. They allow you to write parts of your application using React components that run on the server. This approach offers several advantages, such as faster page loading and simplified setup without the need to manage client states with useState, useEffect, and similar hooks. However, working with Server Components may require adjusting your workflow and learning new concepts.
+Server Components are a new way to build with Next.js. They allow you to write parts of your application using React components that are served from the server. This approach offers several advantages, such as faster page loading and simplified setup without the need to manage client states with useState, useEffect, and similar hooks. However, working with Server Components may require adjusting your workflow and learning new concepts.
 
 ## S3 Picture Uploader
 
@@ -59,163 +59,87 @@ Before deploying to your AWS Account, ensure that you have set up the correct cr
 npx sst deploy
 ```
 
-Ensure that the AWS deployment is successful! Access your CloudFront SiteUrl, such as https://abdfhtn2rm9je8.cloudfront.net. Voila! You now have a running Next.js application on AWS with open-next 🤯. Let's take a closer look at what has been deployed in our AWS account because it's quite extensive!
+Ensure that the AWS deployment is successful! View your CloudFront SiteUrl shown in the SST Output. Voila! You now have a running Next.js application on AWS with open-next 🤯. Let's take a closer look at what has been deployed in our AWS account because it's quite extensive!
 
-To inspect the resources created by SST, go to the AWS Console and navigate to CloudFormation. Click on the newly created stack to view the details. You will find a set of helper Lambda Functions, the Lambda Function and Lambda URL for the Server Component, a CloudFront Distribution, and an S3 bucket that serves the static Next.js files. Additionally, there is a CloudFront Function, although its purpose may not be clear at the moment.
+To inspect the resources created by SST, go to the AWS Console and navigate to CloudFormation. Click on the newly created stack to view the details. You will find a set of helper Lambda Functions, the Lambda Function and Lambda URL for the Server Component, a CloudFront Distribution, and an S3 bucket that serves the static Next.js files.
 
-### Add S3 File Uploader
+### Add S3 Picture Uploader
 
-Ok lets go! We need to first create the the API Route in `src/app/upload/route.ts`
+Ok lets go! We need to add an S3 bucket where we can upload the pictures to. Go to the `sst.config.ts` file and add a Bucket:
 
 ```ts
-import { writeFile } from 'fs/promises'
-import { NextRequest, NextResponse } from 'next/server'
+import { SSTConfig } from "sst"
+import { Bucket, NextjsSite } from "sst/constructs"
 
-export async function POST(request: NextRequest) {
-  const data = await request.formData()
-  const file: File | null = data.get('file') as unknown as File
+export default {
+ config(_input) {
+  return {
+   name: "sst-nextjs-s3-picture-uploader",
+   region: "us-east-1",
+  }
+ },
+ stacks(app) {
+  app.stack(function Site({ stack }) {
+   const bucket = new Bucket(stack, "public")
+   const site = new NextjsSite(stack, "site", {
+    permissions: [bucket],
+    bind: [bucket],
+   })
 
+   stack.addOutputs({
+    SiteUrl: site.url,
+   })
+  })
+ },
+} satisfies SSTConfig
+```
+
+The `permissions: [bucket]` property gives the NextjsSite read and write access for the S3 bucket. With `bind: [bucket]` You can use SST node variables in your React code like `Bucket.public.bucketName`. Let's update the page.tsx for adding the upload button and S3 AWS SDK upload code:
+
+```tsx
+import { Bucket } from "sst/node/bucket"
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3"
+
+export default async function Home() {
+ async function upload(data: FormData) {
+  "use server"
+
+  const file: File | null = data.get("file") as unknown as File
   if (!file) {
-    return NextResponse.json({ success: false })
+   throw new Error("No file uploaded")
   }
 
   const bytes = await file.arrayBuffer()
   const buffer = Buffer.from(bytes)
 
-  // With the file data in the buffer, you can do whatever you want with it.
-  // For this, we'll just write it to the filesystem in a new location
-  const path = `/tmp/${file.name}`
-  await writeFile(path, buffer)
-  console.log(`open ${path} to see the uploaded file`)
+  const client = new S3Client({ region: "us-east-1" })
 
-  return NextResponse.json({ success: true })
+  const command = new PutObjectCommand({
+   Bucket: Bucket.public.bucketName,
+   Key: file.name,
+   Body: buffer,
+   ACL: "public-read",
+  })
+
+  await client.send(command)
+
+  console.log(`Uploaded ${file.name} to S3`)
+
+  return { success: true }
+ }
+
+ return (
+  <main className="flex min-h-screen flex-col items-center justify-between p-24">
+   <form action={upload}>
+    <input name="file" type="file" accept="image/png, image/jpeg" />
+    <button type="submit">Upload</button>
+   </form>
+  </main>
+ )
 }
 ```
 
-This API route is processing our upload request with extracting all needed information out of FormData like the file and the file name. Now we need to add an S3 bucket where we can upload the pictures to. Go to the `sst.config.ts` file and add a Bucket:
-
-```ts
-import { SSTConfig } from "sst";
-import { Bucket, NextjsSite } from "sst/constructs";
-
-export default {
-  config(_input) {
-    return {
-      name: "sst-nextjs-s3-picture-uploader",
-      region: "us-east-1",
-    };
-  },
-  stacks(app) {
-    app.stack(function Site({ stack }) {
-      const bucket = new Bucket(stack, "public");
-      const site = new NextjsSite(stack, "site", {
-        bind: [bucket]
-      });
-
-      stack.addOutputs({
-        SiteUrl: site.url,
-      });
-    });
-  },
-} satisfies SSTConfig;
-
-```
-
-The `bind: [bucket]` allows the NextjsSite construct to have read and write permission to the bucket. Let's update the page.tsx for adding an upload button: 
-
-```tsx
-import { writeFile } from 'fs/promises'
-import { join } from 'path'
-
-export default function ServerUploadPage() {
-  async function upload(data: FormData) {
-    'use server'
-
-    const file: File | null = data.get('file') as unknown as File
-    if (!file) {
-      throw new Error('No file uploaded')
-    }
-
-    const bytes = await file.arrayBuffer()
-    const buffer = Buffer.from(bytes)
-
-    // With the file data in the buffer, you can do whatever you want with it.
-    // For this, we'll just write it to the filesystem in a new location
-    const path = join('/', 'tmp', file.name)
-    await writeFile(path, buffer)
-    console.log(`open ${path} to see the uploaded file`)
-
-    return { success: true }
-  }
-
-  return (
-    <main>
-      <h1>React Server Component: Upload</h1>
-      <form action={upload}>
-        <input type="file" name="file" />
-        <input type="submit" value="Upload" />
-      </form>
-    </main>
-  )
-}
-```
-
-Let's test it with running:
-
-```bash
-npm run dev
-```
-
-You should see an upload button. And when uploading a picture it should appear on your machine in the /tmp folder. Cool but wait we want to upload it to S3?! So let's add some AWS SDK stuff to the page.tsx file for uploading to S3:
-
-```tsx
-import { Bucket } from "sst/node/bucket";
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
-
-export default async function Home() {
-
-  async function upload(data: FormData) {
-    "use server";
-
-    const file: File | null = data.get("file") as unknown as File;
-    if (!file) {
-      throw new Error("No file uploaded");
-    }
-
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    // Create an S3 client
-    const client = new S3Client({ region: "us-east-1" });
-
-    // Set up the command with the necessary parameters
-    const command = new PutObjectCommand({
-      Bucket: Bucket.public.bucketName,
-      Key: file.name,
-      Body: buffer,
-      ACL: "public-read", // or whatever permissions you want to set
-    });
-
-    // Send the command
-    await client.send(command);
-
-    console.log(`Uploaded ${file.name} to S3`);
-
-    return { success: true };
-  }
-
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <form action={upload}>
-        <input name="file" type="file" accept="image/png, image/jpeg" />
-        <button type="submit">Upload</button>
-      </form>
-    </main>
-  );
-}
-```
-
-You see how seamingless we can sneak in the AWS SDK s3 upload code? For me that is totally awesome if you like compare with a client side variant where you couldn't do that so easily without exposing your AWS API credentials. But as server components are server side we are save. It really offloads a lot of complexity. Super cool!
+You see how seaminess we can sneak in the AWS SDK s3 upload code? For me that is totally mind-blowing if you like compare with a client side variant where you couldn't do that so easily without exposing your AWS API credentials. But as server components are server side we are save. It really offloads a lot of complexity. Super cool!
 
 Let's deploy that! For more convenience let's add a new command in the package json `"deploy": "sst deploy",`. Now run:
 
@@ -227,11 +151,9 @@ Open the CloudFront SiteUrl. Now click on the upload button and check if you can
 
 BTW. for faster development you could also run locally with `npm run dev` but make sure to load your AWS CLI credentials before which allowing access to the S3 Bucket.
 
-Thanks to [Markus Winkler](https://unsplash.com/@markuswinkler) for the useful Server Component https://ethanmick.com/how-to-upload-a-file-in-next-js-13-app-directory/ which helped a lot to develop the picture uploader that far.
-
 ## Conclusion
 
-I'm still super flashed how nicely SST is orchastrating frontend with backend. In this post I described how you can start with SST and how to create an S3 picture uploader. I hope you learned something new. If you liked my post or want to correct me please reacht out to me :).
+I'm still super flashed how nicely SST is orchestrating frontend with backend. In this post I described how you can start with SST and how to create an S3 picture uploader. I hope you learned something new. If you liked my post or want to correct me please reach out to me :).
 
 I am passionate about contributing to Open Source projects. You can find many of my projects on [GitHub](https://github.com/mmuller88) that you can already benefit from.
 
