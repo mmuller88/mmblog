@@ -8,6 +8,12 @@ import Share from "../components/share"
 import ContactForm from "../components/contactform"
 import KoFi from "../components/KoFi"
 
+const disqusConfig = {
+    url: `${config.siteUrl + location.pathname}`,
+    identifier: post.id,
+    title: post.title,
+  };
+  
 function BlogPost(props) {
  const url = props.data.site.siteMetadata.siteUrl
  const thumbnail =

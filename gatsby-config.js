@@ -22,8 +22,13 @@ module.exports = {
         },
       ],
     },
-    
     },
+    // {
+    //   resolve: `gatsby-plugin-disqus`,
+    //   options: {
+    //     shortname: `MartinMuellerDev`
+    //   }
+    // },
     'gatsby-plugin-postcss',
     // {
     //   resolve: `gatsby-plugin-gdpr-cookies`,
