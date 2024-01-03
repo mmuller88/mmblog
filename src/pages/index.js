@@ -30,13 +30,14 @@ const IndexPage = (props) => {
       <Link to={node.fields.slug} key={i} className="link">
        <div className="post-list">
         <h1>{node.frontmatter.title}</h1>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "26px" }}>
          {imagePreviewUrl && (
           <div
            style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            width: "100%",
            }}
           >
            {" "}
@@ -44,7 +45,7 @@ const IndexPage = (props) => {
             src={imagePreviewUrl}
             alt="Title"
             style={{
-             width: "50%",
+             width: "100%",
              height: "auto",
              alignContent: "center",
              justifySelf: "center",
