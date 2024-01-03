@@ -51,19 +51,30 @@ function BlogPost(props) {
     <br></br>
     <h1>{title}</h1>
     <span>{date}</span>
-    {image && (
-     <Img
-      fluid={image.childImageSharp.fluid}
-      imgStyle={{ objectFit: "contain", maxWidth: "100%", height: "auto" }}
-     />
-    )}
-    {imageVisitorUrl && (
-     <img
-      src={imageVisitorUrl}
-      alt="Title"
-      style={{ maxWidth: "100%", height: "auto" }}
-     />
-    )}
+    <div
+     style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+    >
+     {image && (
+      <Img
+       fluid={image.childImageSharp.fluid}
+       imgStyle={{
+        objectFit: "contain",
+        maxWidth: "50%",
+        height: "auto",
+       }}
+      />
+     )}
+     {imageVisitorUrl && (
+      <img
+       src={imageVisitorUrl}
+       alt="Title"
+       style={{
+        maxWidth: "50%",
+        height: "auto",
+       }}
+      />
+     )}
+    </div>
     <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
     <div>
      <p>
