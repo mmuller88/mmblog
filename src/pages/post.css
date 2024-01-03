@@ -25,6 +25,19 @@
   margin-left: 0;
 }
 
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+
+@media (min-width: 640px) {
+  .post {
+    flex-direction: row;
+  }
+}
+
 img{
 height: 90% !important;
 }

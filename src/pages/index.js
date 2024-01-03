@@ -4,13 +4,21 @@ import "./post.css"
 import Layout from "../components/layout"
 
 export const PreviewPost = (props) => {
-//   if (!props.node) return null
+ //   if (!props.node) return null
  const { imagePreviewUrl } = props.node.frontmatter
  return (
   <Link to={props.node.fields.slug} key={props.i} className="link">
    <div className="post-list">
     <h1>{props.node.frontmatter.title}</h1>
-    <div style={{ display: "flex", alignItems: "center", gap: "26px" }}>
+    <div className="post"
+    //  style={{
+    //   display: "flex",
+    //   flexDirection: "column",
+    //   alignItems: "center",
+    //   gap: "26px",
+      
+    //  }}
+    >
      {imagePreviewUrl && (
       <div
        style={{
