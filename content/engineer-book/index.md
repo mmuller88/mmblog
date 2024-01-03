@@ -51,4 +51,4 @@ OR
 
 And don't forget to visit my site
 
-[![martinmueller.dev](https://martinmueller.dev/static/84caa5292a6d0c37c48ae280d04b5fa6/a7715/joint.jpg)](https://martinmueller.dev/resume)
+<a href="https://martinmueller.dev"><img src="htthttps://martinmueller.dev/static/84caa5292a6d0c37c48ae280d04b5fa6/a7715/joint.jpg" alt="drawing" width="400"/></a>
