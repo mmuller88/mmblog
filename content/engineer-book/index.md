@@ -1,5 +1,5 @@
 ---
-title: How to become or stay a successful software engineer in the age of AI
+title: DRAFTING !!! How to become or stay a successful software engineer in the age of AI
 show: "no"
 date: "2023-12-29"
 image: "index.jpg"
