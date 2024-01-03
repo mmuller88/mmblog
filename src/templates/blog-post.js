@@ -13,8 +13,17 @@ function BlogPost(props) {
  const thumbnail =
   props.data.markdownRemark.frontmatter.image &&
   props.data.markdownRemark.frontmatter.image.childImageSharp.resize.src
- const { title, image, imageVisitorUrl, imagePreviewUrl, tags, date, engUrl, gerUrl, showContact } =
-  props.data.markdownRemark.frontmatter
+ const {
+  title,
+  image,
+  imageVisitorUrl,
+  imagePreviewUrl,
+  tags,
+  date,
+  engUrl,
+  gerUrl,
+  showContact,
+ } = props.data.markdownRemark.frontmatter
  const { prev, next } = props.pageContext
  return (
   <Layout>
@@ -45,11 +54,15 @@ function BlogPost(props) {
     {image && (
      <Img
       fluid={image.childImageSharp.fluid}
-      imgStyle={{ objectFit: "contain" }}
+      imgStyle={{ objectFit: "contain", maxWidth: "100%", height: "auto" }}
      />
     )}
     {imageVisitorUrl && (
-     <img src={imageVisitorUrl} alt="Title" />
+     <img
+      src={imageVisitorUrl}
+      alt="Title"
+      style={{ maxWidth: "100%", height: "auto" }}
+     />
     )}
     <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
     <div>
@@ -99,7 +112,7 @@ export const query = graphql`
      }
     }
     imageVisitorUrl
-    imagePreviewUrl 
+    imagePreviewUrl
    }
   }
   site {
