@@ -1,7 +1,7 @@
 ---
 title: Create a NextJs Server Component S3 Picture Uploader with SST
 show: "no"
-date: "2024-01-02"
+date: "2024-01-03"
 imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=preview"
 imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=visitor"
 tags: ["eng", "2024", "aws", "sst", "nextjs", "nofeed"] #nofeed
@@ -19,7 +19,7 @@ SST offers a variety of powerful constructs, including the NextjsSite construct.
 
 ## NextjsSite
 
-The NextjsSite construct allows you to effortlessly create and manage [open-next](https://github.com/sst/open-next), which is a great alternative for hosting Next.js on Vercel. Being defined within an SST App, you can easily integrate other AWS services, making it incredibly powerful. However, if you're using the latest and most advanced features of Next.js, such as Server Components with the Next.js App Router, you may encounter some challenges.
+The [NextjsSite](https://docs.sst.dev/constructs/NextjsSite) construct allows you to effortlessly create and manage [open-next](https://github.com/sst/open-next), which is a great alternative for hosting Next.js on Vercel. Being defined within an SST App, you can easily integrate other AWS services, making it incredibly powerful. However, if you're using the latest and most advanced features of Next.js, such as Server Components with the Next.js App Router, you may encounter some challenges.
 
 ## Server Components
 
@@ -27,7 +27,7 @@ Server Components are a new way to build with Next.js. They allow you to write p
 
 ## S3 Picture Uploader
 
-In this section, I will demonstrate how to create an S3 Picture Uploader using the Next.js App Router and SST. We will utilize the NextjsSite construct to create the Next.js App Router and the S3 construct to create the S3 Bucket.
+In this section, I will demonstrate how to create an S3 picture uploader using the Next.js App Router and SST. We will utilize the NextjsSite construct to create the Next.js App Router and the S3 construct to create the S3 Bucket.
 
 Your can find alle the code in my [GitHub Repository](https://github.com/mmuller88/sst-nextjs-s3-picture-uploader).
 
@@ -94,7 +94,7 @@ export default {
 } satisfies SSTConfig
 ```
 
-The `permissions: [bucket]` property gives the NextjsSite read and write access for the S3 bucket. With `bind: [bucket]` You can use SST node variables in your React code like `Bucket.public.bucketName`. Let's update the page.tsx for adding the upload button and S3 AWS SDK upload code:
+The `permissions: [bucket]` property gives the NextjsSite read and write access for the S3 bucket. With `bind: [bucket]` You can use SST node variables in your React code like `Bucket.public.bucketName`. Let's update the page.tsx for adding the upload button and S3 AWS SDK upload code. You might need to run `npm run dev` so that the SST node variable `Bucket.public.bucketName` gets recognized.
 
 ```tsx
 import { Bucket } from "sst/node/bucket"

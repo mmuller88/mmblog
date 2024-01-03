@@ -9,15 +9,15 @@ tags: ["eng", "2024", "aws", "abpicturer", "nofeed"] #nofeed
 pruneLength: 50
 ---
 
-Pictures are crucial for effective advertising! With AI, generating pictures has become incredibly easy. But how can you determine if a picture is rocking your audience or not? You can try A/B Picture Testing. A/B Picture Testing involves using two different picture variants and pitting them against each other. The picture variant that performs better will be selected to improve visitor numbers.
+Pictures are crucial for effective advertising! With AI, generating pictures has become incredibly easy. But how can you determine if a picture is rocking your audience or not? You can try AB Picture Testing. AB Picture Testing involves using two different picture variants and pitting them against each other. The picture variant that performs better will be selected to improve visitor numbers.
 
-## My A/B Picture Use Case
+## My AB Picture Use Case
 
 I like to write technical blog posts on my [blog](https://martinmueller.dev). For those post I like to use a picture which can be used as a thumbnail and main picture for the post.
 
 ![martinmueller.dev blog](https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/blog.png)
 
-Actually it is super easy to create pictures with the help of like ChatGPT. I'll simply prompting it like `Make a cute cloud singing "I've got the power". Keep the ratio of 1000:420.` and it generates beautiful picture I love to useThe ratio 1000:420 is specifically good for sharing your posts on social medias.
+Creating pictures has become incredibly easy with tools like ChatGPT. By simply prompting it with a request like "Make a cute cloud singing "I've got the power" while maintaining a ratio of 1000:420" you can generate beautiful pictures that are perfect for sharing your posts on social media.
 
 I build a tool I call **AB Picturer**. With that I can measure performance of the picture variants. In the next section I explain how it works.
 
@@ -39,15 +39,15 @@ The AB Picturer Dashboard shows you the CTR and other statistics for each pictur
 
 As you can see I simply show both picture variants
 
-## Join the A/B Picturer Discord & Newsletter
+## Join the AB Picturer Discord & Newsletter
 
-I've setup a Discord for helping you guys to try out the A/B Picturer and provide feedback to me. I'm super curious about your feedback as I plan to develop more features based on your needs.
+I've setup a [Discord](https://discord.gg/ZSvMBCUeyA) for helping you guys to try out the A/B Picturer and provide feedback to me. I'm super curious about your feedback as I plan to develop more features based on your needs.
 
-Additionally I think it is pretty cool to be part of a community. So join the [A/B Picturer Discord](https://discord.gg/ZSvMBCUeyA) and let's have fun together.
+Additionally I think it is pretty cool to be part of a community. So join the [AB Picturer Discord](https://discord.gg/ZSvMBCUeyA) and let's have fun together.
 
-And please subscribe to my newsletter if you want regularly updates about the A/B Picturer.
+And please subscribe to our [newsletter](https://app.ab.martinmueller.dev/newsletter) if you want regularly updates about the AB Picturer.
 
-In the next section, I will show you how to integrate and use the A/B Picture Testing Tool.
+In the next section, I will show you how to integrate and use AB Picturer.
 
 ## Integrate AB Picturer in your Blog
 
@@ -105,7 +105,7 @@ I could collect more information like where the visitor is referred from or the 
 
 ## Conclusion
 
-Evaluating your pictures if your audience are liking them is super important. In this post I showed you how you can do it with the AB Picturer.
+Evaluating your pictures if your audience are liking them is super important. In this post I showed you how you can do it with the AB Picturer. Join the [AB Picturer Discord](https://discord.gg/ZSvMBCUeyA).
 
 I am passionate about contributing to Open Source projects. You can find many of my projects on [GitHub](https://github.com/mmuller88) that you can already benefit from.
 
