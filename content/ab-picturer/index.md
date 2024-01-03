@@ -15,9 +15,7 @@ Pictures are crucial for effective advertising! With AI, generating pictures has
 
 I like to write technical blog posts on my [blog](https://martinmueller.dev). For those post I like to use a picture which can be used as a thumbnail and main picture for the post.
 
-![martinmueller.dev blog](https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/blog.png)
-
-<img src="https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/blog.png" alt="drawing" width="200"/>
+<img src="https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/blog.png" alt="drawing" width="400"/>
 
 Creating pictures has become incredibly easy with tools like ChatGPT. By simply prompting it with a request like "Make a cute cloud singing "I've got the power" while maintaining a ratio of 1000:420" you can generate beautiful pictures that are perfect for sharing your posts on social media.
 
@@ -37,7 +35,7 @@ The picture preview url is the beginning of the AB Picturer Flow. When the user 
 
 The AB Picturer Dashboard shows you the CTR and other statistics for each picture. The picture with the higher CTR wins and can be used as the main picture for the post. So far it is only a very simple dashboard but I plan to improve it in the future.
 
-![Pateron](https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/dashboard.png)
+<img src="https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/dashboard.png" alt="drawing" width="400"/>
 
 As you can see I simply show both picture variants
 
