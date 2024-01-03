@@ -17,6 +17,8 @@ I like to write technical blog posts on my [blog](https://martinmueller.dev). Fo
 
 ![martinmueller.dev blog](https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/blog.png)
 
+<img src="https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/blog.png" alt="drawing" width="200"/>
+
 Creating pictures has become incredibly easy with tools like ChatGPT. By simply prompting it with a request like "Make a cute cloud singing "I've got the power" while maintaining a ratio of 1000:420" you can generate beautiful pictures that are perfect for sharing your posts on social media.
 
 I build a tool I call **AB Picturer**. With that I can measure performance of the picture variants. In the next section I explain how it works.
