@@ -1,7 +1,8 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import {     graphql } from "gatsby"
 import Layout from "../components/layout"
 import "../pages/post.css"
+import {PreviewPost} from "../pages/index"
 
 function Tags(props) {
  const { tag } = props.pageContext
@@ -17,41 +18,7 @@ function Tags(props) {
    </div>
    <div>
     {posts.map(({ node }, i) => {
-     const { imagePreviewUrl } = node.frontmatter
-     return (
-      <Link to={node.fields.slug} key={i} className="link">
-       <div className="post-list">
-        <h1>{node.frontmatter.title}</h1>
-        <div style={{ display: "flex", alignItems: "center" }}>
-         {imagePreviewUrl && (
-          <div
-           style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-           }}
-          >
-           {" "}
-           <img
-            src={imagePreviewUrl}
-            alt="Title"
-            style={{
-             width: "50%",
-             height: "auto",
-             alignContent: "center",
-             justifySelf: "center",
-            }}
-           />
-          </div>
-         )}
-         <div>
-          <span>{node.frontmatter.date}</span>
-          <p>{node.excerpt}</p>
-         </div>
-        </div>
-       </div>
-      </Link>
-     )
+     return <PreviewPost node={node} i={i} />
     })}
    </div>
   </Layout>

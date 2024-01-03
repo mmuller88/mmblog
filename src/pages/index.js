@@ -3,6 +3,46 @@ import { Link, graphql } from "gatsby"
 import "./post.css"
 import Layout from "../components/layout"
 
+export const PreviewPost = (props) => {
+//   if (!props.node) return null
+ const { imagePreviewUrl } = props.node.frontmatter
+ return (
+  <Link to={props.node.fields.slug} key={props.i} className="link">
+   <div className="post-list">
+    <h1>{props.node.frontmatter.title}</h1>
+    <div style={{ display: "flex", alignItems: "center", gap: "26px" }}>
+     {imagePreviewUrl && (
+      <div
+       style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+       }}
+      >
+       {" "}
+       <img
+        src={imagePreviewUrl}
+        alt="Title"
+        style={{
+         width: "100%",
+         height: "auto",
+         alignContent: "center",
+         justifySelf: "center",
+        }}
+       />
+      </div>
+     )}
+     <div>
+      <span>{props.node.frontmatter.date}</span>
+      <p>{props.node.excerpt}</p>
+     </div>
+    </div>
+   </div>
+  </Link>
+ )
+}
+
 const IndexPage = (props) => {
  const postList = props.data.posts
  //const data = props.data.tags.group;
@@ -25,42 +65,7 @@ const IndexPage = (props) => {
    {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/4JYaGylXEMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
    <div>
     {postList.edges.map(({ node }, i) => {
-     const { imagePreviewUrl } = node.frontmatter
-     return (
-      <Link to={node.fields.slug} key={i} className="link">
-       <div className="post-list">
-        <h1>{node.frontmatter.title}</h1>
-        <div style={{ display: "flex", alignItems: "center", gap: "26px" }}>
-         {imagePreviewUrl && (
-          <div
-           style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-           }}
-          >
-           {" "}
-           <img
-            src={imagePreviewUrl}
-            alt="Title"
-            style={{
-             width: "100%",
-             height: "auto",
-             alignContent: "center",
-             justifySelf: "center",
-            }}
-           />
-          </div>
-         )}
-         <div>
-          <span>{node.frontmatter.date}</span>
-          <p>{node.excerpt}</p>
-         </div>
-        </div>
-       </div>
-      </Link>
-     )
+     return <PreviewPost node={node} i={i} />
     })}
    </div>
   </Layout>
