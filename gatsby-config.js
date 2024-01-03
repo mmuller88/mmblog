@@ -149,18 +149,18 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-remark-images`,
-      options: {
-        // It's important to specify the maxWidth (in pixels) of
-        // the content container as this plugin uses this as the
-        // base for generating different widths of each image.
-        maxWidth: 800,
-        linkImagesToOriginal: true,
-        sizeByPixelDensity: true,
-        showCaptions: true,
-      },
-    },
+    // {
+    //   resolve: `gatsby-remark-images`,
+    //   options: {
+    //     // It's important to specify the maxWidth (in pixels) of
+    //     // the content container as this plugin uses this as the
+    //     // base for generating different widths of each image.
+    //     maxWidth: 1200,
+    //     linkImagesToOriginal: true,
+    //     sizeByPixelDensity: true,
+    //     showCaptions: true,
+    //   },
+    // },
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -177,14 +177,21 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     'gatsby-plugin-offline',
     {
-      resolve: `gatsby-transformer-remark`,
-      // options: {
+      resolve: "gatsby-transformer-remark",
+      // options: { // should be wrapped in options
       //   plugins: [
       //     {
-      //       resolve: `gatsby-remark-highlight-code`
+      //       resolve: "gatsby-remark-images",
+      //       options: {
+      //         maxWidth: 5000,
+      //         withWebp: true,
+      //         showCaptions: true,
+      //         quality: 100,
+      //       },
       //     },
+      //     "gatsby-remark-emoji",
       //   ],
-      // },
+      // }
     },
     {
       resolve: 'gatsby-source-filesystem',

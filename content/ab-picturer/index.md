@@ -106,17 +106,3 @@ I could collect more information like where the visitor is referred from or the 
 ## Conclusion
 
 Evaluating your pictures if your audience are liking them is super important. In this post I showed you how you can do it with the AB Picturer. Join the [AB Picturer Discord](https://discord.gg/ZSvMBCUeyA).
-
-I am passionate about contributing to Open Source projects. You can find many of my projects on [GitHub](https://github.com/mmuller88) that you can already benefit from.
-
-If you found this post valuable and would like to show your support, consider supporting me back. Your support will enable me to write more posts like this and work on projects that provide value to you. You can support me by:
-
-[![Buy me a Ko-Fi](https://storage.ko-fi.com/cdn/useruploads/png_d554a01f-60f0-4969-94d1-7b69f3e28c2fcover.jpg?v=69a332f2-b808-4369-8ba3-dae0d1100dd4)](https://ko-fi.com/T6T1BR59W)
-
-OR
-
-[![Pateron](https://theastrologypodcast.com/wp-content/uploads/2015/06/become-my-patron-05.jpg)](https://www.patreon.com/bePatron?u=29010217)
-
-And don't forget to visit my site
-
-[![martinmueller.dev](https://martinmueller.dev/static/84caa5292a6d0c37c48ae280d04b5fa6/a7715/joint.jpg)](https://martinmueller.dev/resume)
