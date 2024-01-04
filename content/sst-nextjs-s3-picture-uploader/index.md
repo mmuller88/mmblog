@@ -1,5 +1,5 @@
 ---
-title: Create a NextJs Server Component S3 Picture Uploader with SST
+title: Create a Next.js Server Component S3 Picture Uploader with SST
 show: "tes"
 date: "2024-01-43"
 imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=preview"
@@ -13,7 +13,7 @@ I recently started exploring [SST](https://github.com/sst/sst) as an alternative
 
 ## SST
 
-[SST](https://github.com/sst/sst) is a powerful framework that simplifies the development of serverless applications. It offers a straightforward and opinionated approach to defining serverless apps using TypeScript. Built on top of AWS CDK, SST handles the complexity of setting up your serverless infrastructure automatically. SST is an open-source framework and completely free to use.
+[SST](https://github.com/sst/sst) is a powerful framework that simplifies the development of serverless applications. It offers a straightforward and opinionated approach to defining serverless apps using TypeScript. Built on top of AWS CDK, SST handles the complexity of setting up your serverless infrastructure automatically. SST is an open-source framework and is completely free to use.
 
 SST offers a variety of powerful constructs, including the NextjsSite construct. In the following section, I will provide more details about the NextjsSite construct, which greatly simplifies the process of deploying your frontend.
 
@@ -29,11 +29,11 @@ Server Components are a new way to build with Next.js. They allow you to write p
 
 In this section, I will demonstrate how to create an S3 picture uploader using the Next.js App Router and SST. We will utilize the NextjsSite construct to create the Next.js App Router and the S3 construct to create the S3 Bucket.
 
-Your can find alle the code in my [GitHub Repository](https://github.com/mmuller88/sst-nextjs-s3-picture-uploader).
+You can find all the code in my [GitHub Repository](https://github.com/mmuller88/sst-nextjs-s3-picture-uploader).
 
 ### Initialize SST NextjsSite
 
-All the steps are taking from the official [SST guide](https://docs.sst.dev/start/nextjs).
+All the steps are taken from the official [SST guide](https://docs.sst.dev/start/nextjs).
 
 ```bash
 npx create-next-app@latest
@@ -53,7 +53,7 @@ npx create-sst@latest
 npm install
 ```
 
-Before deploying to your AWS Account, ensure that you have set up the correct credentials. I personally recommend using the AWS Identity Service to obtain temporary AWS CLI credentials, but you can also set up IAM User credentials or profiles. Once you have the credentials in place, run the following command:
+Before deploying to your AWS Account, ensure that you have set up the correct credentials. I recommend using the AWS Identity Service to obtain temporary AWS CLI credentials, but you can also set up IAM User credentials or profiles. Once you have the credentials in place, run the following command:
 
 ```bash
 npx sst deploy
@@ -65,7 +65,7 @@ To inspect the resources created by SST, go to the AWS Console and navigate to C
 
 ### Add S3 Picture Uploader
 
-Ok lets go! We need to add an S3 bucket where we can upload the pictures to. Go to the `sst.config.ts` file and add a Bucket:
+Ok let's go! We need to add an S3 bucket where we can upload the pictures to. Go to the `sst.config.ts` file and add a Bucket:
 
 ```ts
 import { SSTConfig } from "sst"
@@ -139,7 +139,7 @@ export default async function Home() {
 }
 ```
 
-You see how seaminess we can sneak in the AWS SDK s3 upload code? For me that is totally mind-blowing if you like compare with a client side variant where you couldn't do that so easily without exposing your AWS API credentials. But as server components are server side we are save. It really offloads a lot of complexity. Super cool!
+Do you see how seaminess we can sneak in the AWS SDK s3 upload code? For me, that is mind-blowing if you like to compare it with a client-side variant where you couldn't do that so easily without exposing your AWS API credentials. But as server components are server side we are saved. It offloads a lot of complexity. Super cool!
 
 Let's deploy that! For more convenience let's add a new command in the package json `"deploy": "sst deploy",`. Now run:
 
@@ -153,7 +153,7 @@ BTW. for faster development you could also run locally with `npm run dev` but ma
 
 ## Conclusion
 
-I'm still super flashed how nicely SST is orchestrating frontend with backend. In this post I described how you can start with SST and how to create an S3 picture uploader. I hope you learned something new. If you liked my post or want to correct me please reach out to me :).
+I'm still super flashed at how nicely SST is orchestrating the frontend with the backend. In this post, I described how you can start with SST and how to create an S3 picture uploader. I hope you learned something new. If you liked my post or want to correct me please reach out to me :).
 
 I am passionate about contributing to Open Source projects. You can find many of my projects on [GitHub](https://github.com/mmuller88) that you can already benefit from.
 
@@ -167,4 +167,4 @@ OR
 
 And don't forget to visit my site
 
-<a href="https://martinmueller.dev"><img src="htthttps://martinmueller.dev/static/84caa5292a6d0c37c48ae280d04b5fa6/a7715/joint.jpg" alt="drawing" width="400"/></a>
+<a href="https://martinmueller.dev"><img src="https://martinmueller.dev/static/84caa5292a6d0c37c48ae280d04b5fa6/a7715/joint.jpg" alt="drawing" width="400"/></a>
