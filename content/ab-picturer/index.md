@@ -2,14 +2,17 @@
 title: DRAFTING!! Make your picture rock with the AB Picturer 
 show: "no"
 date: "2024-01-05"
-imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=preview"
-imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=visitor"
+# imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=preview"
+# imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=visitor"
+image: "titleGuitar.png"
 tags: ["eng", "2024", "aws", "abpicturer", "nofeed"] #nofeed
 # engUrl: https://martinmueller.dev/ab-picturer
 pruneLength: 50
 ---
 
-Pictures are crucial for effective advertising! With AI, generating pictures has become incredibly easy. But how can you determine if a picture is rocking your audience or not? You can try AB Picture Testing. AB Picture Testing involves using two different picture variants and pitting them against each other. The picture variant that performs better will be selected to improve visitor numbers.
+Pictures are crucial for effective advertising! With AI, generating pictures has become incredibly easy. But how can you determine if a picture is rocking your audience or not? You can try AB Picture Testing. AB Picture Testing involves using two different picture variants and pitting them against each other. The picture variant that performs better will be selected to improve visitor numbers. To illustrate that a bit look at the following picture where the audience are separately looking at two different picture variants.
+
+<img src="https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/abtesting.png" alt="drawing" width="400"/>
 
 ## My AB Picture Use Case
 
