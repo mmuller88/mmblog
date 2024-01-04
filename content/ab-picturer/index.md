@@ -21,9 +21,9 @@ Creating pictures has become incredibly easy with tools like ChatGPT. By simply 
 
 I build a tool I call **AB Picturer**. With that I can measure performance of the picture variants. In the next section I explain how it works.
 
-## How does my AB Picturer works?
+## How does AB Picturer work?
 
-Use picture Urls to collect information like when the picture was previewed and when the user decided to open the post. That process is called Click-Through. AB Picturer can then calculate the Click-Through-Rate (CTR) for each picture. The picture with the higher CTR wins and can be used as the main picture for the post.
+The AB Picturer uses picture Urls like https://api.ab.martinmueller.dev?projectId=ab&state=visitor to collect information like when the picture was previewed and when the user decided to click on the post. That process is called Click-Through. AB Picturer can then calculate the Click-Through-Rate (CTR) for each picture. The picture with the higher CTR wins and can be used as the main picture for the post.
 
 The basic concept is to have two picture urls which are part of the AB Picturer Flow. The first is for the picture preview and the second for the picture visitor. I'll describe those more in detail now.
 
@@ -37,11 +37,9 @@ The AB Picturer Dashboard shows you the CTR and other statistics for each pictur
 
 <img src="https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/dashboard.png" alt="drawing" width="400"/>
 
-As you can see I simply show both picture variants
-
 ## Join the AB Picturer Discord & Newsletter
 
-I've setup a [Discord](https://discord.gg/ZSvMBCUeyA) for helping you guys to try out the A/B Picturer and provide feedback to me. I'm super curious about your feedback as I plan to develop more features based on your needs.
+I've setup a [Discord](https://discord.gg/ZSvMBCUeyA) for helping you guys to try out the AB Picturer and provide feedback to me. I'm super curious about your feedback as I plan to develop more features based on your needs.
 
 Additionally I think it is pretty cool to be part of a community. So join the [AB Picturer Discord](https://discord.gg/ZSvMBCUeyA) and let's have fun together.
 

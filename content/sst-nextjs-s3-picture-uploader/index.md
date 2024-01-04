@@ -1,10 +1,10 @@
 ---
 title: Create a NextJs Server Component S3 Picture Uploader with SST
-show: "no"
-date: "2024-01-03"
+show: "tes"
+date: "2024-01-43"
 imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=preview"
 imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=visitor"
-tags: ["eng", "2024", "aws", "sst", "nextjs", "nofeed"] #nofeed
+tags: ["eng", "2024", "aws", "sst", "nextjs"] #nofeed
 # engUrl: https://martinmueller.dev/sst-nextjs-s3-picture-uploader
 pruneLength: 50
 ---
