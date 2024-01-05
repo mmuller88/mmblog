@@ -10,51 +10,51 @@ tags: ["eng", "2024", "aws", "abpicturer", "nofeed"] #nofeed
 pruneLength: 50
 ---
 
-Pictures are crucial for effective advertising! With AI, generating pictures has become incredibly easy. But how can you determine if a picture is rocking your audience or not? You can try AB Picture Testing. AB Picture Testing involves using two different picture variants and pitting them against each other. The picture variant that performs better will be selected to improve visitor numbers. To illustrate that a bit look at the following picture where the audience are separately looking at two different picture variants.
+Images are crucial to effective advertising! AI has made it incredibly easy to create images. But how do you know if an image will move your audience or not? You can try AB Picture Testing. With AB Picture Testing, two different image variants are used and pitted against each other. The one that performs better will be selected to increase traffic. To illustrate this, take a look at the image below, where the audience is separately looking at two different image variants.
 
-<img src="https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/abtesting.png" alt="drawing" width="400"/>
+<img src="https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/abtesting.png" alt="drawing" width="400"/>.
 
 ## My AB Picture Use Case
 
-I like to write technical blog posts on my [blog](https://martinmueller.dev). For those post I like to use a picture which can be used as a thumbnail and main picture for the post.
+I like to write technical blog posts on my [blog] (https://martinmueller.dev). For these posts, I like to use an image that can be used as the thumbnail and main image for the post.
 
-<img src="https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/blog.png" alt="drawing" width="400"/>
+<img src="https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/blog.png" alt="drawing" width="400"/>.
 
-Creating pictures has become incredibly easy with tools like ChatGPT. By simply prompting it with a request like "Make a cute cloud singing "I've got the power" while maintaining a ratio of 1000:420" you can generate beautiful pictures that are perfect for sharing your posts on social media.
+Creating images has become incredibly easy with tools like ChatGPT. By simply prompting it with a request like "Make a cute cloud that sings "I've got the power" while maintaining a ratio of 1000:420", you can create beautiful images that are perfect for sharing your posts on social media.
 
-I build a tool I call **AB Picturer**. With that I can measure performance of the picture variants. In the next section I explain how it works.
+I am building a tool called **AB Picturer**. It allows me to measure the performance of the image variations. In the next section I explain how it works.
 
 ## How does AB Picturer work?
 
-The AB Picturer uses picture Urls like https://api.ab.martinmueller.dev?projectId=ab&state=visitor to collect information like when the picture was previewed and when the user decided to click on the post. That process is called Click-Through. AB Picturer can then calculate the Click-Through-Rate (CTR) for each picture. The picture with the higher CTR wins and can be used as the main picture for the post.
+The AB Picturer uses image urls like https://api.ab.martinmueller.dev?projectId=ab&state=visitor to collect information like when the image was previewed and when the user decided to click on the post. This process is called click-through. AB Picturer can then calculate the click-through rate (CTR) for each image. The image with the higher CTR wins and can be used as the main image for the post.
 
-The basic concept is to have two picture urls which are part of the AB Picturer Flow. The first is for the picture preview and the second for the picture visitor. I'll describe those more in detail now.
+The basic concept is to have two image urls that are part of the AB Picturer flow. The first is for the image preview and the second is for the image visitor. I'll describe these in more detail now.
 
 ### AB Picturer Flow
 
-The picture preview url is the beginning of the AB Picturer Flow. When the user views the preview url via your thumbnail or social media post the flow starts. The user session gets stored and if the user uses the picture visitor url that counts as Click-Through.
+The preview url is the beginning of the AB Picturer flow. When the user views the preview url via your thumbnail or social media post, the flow starts. The user session is tracked and if the user uses the image visitor url, this counts as a click-through.
 
 ### AB Picturer Dashboard
 
-The AB Picturer Dashboard shows you the CTR and other statistics for each picture. The picture with the higher CTR wins and can be used as the main picture for the post. So far it is only a very simple dashboard but I plan to improve it in the future.
+The AB Picturer Dashboard shows you the CTR and other statistics for each image. The image with the higher CTR wins and can be used as the main image for the post. It is a very simple dashboard at the moment, but I plan to improve it in the future.
 
 <img src="https://github.com/mmuller88/mmblog/raw/master/content/ab-picturer/dashboard.png" alt="drawing" width="400"/>
 
 ## Join the AB Picturer Discord & Newsletter
 
-I've setup a [Discord](https://discord.gg/ZSvMBCUeyA) for helping you guys to try out the AB Picturer and provide feedback to me. I'm super curious about your feedback as I plan to develop more features based on your needs.
+I've set up a [Discord](https://discord.gg/ZSvMBCUeyA) for you to try out the AB Picturer and give me feedback. I'm super curious about your feedback as I plan to develop more features based on your needs.
 
-Additionally I think it is pretty cool to be part of a community. So join the [AB Picturer Discord](https://discord.gg/ZSvMBCUeyA) and let's have fun together.
+Also, I think it is pretty cool to be part of a community. So join the [AB Picturer Discord](https://discord.gg/ZSvMBCUeyA) and let's have some fun together.
 
-And please subscribe to our [newsletter](https://app.ab.martinmueller.dev/newsletter) if you want regularly updates about the AB Picturer.
+And please subscribe to our [Newsletter](https://app.ab.martinmueller.dev/newsletter) if you want regular updates about AB Picturer.
 
-In the next section, I will show you how to integrate and use AB Picturer.
+In the next section I will show you how to integrate and use AB Picturer.
 
-## Integrate AB Picturer in your Blog
+## Integrate AB Picturer into your blog
 
-It doesn't matter what exact blog post engine you are using as long as they support showing pictures it should work.
+It doesn't matter what blog post engine you're using, as long as it supports displaying images, it should work.
 
-### Gastby and the AB Picturer
+### Gastby and AB Picturer
 
 So on my blog post I have the two urls preview and visitor in the meta section:
 
@@ -63,9 +63,9 @@ imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=preview"
 imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=visitor"
 ```
 
-I then simply render those to the thumbnail, meta tags and post itself:
+I then simply render these to the thumbnail, meta tags and post itself:
 
-Here is the snippet for adding it as a thumbnail:
+Here is the snippet to add it as a thumbnail:
 
 ```jsx
 const { imagePreviewUrl } = node.frontmatter
@@ -74,9 +74,9 @@ const { imagePreviewUrl } = node.frontmatter
 ...
 ```
 
-See the full example in my [repository](https://github.com/mmuller88/mmblog/blob/master/src/pages/index.js)
+See the complete example in my [repository](https://github.com/mmuller88/mmblog/blob/master/src/pages/index.js)
 
-Adding it to the [meta tags](https://github.com/mmuller88/mmblog/blob/master/src/templates/blog-post.js):
+Add it to the [meta tags](https://github.com/mmuller88/mmblog/blob/master/src/templates/blog-post.js):
 
 ```jsx
 <MetaTags
@@ -88,22 +88,22 @@ Adding it to the [meta tags](https://github.com/mmuller88/mmblog/blob/master/src
 />
 ```
 
-And finally adding it to the [post](https://github.com/mmuller88/mmblog/blob/master/src/templates/blog-post.js)
+And finally, add it to the [post](https://github.com/mmuller88/mmblog/blob/master/src/templates/blog-post.js)
 
 ```jsx
 {
- imageVisitorUrl && <img src={imageVisitorUrl} alt="Title" />
+ imageVisitorUrl && <img src={imageVisitorUrl} alt="Title" /> }
 }
 ```
 
-That is cool or? It is basically just a src url :)!
+This is cool, right? It is basically just a src url :)!
 
 ## Outlook
 
-I'm a huge fan of the blog post site [dev.to](https://dev.to) . I tried to make the AB Pictures working there but unlucky I failed. I think they are doing some caching for the pictures. I'll try to reach out to them and see if we can make it work.
+I'm a big fan of the blog post site [dev.to] (https://dev.to). I tried to get the AB pictures to work there but unfortunately I failed. I think they do some caching for the images. I'll try to contact them and see if we can get it to work.
 
-I could collect more information like where the visitor is referred from or the country the user is from. If you would like to have those and more features, reach out to me in our AB Pictures Discord :)!
+I could collect more information like where the visitor is coming from or what country the user is from. If you would like to have this and other features, contact me in our AB Pictures Discord :)!
 
 ## Conclusion
 
-Evaluating your pictures if your audience are liking them is super important. In this post I showed you how you can do it with the AB Picturer. Join the [AB Picturer Discord](https://discord.gg/ZSvMBCUeyA).
+Rating your images to see if your audience likes them is super important. In this article I have shown you how to do it with AB Picturer. Join the [AB Picturer Discord](https://discord.gg/ZSvMBCUeyA).
