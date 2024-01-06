@@ -1,11 +1,11 @@
 ---
-title: DRAFTING!! Make your picture rock with the AB Picturer 
-show: "no"
-date: "2024-01-05"
+title: Make your picture rock with the AB Picturer 
+show: "yes"
+date: "2024-01-06"
 # imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=preview"
 # imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=visitor"
 image: "titleGuitar.png"
-tags: ["eng", "2024", "aws", "abpicturer", "nofeed"] #nofeed
+tags: ["eng", "2024", "aws", "abpicturer"] #nofeed
 # engUrl: https://martinmueller.dev/ab-picturer
 pruneLength: 50
 ---
