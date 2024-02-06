@@ -34,20 +34,20 @@ Der arcBot ist ein ChatGPT ähnliche KI zum schnellen erstellen und modifizieren
 
 `Create customer and product tables in a many to many relationship.`
 
-<img src="https://github.com/mmuller88/mmblog/raw/master/content/arcbot/createTable.gif" alt="drawing" width="400"/>
+<img src="https://github.com/mmuller88/mmblog/raw/master/content/arcbot/createTable.gif" alt="drawing" width="800"/>
 
 Cool oder? arcBot erstellt many to many Tabellen für Customers und Products. Zu beachten ist hier das arcBot sogar die ninox typischen reverse Fields setzen kann. Im nächsten Prompt wollen wir den Last Name zu einem Customer hinzufügen.
 
 `Add last name to customer table`
 
-<img src="https://github.com/mmuller88/mmblog/raw/master/content/arcbot/addLastName.gif" alt="drawing" width="400"/>
+<img src="https://github.com/mmuller88/mmblog/raw/master/content/arcbot/addLastName.gif" alt="drawing" width="800"/>
 
 Für den Response nutzt der arcBot das [Claude v2.1 model](https://docs.anthropic.com/claude/docs/claude-2p1-guide) welches über die [AWS Bedrock API](https://docs.aws.amazon.com/bedrock/) zur Verfügung gestellt wird.
 
 Wie gehen wir sicher dass ein möglichst hohe Qualität bei den Responses erreicht wird? Wir haben ein Feedback Loop eingebaut. Der User kann nach dem Response Feedback geben. Dieses Feedback wird dann genutzt um arcBot zu verbessern.
 
-<img src="https://github.com/mmuller88/mmblog/raw/master/content/arcbot/feedback1.png" alt="drawing" width="400"/>
-<img src="https://github.com/mmuller88/mmblog/raw/master/content/arcbot/feedback2.png" alt="drawing" width="400"/>
+<img src="https://github.com/mmuller88/mmblog/raw/master/content/arcbot/feedback1.png" alt="drawing" width="800"/>
+<img src="https://github.com/mmuller88/mmblog/raw/master/content/arcbot/feedback2.png" alt="drawing" width="800"/>
 
 Auch bin ich im engen Austausch mit anderen Gen AI Experten die mir helfen die Qualität der arcBot Responses zu verbessern. An dieser Stelle möchte ich gerne diesen Experten danken. Es sind hauptsächlich AWS Community Mitglieder und AWS Mitarbeiter die mir schon viele wertvolle Tipps gegeben haben. Vielen vielen Dank 🙏
 
@@ -55,15 +55,9 @@ Auch bin ich im engen Austausch mit anderen Gen AI Experten die mir helfen die Q
 
 Es ist zwar cool dass wir mit dem arcBot Ninox Tabellen erstellen können, aber wie können wir die Daten in Ninox weiterverarbeiten? Hier kommt der Ninox Connector ins Spiel. Der Ninox Connector kann Ninox Tabellen auslesen und updaten. Im nachfolgendem Bild ist der Ninox Connector zu sehen.
 
-<img src="https://github.com/mmuller88/mmblog/raw/master/content/arcbot/ninox-connector.png" alt="drawing" width="400"/>.
+<img src="https://github.com/mmuller88/mmblog/raw/master/content/arcbot/ninox-connector.png" alt="drawing" width="800"/>.
 
 Der Ninox Connector benötigt ein paar Informationen wie der Ninox Url, Team Id, Database Id und dem Ninox API Key.
-
-### Safety first
-
-Um sicherzustellen dass im Ninox Connector gespeicherte hoch sensitive Daten wie die Ninox API keys sicher sind, werden diese verschlüsselt in der Datenbank hinterlegt. Auch sind diese sensitive Daten Teil des User JWT Token Claim welches nach erfolgreicher Authentifizierung mitgesendet wird. So ist sichergestellt dass nur der User selbst Zugriff auf seine Daten hat.
-
-* Update Database connected direkt zur Ninox API
 
 ## Join our Beta Test
 
@@ -74,10 +68,12 @@ Hol dir Early Access https://app.arcbot.de/ .
 ## Outlook
 
 * ArcBot Response verbessern mit eurem Feedback
-* Vorhandene Ninox Tabellen mit ArcBot weiter ausbauen. Sollte eigentlich jetzt schon gehen
-* Coole neue Features
+
+
 * Ninox Connector is nur der Anfang. Wollen Connectoren für andere Low-Code Plattformen entwickeln. Interessant sind da Airflow, Flatter, Retool and n8n.
 
 ## Conclusion
+
+In diesem Blogpost habe ich euch gezeigt wie wir mit einer Kombination von Ninox und arcBot das Erstellen und Updaten von Ninox Tabellen vereinfachen. Wir sind gespannt auf euer Feedback. Vielen Dank fürs lesen.
 
 ...
