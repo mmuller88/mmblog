@@ -30,6 +30,13 @@ function BlogPost(props) {
     month: 'long',
     day: 'numeric',
   });
+
+ const usFormat = new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+
  return (
   <Layout>
    <MetaTags
@@ -55,7 +62,7 @@ function BlogPost(props) {
 
     <br></br>
     <h1>{title}</h1>
-    <span>{tags.includes('de') ? germanFormat : date}</span>
+    <span>{tags.includes('de') ? germanFormat : usFormat}</span>
     <div
      style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
     >
@@ -110,7 +117,7 @@ export const query = graphql`
    html
    excerpt
    frontmatter {
-    date(formatString: "Do MMMM YYYY")
+    date
     title
     show
     tags
