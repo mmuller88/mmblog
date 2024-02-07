@@ -25,6 +25,11 @@ function BlogPost(props) {
   showContact,
  } = props.data.markdownRemark.frontmatter
  const { prev, next } = props.pageContext
+ const germanFormat = new Date(date).toLocaleDateString('de-DE', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
  return (
   <Layout>
    <MetaTags
@@ -50,7 +55,7 @@ function BlogPost(props) {
 
     <br></br>
     <h1>{title}</h1>
-    <span>{date}</span>
+    <span>{tags.includes('de') ? germanFormat : date}</span>
     <div
      style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
     >
