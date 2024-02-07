@@ -1,20 +1,20 @@
 ---
 title: AI für den Mittelstand mit Ninox und arcBot
-show: "no"
-date: "2024-01-20"
+show: "yes"
+date: "2024-02-10"
 imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=arcbot&state=preview"
 imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=arcbot&state=visitor"
 # image: "titleGuitar.png"
-tags: ["de", "2024", "aws", "ninox", "nofeed"] #nofeed
+tags: ["de", "2024", "ninox", "nofeed", "ai"] #nofeed
 engUrl: https://martinmueller.dev/arcbot-eng
 pruneLength: 50
 ---
 
-AI beflügelt gerade die Unternehmerlandschaft. Viele einfache und komplexe Prozesse im Unternehmen lassen sich mit AI stark vereinfachen oder gar komplett automatisieren. Jakob mein Co-Founder und ich sehen es dabei als spannende Herausforderung wie wir kleinen bis mittelgrossen Unternehmen den Zugang zu AI vereinfachen können. Wir glauben einen spannenden Ansatz mit der Low-Code Plattform [Ninox](https://ninox.com) und unserem AI Chatbot [arcBot](https://app.arcbot.de) gefunden zu haben. In diesem Blogpost möchte ich euch zeigen wie wir mit Ninox und arcBot eine AI Lösung für den Mittelstand bauen.
+AI beflügelt die Unternehmerlandschaft. Viele einfache und komplexe Prozesse im Unternehmen lassen sich mit AI stark vereinfachen oder gar komplett automatisieren. Jakob mein Co-Founder und ich sehen es dabei als spannende Herausforderung wie wir kleinen bis mittelgrossen Unternehmen den Zugang zu AI vereinfachen können. Wir glauben einen spannenden Ansatz mit der Low-Code Plattform [Ninox](https://ninox.com) und unserem AI Chatbot [arcBot](https://app.arcbot.de) gefunden zu haben. In diesem Blogpost möchte ich euch diesen Ansatz zeigen.
 
-## ninox.com
+## Ninox.com
 
-[Ninox.com](https://ninox.com) ist eine Cloud-basierte low-code Plattform zum Bauen von Softwarelösungen für kleine und mittelgrosse Unternehmen. Ninox wurde 2013 von [Frank Böhmer](https://www.linkedin.com/in/frank-boehmer/) in Deutschland gegründet. Stand 2021 zählte Ninox mehr als 6.000 Kunden. Hier sind einige Möglichkeiten, wie Ninox Unternehmen helfen kann:
+[Ninox.com](https://ninox.com) ist eine Cloud-basierte low-code Plattform zum Bauen von Softwarelösungen für kleine und mittelgrosse Unternehmen. Ninox wurde 2013 von [Frank Böhmer](https://www.linkedin.com/in/frank-boehmer/) in Deutschland gegründet. Stand 2023 zählte Ninox mehr als 6.000 Kunden. Hier sind einige Möglichkeiten, wie Ninox Unternehmen helfen kann:
 
 Automatisierung von Geschäftsprozessen: Mit Ninox können Unternehmen ihre täglichen Aufgaben und Prozesse automatisieren, was zu einer erhöhten Effizienz führt.
 
@@ -59,7 +59,7 @@ Es ist zwar cool dass wir mit dem arcBot Ninox Tabellen erstellen können, aber 
 
 Der Ninox Connector benötigt ein paar Informationen wie der Ninox Url, Team Id, Database Id und dem Ninox API Key.
 
-## Join our Beta Test
+## Discord
 
 Hol dir Early Access https://app.arcbot.de/ . 
 
