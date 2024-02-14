@@ -62,12 +62,6 @@ Der Ninox Connector benötigt einige Informationen wie die Ninox Url, Team Id, D
 
 Werdet Teil unserer [Discord Community](https://discord.gg/MMWZSHSrEQ). Wir haben bereits einige Member welche uns wertvolles Feedback und Feature Wünsche zu dem arcBot mitteilen.
 
-## Ausblick
-
-Der arcBot soll mit Hilfe eures Feedbacks verbessert werden.
-
-Wir überlegen uns auch, Connectoren für andere Low-Code Plattformen zu erstellen. Interessant sind [Airtable](https://www.airtable.com/), [Zoho Creator](https://www.zoho.com/) und andere. Falls euch einen der Connectoren interessiert, lasst es uns wissen.
-
 ## Zusammenfassung
 
 In diesem Blogpost habe ich euch gezeigt, wie wir durch die Kombination von Ninox und arcBot das Erstellen und Aktualisieren von Ninox-Tabellen vereinfachen. Wir freuen uns auf euer Feedback. Vielen Dank fürs Lesen.
