@@ -1,11 +1,10 @@
 ---
-title: AI für den Mittelstand mit Ninox und arcBot
+title: AI Softwareentwicklung mit Ninox und arcBot
 show: "yes"
-date: "2024-02-10"
+date: "2024-02-14"
 imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=arcbot&state=preview"
 imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=arcbot&state=visitor"
-# image: "titleGuitar.png"
-tags: ["de", "2024", "ninox", "nofeed", "ai"] #nofeed
+tags: ["de", "2024", "ninox", "ai"] #nofeed
 engUrl: https://martinmueller.dev/arcbot-eng
 pruneLength: 50
 ---
@@ -51,29 +50,36 @@ Wie stellen wir sicher, dass die Qualität der Antworten so hoch wie möglich is
 
 Ich stehe auch in engem Kontakt mit anderen Gen AI Experten, die mir helfen, die Qualität der arcBot Antworten zu verbessern. An dieser Stelle möchte ich mich bei diesen Experten bedanken. Es sind hauptsächlich AWS Community Mitglieder und AWS Mitarbeiter die mir schon viele wertvolle Tipps gegeben haben. Vielen Dank 🙏
 
-## Ninox Konnektor
+## Ninox Connector
 
 Es ist cool, dass wir mit arcBot Ninox Tabellen erstellen können, aber wie können wir die Daten in Ninox weiterverarbeiten? Hier kommt der Ninox Connector ins Spiel. Der Ninox Connector kann Ninox Tabellen lesen und aktualisieren. Das folgende Bild zeigt den Ninox Connector.
 
 <img src="https://github.com/mmuller88/mmblog/raw/master/content/arcbot/ninox-connector.png" alt="Zeichnung" width="800"/>.
 
-Der Ninox Connector benötigt einige Informationen wie die Ninox Url, Team Id, Database Id und den Ninox API Key.
+Der Ninox Connector benötigt einige Informationen wie die Ninox Url, Team Id, Database Id und den Ninox API Key. Zurzeit is der Ninox Connector nur über den Early Access verfügbar. Dieser ist aber ganz leicht auf https://app.arcbot.de/ zu bekommen.
 
-## Discord
+## Discord Community
 
-Early Access https://app.arcbot.de/ . 
-
-* ArcBot Discord
+Werdet Teil unserer [Discord Community](https://discord.gg/MMWZSHSrEQ). Wir haben bereits einige Member welche uns wertvolles Feedback und Feature Wünsche zu dem arcBot mitteilen.
 
 ## Ausblick
 
-* ArcBot Response mit eurem Feedback verbessern
+Der arcBot soll mit Hilfe eures Feedbacks verbessert werden.
 
-
-* Ninox Connector ist nur der Anfang. Wollen Connectoren für andere Low-Code Plattformen entwickeln. Interessant sind Airflow, Flatter, Retool und n8n.
+Wir überlegen uns auch, Connectoren für andere Low-Code Plattformen zu erstellen. Interessant sind (Airtable)[https://www.airtable.com/], (Zoho Creator)[https://www.zoho.com/] und andere. Falls euch einen der Connectoren interessiert, lasst es uns wissen.
 
 ## Zusammenfassung
 
 In diesem Blogpost habe ich euch gezeigt, wie wir durch die Kombination von Ninox und arcBot das Erstellen und Aktualisieren von Ninox-Tabellen vereinfachen. Wir freuen uns auf euer Feedback. Vielen Dank fürs Lesen.
 
-...
+Ich liebe es, an Open-Source-Projekten zu arbeiten. Viele Dinge kannst du bereits frei nutzen auf [github.com/mmuller88](https://github.com/mmuller88). Wenn du meine Arbeit dort und meine Blog-Posts toll findest, denke doch bitte darüber nach, mich zu unterstützen:
+
+[![Buy me a Ko-Fi](https://storage.ko-fi.com/cdn/useruploads/png_d554a01f-60f0-4969-94d1-7b69f3e28c2fcover.jpg?v=69a332f2-b808-4369-8ba3-dae0d1100dd4)](https://ko-fi.com/T6T1BR59W)
+
+Oder
+
+[![Buy me a Ko-Fi](https://theastrologypodcast.com/wp-content/uploads/2015/06/become-my-patron-05.jpg)](https://www.patreon.com/bePatron?u=29010217)
+
+Und schau doch mal auf meiner Seite vorbei
+
+[![martinmueller.dev](https://martinmueller.dev/static/84caa5292a6d0c37c48ae280d04b5fa6/a7715/joint.jpg)](https://martinmueller.dev/resume)
