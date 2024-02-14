@@ -1,6 +1,6 @@
 ---
 title: AI Softwareentwicklung mit Ninox und arcBot
-show: "yes"
+show: "no"
 date: "2024-02-14"
 imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=arcbot&state=preview"
 imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=arcbot&state=visitor"
@@ -13,7 +13,7 @@ KI beflügelt die Unternehmenslandschaft. Viele einfache und komplexe Prozesse i
 
 ## Ninox.com
 
-[Ninox.com](https://ninox.com) ist eine cloudbasierte Low-Code-Plattform zum Bau von Softwarelösungen für kleine und mittelständische Unternehmen. Ninox wurde 2013 in Deutschland von [Frank Böhmer](https://www.linkedin.com/in/frank-boehmer/) gegründet. Im Jahr 2023 hatte Ninox mehr als 6.000 Kunden. Hier einige Möglichkeiten, wie Ninox Unternehmen unterstützen kann:
+[Ninox.com](https://ninox.com) ist eine cloudbasierte Low-Code-Plattform zum Bau von Softwarelösungen für kleine und mittelständische Unternehmen. Ninox wurde 2013 in Deutschland von [Frank Böhmer](https://www.linkedin.com/in/frank-boehmer/) gegründet. Hier einige Möglichkeiten, wie Ninox Unternehmen unterstützen kann:
 
 Automatisierung der Geschäftsprozesse: Mit Ninox können Unternehmen ihre täglichen Aufgaben und Prozesse automatisieren und so ihre Effizienz steigern.
 
@@ -37,7 +37,7 @@ Der arcBot ist eine ChatGPT-ähnliche KI zum schnellen Erstellen und Modifiziere
 
 Cool oder? arcBot erstellt viele Tabellen für Kunden und Produkte. Bemerkenswert ist, dass arcBot sogar die ninox-typischen inversen Felder setzen kann. Im nächsten Prompt wollen wir den Last Name zu einem Customer hinzufügen.
 
-`Add last name to customer table` (Nachname zur Kundentabelle hinzufügen)
+`Add last name to customer table`
 
 <img src="https://github.com/mmuller88/mmblog/raw/master/content/arcbot/addLastName.gif" alt="drawing" width="800"/>
 
@@ -66,7 +66,7 @@ Werdet Teil unserer [Discord Community](https://discord.gg/MMWZSHSrEQ). Wir habe
 
 Der arcBot soll mit Hilfe eures Feedbacks verbessert werden.
 
-Wir überlegen uns auch, Connectoren für andere Low-Code Plattformen zu erstellen. Interessant sind (Airtable)[https://www.airtable.com/], (Zoho Creator)[https://www.zoho.com/] und andere. Falls euch einen der Connectoren interessiert, lasst es uns wissen.
+Wir überlegen uns auch, Connectoren für andere Low-Code Plattformen zu erstellen. Interessant sind [Airtable](https://www.airtable.com/), [Zoho Creator](https://www.zoho.com/) und andere. Falls euch einen der Connectoren interessiert, lasst es uns wissen.
 
 ## Zusammenfassung
 

@@ -13,7 +13,7 @@ AI is boosting the corporate landscape. Many simple and complex processes in com
 
 ## Ninox.com
 
-[Ninox.com](https://ninox.com) is a cloud-based low-code platform for building software solutions for small and medium-sized companies. Ninox was founded in 2013 in Germany by [Frank Böhmer](https://www.linkedin.com/in/frank-boehmer/). In 2023, Ninox had more than 6,000 customers. Here are some ways Ninox can support businesses:
+[Ninox.com](https://ninox.com) is a cloud-based low-code platform for building software solutions for small and medium-sized companies. Ninox was founded in 2013 in Germany by [Frank Böhmer](https://www.linkedin.com/in/frank-boehmer/). Here are some ways Ninox can support businesses:
 
 Business process automation: With Ninox, companies can automate their daily tasks and processes to increase efficiency.
 
@@ -37,7 +37,7 @@ The arcBot is a ChatGPT-like AI for quickly creating and modifying Ninox tables.
 
 Cool, right? arcBot creates many tables for customers and products. Remarkably, arcBot can even set the ninox-typical inverse fields. In the next prompt we want to add the last name to a customer.
 
-`Add last name to customer table` (Add last name to customer table)
+`Add last name to customer table`
 
 <img src="https://github.com/mmuller88/mmblog/raw/master/content/arcbot/addLastName.gif" alt="drawing" width="800"/>
 
@@ -66,7 +66,7 @@ Become part of our [Discord Community](https://discord.gg/MMWZSHSrEQ). We alread
 
 The arcBot will be improved with the help of your feedback.
 
-We are also considering creating connectors for other low-code platforms. Interesting are (Airtable)[https://www.airtable.com/], (Zoho Creator)[https://www.zoho.com/] and others. If you are interested in one of the connectors, please let us know.
+We are also considering creating connectors for other low-code platforms. Interesting are [Airtable](https://www.airtable.com/), [Zoho Creator](https://www.zoho.com/) and others. If you are interested in one of the connectors, please let us know.
 
 ## Summary
 
