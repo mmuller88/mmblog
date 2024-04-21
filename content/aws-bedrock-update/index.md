@@ -1,7 +1,7 @@
 ---
 title: AWS Bedrock Update from Claude v2.1 to Claude v3
 show: "yes"
-date: "2024-04-17"
+date: "2024-04-21"
 imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=aws-bedrock-update&state=preview"
 imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=aws-bedrock-update&state=visitor"
 # image: "titleGuitar.png"
