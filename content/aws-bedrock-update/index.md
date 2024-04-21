@@ -1,9 +1,9 @@
 ---
 title: AWS Bedrock Update from Claude v2.1 to Claude v3
 show: "no"
-date: "2024-04-20"
-imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=preview"
-imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=visitor"
+date: "2024-04-17"
+imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=aws-bedrock-update&state=preview"
+imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=aws-bedrock-update&state=visitor"
 # image: "titleGuitar.png"
 tags: ["eng", "2024", "aws", "nofeed"] #nofeed
 # engUrl: https://martinmueller.dev/ab-picturer
@@ -21,3 +21,10 @@ Simply with [Unit Testing](https://martinmueller.dev/aws-bedrock-unit-testing). 
 ## Conclusion
 
 Using AWS gen AIs offers like Claude is super fun. It can get challenging when ensuring your answers are still as good as before. But with a good test coverage you can make sure that your answers are still as good as before or even better. With our unit tests in place wer are confident that we easily can update to a future version easily again or if we wanted change the LLM entirely. Any questions or thoughts on this reach out :)!
+
+## AB Picturer - Bonus
+
+<img src="https://github.com/mmuller88/mmblog/raw/master/content/aws-bedrock-update/ab-picturer.png" alt="drawing" width="400"/>.
+
+Did you notice the cool blog title picture? It is actually one from two randomly choosen. I love writing blog post and choosing a nice picture. But often I want to choose the best picture. So for figuring out the best picture I'm using AB Testing. If you are curios about that have a look at my [AB Picturer Tool](https://martinmueller.dev/ab-picturer).
+
