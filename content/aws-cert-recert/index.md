@@ -1,7 +1,7 @@
 ---
 title: Recertification - AWS Solution Architect Professional in 2024
 show: "no"
-date: "2024-04-20"
+date: "2024-04-28"
 imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=preview"
 imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=visitor"
 # image: "titleGuitar.png"
