@@ -14,7 +14,9 @@ Recently, AWS released Claude v3. It comes with the [Haiku](https://aws.amazon.c
 
 ## Upgrade
 
-As mentioned above, we upgraded from Claude v2.1 to Claude v3 Sonnet. But when you do this there is a high risk that your answers will not be as good as before. But we were prepared and the answers are even better now. But how did we do it?
+As mentioned above, we upgraded from Claude v2.1 to Claude v3 Sonnet for our gen AI database tool [arcBot](https://martinmueller.dev/arcbot-eng) (Try it out!).
+
+When you do this there is a high risk that your answers will not be as good as before. But we were prepared and the answers are even better now. But how did we do it?
 
 Simply with [Unit Testing](https://martinmueller.dev/aws-bedrock-unit-testing). I wrote a bunch of unit tests during the development with Claude v2.1 and they came in handy for the update to v3. It was basically just a matter of making those unit tests pass.
 
@@ -22,7 +24,7 @@ Simply with [Unit Testing](https://martinmueller.dev/aws-bedrock-unit-testing). 
 
 Using AWS gen AI offerings like Claude is super fun. It can be challenging to make sure your answers are still as good as before. But with good test coverage, you can make sure that your answers are still as good as before, or even better. With our unit tests in place, we are confident that we can easily upgrade to a future version again, or if we wanted, change the LLM entirely. If you have any questions or thoughts about this, feel free to contact us :)!
 
-## AB Picturer - Bonus
+## Bonus - AB Picturer
 
 <img src="https://github.com/mmuller88/mmblog/raw/master/content/aws-bedrock-update/ab-picturer.png" alt="drawing" width="400"/>.
 
