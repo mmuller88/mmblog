@@ -10,21 +10,20 @@ tags: ["eng", "2024", "aws", "nofeed"] #nofeed
 pruneLength: 50
 ---
 
-Quite recently AWS introduced the Claude v3. It comes with the flavors of [Haiku](https://aws.amazon.com/about-aws/whats-new/2024/03/anthropics-claude-3-haiku-model-amazon-bedrock/) and [Sonnet](https://aws.amazon.com/about-aws/whats-new/2024/03/anthropics-claude-3-sonnet-model-amazon-bedrock/). Both are great improvements over the previous version. We recently updated our [arcBot](https://martinmueller.dev/arcbot-eng) to use Claude v3 Sonnet and are super impressed by the results. Not only are feeling the answers more intelligent as well the speed of the answers is much faster. In the next section I want to describe how an update can go as smoothly as it went for us.
+Recently, AWS released Claude v3. It comes with the [Haiku](https://aws.amazon.com/about-aws/whats-new/2024/03/anthropics-claude-3-haiku-model-amazon-bedrock/) and [Sonnet](https://aws.amazon.com/about-aws/whats-new/2024/03/anthropics-claude-3-sonnet-model-amazon-bedrock/) flavors. Both are big improvements over the previous version. We recently updated our [arcBot](https://martinmueller.dev/arcbot-eng) to use Claude v3 Sonnet and are very impressed with the results. Not only are the responses more intelligent, but the speed of the responses is much faster. In the next section I will describe how an update can go as smoothly as it did for us.
 
-## Update
+## Upgrade
 
-As mentioned we upgraded from Claude v2.1 to Claude v3 Sonnet. But if you do such think is includes like high risks that your answers are not as good as before. But we were prepared and the answers are now even better. But how did we do it?
+As mentioned above, we upgraded from Claude v2.1 to Claude v3 Sonnet. But when you do this there is a high risk that your answers will not be as good as before. But we were prepared and the answers are even better now. But how did we do it?
 
-Simply with [Unit Testing](https://martinmueller.dev/aws-bedrock-unit-testing). I wrote a bunch of unit tests during development with Claude v2.1 and those came in very handy for the update to v3. It basically was just a matter of making those unit tests passing.
+Simply with [Unit Testing](https://martinmueller.dev/aws-bedrock-unit-testing). I wrote a bunch of unit tests during the development with Claude v2.1 and they came in handy for the update to v3. It was basically just a matter of making those unit tests pass.
 
 ## Conclusion
 
-Using AWS gen AIs offers like Claude is super fun. It can get challenging when ensuring your answers are still as good as before. But with a good test coverage you can make sure that your answers are still as good as before or even better. With our unit tests in place wer are confident that we easily can update to a future version easily again or if we wanted change the LLM entirely. Any questions or thoughts on this reach out :)!
+Using AWS gen AI offerings like Claude is super fun. It can be challenging to make sure your answers are still as good as before. But with good test coverage, you can make sure that your answers are still as good as before, or even better. With our unit tests in place, we are confident that we can easily upgrade to a future version again, or if we wanted, change the LLM entirely. If you have any questions or thoughts about this, feel free to contact us :)!
 
 ## AB Picturer - Bonus
 
 <img src="https://github.com/mmuller88/mmblog/raw/master/content/aws-bedrock-update/ab-picturer.png" alt="drawing" width="400"/>.
 
-Did you notice the cool blog title picture? It is actually one from two randomly choosen. I love writing blog post and choosing a nice picture. But often I want to choose the best picture. So for figuring out the best picture I'm using AB Testing. If you are curios about that have a look at my [AB Picturer Tool](https://martinmueller.dev/ab-picturer).
-
+Did you notice the cool blog title picture? It is actually one of two randomly selected pictures. I love writing blog posts and choosing nice pictures for them. But often I want to choose THE BEST picture. So to find the best picture I'm using AB Testing. If you are curious about it, have a look at my [AB Picturer Tool](https://martinmueller.dev/ab-picturer) and provide me feedback or even better become an engaged tester :).
