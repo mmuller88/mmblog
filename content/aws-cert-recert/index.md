@@ -12,13 +12,13 @@ pruneLength: 50
 
 Hi Friends.
 
-My AWS Solution Architect Professional expires in mid 2022. I've thought about renewing it occasionally since then, but I didn't want to invest the time to prepare for it. But now a client is paying me to take the exam, so why not.
+My AWS Solution Architect Professional expires in mid-2022. Since then, I've occasionally thought about renewing, but I didn't want to invest the time to prepare. But now a customer was paying me to take the exam, so why not. Here's some advice that helped me minimize the effort and still pass the exam.
 
 ## Learning for the exam
 
 First of all, cherish learning! Learning is fun and studying for the exam is fun!
 
-My favorite way to learn efficiently is to do mock exams like you get on Udemy or other learning platforms. For one, they prepare you for the test exam mode. And for others, it is a great way to have an amazing learning when you answer a question wrong.
+My favorite way to learn efficiently is to do mock exams like you get on Udemy or other learning platforms. For one, they prepare you for the test exam. And for others, it is a great way to have an amazing learning when you answer a question wrong. Usually the learning platform explains you exactly why your answer was wrong.
 
 ### Learn in chunks
 
@@ -26,7 +26,7 @@ The main goal when using these test exams should be to maximize your learning wi
 
 ### Loud Sticks
 
-Read the questions aloud and try to say important keywords like 'media company', 'cost effective' or 'availability' extra loud. I find that I pay more attention to the questions and answers when I do this. This is not only useful when preparing for the exam. It is also useful during the exam.
+Read the questions aloud and try to say important keywords like 'media company', 'cost effective' or 'availability' extra loud. I find that I pay more attention to the questions and answers when I do this. This is not only useful when preparing for the exam. It is also useful during the exam. But be cautious. The online exam will require silence from you. So what I did was whispering which was allowed.
 
 So you've already maximized your learning opportunities through my tips, so let's move on to the next phase, registration and the actual exam.
 
