@@ -9,4 +9,4 @@ tags: []
 # pruneLength: 50
 ---
 
-[Verification Link](https://www.youracclaim.com/badges/519848e5-985f-479c-9564-548b5af67b34)
+[Verification Link](https://www.credly.com/badges/e83a14e6-0a74-4bf0-9bd4-cfafea4d67f4/public_url)
