@@ -19,7 +19,7 @@ Passionate Full Stack Developer. I like to have a broad collection of skills. Fr
 
 ## Highlights
 
-- AWS Professional Solution Architect certified [![pic](../resume/cert.png)](https://martinmueller.dev/aws-cert)
+- AWS Professional Solution Architect certified [![pic](../resume/cert.png) Verification Link](https://martinmueller.dev/aws-cert)
 - AWS Community Builder
 - TypeScript, Java, JavaScript, Angular, React
 - AWS Lambda, EC2, CDK, DynamoDB and many more
