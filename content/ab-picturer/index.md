@@ -26,7 +26,7 @@ I am building a tool called **AB Picturer**. It allows me to measure the perform
 
 ## How does AB Picturer work?
 
-The AB Picturer uses image urls like https://api.ab.martinmueller.dev?projectId=ab&state=visitor to collect information like when the image was previewed and when the user decided to click on the post. This process is called click-through. AB Picturer can then calculate the click-through rate (CTR) for each image. The image with the higher CTR wins and can be used as the main image for the post.
+The AB Picturer uses image urls like https://api.ab-picturer.com?projectId=ab&state=visitor to collect information like when the image was previewed and when the user decided to click on the post. This process is called click-through. AB Picturer can then calculate the click-through rate (CTR) for each image. The image with the higher CTR wins and can be used as the main image for the post.
 
 The basic concept is to have two image urls that are part of the AB Picturer flow. The first is for the image preview and the second is for the image visitor. I'll describe these in more detail now.
 
@@ -46,7 +46,7 @@ I've set up a [Discord](https://discord.gg/ZSvMBCUeyA) for you to try out the AB
 
 Also, I think it is pretty cool to be part of a community. So join the [AB Picturer Discord](https://discord.gg/ZSvMBCUeyA) and let's have some fun together.
 
-And please subscribe to our [Newsletter](https://app.ab.martinmueller.dev/newsletter) if you want regular updates about AB Picturer.
+And please subscribe to our [Newsletter](https://app.ab-picturer.com/newsletter) if you want regular updates about AB Picturer.
 
 In the next section I will show you how to integrate and use AB Picturer.
 
@@ -59,8 +59,8 @@ It doesn't matter what blog post engine you're using, as long as it supports dis
 So on my blog post I have the two urls preview and visitor in the meta section:
 
 ```txt
-imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=preview"
-imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=sst&state=visitor"
+imagePreviewUrl: "https://api.ab-picturer.com?projectId=sst&state=preview"
+imageVisitorUrl: "https://api.ab-picturer.com?projectId=sst&state=visitor"
 ```
 
 I then simply render these to the thumbnail, meta tags and post itself:
