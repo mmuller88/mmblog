@@ -7,7 +7,7 @@ import MetaTags from "../components/Metatags"
 import Share from "../components/share"
 import ContactForm from "../components/contactform"
 import KoFi from "../components/KoFi"
-  
+
 function BlogPost(props) {
  const url = props.data.site.siteMetadata.siteUrl
  const thumbnail =
@@ -25,17 +25,17 @@ function BlogPost(props) {
   showContact,
  } = props.data.markdownRemark.frontmatter
  const { prev, next } = props.pageContext
- const germanFormat = new Date(date).toLocaleDateString('de-DE', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+ const germanFormat = new Date(date).toLocaleDateString("de-DE", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+ })
 
- const usFormat = new Date(date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+ const usFormat = new Date(date).toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+ })
 
  return (
   <Layout>
@@ -62,7 +62,11 @@ function BlogPost(props) {
 
     <br></br>
     <h1>{title}</h1>
-    <span>{tags.includes('de') ? germanFormat : usFormat}</span>
+    
+    {usFormat !== "January 1, 1970" && ( // only show when format is not "January 1, 1970"
+     <span>{tags.includes("de") ? germanFormat : usFormat}</span>
+    )}
+
     <div
      style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
     >
