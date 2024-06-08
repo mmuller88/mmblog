@@ -42,7 +42,7 @@ export const PreviewPost = (props) => {
       </div>
      )}
      <div>
-      <span>{props.node.frontmatter.date ?? ""}</span>
+      <span>{props.node.frontmatter.date.toString() === "January 1, 1970" ? "" : props.node.frontmatter.date}</span>
       <p>{props.node.excerpt}</p>
      </div>
     </div>
