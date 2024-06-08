@@ -1,5 +1,5 @@
 ---
-title: Newsletter martinmueller.dev
+title: ENGINEER YOUR FUTURE - Newsletter - martinmueller.dev
 show: "no"
 # date: "2024-04-25"
 image: "diagram.png"
