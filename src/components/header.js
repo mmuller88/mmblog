@@ -109,6 +109,16 @@ const Header = ({ siteTitle }) => (
       {siteTitle}
      </Link>
      <Link
+      to="/agency"
+      style={{
+       color: `white`,
+       textDecoration: `none`,
+       // paddingLeft: "7cm"
+      }}
+     >
+      || Agency |
+     </Link>
+     <Link
       to="/resume"
       style={{
        color: `white`,
@@ -116,7 +126,7 @@ const Header = ({ siteTitle }) => (
        // paddingLeft: "7cm"
       }}
      >
-      || Resume |
+      | Resume |
      </Link>
      <Link
       to="/projects"
@@ -126,7 +136,7 @@ const Header = ({ siteTitle }) => (
        // paddingLeft: "7cm"
       }}
      >
-      | Projects
+      || Projects
      </Link>
      <div
       style={{
