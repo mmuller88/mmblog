@@ -1,13 +1,21 @@
 ---
-title: ""
+title: "Agency 🤝"
 show: "no"
 # date: "2024-04-25"
-image: "diagram.png"
+image: "title-pic.png"
 tags: []
 pruneLength: 50
 ---
 
-## Testimonials
+<div style="margin-bottom: 20px;">Empower your business or startup with our AWS expertise. Unlock the full potential of the cloud with seamless migrations, optimized performance, and cost-effective solutions. Let's innovate together!<div>
+
+<div style="display: flex; justify-content: start; gap: 20px; margin-top: 20px;">
+
+<a href="mailto:office+agency@martinmueller.dev" target="_blank" style="display: inline-block; background-color: #06aced; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">📝 Let's write</a>
+
+<a href="https://calendly.com/martinmueller_dev/30min" target="_blank" style="display: inline-block; background-color: #06aced; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">🗣️ Let's speak</a>
+
+</div>
 
 ### Adrian Logan
 

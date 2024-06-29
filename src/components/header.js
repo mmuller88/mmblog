@@ -119,6 +119,16 @@ const Header = ({ siteTitle }) => (
       || Agency |
      </Link>
      <Link
+      to="/tags/eyf/"
+      style={{
+       color: `white`,
+       textDecoration: `none`,
+       // paddingLeft: "7cm"
+      }}
+     >
+      | Podcast |
+     </Link>
+     <Link
       to="/resume"
       style={{
        color: `white`,
@@ -126,9 +136,9 @@ const Header = ({ siteTitle }) => (
        // paddingLeft: "7cm"
       }}
      >
-      | Resume |
+      | Resume
      </Link>
-     <Link
+     {/* <Link
       to="/projects"
       style={{
        color: `white`,
@@ -136,8 +146,8 @@ const Header = ({ siteTitle }) => (
        // paddingLeft: "7cm"
       }}
      >
-      || Projects
-     </Link>
+      | Projects
+     </Link> */}
      <div
       style={{
        color: "white",

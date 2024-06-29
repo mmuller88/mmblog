@@ -5,7 +5,7 @@ import { graphql } from "gatsby"
 import PrevNext from "../components/prevnext"
 import MetaTags from "../components/Metatags"
 import Share from "../components/share"
-import ContactForm from "../components/contactform"
+// import ContactForm from "../components/contactform"
 import KoFi from "../components/KoFi"
 
 function BlogPost(props) {
@@ -92,12 +92,12 @@ function BlogPost(props) {
      )}
     </div>
     <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
-    <div>
+    {/* <div>
      <p>
       <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
      </p>
-    </div>
-    {showContact !== "no" ? <ContactForm /> : null}
+    </div> */}
+    {/* {showContact !== "no" ? <ContactForm /> : null} */}
     <div>
      <span>Tagged in </span>
      {tags.map((tag, i) => (

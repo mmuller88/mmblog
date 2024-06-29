@@ -13,6 +13,10 @@ pruneLength: 50
 
 ## Motivation
 
+* Mother died with only 66 years old. 
+* Had an unhealthy lifestyle
+* I hope to convince my father having a more healthy moving livestyle
+* he is a believer. Wrote a book
 * My father lost his wife my mother recently
 * He is very depressive and I try to find a book which might helps him through his depression
 * He is in a bad physical shape and I want him to move more but he is very afraid of moving
