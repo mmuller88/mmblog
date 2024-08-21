@@ -10,17 +10,47 @@ tags: ["eng", "2024", "aws", "terraform", "nofeed"] #nofeed
 pruneLength: 50
 ---
 
-A client of mine came with the request to please migrate his SST (v.2) to Terraform. This is an interesting request because it involves some tricky parts like mapping the SST and CDK constructs to Terraform resources. As well some special constructs like Lambda and a static S3 React bucket effort additional uploading of files like the Lambda Function code or the React build.  Though I did the migration for SST but the same process will work for AWS CDK or AWS CloudFormation. So if you face a challenge like that, I hope with this blog post I can give you a starting point.
+Recently, a client approached me with an interesting request: to migrate their SST (v.2) project to Terraform. This task presents several interesting challenges, particularly in mapping SST and CDK constructs to equivalent Terraform resources. Additionally, certain components like Lambda functions and static S3 React buckets require extra attention, as they involve uploading additional files such as Lambda function code or React builds.
+
+Although I performed this migration specifically for SST, the process I'll outline is equally applicable to AWS CDK or AWS CloudFormation projects. If you're facing a similar challenge, this blog post aims to provide you with a solid starting point and valuable insights into the migration process.
 
 But first I want to discuss some possible motivations why you would perhaps want to migrate from like SST, AWS CDK or AWS CloudFormation to Terraform.
 
-## Motivation
+## Motivations
 
-* The motivation from my client want.
+The motivation from my client was rather passive. He is fairly new to AWS and used SST (v.2) to quickly deploy his application. That worked fine for him. But at some point his company he is working for decided to use Terraform instead of SST. That highlights alignment as motivation. If your company is using Terraform, you probably should use Terraform.
 
-## Not Motivation
+Another one I can think of and is often stated is the superior state management of Terraform. Granted the Terraform deployment is faster than SST or AWS CDK but it doesn't feel significant to me.
 
-* SST and AWS CDK actually are having a sweed degree of abstraction. You would loose that when migrating to Terraform. ...
+Sure their are many more motivations feel free to mention important ones to me :).
+
+## Not Motivations
+
+The following are my not motivations for migrating to Terraform.
+
+The biggest one is the degree of abstraction. You would loose that when migrating to Terraform. Do you need to define so many basic resources in Terraform which isn't fun. Though to counter that a bit, use an AI tool in your IDE to speed up the defining process.
+
+As SST and AWS CDK are already TypeScript based, it makes it really easy to define and handle the lifecycle of like Lambda functions. In Terraform you need to define helper functions to handle the lifecycle of the Lambda function like bundling the code, creating the deployment package, and so on. That was actually really painful for my project and I ended up with this ugly script 🥶:
+
+```bash
+rm -rf lambda_function_payload.zip
+cd ../packages/functions
+rm -rf dist
+npx tsc
+npm install
+mkdir -p dist/node_modules/@notes
+mkdir -p node_modules/@notes/core
+cp -r dist/core/src/ node_modules/@notes/core
+cp -r node_modules/ dist/node_modules
+cd dist
+zip -rFS lambda_function_payload.zip *
+cp -r lambda_function_payload.zip ../../../terraform
+cd ../../../terraform
+```
+
+So this was no fun.
+
+Kind of similar is the deployment of a React app into a S3 bucket. In SST and AWS CDK you can use the `Bucket` construct and let the framework handle the deployment. In Terraform you need to manually deploy the React app to the S3 bucket and then invalidate the CloudFront cache.
 
 ## Migration
 
@@ -76,6 +106,6 @@ Sure storing all those AWS resources into one main.tf file isn't Terraform best 
 
 ## Conclusion
 
-Migrating SST to Terraform was fun. With the power of AI it was a super quick process. Combined with my years of experience, I was able to quickly migrate. If you have a question or need otherwhise help, please reach out to me.
+Migrating SST to Terraform was interesting. With the power of AI it was a quick process. Combined with my years of experience, I was able to quickly migrate. If you have a question or need otherwise help, please reach out to me.
 
 Rating your images to see if your audience likes them is super important. In this article I have shown you how to do it with AB Picturer. Join the [AB Picturer Discord](https://discord.gg/ZSvMBCUeyA).
