@@ -34,13 +34,10 @@ As SST and AWS CDK are already TypeScript based, it makes it really easy to defi
 
 ```bash
 rm -rf lambda_function_payload.zip
-cd ../packages/functions
+cd ../functions
 rm -rf dist
 npx tsc
 npm install
-mkdir -p dist/node_modules/@notes
-mkdir -p node_modules/@notes/core
-cp -r dist/core/src/ node_modules/@notes/core
 cp -r node_modules/ dist/node_modules
 cd dist
 zip -rFS lambda_function_payload.zip *
@@ -48,7 +45,7 @@ cp -r lambda_function_payload.zip ../../../terraform
 cd ../../../terraform
 ```
 
-So this was no fun.
+This feels ugly and was no fun.
 
 Kind of similar is the deployment of a React app into a S3 bucket. In SST and AWS CDK you can use the `Bucket` construct and let the framework handle the deployment. In Terraform you need to manually deploy the React app to the S3 bucket and then invalidate the CloudFront cache.
 
@@ -58,12 +55,13 @@ In the next section, I will describe how the migration works.
 
 ## Step 1: Deploy
 
-* make sure your deployment works as expected.
+Before you start the migration, make sure your deployment works as expected. If you have an SST project follow the instructions for deploying it like `npx sst deploy`. After deploying check the functionality of the CloudFormation stacks. That is super important as that will be your comparison to the Terraform deployment.
 
 ## Step 2: Generate Terraform from the CloudFormation template
 
-* Your deployment generated at least one CloudFormation stack.
-* Via the AWS Console grab each generated stack and let a chat AI like Claude from anthropic.com or ChatGPT.com generate Terraform from the CloudFormation template. That prompt could look like:
+Now that your deployment from step 1 created at least one CloudFormation stack, you can start the migration.
+
+Via the AWS Console grab each generated stack and let a chat AI like Claude from anthropic.com or ChatGPT.com generate Terraform from the CloudFormation template. The prompt could look like:
 
 ```txt
 {
@@ -76,7 +74,7 @@ In the next section, I will describe how the migration works.
 Change the AWS CloudFormation to Terraform. Give back the full Terraform code!
 ```
 
-Through the output from all those answers into the main.tf file
+Through the output from all those answers into the main.tf file.
 
 ## Step 3: Cleanup the main.tf
 
@@ -86,19 +84,57 @@ As well there are might be other resources which you might consider removing. Fo
 
 ## Step 4: Make the Lambda's working
 
-...
+Yeah now comes the tricky part with making the Lambda's working. Look this totally depends on your project structure like where is the Lambda function code located and how is it structured. I think a good advice is to keep it similar as possible to your SST or AWS CDK project. As well use the `source_code_hash` to make sure the Lambda function code is hashed and the Lambda function is recreated if the code changes. Like:
 
-## Step 5: Make the S3 React bucket working
+```hcl
+resource "aws_lambda_function" "my_lambda_function" {
+  ...
+  source_code_hash = filebase64sha256("my_lambda_function.zip")
+}
+```
 
-...
+What is left is the script to bundle the Lambda function code to the `my_lambda_function.zip` file. For you it could look something like this:
 
-## Step 6: Deploy your Terraform
+```bash
+rm -rf lambda_function_payload.zip
+cd ../functions
+rm -rf dist # the tsconfig.json has an "outDir": "./dist" configured where all the compiled js files will be stored
+npx tsc # compile the TypeScript code
+npm install
+cp -r node_modules/ dist/node_modules
+cd dist
+zip -rFS lambda_function_payload.zip *
+cp -r lambda_function_payload.zip ../../terraform
+cd ../../terraform
+```
+
+Deploy the Lambda function and check with the AWS Console if it is working as expected.
 
 ```bash
 terraform apply
 ```
 
-* Iterate step 3 to 5 until your Terraform deployment works as expected.
+## Step 5: Make the S3 React bucket working
+
+First you need to build the React app like:
+
+```bash
+cd ../frontend
+npm install
+npm run build
+```
+
+Copy the build to the s3 bucket and invalidate the cloudfront cache:
+
+```bash
+BUCKET_NAME=xyz-react-site-bucket
+DISTRIBUTION_ID=EZ8RBY8ZM1234
+aws s3 sync dist/ s3://$BUCKET_NAME --delete
+
+aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+```
+
+Phew thats it.
 
 ## Considerations
 
