@@ -1,11 +1,11 @@
 ---
 title: SST, AWS CDK, AWS CloudFormation migration to Terraform
 show: "no"
-date: "2024-08-24"
-# imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=preview"
-# imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=visitor"
+date: "2024-08-27"
+imagePreviewUrl: "https://api.ab-picturer.com?projectId=aws-sst-cdk-to-tf&state=preview"
+imageVisitorUrl: "https://api.ab-picturer.com?projectId=aws-sst-cdk-to-tf&state=visitor"
 # image: "titleGuitar.png"
-tags: ["eng", "2024", "aws", "terraform", "nofeed"] #nofeed
+tags: ["eng", "2024", "aws", "cdk", "sst", "terraform", "nofeed"] #nofeed
 # engUrl: https://martinmueller.dev/ab-picturer
 pruneLength: 50
 ---
@@ -150,4 +150,8 @@ Sure storing all those AWS resources into one main.tf file isn't Terraform best 
 
 Migrating SST to Terraform was interesting. With the power of AI it was a quick process. Combined with my years of experience, I was able to quickly migrate. If you have a question or need otherwise help, please reach out to me.
 
-Rating your images to see if your audience likes them is super important. In this article I have shown you how to do it with AB Picturer. Join the [AB Picturer Discord](https://discord.gg/ZSvMBCUeyA).
+## Bonus - AB Picturer
+
+<img src="https://github.com/mmuller88/mmblog/raw/master/content/aws-bedrock-update/ab-picturer.png" alt="drawing" width="400"/>.
+
+Did you notice the cool blog title picture? I love writing blog posts and choosing nice pictures for them. It is actually one of two randomly selected pictures. But often I want to choose THE BEST picture. So to find the best picture I'm using AB Testing. If you are curious about it, have a look at the <https://ab-picturer.com> tool and provide me feedback or even better become an engaged tester :).
