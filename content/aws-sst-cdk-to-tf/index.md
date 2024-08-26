@@ -1,11 +1,11 @@
 ---
 title: SST, AWS CDK, AWS CloudFormation migration to Terraform
-show: "no"
+show: "yes"
 date: "2024-08-27"
 imagePreviewUrl: "https://api.ab-picturer.com?projectId=aws-sst-cdk-to-tf&state=preview"
 imageVisitorUrl: "https://api.ab-picturer.com?projectId=aws-sst-cdk-to-tf&state=visitor"
 # image: "titleGuitar.png"
-tags: ["eng", "2024", "aws", "cdk", "sst", "terraform", "nofeed"] #nofeed
+tags: ["eng", "2024", "aws", "cdk", "sst", "terraform"] #nofeed
 # engUrl: https://martinmueller.dev/ab-picturer
 pruneLength: 50
 ---
