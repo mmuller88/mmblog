@@ -30,7 +30,7 @@ There are undoubtedly more motivations; feel free to mention important ones I ma
 
 The following are reasons I wouldn't consider as motivations for migrating to Terraform:
 
-The biggest one is the degree of abstraction like as for the CDK Constructs. You would lose that when migrating to Terraform. Defining many basic resources in Terraform isn't particularly enjoyable. To counter this somewhat, you can use an AI tool in your IDE to speed up the definition process. As well Terraform modules give you a way to abstract definitions to modules but it doesn't feel the same as the CDK Constructs.
+The biggest one is the degree of abstraction, like as for the CDK Constructs. You would lose that when migrating to Terraform. Defining many basic resources in Terraform isn't particularly enjoyable. To counter this somewhat, you can use an AI tool in your IDE to speed up the definition process. As well, Terraform modules give you a way to abstract definitions to modules, but it doesn't feel the same as the CDK Constructs.
 
 As SST and AWS CDK are already TypeScript-based, they make it really easy to define and handle the lifecycle of Lambda functions. In Terraform, you need to define helper functions to manage the Lambda function lifecycle, such as bundling the code, creating the deployment package, and so on. This was actually quite painful for my project, and I ended up with this rather inelegant script:
 
@@ -49,7 +49,7 @@ cd ../../../terraform
 
 This feels ugly and was no fun.
 
-Kind of similar is the deployment of a React app into a S3 bucket. In SST and AWS CDK you can use the `Bucket` construct and let the framework handle the deployment. In Terraform you need to manually deploy the React app to the S3 bucket and then invalidate the CloudFront cache.
+Kind of similar is the deployment of a React app into a S3 bucket. In SST and AWS CDK you can use the `Bucket` construct and let the framework handle the deployment. In Terraform, you need to manually deploy the React app to the S3 bucket and then invalidate the CloudFront cache.
 
 ## Migration
 
@@ -57,13 +57,13 @@ In the next section, I will describe how the migration from SST, AWS CDK, or AWS
 
 ## Step 1: Deploy
 
-Before you start the migration, make sure your deployment works as expected. If you have an SST project follow the instructions for deploying it like `npx sst deploy`. After deploying check the functionality of the CloudFormation stacks. That is super important as that will be your comparison to the Terraform deployment.
+Before you start the migration, make sure your deployment works as expected. If you have an SST project, follow the instructions for deploying it like `npx sst deploy`. After deploying, check the functionality of the CloudFormation stacks. That is super important as that will be your comparison to the Terraform deployment.
 
 ## Step 2: Generate Terraform from the CloudFormation template
 
 Now that your deployment from step 1 created at least one CloudFormation stack, you can start the migration.
 
-Via the AWS Console grab each generated stack and let a chat AI like Claude from anthropic.com or ChatGPT.com generate Terraform from the CloudFormation template. The prompt could look like:
+Via the AWS Console, grab each generated stack and let a chat AI like Claude from anthropic.com or ChatGPT.com generate Terraform from the CloudFormation template. The prompt could look like:
 
 ```txt
 {
@@ -82,11 +82,11 @@ Through the output from all those answers into the main.tf file.
 
 Great now we have all the AWS resources in the main.tf file. But unlucky we have resources in the main.ts file which we don't want or which are not useful like those AWS CDK helper resources `CustomResourceHandlerServiceRole...` and `CustomResourceHandler...`.
 
-As well there are might be other resources which you might consider removing. For example if you have several stacks and used variable referencing between the CloudFormation stacks, the AI translation to Terraform usually uses `aws_ssm_parameter` Terraform resources to replace them. But since all your resources are in one main.tf file you don't need `aws_ssm_parameter` and simply reference resources directly.
+As well, there are might be other resources which you might consider removing. For example, if you have several stacks and used variable referencing between the CloudFormation stacks, the AI translation to Terraform usually uses `aws_ssm_parameter` Terraform resources to replace them. But since all your resources are in one main.tf file, you don't need `aws_ssm_parameter` and simply reference resources directly.
 
 ## Step 4: Make the Lambda's working
 
-Yeah now comes the tricky part with making the Lambda's working. Look this totally depends on your project structure like where is the Lambda function code located and how is it structured. I think a good advice is to keep it similar as possible to your SST or AWS CDK project. As well use the `source_code_hash` to make sure the Lambda function code is hashed and the Lambda function is recreated if the code changes. Like:
+Yeah, now comes the tricky part with making the Lambda's working. Look this totally depends on your project structure like where is the Lambda function code located and how is it structured. I think good advice is to keep it similar as possible to your SST or AWS CDK project. As well, use the `source_code_hash` to make sure the Lambda function code is hashed and the Lambda function is recreated if the code changes. Like:
 
 ```hcl
 resource "aws_lambda_function" "my_lambda_function" {
@@ -95,7 +95,7 @@ resource "aws_lambda_function" "my_lambda_function" {
 }
 ```
 
-What is left is the script to bundle the Lambda function code to the `my_lambda_function.zip` file. For you it could look something like this:
+What is left is the script to bundle the Lambda function code to the `my_lambda_function.zip` file. For you, it could look something like this:
 
 ```bash
 rm -rf lambda_function_payload.zip
@@ -118,7 +118,7 @@ terraform apply
 
 ## Step 5: Make the S3 React bucket working
 
-Sure this is described for a React App but any other SPA or static site will work the same. First you need to build the React app like:
+Sure this is described for a React App but any other SPA or static site will work the same. First, you need to build the React app like:
 
 ```bash
 cd ../frontend
@@ -136,7 +136,7 @@ aws s3 sync dist/ s3://$BUCKET_NAME --delete
 aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
 ```
 
-Phew thats it.
+Phew, that's it.
 
 ## Step 6: Validating
 
@@ -144,11 +144,11 @@ Validate the Terraform deployment with your reference deployment from step 1. Us
 
 ## Considerations
 
-Sure storing all those AWS resources into one main.tf file isn't Terraform best practise but it is totally a starting point. If you made sure that your Terraform deployment is working feel free to split the main.tf file into multiple files as you are used to.
+Sure, storing all those AWS resources into one main.tf file isn't Terraform best practice, but it is totally a starting point. If you made sure that your Terraform deployment is working, feel free to split the main.tf file into multiple files, as you are used to.
 
 ## Conclusion
 
-Migrating SST to Terraform was interesting. With the power of AI it was a quick process. Combined with my years of experience, I was able to quickly migrate. If you have a question or need otherwise help, please reach out to me.
+Migrating SST to Terraform was interesting. With the power of AI, it was a quick process. Combined with my years of experience, I was able to quickly migrate. If you have a question or need otherwise help, please reach out to me.
 
 ## Bonus - AB Picturer
 
