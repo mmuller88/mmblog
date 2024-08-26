@@ -1,7 +1,7 @@
 ---
 title: SST, AWS CDK, AWS CloudFormation migration to Terraform
 show: "no"
-date: "2024-08-17"
+date: "2024-08-24"
 # imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=preview"
 # imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=ab&state=visitor"
 # image: "titleGuitar.png"
@@ -10,27 +10,29 @@ tags: ["eng", "2024", "aws", "terraform", "nofeed"] #nofeed
 pruneLength: 50
 ---
 
-Recently, a client approached me with an interesting request: to migrate their SST (v.2) project to Terraform. This task presents several interesting challenges, particularly in mapping SST and CDK constructs to equivalent Terraform resources. Additionally, certain components like Lambda functions and static S3 React buckets require extra attention, as they involve uploading additional files such as Lambda function code or React builds.
+Recently, a client approached me with an intriguing request: to migrate their SST (v.2 https://v2.sst.dev/) project to Terraform. This task presents several interesting challenges, particularly in mapping SST and CDK constructs to equivalent Terraform resources. Additionally, certain components like Lambda functions and static S3 React buckets require extra attention, as they involve uploading additional files such as Lambda function code or React builds.
 
 Although I performed this migration specifically for SST, the process I'll outline is equally applicable to AWS CDK or AWS CloudFormation projects. If you're facing a similar challenge, this blog post aims to provide you with a solid starting point and valuable insights into the migration process.
 
-But first I want to discuss some possible motivations why you would perhaps want to migrate from like SST, AWS CDK or AWS CloudFormation to Terraform.
+First, let's discuss some possible motivations and non-motivations for migrating from SST, AWS CDK, or AWS CloudFormation to Terraform.
+
+After that, I will describe the migration process in detail.
 
 ## Motivations
 
-The motivation from my client was rather passive. He is fairly new to AWS and used SST (v.2) to quickly deploy his application. That worked fine for him. But at some point his company he is working for decided to use Terraform instead of SST. That highlights alignment as motivation. If your company is using Terraform, you probably should use Terraform.
+My client's motivation was rather passive. As a newcomer to AWS, he used SST (v.2) to quickly deploy his application, which worked well for him. However, his company eventually decided to standardize on Terraform instead of SST. This highlights alignment as a motivation: if your company is using Terraform, you probably should too.
 
-Another one I can think of and is often stated is the superior state management of Terraform. Granted the Terraform deployment is faster than SST or AWS CDK but it doesn't feel significant to me.
+Another commonly cited reason is Terraform's superior state management. While Terraform deployments are faster than SST or AWS CDK, the difference doesn't feel significant to me.
 
-Sure their are many more motivations feel free to mention important ones to me :).
+There are undoubtedly more motivations; feel free to mention important ones I may have missed.
 
-## Not Motivations
+## Non-Motivations
 
-The following are my not motivations for migrating to Terraform.
+The following are reasons I wouldn't consider as motivations for migrating to Terraform:
 
-The biggest one is the degree of abstraction. You would loose that when migrating to Terraform. Do you need to define so many basic resources in Terraform which isn't fun. Though to counter that a bit, use an AI tool in your IDE to speed up the defining process.
+The biggest one is the degree of abstraction like as for the CDK Constructs. You would lose that when migrating to Terraform. Defining many basic resources in Terraform isn't particularly enjoyable. To counter this somewhat, you can use an AI tool in your IDE to speed up the definition process. As well Terraform modules give you a way to abstract definitions to modules but it doesn't feel the same as the CDK Constructs.
 
-As SST and AWS CDK are already TypeScript based, it makes it really easy to define and handle the lifecycle of like Lambda functions. In Terraform you need to define helper functions to handle the lifecycle of the Lambda function like bundling the code, creating the deployment package, and so on. That was actually really painful for my project and I ended up with this ugly script 🥶:
+As SST and AWS CDK are already TypeScript-based, they make it really easy to define and handle the lifecycle of Lambda functions. In Terraform, you need to define helper functions to manage the Lambda function lifecycle, such as bundling the code, creating the deployment package, and so on. This was actually quite painful for my project, and I ended up with this rather inelegant script:
 
 ```bash
 rm -rf lambda_function_payload.zip
@@ -51,7 +53,7 @@ Kind of similar is the deployment of a React app into a S3 bucket. In SST and AW
 
 ## Migration
 
-In the next section, I will describe how the migration works.
+In the next section, I will describe how the migration from SST, AWS CDK, or AWS CloudFormation to Terraform works.
 
 ## Step 1: Deploy
 
@@ -116,7 +118,7 @@ terraform apply
 
 ## Step 5: Make the S3 React bucket working
 
-First you need to build the React app like:
+Sure this is described for a React App but any other SPA or static site will work the same. First you need to build the React app like:
 
 ```bash
 cd ../frontend
@@ -135,6 +137,10 @@ aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/
 ```
 
 Phew thats it.
+
+## Step 6: Validating
+
+Validate the Terraform deployment with your reference deployment from step 1. Usually like when you have an Api Gateway our Lambdas, make sure they are working as expected when comparing the two deployments. The same goes for the S3 React bucket App.
 
 ## Considerations
 
