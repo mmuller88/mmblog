@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://martinmueller.dev/sitemap.xml
+
+# RSS Feeds
+Allow: /rss.xml
+Allow: /rss-ger.xml
+
+# Block specific paths
+Disallow: /dev-404-page/
+Disallow: /404/
+Disallow: /offline-plugin-app-shell-fallback/
+
+# Allow all image and media files
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.pdf$
+
+# Crawl delay (optional - uncomment if needed)
+# Crawl-delay: 1 

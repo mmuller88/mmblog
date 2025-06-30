@@ -5,6 +5,8 @@ import { graphql } from "gatsby"
 import PrevNext from "../components/prevnext"
 import MetaTags from "../components/Metatags"
 import Share from "../components/share"
+import Breadcrumb from "../components/Breadcrumb"
+import { calculateReadingTime, extractKeywords, generateBreadcrumbs } from "../utils/seo"
 // import ContactForm from "../components/contactform"
 import KoFi from "../components/KoFi"
 
@@ -25,6 +27,22 @@ function BlogPost(props) {
   showContact,
  } = props.data.markdownRemark.frontmatter
  const { prev, next } = props.pageContext
+ 
+ // Enhanced SEO data
+ const content = props.data.markdownRemark.html;
+ const excerpt = props.data.markdownRemark.excerpt;
+ const readingTime = calculateReadingTime(content);
+ const keywords = extractKeywords(content, tags, title);
+ 
+ // Format dates for structured data (ISO format)
+ const publishedDate = new Date(date).toISOString();
+ const isValidDate = date && date !== "1970-01-01";
+ 
+ // Generate breadcrumbs
+ const breadcrumbs = generateBreadcrumbs(props.location.pathname, title, [
+   { name: 'Blog', path: '/blog' }
+ ]);
+ 
  const germanFormat = new Date(date).toLocaleDateString("de-DE", {
   year: "numeric",
   month: "long",
@@ -41,12 +59,18 @@ function BlogPost(props) {
   <Layout>
    <MetaTags
     title={title}
-    description={props.data.markdownRemark.excerpt}
+    description={excerpt}
     thumbnail={(thumbnail && url + thumbnail) || imagePreviewUrl}
     url={url}
     pathname={props.location.pathname}
+    keywords={keywords}
+    publishedDate={isValidDate ? publishedDate : undefined}
+    tags={tags}
+    readingTime={readingTime}
+    isArticle={true}
    />
    <div>
+    {/* <Breadcrumb crumbs={breadcrumbs} siteUrl={url} /> */}
     {engUrl ? (
      <div>
       <a href={engUrl}>Translate To English</a>
@@ -63,9 +87,15 @@ function BlogPost(props) {
     <br></br>
     <h1>{title}</h1>
     
-    {usFormat !== "January 1, 1970" && ( // only show when format is not "January 1, 1970"
-     <span>{tags.includes("de") ? germanFormat : usFormat}</span>
-    )}
+    <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-600">
+      {isValidDate && (
+       <span>{tags.includes("de") ? germanFormat : usFormat}</span>
+      )}
+      <span>•</span>
+      <span>{readingTime} min read</span>
+      <span>•</span>
+      <span>By Martin Mueller</span>
+    </div>
 
     <div
      style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
@@ -73,6 +103,7 @@ function BlogPost(props) {
      {image && (
       <Img
        fluid={image.childImageSharp.fluid}
+       alt={title}
        imgStyle={{
         objectFit: "contain",
         maxWidth: "50%",
@@ -83,7 +114,7 @@ function BlogPost(props) {
      {imageVisitorUrl && (
       <img
        src={imageVisitorUrl}
-       alt="Title"
+       alt={title}
        style={{
         maxWidth: "50%",
         height: "auto",
@@ -91,7 +122,7 @@ function BlogPost(props) {
       />
      )}
     </div>
-    <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }} />
+    <div dangerouslySetInnerHTML={{ __html: content }} />
     {/* <div>
      <p>
       <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />

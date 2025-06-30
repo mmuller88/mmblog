@@ -1,9 +1,20 @@
 module.exports = {
   siteMetadata: {
-    title: `Martin Mueller's Blog `,
-    description: `My first blog`,
+    title: `Martin Mueller's Blog`,
+    description: `Technology blog featuring AWS, CDK, serverless, and cloud architecture insights by Martin Mueller - AWS Solutions Architect and software engineer.`,
     siteUrl: 'https://martinmueller.dev',
-    author: `@mmuller88`,
+    author: `Martin Mueller`,
+    social: {
+      twitter: `@MartinMueller_`,
+      github: `mmuller88`,
+      linkedin: `martin-mueller-dev`
+    },
+    keywords: [
+      'AWS', 'Cloud Computing', 'Serverless', 'CDK', 'Infrastructure as Code', 
+      'Software Engineering', 'DevOps', 'Technology Blog', 'Martin Mueller'
+    ],
+    language: 'en',
+    locale: 'en_US'
   },
   plugins: [
     {
@@ -18,6 +29,10 @@ module.exports = {
             // base for generating different widths of each image.
             maxWidth: 800,
             linkImagesToOriginal: false,
+            loading: 'lazy',
+            quality: 90,
+            withWebp: true,
+            tracedSVG: true
           },
         },
       ],
@@ -50,6 +65,10 @@ module.exports = {
       options: {
         // replace "UA-XXXXXXXXX-X" with your own Tracking ID
         trackingId: "UA-170834724-1",
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+        defer: true
       },
     },
     {
@@ -116,6 +135,7 @@ module.exports = {
               `,
               output: "/rss.xml",
               title: "Martin Mueller's Blog",
+              description: "Latest posts from Martin Mueller's technology blog"
             },
             {
               serialize: ({ query: { site, allMarkdownRemark } }) => {
@@ -165,6 +185,7 @@ module.exports = {
               `,
               output: "/rss-ger.xml",
               title: "Martin Mueller's Blog Ger",
+              description: "Neueste Beiträge aus Martin Muellers Technologie-Blog"
             },
           ]
         },
@@ -184,17 +205,56 @@ module.exports = {
     //     showCaptions: true,
     //   },
     // },
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        exclude: [`/dev-404-page`, `/404`, `/404.html`, `/offline-plugin-app-shell-fallback`],
+        query: `
+          {
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+            allMarkdownRemark {
+              nodes {
+                fields {
+                  slug
+                }
+                frontmatter {
+                  date
+                }
+              }
+            }
+          }
+        `,
+        resolveSiteUrl: () => 'https://martinmueller.dev',
+        serialize: ({ path, frontmatter }) => {
+          return {
+            url: path,
+            changefreq: path === '/' ? 'weekly' : 'monthly',
+            priority: path === '/' ? 1.0 : 0.8,
+            lastmod: frontmatter?.date
+          }
+        }
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'Martin Mueller\'s Blog',
+        short_name: 'MM Blog',
+        description: 'Technology blog featuring AWS, CDK, serverless, and cloud architecture insights',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
         icon: 'src/images/avatarIcon.jpeg', // This path is relative to the root of the site.
+        cache_busting_mode: 'query',
+        include_favicon: true,
+        legacy: true,
+        theme_color_in_head: true
       },
     },
     `gatsby-plugin-catch-links`,
