@@ -2,8 +2,6 @@
 title: Navigating Career Paths with Pedro Águas Marques (#2)
 show: "yes"
 date: "2024-06-30"
-# imagePreviewUrl: "https://api.ab-picturer.com?projectId=eyf-one&state=preview"
-# imageVisitorUrl: "https://api.ab-picturer.com?projectId=eyf-one&state=visitor"
 image: "title.jpeg"
 tags: ["eng", "2024", "aws", "podcast", "eyf"] #nofeed
 # engUrl: https://martinmueller.dev/ab-picturer

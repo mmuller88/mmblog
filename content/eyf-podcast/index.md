@@ -2,9 +2,6 @@
 title: Engineer your Future (EyF)
 show: "no"
 date: "2024-06-20"
-imagePreviewUrl: "https://api.ab-picturer.com?projectId=aws-cert-recert&state=preview"
-imageVisitorUrl: "https://api.ab-picturer.com?projectId=aws-cert-recert&state=visitor"
-# image: "titleGuitar.png"
 tags: ["eng", "2024", "aws", "nofeed", "podcast", "eyf"] #nofeed
 # engUrl: https://martinmueller.dev/ab-picturer
 pruneLength: 50

@@ -18,8 +18,6 @@ function BlogPost(props) {
  const {
   title,
   image,
-  imageVisitorUrl,
-  imagePreviewUrl,
   tags,
   date,
   engUrl,
@@ -27,6 +25,12 @@ function BlogPost(props) {
   showContact,
  } = props.data.markdownRemark.frontmatter
  const { prev, next } = props.pageContext
+ 
+ // Debug logging
+ console.log('Full props data:', props.data);
+ console.log('Frontmatter:', props.data.markdownRemark.frontmatter);
+ console.log('Image from frontmatter:', props.data.markdownRemark.frontmatter.image);
+ console.log('Image variable:', image);
  
  // Enhanced SEO data
  const content = props.data.markdownRemark.html;
@@ -60,7 +64,7 @@ function BlogPost(props) {
    <MetaTags
     title={title}
     description={excerpt}
-    thumbnail={(thumbnail && url + thumbnail) || imagePreviewUrl}
+    thumbnail={(thumbnail && url + thumbnail) || image}
     url={url}
     pathname={props.location.pathname}
     keywords={keywords}
@@ -91,33 +95,23 @@ function BlogPost(props) {
       {isValidDate && (
        <span>{tags.includes("de") ? germanFormat : usFormat}</span>
       )}
-      <span>•</span>
+      <span> </span>
       <span>{readingTime} min read</span>
-      <span>•</span>
+      <span> </span>
       <span>By Martin Mueller</span>
     </div>
 
     <div
-     style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+     className="flex justify-center items-center"
     >
-     {image && (
+     {image && image.childImageSharp && (
       <Img
        fluid={image.childImageSharp.fluid}
        alt={title}
-       imgStyle={{
+       style={{ 
+        maxWidth: "50%",
+        height: "auto",
         objectFit: "contain",
-        maxWidth: "50%",
-        height: "auto",
-       }}
-      />
-     )}
-     {imageVisitorUrl && (
-      <img
-       src={imageVisitorUrl}
-       alt={title}
-       style={{
-        maxWidth: "50%",
-        height: "auto",
        }}
       />
      )}
@@ -169,8 +163,6 @@ export const query = graphql`
       }
      }
     }
-    imageVisitorUrl
-    imagePreviewUrl
    }
   }
   site {

@@ -2,8 +2,7 @@
 title: AI Softwareentwicklung mit Ninox und arcBot
 show: "no"
 date: "2024-02-14"
-imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=arcbot&state=preview"
-imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=arcbot&state=visitor"
+image: "titleEngineerRobot.png"
 tags: ["de", "2024", "ninox", "ai"] #nofeed
 engUrl: https://martinmueller.dev/arcbot-eng
 pruneLength: 50

@@ -2,8 +2,7 @@
 title: My first Experience with Powertools for AWS Lambda (TypeScript)
 show: "yes"
 date: "2023-12-24"
-imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=powertools&state=preview"
-imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=powertools&state=visitor"
+image: "powerHero.png" 
 tags: ["eng", "2023", "aws", "powertools"]
 pruneLength: 50
 ---

@@ -2,8 +2,6 @@
 title: HalloCasa Iframe test
 show: "no"
 date: "2024-06-30"
-# imagePreviewUrl: "https://api.ab-picturer.com?projectId=eyf-one&state=preview"
-# imageVisitorUrl: "https://api.ab-picturer.com?projectId=eyf-one&state=visitor"
 image: "title.jpeg"
 tags: ["eng", "2024"] #nofeed
 # engUrl: https://martinmueller.dev/ab-picturer

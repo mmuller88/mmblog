@@ -2,9 +2,7 @@
 title: Recertification - AWS Solution Architect Professional in 2024
 show: "tes"
 date: "2024-05-15"
-imagePreviewUrl: "https://api.ab-picturer.com?projectId=aws-cert-recert&state=preview"
-imageVisitorUrl: "https://api.ab-picturer.com?projectId=aws-cert-recert&state=visitor"
-# image: "titleGuitar.png"
+image: "Boy Studying in Cloud.png"
 tags: ["eng", "2024", "aws"] #nofeed
 # engUrl: https://martinmueller.dev/ab-picturer
 pruneLength: 50

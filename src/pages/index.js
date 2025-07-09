@@ -5,7 +5,8 @@ import Layout from "../components/layout"
 
 export const PreviewPost = (props) => {
  //   if (!props.node) return null
- const { imagePreviewUrl } = props.node.frontmatter
+ const { image } = props.node.frontmatter
+ const imageSrc = image?.childImageSharp?.resize?.src || image
  return (
   <Link to={props.node.fields.slug} key={props.i} className="link">
    <div className="post-list">
@@ -19,8 +20,9 @@ export const PreviewPost = (props) => {
       
     //  }}
     >
-     {imagePreviewUrl && (
+     {imageSrc && (
       <div
+       className="flex justify-center items-center"
        style={{
         display: "flex",
         justifyContent: "center",
@@ -30,8 +32,8 @@ export const PreviewPost = (props) => {
       >
        {" "}
        <img
-        src={imagePreviewUrl}
-        alt="Title"
+        src={imageSrc}
+        alt={props.node.frontmatter.title}
         style={{
          width: "100%",
          height: "auto",
@@ -100,7 +102,13 @@ export const pageQuery = graphql`
      frontmatter {
       date(formatString: "Do MMMM YYYY")
       title
-      imagePreviewUrl
+      image {
+       childImageSharp {
+        resize(width: 1000, height: 420) {
+         src
+        }
+       }
+      }
       show
      }
     }

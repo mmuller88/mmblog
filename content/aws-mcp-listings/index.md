@@ -1,11 +1,9 @@
 ---
 title: A property listings AI chat with MCP integrations running in AWS 
-show: "no"
+show: "yes"
 date: "2025-07-09"
 image: "index.png" 
-# imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=powertools&state=preview"
-# imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=powertools&state=visitor"
-tags: ["eng", "2025", "aws", "ai", "mcp", "cdk"]
+tags: ["eng", "2024", "aws", "ai", "mcp", "cdk"]
 pruneLength: 50
 ---
 

@@ -2,9 +2,7 @@
 title: Engineer your Future (EyF) - Working remotely at Serverless Guru with Lorenzo Hidalgo Gadea (#1)
 show: "yes"
 date: "2024-06-19"
-imagePreviewUrl: "https://api.ab-picturer.com?projectId=eyf-one&state=preview"
-imageVisitorUrl: "https://api.ab-picturer.com?projectId=eyf-one&state=visitor"
-# image: "titleGuitar.png"
+image: "guru in the clound.jpeg"
 tags: ["eng", "2024", "aws", "podcast", "eyf"] #nofeed
 # engUrl: https://martinmueller.dev/ab-picturer
 pruneLength: 50

@@ -18,7 +18,17 @@ function Tags(props) {
    </div>
    <div>
     {posts.map(({ node }, i) => {
-     return <PreviewPost node={node} i={i} />
+     // Transform the image object to a string URL for PreviewPost component
+     const processedNode = {
+      ...node,
+      frontmatter: {
+       ...node.frontmatter,
+       image: node.frontmatter.image 
+        ? (node.frontmatter.image.childImageSharp?.resize?.src || node.frontmatter.image.publicURL || node.frontmatter.image)
+        : null
+      }
+     }
+     return <PreviewPost node={processedNode} i={i} />
     })}
    </div>
   </Layout>
@@ -39,7 +49,14 @@ export const query = graphql`
      frontmatter {
       date(formatString: "Do MMMM YYYY")
       title
-      imagePreviewUrl
+      image {
+       childImageSharp {
+        resize(width: 1000, height: 420) {
+         src
+        }
+       }
+       publicURL
+      }
       show
       tags
      }
