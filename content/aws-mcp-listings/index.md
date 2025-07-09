@@ -1,8 +1,8 @@
 ---
 title: A property listings AI chat with MCP integrations running in AWS 
 show: "no"
-date: "2025-07-07"
-image: "index.jpg" 
+date: "2025-07-09"
+image: "index.png" 
 # imagePreviewUrl: "https://api.ab.martinmueller.dev?projectId=powertools&state=preview"
 # imageVisitorUrl: "https://api.ab.martinmueller.dev?projectId=powertools&state=visitor"
 tags: ["eng", "2025", "aws", "ai", "mcp", "cdk"]
@@ -21,7 +21,7 @@ I'm hosting the app on <https://listings-mcp.com> and you can try it out there. 
 
 ## MCP Integration
 
-We do have a [HalloCasa Zapier Integration](https://zapier.com/apps/hallocasa/integrations). That is quite convenient because Zapier allow you to use your integration as MCP server <https://zapier.com/mcp>. So very conveniently with Zapier MCP you choose the Zapier integration like HalloCasa, choose which tools you want to use and configure the parameters (if you need at all). After that Zapier provides you with an MCP server url which you can use in your AI chat.
+We do have a [HalloCasa Zapier Integration](https://zapier.com/apps/hallocasa/integrations). That is quite convenient because Zapier allows you to use your integration as MCP server <https://zapier.com/mcp>. So very conveniently with Zapier MCP you choose the Zapier integration like HalloCasa, choose which tools you want to use and configure the parameters (if you need at all). After that Zapier provides you with an MCP server url which you can use in your AI chat.
 
 This approach is incredible easy and powerful as it allows me to enhance the MCP quickly.
 
@@ -192,5 +192,7 @@ export class ListingsMcpServiceStack extends cdk.Stack {
 ## Conclusion
 
 So try out <https://listings-mcp.com> and let me know what you think. I'm curious if we can improve the property search experience by particular using MCP integrations from providers like [HalloCasa](https://hallocasa.com). I'm not that crazy of trying to compete with perplexity but maybe there is a niche for this. Maybe we can become a market place specifically for property MCP integrations.
+
+If you need help with MCP integrations, let me know. I'm happy to help you.
 
 If you want more details, like how I build the MCP integration or how I deploy the NextJS app via AWS CDK, reach out to me on [LinkedIn](https://www.linkedin.com/in/martinmueller88/). I'm super eager to share my knowledge with you.
