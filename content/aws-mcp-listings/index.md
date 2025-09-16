@@ -3,7 +3,7 @@ title: A property listings AI chat with MCP integrations running in AWS
 show: "no"
 date: "2025-07-09"
 image: "index.png" 
-tags: ["eng", "2024", "aws", "ai", "mcp", "cdk"]
+tags: ["eng", "2025", "aws", "ai", "mcp", "cdk"]
 pruneLength: 50
 ---
 
