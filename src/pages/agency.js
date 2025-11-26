@@ -64,17 +64,6 @@ const AgencyPage = ({ location }) => {
                     className="w-16 h-16 rounded-full object-cover border-2 border-[#06aced]"
                   />
                 </a>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900">Adrian Logan</h3>
-                  <a
-                    href="https://www.linkedin.com/in/adrian-logan-a52027b5"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#06aced] hover:underline text-sm"
-                  >
-                    View LinkedIn →
-                  </a>
-                </div>
               </div>
               <p className="text-gray-700 leading-relaxed">
                 I cannot recommend Martin Muller highly enough for his exceptional work in setting up our web application backend using the AWS CDK. Martin's expertise and efficiency have been instrumental in meeting project deadlines and ensuring a smooth deployment. The quality of his work is consistently top-notch, which gives me the utmost confidence in the final product. Additionally, Martin's ability to work quickly without sacrificing attention to detail has been invaluable to our team. His dedication and professionalism have made it a pleasure to collaborate with him, and I am confident that anyone who works with Martin will be similarly impressed by his talents.
