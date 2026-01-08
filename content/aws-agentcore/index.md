@@ -1,5 +1,5 @@
 ---
-title: AWS Bedrock AgentCore - From Local to Cloud
+title: AWS Bedrock AgentCore - AI Agent Development from Local to Cloud
 show: "no"
 date: "2026-01-09"
 image: "robot-climbing.png"
@@ -119,4 +119,4 @@ const model = classification.complexity === 'simple'
 
 ## Conclusion
 
-AWS Bedrock AgentCore provides a robust foundation for building complex, stateful AI agents. By offloading the heavy lifting of runtime management and browser infrastructure to AWS, I was able to focus on the core logic of `https://ai-secure.dev`—creating high-quality security audits—rather than debugging infrastructure. If you're building agents that need to browse the web or maintain long-term state, AgentCore is a powerful accelerator.
+AWS Bedrock AgentCore provides a robust foundation for building complex, stateful AI agents. By offloading the heavy lifting of runtime management and browser infrastructure to AWS, I was able to focus on the core logic of [https://ai-secure.dev](https://ai-secure.dev) - creating high-quality security audits - rather than debugging infrastructure. If you're building agents that need to browse the web or maintain long-term state, AgentCore is a powerful accelerator.
