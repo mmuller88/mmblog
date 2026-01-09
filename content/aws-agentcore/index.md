@@ -121,4 +121,6 @@ const model = classification.complexity === 'simple'
 
 AWS Bedrock AgentCore provides a robust foundation for building complex, stateful AI agents. By offloading the heavy lifting of runtime management and browser infrastructure to AWS, I was able to focus on the core logic of [https://ai-secure.dev](https://ai-secure.dev) - creating high-quality security audits - rather than debugging infrastructure. If you're building agents that need to browse the web or maintain long-term state, AgentCore is a powerful accelerator.
 
-Please give me feedback on [LinkedIn](https://www.linkedin.com/in/martinmueller88/). Either if you find the https://ai-secure.dev useful and how I can make it better or if you need help with your own AI agent project.
+Please give me feedback on [LinkedIn](https://www.linkedin.com/in/martinmueller88/). Either if you find the <https://ai-secure.dev> useful and how I can make it better or if you need help with your own AI agent project.
+
+As well I think my next post will be about [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) as I'm exploring those to start another AI Agent idea where I want the agent helping me with marketing for <https://ai-secure.dev>. So make sure to subscribe to my blog posts [RSS feed](https://martinmueller.dev/rss.xml).
