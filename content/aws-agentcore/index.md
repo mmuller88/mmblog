@@ -67,7 +67,7 @@ A security compliance scanner that uses an AI agent to audit websites.
 |-----------|------|
 | Agent | [Strands TypeScript SDK](https://github.com/strands-agents/sdk-typescript) + Claude (Anthropic) |
 | Browser | AgentCore Browser (cloud) / Playwright MCP (local) |
-| Frontend | Next.js 16 + React 19 + Tailwind |
+| Frontend | Next.js 16 + React 19 + Tailwind (Hosted on AWS ECS Fargate) |
 | Auth | AWS Cognito |
 | Database | DynamoDB |
 | Infra | AWS CDK → AWS ECS Fargate + AWS Bedrock AgentCore Runtime |
@@ -120,3 +120,5 @@ const model = classification.complexity === 'simple'
 ## Conclusion
 
 AWS Bedrock AgentCore provides a robust foundation for building complex, stateful AI agents. By offloading the heavy lifting of runtime management and browser infrastructure to AWS, I was able to focus on the core logic of [https://ai-secure.dev](https://ai-secure.dev) - creating high-quality security audits - rather than debugging infrastructure. If you're building agents that need to browse the web or maintain long-term state, AgentCore is a powerful accelerator.
+
+Please give me feedback on [LinkedIn](https://www.linkedin.com/in/martinmueller88/). Either if you find the https://ai-secure.dev useful and how I can make it better or if you need help with your own AI agent project.
