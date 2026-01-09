@@ -1,9 +1,9 @@
 ---
 title: AWS Bedrock AgentCore - AI Agent Development from Local to Cloud
-show: "no"
+show: "yes"
 date: "2026-01-09"
 image: "robot-climbing.png"
-tags: ["eng", "2026", "aws", "ai", "nofeed"] #nofeed
+tags: ["eng", "2026", "aws", "ai", "agent", "agentcore", "bedrock"] #nofeed
 # engUrl: https://martinmueller.dev/ab-picturer
 pruneLength: 50
 ---
