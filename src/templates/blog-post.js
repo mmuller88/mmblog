@@ -95,10 +95,22 @@ function BlogPost(props) {
       {isValidDate && (
        <span>{tags.includes("de") ? germanFormat : usFormat}</span>
       )}
-      <span> </span>
+      <span>|</span>
       <span>{readingTime} min read</span>
-      <span> </span>
+      <span>|</span>
       <span>By Martin Mueller</span>
+      <span>|</span>
+      <a 
+       href={tags.includes("de") ? "/rss-ger.xml" : "/rss.xml"} 
+       className="inline-flex items-center gap-1 text-orange-500 hover:text-orange-600"
+       title="RSS Feed"
+      >
+       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+        <circle cx="6.18" cy="17.82" r="2.18"/>
+        <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+       </svg>
+       RSS
+      </a>
     </div>
 
     <div
@@ -123,13 +135,25 @@ function BlogPost(props) {
      </p>
     </div> */}
     {/* {showContact !== "no" ? <ContactForm /> : null} */}
-    <div>
+    <div className="flex flex-wrap items-center gap-2 mb-4">
      <span>Tagged in </span>
      {tags.map((tag, i) => (
-      <a href={`/tags/${tag}`} key={i} style={{ marginLeft: "10px" }}>
+      <a href={`/tags/${tag}`} key={i} className="ml-2">
        {tag}
       </a>
      ))}
+     <span className="mx-2">|</span>
+     <a 
+      href={tags.includes("de") ? "/rss-ger.xml" : "/rss.xml"} 
+      className="inline-flex items-center gap-1 text-orange-500 hover:text-orange-600"
+      title="RSS Feed"
+     >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+       <circle cx="6.18" cy="17.82" r="2.18"/>
+       <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+      </svg>
+      RSS
+     </a>
     </div>
     <Share title={title} url={url} pathname={props.location.pathname} />
     <PrevNext prev={prev && prev.node} next={next && next.node} />
