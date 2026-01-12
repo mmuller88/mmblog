@@ -156,7 +156,15 @@ module.exports = {
                           site.siteMetadata.siteUrl +
                           edge.node.frontmatter.image.publicURL : undefined
                       },
-                    ],
+                      edge.node.frontmatter.image && {
+                        "media:content": {
+                          _attr: {
+                            url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
+                            medium: "image"
+                          }
+                        }
+                      },
+                    ].filter(Boolean),
                   })
                 })
               },
@@ -206,7 +214,15 @@ module.exports = {
                           site.siteMetadata.siteUrl +
                           edge.node.frontmatter.image.publicURL : undefined
                       },
-                    ],
+                      edge.node.frontmatter.image && {
+                        "media:content": {
+                          _attr: {
+                            url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
+                            medium: "image"
+                          }
+                        }
+                      },
+                    ].filter(Boolean),
                   })
                 })
               },

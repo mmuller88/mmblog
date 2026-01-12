@@ -1,16 +1,19 @@
 ---
 title: AWS Bedrock AgentCore - AI Agent Development from Local to Cloud
-show: "yes"
+show: "no"
 date: "2026-01-09"
 image: "robot-climbing.png"
-tags: [ "aws", "ai-agent", "agentcore", "bedrock", "eng", "2026"] #nofeed
-# engUrl: https://martinmueller.dev/ab-picturer
+tags: [ "aws", "ai-agent", "agentcore", "bedrock", "eng", "2026", "nofeed"] #nofeed
 pruneLength: 50
 ---
 
+## Learnings
+
+- Try to have complex flows solely solved by the agent. And then write deterministic code. speed.
+
 ## Introduction
 
-Building production-ready AI agents requires more than just a prompt and an LLM. You need infrastructure for state management, tool execution, and secure deployment. I recently built **https://ai-secure.dev**, a SaaS for automated security compliance audits, using **AWS Bedrock AgentCore**. This post explores how AgentCore simplifies the transition from a local prototype to a scalable cloud agent.
+Building production-ready AI agents requires more than just a prompt and an LLM. You need infrastructure for state management, tool execution, and secure deployment. I recently built **[https://ai-secure.dev](https://ai-secure.dev)**, a SaaS for automated security compliance audits, using **AWS Bedrock AgentCore**. This post explores how AgentCore simplifies the transition from a local prototype to a scalable cloud agent.
 
 ## What is AWS Bedrock AgentCore?
 
@@ -24,7 +27,7 @@ AgentCore is AWS's managed runtime for AI agents. Think of it as "Fargate for AI
 - **Memory**: Built-in conversation memory across sessions
 - **Streaming**: SSE responses for real-time progress updates
 
-## https://ai-secure.dev
+## [https://ai-secure.dev](https://ai-secure.dev)
 
 A security compliance scanner that uses an AI agent to audit websites.
 
@@ -32,19 +35,19 @@ A security compliance scanner that uses an AI agent to audit websites.
 
 1. User submits URL + selects security compliance framework (ISO 27001, NIST, SOC2, COBIT)
 
-![New Scan](1_new_scan.png)
+New Scan
 
-2. Agent navigates site using AgentCore Browser, shows real-time progress
+1. Agent navigates site using AgentCore Browser, shows real-time progress
 
-![Scan Progress](2_scan_progress.png)
+Scan Progress
 
-3. Scan completes with summary
+1. Scan completes with summary
 
-![Scan Finished](3_scan_finished.png)
+Scan Finished
 
-4. User views detailed report with findings + recommendations
+1. User views detailed report with findings + recommendations
 
-![Scan Report](4_scan_report.png)
+Scan Report
 
 **Architecture:**
 
@@ -63,15 +66,17 @@ A security compliance scanner that uses an AI agent to audit websites.
 
 **Tech stack:**
 
-| Component | Tech |
-|-----------|------|
-| Agent | [Strands TypeScript SDK](https://github.com/strands-agents/sdk-typescript) + Claude (Anthropic) |
-| Browser | AgentCore Browser (cloud) / Playwright MCP (local) |
-| Frontend | Next.js 16 + React 19 + Tailwind (Hosted on AWS ECS Fargate) |
-| Auth | AWS Cognito |
-| Database | DynamoDB |
-| Infra | AWS CDK → AWS ECS Fargate + AWS Bedrock AgentCore Runtime |
-| Payments | Stripe |
+
+| Component | Tech                                                                                            |
+| --------- | ----------------------------------------------------------------------------------------------- |
+| Agent     | [Strands TypeScript SDK](https://github.com/strands-agents/sdk-typescript) + Claude (Anthropic) |
+| Browser   | AgentCore Browser (cloud) / Playwright MCP (local)                                              |
+| Frontend  | Next.js 16 + React 19 + Tailwind (Hosted on AWS ECS Fargate)                                    |
+| Auth      | AWS Cognito                                                                                     |
+| Database  | DynamoDB                                                                                        |
+| Infra     | AWS CDK → AWS ECS Fargate + AWS Bedrock AgentCore Runtime                                       |
+| Payments  | Stripe                                                                                          |
+
 
 **Agent tools:**
 
@@ -121,6 +126,6 @@ const model = classification.complexity === 'simple'
 
 AWS Bedrock AgentCore provides a robust foundation for building complex, stateful AI agents. By offloading the heavy lifting of runtime management and browser infrastructure to AWS, I was able to focus on the core logic of [https://ai-secure.dev](https://ai-secure.dev) - creating high-quality security audits - rather than debugging infrastructure. If you're building agents that need to browse the web or maintain long-term state, AgentCore is a powerful accelerator.
 
-Please give me feedback on [LinkedIn](https://www.linkedin.com/in/martinmueller88/). Either if you find the <https://ai-secure.dev> useful and how I can make it better or if you need help with your own AI agent project. More and more builders are curious about how I build and deploy AI Agents in more specifics. So let me know if you would interested in more blog posts around this or perhaps a workshop/course around how I build my AI Agents?!
+Please give me feedback on [LinkedIn](https://www.linkedin.com/in/martinmueller88/). Either if you find the [https://ai-secure.dev](https://ai-secure.dev) useful and how I can make it better or if you need help with your own AI agent project. More and more builders are curious about how
 
-As well I think my next post will be about [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) as I'm exploring those to start another AI Agent idea where I want the agent helping me with marketing for <https://ai-secure.dev>. So make sure to subscribe to my blog posts [RSS feed](https://martinmueller.dev/rss.xml).
+As well I think my next post will be about [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) as I'm exploring those to start another AI Agent idea where I want the agent helping me with marketing for [https://ai-secure.dev](https://ai-secure.dev). So make sure to subscribe to my blog posts [RSS feed](https://martinmueller.dev/rss.xml).
