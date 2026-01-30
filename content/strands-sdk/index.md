@@ -9,17 +9,18 @@ pruneLength: 50
 
 ## Introduction
 
-Building AI agents that work in production requires more than wrapping an LLM API. You need tool execution, streaming responses, cost management, and integration with existing systems. After evaluating several frameworks for [ai-secure.dev](https://ai-secure.dev), I chose the **Strands TypeScript SDK** from AWS.
+Building AI agents that work in production requires more than wrapping an LLM API. You need tool execution, streaming responses, cost management, and integration with existing systems. After evaluating several frameworks for [ai-secure.dev](https://ai-secure.dev), I chose the [Strands TypeScript SDK](https://github.com/strands-agents/sdk-typescript) from AWS.
 
 **Why Strands over alternatives?**
 
 | Framework | Pros | Cons |
 |-----------|------|------|
 | LangChain | Feature-rich, large ecosystem | Heavy, complex abstractions |
+| crewAI | Multi-agent orchestration, role-based agents | Python-focused, heavier runtime |
 | Raw Anthropic/OpenAI API | Full control | Too low-level, no tool orchestration |
 | **Strands SDK** | Lightweight, AWS-native, streaming-first | Newer, smaller community |
 
-Strands hits the sweet spot: enough abstraction to be productive, low enough to maintain control. It's what I used to build the security audit agent behind ai-secure.dev.
+Strands hits the sweet spot: enough abstraction to be productive, low enough to maintain control. It's what I used to build the security audit agent behind [ai-secure.dev](https://ai-secure.dev).
 
 ## Agent Creation Basics
 
