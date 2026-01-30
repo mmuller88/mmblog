@@ -1,9 +1,9 @@
 ---
 title: Strands TypeScript SDK - Building Production AI Agents
-show: "no"
-date: "2026-01-31"
+show: "yes"
+date: "2026-01-30"
 image: "strands-ts-robot.png"
-tags: ["aws", "ai-agent", "strands", "typescript", "eng", "2026", "nofeed"]
+tags: ["aws", "ai-agent", "strands", "typescript", "eng", "2026"]
 pruneLength: 50
 ---
 
