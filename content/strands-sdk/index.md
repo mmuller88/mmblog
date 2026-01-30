@@ -2,7 +2,7 @@
 title: Strands TypeScript SDK - Building Production AI Agents
 show: "no"
 date: "2026-01-31"
-image: "strands-agent.png"
+image: "strands-ts-robot.png"
 tags: ["aws", "ai-agent", "strands", "typescript", "eng", "2026", "nofeed"]
 pruneLength: 50
 ---
@@ -259,7 +259,9 @@ app.post('/invocations', async (req, res) => {
 
 ## OpenAI-Compatible Adapter
 
-Want your agent to work with Cline, Continue.dev, or other tools expecting OpenAI API? Wrap it:
+**Why build this?** During development, I needed to chat with my agent without building a UI first. By exposing an OpenAI-compatible endpoint, I could use [Cline](https://github.com/cline/cline) (VS Code extension) as my interface - instant chat UI for free.
+
+This let me iterate on tools and prompts rapidly before touching frontend code.
 
 ```typescript
 export function createOpenAIAdapter(config) {
