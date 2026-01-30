@@ -34,7 +34,7 @@ const Header = ({ siteTitle }) => (
     <a
      href="https://github.com/mmuller88"
      target="_blank"
-     rel="noopener"
+     rel="noopener noreferrer"
      style={{ color: "white", marginRight: "0.3rem" }}
     >
      <img
@@ -49,7 +49,7 @@ const Header = ({ siteTitle }) => (
     <a
      href="https://www.linkedin.com/in/martinmueller88/"
      target="_blank"
-     rel="noopener"
+     rel="noopener noreferrer"
      style={{ display: "inline-block" }}
     >
      <img
@@ -63,7 +63,7 @@ const Header = ({ siteTitle }) => (
     <a
      href="https://www.threads.net/@martinmuellerdev"
      target="_blank"
-     rel="noopener"
+     rel="noopener noreferrer"
      style={{ marginRight: "0.3rem" }}
     >
      <img
@@ -77,7 +77,7 @@ const Header = ({ siteTitle }) => (
     <a
      href="https://www.twitter.com/MartinMueller_"
      target="_blank"
-     rel="noopener"
+     rel="noopener noreferrer"
      style={{ marginRight: "0.3rem" }}
     >
      <img
@@ -90,9 +90,9 @@ const Header = ({ siteTitle }) => (
     </a>
    </div>
    <div>
-    <h1
-     class="row"
-     style={{
+   <h1
+    className="row"
+    style={{
       margin: 0,
       marginLeft: 0,
       display: `inline-block`,

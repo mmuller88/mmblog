@@ -23,14 +23,11 @@ function BlogPost(props) {
   engUrl,
   gerUrl,
   showContact,
+  tldr,
+  faq,
  } = props.data.markdownRemark.frontmatter
  const { prev, next } = props.pageContext
  
- // Debug logging
- console.log('Full props data:', props.data);
- console.log('Frontmatter:', props.data.markdownRemark.frontmatter);
- console.log('Image from frontmatter:', props.data.markdownRemark.frontmatter.image);
- console.log('Image variable:', image);
  
  // Enhanced SEO data
  const content = props.data.markdownRemark.html;
@@ -42,10 +39,8 @@ function BlogPost(props) {
  const publishedDate = new Date(date).toISOString();
  const isValidDate = date && date !== "1970-01-01";
  
- // Generate breadcrumbs
- const breadcrumbs = generateBreadcrumbs(props.location.pathname, title, [
-   { name: 'Blog', path: '/blog' }
- ]);
+ // Generate breadcrumbs (posts are on homepage, no separate /blog page)
+ const breadcrumbs = generateBreadcrumbs(props.location.pathname, title, []);
  
  const germanFormat = new Date(date).toLocaleDateString("de-DE", {
   year: "numeric",
@@ -72,9 +67,13 @@ function BlogPost(props) {
     tags={tags}
     readingTime={readingTime}
     isArticle={true}
+    engUrl={engUrl}
+    gerUrl={gerUrl}
+    tldr={tldr}
+    faq={faq}
    />
    <div>
-    {/* <Breadcrumb crumbs={breadcrumbs} siteUrl={url} /> */}
+    <Breadcrumb crumbs={breadcrumbs} siteUrl={url} />
     {engUrl ? (
      <div>
       <a href={engUrl}>Translate To English</a>
@@ -136,13 +135,17 @@ function BlogPost(props) {
     </div> */}
     {/* {showContact !== "no" ? <ContactForm /> : null} */}
     <div className="flex flex-wrap items-center gap-2 mb-4">
-     <span>Tagged in </span>
+     <span className="text-gray-600">Tagged in</span>
      {tags.map((tag, i) => (
-      <a href={`/tags/${tag}`} key={i} className="ml-2">
+      <a 
+       href={`/tags/${tag}`} 
+       key={i} 
+       className="px-2 py-1 text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors"
+      >
        {tag}
       </a>
      ))}
-     <span className="mx-2">|</span>
+     <span className="mx-2 text-gray-400">|</span>
      <a 
       href={tags.includes("de") ? "/rss-ger.xml" : "/rss.xml"} 
       className="inline-flex items-center gap-1 text-orange-500 hover:text-orange-600"
@@ -177,6 +180,11 @@ export const query = graphql`
     engUrl
     gerUrl
     showContact
+    tldr
+    faq {
+     q
+     a
+    }
     image {
      childImageSharp {
       resize(width: 1000, height: 420) {

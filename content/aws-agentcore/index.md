@@ -6,6 +6,19 @@ image: "robot-climbing.png"
 tags: [ "aws", "ai-agent", "agentcore", "bedrock", "eng", "2026"] #nofeed
 # engUrl: https://martinmueller.dev/ab-picturer
 pruneLength: 50
+faq:
+  - q: "What is AWS Bedrock AgentCore?"
+    a: "AgentCore is AWS's managed runtime for AI agents. Think of it as 'Fargate for AI agents' - you bring your container, AWS handles scaling, networking, and infrastructure. It provides container-based deployment, VPC networking, managed Chromium browser for web automation, built-in conversation memory, and SSE streaming for real-time updates."
+  - q: "How does AgentCore compare to building agents from scratch?"
+    a: "AgentCore offloads infrastructure management (scaling, networking, browser automation) so you can focus on core agent logic. Instead of managing Playwright/Puppeteer infrastructure, you get AgentCore Browser. Instead of building state management, you get built-in conversation memory. This accelerates development from prototype to production."
+  - q: "What are the key benefits of using AgentCore?"
+    a: "Key benefits include container-based deployment (same container runs locally and in cloud), VPC networking for secure outbound connections, AgentCore Browser (managed Chromium - no Playwright/Puppeteer infra needed), built-in memory across sessions, and SSE streaming for real-time progress updates."
+  - q: "How do you optimize costs with AgentCore?"
+    a: "Use model routing - Haiku for simple tasks (~10x cheaper), Sonnet for complex tasks. Enable message caching for 90% cost reduction on repeated context. Disable extended thinking unless needed (~$0.15/call). Route based on task complexity classification."
+  - q: "How does browser automation work with AgentCore?"
+    a: "AgentCore Browser provides managed Chromium for web automation - no need to manage Playwright/Puppeteer infrastructure. For local development, use existing MCP Docker images (playwright-mcp). Browser tools need good error handling since pages don't always load, elements move, and auth flows vary."
+  - q: "How do you deploy agents to AgentCore?"
+    a: "Package your agent as a Docker image, push to ECR, and deploy via AWS CDK. Use Infrastructure as Code (IaC) for deployment. The same container runs locally and in AgentCore, making development seamless. AgentCore logs are separate from app logs - use CloudWatch SDK directly for application logging."
 ---
 
 ## Introduction

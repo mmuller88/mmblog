@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import "./post.css"
 import Layout from "../components/layout"
+import MetaTags from "../components/Metatags"
 
 export const PreviewPost = (props) => {
  //   if (!props.node) return null
@@ -55,9 +56,19 @@ export const PreviewPost = (props) => {
 
 const IndexPage = (props) => {
  const postList = props.data.posts
- //const data = props.data.tags.group;
+ const siteUrl = props.data.site.siteMetadata.siteUrl
+ const siteTitle = props.data.site.siteMetadata.title
+ const siteDescription = props.data.site.siteMetadata.description
+ 
  return (
   <Layout>
+   <MetaTags
+    title={siteTitle}
+    description={siteDescription}
+    url={siteUrl}
+    pathname="/"
+    isArticle={false}
+   />
    <div className="href">
     <a href={`tags/de`}>de</a>, <a href={`tags/eng`}>eng</a>,{" "}
     <a href={`tags`}>tags</a>, <a href={`rss.xml`}>rss</a>,{" "}
@@ -86,6 +97,13 @@ export default IndexPage
 
 export const pageQuery = graphql`
  query {
+  site {
+   siteMetadata {
+    siteUrl
+    title
+    description
+   }
+  }
   posts: allMarkdownRemark(
    sort: { order: DESC, fields: [frontmatter___date] }
    filter: {

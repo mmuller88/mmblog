@@ -21,6 +21,13 @@ exports.createSchemaCustomization = ({ actions }) => {
             showContact: String
             show: String
             pruneLength: Int
+            tldr: String
+            faq: [MarkdownRemarkFrontmatterFaq]
+        }
+        
+        type MarkdownRemarkFrontmatterFaq {
+            q: String
+            a: String
         }
     `
     

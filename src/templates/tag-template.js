@@ -1,18 +1,30 @@
 import React from "react"
-import {     graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import MetaTags from "../components/Metatags"
 import "../pages/post.css"
 import {PreviewPost} from "../pages/index"
 
 function Tags(props) {
  const { tag } = props.pageContext
+ const siteUrl = props.data.site.siteMetadata.siteUrl
  let posts = props.data.allMarkdownRemark.edges
  if (tag !== "de") {
   posts = posts.filter(({ node }) => node.frontmatter.tags.includes("eng"))
  }
+ 
+ const tagTitle = tag.charAt(0).toUpperCase() + tag.slice(1)
+ const postCount = posts.length
 
  return (
   <Layout>
+   <MetaTags
+    title={`${tagTitle} - Martin Mueller's Blog`}
+    description={`Browse ${postCount} articles about ${tag} on Martin Mueller's technology blog. Expert insights on AWS, cloud architecture, and software engineering.`}
+    url={siteUrl}
+    pathname={`/tags/${tag}`}
+    isArticle={false}
+   />
    <div className="header">
     <h1>{`Available posts in ${tag}`}</h1>
    </div>
@@ -39,6 +51,11 @@ export default Tags
 
 export const query = graphql`
  query TagsQuery($tag: String!) {
+  site {
+   siteMetadata {
+    siteUrl
+   }
+  }
   allMarkdownRemark(
    limit: 2000
    sort: { fields: [frontmatter___date], order: DESC }

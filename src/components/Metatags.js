@@ -14,15 +14,38 @@ function Metatags(props) {
         modifiedDate,
         tags = [],
         readingTime,
-        isArticle = false
+        isArticle = false,
+        engUrl,
+        gerUrl,
+        tldr,
+        faq = []
     } = props;
 
     // Ensure tags is always an array to prevent iteration errors
     const safeTags = Array.isArray(tags) ? tags : [];
     const safeKeywords = Array.isArray(keywords) ? keywords : [];
+    const safeFaq = Array.isArray(faq) ? faq : [];
 
     const canonicalUrl = url + pathname;
     const keywordString = safeKeywords.length > 0 ? safeKeywords.join(', ') : safeTags.join(', ');
+    
+    // Determine language from tags
+    const language = safeTags.includes("de") ? "de" : "en";
+    
+    // Map tags to expertise areas (filter out language tags and common non-expertise tags)
+    const expertiseTags = safeTags.filter(tag => 
+        !["de", "eng", "nofeed", "2026"].includes(tag.toLowerCase())
+    );
+    const knowsAbout = [
+        "AWS",
+        "Cloud Computing",
+        "Serverless",
+        "CDK",
+        "Infrastructure as Code",
+        "Software Engineering",
+        "DevOps",
+        ...expertiseTags
+    ];
     
     // JSON-LD structured data for articles
     const articleStructuredData = isArticle ? {
@@ -30,10 +53,15 @@ function Metatags(props) {
         "@type": "BlogPosting",
         "headline": title,
         "description": description,
+        ...(tldr || description ? {
+            "abstract": tldr || description
+        } : {}),
         "author": {
             "@type": "Person",
             "name": author,
             "url": url,
+            "jobTitle": "AWS Solutions Architect & Software Engineer",
+            "knowsAbout": knowsAbout,
             "sameAs": [
                 "https://twitter.com/MartinMueller_",
                 "https://github.com/mmuller88",
@@ -57,6 +85,12 @@ function Metatags(props) {
         "datePublished": publishedDate,
         "dateModified": modifiedDate || publishedDate,
         "keywords": keywordString,
+        "inLanguage": language,
+        "isAccessibleForFree": true,
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", "h2", "article p:first-of-type"]
+        },
         ...(thumbnail && {
             "image": {
                 "@type": "ImageObject",
@@ -68,6 +102,20 @@ function Metatags(props) {
         ...(readingTime && {
             "timeRequired": `PT${readingTime}M`
         })
+    } : null;
+    
+    // FAQ structured data
+    const faqStructuredData = safeFaq.length > 0 ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": safeFaq.map(item => ({
+            "@type": "Question",
+            "name": item.q,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.a
+            }
+        }))
     } : null;
 
     // Organization structured data
@@ -84,6 +132,19 @@ function Metatags(props) {
         ]
     };
 
+    // Build hreflang links for multilingual content
+    const hreflangLinks = [];
+    if (engUrl) {
+        hreflangLinks.push({ rel: 'alternate', hreflang: 'en', href: url + engUrl });
+    }
+    if (gerUrl) {
+        hreflangLinks.push({ rel: 'alternate', hreflang: 'de', href: url + gerUrl });
+    }
+    // Add x-default pointing to current page
+    if (engUrl || gerUrl) {
+        hreflangLinks.push({ rel: 'alternate', hreflang: 'x-default', href: canonicalUrl });
+    }
+
     return (
         <Helmet
             title={title}
@@ -91,7 +152,8 @@ function Metatags(props) {
                 { rel: 'canonical', href: canonicalUrl },
                 { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
                 { rel: 'preconnect', href: 'https://www.google-analytics.com' },
-                { rel: 'dns-prefetch', href: 'https://api.ab.martinmueller.dev' }
+                { rel: 'dns-prefetch', href: 'https://api.ab.martinmueller.dev' },
+                ...hreflangLinks
             ]}
             meta={[
                 { name: 'title', content: title },
@@ -157,6 +219,11 @@ function Metatags(props) {
             {articleStructuredData && (
                 <script type="application/ld+json">
                     {JSON.stringify(articleStructuredData)}
+                </script>
+            )}
+            {faqStructuredData && (
+                <script type="application/ld+json">
+                    {JSON.stringify(faqStructuredData)}
                 </script>
             )}
             <script type="application/ld+json">
