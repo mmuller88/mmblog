@@ -134,21 +134,31 @@ function BlogPost(props) {
      </p>
     </div> */}
     {/* {showContact !== "no" ? <ContactForm /> : null} */}
-    <div className="flex flex-wrap items-center mb-4">
-     <span className="text-gray-600 mr-2">Tagged in:</span>
+    <div className="mb-4">
+     <span className="text-gray-600">Tagged in: </span>
      {tags.map((tag, i) => (
-      <a 
-       href={`/tags/${tag}`} 
-       key={i} 
-       className="mr-2 mb-1 px-2 py-1 text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors no-underline"
-      >
-       {tag}
-      </a>
+      <React.Fragment key={i}>
+       <a 
+        href={`/tags/${tag}`}
+        style={{ 
+         textDecoration: 'none',
+         backgroundColor: '#f3f4f6',
+         padding: '2px 8px',
+         borderRadius: '4px',
+         color: '#374151',
+         fontSize: '0.875rem',
+         marginRight: '8px',
+        }}
+       >
+        {tag}
+       </a>
+      </React.Fragment>
      ))}
-     <span className="mx-2 text-gray-400">|</span>
+     <span className="text-gray-400"> | </span>
      <a 
       href={tags.includes("de") ? "/rss-ger.xml" : "/rss.xml"} 
-      className="inline-flex items-center gap-1 text-orange-500 hover:text-orange-600 no-underline"
+      className="inline-flex items-center gap-1 text-orange-500 hover:text-orange-600"
+      style={{ textDecoration: 'none' }}
       title="RSS Feed"
      >
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
