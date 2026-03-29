@@ -1,9 +1,9 @@
 ---
 title: My Global Brain with PeachBase
 show: "no"
-date: "2026-04-01"
+date: "2026-03-31"
 image: "index.png"
-tags: ["peachbase", "ai-agent", "eng", "2026"]
+tags: ["peachbase", "ai-agent", "eng", "2026", "nofeed"]
 pruneLength: 50
 ---
 

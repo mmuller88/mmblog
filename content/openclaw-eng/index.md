@@ -1,7 +1,7 @@
 ---
 title: How I Use OpenClaw as My AI-Powered Personal Operating System
-show: "yes"
-date: "2026-03-27"
+show: "no"
+date: "2026-03-31"
 image: "index.png"
 tags: ["eng", "2026", "openclaw", "ai", "automation", "devops", "nofeed"]
 pruneLength: 50
