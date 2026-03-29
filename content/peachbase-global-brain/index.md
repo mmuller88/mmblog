@@ -2,7 +2,7 @@
 title: My Global Brain with PeachBase
 show: "no"
 date: "2026-04-01"
-image: "strands-ts-robot.png"
+image: "index.png"
 tags: ["peachbase", "ai-agent", "eng", "2026"]
 pruneLength: 50
 ---
