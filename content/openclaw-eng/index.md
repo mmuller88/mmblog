@@ -15,7 +15,7 @@ Here's a deep dive into every use case I've discovered so far.
 
 OpenClaw is an open-source AI agent platform that runs on your own infrastructure. You connect it to your chat channels (Telegram, WhatsApp, Discord), give it access to your tools, and it becomes a persistent assistant that remembers context across sessions. Think of it as your own self-hosted AI employee that's always on.
 
-My setup: Docker container on a Hostinger VPS, connected to Telegram as my primary interface.
+My setup: Docker container on a Hostinger VPS, with **Telegram as my primary interface**. Most of my interactions — voice messages, text, files — go through Telegram. It feels like texting a colleague who never sleeps.
 
 ## Use Case 1: Autonomous GitHub Issue Management
 
@@ -34,13 +34,13 @@ The workflow follows the "Factory" pattern I heard about at Agentic Conf Hamburg
 
 ## Use Case 2: Email Management
 
-OpenClaw reads and sends emails through my `office@martinmueller.dev` account via Himalaya CLI. Real examples:
+OpenClaw reads and sends emails via Himalaya CLI (IMAP/SMTP). I just tell it what to do on Telegram:
 
-- **Canceling appointments**: "Tell the Zwergensport leader we can't come today, we're sick" → It searched my iCloud contacts, found the right person (Constanze Nick at Zebef), and sent a polite German email.
-- **Rescheduling with my tax advisor**: "Send Steuerberater Wolff that I'm sick and want to reschedule" → Found ETL Wolff & Kollegen in contacts, sent a professional email.
-- **Replying to kindergarten applications**: Replied to the Montessori-Kinderhaus St. Helena about scheduling a visit, in context of an ongoing email thread.
+- **"Tell the sports group leader we can't come today"** → Searched my contacts, found the match, sent a polite cancellation.
+- **"Email my tax advisor that I need to reschedule"** → Found the firm in contacts, sent a professional German email.
+- **"Reply to the kindergarten about scheduling a visit"** → Continued an existing email thread with context-aware reply.
 
-It sends HTML emails with my full professional signature (photo, links, social icons) and handles both German and English.
+It sends HTML emails with a professional signature and handles German and English.
 
 ## Use Case 3: Morning Briefing (Cron Job)
 
@@ -62,7 +62,7 @@ OpenClaw has full access to my Google Calendar via OAuth. Examples:
 
 ## Use Case 5: Contact Lookup
 
-Connected to my Apple iCloud contacts (247 contacts via CardDAV), OpenClaw can search contacts by name, organization, or context. When I say "email the Zwergensport leader," it searches through all contacts, finds the match, and uses the right email address. No need to look anything up manually.
+Connected to my iCloud contacts via CardDAV, OpenClaw searches by name, organization, or context. When I say "email the sports group leader," it finds the match and uses the right email. No manual lookup needed.
 
 ## Use Case 6: LinkedIn Post Drafting
 
@@ -75,17 +75,17 @@ It does the research, I do the personal touch.
 
 ## Use Case 7: Research & Due Diligence
 
-Random questions that would normally cost me 15 minutes of Googling:
+Questions that would normally cost 15 minutes of Googling:
 
-- "Is there an app for passport photos with QR codes for the Ausländerbehörde?" → Comprehensive comparison of dm Passbild App, CEWE, Rossmann options, including the May 2025 regulation changes.
-- "There's supposed to be a conference in Schwerin tomorrow, what is it?" → Found the 2. KI-Konferenz, full program, speakers, venue, and registration link.
+- **"Is there an app for biometric passport photos with QR codes?"** → Comparison of available apps, including recent regulation changes.
+- **"There's a conference in my area tomorrow, what is it?"** → Found the event, full program, speakers, venue, and registration link.
 
 ## Use Case 8: Document Generation
 
-- **Birthday invitation card**: Generated a beautiful horse-themed HTML invitation for my daughter Rebecca's 6th birthday, with a QR code linking to an Amazon wishlist.
-- **Bewerbung form**: Built a bilingual (German/Portuguese) job application form for my wife's contacts, deployed it to GitHub Pages so it works in WhatsApp without JavaScript issues.
-- **Montessori kindergarten applications**: Generated PDF application forms for both kids.
-- **Email signatures**: Set up HTML email signatures in Gmail (via API) and created Apple Mail signature files.
+- **Birthday invitation**: Generated a themed HTML invitation card with embedded images and QR code, published as a shareable link.
+- **Application form**: Built a bilingual job application form, deployed to GitHub Pages so it works when shared via WhatsApp.
+- **Kindergarten applications**: Generated PDF application forms from templates.
+- **Email signatures**: Set up HTML signatures in Gmail (via API) and Apple Mail.
 
 ## Use Case 9: Workspace & Config Management
 
@@ -105,7 +105,7 @@ I talk to OpenClaw primarily via Telegram, but it also:
 
 ## Use Case 11: Writing This Blog Post
 
-Meta moment: this very blog post was drafted by OpenClaw. I told it (in German, via voice message on Telegram): "I want to write about OpenClaw and how I've been using it — go through all your history and find the use cases, in English please."
+Meta moment: this very blog post was drafted by OpenClaw. I sent a voice message on Telegram (in German): "I want to write about OpenClaw and how I've been using it — go through all your history and find the use cases, in English please."
 
 It scanned 23 days of daily memory notes, extracted every use case, researched the blog repo format, and produced a full draft in the right Gatsby frontmatter format — all in one turn. I just reviewed and tweaked.
 
@@ -116,7 +116,7 @@ This is the "Factory" idea in action: I didn't write a blog post. I told my agen
 After a month of use, here's what surprised me:
 
 - **Cost optimization matters**: Running on Claude Opus 4.6 burns through API credits fast. Switching heartbeats to Haiku and reducing intervals from 30min to 2h made a huge difference.
-- **Memory is everything**: The daily notes + MEMORY.md system means I never have to re-explain context. It knows my family, my projects, my contacts, my preferences.
+- **Memory is everything**: The daily notes + MEMORY.md system means I never have to re-explain context. It knows my projects, my contacts, my preferences.
 - **HTML email was harder than expected**: Getting Himalaya to send proper HTML emails with MML syntax took some trial and error. Plain text signatures don't have clickable links.
 
 ## What's Next
