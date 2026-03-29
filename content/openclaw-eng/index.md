@@ -95,7 +95,15 @@ OpenClaw manages its own configuration:
 - Adjusts its own heartbeat intervals and model settings when I ask
 - Maintains daily memory notes and long-term memory files for context continuity
 
-## Use Case 10: Multi-Channel Communication
+## Use Case 10: Global Brain via PeachBase
+
+OpenClaw is connected to [PeachBase](https://aws.amazon.com/marketplace/pp/prodview-mmaafgzgntjhk) — a serverless vector database that acts as my persistent memory across all AI agents. Via MCP, OpenClaw can store and retrieve knowledge: personal info, project decisions, contacts, learnings.
+
+When I tell OpenClaw something worth remembering, it stores it in PeachBase. When I ask a question weeks later — even from a different agent like Cursor — the knowledge is there. It's the shared brain that ties everything together.
+
+I wrote a dedicated post about this: [My Global Brain with PeachBase](/peachbase-global-brain).
+
+## Use Case 11: Multi-Channel Communication
 
 I talk to OpenClaw primarily via Telegram, but it also:
 
@@ -103,7 +111,7 @@ I talk to OpenClaw primarily via Telegram, but it also:
 - Is connected to WhatsApp
 - Can deliver cron job results to specific Telegram chats
 
-## Use Case 11: Writing This Blog Post
+## Use Case 12: Writing This Blog Post
 
 Meta moment: this very blog post was drafted by OpenClaw. I sent a voice message on Telegram (in German): "I want to write about OpenClaw and how I've been using it — go through all your history and find the use cases, in English please."
 
