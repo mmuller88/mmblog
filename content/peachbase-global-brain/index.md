@@ -15,7 +15,7 @@ There is no shared memory. No global brain.
 
 What I really want is a knowledge layer that sits across all my agents and projects — something I can write to from any context and query from any other. A persistent, searchable memory that any MCP-compatible agent can tap into.
 
-That's exactly what we're building with [PeachBase](https://aws.amazon.com/marketplace/pp/prodview-mmaafgzgntjhk).
+That's exactly what we're building with [PeachBase](https://aws.amazon.com/marketplace/pp/prodview-prod-r43hytg6uuaw4).
 
 ## What is PeachBase?
 
@@ -68,7 +68,7 @@ The remote mode runs as a Lambda behind API Gateway — the same infrastructure 
 
 ### 1. Get a PeachBase API Key
 
-PeachBase is available on [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-mmaafgzgntjhk). The onboarding flow creates an API Gateway API key and assigns it to the free usage plan automatically.
+PeachBase is available on [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-prod-r43hytg6uuaw4). The onboarding flow creates an API Gateway API key and assigns it to the free usage plan automatically.
 
 1. Subscribe to PeachBase on AWS Marketplace
 2. Click **Set Up Your Account** — you'll be redirected to the PeachBase onboarding page
