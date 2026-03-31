@@ -7,9 +7,9 @@ tags: ["eng", "2026", "openclaw", "ai", "automation", "devops", "nofeed"]
 pruneLength: 50
 ---
 
-I've been running [OpenClaw](https://openclaw.ai) on a Hostinger VPS for about a month now, and it has fundamentally changed how I work. What started as "let me try this AI agent thing" turned into a full-blown personal operating system that handles everything from GitHub issue triage to sending emails on my behalf.
+I've been running [OpenClaw](https://openclaw.ai) on a Hostinger VPS for about a month now, and it has fundamentally changed how I work. What started as "let me try this AI agent thing" turned into a powerful assistant that saves me hours every week by automating routine tasks — from GitHub issue triage to email management.
 
-Here's a deep dive into every use case I've discovered so far.
+OpenClaw doesn't do everything for me (yet), but it handles a lot of the repetitive work that used to eat up my day. Here's a deep dive into every use case I've discovered so far.
 
 ## What is OpenClaw?
 
@@ -91,7 +91,7 @@ Questions that would normally cost 15 minutes of Googling:
 
 OpenClaw manages its own configuration:
 
-- Created a GitHub repo ([openclaw-neo](https://github.com/mmuller88/openclaw-neo)) to version-control its workspace files
+- Version-controls its workspace files in a Git repo
 - Adjusts its own heartbeat intervals and model settings when I ask
 - Maintains daily memory notes and long-term memory files for context continuity
 
@@ -119,6 +119,42 @@ It scanned 23 days of daily memory notes, extracted every use case, researched t
 
 This is the "Factory" idea in action: I didn't write a blog post. I told my agent to write one, and it had all the context it needed because it *was there* for every use case.
 
+## Security: It's a Spectrum
+
+Giving an AI agent access to your email, contacts, calendar, and GitHub is powerful — but it's also a security conversation you need to have with yourself.
+
+OpenClaw treats security as a spectrum, not a binary. You can start wide-open for convenience and tighten as you go. Here's what's available and what I use:
+
+### Sandboxing
+
+OpenClaw supports **Docker-based sandboxing** where tool execution (shell commands, file reads/writes) runs inside an isolated container instead of directly on the host. You can choose:
+
+- `"off"` — everything runs on the host (my current setup, maximum convenience)
+- `"non-main"` — only non-main sessions (group chats, webhooks) are sandboxed
+- `"all"` — every session runs sandboxed
+
+I'm still on `"off"` because I'm the only user and I trust the agent boundary. But if you're running OpenClaw on a shared machine or exposing it to group chats, sandboxing is a must.
+
+### Tool Policy
+
+You can allowlist or denylist specific tools per agent. For example, you could disable `exec` (shell access) entirely and only allow `read`/`write` — or restrict which commands can run. OpenClaw also has an **elevated exec** model (think `sudo`) where dangerous commands require explicit approval.
+
+### Secrets
+
+One thing I'd do differently: my early setup had API keys in config files. OpenClaw supports environment variables and secret refs instead. Move your credentials out of plaintext config.
+
+### The Human-in-the-Loop Rule
+
+My most important security measure isn't technical — it's a rule in my agent's config: **always ask before sending emails.** After one incident where the agent sent an email I hadn't approved, I added a hard rule. The agent now shows me a draft and waits for "OK" before any outbound communication. This applies to anything that "leaves the machine" — emails, social posts, webhooks.
+
+### Network
+
+The Gateway port (18789) should never be public. Mine is localhost-only inside Docker. If you need remote access, use Tailscale or an authenticated reverse proxy with TLS.
+
+### My Take
+
+Security with AI agents is genuinely new territory. The threat model is different from traditional apps because the agent can be influenced by external content (prompt injection via emails, web pages). OpenClaw has tools to limit blast radius — sandboxing, tool policies, approval gates — but the most important thing is being deliberate about what you give access to and expanding gradually.
+
 ## The Numbers
 
 After a month of use, here's what surprised me:
@@ -145,6 +181,5 @@ Links:
 - [OpenClaw](https://openclaw.ai)
 - [OpenClaw GitHub](https://github.com/openclaw/openclaw)
 - [OpenClaw Discord](https://discord.com/invite/clawd)
-- [My OpenClaw Config Repo](https://github.com/mmuller88/openclaw-neo)
 
 Thanks for reading! If you have questions about my setup, feel free to reach out.
