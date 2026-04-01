@@ -1,10 +1,11 @@
 ---
 title: My Global Brain with PeachBase
 show: "no"
-date: "2026-03-31"
+date: "2026-03-02"
 image: "index.png"
 tags: ["peachbase", "ai-agent", "eng", "2026", "nofeed"]
 audio: "audio.mp3"
+audioTiming: "audio-timing.json"
 pruneLength: 50
 ---
 
