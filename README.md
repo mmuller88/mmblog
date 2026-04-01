@@ -1,5 +1,53 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0780d1cb-3c7c-430b-b772-d4e71f6066b7/deploy-status)](https://app.netlify.com/sites/jolly-murdock-2892cc/deploys)
 
+## Blog audio (Google Cloud TTS)
+
+Posts opt in with frontmatter `audio: "audio.mp3"`. CI runs `npm run generate-audio` before `gatsby build`; `audio.mp3` is gitignored and produced on the build machine.
+
+### Create GCP project and enable TTS
+
+1. Create project (use a **globally unique** project id, e.g. `mmblog` or `mmblog-audio`):
+
+   ```bash
+   gcloud projects create YOUR_PROJECT_ID --name=mmblog
+   gcloud config set project YOUR_PROJECT_ID
+   ```
+
+2. Enable billing on the project (required for TTS; free tier still applies).
+
+3. Enable the API:
+
+   ```bash
+   gcloud services enable texttospeech.googleapis.com
+   ```
+
+4. Create a service account and key (JSON) for CI, with a role that can call Cloud Text-to-Speech (e.g. use **Editor** on a small dedicated project, or a custom role limited to TTS if you prefer).
+
+   ```bash
+   gcloud iam service-accounts create mmblog-tts --display-name="mmblog TTS"
+   gcloud iam service-accounts keys create key.json \
+     --iam-account=mmblog-tts@YOUR_PROJECT_ID.iam.gserviceaccount.com
+   ```
+
+### Netlify
+
+Add env var **`GOOGLE_TTS_CREDENTIALS`**: base64-encoded contents of `key.json` (one line, no newlines).
+
+```bash
+base64 -i key.json | tr -d '\n'
+```
+
+Paste the output into Netlify (Site settings → Environment variables). Delete `key.json` locally after.
+
+Build already runs `generate-audio` via `npm run build` ([netlify.toml](netlify.toml)).
+
+### Local
+
+- With credentials: set `GOOGLE_TTS_CREDENTIALS` or point `GOOGLE_APPLICATION_CREDENTIALS` at a JSON key file, then `npm run generate-audio` or `npm run generate-audio -- content/some-post --force`.
+- Without credentials: `generate-audio` skips; `gatsby build` still works, but the player only appears after MP3s exist.
+
+Voices: English `en-US-Neural2-D`, German `de-DE-Neural2-B` (when post tags include `de`).
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">

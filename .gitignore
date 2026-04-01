@@ -58,6 +58,9 @@ typings/
 .cache/
 public
 
+# TTS output (generated in CI)
+**/audio.mp3
+
 # Mac files
 .DS_Store
 

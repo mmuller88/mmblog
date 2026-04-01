@@ -7,10 +7,11 @@ Personal tech blog by Martin Mueller. Gatsby 5 + React 18 + Tailwind CSS, deploy
 ## Quick Commands
 
 ```bash
-npm run dev      # local dev server (localhost:8000)
-npm run build    # production build
-npm run serve    # serve production build
-npm run format   # prettier formatting
+npm run dev             # local dev server (localhost:8000)
+npm run build           # generate-audio (skip if no GCP creds) + gatsby build
+npm run generate-audio  # Google Cloud TTS → content/**/audio.mp3 (opt-in posts)
+npm run serve           # serve production build
+npm run format          # prettier formatting
 ```
 
 ## Architecture
@@ -42,8 +43,11 @@ engUrl: /path         # optional: link to English version
 gerUrl: /path         # optional: link to German version
 showContact: "no"     # optional: hide contact form
 pruneLength: 50       # optional: excerpt length
+audio: "audio.mp3"    # optional: show player; MP3 generated in CI (gitignored)
 ---
 ```
+
+**Audio:** `audio: "audio.mp3"` + Netlify env `GOOGLE_TTS_CREDENTIALS` (base64 service account JSON) or `GOOGLE_APPLICATION_CREDENTIALS`. Voices: `en-US-Neural2-D` (eng), `de-DE-Neural2-B` (de). `npm run generate-audio -- --force` to regenerate.
 
 **Key tags:**
 - `eng` - English posts (included in /rss.xml)

@@ -23,6 +23,7 @@ exports.createSchemaCustomization = ({ actions }) => {
             pruneLength: Int
             tldr: String
             faq: [MarkdownRemarkFrontmatterFaq]
+            audio: File @fileByRelativePath
         }
         
         type MarkdownRemarkFrontmatterFaq {

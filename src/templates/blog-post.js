@@ -25,7 +25,9 @@ function BlogPost(props) {
   showContact,
   tldr,
   faq,
+  audio,
  } = props.data.markdownRemark.frontmatter
+ const audioUrl = audio?.publicURL
  const { prev, next } = props.pageContext
  
  
@@ -111,6 +113,18 @@ function BlogPost(props) {
        RSS
       </a>
     </div>
+
+    {audioUrl ? (
+     <div className="mb-6 w-full max-w-2xl">
+      <p className="text-sm font-medium text-gray-700 mb-2">Listen to this post</p>
+      <audio
+       controls
+       className="w-full h-10 rounded-lg border border-brand/40 bg-gray-50 accent-brand"
+       preload="metadata"
+       src={audioUrl}
+      />
+     </div>
+    ) : null}
 
     <div
      className="flex justify-center items-center"
@@ -204,6 +218,9 @@ export const query = graphql`
        ...GatsbyImageSharpFluid
       }
      }
+    }
+    audio {
+     publicURL
     }
    }
   }
