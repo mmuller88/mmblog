@@ -75,6 +75,7 @@ function buildSsmlChunks(paragraphs) {
     const segLen = segment.length + OVERHEAD
 
     if (ssmlLen + segLen > MAX_SSML && ssmlParts.length > 0) {
+      ssmlParts.push(`<mark name="_end"/>`)
       chunks.push({ ssml: `<speak>${ssmlParts.join("")}</speak>`, markMap })
       ssmlParts = []
       ssmlLen = 0
@@ -87,6 +88,7 @@ function buildSsmlChunks(paragraphs) {
   }
 
   if (ssmlParts.length) {
+    ssmlParts.push(`<mark name="_end"/>`)
     chunks.push({ ssml: `<speak>${ssmlParts.join("")}</speak>`, markMap })
   }
 
@@ -114,7 +116,12 @@ async function synthesizeWithTiming(client, ssmlChunks, voice) {
     audioBuffers.push(buf)
 
     const timepoints = response.timepoints || []
+    let chunkEndTime = 0
     for (const tp of timepoints) {
+      if (tp.markName === "_end") {
+        chunkEndTime = Number(tp.timeSeconds)
+        continue
+      }
       const pIdx = chunk.markMap[tp.markName]
       if (pIdx !== undefined) {
         timing.push({
@@ -124,8 +131,7 @@ async function synthesizeWithTiming(client, ssmlChunks, voice) {
       }
     }
 
-    const mp3DurationEstimate = estimateMp3Duration(buf)
-    cumulativeSeconds += mp3DurationEstimate
+    cumulativeSeconds += chunkEndTime || estimateMp3Duration(buf)
   }
 
   return { mp3: Buffer.concat(audioBuffers), timing }
