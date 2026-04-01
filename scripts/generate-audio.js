@@ -1,20 +1,19 @@
 #!/usr/bin/env node
 /**
- * Generates audio.mp3 for blog posts that set frontmatter `audio: "audio.mp3"`.
- * Auth: GOOGLE_TTS_CREDENTIALS (base64 service account JSON) or GOOGLE_APPLICATION_CREDENTIALS (path).
- * @google-cloud/text-to-speech — Neural2 male voices: en-US-Neural2-D, de-DE-Neural2-B
+ * Generates audio.mp3 + audio-timing.json for posts with frontmatter `audio: "audio.mp3"`.
+ * Uses SSML <mark> tags + enableTimePointing to produce per-paragraph timestamps.
+ * Auth: GOOGLE_TTS_CREDENTIALS (base64 SA JSON) or GOOGLE_APPLICATION_CREDENTIALS (path).
  */
 
 const fs = require("fs")
 const path = require("path")
 const matter = require("gray-matter")
 const removeMarkdown = require("remove-markdown")
-const { TextToSpeechClient } = require("@google-cloud/text-to-speech")
+const tts = require("@google-cloud/text-to-speech")
 
 const ROOT = path.join(__dirname, "..")
 const CONTENT = path.join(ROOT, "content")
-/** Google Cloud TTS limit per request (chars) */
-const MAX_CHUNK = 4500
+const MAX_SSML = 4500
 
 const VOICES = {
   en: { name: "en-US-Neural2-D", languageCode: "en-US" },
@@ -30,60 +29,115 @@ function hasCredentials() {
 
 function getClient() {
   const b64 = process.env.GOOGLE_TTS_CREDENTIALS
-  if (b64) {
-    const json = Buffer.from(b64.trim(), "base64").toString("utf8")
-    const credentials = JSON.parse(json)
-    return new TextToSpeechClient({ credentials })
-  }
-  return new TextToSpeechClient()
+  const opts = b64
+    ? { credentials: JSON.parse(Buffer.from(b64.trim(), "base64").toString("utf8")) }
+    : {}
+  return new tts.v1beta1.TextToSpeechClient(opts)
 }
 
 function pickVoice(tags) {
-  const list = tags || []
-  return list.includes("de") ? VOICES.de : VOICES.en
+  return (tags || []).includes("de") ? VOICES.de : VOICES.en
 }
 
-function stripToPlain(markdownBody) {
-  let t = removeMarkdown(markdownBody, { stripListLeaders: false })
-  t = t.replace(/\n{3,}/g, "\n\n").trim()
-  return t
+function escapeXml(s) {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;")
 }
 
-function chunkText(text) {
-  if (text.length <= MAX_CHUNK) return [text]
+function splitParagraphs(markdownBody) {
+  const plain = removeMarkdown(markdownBody, { stripListLeaders: false })
+  return plain
+    .split(/\n{2,}/)
+    .map((p) => p.replace(/\n/g, " ").trim())
+    .filter(Boolean)
+}
+
+/**
+ * Build SSML chunks from paragraphs, each under MAX_SSML bytes.
+ * Returns [{ ssml, markIndices }] where markIndices maps mark names to
+ * global paragraph indices.
+ */
+function buildSsmlChunks(paragraphs) {
   const chunks = []
-  let rest = text
-  while (rest.length) {
-    if (rest.length <= MAX_CHUNK) {
-      chunks.push(rest)
-      break
+  let ssmlParts = []
+  let ssmlLen = 0
+  let markMap = {}
+  const OVERHEAD = 30
+
+  for (let i = 0; i < paragraphs.length; i++) {
+    const escaped = escapeXml(paragraphs[i])
+    const markTag = `<mark name="p${i}"/>`
+    const segment = `${markTag}${escaped} `
+    const segLen = segment.length + OVERHEAD
+
+    if (ssmlLen + segLen > MAX_SSML && ssmlParts.length > 0) {
+      chunks.push({ ssml: `<speak>${ssmlParts.join("")}</speak>`, markMap })
+      ssmlParts = []
+      ssmlLen = 0
+      markMap = {}
     }
-    let cut = rest.lastIndexOf("\n\n", MAX_CHUNK)
-    if (cut < MAX_CHUNK / 2) cut = rest.lastIndexOf(". ", MAX_CHUNK)
-    if (cut < MAX_CHUNK / 2) cut = rest.lastIndexOf(" ", MAX_CHUNK)
-    if (cut < 1) cut = MAX_CHUNK
-    chunks.push(rest.slice(0, cut).trim())
-    rest = rest.slice(cut).trim()
+
+    ssmlParts.push(segment)
+    ssmlLen += segment.length
+    markMap[`p${i}`] = i
   }
-  return chunks.filter(Boolean)
+
+  if (ssmlParts.length) {
+    chunks.push({ ssml: `<speak>${ssmlParts.join("")}</speak>`, markMap })
+  }
+
+  return chunks
 }
 
-async function synthesizeChunks(client, chunks, voice) {
-  const bufs = []
-  for (const text of chunks) {
+async function synthesizeWithTiming(client, ssmlChunks, voice) {
+  const audioBuffers = []
+  const timing = []
+  let cumulativeSeconds = 0
+
+  for (const chunk of ssmlChunks) {
     const [response] = await client.synthesizeSpeech({
-      input: { text },
+      input: { ssml: chunk.ssml },
       voice: { languageCode: voice.languageCode, name: voice.name },
       audioConfig: { audioEncoding: "MP3" },
+      enableTimePointing: ["SSML_MARK"],
     })
+
     if (!response.audioContent) throw new Error("Empty audioContent from TTS")
-    bufs.push(
-      Buffer.isBuffer(response.audioContent)
-        ? response.audioContent
-        : Buffer.from(response.audioContent, "base64")
-    )
+
+    const buf = Buffer.isBuffer(response.audioContent)
+      ? response.audioContent
+      : Buffer.from(response.audioContent, "base64")
+    audioBuffers.push(buf)
+
+    const timepoints = response.timepoints || []
+    for (const tp of timepoints) {
+      const pIdx = chunk.markMap[tp.markName]
+      if (pIdx !== undefined) {
+        timing.push({
+          p: pIdx,
+          t: Math.round((cumulativeSeconds + Number(tp.timeSeconds)) * 100) / 100,
+        })
+      }
+    }
+
+    const mp3DurationEstimate = estimateMp3Duration(buf)
+    cumulativeSeconds += mp3DurationEstimate
   }
-  return Buffer.concat(bufs)
+
+  return { mp3: Buffer.concat(audioBuffers), timing }
+}
+
+/**
+ * Rough MP3 duration estimate from file size.
+ * Google TTS outputs ~32kbps MP3. Used only for cumulative chunk offsets.
+ * Timepoints within a chunk are precise from the API.
+ */
+function estimateMp3Duration(buf) {
+  return (buf.length * 8) / 32000
 }
 
 function listPostDirs() {
@@ -104,27 +158,30 @@ async function processPost(client, postDir, force) {
     return { skipped: true, reason: "no audio frontmatter" }
   }
 
-  const outPath = path.join(postDir, "audio.mp3")
-  if (!force && fs.existsSync(outPath)) {
-    console.log(`[generate-audio] skip exists: ${path.relative(ROOT, outPath)}`)
+  const mp3Path = path.join(postDir, "audio.mp3")
+  const timingPath = path.join(postDir, "audio-timing.json")
+  if (!force && fs.existsSync(mp3Path) && fs.existsSync(timingPath)) {
+    console.log(`[generate-audio] skip exists: ${path.relative(ROOT, mp3Path)}`)
     return { skipped: true, reason: "exists" }
   }
 
-  const plain = stripToPlain(body)
-  if (!plain.length) {
+  const paragraphs = splitParagraphs(body)
+  if (!paragraphs.length) {
     console.warn(`[generate-audio] empty text after strip: ${postDir}`)
     return { skipped: true, reason: "empty" }
   }
 
   const voice = pickVoice(fm.tags)
-  const chunks = chunkText(plain)
+  const ssmlChunks = buildSsmlChunks(paragraphs)
   console.log(
-    `[generate-audio] ${path.basename(postDir)} — ${chunks.length} chunk(s), ${voice.name}`
+    `[generate-audio] ${path.basename(postDir)} — ${paragraphs.length} paragraphs, ${ssmlChunks.length} chunk(s), ${voice.name}`
   )
 
-  const mp3 = await synthesizeChunks(client, chunks, voice)
-  fs.writeFileSync(outPath, mp3)
-  console.log(`[generate-audio] wrote ${path.relative(ROOT, outPath)}`)
+  const { mp3, timing } = await synthesizeWithTiming(client, ssmlChunks, voice)
+
+  fs.writeFileSync(mp3Path, mp3)
+  fs.writeFileSync(timingPath, JSON.stringify(timing))
+  console.log(`[generate-audio] wrote ${path.relative(ROOT, mp3Path)} + audio-timing.json`)
   return { ok: true }
 }
 
@@ -141,13 +198,9 @@ async function main() {
   }
 
   const client = getClient()
-  let dirs
-
-  if (targets.length) {
-    dirs = targets.map((t) => path.resolve(ROOT, t))
-  } else {
-    dirs = listPostDirs()
-  }
+  const dirs = targets.length
+    ? targets.map((t) => path.resolve(ROOT, t))
+    : listPostDirs()
 
   let processed = 0
   for (const dir of dirs) {

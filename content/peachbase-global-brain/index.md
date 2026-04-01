@@ -4,6 +4,7 @@ show: "no"
 date: "2026-03-31"
 image: "index.png"
 tags: ["peachbase", "ai-agent", "eng", "2026", "nofeed"]
+audio: "audio.mp3"
 pruneLength: 50
 ---
 

@@ -5,6 +5,7 @@ date: "2026-04-01"
 image: "index.png"
 tags: ["openclaw", "ai", "automation", "devops", "eng", "2026", "nofeed"]
 audio: "audio.mp3"
+audioTiming: "audio-timing.json"
 gerUrl: https://martinmueller.dev/openclaw-de
 pruneLength: 50
 ---

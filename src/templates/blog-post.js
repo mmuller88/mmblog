@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef, useEffect, useState, useCallback } from "react"
 import Layout from "../components/layout"
 import Img from "gatsby-image"
 import { graphql } from "gatsby"
@@ -9,6 +9,71 @@ import Breadcrumb from "../components/Breadcrumb"
 import { calculateReadingTime, extractKeywords, generateBreadcrumbs } from "../utils/seo"
 // import ContactForm from "../components/contactform"
 import KoFi from "../components/KoFi"
+
+function AudioTracker({ audioRef, timingUrl, contentRef }) {
+  const [timing, setTiming] = useState(null)
+  const activeIdx = useRef(-1)
+
+  useEffect(() => {
+    if (!timingUrl) return
+    fetch(timingUrl)
+      .then((r) => r.json())
+      .then(setTiming)
+      .catch(() => {})
+  }, [timingUrl])
+
+  const getContentElements = useCallback(() => {
+    if (!contentRef.current) return []
+    return Array.from(
+      contentRef.current.querySelectorAll(":scope > p, :scope > h1, :scope > h2, :scope > h3, :scope > h4, :scope > ul, :scope > ol, :scope > blockquote, :scope > pre")
+    )
+  }, [contentRef])
+
+  useEffect(() => {
+    const audio = audioRef.current
+    if (!audio || !timing) return
+
+    const onTimeUpdate = () => {
+      const t = audio.currentTime
+      let idx = -1
+      for (let i = timing.length - 1; i >= 0; i--) {
+        if (t >= timing[i].t) {
+          idx = timing[i].p
+          break
+        }
+      }
+
+      if (idx === activeIdx.current) return
+      activeIdx.current = idx
+
+      const els = getContentElements()
+      els.forEach((el, i) => {
+        if (i === idx) {
+          el.classList.add("audio-active")
+          el.scrollIntoView({ behavior: "smooth", block: "center" })
+        } else {
+          el.classList.remove("audio-active")
+        }
+      })
+    }
+
+    const onEnded = () => {
+      activeIdx.current = -1
+      getContentElements().forEach((el) => el.classList.remove("audio-active"))
+    }
+
+    audio.addEventListener("timeupdate", onTimeUpdate)
+    audio.addEventListener("ended", onEnded)
+    audio.addEventListener("pause", onEnded)
+    return () => {
+      audio.removeEventListener("timeupdate", onTimeUpdate)
+      audio.removeEventListener("ended", onEnded)
+      audio.removeEventListener("pause", onEnded)
+    }
+  }, [audioRef, timing, getContentElements])
+
+  return null
+}
 
 function BlogPost(props) {
  const url = props.data.site.siteMetadata.siteUrl
@@ -26,8 +91,12 @@ function BlogPost(props) {
   tldr,
   faq,
   audio,
+  audioTiming,
  } = props.data.markdownRemark.frontmatter
  const audioUrl = audio?.publicURL
+ const timingUrl = audioTiming?.publicURL
+ const audioRef = useRef(null)
+ const contentRef = useRef(null)
  const { prev, next } = props.pageContext
  
  
@@ -118,6 +187,7 @@ function BlogPost(props) {
      <div className="mb-6 w-full max-w-2xl">
       <p className="text-sm font-medium text-gray-700 mb-2">Listen to this post</p>
       <audio
+       ref={audioRef}
        controls
        className="w-full h-10 rounded-lg border border-brand/40 bg-gray-50 accent-brand"
        preload="metadata"
@@ -141,7 +211,10 @@ function BlogPost(props) {
       />
      )}
     </div>
-    <div dangerouslySetInnerHTML={{ __html: content }} />
+    {audioUrl && timingUrl ? (
+     <AudioTracker audioRef={audioRef} timingUrl={timingUrl} contentRef={contentRef} />
+    ) : null}
+    <div ref={contentRef} dangerouslySetInnerHTML={{ __html: content }} />
     {/* <div>
      <p>
       <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
@@ -220,6 +293,9 @@ export const query = graphql`
      }
     }
     audio {
+     publicURL
+    }
+    audioTiming {
      publicURL
     }
    }

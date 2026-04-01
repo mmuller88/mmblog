@@ -60,6 +60,7 @@ public
 
 # TTS output (generated in CI)
 **/audio.mp3
+**/audio-timing.json
 
 # Mac files
 .DS_Store

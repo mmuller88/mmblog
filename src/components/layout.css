@@ -620,3 +620,10 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+.audio-active {
+  background-color: #06aced1a;
+  border-left: 3px solid #06aced;
+  padding-left: 0.75rem;
+  transition: background-color 0.3s ease, border-left 0.3s ease;
+}
