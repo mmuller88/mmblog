@@ -6,6 +6,7 @@ image: "robot-climbing.png"
 tags: [ "aws", "ai-agent", "agentcore", "bedrock", "eng", "2026"] #nofeed
 # engUrl: https://martinmueller.dev/ab-picturer
 pruneLength: 50
+audio: "audio.mp3"
 faq:
   - q: "What is AWS Bedrock AgentCore?"
     a: "AgentCore is AWS's managed runtime for AI agents. Think of it as 'Fargate for AI agents' - you bring your container, AWS handles scaling, networking, and infrastructure. It provides container-based deployment, VPC networking, managed Chromium browser for web automation, built-in conversation memory, and SSE streaming for real-time updates."

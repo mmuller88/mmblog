@@ -4,6 +4,7 @@ show: "yes"
 date: "2026-01-30"
 image: "strands-ts-robot.png"
 tags: ["aws", "ai-agent", "strands", "typescript", "eng", "2026"]
+audio: "audio.mp3"
 pruneLength: 50
 ---
 
