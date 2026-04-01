@@ -1,9 +1,10 @@
 ---
 title: How I Use OpenClaw as My AI-Powered Personal Operating System
-show: "no"
-date: "2026-03-31"
+show: "yes"
+date: "2026-04-01"
 image: "index.png"
-tags: ["eng", "2026", "openclaw", "ai", "automation", "devops", "nofeed"]
+tags: ["openclaw", "ai", "automation", "devops", "eng", "2026", "nofeed"]
+gerUrl: https://martinmueller.dev/openclaw-de
 pruneLength: 50
 ---
 

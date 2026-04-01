@@ -4,6 +4,7 @@ show: "no"
 date: "2026-03-31"
 image: "index.png"
 tags: ["de", "2026", "openclaw", "ai", "automation", "devops", "nofeed"]
+engUrl: https://martinmueller.dev/openclaw-eng
 pruneLength: 50
 ---
 
