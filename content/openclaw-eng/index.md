@@ -61,7 +61,7 @@ This runs on Claude Haiku (cheap) and costs almost nothing. I wake up to a brief
 OpenClaw has full access to my Google Calendar via OAuth. Examples:
 
 - **Conference schedule**: I sent a PDF of the Agentic Conf Hamburg schedule with sessions I'd marked with red boxes. It extracted the image, identified the marked sessions using vision AI, fetched details from the conference website, and created 9 calendar events with full descriptions, speaker info, and links.
-- **Creating meetings**: "Create a meeting with Phillip Pahl for today at 18:00 CET" → Done.
+- **Creating meetings**: "Create a meeting with Phillip P. for today at 18:00 CET" → Done.
 
 ## Use Case 5: Contact Lookup
 
