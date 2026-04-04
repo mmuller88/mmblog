@@ -97,7 +97,38 @@ curl -H "x-api-key: YOUR_KEY" https://ENDPOINT/v1/collections
 
 You should get back an empty list `[]` — that means you're authenticated and ready.
 
-### 3. Connect the MCP Server in Cursor
+### 3. Connect the MCP Server in Claude Code
+
+Claude Code supports remote MCP servers natively. Add PeachBase with the CLI:
+
+```bash
+claude mcp add peachbase \
+  --transport http \
+  --url "https://YOUR_ENDPOINT/prod/mcp" \
+  --header "x-api-key: YOUR_API_KEY" \
+  --header "Accept: application/json, text/event-stream"
+```
+
+Or add it manually to your `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "peachbase": {
+      "type": "http",
+      "url": "https://YOUR_ENDPOINT/prod/mcp",
+      "headers": {
+        "x-api-key": "YOUR_API_KEY",
+        "Accept": "application/json, text/event-stream"
+      }
+    }
+  }
+}
+```
+
+> **Note:** The `Accept` header is required — the AWS MCP Lambda adapter rejects requests without an explicit `application/json` accept type.
+
+### 3b. Connect the MCP Server in Cursor
 
 Add PeachBase to your Cursor MCP configuration with the endpoint and API key from step 1:
 
@@ -117,7 +148,7 @@ Add PeachBase to your Cursor MCP configuration with the endpoint and API key fro
 
 > **Note:** The `Accept` header is required — the AWS MCP Lambda adapter rejects requests without an explicit `application/json` accept type.
 
-### 3b. Connect via ChatGPT UI
+### 3d. Connect via ChatGPT UI
 
 ChatGPT supports MCP servers through Developer Mode (available for Plus/Business/Enterprise plans). PeachBase uses OAuth 2.1 for this — you authenticate with your existing API key, no separate account needed.
 
@@ -129,7 +160,7 @@ ChatGPT supports MCP servers through Developer Mode (available for Plus/Business
 
 Under the hood, ChatGPT discovers the OAuth endpoints via `/.well-known/oauth-protected-resource` and `/.well-known/oauth-authorization-server`, registers itself as a client, runs the authorization code + PKCE flow, and receives a KMS-signed JWT. The MCP Lambda verifies the token and extracts your API key from the `peachbase_api_key` claim.
 
-### 3c. Connect via OpenClaw
+### 3e. Connect via OpenClaw
 
 OpenClaw supports MCP servers through mcporter. Add PeachBase to your mcporter config at ~/.openclaw/workspace/config/mcporter.json or tell OpenClaw todo it:
 
