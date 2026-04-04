@@ -9,6 +9,53 @@ import Breadcrumb from "../components/Breadcrumb"
 import { calculateReadingTime, extractKeywords, generateBreadcrumbs } from "../utils/seo"
 // import ContactForm from "../components/contactform"
 import KoFi from "../components/KoFi"
+import "../styles/heading-anchors.css"
+
+function HeadingAnchorCopy({ contentRef, contentKey }) {
+  const [toast, setToast] = useState(null)
+
+  useEffect(() => {
+    const root = contentRef.current
+    if (!root) return undefined
+
+    let toastTimer
+    const anchors = root.querySelectorAll("a.heading-anchor")
+    const onClick = (e) => {
+      e.preventDefault()
+      const a = e.currentTarget
+      const heading = a.closest("h2, h3, h4")
+      const id = heading && heading.id
+      if (!id) return
+      heading.scrollIntoView({ behavior: "smooth", block: "start" })
+      const url = `${window.location.origin}${window.location.pathname}#${id}`
+      navigator.clipboard.writeText(url).then(() => {
+        const { pathname, search } = window.location
+        window.history.replaceState(null, "", `${pathname}${search}#${id}`)
+        setToast("Copied!")
+        if (toastTimer) window.clearTimeout(toastTimer)
+        toastTimer = window.setTimeout(() => setToast(null), 1500)
+      })
+    }
+
+    anchors.forEach((a) => {
+      a.setAttribute("aria-label", "Copy link to this section")
+      a.addEventListener("click", onClick)
+    })
+    return () => {
+      if (toastTimer) window.clearTimeout(toastTimer)
+      anchors.forEach((a) => a.removeEventListener("click", onClick))
+    }
+  }, [contentRef, contentKey])
+
+  return toast ? (
+    <div
+      className="fixed bottom-8 left-1/2 z-50 -translate-x-1/2 rounded-md bg-gray-900 px-3 py-2 text-sm text-white shadow-lg"
+      role="status"
+    >
+      {toast}
+    </div>
+  ) : null
+}
 
 function AudioTracker({ audioRef, timingUrl, contentRef }) {
   const [timing, setTiming] = useState(null)
@@ -215,6 +262,7 @@ function BlogPost(props) {
      <AudioTracker audioRef={audioRef} timingUrl={timingUrl} contentRef={contentRef} />
     ) : null}
     <div ref={contentRef} dangerouslySetInnerHTML={{ __html: content }} />
+    <HeadingAnchorCopy contentRef={contentRef} contentKey={content} />
     {/* <div>
      <p>
       <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />

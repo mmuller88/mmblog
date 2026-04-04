@@ -1,0 +1,32 @@
+/* Blog post heading anchor links (gatsby-remark-autolink-headers) */
+h2,
+h3,
+h4 {
+  position: relative;
+}
+
+a.heading-anchor {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  color: #9ca3af;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+}
+
+h2:hover a.heading-anchor,
+h3:hover a.heading-anchor,
+h4:hover a.heading-anchor,
+h2:focus-within a.heading-anchor,
+h3:focus-within a.heading-anchor,
+h4:focus-within a.heading-anchor,
+a.heading-anchor:focus {
+  opacity: 1;
+}
+
+a.heading-anchor:hover,
+a.heading-anchor:focus {
+  color: #06aced;
+}

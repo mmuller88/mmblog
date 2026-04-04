@@ -11,7 +11,7 @@ pruneLength: 50
 
 ## The Problem: Context Amnesia Across AI Agents
 
-I work with multiple AI agents every day — Cursor IDE, OpenAI Responses API, ChatGPT. On top of that, I juggle dozens of repositories spanning CDK infrastructure, Rust libraries, Python bindings, MCP servers, and blog content. Every time I switch context, I repeat myself. The agent in Cursor doesn't know what I discussed in ChatGPT. The agent in project A has no idea what I learned in project B.
+I work with multiple AI agents every day — Cursor IDE, OpenAI Responses API, ChatGPT or OpenClaw. On top of that, I juggle dozens of repositories spanning CDK infrastructure, Rust libraries, Python bindings, MCP servers, and blog content. Every time I switch context, I repeat myself. The agent in Cursor doesn't know what I discussed in ChatGPT. The agent in project A has no idea what I learned in project B.
 
 There is no shared memory. No global brain.
 
@@ -62,14 +62,14 @@ It also serves static knowledge resources (API reference, search recipes, filter
 | Mode | Transport | Connection |
 |------|-----------|------------|
 | Remote (REST) | Streamable HTTP | `{gateway-url}/prod/mcp` with `x-api-key` or raw Bearer key |
-| Remote (OAuth / ChatGPT) | Streamable HTTP | HTTP API base URL from deploy (`McpOauthHttpUrl`) — Cognito + `/mcp` with JWT |
+| Remote (OAuth / ChatGPT) | Streamable HTTP | HTTP API base URL from deploy (`McpOauthHttpUrl`) + `/mcp` — API-key login, JWT |
 | Local | stdio | `npx peachbase-mcp` with env vars |
 
 The remote mode runs as a Lambda behind API Gateway — the same infrastructure as the main API. The local stdio mode is useful for development and testing.
 
 The REST endpoint accepts both `x-api-key` and raw `Authorization: Bearer` (same Marketplace API key). OpenAI Responses API passes the key in the `authorization` field as a Bearer token.
 
-**ChatGPT Developer Mode (full OAuth):** deploy also exposes a separate **HTTP API** (no `/prod` prefix) with Cognito: sign up with your Marketplace key as attribute `custom:api_key`, then connect ChatGPT to that base URL — discovery (`/.well-known/oauth-protected-resource`, `/.well-known/oauth-authorization-server`), dynamic client registration (`POST /register`), and `/mcp` with a Cognito access JWT (the Lambda injects claim `peachbase_api_key`). CDK stack output: `McpOauthHttpUrl`. Second gateway is a workaround until a custom domain merges OAuth with the REST API.
+**ChatGPT Developer Mode (OAuth):** deploy also exposes a separate **HTTP API** (no `/prod` prefix) with a custom lightweight OAuth 2.1 authorization server. ChatGPT discovers endpoints via `/.well-known/oauth-protected-resource` and `/.well-known/oauth-authorization-server`, auto-registers via Dynamic Client Registration (`POST /register`), and redirects you to a login page where you **paste your existing PeachBase API key** — no password, no email, no separate account. The OAuth Lambda validates the key, issues a KMS-signed JWT with your API key as a claim, and ChatGPT uses that token on `/mcp`. CDK stack output: `McpOauthHttpUrl`.
 
 ## Getting Started
 
@@ -117,61 +117,45 @@ Add PeachBase to your Cursor MCP configuration with the endpoint and API key fro
 
 > **Note:** The `Accept` header is required — the AWS MCP Lambda adapter rejects requests without an explicit `application/json` accept type.
 
-### 3b. Use with OpenAI Responses API
+### 3b. Connect via ChatGPT UI
 
-PeachBase also works as a remote MCP server with OpenAI's Responses API. Pass your API key as a Bearer token:
-
-```python
-from openai import OpenAI
-
-client = OpenAI()
-
-resp = client.responses.create(
-    model="gpt-4o",
-    tools=[{
-        "type": "mcp",
-        "server_label": "peachbase",
-        "server_url": "https://YOUR_ENDPOINT/prod/mcp",
-        "authorization": "YOUR_PEACHBASE_API_KEY",
-        "require_approval": "never",
-    }],
-    input="Search my project-notes for how the Lambda connects to S3",
-)
-
-print(resp.output_text)
-```
-
-### 3c. Connect via ChatGPT Developer Mode
-
-ChatGPT supports MCP servers through Developer Mode (available for Business/Enterprise plans). PeachBase uses OAuth 2.1 with Cognito for this — no API key exposed to ChatGPT directly.
-
-**One-time setup — create a Cognito account:**
-
-```bash
-# sign up (use your PeachBase API key from step 1)
-aws cognito-idp sign-up \
-  --client-id <McpOAuthWebClientId> \
-  --username you@example.com \
-  --password 'YourPassword1!' \
-  --user-attributes Name=email,Value=you@example.com \
-    Name=custom:api_key,Value=<your-peachbase-api-key>
-
-# confirm with the 6-digit code emailed to you
-aws cognito-idp confirm-sign-up \
-  --client-id <McpOAuthWebClientId> \
-  --username you@example.com \
-  --confirmation-code 123456
-```
-
-**Add to ChatGPT:**
+ChatGPT supports MCP servers through Developer Mode (available for Plus/Business/Enterprise plans). PeachBase uses OAuth 2.1 for this — you authenticate with your existing API key, no separate account needed.
 
 1. Go to **Settings → Developer → MCP Servers → Add**
-2. Enter the OAuth MCP URL: `https://<McpOauthHttpUrl>/mcp`
+2. Enter the OAuth MCP URL: `https://xxlbzs0dq8.execute-api.us-east-1.amazonaws.com/mcp`
 3. Leave **Client ID empty** — ChatGPT auto-registers via Dynamic Client Registration
-4. ChatGPT redirects to the Cognito sign-in page — log in with the email/password from above
+4. ChatGPT redirects to the PeachBase login page — **paste your API key** from step 1
 5. Done — ChatGPT can now call all six PeachBase tools
 
-Under the hood, ChatGPT discovers the OAuth endpoints via `/.well-known/oauth-protected-resource` and `/.well-known/oauth-authorization-server`, registers itself as a client, runs the authorization code + PKCE flow through Cognito, and attaches the resulting JWT to every MCP request. The Lambda verifies the token and extracts your API key from the `peachbase_api_key` claim.
+Under the hood, ChatGPT discovers the OAuth endpoints via `/.well-known/oauth-protected-resource` and `/.well-known/oauth-authorization-server`, registers itself as a client, runs the authorization code + PKCE flow, and receives a KMS-signed JWT. The MCP Lambda verifies the token and extracts your API key from the `peachbase_api_key` claim.
+
+### 3c. Connect via OpenClaw
+
+OpenClaw supports MCP servers through mcporter. Add PeachBase to your mcporter config at ~/.openclaw/workspace/config/mcporter.json or tell OpenClaw todo it:
+
+```JSON
+{
+  "mcpServers": {
+    "peachbase": {
+      "baseUrl": "https://YOUR_ENDPOINT/prod/mcp",
+      "headers": {
+        "x-api-key": "YOUR_API_KEY",
+        "Accept": "application/json, text/event-stream"
+      }
+    }
+  }
+}
+```
+
+> **Note:** mcporter uses baseUrl instead of url. The Accept header is required — the AWS MCP Lambda adapter rejects requests without an explicit application/json accept type.
+
+Verify the connection:
+
+```bash
+mcporter list peachbase
+```
+
+Once connected, OpenClaw can call all PeachBase tools (search, insert, list collections, etc.) directly from the agent session. Use it as a shared memory layer across all your AI agents — knowledge stored via OpenClaw is searchable from Cursor, ChatGPT, or any other MCP-connected client.
 
 ### 4. Start Using It
 
