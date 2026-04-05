@@ -95,8 +95,7 @@ Claude Code supports remote MCP servers natively. Add PeachBase with the CLI:
 claude mcp add peachbase \
   --transport http \
   --url "https://YOUR_ENDPOINT/prod/mcp" \
-  --header "x-api-key: YOUR_API_KEY" \
-  --header "Accept: application/json, text/event-stream"
+  --header "x-api-key: YOUR_API_KEY"
 ```
 
 Or add it manually to your `.mcp.json`:
@@ -108,15 +107,12 @@ Or add it manually to your `.mcp.json`:
       "type": "http",
       "url": "https://YOUR_ENDPOINT/prod/mcp",
       "headers": {
-        "x-api-key": "YOUR_API_KEY",
-        "Accept": "application/json, text/event-stream"
+        "x-api-key": "YOUR_API_KEY"
       }
     }
   }
 }
 ```
-
-> **Note:** The `Accept` header is required — the AWS MCP Lambda adapter rejects requests without an explicit `application/json` accept type.
 
 ### 3b. Connect the MCP Server in Cursor
 
@@ -128,31 +124,21 @@ Add PeachBase to your Cursor MCP configuration with the endpoint and API key fro
     "peachbase": {
       "url": "https://YOUR_ENDPOINT/prod/mcp",
       "headers": {
-        "x-api-key": "YOUR_API_KEY",
-        "Accept": "application/json, text/event-stream"
+        "x-api-key": "YOUR_API_KEY"
       }
     }
   }
 }
 ```
 
-> **Note:** The `Accept` header is required — the AWS MCP Lambda adapter rejects requests without an explicit `application/json` accept type.
-
 ### 3d. Connect via ChatGPT UI
 
 ChatGPT supports MCP servers through Developer Mode (available for Plus/Business/Enterprise plans). PeachBase uses OAuth 2.1 for this — you authenticate with your existing API key, no separate account needed.
 
-First, enable Developer Mode if you haven't already:
-
-1. Open ChatGPT and go to **Settings** (gear icon, bottom-left)
-2. Finde and enable the **Developer Mode** - this unlocks MCP server configuration and other developer features
-
-Then add PeachBase as an MCP server:
-
-1. Go to **Settings → Apps -> Create app**
-2. Enter Name: PeachBase and the OAuth MCP URL: `https://xxlbzs0dq8.execute-api.us-east-1.amazonaws.com/mcp`
-3. Click **Create**
-4. ChatGPT redirects to the PeachBase login page — **paste your PeachBase API key**
+1. Go to **Settings → Developer → MCP Servers → Add**
+2. Enter the OAuth MCP URL: `https://xxlbzs0dq8.execute-api.us-east-1.amazonaws.com/mcp`
+3. Leave **Client ID empty** — ChatGPT auto-registers via Dynamic Client Registration
+4. ChatGPT redirects to the PeachBase login page — **paste your API key** from step 1
 5. Done — ChatGPT can now call all six PeachBase tools
 
 Under the hood, ChatGPT discovers the OAuth endpoints via `/.well-known/oauth-protected-resource` and `/.well-known/oauth-authorization-server`, registers itself as a client, runs the authorization code + PKCE flow, and receives a KMS-signed JWT. The MCP Lambda verifies the token and extracts your API key from the `peachbase_api_key` claim.
@@ -167,15 +153,14 @@ OpenClaw supports MCP servers through mcporter. Add PeachBase to your mcporter c
     "peachbase": {
       "baseUrl": "https://YOUR_ENDPOINT/prod/mcp",
       "headers": {
-        "x-api-key": "YOUR_API_KEY",
-        "Accept": "application/json, text/event-stream"
+        "x-api-key": "YOUR_API_KEY"
       }
     }
   }
 }
 ```
 
-> **Note:** mcporter uses baseUrl instead of url. The Accept header is required — the AWS MCP Lambda adapter rejects requests without an explicit application/json accept type.
+> **Note:** mcporter uses `baseUrl` instead of `url`.
 
 Verify the connection:
 
@@ -184,6 +169,39 @@ mcporter list peachbase
 ```
 
 Once connected, OpenClaw can call all PeachBase tools (search, insert, list collections, etc.) directly from the agent session. Use it as a shared memory layer across all your AI agents — knowledge stored via OpenClaw is searchable from Cursor, ChatGPT, or any other MCP-connected client.
+
+### 3f. Connect via OpenAI Codex
+
+Codex supports remote MCP servers via Streamable HTTP. Add PeachBase with the CLI:
+
+```bash
+codex mcp add peachbase \
+  --url "https://YOUR_ENDPOINT/prod/mcp" \
+  --header "x-api-key: YOUR_API_KEY"
+```
+
+Or add it to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.peachbase]
+url = "https://YOUR_ENDPOINT/prod/mcp"
+
+[mcp_servers.peachbase.http_headers]
+x-api-key = "YOUR_API_KEY"
+```
+
+Verify in the Codex TUI with `/mcp`.
+
+### 3g. Connect via Manus
+
+Manus supports custom MCP servers through its integrations settings:
+
+1. Go to **Settings → Integrations → Custom MCP Servers → Add Server**
+2. Enter:
+   - **Server name**: `PeachBase`
+   - **Server URL**: `https://YOUR_ENDPOINT/prod/mcp`
+   - **Authentication**: API key — `YOUR_API_KEY`
+3. Click **Test Connection**, then start using PeachBase tools in your prompts
 
 ### 4. Start Using It
 
