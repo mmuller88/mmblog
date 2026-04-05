@@ -33,7 +33,7 @@ Key characteristics:
 
 The cloud API exposes a REST interface for collections, documents, and search:
 
-```
+```text
 GET  /v1/collections              # List collections
 POST /v1/collections              # Create collection with schema
 POST /v1/collections/{name}/documents  # Insert documents
@@ -44,10 +44,12 @@ POST /v1/collections/{name}/search     # Vector/lexical/hybrid search
 
 The REST API is powerful but requires you to manage embeddings yourself. The MCP server removes that friction entirely. It wraps the REST API and adds **auto-embedding via AWS Bedrock Titan Text Embeddings V2** — meaning you just send text and the server handles vectorization.
 
-The MCP server exposes six tools:
+The MCP server exposes eight tools:
 
 | Tool | What it does |
 |------|-------------|
+| `get_setup_instructions` | Guided setup: API key onboarding + client-specific MCP config |
+| `check_connection` | Probe API health and verify your API key works |
 | `create_collection` | Create a collection with typed schema |
 | `list_collections` | List all collections for the tenant |
 | `delete_collection` | Drop a collection |
@@ -55,21 +57,9 @@ The MCP server exposes six tools:
 | `search` | Semantic, lexical, or hybrid search; auto-embeds text queries |
 | `describe_collection` | Get doc count, dimension, size stats |
 
+The first two tools are always available — even before you configure an API key. That means your agent can walk you through the entire setup process: just ask it "how do I set up PeachBase?" and it will return step-by-step instructions tailored to your client (Cursor, Claude Code, Claude Desktop, or ChatGPT). Once configured, `check_connection` confirms the endpoint is reachable and the key is valid.
+
 It also serves static knowledge resources (API reference, search recipes, filter syntax) so the agent can self-serve documentation without you having to paste it.
-
-**Two transport modes:**
-
-| Mode | Transport | Connection |
-|------|-----------|------------|
-| Remote (REST) | Streamable HTTP | `{gateway-url}/prod/mcp` with `x-api-key` or raw Bearer key |
-| Remote (OAuth / ChatGPT) | Streamable HTTP | HTTP API base URL from deploy (`McpOauthHttpUrl`) + `/mcp` — API-key login, JWT |
-| Local | stdio | `npx peachbase-mcp` with env vars |
-
-The remote mode runs as a Lambda behind API Gateway — the same infrastructure as the main API. The local stdio mode is useful for development and testing.
-
-The REST endpoint accepts both `x-api-key` and raw `Authorization: Bearer` (same Marketplace API key). OpenAI Responses API passes the key in the `authorization` field as a Bearer token.
-
-**ChatGPT Developer Mode (OAuth):** deploy also exposes a separate **HTTP API** (no `/prod` prefix) with a custom lightweight OAuth 2.1 authorization server. ChatGPT discovers endpoints via `/.well-known/oauth-protected-resource` and `/.well-known/oauth-authorization-server`, auto-registers via Dynamic Client Registration (`POST /register`), and redirects you to a login page where you **paste your existing PeachBase API key** — no password, no email, no separate account. The OAuth Lambda validates the key, issues a KMS-signed JWT with your API key as a claim, and ChatGPT uses that token on `/mcp`. CDK stack output: `McpOauthHttpUrl`.
 
 ## Getting Started
 
@@ -152,10 +142,17 @@ Add PeachBase to your Cursor MCP configuration with the endpoint and API key fro
 
 ChatGPT supports MCP servers through Developer Mode (available for Plus/Business/Enterprise plans). PeachBase uses OAuth 2.1 for this — you authenticate with your existing API key, no separate account needed.
 
-1. Go to **Settings → Developer → MCP Servers → Add**
-2. Enter the OAuth MCP URL: `https://xxlbzs0dq8.execute-api.us-east-1.amazonaws.com/mcp`
-3. Leave **Client ID empty** — ChatGPT auto-registers via Dynamic Client Registration
-4. ChatGPT redirects to the PeachBase login page — **paste your API key** from step 1
+First, enable Developer Mode if you haven't already:
+
+1. Open ChatGPT and go to **Settings** (gear icon, bottom-left)
+2. Finde and enable the **Developer Mode** - this unlocks MCP server configuration and other developer features
+
+Then add PeachBase as an MCP server:
+
+1. Go to **Settings → Apps -> Create app**
+2. Enter Name: PeachBase and the OAuth MCP URL: `https://xxlbzs0dq8.execute-api.us-east-1.amazonaws.com/mcp`
+3. Click **Create**
+4. ChatGPT redirects to the PeachBase login page — **paste your PeachBase API key**
 5. Done — ChatGPT can now call all six PeachBase tools
 
 Under the hood, ChatGPT discovers the OAuth endpoints via `/.well-known/oauth-protected-resource` and `/.well-known/oauth-authorization-server`, registers itself as a client, runs the authorization code + PKCE flow, and receives a KMS-signed JWT. The MCP Lambda verifies the token and extracts your API key from the `peachbase_api_key` claim.
