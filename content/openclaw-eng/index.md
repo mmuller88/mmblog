@@ -185,4 +185,4 @@ Links:
 - [OpenClaw GitHub](https://github.com/openclaw/openclaw)
 - [OpenClaw Discord](https://discord.com/invite/clawd)
 
-Thanks for reading! If you have questions about my setup, feel free to reach out.
+Thanks for reading! If you have questions about my setup, feel free to reach out. And if you'd like help setting up your own OpenClaw AI agent — whether it's configuration, tool integration, or building custom workflows — I'm available for consulting. Just drop me a message at [office@martinmueller.dev](mailto:office@martinmueller.dev) or book a call at [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev).
