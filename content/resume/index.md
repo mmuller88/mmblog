@@ -88,7 +88,7 @@ Jan 2025 - current
 **Creator** — [PeachBase](https://aws.amazon.com/marketplace/pp/prodview-prod-r43hytg6uuaw4) \
 2025 - current
 
-- 🦀 Serverless vector database written in Rust, deployed on AWS Lambda
+- 🍑 Serverless vector database written in Rust, deployed on AWS Lambda
 - 🔍 Hybrid search: vector similarity (ScaNN) + BM25 lexical search
 - ⚡ Sub-50ms latency, multi-tenant, AWS Marketplace listing
 - 🧠 MCP server for AI agent integration as "Global Brain"
