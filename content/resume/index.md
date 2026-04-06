@@ -110,7 +110,7 @@ Jan 2022 – May 2022
 - CDK-based infrastructure design and deployment
 
 Senior Software Engineer — [Prowler Security](https://prowler.com), Remote \
-2023 – 2024
+2023 – current
 
 - Open-source cloud security tool
 - AWS security assessments and compliance automation
