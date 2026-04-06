@@ -53,6 +53,13 @@ Martin built the sophisticated AWS infrastructure for our online lab environment
 
 ## Experience
 
+**Senior Serverless Engineer** — [Serverless Guru](https://serverlessguru.com) \
+2025 - current
+
+- Currently building an AI chatbot for **Air Canada** — conversational AI for customer service
+- Serverless architectures on AWS for enterprise clients
+- LLM integration, prompt engineering, and agent workflows
+
 **Founder & AI Agent Builder** — [ai-secure.dev](https://ai-secure.dev) \
 Jan 2025 - current
 
