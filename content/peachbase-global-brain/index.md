@@ -251,4 +251,12 @@ If you're working across multiple AI agents and projects and tired of repeating 
 
 ---
 
+## 🚀 Try PeachBase — Beta Testers Wanted!
+
+Want to try PeachBase as your own global AI brain? We're looking for beta testers to help shape the product. Sign up here:
+
+👉 **[Join the PeachBase Beta](https://forms.gle/a7SErMaLMYHMnmAn7)**
+
+---
+
 Questions or feedback? Connect on [LinkedIn](https://www.linkedin.com/in/martinmueller88/).
