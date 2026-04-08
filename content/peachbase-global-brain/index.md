@@ -57,7 +57,7 @@ The MCP server exposes eight tools:
 | `search` | Semantic, lexical, or hybrid search; auto-embeds text queries |
 | `describe_collection` | Get doc count, dimension, size stats |
 
-The first two tools are always available — even before you configure an API key. That means your agent can walk you through the entire setup process: just ask it "how do I set up PeachBase?" and it will return step-by-step instructions tailored to your client (Cursor, Claude Code, Claude Desktop, or ChatGPT). Once configured, `check_connection` confirms the endpoint is reachable and the key is valid.
+The first two tools are always available — even before you configure an API key. That means your agent can walk you through the entire setup process: just ask it "how do I set up PeachBase?" and it will return step-by-step instructions tailored to your client (Cursor, Claude Code, Kiro, Claude Desktop, or ChatGPT). Once configured, `check_connection` confirms the endpoint is reachable and the key is valid.
 
 It also serves static knowledge resources (API reference, search recipes, filter syntax) so the agent can self-serve documentation without you having to paste it.
 
@@ -130,6 +130,25 @@ Add PeachBase to your Cursor MCP configuration with the endpoint and API key fro
   }
 }
 ```
+
+### 3c. Connect the MCP Server in Kiro
+
+[Kiro](https://kiro.dev) is AWS's AI-powered IDE. Edit `.kiro/settings/mcp.json` (workspace) or `~/.kiro/settings/mcp.json` (global):
+
+```json
+{
+  "mcpServers": {
+    "peachbase": {
+      "url": "https://YOUR_ENDPOINT/prod/mcp",
+      "headers": {
+        "x-api-key": "YOUR_API_KEY"
+      }
+    }
+  }
+}
+```
+
+Changes take effect on save — no restart needed.
 
 ### 3d. Connect via ChatGPT UI
 
@@ -248,14 +267,6 @@ This is the real value — not just search, but persistent cross-agent, cross-pr
 The biggest bottleneck in my AI-assisted workflow isn't model quality — it's context loss. Every time I switch agents or projects, I start from scratch. PeachBase gives me a persistent, searchable knowledge layer that any MCP-compatible agent can read and write. Hybrid search ensures I find what I need whether I remember the exact term or just the concept.
 
 If you're working across multiple AI agents and projects and tired of repeating yourself, give PeachBase a try. The MCP server makes integration trivial — connect it once and your agents share a brain.
-
----
-
-## 🚀 Try PeachBase — Beta Testers Wanted!
-
-Want to try PeachBase as your own global AI brain? We're looking for beta testers to help shape the product. Sign up here:
-
-👉 **[Join the PeachBase Beta](https://forms.gle/a7SErMaLMYHMnmAn7)**
 
 ---
 
