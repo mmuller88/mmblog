@@ -184,5 +184,8 @@ Links:
 - [OpenClaw](https://openclaw.ai)
 - [OpenClaw GitHub](https://github.com/openclaw/openclaw)
 - [OpenClaw Discord](https://discord.com/invite/clawd)
+- [PeachBase — Mein globales KI-Gehirn (Blog Post)](https://martinmueller.dev/peachbase-global-brain/)
+
+🚀 **Ich suche auch Beta-Tester für [PeachBase](https://forms.gle/a7SErMaLMYHMnmAn7)** — die serverless Vector DB, die ich als Shared Memory für alle meine AI Agents nutze. Einfach anmelden!
 
 Danke fürs Lesen! Bei Fragen zu meinem Setup, einfach melden. Und falls ihr Unterstützung beim Aufsetzen eures eigenen OpenClaw AI Agents braucht — ob Konfiguration, Tool-Integration oder Custom Workflows — ich biete dazu auch Consulting an. Schreibt mir einfach an [office@martinmueller.dev](mailto:office@martinmueller.dev) oder bucht direkt einen Call unter [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev).
