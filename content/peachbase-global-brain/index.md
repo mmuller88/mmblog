@@ -63,19 +63,13 @@ It also serves static knowledge resources (API reference, search recipes, filter
 
 ## Getting Started
 
-### 1. Get a PeachBase API Key
+### 1. Sign Up for the Beta
 
-PeachBase is available on [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-prod-r43hytg6uuaw4). The onboarding flow creates an API Gateway API key and assigns it to the free usage plan automatically.
+PeachBase is currently in beta. To get started, fill out the signup form and we'll set you up with an API key and endpoint:
 
-1. Subscribe to PeachBase on AWS Marketplace
-2. Click **Set Up Your Account** — you'll be redirected to the PeachBase onboarding page
-3. The page shows your **API key** and **endpoint URL** — save both
+👉 **[Join the PeachBase Beta](https://forms.gle/a7SErMaLMYHMnmAn7)**
 
-![PeachBase Onboarding](peachbase-onboarding.png)
-
-The free tier includes 50,000 requests/month with a burst limit of 100 req/s. If you need higher limits, upgrade to the Developer or Team plan via AWS Marketplace.
-
-If you want an API key for testing without AWS Marketplace, reach out to me directly — happy to set one up.
+You'll receive your **API key** and **endpoint URL** — save both. The beta includes generous free usage limits.
 
 ### 2. Verify with a Quick curl
 
