@@ -18,9 +18,7 @@ tags: [
 pruneLength: 50
 ---
 
-> **Draft** — Hero image `index.png` still TODO (architecture diagram export or a simple schematic).
-
-A **German client** needed **production in the EU on Hetzner** — hosting and control over where core data and auth run, not a full rip-and-replace of what already worked. The product is **Arc Rider Universe**, a Vite/React SaaS that had shipped fast on **Netlify** and **managed Supabase**. My job was to add a **separate prod stack** on Hetzner without blocking the team on `universe.arc-rider.com`.
+A **German client** needed **production in the EU on Hetzner** — hosting and control over where core data and auth run, not a full rip-and-replace of what already worked. The product is **Arc Rider Universe**: the SaaS behind [universe.arc-rider.com](https://universe.arc-rider.com/) — *Mission: Interface*, a UI toolkit for builders (tables, Kanban, Gantt, layouts, and more via JSON instead of hand-rolled UI code). It had shipped fast on **Netlify** and **managed Supabase**. My job was to add a **separate prod stack** on Hetzner without blocking the team on that Netlify environment.
 
 This post is the case study: what we kept, what we moved, what broke, and what I would repeat for the next Hetzner migration.
 
