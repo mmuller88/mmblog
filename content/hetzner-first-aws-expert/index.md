@@ -24,12 +24,11 @@ A **German client** needed **production in the EU on Hetzner** — clear control
 
 ## Why Hetzner, and why not “move everything at once”
 
-The client is in Germany. Prod had to sit on **EU infrastructure they can point to** — Hetzner VMs for the app and the database, not only US-hosted SaaS defaults.
+The client is in Germany. Prod had to sit on **EU infrastructure they can point to** — Hetzner VMs for the app and the database.
 
 That did **not** mean throwing away what worked:
 
 - **[universe.arc-rider.com](https://universe.arc-rider.com/)** stayed on **Netlify** for the existing workflow.
-- **Customer prod** went to **`prod.universe.arc-rider.com`** on Hetzner.
 - **Login and Postgres** moved to Hetzner.
 
 If you are planning a similar move: you can satisfy an EU-on-Hetzner requirement **without** replatforming every hostname in one weekend.
@@ -42,7 +41,7 @@ Users open the React app on Hetzner. Sign-in and data live on Hetzner too.
 
 Infra and deploys are automated with **OpenTofu** (servers, firewall, DNS) and **GitHub Actions** (build, deploy, quick smoke checks after a release).
 
-The messy part everyone underestimates: **DNS**. The domain registrar (Strato) and Hetzner both play a role. We added the new prod hostnames by hand where needed and left the Netlify `universe` record alone.
+The messy part everyone underestimates: **DNS**. The domain registrar (Strato) and Hetzner both play a role. We added the new prod hostnames by hand where needed and left the Netlify record alone.
 
 ---
 
@@ -52,13 +51,13 @@ A lot of this was designed and debugged with **AI assistants in the loop** (Curs
 
 In **Cursor → Settings → Tools & MCP**, the project wires two official MCP servers plus the usual CLIs:
 
-| Tool                                                                                    | What we used it for                                                                                                                                                                                                                                                                                              |
-| --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[hcloud CLI](https://github.com/hetznercloud/cli)**                                   | List servers, IPs, firewalls (`hcloud server list`, etc.) — quick reality checks without the Hetzner console                                                                                                                                                                                                     |
-| **OpenTofu CLI**                                                                        | `tofu plan` / `tofu apply` for VMs, firewall, DNS — same workflow as Terraform                                                                                                                                                                                                                                   |
-| **OpenTofu MCP** (`@opentofu/opentofu-mcp-server` via `npx`)                            | **Read-only registry docs** in chat: `search-opentofu-registry`, `get-resource-docs`, `get-provider-details` — handy for `hetznercloud/hcloud` resources. Does **not** run apply; prod changes stay in CI or a reviewed `tofu apply`                                                                             |
-| **Supabase CLI**                                                                        | Migrations, `db` commands, typegen — schema changes stay in git                                                                                                                                                                                                                                                  |
-| **Supabase MCP** ([official hosted MCP](https://supabase.com/docs/guides/ai-tools/mcp)) | **Read-only**, project-scoped: `list_tables`, `execute_sql`, `get_logs`, `get_advisors`, `search_docs`. Configured as `https://mcp.supabase.com/mcp?project_ref=…&read_only=true` (OAuth in Cursor), or alternatively `@supabase/mcp-server-supabase` with a Personal Access Token if OAuth lacks org privileges |
+| Tool                                                                                    | What we used it for                                      |
+| --------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| **[hcloud CLI](https://github.com/hetznercloud/cli)**                                   | Check servers, IPs, firewalls from the terminal          |
+| **OpenTofu CLI**                                                                        | Plan and apply infra (VMs, firewall, DNS)                |
+| **OpenTofu MCP** (`@opentofu/opentofu-mcp-server` via `npx`)                            | Look up provider docs in chat (read-only)                |
+| **Supabase CLI**                                                                        | Migrations and schema work in git                        |
+| **Supabase MCP** ([official hosted MCP](https://supabase.com/docs/guides/ai-tools/mcp)) | Inspect tables, run read-only SQL, check logs and docs   |
 
 **Cursor config shape** (local `.cursor/mcp.json`, not committed):
 
@@ -83,7 +82,6 @@ Together with runbooks, that felt closer to **IaC plus CLIs** than to “SSH int
 ## What we learned (short version)
 
 - **Phased beats big bang** — Netlify stayed up for the existing environment while Hetzner prod came online.
-- **DNS is a project of its own** — budget time with whoever owns the registrar.
 - **Self-hosted login is not a copy-paste from cloud Supabase** — OAuth and magic links need prod-specific URLs and config.
 - **Predictable cost and EU hosting** — VMs on Hetzner for app, login, and data.
 
