@@ -90,9 +90,9 @@ const Header = ({ siteTitle }) => (
     </a>
    </div>
    <div>
-   <h1
-    className="row"
-    style={{
+    <h1
+     className="row"
+     style={{
       margin: 0,
       marginLeft: 0,
       display: `inline-block`,

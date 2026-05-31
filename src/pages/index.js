@@ -12,14 +12,15 @@ export const PreviewPost = (props) => {
   <Link to={props.node.fields.slug} key={props.i} className="link">
    <div className="post-list">
     <h1>{props.node.frontmatter.title}</h1>
-    <div className="post"
-    //  style={{
-    //   display: "flex",
-    //   flexDirection: "column",
-    //   alignItems: "center",
-    //   gap: "26px",
-      
-    //  }}
+    <div
+     className="post"
+     //  style={{
+     //   display: "flex",
+     //   flexDirection: "column",
+     //   alignItems: "center",
+     //   gap: "26px",
+
+     //  }}
     >
      {imageSrc && (
       <div
@@ -59,7 +60,7 @@ const IndexPage = (props) => {
  const siteUrl = props.data.site.siteMetadata.siteUrl
  const siteTitle = props.data.site.siteMetadata.title
  const siteDescription = props.data.site.siteMetadata.description
- 
+
  return (
   <Layout>
    <MetaTags
@@ -71,13 +72,21 @@ const IndexPage = (props) => {
    />
    <div className="href">
     <a href={`tags/de`}>de</a>, <a href={`tags/eng`}>eng</a>,{" "}
-    <a href={`tags`}>tags</a>, <a href={`rss.xml`} className="inline-flex items-center gap-1">
-     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-      <circle cx="6.18" cy="17.82" r="2.18"/>
-      <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+    <a href={`tags`}>tags</a>,{" "}
+    <a href={`rss.xml`} className="inline-flex items-center gap-1">
+     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+     >
+      <circle cx="6.18" cy="17.82" r="2.18" />
+      <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z" />
      </svg>
      rss
-    </a>,{" "}
+    </a>
+    ,{" "}
     {/* {
               data.filter((tag) => (tag.fieldValue === "eng" || tag.fieldValue === "de")).map(tag => (
                   

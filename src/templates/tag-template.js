@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import MetaTags from "../components/Metatags"
 import "../pages/post.css"
-import {PreviewPost} from "../pages/index"
+import { PreviewPost } from "../pages/index"
 
 function Tags(props) {
  const { tag } = props.pageContext
@@ -12,7 +12,7 @@ function Tags(props) {
  if (tag !== "de") {
   posts = posts.filter(({ node }) => node.frontmatter.tags.includes("eng"))
  }
- 
+
  const tagTitle = tag.charAt(0).toUpperCase() + tag.slice(1)
  const postCount = posts.length
 
@@ -35,10 +35,12 @@ function Tags(props) {
       ...node,
       frontmatter: {
        ...node.frontmatter,
-       image: node.frontmatter.image 
-        ? (node.frontmatter.image.childImageSharp?.resize?.src || node.frontmatter.image.publicURL || node.frontmatter.image)
-        : null
-      }
+       image: node.frontmatter.image
+        ? node.frontmatter.image.childImageSharp?.resize?.src ||
+          node.frontmatter.image.publicURL ||
+          node.frontmatter.image
+        : null,
+      },
      }
      return <PreviewPost node={processedNode} i={i} />
     })}
