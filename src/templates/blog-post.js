@@ -276,7 +276,11 @@ function BlogPost(props) {
       contentRef={contentRef}
      />
     ) : null}
-    <div ref={contentRef} dangerouslySetInnerHTML={{ __html: content }} />
+    <div
+     ref={contentRef}
+     className="blog-post-content"
+     dangerouslySetInnerHTML={{ __html: content }}
+    />
     <HeadingAnchorCopy contentRef={contentRef} contentKey={content} />
     {/* <div>
      <p>
