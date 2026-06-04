@@ -22,7 +22,7 @@ pruneLength: 50
 
 **Part 1:** [EU production on Hetzner](/hetzner-eu-production)
 
-After [moving Arc Rider Universe to Hetzner](/hetzner-eu-production) — React app, self-hosted Supabase login, Postgres on EU VMs — we added **self-hosted observability** on a dedicated VM. Metrics, logs, traces, and cost data stay in the EU. No third-party APM SaaS. Then we wired **AI agents** to query prod through Grafana MCP instead of SSH guesswork.
+After [prod went live on Hetzner](/hetzner-eu-production) — React app, self-hosted Supabase login, Postgres on EU VMs; dev still on Netlify + managed Supabase — we added **self-hosted observability** on a dedicated prod VM. Metrics, logs, traces, and cost data stay in the EU. No third-party APM SaaS. Then we wired **AI agents** to query prod through Grafana MCP instead of SSH guesswork.
 
 ---
 
@@ -124,9 +124,9 @@ Prod is live at [prod.universe.arc-rider.com](https://prod.universe.arc-rider.co
 
 ## Hetzner migrations — how I can help
 
-On **Netlify**, **managed Supabase**, or **AWS** and need **prod in the EU on Hetzner**? I help with migration planning, OpenTofu, CI deploys, self-hosted Supabase on your VMs, and **self-hosted observability** (Grafana LGTM, Alloy, cost guardrails, Grafana MCP for agent-friendly ops).
+On **Netlify**, **managed Supabase**, or **AWS** for dev and need **prod in the EU on Hetzner**? I help with planning, OpenTofu, CI deploys, self-hosted Supabase on prod VMs, and **self-hosted observability** (Grafana LGTM, Alloy, cost guardrails, Grafana MCP for agent-friendly ops).
 
-[office@martinmueller.dev](mailto:office@martinmueller.dev) · [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev)
+[office@martinmueller.dev](mailto:office@martinmueller.dev) · [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev) · [LinkedIn](https://www.linkedin.com/in/martinmueller88)
 
 ---
 
