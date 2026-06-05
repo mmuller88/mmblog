@@ -14,10 +14,13 @@ tags:
   "eng",
   "2026",
  ]
+gerUrl: https://martinmueller.dev/hetzner-eu-production-de
+audio: "audio.mp3"
+audioTiming: "audio-timing.json"
 pruneLength: 50
 ---
 
-_Part 2 (self-hosted observability, cost guardrails, AI agents) — coming soon._
+**Part 2:** [Self-hosted insights on Hetzner](/hetzner-self-hosted-insights)
 
 A **German client** needed **production in the EU on Hetzner** — clear control over where customer data and login live. The product is **Arc Rider Universe**: the SaaS behind [universe.arc-rider.com](https://universe.arc-rider.com/) — _Mission: Interface_, a UI toolkit for builders (tables, Kanban, Gantt, layouts, and more via JSON instead of hand-rolled UI code). **Dev** already ran happily on **Netlify** and **managed Supabase** — and still does. The goal was a **dedicated prod environment on Hetzner**, not a big-bang migration that would slow down the team.
 
@@ -29,8 +32,8 @@ The client is in Germany. **Prod** had to sit on **EU infrastructure they can po
 
 That did **not** mean touching dev:
 
-- **[universe.arc-rider.com](https://universe.arc-rider.com/)** (dev) stays on **Netlify** + **managed Supabase**.
-- **Prod** — app, login, Postgres — runs on **Hetzner** at [prod.universe.arc-rider.com](https://prod.universe.arc-rider.com).
+- **[dev.universe.arc-rider.com](https://dev.universe.arc-rider.com/)** (dev) stays on **Netlify** + **managed Supabase**.
+- **Prod** — app, login, Postgres — runs on **Hetzner** at [universe.arc-rider.com](https://universe.arc-rider.com).
 
 If you are planning something similar: you can add EU prod on Hetzner **in one weekend** — **without** replatforming dev.
 
@@ -44,7 +47,7 @@ If you are planning something similar: you can add EU prod on Hetzner **in one w
 
 Infra and deploys are automated with **OpenTofu** (servers, firewall, DNS) and **GitHub Actions** (build, deploy, quick smoke checks after a release).
 
-Once prod was stable, we added **self-hosted observability** on a dedicated VM — metrics, logs, traces, cost guardrails, and agent-friendly ops. That is Part 2 (coming soon).
+Once prod was stable, we added **self-hosted observability** on a dedicated VM — metrics, logs, traces, cost guardrails, and agent-friendly ops. See [Part 2](/hetzner-self-hosted-insights).
 
 ---
 
@@ -54,7 +57,7 @@ Once prod was stable, we added **self-hosted observability** on a dedicated VM �
 - **Self-hosted login is not a copy-paste from cloud Supabase** — prod OAuth and magic links need prod-specific URLs and config; dev config stays separate.
 - **Predictable cost and EU hosting** — VMs on Hetzner for app, login, and data.
 
-Prod is live at [prod.universe.arc-rider.com](https://prod.universe.arc-rider.com). For this product stage, the tradeoff worked: **control where it mattered** on EU infrastructure the client can point to.
+Prod is live at [universe.arc-rider.com](https://universe.arc-rider.com). For this product stage, the tradeoff worked: **control where it mattered** on EU infrastructure the client can point to.
 
 ---
 

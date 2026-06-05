@@ -17,6 +17,9 @@ tags:
   "2026",
   "nofeed",
  ]
+gerUrl: https://martinmueller.dev/hetzner-self-hosted-insights-de
+audio: "audio.mp3"
+audioTiming: "audio-timing.json"
 pruneLength: 50
 ---
 
