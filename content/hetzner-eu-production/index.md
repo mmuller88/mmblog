@@ -32,7 +32,7 @@ That did **not** mean touching dev:
 - **[universe.arc-rider.com](https://universe.arc-rider.com/)** (dev) stays on **Netlify** + **managed Supabase**.
 - **Prod** — app, login, Postgres — runs on **Hetzner** at [prod.universe.arc-rider.com](https://prod.universe.arc-rider.com).
 
-If you are planning something similar: you can add EU prod on Hetzner **without** replatforming dev in one weekend.
+If you are planning something similar: you can add EU prod on Hetzner **in one weekend** — **without** replatforming dev.
 
 ---
 
