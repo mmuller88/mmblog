@@ -1,7 +1,7 @@
 ---
 title: Self-hosted Insights auf Hetzner — Observability, Kosten, KI-Agenten (Teil 2)
-show: "no"
-date: "2026-06-09"
+show: "yes"
+date: "2026-06-05"
 image: "index.png"
 tags:
  [
@@ -15,7 +15,6 @@ tags:
   "case-study",
   "de",
   "2026",
-  "nofeed",
  ]
 engUrl: https://martinmueller.dev/hetzner-self-hosted-insights
 audio: "audio.mp3"
