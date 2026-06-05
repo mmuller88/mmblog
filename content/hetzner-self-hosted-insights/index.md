@@ -53,6 +53,8 @@ Provisioned dashboards (git → redeploy):
 
 Hetzner pricing is transparent — but three VMs, backups, primary IPs, and volumes still add up. We wired a **Production Costs** dashboard that pulls **live Hetzner API pricing** into Prometheus (`arc_infra_cost_eur_monthly`): per-server, backup, volume, and primary IP breakdown, plus total monthly and annual projection.
 
+![Grafana Production Costs dashboard on Hetzner](grafana-dashboard.png)
+
 A **Grafana alert** fires when estimated infra cost hits **EUR 50/month** — email to the ops list before the invoice surprises anyone. That is the opposite of opaque cloud bills where you discover the spike in the console.
 
 ---
@@ -80,8 +82,6 @@ In **Cursor → Settings → Tools & MCP**, the project wires MCP servers plus t
 | **Supabase CLI** | Migrations and schema work in git |
 | **Supabase MCP** ([official hosted MCP](https://supabase.com/docs/guides/ai-tools/mcp)) | Inspect tables, run read-only SQL, check logs and docs |
 | **Grafana MCP** ([mcp-grafana](https://github.com/grafana/mcp-grafana) via `uvx`) | PromQL, LogQL, dashboards, alerts on self-hosted Grafana |
-
-**Cursor config shape** (local `.cursor/mcp.json`, not committed):
 
 ```json
 {
