@@ -213,7 +213,7 @@ function BlogPost(props) {
     <br></br>
     <h1>{title}</h1>
 
-    <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-600">
+    <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-600 dark:text-gray-400">
      {isValidDate && (
       <span>{tags.includes("de") ? germanFormat : usFormat}</span>
      )}
@@ -243,13 +243,13 @@ function BlogPost(props) {
 
     {audioUrl ? (
      <div className="mb-6 w-full max-w-2xl">
-      <p className="text-sm font-medium text-gray-700 mb-2">
+      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
        Listen to this post
       </p>
       <audio
        ref={audioRef}
        controls
-       className="w-full h-10 rounded-lg border border-brand/40 bg-gray-50 accent-brand"
+       className="w-full h-10 rounded-lg border border-brand/40 bg-gray-50 dark:bg-gray-800 accent-brand"
        preload="metadata"
        src={audioUrl}
       />
@@ -285,30 +285,21 @@ function BlogPost(props) {
     </div> */}
     {/* {showContact !== "no" ? <ContactForm /> : null} */}
     <div className="mb-4">
-     <span className="text-gray-600">Tagged in: </span>
+     <span className="text-gray-600 dark:text-gray-400">Tagged in: </span>
      {tags.map((tag, i) => (
       <React.Fragment key={i}>
        <a
         href={`/tags/${tag}`}
-        style={{
-         textDecoration: "none",
-         backgroundColor: "#f3f4f6",
-         padding: "2px 8px",
-         borderRadius: "4px",
-         color: "#374151",
-         fontSize: "0.875rem",
-         marginRight: "8px",
-        }}
+        className="no-underline bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 text-sm mr-2 py-0.5 px-2 rounded"
        >
         {tag}
        </a>
       </React.Fragment>
      ))}
-     <span className="text-gray-400"> | </span>
+     <span className="text-gray-400 dark:text-gray-500"> | </span>
      <a
       href={tags.includes("de") ? "/rss-ger.xml" : "/rss.xml"}
-      className="inline-flex items-center gap-1 text-orange-500 hover:text-orange-600"
-      style={{ textDecoration: "none" }}
+      className="inline-flex items-center gap-1 text-orange-500 hover:text-orange-600 no-underline"
       title="RSS Feed"
      >
       <svg

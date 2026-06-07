@@ -46,7 +46,7 @@ export const PreviewPost = (props) => {
       </div>
      )}
      <div>
-      <span>{props.node.frontmatter.date}</span>
+      <span className="dark:text-gray-400">{props.node.frontmatter.date}</span>
       <p>{props.node.excerpt}</p>
      </div>
     </div>

@@ -1,10 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { THEME_SCRIPT } from "./utils/theme"
 
 export default function HTML(props) {
  return (
   <html {...props.htmlAttributes}>
    <head>
+    <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+
     {/* <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
         <script>
           kofiWidgetOverlay.draw('martinmuellerdev', {

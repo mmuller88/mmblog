@@ -26,32 +26,23 @@ const Breadcrumb = ({ crumbs, siteUrl }) => {
      {JSON.stringify(breadcrumbStructuredData)}
     </script>
    </Helmet>
-   <nav aria-label="Breadcrumb" style={{ marginBottom: "1rem" }}>
-    <ol
-     style={{
-      display: "flex",
-      alignItems: "center",
-      flexWrap: "wrap",
-      gap: "0.25rem",
-      fontSize: "0.875rem",
-      color: "#6b7280",
-      listStyle: "none",
-      padding: 0,
-      margin: 0,
-     }}
-    >
+   <nav aria-label="Breadcrumb" className="mb-4">
+    <ol className="flex items-center flex-wrap gap-1 text-sm text-gray-500 dark:text-gray-400 list-none p-0 m-0">
      {crumbs.map((crumb, index) => (
-      <li key={crumb.path} style={{ display: "flex", alignItems: "center" }}>
+      <li key={crumb.path} className="flex items-center">
        {index > 0 && (
         <span
-         style={{ margin: "0 0.5rem", color: "#9ca3af" }}
+         className="mx-2 text-gray-400 dark:text-gray-500"
          aria-hidden="true"
         >
          ›
         </span>
        )}
        {index === crumbs.length - 1 ? (
-        <span style={{ color: "#374151", fontWeight: 500 }} aria-current="page">
+        <span
+         className="text-gray-700 dark:text-gray-200 font-medium"
+         aria-current="page"
+        >
          {crumb.name.length > 50
           ? crumb.name.substring(0, 50) + "..."
           : crumb.name}
@@ -59,7 +50,7 @@ const Breadcrumb = ({ crumbs, siteUrl }) => {
        ) : (
         <Link
          to={crumb.path}
-         style={{ color: "#2563eb", textDecoration: "none" }}
+         className="text-blue-600 dark:text-blue-400 no-underline"
         >
          {crumb.name}
         </Link>

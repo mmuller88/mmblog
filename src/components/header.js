@@ -6,6 +6,7 @@ import twitterLogo from "../images/icons/twitter.svg"
 import inLogo from "../images/icons/in.svg"
 import ghLogo from "../images/icons/gh.svg"
 import threadsIcon from "../images/threads.png"
+import ThemeToggle from "./ThemeToggle"
 
 const Header = ({ siteTitle }) => (
  <header
@@ -20,82 +21,76 @@ const Header = ({ siteTitle }) => (
     margin: `0 auto`,
     maxWidth: 960,
     padding: `1.45rem 1.0875rem`,
-    // display: 'inline-block'
    }}
   >
-   <div
-    style={{
-     float: "right",
-     color: "white",
-     marginRight: "0.3rem",
-     display: "inline-block",
-    }}
-   >
-    <a
-     href="https://github.com/mmuller88"
-     target="_blank"
-     rel="noopener noreferrer"
-     style={{ color: "white", marginRight: "0.3rem" }}
-    >
-     <img
-      src={ghLogo}
-      textDecoration="none"
-      width="20px"
-      height="20px"
-      alt="github"
-      style={{ borderRadius: "25px" }}
-     />
-    </a>
-    <a
-     href="https://www.linkedin.com/in/martinmueller88/"
-     target="_blank"
-     rel="noopener noreferrer"
-     style={{ display: "inline-block" }}
-    >
-     <img
-      src={inLogo}
-      width="20px"
-      height="20px"
-      alt="avatarIcon"
-      style={{ borderRadius: "25px" }}
-     />
-    </a>
-    <a
-     href="https://www.threads.net/@martinmuellerdev"
-     target="_blank"
-     rel="noopener noreferrer"
-     style={{ marginRight: "0.3rem" }}
-    >
-     <img
-      src={threadsIcon}
-      width="20px"
-      height="20px"
-      alt="twitter"
-      style={{ borderRadius: "25px" }}
-     />
-    </a>
-    <a
-     href="https://www.twitter.com/MartinMueller_"
-     target="_blank"
-     rel="noopener noreferrer"
-     style={{ marginRight: "0.3rem" }}
-    >
-     <img
-      src={twitterLogo}
-      width="20px"
-      height="20px"
-      alt="twitter"
-      style={{ borderRadius: "25px" }}
-     />
-    </a>
+   <div className="float-right mr-[0.3rem] flex items-center gap-[0.3rem] text-white">
+     <a
+      href="https://github.com/mmuller88"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="GitHub"
+      className="flex h-5 w-5 items-center justify-center"
+     >
+      <img
+       src={ghLogo}
+       width="20"
+       height="20"
+       alt="github"
+       className="mb-0 block h-5 w-5 rounded-full"
+      />
+     </a>
+     <a
+      href="https://www.linkedin.com/in/martinmueller88/"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="LinkedIn"
+      className="flex h-5 w-5 items-center justify-center"
+     >
+      <img
+       src={inLogo}
+       width="20"
+       height="20"
+       alt="LinkedIn"
+       className="mb-0 block h-5 w-5 rounded-full"
+      />
+     </a>
+     <a
+      href="https://www.threads.net/@martinmuellerdev"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Threads"
+      className="flex h-5 w-5 items-center justify-center"
+     >
+      <img
+       src={threadsIcon}
+       width="20"
+       height="20"
+       alt="Threads"
+       className="mb-0 block h-5 w-5 rounded-full"
+      />
+     </a>
+     <a
+      href="https://www.twitter.com/MartinMueller_"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Twitter"
+      className="flex h-5 w-5 items-center justify-center"
+     >
+      <img
+       src={twitterLogo}
+       width="20"
+       height="20"
+       alt="Twitter"
+       className="mb-0 block h-5 w-5 rounded-full"
+      />
+     </a>
+     <ThemeToggle />
    </div>
    <div>
     <h1
-     className="row"
+     className="row m-0 inline-block"
      style={{
-      margin: 0,
       marginLeft: 0,
-      display: `inline-block`,
       alignItems: `center`,
      }}
     >
@@ -113,17 +108,15 @@ const Header = ({ siteTitle }) => (
       style={{
        color: `white`,
        textDecoration: `none`,
-       // paddingLeft: "7cm"
       }}
      >
-      || Agency |
+      {" "}|| Agency |
      </Link>
      <Link
       to="/tags/eyf/"
       style={{
        color: `white`,
        textDecoration: `none`,
-       // paddingLeft: "7cm"
       }}
      >
       | Podcast |
@@ -133,31 +126,10 @@ const Header = ({ siteTitle }) => (
       style={{
        color: `white`,
        textDecoration: `none`,
-       // paddingLeft: "7cm"
       }}
      >
       | Resume
      </Link>
-     {/* <Link
-      to="/projects"
-      style={{
-       color: `white`,
-       textDecoration: `none`,
-       // paddingLeft: "7cm"
-      }}
-     >
-      | Projects
-     </Link> */}
-     <div
-      style={{
-       color: "white",
-       marginLeft: "0.5rem",
-       float: `right`,
-       borderRadius: "25px",
-      }}
-     >
-      {/* <a href='https://martinmueller.dev/resume' target="_blank" rel='noopener'>Resume</a> */}
-     </div>
     </h1>
    </div>
   </div>

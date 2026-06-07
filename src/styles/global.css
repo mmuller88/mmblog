@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html.dark {
+    color-scheme: dark;
+  }
+  html.dark body {
+    background-color: #0f172a;
+    color: rgba(255, 255, 255, 0.87);
+  }
+  html.dark a {
+    color: #4ea3f5;
+  }
+  html.dark hr {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  html.dark td,
+  html.dark th {
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+  }
+  html.dark tt,
+  html.dark code {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  html.dark .blog-post-content :not(pre) > code {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #e5e7eb;
+  }
+  html.dark .post-list {
+    border-color: #334155;
+    box-shadow: none;
+  }
+  html.dark .post-list:hover {
+    background-color: #1e293b;
+  }
+  html.dark .link {
+    color: #e5e7eb;
+  }
+  html.dark .tags a {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #e5e7eb;
+  }
+}

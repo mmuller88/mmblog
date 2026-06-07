@@ -3,7 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
-// import './src/styles/global.css'
+require("./src/styles/global.css")
 
 // PrismJS syntax highlighting theme
 require("prismjs/themes/prism-tomorrow.css")

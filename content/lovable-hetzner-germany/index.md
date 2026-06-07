@@ -59,7 +59,7 @@ DACH buyers often ask not only *where* data lives but *what software runs there*
 
 | Layer | Open source |
 | ----- | ----------- |
-| Infra as code | <span class="tool-item"><img src="/lovable-hetzner-germany/icons/opentofu.svg" alt="" /> [OpenTofu](https://opentofu.org/)</span> |
+| Infra as code | <span class="tool-item"><img src="/lovable-hetzner-germany/icons/opentofu.svg" alt="" /> [OpenTofu (an open-source fork of Terraform)](https://opentofu.org/)</span> |
 | App runtime | <span class="tool-item"><img src="/lovable-hetzner-germany/icons/react.svg" alt="" /> React (from Lovable)</span>, <span class="tool-item"><img src="/lovable-hetzner-germany/icons/nginx.svg" alt="" /> nginx</span> |
 | Auth + API + DB | <span class="tool-item"><img src="/lovable-hetzner-germany/icons/supabase.svg" alt="" /> [Supabase](https://github.com/supabase/supabase) (self-hosted)</span>, <span class="tool-item"><img src="/lovable-hetzner-germany/icons/postgresql.svg" alt="" /> Postgres</span> |
 | Observability | <span class="tool-item"><img src="/lovable-hetzner-germany/icons/grafana.svg" alt="" /> [Grafana](https://grafana.com/oss/)</span>, <span class="tool-item"><img src="/lovable-hetzner-germany/icons/prometheus.svg" alt="" /> Prometheus</span>, <span class="tool-item"><img src="/lovable-hetzner-germany/icons/loki.svg" alt="" /> Loki</span>, <span class="tool-item"><img src="/lovable-hetzner-germany/icons/tempo.svg" alt="" /> Tempo</span>, <span class="tool-item"><img src="/lovable-hetzner-germany/icons/opentelemetry.svg" alt="" /> [OpenTelemetry](https://opentelemetry.io/)</span> |
