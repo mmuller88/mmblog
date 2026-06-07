@@ -19,6 +19,9 @@ tags:
   "eng",
   "2026",
  ]
+gerUrl: https://martinmueller.dev/lovable-hetzner-germany-de
+audio: "audio.mp3"
+audioTiming: "audio-timing.json"
 pruneLength: 50
 ---
 
