@@ -256,16 +256,12 @@ function BlogPost(props) {
      </div>
     ) : null}
 
-    <div className="flex justify-center items-center">
+    <div className="mb-6 w-full max-w-5xl mx-auto">
      {image && image.childImageSharp && (
       <Img
        fluid={image.childImageSharp.fluid}
        alt={title}
-       style={{
-        maxWidth: "50%",
-        height: "auto",
-        objectFit: "contain",
-       }}
+       className="h-auto w-full object-contain"
       />
      )}
     </div>
@@ -360,7 +356,7 @@ export const query = graphql`
       resize(width: 1000, height: 420) {
        src
       }
-      fluid(maxWidth: 786) {
+      fluid(maxWidth: 1200) {
        ...GatsbyImageSharpFluid
       }
      }
