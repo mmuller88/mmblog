@@ -8,6 +8,7 @@
 // PrismJS syntax highlighting theme
 require("prismjs/themes/prism-tomorrow.css")
 require("./src/styles/inline-code.css")
+require("./src/styles/tool-icons.css")
 
 // Load PrismJS core first
 require("prismjs")

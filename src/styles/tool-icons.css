@@ -1,0 +1,17 @@
+.blog-post-content .tool-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.blog-post-content .tool-item img {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+
+.blog-post-content table td {
+  vertical-align: middle;
+}
