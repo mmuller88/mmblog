@@ -65,6 +65,8 @@ Prod is live at [universe.arc-rider.com](https://universe.arc-rider.com). For th
 
 On **Netlify**, **managed Supabase**, or **AWS** for dev and need **prod in the EU on Hetzner**? I help with planning, OpenTofu, CI deploys, self-hosted Supabase on prod VMs, and **self-hosted observability** (Grafana LGTM, Alloy, cost guardrails, Grafana MCP for agent-friendly ops).
 
+Built with [Lovable](/lovable-hetzner-germany) for Germany/DACH? Same phased EU-prod path.
+
 [office@martinmueller.dev](mailto:office@martinmueller.dev) · [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev) · [LinkedIn](https://www.linkedin.com/in/martinmueller88)
 
 ---
