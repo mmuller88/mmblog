@@ -1,6 +1,6 @@
 ---
 title: Built with Lovable? Host Prod in Germany & DACH on Hetzner
-show: "no"
+show: "yes"
 date: "2026-06-08"
 image: "index.jpg"
 tags:
