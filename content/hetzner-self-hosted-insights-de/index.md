@@ -1,6 +1,6 @@
 ---
 title: Self-hosted Insights auf Hetzner — Observability, Kosten, KI-Agenten (Teil 2)
-show: "yes"
+show: "no"
 date: "2026-06-05"
 image: "index.png"
 tags:
