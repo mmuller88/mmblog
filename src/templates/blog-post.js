@@ -6,6 +6,8 @@ import PrevNext from "../components/prevnext"
 import MetaTags from "../components/Metatags"
 import Share from "../components/share"
 import Breadcrumb from "../components/Breadcrumb"
+import LikeButton from "../components/LikeButton"
+import Comments from "../components/Comments"
 import {
  calculateReadingTime,
  extractKeywords,
@@ -316,6 +318,11 @@ function BlogPost(props) {
      </a>
     </div>
     <Share title={title} url={url} pathname={props.location.pathname} />
+    <LikeButton slug={props.location.pathname} />
+    <Comments
+     pathname={props.location.pathname}
+     lang={tags.includes("de") ? "de" : "en"}
+    />
     <PrevNext prev={prev && prev.node} next={next && next.node} />
    </div>
   </Layout>

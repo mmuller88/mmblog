@@ -14,7 +14,14 @@ module.exports = {
       'Software Engineering', 'DevOps', 'Technology Blog', 'Martin Mueller'
     ],
     language: 'en',
-    locale: 'en_US'
+    locale: 'en_US',
+    giscus: {
+      repo: 'mmuller88/mmblog',
+      repoId: 'MDEwOlJlcG9zaXRvcnkxODc2MjcwNTg=',
+      category: 'Announcements',
+      categoryId: 'DIC_kwDOCy72Ms4C_Wft',
+      mapping: 'pathname',
+    },
   },
   plugins: [
     {
@@ -353,13 +360,6 @@ module.exports = {
       //   ],
       // }
     // },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/_data/comments`,
-        name: 'comments',
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

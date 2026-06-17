@@ -1,6 +1,10 @@
 [build]
   command = "npm run build"
 
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 [build.environment]
   YARN_VERSION = "1.22.4"
   NODE_VERSION = "20"

@@ -1,0 +1,58 @@
+{
+  "version": "5",
+  "remote": {
+    "https://edge.netlify.com/": "fd941d61d88673d5f28aab283fb86fcc50f08a3bc80ee5470498fcfa88c65cfb",
+    "https://edge.netlify.com/bootstrap/config.ts": "6a2ce0e544e15e8f8883a5c18da5948e37fd0f2619f68cb31f3af53c51817025",
+    "https://edge.netlify.com/bootstrap/context.ts": "e97240232121e2f369f6546ce961490f34d961ea1ea54be3ff09633e3f08373f",
+    "https://edge.netlify.com/bootstrap/cookie.ts": "8b0baae708989ca183c6f3b4ab3d029e6abcbc2e43f93edeb0ff447b3bbc3a05",
+    "https://edge.netlify.com/bootstrap/edge_function.ts": "b8253e86aa83c67341f5cfedeba5049d77fbf84dcab7eceff7566b7728ae9b39",
+    "https://edge.netlify.com/bootstrap/globals/types.ts": "eaa6148ded3121d8dee62dd91c86e7fe76601df0f3ca8d7962243a30f4c8935f"
+  },
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:@deckdeckgo/highlight-code@^4.4.0",
+        "npm:@giscus/react@^3.1.0",
+        "npm:@google-cloud/text-to-speech@^5.6.0",
+        "npm:@netlify/blobs@^8.1.0",
+        "npm:autoprefixer@^10.4.16",
+        "npm:gatsby-cli@^5.13.1",
+        "npm:gatsby-image@^2.4.21",
+        "npm:gatsby-plugin-catch-links@^5.13.0",
+        "npm:gatsby-plugin-feed@^5.13.0",
+        "npm:gatsby-plugin-google-analytics@^5.13.0",
+        "npm:gatsby-plugin-manifest@^5.13.0",
+        "npm:gatsby-plugin-mdx@^5.13.0",
+        "npm:gatsby-plugin-offline@^6.13.0",
+        "npm:gatsby-plugin-postcss@^6.13.0",
+        "npm:gatsby-plugin-react-helmet@^6.13.0",
+        "npm:gatsby-plugin-sharp@^5.13.0",
+        "npm:gatsby-plugin-sitemap@^6.13.0",
+        "npm:gatsby-remark-autolink-headers@^6.16.0",
+        "npm:gatsby-remark-images@^7.13.0",
+        "npm:gatsby-remark-prismjs@^7.13.0",
+        "npm:gatsby-remark-vscode@^3.3.1",
+        "npm:gatsby-source-filesystem@^5.13.0",
+        "npm:gatsby-transformer-remark@^6.13.0",
+        "npm:gatsby-transformer-sharp@^5.13.0",
+        "npm:gatsby@^5.13.1",
+        "npm:gray-matter@^4.0.3",
+        "npm:netlify-cli@23",
+        "npm:postcss@^8.4.32",
+        "npm:prettier@^3.1.1",
+        "npm:prismjs@^1.29.0",
+        "npm:prop-types@^15.8.1",
+        "npm:react-cookie-consent@9",
+        "npm:react-dom@^18.2.0",
+        "npm:react-helmet@^6.1.0",
+        "npm:react@^18.2.0",
+        "npm:remove-markdown@0.6",
+        "npm:sharp@~0.33.1",
+        "npm:tailwindcss@^3.4.0"
+      ],
+      "overrides": {
+        "sharp": "^0.33.1"
+      }
+    }
+  }
+}
