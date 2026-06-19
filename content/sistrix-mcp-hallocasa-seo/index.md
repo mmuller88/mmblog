@@ -166,7 +166,17 @@ Spanish LatAm programmatic pages (CO/MX) only when broker inventory supports it 
 6. **Audit your codebase** — canonicals, hreflang, robots, sitemaps, i18n patterns.
 7. **Synthesize** — strategy doc with prioritized tiers, not a data dump.
 
-We also exported a PDF from the strategy markdown (`pandoc` + headless Chrome) for sharing with stakeholders — optional polish, not required for the audit itself.
+### Sample deliverable: HalloCasa SEO strategy (PDF)
+
+The agent session produced a full strategy document — baseline by market, competitor overlap, technical findings from our Next.js repo, and a P0–P3 roadmap. We exported it as PDF for stakeholders (`pandoc` + headless Chrome from the markdown in [`hallocasa-next/misc/seo`](https://github.com/hallocasacom/hallocasa-next/tree/main/misc/seo)).
+
+<object data="hallocasa-seo-strategy.pdf" type="application/pdf" width="100%" height="640">
+  <p>Your browser does not support embedded PDFs. <a href="hallocasa-seo-strategy.pdf">Download the HalloCasa SEO strategy PDF</a>.</p>
+</object>
+
+<p><a href="hallocasa-seo-strategy.pdf">Download PDF</a> · <a href="https://github.com/hallocasacom/hallocasa-next/blob/main/misc/seo/SEO_STRATEGY.md">View markdown source</a></p>
+
+**Want something similar for your domain?** I help teams run the same SISTRIX MCP + codebase audit workflow and turn it into a prioritized strategy doc like this. [Reach out on LinkedIn](https://www.linkedin.com/in/martinmueller88/).
 
 ---
 

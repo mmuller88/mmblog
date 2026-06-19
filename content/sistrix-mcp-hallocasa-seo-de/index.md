@@ -166,7 +166,17 @@ Spanische LatAm-Programmatic-Pages (CO/MX) erst, wenn Makler-Bestand mitspielt �
 6. **Codebase auditieren** — Canonicals, hreflang, robots, Sitemaps, i18n-Patterns.
 7. **Synthetisieren** — Strategie-Doc mit priorisierten Stufen, kein Data-Dump.
 
-Optional haben wir ein PDF aus dem Strategie-Markdown exportiert (`pandoc` + headless Chrome) für Stakeholder — Polish, nicht Pflicht fürs Audit.
+### Beispiel-Deliverable: HalloCasa SEO-Strategie (PDF)
+
+Die Agent-Session lieferte ein vollständiges Strategie-Dokument — Baseline pro Markt, Wettbewerber-Overlap, technische Findings aus unserem Next.js-Repo und eine P0–P3-Roadmap. Als PDF für Stakeholder exportiert (`pandoc` + headless Chrome aus dem Markdown in [`hallocasa-next/misc/seo`](https://github.com/hallocasacom/hallocasa-next/tree/main/misc/seo)).
+
+<object data="hallocasa-seo-strategy.pdf" type="application/pdf" width="100%" height="640">
+  <p>Dein Browser unterstützt kein eingebettetes PDF. <a href="hallocasa-seo-strategy.pdf">HalloCasa SEO-Strategie als PDF herunterladen</a>.</p>
+</object>
+
+<p><a href="hallocasa-seo-strategy.pdf">PDF herunterladen</a> · <a href="https://github.com/hallocasacom/hallocasa-next/blob/main/misc/seo/SEO_STRATEGY.md">Markdown-Quelle</a></p>
+
+**Ähnliches für deine Domain?** Ich helfe Teams, denselben SISTRIX-MCP- plus Codebase-Audit-Workflow zu fahren und daraus ein priorisiertes Strategie-Dokument zu machen. [LinkedIn](https://www.linkedin.com/in/martinmueller88/).
 
 ---
 
