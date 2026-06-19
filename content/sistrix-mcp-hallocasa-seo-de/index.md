@@ -187,3 +187,5 @@ Dieser Post geht um die **Research-Methode** — aber das Audit lieferte eine kl
 Dasselbe MCP-Setup öffnet **GEO** (Generative Engine Optimization): SISTRIX’ AI-Visibility-Tools (`ai_entity` und verwandtes Project-Tooling) erlauben eine Baseline, wie HalloCasa in KI-Antworten auftaucht, und Messung des Lifts beim Fixen von Struktur und Content. Unser erster `ai_entity`-Call lieferte 500 — Retry lohnt sich nach den Grundlagen.
 
 Ich bin Co-Founder von HalloCasa und nutze MCP auch sonst im Stack (siehe [Wie ich OpenClaw nutze](/openclaw-de) für einen anderen Blick auf Agent-Tooling). Wer Hilfe beim Verdrahten von SISTRIX MCP in Cursor oder ein ähnliches Audit auf der eigenen Domain will: [LinkedIn](https://www.linkedin.com/in/martinmueller88/).
+
+Danke an [Benedikt Rudolf](https://www.linkedin.com/in/benedikt-rudolf) von SISTRIX, dass er sich die Zeit genommen hat, mir den MCP vorzustellen — dieses Gespräch hat den Workflow angestoßen.
