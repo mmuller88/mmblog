@@ -5,11 +5,13 @@ date: "2026-06-20"
 image: "index.png"
 tags: ["eng", "2026", "mcp", "seo", "sistrix", "hallocasa", "cursor", "ai"]
 pruneLength: 50
+audio: "audio.mp3"
+gerUrl: https://martinmueller.dev/sistrix-mcp-hallocasa-seo-de
 ---
 
 I co-founded [HalloCasa](https://hallocasa.com) — a global real estate broker directory with listings, profiles, subscriptions, and courses. Organic search should be a major channel for us. But when I sat down to build an SEO strategy, I did not want to spend a day clicking through dashboards, exporting CSVs, and stitching screenshots into a doc.
 
-Instead I paired my AI **Cursor** with the **[SISTRIX MCP](https://www.sistrix.com/api/connection-to-chatbot-ai/)** and ran a full audit in one agent session: multi-market visibility baseline, ranking URLs, keyword opportunities, competitor overlap, backlink profile — cross-referenced against our Next.js codebase for canonical tags, hreflang, and sitemaps. The output was a prioritized roadmap with real numbers, not gut feel.
+Instead I paired my AI **Cursor** with the **[SISTRIX MCP](https://www.sistrix.com/api/connection-to-chatbot-ai/)** and ran a full audit in one agent session: multi-market visibility baseline, ranking URLs, keyword opportunities, competitor overlap, backlink profile — cross-referenced against our Next.js codebase for canonical tags, hreflang, and sitemaps. The output was a prioritized roadmap, not gut feel.
 
 The whole thing started with one prompt:
 
@@ -88,51 +90,31 @@ Pass **`country`** as an ISO code (`de`, `us`, `co`, `es`, `mx`, …) to audit m
 
 ## HalloCasa case study: what the data showed
 
-Research date: **2026-06-15**. Domain: **hallocasa.com**.
+Domain: **hallocasa.com**. The agent pulled SISTRIX data across our main markets (DE, US, ES, CO, MX).
 
 ### Baseline snapshot
 
-| Market | Visibility Index | Ranking keywords | Notes |
-| ------ | ---------------- | ---------------- | ----- |
-| **DE** | 0.0014 | 30 | Peak 0.0309 in Dec 2019 (~95% decline) |
-| **US** | 0 | 5 | Mostly Spanish legal-doc queries on blog |
-| **ES** | ~0 | 3 | Negligible |
-| **CO** | 0 | 0 | No keyword data |
-| **MX** | 0 | 0 | No keyword data |
+Germany is the only market with meaningful organic history — visibility has declined sharply since a peak a few years ago. The US and Spain show traces of activity (mostly blog content). Colombia and Mexico, despite being core business geography, had essentially no organic footprint at all.
 
-Germany is the only market with meaningful history. Core LatAm business markets are invisible in organic search today.
+That mismatch between business focus and search visibility was the first big insight — and only visible because we queried per country instead of treating Google as one global index.
 
 ### Where rankings actually live
 
-| URL pattern | Example keywords | Typical position |
-| ----------- | ---------------- | ---------------- |
-| `blog.hallocasa.com/de/...` | immobilien chile, immobilien medellin, investieren in kolumbien | 4–22 |
-| `hallocasa.com/profile/{id}` | Broker name queries | 5–9 |
-| `hallocasa.com/associations` | asociaciones inmobiliarias | ~19 (US) |
-| `blog.hallocasa.com/...` (ES legal) | contrato de promesa de compraventa | 11–20 |
+Almost all SEO value sits on **`blog.hallocasa.com`**, mostly German articles about LatAm real estate (Chile, Colombia, Peru, Argentina, Mexico). The **directory** (`www.hallocasa.com`) barely ranks by comparison — a handful of broker-name profile queries and little else.
 
-**Headline finding:** the **directory** (`www.hallocasa.com`) barely ranks — about **one page-1 keyword** in DE. Almost all SEO value sits on **`blog.hallocasa.com`**, mostly German articles about LatAm real estate (Chile, Colombia, Peru, Argentina, Mexico). That is a structural problem: authority is stranded on a subdomain, not flowing to broker profiles and `/brokers`.
+**Headline finding:** authority is stranded on a subdomain, not flowing to broker profiles and `/brokers`. That is a structural problem, not a content gap.
 
 ### Near-win keywords (fastest ranking upside)
 
-SISTRIX `domain_opportunities` surfaced keywords already at positions **11–22** with low competition:
-
-| Keyword | Position | Competition |
-| ------- | -------- | ----------- |
-| investieren in kolumbien | 11 | 0 |
-| auslandsimmobilien chile | 12 | 13 |
-| chile auswandern immobilien | 14 | 3 |
-| immobilien argentinien | 21–22 | 7–16 |
-
-Pushing these over the line to page 1 is lower effort than chasing new head terms. Sample volume: **auslandsimmobilien kaufen** ~800 searches/month in DE (commercial intent).
+SISTRIX `domain_opportunities` surfaced several German keywords where we already rank on page 2 — cross-border investment and expat real estate topics with relatively low competition. Pushing those over the line to page 1 is lower effort than chasing new head terms.
 
 ### Competitors (DE organic overlap)
 
-immowelt.de, properstar.de, fazwaz.de, jamesedition.com, luxuryestate.com, bluehomes.com — plus niche expat and investment sites. We are not competing on generic German portal head terms; our wedge is **cross-border / expat investor** content.
+The overlap set is a mix of large German property portals, international luxury listing sites, and niche expat/investment blogs. We are not competing on generic German portal head terms; our wedge is **cross-border / expat investor** content.
 
 ### Backlinks: mostly noise
 
-`links_list` showed a profile dominated by **SEO directory and PBN spam** (worldseodirectory, mostrankdirectory, “importance of link building” blog networks). Legitimate links were rare: partner podcasts (e.g. bestag.ch), travel sites, conference media partners. Worth a GSC audit before any disavow — Google often ignores obvious spam automatically.
+The link profile is dominated by **SEO directory and PBN spam**. Legitimate links exist but are sparse — partner podcasts, travel sites, conference media. Worth a GSC audit before any disavow; Google often ignores obvious spam automatically.
 
 ### Code cross-check: why the directory does not rank
 
@@ -163,24 +145,14 @@ From the audit we tiered actions by effort vs impact:
 
 | Action | Why |
 | ------ | --- |
-| Optimize 5 DE opportunity posts (pos 11–22) | Fastest ranking wins |
+| Optimize near-win DE blog posts | Fastest ranking wins |
 | Blog → `/blog/` subfolder consolidation | Biggest structural lift for directory |
 | Path locales + `hreflang` on apex | Required before ES/EN scale |
-| DE pillar hub (e.g. auslandsimmobilien) | Head term ~800/mo |
+| DE pillar hub for cross-border investment | Captures commercial intent cluster |
 
 **P3 — long bets**
 
-Spanish LatAm programmatic pages (CO/MX) only when broker inventory supports it — today CO/MX have **zero** ranking keywords; empty city templates would be thin-content risk.
-
-### Impact scenarios (directional, not guarantees)
-
-| Scenario | Actions | DE Visibility Index | Top-10 keywords |
-| -------- | ------- | ------------------- | --------------- |
-| Minimum | P0 only | ~0.002 | ~22 |
-| Expected | P0 + optimize posts + cross-links | 0.004–0.006 | 25–30 |
-| Stretch | P0 + all P1 | 0.008–0.012 | 32–40 |
-
-Baseline today: VI **0.0014**, ~**19** top-10 keywords, ~**30** total in DE.
+Spanish LatAm programmatic pages (CO/MX) only when broker inventory supports it — empty city templates would be thin-content risk.
 
 ---
 
@@ -204,7 +176,7 @@ We also exported a PDF from the strategy markdown (`pandoc` + headless Chrome) f
 - **Best results when the agent can read your repo too.** Rankings tell you *what* ranks; code tells you *why* fixes are hard or easy.
 - **Multi-subdomain setups need an explicit architecture decision** — consolidate (e.g. blog → `/blog/`) or cross-link heavily; do not assume authority transfers by default.
 - **Prioritize near-win keywords** before greenfield programmatic SEO or nine-locale translation sprees.
-- **Match market data to business focus.** We had ~0 visibility in CO/MX despite LatAm being core geography — that mismatch only shows up when you query per country.
+- **Match market data to business focus.** We had almost no visibility in CO/MX despite LatAm being core geography — that mismatch only shows up when you query per country.
 
 ---
 
