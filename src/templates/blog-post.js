@@ -63,6 +63,32 @@ function HeadingAnchorCopy({ contentRef, contentKey }) {
  ) : null
 }
 
+function ExternalLinks({ contentRef, contentKey, siteUrl }) {
+ useEffect(() => {
+  const root = contentRef.current
+  if (!root) return undefined
+
+  root.querySelectorAll("a:not(.heading-anchor)").forEach((a) => {
+   const href = a.getAttribute("href")
+   if (!href || href.startsWith("#")) return
+   if (href.startsWith("/") && !href.startsWith("//")) return
+
+   try {
+    const linkHost = new URL(href, siteUrl).hostname
+    const siteHost = new URL(siteUrl).hostname
+    if (linkHost === siteHost) return
+   } catch {
+    return
+   }
+
+   a.setAttribute("target", "_blank")
+   a.setAttribute("rel", "noopener noreferrer")
+  })
+ }, [contentRef, contentKey, siteUrl])
+
+ return null
+}
+
 function AudioTracker({ audioRef, timingUrl, contentRef }) {
  const [timing, setTiming] = useState(null)
  const activeIdx = useRef(-1)
@@ -147,6 +173,7 @@ function BlogPost(props) {
   faq,
   audio,
   audioTiming,
+  pdf,
  } = props.data.markdownRemark.frontmatter
  const audioUrl = audio?.publicURL
  const timingUrl = audioTiming?.publicURL
@@ -156,6 +183,14 @@ function BlogPost(props) {
 
  // Enhanced SEO data
  const content = props.data.markdownRemark.html
+ const pdfUrl = pdf?.publicURL
+ const pdfName = pdf?.base
+ const html =
+  pdfUrl && pdfName
+   ? content
+      .replaceAll(`href="${pdfName}"`, `href="${pdfUrl}"`)
+      .replaceAll(`data="${pdfName}"`, `data="${pdfUrl}"`)
+   : content
  const excerpt = props.data.markdownRemark.excerpt
  const readingTime = calculateReadingTime(content)
  const keywords = extractKeywords(content, tags, title)
@@ -277,9 +312,14 @@ function BlogPost(props) {
     <div
      ref={contentRef}
      className="blog-post-content"
-     dangerouslySetInnerHTML={{ __html: content }}
+     dangerouslySetInnerHTML={{ __html: html }}
     />
-    <HeadingAnchorCopy contentRef={contentRef} contentKey={content} />
+    <HeadingAnchorCopy contentRef={contentRef} contentKey={html} />
+    <ExternalLinks
+     contentRef={contentRef}
+     contentKey={html}
+     siteUrl={url}
+    />
     {/* <div>
      <p>
       <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
@@ -364,6 +404,10 @@ export const query = graphql`
     }
     audioTiming {
      publicURL
+    }
+    pdf {
+     publicURL
+     base
     }
    }
   }

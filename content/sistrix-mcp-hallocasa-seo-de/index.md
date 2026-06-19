@@ -1,12 +1,29 @@
 ---
 title: "Datengetriebenes SEO mit dem SISTRIX MCP: Ein HalloCasa Case Study"
-show: "yes"
+show: "no"
 date: "2026-06-20"
 image: "index.png"
 tags: ["de", "2026", "mcp", "seo", "sistrix", "hallocasa", "cursor", "ai"]
 pruneLength: 50
 audio: "audio.mp3"
+audioTiming: "audio-timing.json"
+pdf: "hallocasa-seo-strategy.pdf"
 engUrl: https://martinmueller.dev/sistrix-mcp-hallocasa-seo
+faq:
+  - q: "Was ist der SISTRIX MCP?"
+    a: "Der SISTRIX MCP ist ein offizieller Model-Context-Protocol-Server, mit dem KI-Assistenten wie Cursor Live-SISTRIX-SEO-Daten abfragen — Sichtbarkeitsindex, Keyword-Rankings, Wettbewerber-Overlap, Backlinks und mehr — direkt im Chat, statt Dashboards manuell zu exportieren."
+  - q: "Brauche ich einen API-Key, und verbraucht der MCP Credits?"
+    a: "OAuth funktioniert auf allen SISTRIX-Plänen — einloggen, kein API-Key nötig. API-Keys gehen weiter auf Plus+. Laut SISTRIX-Docs verbrauchen MCP-Requests aktuell keine API-Credits, anders als direkte REST-API-Calls."
+  - q: "Welche KI-Tools funktionieren mit dem SISTRIX MCP?"
+    a: "Jeder MCP-kompatible Client: Cursor, Claude Desktop, ChatGPT und andere. In Cursor den Server unter Settings → Tools & MCP mit Endpoint https://api.sistrix.com/mcp/ und OAuth oder API-Key eintragen."
+  - q: "Warum SISTRIX pro Land abfragen statt global?"
+    a: "Google indexiert und rankt je Markt unterschiedlich. Bei einer globalen Site wie HalloCasa verbarg eine aggregierte Sicht, dass Deutschland organische Historie hatte, Kolumbien und Mexiko — Kernmärkte — praktisch keine Sichtbarkeit. Der country-Parameter (de, us, co, es, mx, …) macht solche Diskrepanzen sichtbar."
+  - q: "Welche SISTRIX-MCP-Tools sind für ein Strategie-Audit am nützlichsten?"
+    a: "Start mit domain_visindex und domain_kwcount_seo pro Markt für die Baseline, keyword_domain_seo für rankende URLs, domain_opportunities für Near-Win-Keywords, domain_competitors_seo für Overlap und links_list für Backlink-Qualität. country als ISO-Code bei jedem Call übergeben."
+  - q: "Warum SISTRIX-Daten mit einem Codebase-Audit kombinieren?"
+    a: "Rankings sagen, was rankt; der Code erklärt, warum Fixes schwer oder leicht sind. Im HalloCasa-Audit zeigte SISTRIX Autorität auf blog.hallocasa.com, während der Agent in unserem Next.js-Repo fehlendes hreflang, ?lang=-Canonical-Kollaps und fragmentierte Subdomain-Architektur fand — Daten verbunden mit actionable Technik."
+  - q: "Was hat das HalloCasa-Audit ergeben?"
+    a: "Fast der gesamte SEO-Wert saß auf blog.hallocasa.com, nicht im Makler-Verzeichnis. Deutschland war der einzige Markt mit relevanter Sichtbarkeit; CO und MX hatten trotz Kerngeografie keine. Near-Win-DE-Keywords auf Seite 2 boten schnellen Upside. Das Backlink-Profil war meist Verzeichnis-Spam. Ergebnis: priorisierte P0–P3-Roadmap, kein Data-Dump."
 ---
 
 Ich habe [HalloCasa](https://hallocasa.com) mitgegründet — ein globales Maklerverzeichnis mit Listings, Profilen, Abos und Kursen. Organische Suche sollte für uns ein wichtiger Kanal sein. Als ich mich hinsetzte, eine SEO-Strategie zu bauen, wollte ich keinen Tag in Dashboards klicken, CSVs exportieren und Screenshots in ein Doc kleben.
@@ -170,9 +187,7 @@ Spanische LatAm-Programmatic-Pages (CO/MX) erst, wenn Makler-Bestand mitspielt �
 
 Die Agent-Session lieferte ein vollständiges Strategie-Dokument — Baseline pro Markt, Wettbewerber-Overlap, technische Findings aus unserem Next.js-Repo und eine P0–P3-Roadmap. Als PDF für Stakeholder exportiert (`pandoc` + headless Chrome aus dem Markdown in [`hallocasa-next/misc/seo`](https://github.com/hallocasacom/hallocasa-next/tree/main/misc/seo)).
 
-<object data="hallocasa-seo-strategy.pdf" type="application/pdf" width="100%" height="640">
-  <p>Dein Browser unterstützt kein eingebettetes PDF. <a href="hallocasa-seo-strategy.pdf">HalloCasa SEO-Strategie als PDF herunterladen</a>.</p>
-</object>
+[![HalloCasa SEO-Strategie — Vorschau erste Seite](hallocasa-seo-strategy-preview.png)](hallocasa-seo-strategy.pdf)
 
 <p><a href="hallocasa-seo-strategy.pdf">PDF herunterladen</a> · <a href="https://github.com/hallocasacom/hallocasa-next/blob/main/misc/seo/SEO_STRATEGY.md">Markdown-Quelle</a></p>
 

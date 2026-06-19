@@ -25,6 +25,7 @@ exports.createSchemaCustomization = ({ actions }) => {
             faq: [MarkdownRemarkFrontmatterFaq]
             audio: File @fileByRelativePath
             audioTiming: File @fileByRelativePath
+            pdf: File @fileByRelativePath
         }
         
         type MarkdownRemarkFrontmatterFaq {

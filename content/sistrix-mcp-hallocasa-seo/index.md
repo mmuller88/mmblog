@@ -1,12 +1,29 @@
 ---
 title: "Data-Driven SEO with the SISTRIX MCP: A HalloCasa Case Study"
-show: "yes"
+show: "no"
 date: "2026-06-20"
 image: "index.png"
 tags: ["eng", "2026", "mcp", "seo", "sistrix", "hallocasa", "cursor", "ai"]
 pruneLength: 50
 audio: "audio.mp3"
+audioTiming: "audio-timing.json"
+pdf: "hallocasa-seo-strategy.pdf"
 gerUrl: https://martinmueller.dev/sistrix-mcp-hallocasa-seo-de
+faq:
+  - q: "What is the SISTRIX MCP?"
+    a: "The SISTRIX MCP is an official Model Context Protocol server that lets AI assistants like Cursor query live SISTRIX SEO data — visibility index, keyword rankings, competitor overlap, backlinks, and more — directly in conversation instead of exporting dashboards manually."
+  - q: "Do I need an API key, and does the MCP use credits?"
+    a: "OAuth works on all SISTRIX plans — log in, no API key required. API keys still work on Plus+. Per SISTRIX docs, MCP requests currently do not consume API credits, unlike direct REST API calls."
+  - q: "Which AI tools work with the SISTRIX MCP?"
+    a: "Any MCP-compatible client: Cursor, Claude Desktop, ChatGPT, and others. In Cursor, add the server under Settings → Tools & MCP with endpoint https://api.sistrix.com/mcp/ and OAuth or an API key."
+  - q: "Why query SISTRIX per country instead of one global view?"
+    a: "Google indexes and ranks differently by market. For a global site like HalloCasa, a single aggregate view hid that Germany had organic history while Colombia and Mexico — core business markets — had almost zero visibility. The country parameter (de, us, co, es, mx, …) surfaces those mismatches."
+  - q: "Which SISTRIX MCP tools are most useful for a strategy audit?"
+    a: "Start with domain_visindex and domain_kwcount_seo per market for a baseline, keyword_domain_seo to see which URLs actually rank, domain_opportunities for near-win keywords, domain_competitors_seo for overlap, and links_list for backlink quality. Pass country as an ISO code on each call."
+  - q: "Why combine SISTRIX data with a codebase audit?"
+    a: "Rankings tell you what ranks; your code explains why fixes are hard or easy. In the HalloCasa audit, SISTRIX showed authority on blog.hallocasa.com while the agent reading our Next.js repo found missing hreflang, ?lang= canonical collapse, and fragmented subdomain architecture — connecting data to actionable technical work."
+  - q: "What did the HalloCasa audit find?"
+    a: "Almost all SEO value sat on blog.hallocasa.com, not the broker directory. Germany was the only market with meaningful visibility; CO and MX had none despite being core geography. Near-win German keywords on page 2 offered fast upside. The backlink profile was mostly directory spam. The output was a prioritized P0–P3 roadmap, not a data dump."
 ---
 
 I co-founded [HalloCasa](https://hallocasa.com) — a global real estate broker directory with listings, profiles, subscriptions, and courses. Organic search should be a major channel for us. But when I sat down to build an SEO strategy, I did not want to spend a day clicking through dashboards, exporting CSVs, and stitching screenshots into a doc.
@@ -170,9 +187,7 @@ Spanish LatAm programmatic pages (CO/MX) only when broker inventory supports it 
 
 The agent session produced a full strategy document — baseline by market, competitor overlap, technical findings from our Next.js repo, and a P0–P3 roadmap. We exported it as PDF for stakeholders (`pandoc` + headless Chrome from the markdown in [`hallocasa-next/misc/seo`](https://github.com/hallocasacom/hallocasa-next/tree/main/misc/seo)).
 
-<object data="hallocasa-seo-strategy.pdf" type="application/pdf" width="100%" height="640">
-  <p>Your browser does not support embedded PDFs. <a href="hallocasa-seo-strategy.pdf">Download the HalloCasa SEO strategy PDF</a>.</p>
-</object>
+[![HalloCasa SEO strategy — first page preview](hallocasa-seo-strategy-preview.png)](hallocasa-seo-strategy.pdf)
 
 <p><a href="hallocasa-seo-strategy.pdf">Download PDF</a> · <a href="https://github.com/hallocasacom/hallocasa-next/blob/main/misc/seo/SEO_STRATEGY.md">View markdown source</a></p>
 

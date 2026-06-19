@@ -154,6 +154,15 @@ function listPostDirs() {
     .map((d) => path.join(CONTENT, d.name))
 }
 
+function ensureAudioTimingFrontmatter(raw) {
+  if (/^audioTiming:/m.test(raw)) return raw
+  const updated = raw.replace(
+    /^(\s*audio:\s*["']?audio\.mp3["']?\s*)$/m,
+    '$1\naudioTiming: "audio-timing.json"'
+  )
+  return updated === raw ? raw : updated
+}
+
 async function processPost(client, postDir, force) {
   const indexMd = path.join(postDir, "index.md")
   if (!fs.existsSync(indexMd)) return { skipped: true, reason: "no index.md" }
@@ -187,6 +196,13 @@ async function processPost(client, postDir, force) {
 
   fs.writeFileSync(mp3Path, mp3)
   fs.writeFileSync(timingPath, JSON.stringify(timing))
+
+  const updatedMd = ensureAudioTimingFrontmatter(raw)
+  if (updatedMd !== raw) {
+    fs.writeFileSync(indexMd, updatedMd)
+    console.log(`[generate-audio] added audioTiming to ${path.relative(ROOT, indexMd)}`)
+  }
+
   console.log(`[generate-audio] wrote ${path.relative(ROOT, mp3Path)} + audio-timing.json`)
   return { ok: true }
 }
