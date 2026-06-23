@@ -1,7 +1,7 @@
 ---
 title: "Data-Driven SEO with the SISTRIX MCP: A HalloCasa Case Study"
-show: "no"
-date: "2026-06-20"
+show: "yes"
+date: "2026-06-23"
 image: "index.png"
 tags: ["eng", "2026", "mcp", "seo", "sistrix", "hallocasa", "cursor", "ai"]
 pruneLength: 50
