@@ -9,7 +9,7 @@ pruneLength: 50
 gerUrl: https://martinmueller.dev/openclaw-three-months-later-de
 ---
 
-In [April I wrote about OpenClaw](https://martinmueller.dev/openclaw-eng) — my self-hosted AI agent on a Hostinger VPS, wired to Telegram, email, calendar, GitHub, and [PeachBase](https://martinmueller.dev/peachbase-global-brain/) as shared memory. That post ended with a short "What's Next" list. Three months later, most of it shipped — and the setup looks less like a chatbot and more like a small ops team.
+In [April I wrote about OpenClaw](https://martinmueller.dev/openclaw-eng) — my self-hosted AI agent on a [Hostinger](https://www.hostinger.com?REFERRALCODE=MARTINMUELLER) VPS, wired to Telegram, email, calendar, GitHub, and [PeachBase](https://martinmueller.dev/peachbase-global-brain/) as shared memory. That post ended with a short "What's Next" list. Three months later, most of it shipped — and the setup looks less like a chatbot and more like a small ops team.
 
 This is what changed, what broke, and what I'd do again.
 
@@ -125,7 +125,7 @@ Manual test: ~40s, delivered to Telegram. Boring infra — until it isn't.
 
 ## 7. What I still run on a VPS (and why)
 
-I've drafted [OpenClaw on Lambda](https://github.com/openclaw/openclaw) talks (EventBridge instead of heartbeats, S3/DynamoDB state). Still on **€10/mo Hostinger Docker** because:
+I've drafted [OpenClaw on Lambda](https://github.com/openclaw/openclaw) talks (EventBridge instead of heartbeats, S3/DynamoDB state). Still on **€10/mo [Hostinger](https://www.hostinger.com?REFERRALCODE=MARTINMUELLER) Docker** because:
 
 - Persistent workspace + git clones
 - Long Cursor CLI runs without 15-minute Lambda walls

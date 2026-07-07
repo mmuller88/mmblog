@@ -1,6 +1,6 @@
 ---
 title: "OpenClaw drei Monate später: Cursor-Subagenten, MCP und die Blog-Pipeline"
-show: "yes"
+show: "no"
 date: "2026-07-07"
 image: "index.png"
 audio: "audio.mp3"
@@ -9,7 +9,7 @@ pruneLength: 50
 engUrl: https://martinmueller.dev/openclaw-three-months-later
 ---
 
-Im [April habe ich über OpenClaw geschrieben](https://martinmueller.dev/openclaw-de) — mein selbst gehosteter KI-Agent auf einem Hostinger-VPS, angebunden an Telegram, E-Mail, Kalender, GitHub und [PeachBase](https://martinmueller.dev/peachbase-global-brain/) als gemeinsames Gedächtnis. Der Post endete mit einer kurzen „What's Next“-Liste. Drei Monate später ist das meiste umgesetzt — und das Setup fühlt sich weniger wie ein Chatbot und mehr wie ein kleines Ops-Team an.
+Im [April habe ich über OpenClaw geschrieben](https://martinmueller.dev/openclaw-de) — mein selbst gehosteter KI-Agent auf einem [Hostinger](https://www.hostinger.com/de?REFERRALCODE=MARTINMUELLER)-VPS, angebunden an Telegram, E-Mail, Kalender, GitHub und [PeachBase](https://martinmueller.dev/peachbase-global-brain/) als gemeinsames Gedächtnis. Der Post endete mit einer kurzen „What's Next“-Liste. Drei Monate später ist das meiste umgesetzt — und das Setup fühlt sich weniger wie ein Chatbot und mehr wie ein kleines Ops-Team an.
 
 Was sich geändert hat, was kaputtging und was ich wieder so machen würde.
 
@@ -121,7 +121,7 @@ Manueller Test: ~40s, Telegram OK. Langweilige Infra — bis sie es nicht ist.
 
 ## 7. Noch VPS (und warum)
 
-Talk-Entwürfe zu [OpenClaw auf Lambda](https://github.com/openclaw/openclaw) existieren. Trotzdem **€10/mo Hostinger Docker**:
+Talk-Entwürfe zu [OpenClaw auf Lambda](https://github.com/openclaw/openclaw) existieren. Trotzdem **€10/mo [Hostinger](https://www.hostinger.com/de?REFERRALCODE=MARTINMUELLER) Docker**:
 
 - Persistenter Workspace + Git-Clones
 - Lange Cursor-CLI-Läufe ohne 15-Min-Lambda-Grenze

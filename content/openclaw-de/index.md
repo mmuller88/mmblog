@@ -10,7 +10,7 @@ engUrl: https://martinmueller.dev/openclaw-eng
 pruneLength: 50
 ---
 
-Ich betreibe [OpenClaw](https://openclaw.ai) seit etwa einem Monat auf einem Hostinger VPS, und es hat meine Arbeitsweise grundlegend verändert. Was als "lass mal dieses AI-Agent-Ding ausprobieren" begann, wurde zu einem leistungsstarken Assistenten, der mir jede Woche Stunden spart — von GitHub-Issue-Triage bis E-Mail-Management.
+Ich betreibe [OpenClaw](https://openclaw.ai) seit etwa einem Monat auf einem [Hostinger](https://www.hostinger.com/de?REFERRALCODE=MARTINMUELLER) VPS, und es hat meine Arbeitsweise grundlegend verändert. Was als "lass mal dieses AI-Agent-Ding ausprobieren" begann, wurde zu einem leistungsstarken Assistenten, der mir jede Woche Stunden spart — von GitHub-Issue-Triage bis E-Mail-Management.
 
 OpenClaw macht nicht alles für mich (noch nicht), aber es erledigt einen Großteil der repetitiven Arbeit, die früher meinen Tag aufgefressen hat. Hier ein tiefer Einblick in jeden Use Case, den ich bisher entdeckt habe.
 
@@ -18,7 +18,7 @@ OpenClaw macht nicht alles für mich (noch nicht), aber es erledigt einen Großt
 
 OpenClaw ist eine Open-Source-KI-Agent-Plattform, die auf der eigenen Infrastruktur läuft. Man verbindet sie mit Chat-Kanälen (Telegram, WhatsApp, Discord), gibt ihr Zugriff auf die eigenen Tools, und sie wird zu einem persistenten Assistenten, der sich Kontext über Sessions hinweg merkt. Wie ein selbst gehosteter KI-Mitarbeiter, der nie schläft.
 
-Mein Setup: Docker-Container auf einem Hostinger VPS, mit **Telegram als Hauptschnittstelle**. Die meisten Interaktionen — Sprachnachrichten, Text, Dateien — laufen über Telegram. Es fühlt sich an wie einem Kollegen zu schreiben, der nie offline geht.
+Mein Setup: Docker-Container auf einem [Hostinger](https://www.hostinger.com/de?REFERRALCODE=MARTINMUELLER) VPS, mit **Telegram als Hauptschnittstelle**. Die meisten Interaktionen — Sprachnachrichten, Text, Dateien — laufen über Telegram. Es fühlt sich an wie einem Kollegen zu schreiben, der nie offline geht.
 
 ## Use Case 1: Autonomes GitHub-Issue-Management
 

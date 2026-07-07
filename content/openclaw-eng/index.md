@@ -10,7 +10,7 @@ gerUrl: https://martinmueller.dev/openclaw-de
 pruneLength: 50
 ---
 
-I've been running [OpenClaw](https://openclaw.ai) on a Hostinger VPS for about a month now, and it has fundamentally changed how I work. What started as "let me try this AI agent thing" turned into a powerful assistant that saves me hours every week by automating routine tasks — from GitHub issue triage to email management.
+I've been running [OpenClaw](https://openclaw.ai) on a [Hostinger](https://www.hostinger.com?REFERRALCODE=MARTINMUELLER) VPS for about a month now, and it has fundamentally changed how I work. What started as "let me try this AI agent thing" turned into a powerful assistant that saves me hours every week by automating routine tasks — from GitHub issue triage to email management.
 
 OpenClaw doesn't do everything for me (yet), but it handles a lot of the repetitive work that used to eat up my day. Here's a deep dive into every use case I've discovered so far.
 
@@ -18,7 +18,7 @@ OpenClaw doesn't do everything for me (yet), but it handles a lot of the repetit
 
 OpenClaw is an open-source AI agent platform that runs on your own infrastructure. You connect it to your chat channels (Telegram, WhatsApp, Discord), give it access to your tools, and it becomes a persistent assistant that remembers context across sessions. Think of it as your own self-hosted AI employee that's always on.
 
-My setup: Docker container on a Hostinger VPS, with **Telegram as my primary interface**. Most of my interactions — voice messages, text, files — go through Telegram. It feels like texting a colleague who never sleeps.
+My setup: Docker container on a [Hostinger](https://www.hostinger.com?REFERRALCODE=MARTINMUELLER) VPS, with **Telegram as my primary interface**. Most of my interactions — voice messages, text, files — go through Telegram. It feels like texting a colleague who never sleeps.
 
 ## Use Case 1: Autonomous GitHub Issue Management
 
