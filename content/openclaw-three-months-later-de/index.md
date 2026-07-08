@@ -64,21 +64,32 @@ Planen und Coden passieren im Repo-Kontext. OpenClaw bleibt Dirigent.
 
 Opus auf jedem Heartbeat war teuer. Routing hat das gefixt.
 
+Kommentieren Stakeholder auf einen Plan, liest der Agent das Issue neu und postet **vN+1** auf GitHub — Technik unter §2, kein eigener Use Case.
+
 ---
 
-## 3. Awaiting-Feedback-Schleife (stakeholder-aware)
+## 3. Kundenrechnungen — Deutschland und USA
 
-Früherer Fehler: Plan v1 posten, „warte auf Approval“ sagen, Issue nicht mehr lesen. Stakeholder kommentieren — Plan veraltet.
+Rechnungstag war früher nervig: letztes HTML kopieren, Sätze in Mails suchen, USt-Formulierung prüfen, PDF, Upload, Begleitmail. Heute öffne ich das Telegram-Topic **`prowler`** oder **`arc-rider-universe`** und sage *nächste Rechnung vorbereiten*.
 
-Fix: **`awaitingFeedbackIssues`** in `heartbeat-state.json`. Alle ~30 Min:
+Der Agent kennt das Playbook aus `MEMORY.md` + Topic-Kontext:
 
-- Issue-Kommentare neu laden
-- Antwort von jemand anderem → **vN+1**-Plan, GitHub-Kommentar, Telegram-Ping
-- Erst dann Status melden
+| Kunde | Topic | Format | Steuer |
+| ----- | ----- | ------ | ------ |
+| **Prowler** (USA) | `prowler` | Zweisprachig DE/EN, $/h Sprints | 0% Reverse Charge (§ 3a Abs. 2 UStG) |
+| **Arc Rider** (DE) | `arc-rider-universe` | Deutsche Rechnung, Projektpauschale | 19% MwSt |
 
-Beispiel: HalloCasa-SEO [#2400](https://github.com/hallocasacom/hallocasa-next/issues/2400): v1 → v2 → v3 nach Yoast/Polylang-Feedback und WordPress-MCP-Audit.
+**Typischer Ablauf:**
 
-**Lesson:** Autonome Agenten brauchen *Poll-Loops*, keine One-Shot-Pläne.
+1. Letzte Rechnung aus Dropbox holen (`dbxcli`) — Layout-Vorlage
+2. Nummer erhöhen (`2026-prowler-4` → `2026-prowler-5`, …)
+3. Vertragsdaten: Adresse, TIN, IBAN, Steuernummer, Leistungszeitraum, Stunden oder Positionen
+4. Nur nachfragen, was fehlt (Stunden, EUR-Kurs, Ticket-Referenzen)
+5. HTML → PDF → Dropbox → E-Mail-Entwurf in `work/` — **Versand erst nach meinem OK**
+
+Prowler zweisprachig (US-Kunde); Arc Rider rein deutsch mit inländischer MwSt. Gleicher Agent, andere Regeln — weil jedes Topic das richtige Gedächtnis lädt.
+
+**Lesson:** Der ROI-stärkste Automatisierungs-Use-Case, den ich im April-Post nicht hatte. Rechnungen sind repetitiv, regellastig, fehleranfällig. Genau dafür sind persistentes Memory + Shell da.
 
 ---
 
@@ -109,25 +120,20 @@ Jedes Topic → Repo + Regeln in `MEMORY.md`. Kein Kontextwechsel in einem Threa
 
 ---
 
-## 6. Cron-Zuverlässigkeit (als der Morgenbrief ausfiel)
+## 6. CFP- und Talk-Factory
 
-`morning-email-check` um 07:00 Berlin lieferte nicht mehr. Ursache: **Gateway vs. CLI Versionsdrift** → `ERR_MODULE_NOT_FOUND`.
+Konferenzsaison hört nicht auf. Neben Kundenarbeit reiche ich bei AWS Community Days, AgentCon, CodeMotion, re:Invent ein — oft mehrere Vorschläge pro Event.
 
-Fix: `openclaw update`, Gateway-Neustart, `doctor --fix`, Morgen-Job auf **Haiku** + `lightContext` + 180s Timeout.
+OpenClaw pflegt einen `cfp/`-Ordner: eine Markdown-Datei pro Vorschlag, plus Submission-Kits mit Sessionize-Feldreihenfolge. Typischer Ablauf:
 
-Manueller Test: ~40s, Telegram OK. Langweilige Infra — bis sie es nicht ist.
+1. Sprache oder Text: *Talk zu ai-secure für Poland Community Day entwerfen*
+2. Agent zieht aus Memory (HDI/Cyquins, ai-secure-Architektur, frühere Talks), liest Struktur aus `cfp/aws-community-day-poland-2026/`
+3. Ergebnis: Titel, Abstract, Gliederung, Zielgruppe — paste-ready für Sessionize
+4. Kalender-Reminder für Deadlines (AgentCon, Rise of AI, AWS CD DACH, …)
 
----
+Polen 2026 allein: drei Vorschläge (AI Factory, ai-secure-Scanning, AWS ESC). DACH und re:Invent je fünf im Ordner. Der Agent war nicht auf den Konferenzen — aber bei jedem Kundencall und Scan, aus dem Talk-Material wurde.
 
-## 7. Noch VPS (und warum)
-
-Talk-Entwürfe zu [OpenClaw auf Lambda](https://github.com/openclaw/openclaw) existieren. Trotzdem **€10/mo [Hostinger](https://www.hostinger.com/de?REFERRALCODE=MARTINMUELLER) Docker**:
-
-- Persistenter Workspace + Git-Clones
-- Lange Cursor-CLI-Läufe ohne 15-Min-Lambda-Grenze
-- Einfache Telegram-Webhooks
-
-Serverless für Skalierung; Solo-Betrieb: VPS pragmatisch.
+**Lesson:** CFP-Schreiben = Recherche + Struktur + deine Stimme. Der Agent macht die ersten beiden; ich behalte den dritten.
 
 ---
 
@@ -135,8 +141,10 @@ Serverless für Skalierung; Solo-Betrieb: VPS pragmatisch.
 
 - **GitHub:** viele Issues triagiert; Pläne als Kommentare; mehrere PRs via OpenClaw → Cursor
 - **Blog:** 4+ substanzielle Posts mit Agent-Hilfe (EN+DE)
+- **Rechnungen:** 5+ Prowler-Sprint-Rechnungen + deutsche Kundenrechnungen — jeweils HTML/PDF/Dropbox/Mail-Entwurf
+- **CFP:** 10+ Vorschlags-Entwürfe für Polen, DACH, Mailand, re:Invent
 - **Kosten:** Modell-Routing wichtiger als Hosting
-- **Pannen:** clawhub `self-improving-agent` mehrdeutiger Slug; eine ungenehmigte Mail früh → harte „vor Versand fragen“-Regel
+- **Pannen:** clawhub `self-improving-agent` mehrdeutiger Slug; eine ungenehmigte Mail früh → harte „vor Versand fragen“-Regel; Morgen-Cron einmal wegen Gateway/CLI-Versionsdrift ausgefallen — `openclaw update` + Haiku-Job
 
 ---
 
@@ -144,15 +152,17 @@ Serverless für Skalierung; Solo-Betrieb: VPS pragmatisch.
 
 - Auto-Implement nach explizitem GitHub-Approve
 - Hetzner-MCP für Infra aus dem Chat
-- Eventuell Serverless — wenn scale-to-zero wichtiger wird als lange Shells
+- USt-Voranmeldung aus Rechnungsordner (agent-unterstützt, Steuerberater prüft)
 
 ---
 
 ## Fazit
 
-Vor drei Monaten: E-Mail + Kalender + GitHub-Pings. Heute: **Orchestrator** — Forum-Topics für Kontext, Cursor für Code, MCP für Live-Daten, Heartbeats für Stakeholder, mmblog für Content.
+Vor drei Monaten: E-Mail + Kalender + GitHub-Pings. Heute: **Orchestrator** — Forum-Topics für Kontext, Cursor für Code, MCP für Live-Daten, mmblog für Content, **Rechnungen und CFP-Entwürfe für die Business-Seite**.
 
-Wenn du OpenClaw schon nutzt: für mich die größten Hebel waren **Cursor-CLI-Plugin**, **Awaiting-Feedback-Polling** und **ein MCP pro Domäne, die du sonst manuell wiederholst**.
+Weiterhin **€10/mo [Hostinger](https://www.hostinger.com/de?REFERRALCODE=MARTINMUELLER) Docker** — pragmatisch für lange Cursor-Läufe und persistenten Workspace.
+
+Wenn du OpenClaw schon nutzt: für mich die größten Hebel waren **Cursor-CLI-Plugin**, **kundenspezifisches Memory pro Telegram-Topic** und **ein MCP pro Domäne, die du sonst manuell wiederholst**.
 
 ---
 
