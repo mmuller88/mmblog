@@ -11,6 +11,15 @@ engUrl: https://martinmueller.dev/openclaw-three-months-later
 
 Im [April habe ich über OpenClaw geschrieben](https://martinmueller.dev/openclaw-de) — mein selbst gehosteter KI-Agent auf einem [Hostinger](https://www.hostinger.com/de?REFERRALCODE=MARTINMUELLER)-VPS, angebunden an Telegram, E-Mail, Kalender, GitHub und [PeachBase](https://martinmueller.dev/peachbase-global-brain/) als gemeinsames Gedächtnis. Der Post endete mit einer kurzen „What's Next“-Liste. Drei Monate später ist das meiste umgesetzt — und das Setup fühlt sich weniger wie ein Chatbot und mehr wie ein kleines Ops-Team an.
 
+**Neu seit April:**
+
+- **Blog-Pipeline** — Sprachnachricht → recherchierter Entwurf → `mmblog` → Netlify
+- **Cursor CLI** — Opus-Pläne und Composer-PRs aus GitHub-Issues
+- **Kundenrechnungen** — zweisprachiges HTML/PDF für US- und DE-Kunden, Dropbox + Mail-Entwurf
+- **MCP-Stack** — SISTRIX, WordPress, ai-secure-Scans neben PeachBase-Gedächtnis
+- **Telegram-Forum-Topics** — ein Chat, Kontext pro Projekt (`mmblog`, `us-client`, `de-client`, …)
+- **CFP-Factory** — Konferenz-Vorschläge aus Memory + `cfp/`-Vorlagen
+
 Was sich geändert hat, was kaputtging und was ich wieder so machen würde.
 
 ---
@@ -31,7 +40,7 @@ Im ersten Post stand: OpenClaw soll Blogposts entwerfen. Passiert — mehrfach:
 | ---- | ------------------------ |
 | [Hetzner-EU-Prod-Serie](/hetzner-eu-production-de) | Recherche, EN+DE-Entwurf, Bilder |
 | [Lovable → Hetzner DACH](/lovable-hetzner-germany-de) | Gleiche Formel, echte Kundenstory |
-| [SISTRIX-MCP-SEO-Audit](/sistrix-mcp-hallocasa-seo-de) | Live-MCP-Daten, Codebase gelesen, Strategie-PDF |
+| [SISTRIX-MCP-SEO-Audit](/sistrix-mcp-hallocasa-seo-de) | Live-MCP-Daten, Kunden-Next.js-Repo gelesen, Strategie-PDF |
 
 Typischer Ablauf: Sprachnachricht → Kontext aus Memory + Repos → Markdown in `mmblog/content/` → Review → Netlify. LinkedIn-Drafts oft in derselben Session.
 
@@ -45,7 +54,7 @@ Größtes Upgrade seit April: **`@jeehou/openclaw-cursor-cli`** — OpenClaw sta
 
 **GitHub-Issue-Workflow heute:**
 
-1. Heartbeat sieht neues Issue auf `hallocasacom/hallocasa-next`
+1. Heartbeat sieht neues Issue im Produkt-Repo eines Kunden
 2. Ping auf Telegram
 3. Cursor CLI (Opus Thinking) schreibt Implementierungsplan aus dem Code
 4. Plan als **GitHub-Kommentar** — nicht im Chat versteckt
@@ -70,24 +79,24 @@ Kommentieren Stakeholder auf einen Plan, liest der Agent das Issue neu und poste
 
 ## 3. Kundenrechnungen — Deutschland und USA
 
-Rechnungstag war früher nervig: letztes HTML kopieren, Sätze in Mails suchen, USt-Formulierung prüfen, PDF, Upload, Begleitmail. Heute öffne ich das Telegram-Topic **`prowler`** oder **`arc-rider-universe`** und sage *nächste Rechnung vorbereiten*.
+Rechnungstag war früher nervig: letztes HTML kopieren, Sätze in Mails suchen, USt-Formulierung prüfen, PDF, Upload, Begleitmail. Heute öffne ich das Telegram-Topic **`us-client`** oder **`de-client`** und sage *nächste Rechnung vorbereiten*.
 
 Der Agent kennt das Playbook aus `MEMORY.md` + Topic-Kontext:
 
 | Kunde | Topic | Format | Steuer |
 | ----- | ----- | ------ | ------ |
-| **Prowler** (USA) | `prowler` | Zweisprachig DE/EN, $/h Sprints | 0% Reverse Charge (§ 3a Abs. 2 UStG) |
-| **Arc Rider** (DE) | `arc-rider-universe` | Deutsche Rechnung, Projektpauschale | 19% MwSt |
+| **US-SaaS-Kunde** | `us-client` | Zweisprachig DE/EN, $/h Sprints | 0% Reverse Charge (§ 3a Abs. 2 UStG) |
+| **Deutsches Startup** | `de-client` | Deutsche Rechnung, Projektpauschale | 19% MwSt |
 
 **Typischer Ablauf:**
 
 1. Letzte Rechnung aus Dropbox holen (`dbxcli`) — Layout-Vorlage
-2. Nummer erhöhen (`2026-prowler-4` → `2026-prowler-5`, …)
+2. Nummer erhöhen (`2026-004` → `2026-005`, …)
 3. Vertragsdaten: Adresse, TIN, IBAN, Steuernummer, Leistungszeitraum, Stunden oder Positionen
 4. Nur nachfragen, was fehlt (Stunden, EUR-Kurs, Ticket-Referenzen)
 5. HTML → PDF → Dropbox → E-Mail-Entwurf in `work/` — **Versand erst nach meinem OK**
 
-Prowler zweisprachig (US-Kunde); Arc Rider rein deutsch mit inländischer MwSt. Gleicher Agent, andere Regeln — weil jedes Topic das richtige Gedächtnis lädt.
+US-Kunde zweisprachig; deutscher Kunde rein deutsch mit inländischer MwSt. Gleicher Agent, andere Regeln — weil jedes Topic das richtige Gedächtnis lädt.
 
 **Lesson:** Der ROI-stärkste Automatisierungs-Use-Case, den ich im April-Post nicht hatte. Rechnungen sind repetitiv, regellastig, fehleranfällig. Genau dafür sind persistentes Memory + Shell da.
 
@@ -101,18 +110,18 @@ April: PeachBase + Basics. Juli: kleiner Stack via **mcporter**:
 | --- | ------- |
 | **PeachBase** | Langzeitgedächtnis für Cursor, OpenClaw, ChatGPT |
 | **SISTRIX** | Live-SEO, Keywords, Wettbewerb → Strategie |
-| **WordPress** | `blog.hallocasa.com` auditieren, Kategorien, Drafts |
+| **WordPress** | Kunden-Blog auditieren, Kategorien, Drafts |
 | **ai-secure** | ISO27001/NIST/SOC2/COBIT-Scans, PDF-Reports |
 
 Muster: ein Telegram-Prompt, Agent ruft MCP + liest Code, Ergebnis ist datiertes Artefakt (Markdown, PDF, Issue-Kommentar).
 
-Den SISTRIX-Workflow habe ich [hier](/sistrix-mcp-hallocasa-seo-de) beschrieben. WordPress + SEO-Dashboard laufen weiter — OpenClaw verbindet Produkt, Content und Infra-Repos.
+Den SISTRIX-Workflow habe ich [hier](/sistrix-mcp-hallocasa-seo-de) beschrieben. WordPress + SEO-Dashboard laufen bei dem Kunden weiter — OpenClaw verbindet Produkt, Content und Infra-Repos.
 
 ---
 
 ## 5. Telegram-Forum-Topics = Projekt-Switcher
 
-Ein Gruppenchat, viele **Topics**: `mmblog`, `hallocasa`, `ai-secure`, `arc-rider-universe`, `prowler`, …
+Ein Gruppenchat, viele **Topics**: `mmblog`, `us-client`, `de-client`, `ai-secure`, …
 
 Jedes Topic → Repo + Regeln in `MEMORY.md`. Kein Kontextwechsel in einem Thread — Topic öffnen, Agent weiß Bescheid.
 
@@ -127,7 +136,7 @@ Konferenzsaison hört nicht auf. Neben Kundenarbeit reiche ich bei AWS Community
 OpenClaw pflegt einen `cfp/`-Ordner: eine Markdown-Datei pro Vorschlag, plus Submission-Kits mit Sessionize-Feldreihenfolge. Typischer Ablauf:
 
 1. Sprache oder Text: *Talk zu ai-secure für Poland Community Day entwerfen*
-2. Agent zieht aus Memory (HDI/Cyquins, ai-secure-Architektur, frühere Talks), liest Struktur aus `cfp/aws-community-day-poland-2026/`
+2. Agent zieht aus Memory (Versicherungs-/Regulierungsprojekte, ai-secure-Architektur, frühere Talks), liest Struktur aus `cfp/aws-community-day-poland-2026/`
 3. Ergebnis: Titel, Abstract, Gliederung, Zielgruppe — paste-ready für Sessionize
 4. Kalender-Reminder für Deadlines (AgentCon, Rise of AI, AWS CD DACH, …)
 
@@ -141,7 +150,7 @@ Polen 2026 allein: drei Vorschläge (AI Factory, ai-secure-Scanning, AWS ESC). D
 
 - **GitHub:** viele Issues triagiert; Pläne als Kommentare; mehrere PRs via OpenClaw → Cursor
 - **Blog:** 4+ substanzielle Posts mit Agent-Hilfe (EN+DE)
-- **Rechnungen:** 5+ Prowler-Sprint-Rechnungen + deutsche Kundenrechnungen — jeweils HTML/PDF/Dropbox/Mail-Entwurf
+- **Rechnungen:** 5+ US-Sprint-Rechnungen + deutsche Kundenrechnungen — jeweils HTML/PDF/Dropbox/Mail-Entwurf
 - **CFP:** 10+ Vorschlags-Entwürfe für Polen, DACH, Mailand, re:Invent
 - **Kosten:** Modell-Routing wichtiger als Hosting
 - **Pannen:** clawhub `self-improving-agent` mehrdeutiger Slug; eine ungenehmigte Mail früh → harte „vor Versand fragen“-Regel; Morgen-Cron einmal wegen Gateway/CLI-Versionsdrift ausgefallen — `openclaw update` + Haiku-Job
