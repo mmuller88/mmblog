@@ -105,7 +105,7 @@ function AudioTracker({ audioRef, timingUrl, contentRef }) {
   if (!contentRef.current) return []
   return Array.from(
    contentRef.current.querySelectorAll(
-    ":scope > p, :scope > h1, :scope > h2, :scope > h3, :scope > h4, :scope > ul, :scope > ol, :scope > blockquote, :scope > pre"
+    ":scope > p, :scope > h1, :scope > h2, :scope > h3, :scope > h4, :scope > ul, :scope > ol, :scope > table, :scope > blockquote, :scope > pre"
    )
   )
  }, [contentRef])

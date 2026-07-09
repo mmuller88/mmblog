@@ -8,8 +8,8 @@
 const fs = require("fs")
 const path = require("path")
 const matter = require("gray-matter")
-const removeMarkdown = require("remove-markdown")
 const tts = require("@google-cloud/text-to-speech")
+const { extractAudioBlocks } = require("./audio-blocks")
 
 const ROOT = path.join(__dirname, "..")
 const CONTENT = path.join(ROOT, "content")
@@ -46,14 +46,6 @@ function escapeXml(s) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&apos;")
-}
-
-function splitParagraphs(markdownBody) {
-  const plain = removeMarkdown(markdownBody, { stripListLeaders: false })
-  return plain
-    .split(/\n{2,}/)
-    .map((p) => p.replace(/\n/g, " ").trim())
-    .filter(Boolean)
 }
 
 /**
@@ -180,7 +172,7 @@ async function processPost(client, postDir, force) {
     return { skipped: true, reason: "exists" }
   }
 
-  const paragraphs = splitParagraphs(body)
+  const paragraphs = extractAudioBlocks(body)
   if (!paragraphs.length) {
     console.warn(`[generate-audio] empty text after strip: ${postDir}`)
     return { skipped: true, reason: "empty" }
