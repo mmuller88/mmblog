@@ -1,5 +1,5 @@
 ---
-title: "OpenClaw drei Monate später: Cursor-Subagenten, MCP und die Blog-Pipeline"
+title: "OpenClaw drei Monate später: Was wirklich gelandet ist"
 show: "no"
 date: "2026-07-07"
 image: "index.png"
@@ -9,16 +9,16 @@ pruneLength: 50
 engUrl: https://martinmueller.dev/openclaw-three-months-later
 ---
 
-Im [April habe ich über OpenClaw geschrieben](https://martinmueller.dev/openclaw-de) — mein selbst gehosteter KI-Agent auf einem [Hostinger](https://www.hostinger.com/de?REFERRALCODE=MARTINMUELLER)-VPS, angebunden an Telegram, E-Mail, Kalender, GitHub und [PeachBase](https://martinmueller.dev/peachbase-global-brain/) als gemeinsames Gedächtnis. Der Post endete mit einer kurzen „What's Next“-Liste. Drei Monate später ist das meiste umgesetzt — und das Setup fühlt sich weniger wie ein Chatbot und mehr wie ein kleines Ops-Team an.
+Im [April habe ich über OpenClaw geschrieben](https://martinmueller.dev/openclaw-de) — mein selbst gehosteter KI-Agent auf einem [Hostinger](https://www.hostinger.com/de?REFERRALCODE=MARTINMUELLER)-VPS, angebunden an Telegram, E-Mail, Kalender und GitHub. Der Post endete mit einer kurzen „What's Next“-Liste. Drei Monate später ist das meiste umgesetzt — und das Setup fühlt sich weniger wie ein Chatbot und mehr wie ein kleines Ops-Team an.
 
 **Neu seit April:**
 
-- **Blog-Pipeline** — Sprachnachricht → recherchierter Entwurf → `mmblog` → Netlify
-- **Cursor CLI** — Opus-Pläne und Composer-PRs aus GitHub-Issues
-- **Kundenrechnungen** — zweisprachiges HTML/PDF für US- und DE-Kunden, Dropbox + Mail-Entwurf
-- **MCP-Stack** — SISTRIX, WordPress, ai-secure-Scans neben PeachBase-Gedächtnis
-- **Telegram-Forum-Topics** — ein Chat, Kontext pro Projekt (`mmblog`, `us-client`, `de-client`, …)
-- **CFP-Factory** — Konferenz-Vorschläge aus Memory + `cfp/`-Vorlagen
+- **Blogposts** — Sprachnachricht rein, recherchierter Entwurf raus, auf der Site veröffentlicht
+- **Code aus GitHub-Issues** — Agent plant, ich approve, PR kommt
+- **Rechnungen** — zweisprachige PDFs für US- und DE-Kunden, Mail-Entwurf fertig
+- **SEO & Compliance** — Live-Daten und Reports ohne fünf Tools anklicken
+- **Ein Telegram-Chat, viele Projekte** — Topics trennen den Kontext
+- **Konferenz-Vorschläge** — Talk-Entwürfe aus Memory, nicht von null
 
 Was sich geändert hat, was kaputtging und was ich wieder so machen würde.
 
@@ -26,152 +26,112 @@ Was sich geändert hat, was kaputtging und was ich wieder so machen würde.
 
 ## Kurz zusammengefasst
 
-OpenClaw = persistenter Agent + Tools + Memory-Dateien (`MEMORY.md`, Tagesnotizen, Heartbeats). Ich rede vor allem per **Telegram** (oft Sprachnachricht). Shell, Repos, E-Mail-Entwürfe, GitHub — Versand nur nach meinem OK.
+OpenClaw ist ein persistenter Assistent mit Gedächtnis. Ich rede vor allem per **Telegram** — oft per Sprachnachricht. Er kann Aufgaben ausführen, Repos lesen, E-Mails entwerfen, GitHub prüfen. Versand nur nach meinem OK.
 
-Das gilt noch. Alles Folgende kommt obendrauf.
+Alles Folgende baut darauf auf.
 
 ---
 
-## 1. Blog-Automatisierung — vom Versprechen zur Pipeline
+## 1. Blogposts — von der Idee bis live
 
-Im ersten Post stand: OpenClaw soll Blogposts entwerfen. Passiert — mehrfach:
+Im April-Post stand: Blogposts entwerfen. Passiert — mehrfach:
 
-| Post | Was OpenClaw gemacht hat |
-| ---- | ------------------------ |
+| Post | Was der Agent gemacht hat |
+| ---- | ------------------------- |
 | [Hetzner-EU-Prod-Serie](/hetzner-eu-production-de) | Recherche, EN+DE-Entwurf, Bilder |
 | [Lovable → Hetzner DACH](/lovable-hetzner-germany-de) | Gleiche Formel, echte Kundenstory |
-| [SISTRIX-MCP-SEO-Audit](/sistrix-mcp-hallocasa-seo-de) | Live-MCP-Daten, Kunden-Next.js-Repo gelesen, Strategie-PDF |
+| [SISTRIX-MCP-SEO-Audit](/sistrix-mcp-hallocasa-seo-de) | Live-SEO-Daten, Kunden-Code gelesen, Strategie-PDF |
 
-Typischer Ablauf: Sprachnachricht → Kontext aus Memory + Repos → Markdown in `mmblog/content/` → Review → Netlify. LinkedIn-Drafts oft in derselben Session.
+Typischer Ablauf: Sprachnachricht → Kontext aus Notizen und Repos → Markdown-Entwurf → ich kürze und prüfe den Ton → veröffentlichen.
 
-**Lesson:** Der Agent kann *Erstentwürfe mit echten Daten*. Mein Job: Ton, Fakten, „würde ich das unter meinem Namen posten?“
+**Lesson:** Stark bei Erstentwürfen mit echten Daten. Mein Job: „Würde ich das unter meinem Namen posten?“
 
 ---
 
-## 2. Cursor CLI als Subunternehmer
+## 2. GitHub-Issues → Plan → PR
 
-Größtes Upgrade seit April: **`@jeehou/openclaw-cursor-cli`** — OpenClaw startet [Cursor CLI](https://cursor.com) (`agent --print --trust --yolo`) im ausgecheckten Repo.
+Größtes Upgrade: OpenClaw kann Coding an [Cursor](https://cursor.com) im echten Repo abgeben.
 
-**GitHub-Issue-Workflow heute:**
+**Heute:**
 
-1. Heartbeat sieht neues Issue im Produkt-Repo eines Kunden
+1. Neues Issue im Produkt-Repo eines Kunden
 2. Ping auf Telegram
-3. Cursor CLI (Opus Thinking) schreibt Implementierungsplan aus dem Code
-4. Plan als **GitHub-Kommentar** — nicht im Chat versteckt
-5. Ich approve → Composer implementiert → PR
+3. Agent schreibt Implementierungsplan aus dem Code
+4. Plan als **GitHub-Kommentar** — für das Team sichtbar, nicht im Chat versteckt
+5. Ich approve → Code wird geschrieben → PR
 
-Planen und Coden passieren im Repo-Kontext. OpenClaw bleibt Dirigent.
+Kleine Checks laufen auf dem günstigen Modell; Planung und Code nur, wenn es sich lohnt.
 
-**Model-Split, der funktioniert:**
-
-| Aufgabe | Modell |
-| ------- | ------ |
-| Heartbeats, Morgen-Mail | Haiku + `lightContext` |
-| Chat / Triage | Sonnet |
-| Pläne | Opus via Cursor CLI |
-| Implementierung | Composer |
-
-Opus auf jedem Heartbeat war teuer. Routing hat das gefixt.
-
-Kommentieren Stakeholder auf einen Plan, liest der Agent das Issue neu und postet **vN+1** auf GitHub — Technik unter §2, kein eigener Use Case.
+**Lesson:** Plan im Repo und auf GitHub halten. Telegram für Pings und Entscheidungen.
 
 ---
 
-## 3. Kundenrechnungen — Deutschland und USA
+## 3. Rechnungen — die langweilige Arbeit
 
-Rechnungstag war früher nervig: letztes HTML kopieren, Sätze in Mails suchen, USt-Formulierung prüfen, PDF, Upload, Begleitmail. Heute öffne ich das Telegram-Topic **`us-client`** oder **`de-client`** und sage *nächste Rechnung vorbereiten*.
+Rechnungstag war früher: HTML kopieren, Sätze suchen, USt-Formulierung prüfen, PDF, Upload, Begleitmail. Heute öffne ich das richtige Telegram-Topic und sage *nächste Rechnung vorbereiten*.
 
-Der Agent kennt das Playbook aus `MEMORY.md` + Topic-Kontext:
+Der Agent kennt die Regeln pro Kunde — US vs. deutsch, Währung, MwSt, Layout. Letzte Rechnung als Vorlage, Nummer hoch, Zeitraum und Positionen eintragen, nur nachfragen was fehlt. Ergebnis: PDF in Dropbox, Mail-Entwurf wartet — **Versand erst nach meinem OK**.
 
-| Kunde | Topic | Format | Steuer |
-| ----- | ----- | ------ | ------ |
-| **US-SaaS-Kunde** | `us-client` | Zweisprachig DE/EN, $/h Sprints | 0% Reverse Charge (§ 3a Abs. 2 UStG) |
-| **Deutsches Startup** | `de-client` | Deutsche Rechnung, Projektpauschale | 19% MwSt |
-
-**Typischer Ablauf:**
-
-1. Letzte Rechnung aus Dropbox holen (`dbxcli`) — Layout-Vorlage
-2. Nummer erhöhen (`2026-004` → `2026-005`, …)
-3. Vertragsdaten: Adresse, TIN, IBAN, Steuernummer, Leistungszeitraum, Stunden oder Positionen
-4. Nur nachfragen, was fehlt (Stunden, EUR-Kurs, Ticket-Referenzen)
-5. HTML → PDF → Dropbox → E-Mail-Entwurf in `work/` — **Versand erst nach meinem OK**
-
-US-Kunde zweisprachig; deutscher Kunde rein deutsch mit inländischer MwSt. Gleicher Agent, andere Regeln — weil jedes Topic das richtige Gedächtnis lädt.
-
-**Lesson:** Der ROI-stärkste Automatisierungs-Use-Case, den ich im April-Post nicht hatte. Rechnungen sind repetitiv, regellastig, fehleranfällig. Genau dafür sind persistentes Memory + Shell da.
+**Lesson:** Der ROI-stärkste Use Case aus den letzten drei Monaten. Repetitiv, regellastig, fehleranfällig. Genau dafür ein Agent mit Gedächtnis.
 
 ---
 
-## 4. MCP-Menü — SEO, WordPress, Compliance
+## 4. SEO, WordPress, Compliance — ein Prompt, ein Ergebnis
 
-April: PeachBase + Basics. Juli: kleiner Stack via **mcporter**:
+April: Basis-Gedächtnis und wenige Tools. Juli: Der Agent spricht mit Diensten, die ich wöchentlich brauche — SEO-Daten, Kunden-WordPress, Security-Scan-Reports.
 
-| MCP | Einsatz |
-| --- | ------- |
-| **PeachBase** | Langzeitgedächtnis für Cursor, OpenClaw, ChatGPT |
-| **SISTRIX** | Live-SEO, Keywords, Wettbewerb → Strategie |
-| **WordPress** | Kunden-Blog auditieren, Kategorien, Drafts |
-| **ai-secure** | ISO27001/NIST/SOC2/COBIT-Scans, PDF-Reports |
+Immer gleiches Muster: eine Telegram-Nachricht, Agent kombiniert Live-Daten + Code-Kontext, ich bekomme ein datiertes Ergebnis (Markdown, PDF oder Issue-Kommentar). Den SEO-Workflow habe ich [hier](/sistrix-mcp-hallocasa-seo-de) beschrieben.
 
-Muster: ein Telegram-Prompt, Agent ruft MCP + liest Code, Ergebnis ist datiertes Artefakt (Markdown, PDF, Issue-Kommentar).
-
-Den SISTRIX-Workflow habe ich [hier](/sistrix-mcp-hallocasa-seo-de) beschrieben. WordPress + SEO-Dashboard laufen bei dem Kunden weiter — OpenClaw verbindet Produkt, Content und Infra-Repos.
+**Lesson:** Eine Integration pro Aufgabe, die du monatlich manuell wiederholst. Nicht am ersten Tag alles verdrahten.
 
 ---
 
-## 5. Telegram-Forum-Topics = Projekt-Switcher
+## 5. Telegram-Topics = Projekt-Switcher
 
-Ein Gruppenchat, viele **Topics**: `mmblog`, `us-client`, `de-client`, `ai-secure`, …
+Ein Gruppenchat, viele **Topics** — Blog, US-Kunde, DE-Kunde, Nebenprojekte.
 
-Jedes Topic → Repo + Regeln in `MEMORY.md`. Kein Kontextwechsel in einem Thread — Topic öffnen, Agent weiß Bescheid.
+Jedes Topic lädt den passenden Kontext: welches Repo, welcher Ton, welche Regeln. Kein Rechnungsgespräch im Blog-Thread.
 
-**Ops:** OpenClaw **2026.5.4** hat `messages.groupChat.visibleReplies` gefixt — Antworten in Forum-Topics wurden auf älteren Builds verschluckt.
+**Lesson:** Wenn der Bot in der Gruppe schweigt — aktuelle OpenClaw-Version prüfen. Forum-Topics hatten einen Reply-Bug, der inzwischen gefixt ist.
 
 ---
 
-## 6. CFP- und Talk-Factory
+## 6. Konferenz-Talk-Entwürfe
 
-Konferenzsaison hört nicht auf. Neben Kundenarbeit reiche ich bei AWS Community Days, AgentCon, CodeMotion, re:Invent ein — oft mehrere Vorschläge pro Event.
+Neben Kundenarbeit reiche ich bei AWS Community Days, AgentCon, CodeMotion, re:Invent ein. Der Agent hält Vorschlags-Entwürfe in einem Ordner und kennt das Submission-Format.
 
-OpenClaw pflegt einen `cfp/`-Ordner: eine Markdown-Datei pro Vorschlag, plus Submission-Kits mit Sessionize-Feldreihenfolge. Typischer Ablauf:
+Typischer Ablauf: *Talk zu Security-Scanning für Poland Community Day entwerfen* → Agent zieht aus früheren Projekten und Talks → Titel, Abstract, Gliederung paste-ready → Kalender-Reminder für die Deadline.
 
-1. Sprache oder Text: *Talk zu ai-secure für Poland Community Day entwerfen*
-2. Agent zieht aus Memory (Versicherungs-/Regulierungsprojekte, ai-secure-Architektur, frühere Talks), liest Struktur aus `cfp/aws-community-day-poland-2026/`
-3. Ergebnis: Titel, Abstract, Gliederung, Zielgruppe — paste-ready für Sessionize
-4. Kalender-Reminder für Deadlines (AgentCon, Rise of AI, AWS CD DACH, …)
-
-Polen 2026 allein: drei Vorschläge (AI Factory, ai-secure-Scanning, AWS ESC). DACH und re:Invent je fünf im Ordner. Der Agent war nicht auf den Konferenzen — aber bei jedem Kundencall und Scan, aus dem Talk-Material wurde.
-
-**Lesson:** CFP-Schreiben = Recherche + Struktur + deine Stimme. Der Agent macht die ersten beiden; ich behalte den dritten.
+**Lesson:** CFP = Recherche + Struktur + deine Stimme. Der Agent macht die ersten beiden.
 
 ---
 
 ## Zahlen (grob, drei Monate)
 
-- **GitHub:** viele Issues triagiert; Pläne als Kommentare; mehrere PRs via OpenClaw → Cursor
+- **GitHub:** viele Issues triagiert; mehrere Fixes via Agent → Cursor → PR
 - **Blog:** 4+ substanzielle Posts mit Agent-Hilfe (EN+DE)
-- **Rechnungen:** 5+ US-Sprint-Rechnungen + deutsche Kundenrechnungen — jeweils HTML/PDF/Dropbox/Mail-Entwurf
+- **Rechnungen:** 5+ US-Sprint-Rechnungen + deutsche Kundenrechnungen — jeweils PDF + Mail-Entwurf
 - **CFP:** 10+ Vorschlags-Entwürfe für Polen, DACH, Mailand, re:Invent
-- **Kosten:** Modell-Routing wichtiger als Hosting
-- **Pannen:** clawhub `self-improving-agent` mehrdeutiger Slug; eine ungenehmigte Mail früh → harte „vor Versand fragen“-Regel; Morgen-Cron einmal wegen Gateway/CLI-Versionsdrift ausgefallen — `openclaw update` + Haiku-Job
+- **Kosten:** richtiges Modell pro Aufgabe wichtiger als VPS-Hosting
+- **Pannen:** eine Mail zu früh raus → harte „vor Versand fragen“-Regel; Morgen-Briefing einmal nach Update kaputt — mit Versions-Update und günstigerem Cron-Job gefixt
 
 ---
 
 ## Was als Nächstes kommt
 
 - Auto-Implement nach explizitem GitHub-Approve
-- Hetzner-MCP für Infra aus dem Chat
-- USt-Voranmeldung aus Rechnungsordner (agent-unterstützt, Steuerberater prüft)
+- Infra aus dem Chat (Hetzner in Arbeit)
+- USt-Voranmeldung aus Rechnungsordner — agent-unterstützt, Steuerberater prüft
 
 ---
 
 ## Fazit
 
-Vor drei Monaten: E-Mail + Kalender + GitHub-Pings. Heute: **Orchestrator** — Forum-Topics für Kontext, Cursor für Code, MCP für Live-Daten, mmblog für Content, **Rechnungen und CFP-Entwürfe für die Business-Seite**.
+Vor drei Monaten: E-Mail, Kalender, GitHub-Pings. Heute: **Orchestrator** — Topics für Kontext, Cursor für Code, Live-Integrationen für Daten, Blog für Content, Rechnungen und Talk-Entwürfe für die Business-Seite.
 
-Weiterhin **€10/mo [Hostinger](https://www.hostinger.com/de?REFERRALCODE=MARTINMUELLER) Docker** — pragmatisch für lange Cursor-Läufe und persistenten Workspace.
+Weiterhin **€10/mo [Hostinger](https://www.hostinger.com/de?REFERRALCODE=MARTINMUELLER) Docker**.
 
-Wenn du OpenClaw schon nutzt: für mich die größten Hebel waren **Cursor-CLI-Plugin**, **kundenspezifisches Memory pro Telegram-Topic** und **ein MCP pro Domäne, die du sonst manuell wiederholst**.
+Wenn du OpenClaw schon nutzt: für mich die größten Hebel — **Coding an Cursor abgeben**, **ein Telegram-Topic pro Kunde/Projekt**, **eine Integration pro repetitiver manueller Aufgabe**.
 
 ---
 
@@ -181,4 +141,4 @@ Links:
 - [SISTRIX-MCP-Fallstudie](/sistrix-mcp-hallocasa-seo-de)
 - [OpenClaw](https://openclaw.ai) · [GitHub](https://github.com/openclaw/openclaw)
 
-Fragen oder Hilfe beim Setup (Telegram-Topics, MCP, Cursor CLI, Heartbeats)? [office@martinmueller.dev](mailto:office@martinmueller.dev) oder [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev).
+Fragen oder Hilfe beim Setup? [office@martinmueller.dev](mailto:office@martinmueller.dev) oder [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev).

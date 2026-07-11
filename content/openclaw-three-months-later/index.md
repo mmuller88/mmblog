@@ -1,5 +1,5 @@
 ---
-title: "OpenClaw, Three Months Later: Cursor Subagents, MCP, and the Blog Pipeline"
+title: "OpenClaw, Three Months Later: What Actually Shipped"
 show: "yes"
 date: "2026-07-07"
 image: "index.png"
@@ -9,169 +9,129 @@ pruneLength: 50
 gerUrl: https://martinmueller.dev/openclaw-three-months-later-de
 ---
 
-In [April I wrote about OpenClaw](https://martinmueller.dev/openclaw-eng) — my self-hosted AI agent on a [Hostinger](https://www.hostinger.com?REFERRALCODE=MARTINMUELLER) VPS, wired to Telegram, email, calendar, GitHub, and [PeachBase](https://martinmueller.dev/peachbase-global-brain/) as shared memory. That post ended with a short "What's Next" list. Three months later, most of it shipped — and the setup looks less like a chatbot and more like a small ops team.
+In [April I wrote about OpenClaw](https://martinmueller.dev/openclaw-eng) — my self-hosted AI agent on a [Hostinger](https://www.hostinger.com?REFERRALCODE=MARTINMUELLER) VPS, wired to Telegram, email, calendar, and GitHub. That post ended with a short "What's Next" list. Three months later, most of it shipped — and the setup feels less like a chatbot and more like a small ops team.
 
 **What's new since April:**
 
-- **Blog pipeline** — voice note → researched draft → `mmblog` → Netlify
-- **Cursor CLI** — Opus plans and Composer PRs from GitHub issues
-- **Client invoicing** — bilingual HTML/PDF for US and German clients, Dropbox + email draft
-- **MCP stack** — SISTRIX, WordPress, ai-secure scans alongside PeachBase memory
-- **Telegram forum topics** — one chat, per-project context (`mmblog`, `us-client`, `de-client`, …)
-- **CFP factory** — conference proposals from memory + `cfp/` templates
+- **Blog posts** — voice note in, researched draft out, published on my site
+- **Code from GitHub issues** — agent plans, I approve, PR lands
+- **Invoices** — bilingual PDFs for US and German clients, email draft ready to send
+- **SEO & compliance work** — live data pulls and reports without me clicking through five tools
+- **One Telegram chat, many projects** — separate topics so context doesn't mix
+- **Conference proposals** — talk drafts from memory, not from a blank page
 
-This is what changed, what broke, and what I'd do again.
+Below: what changed, what broke, and what I'd do again.
 
 ---
 
 ## Quick recap
 
-OpenClaw = persistent agent + tools + memory files (`MEMORY.md`, daily notes, heartbeats). I talk to it on **Telegram** (mostly voice). It runs shell, reads repos, drafts email, checks GitHub, and only sends mail after I approve.
+OpenClaw is a persistent assistant with memory. I talk to it on **Telegram** — often by voice. It can run tasks, read my repos, draft email, and check GitHub. It only sends mail after I say yes.
 
-Still true. Everything below is additive.
-
----
-
-## 1. Blog automation — from promise to pipeline
-
-The original post said I'd use OpenClaw to draft blog posts. That happened — repeatedly:
-
-| Post | What OpenClaw did |
-| ---- | ----------------- |
-| [Hetzner EU production series](/hetzner-eu-production) | Researched stack, drafted EN+DE, coordinated images |
-| [Lovable → Hetzner DACH](/lovable-hetzner-germany) | Same formula; tied to a real client story |
-| [SISTRIX MCP SEO audit](/sistrix-mcp-hallocasa-seo) | Ran live MCP pulls, read the client's Next.js repo, exported strategy PDF |
-
-Typical flow: voice note on Telegram → agent gathers context from memory + repos → markdown in `mmblog/content/` → I review → push to Netlify. LinkedIn drafts often come in the same session.
-
-**Lesson:** The agent is good at *first drafts with real data*. My job is tone, accuracy, and "would I post this under my name?"
+Everything below builds on that.
 
 ---
 
-## 2. Cursor CLI as subcontractor
+## 1. Blog posts — from idea to publish
 
-The biggest upgrade since April: **`@jeehou/openclaw-cursor-cli`** — OpenClaw can spawn [Cursor CLI](https://cursor.com) (`agent --print --trust --yolo`) against a checked-out repo.
+The April post promised blog drafting. That happened — repeatedly:
 
-**GitHub issue workflow today:**
+| Post | What the agent did |
+| ---- | ------------------ |
+| [Hetzner EU production series](/hetzner-eu-production) | Researched the stack, drafted EN+DE, coordinated images |
+| [Lovable → Hetzner DACH](/lovable-hetzner-germany) | Same pattern, tied to a real client story |
+| [SISTRIX MCP SEO audit](/sistrix-mcp-hallocasa-seo) | Pulled live SEO data, read the client's site code, exported a strategy PDF |
 
-1. Heartbeat sees new issue on a client's product repo
-2. OpenClaw notifies me on Telegram
-3. Cursor CLI (Opus thinking) writes an implementation plan from the codebase
-4. Plan posted as **GitHub issue comment** — not buried in chat
-5. I approve → Composer implements → PR
+Typical flow: voice note → agent gathers context from past notes and repos → markdown draft → I edit for tone and accuracy → publish.
 
-Planning and coding happen in the repo context, not in the Telegram window. OpenClaw stays orchestrator.
-
-**Model split that works:**
-
-| Task | Model |
-| ---- | ----- |
-| Heartbeats, morning inbox | Haiku + `lightContext` |
-| Chat / triage | Sonnet |
-| Plans | Opus via Cursor CLI |
-| Implementation | Composer |
-
-Burning Opus on every heartbeat was expensive. Routing fixed that.
-
-When stakeholders comment on a plan, the agent re-reads the issue and posts **vN+1** on GitHub — plumbing under §2, not a headline use case.
+**Lesson:** Great at first drafts with real data. My job is "would I post this under my name?"
 
 ---
 
-## 3. Client invoicing — Germany and the US
+## 2. GitHub issues → plans → PRs
 
-I used to dread invoice day. Copy last month's HTML, hunt for rates in email, second-guess VAT wording, export PDF, upload, draft the cover email. Now I open the **`us-client`** or **`de-client`** Telegram topic and say *prepare the next invoice*.
+The biggest upgrade: OpenClaw can hand off coding work to [Cursor](https://cursor.com) in the actual repo.
 
-The agent already knows the playbook from `MEMORY.md` + topic context:
+**Today:**
 
-| Client | Topic | Format | Tax |
-| ------ | ----- | ------ | --- |
-| **US SaaS client** | `us-client` | Bilingual DE/EN, $/hr sprints | 0% reverse charge (§ 3a Abs. 2 UStG) |
-| **German startup** | `de-client` | German Rechnung, fixed project fee | 19% MwSt |
+1. New issue on a client's product repo
+2. I get a Telegram ping
+3. Agent writes an implementation plan from the codebase
+4. Plan lands as a **GitHub comment** — visible to the team, not buried in chat
+5. I approve → code gets written → PR opens
 
-**Typical flow:**
+I stopped burning the expensive model on every small check. Quick triage stays cheap; planning and coding use the heavy models only when it matters.
 
-1. Pull latest invoice from Dropbox (`dbxcli`) — template with correct layout
-2. Increment number (`2026-004` → `2026-005`, etc.)
-3. Apply contract details: client address, TIN, IBAN, Steuernummer, service period, hours or line items
-4. Ask me only what's missing (hours, EUR rate, ticket refs)
-5. Output HTML → PDF → upload to Dropbox → email draft in `work/` — **send only after I approve**
-
-US-client invoices are bilingual; the German client gets pure German with domestic VAT. Same agent, different rules — because each topic loaded the right memory.
-
-**Lesson:** This is the highest-ROI automation I didn't put in the April post. Invoicing is repetitive, rule-heavy, and error-prone. Exactly what persistent memory + shell access is for.
+**Lesson:** Keep planning in the repo and in GitHub. Telegram is for pings and decisions, not for hiding the plan.
 
 ---
 
-## 4. MCP menu — SEO, WordPress, compliance
+## 3. Invoices — the boring work I avoided
 
-April: PeachBase + a few basics. July: a small integration stack via **mcporter**:
+Invoice day used to mean copy-paste HTML, hunt for rates, second-guess tax wording, export PDF, upload, draft the cover email. Now I open the right Telegram topic and say *prepare the next invoice*.
 
-| MCP | Use |
-| --- | --- |
-| **PeachBase** | Long-term memory across Cursor, OpenClaw, ChatGPT |
-| **SISTRIX** | Live SEO visibility, keywords, competitors → strategy docs |
-| **WordPress** | Audit a client's blog, categories, drafts for SEO content |
-| **ai-secure** | Start ISO27001/NIST/SOC2/COBIT scans, pull PDF reports |
+The agent already knows each client's rules — US vs German format, currency, VAT, layout. It pulls the last invoice as a template, bumps the number, fills in the period and line items, and asks me only what's missing. Output: PDF in Dropbox, email draft waiting — **send only after I approve**.
 
-The pattern: one Telegram prompt, agent calls MCP tools + reads code, output is a dated artifact (markdown, PDF, issue comment).
-
-I wrote up the SISTRIX workflow [here](/sistrix-mcp-hallocasa-seo). WordPress + SEO dashboard work continues on that client — OpenClaw is the glue between product, content, and infra repos.
+**Lesson:** Highest ROI automation I didn't mention in April. Repetitive, rule-heavy, easy to get wrong. Perfect for an agent with memory.
 
 ---
 
-## 5. Telegram forum topics = project switcher
+## 4. SEO, WordPress, compliance — one prompt, one artifact
 
-One group chat, many **topics**: `mmblog`, `us-client`, `de-client`, `ai-secure`, …
+April: basic memory and a few tools. July: the agent can talk to external services I use every week — SEO data, a client's WordPress blog, security scan reports.
 
-Each topic maps to a repo + rules in `MEMORY.md`. I don't context-switch in one thread; I open the topic and the agent already knows which codebase and which tone.
+The pattern is always the same: one Telegram message, agent combines live data + code context, I get a dated deliverable (markdown, PDF, or issue comment). I wrote up the SEO workflow [here](/sistrix-mcp-hallocasa-seo).
 
-**Ops note:** OpenClaw **2026.5.4** fixed `messages.groupChat.visibleReplies` — replies were silently dropped in forum topics on older builds. Worth upgrading if your bot "goes quiet" in groups.
+**Lesson:** One integration per job you do manually more than once a month. Don't wire everything on day one.
 
 ---
 
-## 6. CFP and talk factory
+## 5. Telegram topics = project switcher
 
-Conference season doesn't stop. Between client work I submit to AWS Community Days, AgentCon, CodeMotion, re:Invent — often several proposals per event.
+One group chat, many **topics** — blog, US client, German client, side projects.
 
-OpenClaw keeps a `cfp/` folder in the workspace: one markdown file per proposal, plus submission kits with Sessionize field order. Typical flow:
+Each topic loads the right context: which repo, which tone, which rules. I don't mix invoice talk with blog drafting in one thread.
 
-1. Voice or text: *draft a talk on ai-secure for Poland Community Day*
-2. Agent pulls from memory (insurance-sector project work, ai-secure architecture, prior talks), reads `cfp/aws-community-day-poland-2026/` structure
-3. Output: title, abstract, outline, audience level — ready to paste into Sessionize
-4. Calendar reminders for deadlines (AgentCon, Rise of AI, AWS CD DACH, …)
+**Lesson:** If your bot goes quiet in a group, check you're on a recent OpenClaw build. Forum topics had a reply bug that's fixed now.
 
-Poland 2026 alone: three proposals (AI factory, ai-secure scanning, AWS ESC). DACH and re:Invent folders have five each. The agent didn't attend the conferences — but it *was* at every client call and scan that became talk material.
+---
 
-**Lesson:** CFP writing is research + structure + your voice. The agent handles the first two; I keep the third.
+## 6. Conference talk drafts
+
+Between client work I still submit to AWS Community Days, AgentCon, CodeMotion, re:Invent. The agent keeps proposal drafts in a folder and knows the submission format.
+
+Typical flow: *draft a talk on security scanning for Poland Community Day* → agent pulls from past project work and prior talks → title, abstract, outline ready to paste into the submission form → calendar reminder for the deadline.
+
+**Lesson:** CFP writing is research + structure + your voice. The agent does the first two; I keep the third.
 
 ---
 
 ## Numbers (rough, three months in)
 
-- **GitHub:** dozens of issues triaged; plans posted as comments; several merged via OpenClaw → Cursor → PR
-- **Blog:** 4+ substantial posts drafted with agent help (EN+DE pairs)
-- **Invoicing:** 5+ US sprint invoices + German client invoices — HTML/PDF/Dropbox/email draft each time
+- **GitHub:** dozens of issues triaged; several fixes shipped via agent → Cursor → PR
+- **Blog:** 4+ substantial posts with agent help (EN+DE pairs)
+- **Invoices:** 5+ US sprint invoices + German client invoices — PDF + email draft each time
 - **CFP:** 10+ proposal drafts across Poland, DACH, Milan, re:Invent
-- **Cost:** model routing matters more than hosting; LLM tokens >> VPS
-- **Failures:** clawhub `self-improving-agent` ambiguous slug (daily update blocked — pin `@pskoett/self-improving-agent`); one unapproved email sent early on → hard "ask before send" rule; morning cron once broke on gateway/CLI version skew — fixed with `openclaw update` + Haiku job
+- **Cost:** picking the right model for the task matters more than VPS hosting
+- **Failures:** one email sent too early → hard "ask before send" rule; morning briefing broke once after an update — fixed with a version bump and a cheaper scheduled job
 
 ---
 
 ## What's next
 
-- Auto-implement after explicit GitHub approval (less manual "go implement")
-- Hetzner MCP for infra-from-chat
-- USt quarterly prep from invoice folder (agent-assisted, accountant still reviews)
+- Auto-implement after explicit GitHub approval
+- Infra changes from chat (Hetzner work in progress)
+- Quarterly VAT prep from the invoice folder — agent-assisted, accountant still reviews
 
 ---
 
 ## Conclusion
 
-Three months ago OpenClaw was "email + calendar + GitHub notifications." Now it's **orchestrator**: forum topics for context, Cursor for code, MCP for live external data, mmblog for content, **invoices and CFP drafts for the business side**.
+Three months ago OpenClaw was email, calendar, and GitHub pings. Now it's an **orchestrator**: topics for context, Cursor for code, live integrations for data, the blog for content, invoices and talk drafts for the business side.
 
-Still on **€10/mo [Hostinger](https://www.hostinger.com?REFERRALCODE=MARTINMUELLER) Docker** — pragmatic for long Cursor runs and a persistent workspace.
+Still on **€10/mo [Hostinger](https://www.hostinger.com?REFERRALCODE=MARTINMUELLER) Docker**.
 
-If you already run OpenClaw, the highest-leverage upgrades for me were: **Cursor CLI plugin**, **client-specific memory per Telegram topic**, and **one MCP per domain you repeat manually**.
+If you already run OpenClaw, what helped me most: **hand off coding to Cursor**, **one Telegram topic per client/project**, and **one external integration per repetitive manual job**.
 
 ---
 
@@ -181,4 +141,4 @@ Links:
 - [SISTRIX MCP case study](/sistrix-mcp-hallocasa-seo)
 - [OpenClaw](https://openclaw.ai) · [GitHub](https://github.com/openclaw/openclaw)
 
-Questions or want help wiring your agent (Telegram topics, MCP, Cursor CLI, heartbeats)? [office@martinmueller.dev](mailto:office@martinmueller.dev) or [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev).
+Questions or want help wiring your agent? [office@martinmueller.dev](mailto:office@martinmueller.dev) or [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev).
