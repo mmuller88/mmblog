@@ -1,6 +1,6 @@
 ---
 title: "Sovereign Cloud on AWS: When eu-central-1 Is Enough — and When You Need ESC"
-show: "no"
+show: "yes"
 date: "2026-07-17"
 image: "index.png"
 tags:
