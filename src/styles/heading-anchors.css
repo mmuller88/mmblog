@@ -1,32 +1,58 @@
-/* Blog post heading anchor links (gatsby-remark-autolink-headers) */
+/* Blog post heading anchor + section play (same inline box) */
 h2,
 h3,
 h4 {
   position: relative;
 }
 
-a.heading-anchor {
+a.heading-anchor,
+a.heading-audio-play {
   display: inline-flex;
   align-items: center;
-  margin-right: 0.5rem;
-  vertical-align: middle;
+  justify-content: center;
+  box-sizing: content-box;
+  width: 20px;
+  height: 20px;
+  margin: 0 0.35rem 0 0;
+  padding: 0;
+  border: 0;
+  vertical-align: text-top;
   color: #9ca3af;
   opacity: 0;
   transition: opacity 0.15s ease, color 0.15s ease;
   text-decoration: none;
+  line-height: 0;
+  cursor: pointer;
+}
+
+a.heading-anchor svg,
+a.heading-audio-play svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 h2:hover a.heading-anchor,
 h3:hover a.heading-anchor,
 h4:hover a.heading-anchor,
+h2:hover a.heading-audio-play,
+h3:hover a.heading-audio-play,
+h4:hover a.heading-audio-play,
 h2:focus-within a.heading-anchor,
 h3:focus-within a.heading-anchor,
 h4:focus-within a.heading-anchor,
-a.heading-anchor:focus {
+h2:focus-within a.heading-audio-play,
+h3:focus-within a.heading-audio-play,
+h4:focus-within a.heading-audio-play,
+a.heading-anchor:focus,
+a.heading-audio-play:focus {
   opacity: 1;
 }
 
 a.heading-anchor:hover,
-a.heading-anchor:focus {
+a.heading-anchor:focus,
+a.heading-audio-play:hover,
+a.heading-audio-play:focus {
   color: #06aced;
 }
