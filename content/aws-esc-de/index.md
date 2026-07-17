@@ -36,7 +36,7 @@ Die Kernfrage:
 
 > Reicht **eu-central-1** (EU-Region), oder braucht ihr die **souveräne Partition** `aws-eusc`?
 
-Dieser Post ist ein **Builder-Guide** — keine AWS-Werbung. Als **Solutions Architect** helfe ich bei ESC-Migrationen (CDK/Terraform), Souveränitäts-Entscheidungen und Readiness-Checks. Ich bin **AWS Community Builder**.
+Dieser Post ist ein **Builder-Guide** — keine AWS-Werbung. Ich bin **AWS Solutions Architect Professional** zertifiziert, **AWS Community Builder** und unterstütze bei ESC-Migrationen (CDK/Terraform), Souveränitäts-Entscheidungen und Readiness-Checks. [Lebenslauf](https://martinmueller.dev/resume-de)
 
 ---
 
@@ -288,7 +288,7 @@ Wenn ihr AWS nutzt oder plant und Souveränität klären wollt:
 
 Talk auf dem **AWS Community Day DACH 2026** (Berlin, 15. Sep.) — *AWS European Sovereign Cloud: A Builder's Guide*.
 
-**Kontakt:** [office@martinmueller.dev](mailto:office@martinmueller.dev) · [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev) · [LinkedIn](https://www.linkedin.com/in/martinmueller88)
+**Kontakt:** [office@martinmueller.dev](mailto:office@martinmueller.dev) · [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev) · [LinkedIn](https://www.linkedin.com/in/martinmueller88) · [Lebenslauf](https://martinmueller.dev/resume-de)
 
 Betreff: *ESC Readiness*.
 
