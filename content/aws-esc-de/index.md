@@ -124,25 +124,122 @@ Typischer Pfad: **Readiness → Landing Zone → Pilot → schrittweise Migratio
 
 ---
 
-## Wo Souveränität konkret wird
+## Case Studies: Wer setzt auf ESC?
 
-**Öffentlicher Sektor**
+AWS veröffentlicht bei Launch-Kunden meist **Quotes und Richtung** — selten CDK-Migrationspfade oder Account-Strukturen. Trotzdem lohnt sich ein Blick: **warum** Organisationen ESC wählen und **was** öffentlich zum konkreten Einsatz bekannt ist.
 
-- „Souveräne Cloud“ in Ausschreibungen — selten steht „AWS ESC“, aber Partition-Isolation + EU-Betrieb ist genau die technische Antwort
+Gemeinsames Muster: nicht Org-weiter Big Bang, sondern **souveränitäts-kritische Workloads** — oft hybrid neben eu-central-1.
 
-**Energie / kritische Infrastruktur**
+### SCHUFA — Finance & Kreditdaten
 
-- Smart Meter, Versorgungsdaten — politisch sensibel, oft Souveränitäts-Druck unabhängig vom konkreten Regelwerk
+![SCHUFA: souveräne Kreditdaten-Plattform](case-finance.png)
 
-**Finance & Versicherung**
+**Branche:** Finanzdaten / Auskunftei  
+**Warum ESC:** 69 Mio. Verbraucher-Datensätze; isolierte EU-Infra, nur EU-Personal, kein Zugriff von außerhalb Europa — Souveränität ohne Innovationsverlust.  
+**Was bekannt ist:**
 
-- Kreditdaten, Lebensversicherung — Datenhoheit als Wettbewerbs- und Vertrauensfaktor (SCHUFA, Swiss Life als öffentliche Referenzen)
+- Migration von **On-Prem und anderen Cloud-Workloads** auf ESC
+- Neues **Credit-Scoring-System** mit transparenter Darstellung für Verbraucher (Kriterien + Gewichtung)
+- CTO Klaus Kolitz: Innovation und Souveränität zusammen, nicht entweder/oder
 
-**Gesundheit**
+**Quellen:** [About Amazon — Who's choosing ESC](https://www.aboutamazon.eu/news/aws/sovereignty-without-compromise-whos-choosing-the-aws-european-sovereign-cloud) · [AWS ESC Customers](https://aws.eu/european-sovereign-cloud/customers/)
 
-- Patientendaten, Forschung — EU-Residenz reicht oft; ESC wenn Auftraggeber explizit souveräne Partition verlangt
+---
 
-Gemeinsamer Nenner: **nicht Compliance-Checkbox**, sondern **Kontrolle darüber, wer Infrastruktur betreibt und aus welcher Rechtsordnung**.
+### Diehl Metering — Smart Meter & kritische Infrastruktur
+
+![Diehl Metering: souveräne Messdaten-Plattform](case-metering.png)
+
+**Branche:** Smart Metering (Wasser/Energie), B2B2G  
+**Warum ESC:** Öffentliche Kunden (Stadtwerke, Wasserwerke) verlangen EU-Datenhaltung und EU-Betrieb.  
+**Was bekannt ist:**
+
+- **Smart-Metering-Datenplattform** auf ESC
+- Modulare Services: **Monitoring, Billing**
+- Zentrales System für Wasser-/Energiedaten kritischer Infrastruktur
+- Skalierung der Plattform ohne den Aufwand eines komplett eigenen Sovereign-Stacks
+
+**Quellen:** [About Amazon — Who's choosing ESC](https://www.aboutamazon.eu/news/aws/sovereignty-without-compromise-whos-choosing-the-aws-european-sovereign-cloud) · [The Register (Mai 2026)](https://www.theregister.com/paas-and-iaas/2026/05/21/aws-parades-orgs-that-took-up-its-offer-for-euro-sovereign-cloud/5244197)
+
+---
+
+### Universitätsklinikum Essen — Sovereign AI in der Medizin
+
+![Healthcare: souveräne KI-Forschung](case-health.png)
+
+**Branche:** Universitätsmedizin / Forschung  
+**Warum ESC:** Health Data at Scale unter deutschen und europäischen Souveränitäts-Erwartungen.  
+**Was bekannt ist:**
+
+- **IKIM** (Institut für KI in der Medizin) nutzt ESC als Basis für KI-Forschung
+- Ziel: medizinische Forschung in die Klinik überführen — mit Patientendaten in souveräner Umgebung
+- Eher **Transformations- und Forschungspfad** als dokumentierte Vollmigration eines Klinik-ERP
+
+**Quellen:** [About Amazon — Who's choosing ESC](https://www.aboutamazon.eu/news/aws/sovereignty-without-compromise-whos-choosing-the-aws-european-sovereign-cloud) · [AWS Public Sector — Healthcare & Sovereignty](https://aws.amazon.com/blogs/publicsector/how-healthcare-organizations-are-advancing-innovation-while-meeting-digital-sovereignty-requirements-with-aws/)
+
+---
+
+### Medizinische Universität Lausitz – Carl Thiem — regionales Gesundheitsökosystem
+
+**Branche:** Gesundheit / Forschung (Brandenburg)  
+**Warum ESC:** Souveräne digitale Basis für das „Gesundheitsmodellregion Lausatia“.  
+**Was bekannt ist:**
+
+- Vernetzung von **Krankenhäusern, Forschung, regionalen Partnern**
+- Sichere, souveräne Grundlage für Care, Research, Education
+- Nähe zur ESC-Region Brandenburg (`eusc-de-east-1`)
+
+**Quelle:** [AWS ESC Customers](https://aws.eu/european-sovereign-cloud/customers/)
+
+---
+
+### ITZBund — Bundes-IT
+
+**Branche:** Öffentlicher Sektor  
+**Warum ESC:** Zentraler IT-Dienstleister des Bundes — strengste Anforderungen an Schutz und Souveränität.  
+**Was bekannt ist:** Commitment zu ESC mit voller AWS-Service-Palette; **keine** öffentliche Workload-Liste (erwartbar bei Bundes-IT).
+
+**Quelle:** [AWS ESC Customers](https://aws.eu/european-sovereign-cloud/customers/)
+
+---
+
+### EWE AG — Energie
+
+**Branche:** Energie / Versorger  
+**Warum ESC:** Sensible Versorgungsdaten und kritische Infrastruktur; Souveränität als Plattform-Strategie.  
+**Was bekannt ist:** ESC als Baustein der **Plattform-Strategie** — kein einzelnes benanntes Produkt, aber klarer strategischer Einsatz.
+
+**Quelle:** [AWS ESC Customers](https://aws.eu/european-sovereign-cloud/customers/) · [AWS Launch Press Release](https://press.aboutamazon.com/aws/2026/1/aws-launches-aws-european-sovereign-cloud-and-announces-expansion-across-europe)
+
+---
+
+### Eterno Health — Health-SaaS (Hybrid-Denken)
+
+**Branche:** Ambulante Versorgung / Praxissoftware  
+**Warum ESC:** EU-weite Digitalisierung der Ambulanz — Kunden mit expliziten Souveränitäts-Anforderungen.  
+**Was bekannt ist:**
+
+- Gesamter Stack bisher auf Standard-AWS; ESC als **zusätzliche Option** für sovereignty-sensitive Deployments
+- **Leni** — KI-Agent (Transkription, Zusammenfassung, Patientenakte) in eigenen Test-Kliniken
+- Muster: SaaS auf AWS, ESC-Partition für Kunden die sie brauchen
+
+**Quellen:** [AWS ESC Customers](https://aws.eu/european-sovereign-cloud/customers/) · [AWS Pioneers: ETERNO](https://aws.amazon.com/solutions/case-studies/aws-pioneers-project/eterno/)
+
+---
+
+### Plattform-Partner (keine Endkunden, aber relevant)
+
+| Anbieter | Was auf ESC | Souveränitäts-Winkel |
+| -------- | ----------- | -------------------- |
+| **SAP** | SAP Cloud ERP Private GA | Mission-critical ERP unter EU-Governance |
+| **Dedalus** | Klinik-Software (540M+ Patienten) | Klinische Workflows mit Residency |
+| **Arvato Systems** | Health Cloud | Healthcare-Digitalisierung souverän |
+
+**Quellen:** [About Amazon — Who's choosing ESC](https://www.aboutamazon.eu/news/aws/sovereignty-without-compromise-whos-choosing-the-aws-european-sovereign-cloud) · [AWS Healthcare Sovereignty Blog](https://aws.amazon.com/blogs/publicsector/how-healthcare-organizations-are-advancing-innovation-while-meeting-digital-sovereignty-requirements-with-aws/)
+
+---
+
+**Was öffentlich fehlt** — und wo Readiness-Assessments ansetzen: IAM/Landing-Zone-Design, CDK-Migrationspfade, Timeline, Kosten. Die Lücke zwischen Marketing-Quote und Production-Migration ist groß.
 
 ---
 
