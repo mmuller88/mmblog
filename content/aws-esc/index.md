@@ -36,7 +36,7 @@ The **AWS European Sovereign Cloud (ESC)** went **generally available in January
 
 > Is **eu-central-1** enough, or do we need the **sovereign partition**?
 
-This post is a **builder's guide** — not AWS marketing. I work as an AWS Community Builder on ESC migrations (CDK/Terraform), NIS2/DORA mapping, and readiness checks for regulated workloads in DACH. For compliance scanning, see [ai-secure.dev](https://ai-secure.dev) — ISO 27001, NIST, SOC2, COBIT mapped to cloud architecture.
+This post is a **builder's guide** — not AWS marketing. As a **solutions architect**, I help teams with ESC migrations (CDK/Terraform), NIS2/DORA mapping, and readiness checks for regulated workloads in DACH. I'm an **AWS Community Builder**. For compliance scanning, see [ai-secure.dev](https://ai-secure.dev) — ISO 27001, NIST, SOC2, COBIT mapped to cloud architecture.
 
 ---
 
