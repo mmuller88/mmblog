@@ -16,6 +16,8 @@ tags:
     "2026",
   ]
 engUrl: https://martinmueller.dev/aws-esc
+audio: "audio.mp3"
+audioTiming: "audio-timing.json"
 pruneLength: 50
 faq:
   - q: "Was ist die AWS European Sovereign Cloud (ESC)?"
