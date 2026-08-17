@@ -12,6 +12,10 @@
   flex-shrink: 0;
 }
 
+html.dark .blog-post-content .tool-item img.tool-logo-on-dark {
+  filter: invert(1);
+}
+
 .blog-post-content table td {
   vertical-align: middle;
 }

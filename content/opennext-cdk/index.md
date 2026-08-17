@@ -52,11 +52,11 @@ The ECS Fargate path I used on [listings-mcp](/aws-mcp-listings) is the later-st
 
 ## Stack
 
-- <span class="tool-item"><img src="/opennext-cdk/icons/nextjs.svg" alt="" /> [Next.js](https://nextjs.org) 16</span> App Router
+- <span class="tool-item"><img class="tool-logo-on-dark" src="/opennext-cdk/icons/nextjs.svg" alt="" /> [Next.js](https://nextjs.org) 16</span> App Router
 - <span class="tool-item"><img src="/opennext-cdk/icons/react.svg" alt="" /> [React](https://react.dev) 19</span>
-- <span class="tool-item"><img src="/opennext-cdk/icons/shadcnui.svg" alt="" /> [shadcn/ui](https://ui.shadcn.com)</span>
+- <span class="tool-item"><img class="tool-logo-on-dark" src="/opennext-cdk/icons/shadcnui.svg" alt="" /> [shadcn/ui](https://ui.shadcn.com)</span>
 - <span class="tool-item"><img src="/opennext-cdk/icons/tailwindcss.svg" alt="" /> [Tailwind](https://tailwindcss.com) 4</span>
-- <span class="tool-item"><img src="/opennext-cdk/icons/opennext.png" alt="" /> [`@opennextjs/aws`](https://github.com/opennextjs/opennextjs-aws)</span> → Lambda ARM64 (2048 MB, 60s)
+- <span class="tool-item"><img class="tool-logo-on-dark" src="/opennext-cdk/icons/opennext.png" alt="" /> [`@opennextjs/aws`](https://github.com/opennextjs/opennextjs-aws)</span> → Lambda ARM64 (2048 MB, 60s)
 - <span class="tool-item"><img src="/opennext-cdk/icons/lambda.svg" alt="" /> [Lambda](https://aws.amazon.com/lambda/)</span> + <span class="tool-item"><img src="/opennext-cdk/icons/cloudfront.svg" alt="" /> [CloudFront](https://aws.amazon.com/cloudfront/)</span> + <span class="tool-item"><img src="/opennext-cdk/icons/s3.svg" alt="" /> [S3](https://aws.amazon.com/s3/)</span>
 - <span class="tool-item"><img src="/opennext-cdk/icons/cdk.svg" alt="" /> [AWS CDK](https://aws.amazon.com/cdk/)</span> stacks: Data → Auth → Web → Observability (+ Cicd OIDC)
 - <span class="tool-item"><img src="/opennext-cdk/icons/cdk.svg" alt="" /> [cdk-opennext](https://github.com/berenddeboer/cdk-opennext)</span> `NextjsSite`
