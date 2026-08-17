@@ -26,9 +26,13 @@ Three things made this feel better than the Fargate path. Deploys are **one GitH
 
 ---
 
-## The product
+## The product: qr-plakat.de
 
 [qr-plakat.de](https://qr-plakat.de) is a DACH SaaS for posters with QR codes. You design in a wizard, overlay one to eight codes, and export 300 dpi PDF or JPG. Each poster gets hosted scan URLs like `qr-plakat.de/p/{slug}` that you can change without reprinting. Everything runs in **eu-central-1**.
+
+The first real poster is the Brasil shop-window plakat — eight products, eight QR codes, print-ready from the editor.
+
+![Brasil QR-Plakat](brasil-plakat.jpg)
 
 Subscriptions are **mocked**. I am the only user, so there is no Stripe checkout. If someone wants a higher tier, they request it in the **support chat** and I set the plan by hand. Real billing comes when I convince the first business to use the product.
 
@@ -48,9 +52,17 @@ The ECS Fargate path I used on [listings-mcp](/aws-mcp-listings) is the later-st
 
 ## Stack
 
-The app is Next.js 16 App Router, React 19, shadcn, and Tailwind 4. [`@opennextjs/aws`](https://github.com/opennextjs/opennextjs-aws) builds it for Lambda on ARM64 — 2048 MB, 60 second timeout — plus CloudFront and S3.
-
-CDK splits the account into stacks: Data, Auth, Web, Observability, and a Cicd stack for GitHub OIDC. The Web stack uses [cdk-opennext](https://github.com/berenddeboer/cdk-opennext) `NextjsSite`. Auth is two Cognito pools (creators and admins). Data is an ElectroDB single-table. DNS is Route 53 on `qr-plakat.de`.
+- <span class="tool-item"><img src="/opennext-cdk/icons/nextjs.svg" alt="" /> [Next.js](https://nextjs.org) 16</span> App Router
+- <span class="tool-item"><img src="/opennext-cdk/icons/react.svg" alt="" /> [React](https://react.dev) 19</span>
+- <span class="tool-item"><img src="/opennext-cdk/icons/shadcnui.svg" alt="" /> [shadcn/ui](https://ui.shadcn.com)</span>
+- <span class="tool-item"><img src="/opennext-cdk/icons/tailwindcss.svg" alt="" /> [Tailwind](https://tailwindcss.com) 4</span>
+- <span class="tool-item"><img src="/opennext-cdk/icons/opennext.png" alt="" /> [`@opennextjs/aws`](https://github.com/opennextjs/opennextjs-aws)</span> → Lambda ARM64 (2048 MB, 60s)
+- <span class="tool-item"><img src="/opennext-cdk/icons/lambda.svg" alt="" /> [Lambda](https://aws.amazon.com/lambda/)</span> + <span class="tool-item"><img src="/opennext-cdk/icons/cloudfront.svg" alt="" /> [CloudFront](https://aws.amazon.com/cloudfront/)</span> + <span class="tool-item"><img src="/opennext-cdk/icons/s3.svg" alt="" /> [S3](https://aws.amazon.com/s3/)</span>
+- <span class="tool-item"><img src="/opennext-cdk/icons/cdk.svg" alt="" /> [AWS CDK](https://aws.amazon.com/cdk/)</span> stacks: Data → Auth → Web → Observability (+ Cicd OIDC)
+- <span class="tool-item"><img src="/opennext-cdk/icons/cdk.svg" alt="" /> [cdk-opennext](https://github.com/berenddeboer/cdk-opennext)</span> `NextjsSite`
+- <span class="tool-item"><img src="/opennext-cdk/icons/cognito.svg" alt="" /> [Cognito](https://aws.amazon.com/cognito/)</span> ×2 (creators / admins)
+- <span class="tool-item"><img src="/opennext-cdk/icons/dynamodb.svg" alt="" /> [ElectroDB](https://electrodb.dev)</span> on DynamoDB single-table
+- <span class="tool-item"><img src="/opennext-cdk/icons/route53.svg" alt="" /> [Route 53](https://aws.amazon.com/route53/)</span> `qr-plakat.de`
 
 ---
 
