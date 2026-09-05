@@ -6,7 +6,10 @@ const SectionHeading = ({ id, children, className = "mb-12" }) => {
  const [toast, setToast] = useState(null)
  const timerRef = useRef(null)
 
- useEffect(() => () => timerRef.current && window.clearTimeout(timerRef.current), [])
+ useEffect(
+  () => () => timerRef.current && window.clearTimeout(timerRef.current),
+  []
+ )
 
  const onClick = (e) => {
   e.preventDefault()
@@ -21,7 +24,10 @@ const SectionHeading = ({ id, children, className = "mb-12" }) => {
    timerRef.current = window.setTimeout(() => setToast(null), 1500)
   }
   if (navigator.clipboard?.writeText) {
-   navigator.clipboard.writeText(url).then(done).catch(() => {})
+   navigator.clipboard
+    .writeText(url)
+    .then(done)
+    .catch(() => {})
   }
  }
 
