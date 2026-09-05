@@ -39,17 +39,33 @@ Passionate about making AI agents practical and production-ready. From LLM orche
 
 ## Testimonials
 
+### Jakob Jordan
+
+[![pic](testimonialJakob.png)](https://www.linkedin.com/in/jakob-jordan-10404bb4/)
+
+Martin Müller is a mega DevOps expert I've been working closely with for years (including in AWS and AI). He recently built a fully GDPR-compliant, self-hosted production environment on Hetzner in Germany for our new Arc Rider platform (React/Supabase) — through which we distribute our widgets as the ultimate UI framework. Including Grafana monitoring and an essential security audit.
+
+One requirement was extremely important to us, and he nailed it: he set up the complex infrastructure so intelligently that we can maintain and deploy it seamlessly through AI agents. Martin is someone who simply understood that in today's world of vibe coding and AI workflows, a secure yet flexible cloud environment is crucial — and GDPR-compliant in Europe. That's why I'd recommend him anytime!
+
 ### Adrian Logan
 
-[![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/resume/testimonialAdrian.png)](https://www.linkedin.com/in/adrian-logan-a52027b5)
+[![pic](testimonialAdrian.png)](https://www.linkedin.com/in/adrian-logan-a52027b5)
 
-I cannot recommend Martin Muller highly enough for his exceptional work in setting up our web application backend using the AWS CDK. Martin's expertise and efficiency have been instrumental in meeting project deadlines and ensuring a smooth deployment. The quality of his work is consistently top-notch, which gives me the utmost confidence in the final product. Additionally, Martin's ability to work quickly without sacrificing attention to detail has been invaluable to our team. His dedication and professionalism have made it a pleasure to collaborate with him, and I am confident that anyone who works with Martin will be similarly impressed by his talents.
+I cannot recommend Martin Muller highly enough for his exceptional work in setting up our web application backend using the AWS CDK. Martin's expertise and efficiency have been instrumental in meeting project deadlines and ensuring a smooth deployment.
+
+The quality of his work is consistently top-notch, which gives me the utmost confidence in the final product. Additionally, Martin's ability to work quickly without sacrificing attention to detail has been invaluable to our team.
+
+His dedication and professionalism have made it a pleasure to collaborate with him, and I am confident that anyone who works with Martin will be similarly impressed by his talents.
 
 ### Eric Amberg
 
-[![pic](https://raw.githubusercontent.com/mmuller88/mmblog/master/content/resume/testimonialEric.png)](https://www.linkedin.com/in/ericamberg)
+[![pic](testimonialEric.png)](https://www.linkedin.com/in/ericamberg)
 
-Martin built the sophisticated AWS infrastructure for our online lab environments. Working with him was characterized by very good communication and a very fast implementation of the tasks set. Martin works very professionally and has great experience with AWS environments. He is able to quickly grasp the requirements and promptly develop solution approaches. His concepts are scalable and comply with best practices in cloud environments. Thanks to his support, we got a stable cloud environment for our HackLabs in a very short time, which we still use today.
+Martin built the sophisticated AWS infrastructure for our online lab environments. Working with him was characterized by very good communication and a very fast implementation of the tasks set.
+
+Martin works very professionally and has great experience with AWS environments. He is able to quickly grasp the requirements and promptly develop solution approaches. His concepts are scalable and comply with best practices in cloud environments.
+
+Thanks to his support, we got a stable cloud environment for our HackLabs in a very short time, which we still use today.
 
 ## Experience
 

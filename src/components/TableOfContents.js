@@ -40,13 +40,13 @@ function TableOfContents({ headings, tags }) {
   const label = tags?.includes("de") ? "Inhalt" : "Contents"
 
   const onClick = (e, id) => {
-    e.preventDefault()
-    const el = document.getElementById(id)
-    if (!el) return
-    el.scrollIntoView({ behavior: "smooth", block: "start" })
-    const { pathname, search } = window.location
-    window.history.replaceState(null, "", `${pathname}${search}#${id}`)
-    setActiveId(id)
+   const el = document.getElementById(id)
+   if (!el) return
+   e.preventDefault()
+   el.scrollIntoView({ behavior: "smooth", block: "start" })
+   const { pathname, search } = window.location
+   window.history.replaceState(null, "", `${pathname}${search}#${id}`)
+   setActiveId(id)
   }
 
   const renderList = () => (
