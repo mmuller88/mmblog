@@ -43,4 +43,25 @@
     border-color: #334155;
     color: #e5e7eb;
   }
+
+  .site-header {
+    background-color: #00aced;
+    color: #fff;
+  }
+  .site-header a,
+  .site-header h1 {
+    color: #fff;
+    text-decoration: none;
+  }
+  .site-header a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+  html.dark .site-header a,
+  html.dark .site-header h1 {
+    color: #fff;
+  }
+  .site-header__divider {
+    color: rgba(255, 255, 255, 0.5);
+  }
 }
