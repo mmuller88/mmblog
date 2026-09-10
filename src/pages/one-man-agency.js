@@ -13,6 +13,7 @@ import openclawHero from "../../content/openclaw-three-months-later/index.png"
 const sections = [
  { id: "testimonials", value: "What Clients Say", depth: 2 },
  { id: "value-packages", value: "Value Packages", depth: 2 },
+ { id: "statement-of-work", value: "Statement of Work First", depth: 2 },
  { id: "why-one-expert", value: "Why One Expert Beats a Big Team", depth: 2 },
  { id: "ai-agents", value: "How AI Agents Scale Delivery", depth: 2 },
  { id: "get-started", value: "Ready to Get Started?", depth: 2 },
@@ -258,8 +259,126 @@ const OneManAgencyPage = ({ location }) => {
     </div>
    </div>
 
-   {/* Why One Expert Section */}
+   {/* Statement of Work Section */}
    <div className="bg-white px-4 py-16 dark:bg-slate-900">
+    <div className="mx-auto max-w-4xl">
+     <SectionHeading id="statement-of-work">
+      Statement of Work First
+     </SectionHeading>
+     <p className="mb-10 text-center leading-relaxed text-gray-700 dark:text-gray-300">
+      Before any code gets written, you get a written{" "}
+      <strong>Statement of Work (SoW)</strong> — the same clarity big agencies
+      promise, without the overhead. Fixed scope, fixed price, no surprises.
+     </p>
+     <div className="mb-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="rounded-xl bg-gray-50 p-6 text-center dark:bg-slate-800">
+       <div className="mb-3 text-2xl font-bold text-brand">1</div>
+       <h3 className="mb-2 font-sans text-lg font-semibold text-gray-900 dark:text-gray-100">
+        Short Call
+       </h3>
+       <p className="mb-0 text-sm text-gray-600 dark:text-gray-400">
+        Goals, constraints, timeline — 30 minutes is enough to start.
+       </p>
+      </div>
+      <div className="rounded-xl bg-gray-50 p-6 text-center dark:bg-slate-800">
+       <div className="mb-3 text-2xl font-bold text-brand">2</div>
+       <h3 className="mb-2 font-sans text-lg font-semibold text-gray-900 dark:text-gray-100">
+        SoW Draft
+       </h3>
+       <p className="mb-0 text-sm text-gray-600 dark:text-gray-400">
+        Workstreams, deliverables, milestones, and a fixed price — in writing.
+       </p>
+      </div>
+      <div className="rounded-xl bg-gray-50 p-6 text-center dark:bg-slate-800">
+       <div className="mb-3 text-2xl font-bold text-brand">3</div>
+       <h3 className="mb-2 font-sans text-lg font-semibold text-gray-900 dark:text-gray-100">
+        You Review
+       </h3>
+       <p className="mb-0 text-sm text-gray-600 dark:text-gray-400">
+        Scope, out-of-scope, and payment terms — adjust before anything starts.
+       </p>
+      </div>
+      <div className="rounded-xl bg-gray-50 p-6 text-center dark:bg-slate-800">
+       <div className="mb-3 text-2xl font-bold text-brand">4</div>
+       <h3 className="mb-2 font-sans text-lg font-semibold text-gray-900 dark:text-gray-100">
+        Sign Off & Go
+       </h3>
+       <p className="mb-0 text-sm text-gray-600 dark:text-gray-400">
+        Acceptance criteria agreed — then work begins.
+       </p>
+      </div>
+     </div>
+     <div className="mb-10 rounded-xl border border-gray-200 bg-gray-50 p-8 dark:border-slate-700 dark:bg-slate-800">
+      <h3 className="mb-4 font-sans text-xl font-semibold text-gray-900 dark:text-gray-100">
+       What's in every SoW
+      </h3>
+      <ul className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2">
+       <li className="mb-0 flex items-start">
+        <span className="mr-3 font-bold text-brand">✓</span>
+        <span className="text-gray-700 dark:text-gray-300">
+         Clear goals and workstreams
+        </span>
+       </li>
+       <li className="mb-0 flex items-start">
+        <span className="mr-3 font-bold text-brand">✓</span>
+        <span className="text-gray-700 dark:text-gray-300">
+         Concrete deliverables
+        </span>
+       </li>
+       <li className="mb-0 flex items-start">
+        <span className="mr-3 font-bold text-brand">✓</span>
+        <span className="text-gray-700 dark:text-gray-300">
+         Explicit out-of-scope
+        </span>
+       </li>
+       <li className="mb-0 flex items-start">
+        <span className="mr-3 font-bold text-brand">✓</span>
+        <span className="text-gray-700 dark:text-gray-300">
+         Fixed price + payment milestones
+        </span>
+       </li>
+       <li className="mb-0 flex items-start">
+        <span className="mr-3 font-bold text-brand">✓</span>
+        <span className="text-gray-700 dark:text-gray-300">
+         Acceptance criteria
+        </span>
+       </li>
+       <li className="mb-0 flex items-start">
+        <span className="mr-3 font-bold text-brand">✓</span>
+        <span className="text-gray-700 dark:text-gray-300">
+         Security, cloud, SEO/GEO audits & more
+        </span>
+       </li>
+      </ul>
+     </div>
+     <div className="text-center">
+      <p className="mb-4 text-gray-700 dark:text-gray-300">
+       See what a real SoW looks like — redacted client examples:
+      </p>
+      <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+       <a
+        href="/one-man-agency/sow-seo-geo-redacted-example.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center rounded-lg border-2 border-brand px-6 py-3 font-semibold text-brand no-underline transition-colors hover:bg-brand hover:text-white dark:hover:text-white"
+       >
+        📄 SEO/GEO Strategy SoW
+       </a>
+       <a
+        href="/one-man-agency/sow-security-audit-template-redacted.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center rounded-lg border-2 border-brand px-6 py-3 font-semibold text-brand no-underline transition-colors hover:bg-brand hover:text-white dark:hover:text-white"
+       >
+        📄 Security Audit SoW Template
+       </a>
+      </div>
+     </div>
+    </div>
+   </div>
+
+   {/* Why One Expert Section */}
+   <div className="bg-gradient-to-br from-gray-50 to-blue-50 px-4 py-16 dark:from-slate-800 dark:to-slate-900">
     <div className="mx-auto max-w-4xl">
      <SectionHeading id="why-one-expert">
       Why One Expert Beats a Big Team
@@ -317,7 +436,7 @@ const OneManAgencyPage = ({ location }) => {
    </div>
 
    {/* AI Agents Section */}
-   <div className="bg-gradient-to-br from-blue-50 to-cyan-50 px-4 py-16 dark:from-slate-800 dark:to-slate-900">
+   <div className="bg-white px-4 py-16 dark:bg-slate-900">
     <div className="mx-auto max-w-6xl">
      <SectionHeading id="ai-agents">
       How AI Agents Scale Delivery
@@ -384,8 +503,8 @@ const OneManAgencyPage = ({ location }) => {
       Ready to Get Started?
      </SectionHeading>
      <p className="mb-8 text-xl text-white opacity-95">
-      One point of contact, agency-quality scope. Let's discuss how I can
-      transform your cloud infrastructure and accelerate your business.
+      One point of contact, agency-quality scope. Tell me your goals — I'll send
+      a Statement of Work with fixed price and clear deliverables.
      </p>
      <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
       <a
