@@ -104,13 +104,13 @@ const Header = ({ siteTitle }) => (
       {siteTitle}
      </Link>
      <Link
-      to="/agency"
+      to="/one-man-agency"
       style={{
        color: `white`,
        textDecoration: `none`,
       }}
      >
-      {" "}|| Agency |
+      {" "}|| One-Man Agency |
      </Link>
      <Link
       to="/tags/eyf/"
