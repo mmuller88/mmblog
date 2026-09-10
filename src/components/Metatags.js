@@ -19,6 +19,11 @@ function Metatags(props) {
   gerUrl,
   tldr,
   faq = [],
+  locale = "en_US",
+  language: htmlLanguage = "en",
+  imageAlt,
+  imageWidth = 1200,
+  imageHeight = 630,
  } = props
 
  // Ensure tags is always an array to prevent iteration errors
@@ -30,8 +35,10 @@ function Metatags(props) {
  const keywordString =
   safeKeywords.length > 0 ? safeKeywords.join(", ") : safeTags.join(", ")
 
- // Determine language from tags
- const language = safeTags.includes("de") ? "de" : "en"
+ // Determine language from tags (overridden by htmlLanguage prop on static pages)
+ const language = htmlLanguage || (safeTags.includes("de") ? "de" : "en")
+ const metaLanguage = language === "de" ? "German" : "English"
+ const ogImageAlt = imageAlt || title
 
  // Map tags to expertise areas (filter out language tags and common non-expertise tags)
  const expertiseTags = safeTags.filter(
@@ -99,8 +106,8 @@ function Metatags(props) {
       image: {
        "@type": "ImageObject",
        url: thumbnail,
-       width: 1200,
-       height: 630,
+       width: imageWidth,
+       height: imageHeight,
       },
      }),
      ...(readingTime && {
@@ -179,7 +186,7 @@ function Metatags(props) {
     },
     { name: "googlebot", content: "index, follow" },
     { name: "bingbot", content: "index, follow" },
-    { name: "language", content: "English" },
+    { name: "language", content: metaLanguage },
     { name: "revisit-after", content: "7 days" },
     { name: "distribution", content: "global" },
     { name: "rating", content: "general" },
@@ -190,14 +197,14 @@ function Metatags(props) {
     { property: "og:title", content: title },
     { property: "og:description", content: description },
     { property: "og:url", content: canonicalUrl },
-    { property: "og:locale", content: "en_US" },
+    { property: "og:locale", content: locale },
     ...(thumbnail
      ? [
         { property: "og:image", content: thumbnail },
         { property: "og:image:secure_url", content: thumbnail },
-        { property: "og:image:width", content: "1200" },
-        { property: "og:image:height", content: "630" },
-        { property: "og:image:alt", content: title },
+        { property: "og:image:width", content: String(imageWidth) },
+        { property: "og:image:height", content: String(imageHeight) },
+        { property: "og:image:alt", content: ogImageAlt },
        ]
      : []),
     ...(isArticle && publishedDate
@@ -223,7 +230,7 @@ function Metatags(props) {
     ...(thumbnail
      ? [
         { name: "twitter:image", content: thumbnail },
-        { name: "twitter:image:alt", content: title },
+        { name: "twitter:image:alt", content: ogImageAlt },
        ]
      : []),
 
@@ -236,7 +243,7 @@ function Metatags(props) {
     { name: "mobile-web-app-capable", content: "yes" },
    ]}
   >
-   <html lang="en" />
+   <html lang={language} />
    {/* JSON-LD Structured Data */}
    {articleStructuredData && (
     <script type="application/ld+json">
