@@ -103,6 +103,8 @@ OpenAI pixel on agency pages (`src/utils/oaiq.js`, `OaiqPixel.js`).
 
 After deploy: `CALENDLY_PAT=… CALENDLY_WEBHOOK_SIGNING_KEY=… ./scripts/setup-calendly-webhook.sh`
 
+**Daily health check:** `netlify/functions/conversion-health.mjs` runs `@daily` (07:00 UTC). Sends signed synthetic `invitee.created` with `healthcheck-*` invitee id → webhook uses CAPI `validate_only: true` (no fake conversions). Manual: `CALENDLY_WEBHOOK_SIGNING_KEY=… OPENAI_ADS_CAPI_KEY=… npm run test:conversion-health`. **Failure email:** hidden form `conversion-health-alert` (`static/conversion-health-alert.html`) → Netlify Forms notification to `office+netlify@martinmueller.dev` (configure in Netlify UI after first deploy). Optional: `CONVERSION_HEALTH_ALERT_URL` webhook (Slack/ntfy).
+
 **Ads Manager:** primary conversion = `appointment_scheduled` only; switch to Maximize Conversions after verified bookings.
 
 ## Deployment
