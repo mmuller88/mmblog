@@ -1,16 +1,46 @@
 export const OAIQ_PIXEL_ID = "1tUq9Gtv8XLgjUkRRiQmcH"
 export const OAIQ_SDK_URL = "https://bzrcdn.openai.com/sdk/oaiq.min.js"
+export const CALENDLY_BASE_URL = "https://calendly.com/martinmueller_dev/30min"
+export const OPPREF_STORAGE_KEY = "oaiq_oppref"
 
 export const OAIQ_LOADER_SCRIPT = `!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","${OAIQ_SDK_URL}");`
 
-export const measureAppointmentScheduled = () => {
+const measure = (eventName, data) => {
  if (typeof window !== "undefined" && window.oaiq) {
-  window.oaiq("measure", "appointment_scheduled", { type: "customer_action" })
+  window.oaiq("measure", eventName, data)
  }
 }
 
+export const measurePageViewed = () => {
+ measure("page_viewed", { type: "contents" })
+}
+
 export const measureLeadCreated = () => {
- if (typeof window !== "undefined" && window.oaiq) {
-  window.oaiq("measure", "lead_created", { type: "customer_action" })
+ measure("lead_created", { type: "customer_action" })
+}
+
+/** Persist oppref from ad click URL for Calendly attribution. */
+export const captureOppref = () => {
+ if (typeof window === "undefined") return null
+ const fromUrl = new URLSearchParams(window.location.search).get("oppref")
+ if (fromUrl) {
+  sessionStorage.setItem(OPPREF_STORAGE_KEY, fromUrl)
+  return fromUrl
  }
+ return sessionStorage.getItem(OPPREF_STORAGE_KEY)
+}
+
+export const getOppref = () => {
+ if (typeof window === "undefined") return null
+ return sessionStorage.getItem(OPPREF_STORAGE_KEY)
+}
+
+export const buildCalendlyUrl = () => {
+ const params = new URLSearchParams({
+  utm_source: "chatgpt_ads",
+  utm_medium: "cpc",
+ })
+ const oppref = getOppref()
+ if (oppref) params.set("utm_content", oppref)
+ return `${CALENDLY_BASE_URL}?${params.toString()}`
 }

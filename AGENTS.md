@@ -86,6 +86,25 @@ Posts are queried via `allMarkdownRemark`. Key fields:
 3. Add images to same folder (reference as `image.png`)
 4. Tag with `eng` or `de` for language
 
+## ChatGPT Ads conversion tracking
+
+OpenAI pixel on agency pages (`src/utils/oaiq.js`, `OaiqPixel.js`).
+
+- `page_viewed` on load; `lead_created` on agency contact form submit only
+- `appointment_scheduled` via Calendly webhook → `netlify/functions/calendly-webhook.mjs` → OpenAI CAPI (not on Calendly link click)
+- Calendly links append `utm_source=chatgpt_ads&utm_medium=cpc&utm_content=<oppref>`; `oppref` from `?oppref=` URL param → sessionStorage
+
+**Intent landings (DE ads):**
+- `/one-man-agency-de/aws/` — AWS Services ad group
+- `/one-man-agency-de/seo-geo/` — SEO/GEO/ChatGPT Ads
+- `/one-man-agency-de/vibe-coding/` — Vibe Coding/DevOps
+
+**Netlify env (not in repo):** `OPENAI_ADS_CAPI_KEY`, `CALENDLY_WEBHOOK_SIGNING_KEY`
+
+After deploy: `CALENDLY_PAT=… CALENDLY_WEBHOOK_SIGNING_KEY=… ./scripts/setup-calendly-webhook.sh`
+
+**Ads Manager:** primary conversion = `appointment_scheduled` only; switch to Maximize Conversions after verified bookings.
+
 ## Deployment
 
 - Auto-deploys to Netlify on push to master

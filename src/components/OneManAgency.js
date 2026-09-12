@@ -10,7 +10,8 @@ import testimonialAdrian from "../../content/resume/testimonialAdrian.png"
 import testimonialEric from "../../content/resume/testimonialEric.png"
 import { oneManAgencyHeroImage } from "../data/oneManAgencyContent"
 import OaiqPixel from "./OaiqPixel"
-import { measureAppointmentScheduled, measureLeadCreated } from "../utils/oaiq"
+import useOaiqTracking from "../hooks/useOaiqTracking"
+import { buildCalendlyUrl } from "../utils/oaiq"
 
 const SITE_URL = "https://martinmueller.dev"
 const HERO_IMAGE_WIDTH = 1376
@@ -40,13 +41,8 @@ const OneManAgency = ({ content, location }) => {
   })
  }, [location.hash])
 
- const handleCalendlyClick = () => {
-  measureAppointmentScheduled()
- }
-
- const handleWriteClick = () => {
-  measureLeadCreated()
- }
+ useOaiqTracking()
+ const calendlyUrl = buildCalendlyUrl()
 
  return (
   <Layout fullWidth>
@@ -86,16 +82,14 @@ const OneManAgency = ({ content, location }) => {
         href="mailto:office+agency@martinmueller.dev"
         target="_blank"
         rel="noopener noreferrer"
-        onClick={handleWriteClick}
         className="inline-flex transform items-center justify-center rounded-lg bg-brand px-8 py-4 font-semibold text-white no-underline shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-dark hover:text-white hover:no-underline hover:shadow-xl dark:bg-white dark:text-slate-900 dark:hover:bg-gray-100 dark:hover:text-slate-900"
        >
         {hero.ctaWrite}
        </a>
        <a
-        href="https://calendly.com/martinmueller_dev/30min"
+        href={calendlyUrl}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={handleCalendlyClick}
         className="inline-flex transform items-center justify-center rounded-lg bg-brand px-8 py-4 font-semibold text-white no-underline shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-dark hover:text-white hover:no-underline hover:shadow-xl dark:bg-white dark:text-slate-900 dark:hover:bg-gray-100 dark:hover:text-slate-900"
        >
         {hero.ctaSpeak}
@@ -350,16 +344,14 @@ const OneManAgency = ({ content, location }) => {
        href="mailto:office+agency@martinmueller.dev"
        target="_blank"
        rel="noopener noreferrer"
-       onClick={handleWriteClick}
        className="inline-flex transform items-center justify-center rounded-lg bg-white px-8 py-4 font-semibold text-brand shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-50 hover:shadow-xl"
       >
        {cta.ctaWrite}
       </a>
       <a
-       href="https://calendly.com/martinmueller_dev/30min"
+       href={calendlyUrl}
        target="_blank"
        rel="noopener noreferrer"
-       onClick={handleCalendlyClick}
        className="inline-flex transform items-center justify-center rounded-lg bg-white px-8 py-4 font-semibold text-brand shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-50 hover:shadow-xl"
       >
        {cta.ctaSpeak}
