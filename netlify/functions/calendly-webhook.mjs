@@ -67,8 +67,7 @@ export default async (req) => {
  }
 
  const signingKey = process.env.CALENDLY_WEBHOOK_SIGNING_KEY
- const capiKey = process.env.OPENAI_ADS_CAPI_KEY
- if (!signingKey || !capiKey) {
+ if (!signingKey) {
   return new Response("server not configured", { status: 500 })
  }
 
@@ -112,6 +111,12 @@ export default async (req) => {
  if (oppref) capiEvent.oppref = oppref
  if (email) {
   capiEvent.user = { emails_sha256: [hashEmail(email)] }
+ }
+
+ const capiKey = process.env.OPENAI_ADS_CAPI_KEY
+ if (!capiKey) {
+  console.error("OPENAI_ADS_CAPI_KEY not set")
+  return new Response("capi not configured", { status: 500 })
  }
 
  try {
