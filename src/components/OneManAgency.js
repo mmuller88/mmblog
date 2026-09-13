@@ -11,7 +11,6 @@ import testimonialEric from "../../content/resume/testimonialEric.png"
 import { oneManAgencyHeroImage } from "../data/oneManAgencyContent"
 import OaiqPixel from "./OaiqPixel"
 import useOaiqTracking from "../hooks/useOaiqTracking"
-import { buildCalendlyUrl } from "../utils/oaiq"
 
 const SITE_URL = "https://martinmueller.dev"
 const HERO_IMAGE_WIDTH = 1376
@@ -41,8 +40,7 @@ const OneManAgency = ({ content, location }) => {
   })
  }, [location.hash])
 
- useOaiqTracking()
- const calendlyUrl = buildCalendlyUrl()
+ const calendlyUrl = useOaiqTracking()
 
  return (
   <Layout fullWidth>

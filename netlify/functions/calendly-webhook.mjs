@@ -63,5 +63,13 @@ export default async (req) => {
   return new Response("capi failed", { status: 502 })
  }
 
+ console.log(
+  "calendly-webhook ok",
+  JSON.stringify({
+   event_id: eventId,
+   validate_only: validateOnly,
+   has_oppref: Boolean(capiEvent.oppref),
+  })
+ )
  return Response.json({ ok: true, event_id: eventId, validate_only: validateOnly })
 }

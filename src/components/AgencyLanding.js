@@ -5,7 +5,6 @@ import MetaTags from "./Metatags"
 import OaiqPixel from "./OaiqPixel"
 import AgencyContactForm from "./AgencyContactForm"
 import useOaiqTracking from "../hooks/useOaiqTracking"
-import { buildCalendlyUrl } from "../utils/oaiq"
 import { oneManAgencyHeroImage } from "../data/oneManAgencyContent"
 
 const SITE_URL = "https://martinmueller.dev"
@@ -22,8 +21,7 @@ const AgencyLanding = ({ content, location }) => {
   contact,
  } = content
 
- useOaiqTracking()
- const calendlyUrl = buildCalendlyUrl()
+ const calendlyUrl = useOaiqTracking()
 
  return (
   <Layout fullWidth>

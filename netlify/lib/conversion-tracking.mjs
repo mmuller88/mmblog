@@ -12,7 +12,7 @@ export const hashEmail = (email) => {
 
 export const inviteeIdFromUri = (uri) => {
  if (!uri) return null
- const match = uri.match(/invitees\/([a-f0-9-]+)/i)
+ const match = uri.match(/invitees\/([a-z0-9-]+)/i)
  return match?.[1] ?? null
 }
 
