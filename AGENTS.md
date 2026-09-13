@@ -96,7 +96,8 @@ OpenAI pixel on agency pages (`src/utils/oaiq.js`, `OaiqPixel.js`).
 
 **Intent landings (DE ads):**
 - `/one-man-agency-de/aws/` — AWS Services ad group
-- `/one-man-agency-de/seo-geo/` — SEO/GEO/ChatGPT Ads
+- `/one-man-agency-de/seo-geo/` — SEO/GEO
+- `/one-man-agency-de/gpt/` — ChatGPT Ads
 - `/one-man-agency-de/vibe-coding/` — Vibe Coding/DevOps
 
 **Netlify env (not in repo):** `OPENAI_ADS_CAPI_KEY`, `CALENDLY_WEBHOOK_SIGNING_KEY`

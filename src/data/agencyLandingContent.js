@@ -150,7 +150,6 @@ export const agencyLandingContent = {
      "SEO audit",
      "GEO strategy",
      "AI visibility",
-     "ChatGPT SEO",
      "search optimization",
     ],
     locale: "en_US",
@@ -162,7 +161,7 @@ export const agencyLandingContent = {
    hero: {
     title: "SEO & GEO Strategy",
     subtitle:
-     "Get found in Google and in AI answers (ChatGPT, Perplexity). Audits, actionable roadmaps, and fixed-scope delivery.",
+     "Get found in Google and in AI answers. Audits, actionable roadmaps, and fixed-scope delivery.",
     ctaSpeak: "🗣️ Book a call",
     ctaWrite: "📝 Or send a message",
    },
@@ -193,7 +192,6 @@ export const agencyLandingContent = {
      "SEO Audit",
      "GEO Strategie",
      "KI Sichtbarkeit",
-     "ChatGPT SEO",
      "Suchmaschinenoptimierung",
     ],
     locale: "de_DE",
@@ -208,7 +206,7 @@ export const agencyLandingContent = {
    hero: {
     title: "SEO & GEO Strategie",
     subtitle:
-     "Gefunden werden in Google und in KI-Antworten (ChatGPT, Perplexity). Audits, umsetzbare Roadmaps, feste Scope-Lieferung.",
+     "Gefunden werden in Google und in KI-Antworten. Audits, umsetzbare Roadmaps, feste Scope-Lieferung.",
     ctaSpeak: "🗣️ Termin buchen",
     ctaWrite: "📝 Oder Nachricht senden",
    },
@@ -229,6 +227,91 @@ export const agencyLandingContent = {
    },
    testimonials: [],
    contact: { heading: "Schildern Sie mir Ihre Sichtbarkeitsziele", form: formLabelsDe },
+  },
+ },
+ gpt: {
+  en: {
+   meta: {
+    title: "ChatGPT Ads — Campaigns, Tracking & Conversions",
+    description:
+     "ChatGPT Ads campaign setup, pixel and CAPI conversion tracking, intent landing pages, and optimization for booked appointments. Fixed-scope SoW, no agency markup.",
+    keywords: [
+     "ChatGPT Ads",
+     "OpenAI Ads",
+     "conversion tracking",
+     "campaign setup",
+     "CAPI tracking",
+    ],
+    locale: "en_US",
+    language: "en",
+    gerUrl: "/one-man-agency-de/gpt/",
+   },
+   langSwitch: { label: "Deutsch", href: "/one-man-agency-de/gpt/" },
+   hubLink: { label: "← Full One-Man Agency overview", href: "/one-man-agency/" },
+   hero: {
+    title: "ChatGPT Ads",
+    subtitle:
+     "Paid ads in ChatGPT with reliable conversion tracking — pixel, CAPI, intent landings, and optimization for booked calls. One senior expert, fixed scope and price.",
+    ctaSpeak: "🗣️ Book a call",
+    ctaWrite: "📝 Or send a message",
+   },
+   deliverables: {
+    heading: "What you get",
+    items: [
+     "ChatGPT Ads Manager campaign setup",
+     "OpenAI pixel and CAPI conversion tracking",
+     "Calendly integration with appointment_scheduled events",
+     "Intent landing pages aligned to your ad groups",
+     "Creative and copy recommendations",
+     "Reporting and optimization roadmap",
+     "Written Statement of Work with fixed price",
+    ],
+   },
+   testimonials: [],
+   contact: { heading: "Tell me about your ChatGPT Ads goals", form: formLabelsEn },
+  },
+  de: {
+   meta: {
+    title: "ChatGPT Ads — Kampagnen, Tracking & Conversions",
+    description:
+     "ChatGPT Ads Kampagnen-Setup, Pixel- und CAPI-Tracking, Intent-Landings und Optimierung auf gebuchte Termine. Festes Statement of Work, kein Agentur-Aufschlag.",
+    keywords: [
+     "ChatGPT Ads",
+     "OpenAI Ads",
+     "ChatGPT Werbung",
+     "Conversion Tracking",
+     "Kampagnen-Setup",
+    ],
+    locale: "de_DE",
+    language: "de",
+    engUrl: "/one-man-agency/gpt/",
+   },
+   langSwitch: { label: "English", href: "/one-man-agency/gpt/" },
+   hubLink: {
+    label: "← Zur vollständigen One-Man-Agency-Übersicht",
+    href: "/one-man-agency-de/",
+   },
+   hero: {
+    title: "ChatGPT Ads",
+    subtitle:
+     "Bezahlte Anzeigen in ChatGPT mit zuverlässigem Conversion-Tracking — Pixel, CAPI, Intent-Landings und Optimierung auf gebuchte Termine. Ein Senior-Experte, fester Scope und Festpreis.",
+    ctaSpeak: "🗣️ Termin buchen",
+    ctaWrite: "📝 Oder Nachricht senden",
+   },
+   deliverables: {
+    heading: "Das bekommen Sie",
+    items: [
+     "ChatGPT Ads Manager Kampagnen-Setup",
+     "OpenAI Pixel und CAPI Conversion-Tracking",
+     "Calendly-Integration mit appointment_scheduled Events",
+     "Intent-Landingpages passend zu Ihren Anzeigengruppen",
+     "Creative- und Copy-Empfehlungen",
+     "Reporting und Optimierungs-Roadmap",
+     "Schriftliches Statement of Work mit Festpreis",
+    ],
+   },
+   testimonials: [],
+   contact: { heading: "Schildern Sie mir Ihre ChatGPT Ads Ziele", form: formLabelsDe },
   },
  },
  vibeCoding: {
