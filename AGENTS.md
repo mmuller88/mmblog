@@ -91,7 +91,7 @@ Posts are queried via `allMarkdownRemark`. Key fields:
 OpenAI pixel on agency pages (`src/utils/oaiq.js`, `OaiqPixel.js`).
 
 - `page_viewed` on load; `lead_created` on agency contact form submit only
-- `appointment_scheduled` via Calendly webhook → `netlify/functions/calendly-webhook.mjs` → OpenAI CAPI (not on Calendly link click)
+- `appointment_scheduled` via Calendly popup `event_scheduled` (pixel, has oppref) and webhook → CAPI (not on link click)
 - Calendly links append `utm_source=chatgpt_ads&utm_medium=cpc&utm_content=<oppref>`; `oppref` from `?oppref=` URL param → sessionStorage
 
 **Intent landings (DE ads):**

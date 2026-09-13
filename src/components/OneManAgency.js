@@ -40,7 +40,7 @@ const OneManAgency = ({ content, location }) => {
   })
  }, [location.hash])
 
- const calendlyUrl = useOaiqTracking()
+ const { calendlyUrl, openCalendly } = useOaiqTracking()
 
  return (
   <Layout fullWidth>
@@ -86,8 +86,7 @@ const OneManAgency = ({ content, location }) => {
        </a>
        <a
         href={calendlyUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+        onClick={openCalendly}
         className="inline-flex transform items-center justify-center rounded-lg bg-brand px-8 py-4 font-semibold text-white no-underline shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-dark hover:text-white hover:no-underline hover:shadow-xl dark:bg-white dark:text-slate-900 dark:hover:bg-gray-100 dark:hover:text-slate-900"
        >
         {hero.ctaSpeak}
@@ -348,8 +347,7 @@ const OneManAgency = ({ content, location }) => {
       </a>
       <a
        href={calendlyUrl}
-       target="_blank"
-       rel="noopener noreferrer"
+       onClick={openCalendly}
        className="inline-flex transform items-center justify-center rounded-lg bg-white px-8 py-4 font-semibold text-brand shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-50 hover:shadow-xl"
       >
        {cta.ctaSpeak}

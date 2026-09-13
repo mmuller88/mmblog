@@ -12,8 +12,10 @@ export const hashEmail = (email) => {
 
 export const inviteeIdFromUri = (uri) => {
  if (!uri) return null
- const match = uri.match(/invitees\/([a-z0-9-]+)/i)
- return match?.[1] ?? null
+ const match = String(uri).match(/invitees\/([a-z0-9-]+)/i)
+ if (match?.[1]) return match[1]
+ const tail = String(uri).split("/").filter(Boolean).pop()
+ return tail || null
 }
 
 export const isHealthcheckInvitee = (inviteeId) =>
