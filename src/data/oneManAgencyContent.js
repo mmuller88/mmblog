@@ -1,4 +1,6 @@
 export const oneManAgencyHeroImage = "/one-man-agency/hero.jpg"
+export const oneManAgencyHeroImageAlt =
+ "OpenClaw AI agent orchestrating blog posts, code, invoices, and SEO work"
 
 export const oneManAgencyContent = {
  en: {

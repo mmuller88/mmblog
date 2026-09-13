@@ -5,9 +5,14 @@ import MetaTags from "./Metatags"
 import OaiqPixel from "./OaiqPixel"
 import AgencyContactForm from "./AgencyContactForm"
 import useOaiqTracking from "../hooks/useOaiqTracking"
-import { oneManAgencyHeroImage } from "../data/oneManAgencyContent"
+import {
+ oneManAgencyHeroImage,
+ oneManAgencyHeroImageAlt,
+} from "../data/oneManAgencyContent"
 
 const SITE_URL = "https://martinmueller.dev"
+const HERO_IMAGE_WIDTH = 1376
+const HERO_IMAGE_HEIGHT = 768
 
 const AgencyLanding = ({ content, location }) => {
  const {
@@ -30,7 +35,9 @@ const AgencyLanding = ({ content, location }) => {
     title={meta.title}
     description={meta.description}
     thumbnail={`${SITE_URL}${oneManAgencyHeroImage}`}
-    imageAlt={meta.title}
+    imageAlt={oneManAgencyHeroImageAlt}
+    imageWidth={HERO_IMAGE_WIDTH}
+    imageHeight={HERO_IMAGE_HEIGHT}
     keywords={meta.keywords}
     locale={meta.locale}
     language={meta.language}
@@ -50,21 +57,30 @@ const AgencyLanding = ({ content, location }) => {
    </div>
 
    <div className="relative bg-gradient-to-br from-blue-50 via-white to-cyan-50 px-4 py-16 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
-    <div className="mx-auto max-w-4xl text-center">
-     <h1 className="mb-6 font-sans text-4xl font-bold text-gray-900 dark:text-gray-100 md:text-5xl">
-      {hero.title}
-     </h1>
-     <p className="mb-8 text-xl leading-relaxed text-gray-700 dark:text-gray-300">
-      {hero.subtitle}
-     </p>
-     <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-      <a
-       href={calendlyUrl}
-       onClick={openCalendly}
-       className="inline-flex transform items-center justify-center rounded-lg bg-brand px-8 py-4 font-semibold text-white no-underline shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-dark hover:text-white hover:no-underline hover:shadow-xl dark:bg-white dark:text-slate-900 dark:hover:bg-gray-100 dark:hover:text-slate-900"
-      >
-       {hero.ctaSpeak}
-      </a>
+    <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
+     <div className="text-center md:text-left">
+      <h1 className="mb-6 font-sans text-4xl font-bold text-gray-900 dark:text-gray-100 md:text-5xl">
+       {hero.title}
+      </h1>
+      <p className="mb-8 text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+       {hero.subtitle}
+      </p>
+      <div className="flex flex-col items-center justify-center gap-4 sm:flex-row md:justify-start">
+       <a
+        href={calendlyUrl}
+        onClick={openCalendly}
+        className="inline-flex transform items-center justify-center rounded-lg bg-brand px-8 py-4 font-semibold text-white no-underline shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-dark hover:text-white hover:no-underline hover:shadow-xl dark:bg-white dark:text-slate-900 dark:hover:bg-gray-100 dark:hover:text-slate-900"
+       >
+        {hero.ctaSpeak}
+       </a>
+      </div>
+     </div>
+     <div className="overflow-hidden rounded-xl shadow-lg">
+      <img
+       src={oneManAgencyHeroImage}
+       alt={oneManAgencyHeroImageAlt}
+       className="mb-0 w-full object-cover"
+      />
      </div>
     </div>
    </div>
