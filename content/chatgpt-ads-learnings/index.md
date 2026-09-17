@@ -3,6 +3,8 @@ title: "ChatGPT Ads, Two Weeks In: What I Learned Running My First Campaign"
 show: "no"
 date: "2026-09-16"
 image: "index.png"
+audio: "audio.mp3"
+audioTiming: "audio-timing.json"
 tags: ["eng", "2026", "chatgpt", "ads", "openai", "marketing", "growth"]
 pruneLength: 50
 ---
@@ -27,7 +29,7 @@ Forget search results pages. ChatGPT Ads are **sponsored cards below the assista
 
 That feels different in practice. When I finally saw my own ad appear under a relevant answer, it did not feel like a banner interrupting a page. It felt like a footnote the model might have suggested anyway — except it was labelled *Sponsored* and pointed at my site.
 
-OpenAI's Ads Manager (available in Europe now) looks familiar: campaigns, budgets, CPC bidding, conversion tracking hooks. The **inventory and review process** still feel first-generation — closer to early Facebook than polished Google.
+OpenAI's Ads Manager (available in Europe now) looks familiar: campaigns, budgets, bidding. The **inventory and review process** still feel first-generation — closer to early Facebook than polished Google.
 
 ---
 
@@ -49,13 +51,15 @@ OpenAI's Ads Manager (available in Europe now) looks familiar: campaigns, budget
 
 Seeing your own ad inside ChatGPT is oddly useful. You immediately understand placement, density, and how much copy fits on the card. No dashboard replicates that.
 
-**What I am measuring:** downstream signals ChatGPT will not fully attribute for you — Calendly bookings, contact form, LinkedIn DMs after talks. Treat the ad platform metrics as directional, not gospel.
+**What I am measuring:** downstream signals the platform will not fully attribute for you — Calendly bookings, contact form, LinkedIn DMs after talks. Treat dashboard metrics as directional, not gospel.
 
 ---
 
-## Campaign 2: qr-plakat.de + affiliates (harder math)
+## Campaign 2: qr-plakat.de + affiliates
 
-In parallel I explored **qr-plakat.de** — QR landing pages that route to honest product comparisons with affiliate links (AWIN, ADCELL, Impact).
+In parallel I explored **[qr-plakat.de](https://qr-plakat.de)** — QR landing pages that route to honest product comparisons with affiliate links (AWIN, ADCELL, Impact).
+
+[![qr-plakat.de — design QR posters online and host scan targets](qr-plakat-landing.jpg)](https://qr-plakat.de)
 
 **The funnel:**
 
@@ -73,18 +77,11 @@ ChatGPT Ad or QR scan
 - Same URL works offline (A2 poster in a café) and online (ChatGPT Ad)
 - Merchants and networks see a real publisher site, not a raw redirect
 
-**Why paid + affiliate is brutal:**
+**Why paid + affiliate is harder:**
 
-Affiliate commissions on consumer food are often **€5–8 per new customer**. ChatGPT CPC in my early tests sits around **€2–4**. At 2–5% conversion you are underwater before tracking noise.
+Consumer food affiliates pay small commissions per sale. Paid chat placements cost real money per click. Stacking the two without a clear offer of your own is easy to get wrong — you need either high-intent traffic, a stronger merchant deal, or organic reach first.
 
-| Example (Foodspring ~€7.80 commission) | CPC €2 | CPC €4 |
-| -------------------------------------- | ------ | ------ |
-| 2% conversion | −€3.64 / click | −€5.64 / click |
-| 5% conversion | −€1.64 / click | −€3.64 / click |
-
-Break-even needs **CPC ≤ conversion rate × commission**. For low-ticket affiliate, that rarely works on paid traffic. Fixed-CPA programmes (e.g. meal kits) look better on paper — I am still testing.
-
-**Lesson:** Run ChatGPT Ads for **your own offer** first. Stack affiliate arbitrage only after unit economics work organically.
+**Lesson:** Run ChatGPT Ads for **your own offer** first. Add affiliate layers only when the funnel already works without paid traffic.
 
 I also used the live martinmueller.dev ad as proof of active paid traffic when arguing publisher review with ADCELL (qr-plakat's German affiliate network) — a side effect I did not plan for.
 
@@ -94,11 +91,11 @@ I also used the live martinmueller.dev ad as proof of active paid traffic when a
 
 **Context matching works.** The placement I saw was relevant to the thread — not random retargeting noise.
 
-**The platform is product-first early.** Feeds, landing page quality, conversion API — the same infrastructure play as Meta/Google, just younger. If you are a builder who ships landing pages and measures conversions, you have an edge over copy-paste advertisers.
+**The platform is product-first early.** Feeds, landing page quality, measurement hooks — the same infrastructure play as Meta/Google, just younger. If you are a builder who ships landing pages and tracks outcomes, you have an edge over copy-paste advertisers.
 
-**Review is opaque.** One campaign rejected, little explanation. Budget small enough that I treated it as tuition.
+**Review is opaque.** One campaign rejected, little explanation. Small budget — I treated it as tuition.
 
-**Small budgets are fine.** This is a sandbox. You learn placement and UX for tens of euros, not thousands.
+**Small budgets are fine.** This is a sandbox. You learn placement and UX without betting the farm.
 
 ---
 
@@ -108,13 +105,13 @@ I also used the live martinmueller.dev ad as proof of active paid traffic when a
 2. **Own product before affiliate** — martinmueller.dev was the right first bet
 3. **Measure downstream** — email, Calendly, calls; do not wait for perfect platform attribution
 4. **Keep creative conversational** — guides and comparisons fit the medium; hard sell does not
-5. **Document everything** — screenshots, rejection emails, CPC bands; the channel will mature fast and early notes age well
+5. **Document everything** — screenshots, rejection emails, early notes; the channel will mature fast
 
 ---
 
 ## Open questions (honest)
 
-- Where does CPC go when more advertisers pile into EU inventory?
+- What happens to cost per click when more advertisers pile into EU inventory?
 - B2B lead quality vs LinkedIn or Google for freelance AWS work — too early to say
 - Will OpenAI expose more context signals to advertisers, or keep matching a black box?
 - How will users react as ad density increases inside chat?
@@ -125,7 +122,7 @@ I also used the live martinmueller.dev ad as proof of active paid traffic when a
 
 ChatGPT Ads are **real, live in Europe, and weird in a good way** — distribution at the moment of intent inside a conversation, not on a results page.
 
-If you have something to sell (services, SaaS, a real product), a clear landing page, and tolerance for ambiguous review: **run a small test**. €50 and two weeks taught me more than any product blog post.
+If you have something to sell (services, SaaS, a real product), a clear landing page, and tolerance for ambiguous review: **run a small test**. A short experiment taught me more than any product blog post.
 
 If you are experimenting too — [reach out](https://martinmueller.dev/contact). Happy to swap notes.
 
