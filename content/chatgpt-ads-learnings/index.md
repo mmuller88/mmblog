@@ -71,7 +71,7 @@ For a first-timer this was the unlock: describe what you want, see a draft, twea
 
 Want to see your own sponsored card? Two tricks that worked for me:
 
-1. **Narrow targeting to your location** in Ads Manager — city or region level, so you are not competing with the whole country for a single impression.
+1. **Narrow targeting to your location** in Ads Manager — city or region level, so you are not competing with the whole country for a single impression. First check what location ChatGPT actually sees for you — sites like [ipwho.is](https://ipwho.is/) show your IP-based city/region so you target the right place.
 2. **Ask ChatGPT to invent prompts** that are likely to trigger your ad given your campaign topic — then run those prompts in a fresh chat and see if your card appears.
 
 It is not a perfect lab setup (inventory, pacing, and matching still apply), but it beats staring at a dashboard wondering whether anything is live. When my card showed up under a prompt ChatGPT had suggested, I knew the loop worked.
@@ -94,11 +94,9 @@ It is not a perfect lab setup (inventory, pacing, and matching still apply), but
 
 ## What I would do differently
 
-1. **Install the plugin on day one** — skip the Ads Manager-only learning curve
-2. **One offer, one page, one metric** — resist scope creep
-3. **Measure downstream** — email, Calendly, calls; do not wait for perfect platform attribution
-4. **Keep creative conversational** — the medium rewards helpful tone, not hard sell
-5. **Geo-narrow early for self-testing** — confirm the ad renders before you scale targeting
+1. **One offer, one page, one metric** — resist scope creep
+2. **Measure downstream** — email, Calendly, calls; do not wait for perfect platform attribution
+3. **Keep creative conversational** — the medium rewards helpful tone, not hard sell
 
 ---
 
