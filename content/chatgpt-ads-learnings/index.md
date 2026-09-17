@@ -116,8 +116,17 @@ ChatGPT Ads are **real, live in Europe, and weird in a good way** — distributi
 
 If you have something to sell (services, SaaS, a real product), a clear landing page, and curiosity: **run a small test**. A short experiment taught me more than any product blog post — and for a first-time advertiser, it was genuinely fun.
 
-If you are experimenting too — [reach out](https://martinmueller.dev/contact). Happy to swap notes.
+---
+
+## Need help with ChatGPT Ads?
+
+I help companies run ChatGPT Ads as a **freelancer** — campaign setup in Ads Manager, intent landing pages, conversion tracking, and fast iteration with the ChatGPT Ads Manager plugin. I've been live in the channel since mid-September and know the early quirks firsthand.
+
+If you want someone who's already shipping ads there instead of figuring it out alone: **[ChatGPT Ads — freelance help](https://martinmueller.dev/one-man-agency/gpt/)** (fixed scope, book a call or send a message).
+
+Happy to swap notes either way — [reach out](https://martinmueller.dev/contact).
 
 **Related:**
 
+- [ChatGPT Ads freelance offer](https://martinmueller.dev/one-man-agency/gpt/) — campaigns, tracking, landings
 - [AWS Community Day DACH talk deck](https://mmuller88.github.io/presentations/aws-community-day-dach-2026/#/chatgpt-ads) — includes the live ad screenshots
