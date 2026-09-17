@@ -3,6 +3,8 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
+import { captureOppref, measurePageViewed } from "./src/utils/oaiq"
+
 require("./src/styles/global.css")
 
 // PrismJS syntax highlighting theme
@@ -25,3 +27,12 @@ require("prismjs/components/prism-python")
 
 // You can delete this file if you're not using it
 require('gatsby-remark-vscode/styles.css');
+
+export const onClientEntry = () => {
+ captureOppref()
+}
+
+export const onRouteUpdate = () => {
+ captureOppref()
+ measurePageViewed()
+}

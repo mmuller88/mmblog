@@ -4,7 +4,6 @@ import {
  captureOppref,
  inviteeIdFromUri,
  measureAppointmentScheduled,
- measurePageViewed,
 } from "../utils/oaiq"
 
 const loadCalendlyWidget = () => {
@@ -17,14 +16,13 @@ const loadCalendlyWidget = () => {
  document.body.appendChild(script)
 }
 
-/** Init oppref + page_viewed; Calendly popup so pixel can see the booking. */
+/** Calendly popup so pixel can see the booking. oppref/page_viewed are sitewide. */
 const useOaiqTracking = () => {
  const [calendlyUrl, setCalendlyUrl] = useState(() => buildCalendlyUrl())
 
  useEffect(() => {
   captureOppref()
   setCalendlyUrl(buildCalendlyUrl())
-  measurePageViewed()
   loadCalendlyWidget()
 
   const onMessage = (event) => {

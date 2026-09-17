@@ -11,6 +11,7 @@ import { StaticQuery, graphql } from "gatsby"
 import CookieConsent from "react-cookie-consent"
 
 import Header from "./header"
+import OaiqPixel from "./OaiqPixel"
 import "./layout.css"
 
 const Layout = ({ children, fullWidth = false }) => (
@@ -26,6 +27,7 @@ const Layout = ({ children, fullWidth = false }) => (
   `}
   render={(data) => (
    <>
+    <OaiqPixel />
     <Header siteTitle={data.site.siteMetadata.title} />
     {fullWidth ? (
      <>

@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "./layout"
 import MetaTags from "./Metatags"
-import OaiqPixel from "./OaiqPixel"
 import AgencyContactForm from "./AgencyContactForm"
 import useOaiqTracking from "../hooks/useOaiqTracking"
 import {
@@ -30,7 +29,6 @@ const AgencyLanding = ({ content, location }) => {
 
  return (
   <Layout fullWidth>
-   <OaiqPixel />
    <MetaTags
     title={meta.title}
     description={meta.description}

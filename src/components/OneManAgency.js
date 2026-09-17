@@ -9,7 +9,6 @@ import testimonialJakob from "../../content/resume/testimonialJakob.png"
 import testimonialAdrian from "../../content/resume/testimonialAdrian.png"
 import testimonialEric from "../../content/resume/testimonialEric.png"
 import { oneManAgencyHeroImage } from "../data/oneManAgencyContent"
-import OaiqPixel from "./OaiqPixel"
 import useOaiqTracking from "../hooks/useOaiqTracking"
 
 const SITE_URL = "https://martinmueller.dev"
@@ -44,7 +43,6 @@ const OneManAgency = ({ content, location }) => {
 
  return (
   <Layout fullWidth>
-   <OaiqPixel />
    <MetaTags
     title={meta.title}
     description={meta.description}
