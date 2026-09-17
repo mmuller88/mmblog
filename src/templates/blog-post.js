@@ -386,7 +386,9 @@ function BlogPost(props) {
      >
       {!audioEngaged ? (
        <p className="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-        Listen to this post
+        {tags.includes("de")
+         ? "Diesen Beitrag anhören"
+         : "Listen to this post"}
        </p>
       ) : null}
       <audio
