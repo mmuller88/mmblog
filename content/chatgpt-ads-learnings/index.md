@@ -1,11 +1,12 @@
 ---
 title: "ChatGPT Ads: What I Learned From My First Campaign"
-show: "no"
-date: "2026-09-16"
+show: "yes"
+date: "2026-09-19"
 image: "index.png"
 audio: "audio.mp3"
 audioTiming: "audio-timing.json"
 tags: ["eng", "2026", "chatgpt", "ads", "openai", "marketing", "growth"]
+gerUrl: https://martinmueller.dev/chatgpt-ads-learnings-de
 pruneLength: 50
 ---
 
