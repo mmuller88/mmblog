@@ -1,5 +1,5 @@
 ---
-title: "ChatGPT Ads, Two Weeks In: What I Learned Running My First Campaign"
+title: "ChatGPT Ads: What I Learned From My First Campaign"
 show: "no"
 date: "2026-09-16"
 image: "index.png"
@@ -9,11 +9,11 @@ tags: ["eng", "2026", "chatgpt", "ads", "openai", "marketing", "growth"]
 pruneLength: 50
 ---
 
-ChatGPT Ads rolled out in Europe in **August 2026**. I signed up the same week — not because I had a perfect media plan, but because new ad surfaces are rare and I wanted to learn by spending real money.
+ChatGPT Ads rolled out in Europe in **August 2026**. I registered **mid-September** — not because I had a perfect media plan, but because new ad surfaces are rare and I wanted to learn by spending real money.
 
 This is my **first ads experience ever**. I expected to feel skeptical. Instead I **totally love it** — seeing your own sponsored card inside a real ChatGPT thread is oddly addictive, and the tooling makes iteration feel closer to shipping software than buying media.
 
-Two weeks later I had a **live sponsored placement for [martinmueller.dev](https://martinmueller.dev)** inside an actual conversation. I showed it on stage at AWS Community Day DACH. This post is what I would tell a friend who asks: *"Should I try ChatGPT Ads?"*
+My ad for **[martinmueller.dev](https://martinmueller.dev)** went **live a few hours after registration**. I showed the placement on stage at AWS Community Day DACH. This post is what I would tell a friend who asks: *"Should I try ChatGPT Ads?"*
 
 I am early. I am not an ads expert. These are field notes.
 
@@ -37,14 +37,15 @@ OpenAI's Ads Manager (available in Europe now) looks familiar: campaigns, budget
 
 ## My campaign: martinmueller.dev
 
-**Goal:** inbound interest for freelance AWS work — not e-commerce.
+**Goal:** inbound interest for freelance AWS work.
 
 **Creative angle:** *AWS ohne Overhead* — builder positioning for teams that want cloud expertise without enterprise overhead.
 
 **What happened:**
 
-- Submitted creative + landing page through Ads Manager
-- Got a **live placement** — screenshots from a real thread where the sponsored card shows under the conversation
+- Registered in Ads Manager mid-September
+- Submitted creative + landing page
+- **Live placement within a few hours** — screenshots from a real thread where the sponsored card shows under the conversation
 
 ![Sponsored martinmueller.dev ad card in ChatGPT](index.png)
 
@@ -79,6 +80,8 @@ It is not a perfect lab setup (inventory, pacing, and matching still apply), but
 
 ## What surprised me
 
+**Fast time to live.** Register mid-afternoon, see your sponsored card the same day — that alone hooked me.
+
 **Context matching works.** The placement I saw was relevant to the thread — not random retargeting noise.
 
 **The platform is product-first early.** Feeds, landing page quality, measurement hooks — the same infrastructure play as Meta/Google, just younger. If you are a builder who ships landing pages and tracks outcomes, you have an edge over copy-paste advertisers.
@@ -94,7 +97,7 @@ It is not a perfect lab setup (inventory, pacing, and matching still apply), but
 1. **Install the plugin on day one** — skip the Ads Manager-only learning curve
 2. **One offer, one page, one metric** — resist scope creep
 3. **Measure downstream** — email, Calendly, calls; do not wait for perfect platform attribution
-4. **Keep creative conversational** — guides and comparisons fit the medium; hard sell does not
+4. **Keep creative conversational** — the medium rewards helpful tone, not hard sell
 5. **Geo-narrow early for self-testing** — confirm the ad renders before you scale targeting
 
 ---
