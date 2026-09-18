@@ -32,6 +32,8 @@ Vergiss Suchergebnisseiten. ChatGPT Ads sind **gesponserte Karten unter der Antw
 
 In der Praxis fühlt sich das anders an. Als meine eigene Anzeige unter einer passenden Antwort auftauchte, fühlte es sich nicht wie ein Banner an, das eine Seite unterbricht. Mehr wie eine Fußnote, die das Modell vielleicht selbst vorschlagen könnte — nur mit *Gesponsert* und Link zu meiner Site.
 
+Die Zielgruppe ist ein großer Grund, warum ich begeistert bin. Du kaufst keine Impressions von passiven Scrollern. Diese Leute **nutzen bereits KI** — in ChatGPT Web, mit echten Fragen, Probleme im Dialog lösen. Diese Selbstselektion macht das Inventory **ungewöhnlich wertvoll**: Early Adopter, hohe Intent, und offen für Tools und Services, die zu dem passen, was sie im Produkt schon tun.
+
 OpenAIs Ads Manager (jetzt in Europa verfügbar) wirkt vertraut: Kampagnen, Budgets, Bidding. **Inventory und Review** fühlen sich noch first-gen an — näher an frühem Facebook als poliertem Google.
 
 ---
@@ -85,6 +87,8 @@ Kein perfektes Lab (Inventory, Pacing, Matching gelten trotzdem), aber besser al
 
 **Context Matching funktioniert.** Das Placement war relevant zum Thread — kein Random-Retargeting.
 
+**Die Zielgruppe ist stark.** Jeder im Feed ist schon ChatGPT-Web-User — aktiv mit KI unterwegs, kein Doom-Scrolling vor einem Banner. Für B2B-Services, SaaS oder alles AI-Nahe ist das eine seltene Konzentration genau der Leute, die man erreichen will.
+
 **Plattform ist product-first early.** Feeds, Landing-Page-Qualität, Measurement — derselbe Infrastruktur-Play wie Meta/Google, nur jünger. Wer Landing Pages shipped und Outcomes trackt, hat einen Vorteil gegenüber Copy-Paste-Werbern.
 
 **Kleine Budgets reichen.** Sandbox zum Lernen von Placement und UX, ohne alles zu riskieren.
@@ -112,7 +116,7 @@ Kein perfektes Lab (Inventory, Pacing, Matching gelten trotzdem), aber besser al
 
 ## Fazit
 
-ChatGPT Ads sind **real, in Europa live, und auf eine gute Art weird** — Distribution im Moment der Intent innerhalb eines Gesprächs, nicht auf einer Ergebnisseite.
+ChatGPT Ads sind **real, in Europa live, und auf eine gute Art weird** — Distribution im Moment der Intent innerhalb eines Gesprächs, nicht auf einer Ergebnisseite. Und die Menschen auf der anderen Seite sind kein Zufalls-Traffic: Sie **nutzen bereits ChatGPT Web** — die potenzielle Zielgruppe fühlt sich dadurch ungewöhnlich wertvoll an.
 
 Wenn du etwas zu verkaufen hast (Services, SaaS, echtes Produkt), eine klare Landing Page und Neugier: **kleinen Test laufen lassen**. Ein kurzes Experiment hat mir mehr gebracht als jeder Produkt-Blogpost — und als Erstwerber war es echt Spaß.
 
