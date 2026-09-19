@@ -14,7 +14,7 @@ ChatGPT Ads rolled out in Europe in **August 2026**. I registered **mid-Septembe
 
 This is my **first ads experience ever**. I expected to feel skeptical. Instead I **totally love it** — seeing your own sponsored card inside a real ChatGPT thread is oddly addictive, and the tooling makes iteration feel closer to shipping software than buying media.
 
-My ad for **[martinmueller.dev](https://martinmueller.dev)** went **live a few hours after registration**. I showed the placement on stage at AWS Community Day DACH. This post is what I would tell a friend who asks: *"Should I try ChatGPT Ads?"*
+My ads went **live a few hours after registration** — one for freelance AWS work, one for my poster SaaS **[qr-plakat.de](https://qr-plakat.de)**. This post is what I would tell a friend who asks: *"Should I try ChatGPT Ads?"*
 
 I am early. I am not an ads expert. These are field notes.
 
@@ -38,7 +38,7 @@ OpenAI's Ads Manager (available in Europe now) looks familiar: campaigns, budget
 
 ---
 
-## My campaign: martinmueller.dev
+## Campaign 1: martinmueller.dev
 
 **Goal:** inbound interest for freelance AWS work.
 
@@ -50,13 +50,23 @@ OpenAI's Ads Manager (available in Europe now) looks familiar: campaigns, budget
 - Submitted creative + landing page
 - **Live placement within a few hours** — screenshots from a real thread where the sponsored card shows under the conversation
 
-![Sponsored martinmueller.dev ad card in ChatGPT](index.png)
-
 ![The same placement in full conversation context](chatgpt-ads-in-context.png)
 
 Seeing your own ad inside ChatGPT is oddly useful. You immediately understand placement, density, and how much copy fits on the card. No dashboard replicates that.
 
 **What I am measuring:** downstream signals the platform will not fully attribute for you — Calendly bookings, contact form, LinkedIn DMs after talks. Treat dashboard metrics as directional, not gospel.
+
+---
+
+## Campaign 2: qr-plakat.de
+
+**Goal:** product awareness and signups for [qr-plakat.de](https://qr-plakat.de) — design posters with QR codes online, host scan targets, export print-ready PDFs.
+
+**Landing page:** a real gallery poster — our own instructional A2 shop-window plakat (*QR-Plakat erstellen*), not the homepage.
+
+[![QR-Plakat erstellen — gallery poster on qr-plakat.de](qr-plakat-galerie-c3e4f5a6.png)](https://qr-plakat.de/galerie/c3e4f5a6-b7c8-4d9e-8f01-2a3b4c5d6e7f)
+
+Same channel, different offer: SaaS instead of freelance services. Sending people to a **specific gallery page** beats a generic homepage — they see the product in context before signing up.
 
 ---
 

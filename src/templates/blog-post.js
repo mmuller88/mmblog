@@ -246,9 +246,9 @@ function HeadingAudioPlay({ audioRef, timingUrl, contentRef, contentKey }) {
 
 function BlogPost(props) {
  const url = props.data.site.siteMetadata.siteUrl
- const thumbnail =
-  props.data.markdownRemark.frontmatter.image &&
-  props.data.markdownRemark.frontmatter.image.childImageSharp.resize.src
+ const imageResize =
+  props.data.markdownRemark.frontmatter.image?.childImageSharp?.resize
+ const thumbnail = imageResize?.src
  const {
   title,
   image,
@@ -318,6 +318,8 @@ function BlogPost(props) {
     title={title}
     description={excerpt}
     thumbnail={(thumbnail && url + thumbnail) || image}
+    imageWidth={imageResize?.width}
+    imageHeight={imageResize?.height}
     url={url}
     pathname={props.location.pathname}
     keywords={keywords}
@@ -329,6 +331,8 @@ function BlogPost(props) {
     gerUrl={gerUrl}
     tldr={tldr}
     faq={faq}
+    locale={tags.includes("de") ? "de_DE" : "en_US"}
+    language={tags.includes("de") ? "de" : "en"}
    />
    <div>
     <Breadcrumb crumbs={breadcrumbs} siteUrl={url} />
@@ -513,8 +517,10 @@ export const query = graphql`
     }
     image {
      childImageSharp {
-      resize(width: 1000, height: 420) {
+      resize(width: 1200) {
        src
+       width
+       height
       }
       fluid(maxWidth: 1200) {
        ...GatsbyImageSharpFluid

@@ -14,7 +14,7 @@ ChatGPT Ads sind seit **August 2026** in Europa live. Ich habe mich **Mitte Sept
 
 Das ist meine **erste Ads-Erfahrung überhaupt**. Ich war skeptisch. Stattdessen **liebe ich es total** — die eigene Sponsored Card in einem echten ChatGPT-Thread zu sehen ist seltsam süchtig machend, und das Tooling fühlt sich mehr wie Software shippen an als Medien kaufen.
 
-Meine Anzeige für **[martinmueller.dev](https://martinmueller.dev)** war **wenige Stunden nach der Registrierung live**. Die Placement habe ich auf der AWS Community Day DACH gezeigt. Dieser Post ist, was ich einem Freund sagen würde, der fragt: *„Soll ich ChatGPT Ads ausprobieren?“*
+Meine Anzeigen waren **wenige Stunden nach der Registrierung live** — eine für Freelance-AWS-Arbeit, eine für mein Poster-SaaS **[qr-plakat.de](https://qr-plakat.de)**. Dieser Post ist, was ich einem Freund sagen würde, der fragt: *„Soll ich ChatGPT Ads ausprobieren?“*
 
 Ich bin früh dran. Kein Ads-Profi. Das sind Feldnotizen.
 
@@ -38,7 +38,7 @@ OpenAIs Ads Manager (jetzt in Europa verfügbar) wirkt vertraut: Kampagnen, Budg
 
 ---
 
-## Meine Kampagne: martinmueller.dev
+## Kampagne 1: martinmueller.dev
 
 **Ziel:** Inbound für Freelance-AWS-Arbeit.
 
@@ -50,13 +50,23 @@ OpenAIs Ads Manager (jetzt in Europa verfügbar) wirkt vertraut: Kampagnen, Budg
 - Creative + Landing Page eingereicht
 - **Live-Placement innerhalb weniger Stunden** — Screenshots aus einem echten Thread, in dem die Sponsored Card unter dem Gespräch erscheint
 
-![Gesponserte martinmueller.dev-Ad-Karte in ChatGPT](index.png)
-
 ![Dasselbe Placement im vollen Gesprächskontext](chatgpt-ads-in-context.png)
 
 Die eigene Anzeige in ChatGPT zu sehen ist überraschend nützlich. Man versteht sofort Placement, Dichte und wie viel Copy auf die Karte passt. Kein Dashboard ersetzt das.
 
 **Was ich messe:** Downstream-Signale, die die Plattform nicht voll attribuiert — Calendly-Buchungen, Kontaktformular, LinkedIn-DMs nach Talks. Dashboard-Metriken als Richtwert, nicht als Wahrheit.
+
+---
+
+## Kampagne 2: qr-plakat.de
+
+**Ziel:** Produktbewusstsein und Signups für [qr-plakat.de](https://qr-plakat.de) — QR-Plakate online designen, Scan-Ziele hosten, druckfertige PDFs exportieren.
+
+**Landing Page:** ein echtes Galerie-Plakat — unser eigenes instruktives A2-Schaufensterplakat (*QR-Plakat erstellen*), nicht die Startseite.
+
+[![QR-Plakat erstellen — Galerie-Plakat auf qr-plakat.de](qr-plakat-galerie-c3e4f5a6.png)](https://qr-plakat.de/galerie/c3e4f5a6-b7c8-4d9e-8f01-2a3b4c5d6e7f)
+
+Gleicher Kanal, anderes Angebot: SaaS statt Freelance-Services. Leute auf eine **konkrete Galerie-Seite** zu schicken schlägt eine generische Homepage — sie sehen das Produkt im Kontext, bevor sie sich anmelden.
 
 ---
 
