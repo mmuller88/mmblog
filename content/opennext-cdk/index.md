@@ -1,7 +1,7 @@
 ---
 title: "OpenNext + CDK: Next.js on AWS Without ECS Fargate"
-show: "no"
-date: "2026-08-22"
+show: "yes"
+date: "2026-09-21"
 image: "index.png"
 audio: "audio.mp3"
 audioTiming: "audio-timing.json"
@@ -17,12 +17,13 @@ tags:
     "eng",
     "2026",
   ]
+gerUrl: https://martinmueller.dev/opennext-cdk-de
 pruneLength: 50
 ---
 
 I usually ship Next.js as Docker `standalone` on **ECS Fargate** — ALB, VPC, always-on tasks. For an MVP like [qr-plakat.de](https://qr-plakat.de) I went **OpenNext 4.x + AWS CDK** instead. Cheaper to run, faster to iterate. If the product works, I might switch to Fargate.
 
-Three things made this feel better than the Fargate path. Deploys are **one GitHub Actions job** from lint to CloudFront invalidation. Infra is **CDK I already know** — no SST, no extra deploy product. And I can ship from **Telegram → OpenClaw → Cursor** while watching Netflix or training outside: a PR lands, Actions deploys, I check prod from the phone.
+Three things made this feel better than the Fargate path. Deploys are **one GitHub Actions job** from lint to CloudFront invalidation. Infra is **CDK I already know** — explicit stacks, no extra deploy product. And I can ship from **Telegram → OpenClaw → Cursor** while watching Netflix or training outside: a PR lands, Actions deploys, I check prod from the phone.
 
 ---
 
@@ -44,7 +45,7 @@ Subscriptions are **mocked**. I am the only user, so there is no Stripe checkout
 
 Fargate wants a baseline of tasks, a VPC, and an ALB even when almost nobody is hitting the site. OpenNext maps the Next.js app to **pay-per-request Lambda**, with CloudFront and S3 in front. I still get App Router, RSC, and Server Actions. I do not run `next start` in a container.
 
-I stayed on **CDK**, not SST. Explicit stacks, same IaC I already use. I tried SST's OpenNext path years ago in [this post](/sst-nextjs-s3-picture-uploader). DynamoDB, S3, and Cognito mean **no VPC** for the data plane.
+I stayed on **CDK** — explicit stacks, same IaC I already use elsewhere. DynamoDB, S3, and Cognito mean **no VPC** for the data plane.
 
 The ECS Fargate path I used on [listings-mcp](/aws-mcp-listings) is the later-stage option: always-on, long jobs, when traffic and product-market fit justify it.
 
@@ -52,19 +53,19 @@ The ECS Fargate path I used on [listings-mcp](/aws-mcp-listings) is the later-st
 
 ## Stack
 
-<ul class="stack-list">
-<li><span class="tool-item"><img class="tool-logo-on-dark" src="/opennext-cdk/icons/nextjs.svg" alt="" /> <a href="https://nextjs.org">Next.js</a> 16</span> App Router</li>
-<li><span class="tool-item"><img src="/opennext-cdk/icons/react.svg" alt="" /> <a href="https://react.dev">React</a> 19</span></li>
-<li><span class="tool-item"><img class="tool-logo-on-dark" src="/opennext-cdk/icons/shadcnui.svg" alt="" /> <a href="https://ui.shadcn.com">shadcn/ui</a></span></li>
-<li><span class="tool-item"><img src="/opennext-cdk/icons/tailwindcss.svg" alt="" /> <a href="https://tailwindcss.com">Tailwind</a> 4</span></li>
-<li><span class="tool-item"><img class="tool-logo-on-dark" src="/opennext-cdk/icons/opennext.png" alt="" /> <a href="https://github.com/opennextjs/opennextjs-aws"><code>@opennextjs/aws</code></a></span> → Lambda ARM64 (2048 MB, 60s)</li>
-<li><span class="tool-item"><img src="/opennext-cdk/icons/lambda.svg" alt="" /> <a href="https://aws.amazon.com/lambda/">Lambda</a></span> + <span class="tool-item"><img src="/opennext-cdk/icons/cloudfront.svg" alt="" /> <a href="https://aws.amazon.com/cloudfront/">CloudFront</a></span> + <span class="tool-item"><img src="/opennext-cdk/icons/s3.svg" alt="" /> <a href="https://aws.amazon.com/s3/">S3</a></span></li>
-<li><span class="tool-item"><img src="/opennext-cdk/icons/cdk.svg" alt="" /> <a href="https://aws.amazon.com/cdk/">AWS CDK</a></span> stacks: Data → Auth → Web → Observability (+ Cicd OIDC)</li>
-<li><span class="tool-item"><img src="/opennext-cdk/icons/cdk.svg" alt="" /> <a href="https://github.com/berenddeboer/cdk-opennext">cdk-opennext</a></span> <code>NextjsSite</code></li>
-<li><span class="tool-item"><img src="/opennext-cdk/icons/cognito.svg" alt="" /> <a href="https://aws.amazon.com/cognito/">Cognito</a></span> ×2 (creators / admins)</li>
-<li><span class="tool-item"><img src="/opennext-cdk/icons/dynamodb.svg" alt="" /> <a href="https://electrodb.dev">ElectroDB</a></span> on DynamoDB single-table</li>
-<li><span class="tool-item"><img src="/opennext-cdk/icons/route53.svg" alt="" /> <a href="https://aws.amazon.com/route53/">Route 53</a></span> <code>qr-plakat.de</code></li>
-</ul>
+<table class="stack-table">
+<thead>
+<tr><th>Layer</th><th>Tools</th></tr>
+</thead>
+<tbody>
+<tr><th>Frontend</th><td><span class="tool-item"><img class="tool-logo-on-dark" src="/opennext-cdk/icons/nextjs.svg" alt="" /> <a href="https://nextjs.org">Next.js</a> 16</span> App Router · <span class="tool-item"><img src="/opennext-cdk/icons/react.svg" alt="" /> <a href="https://react.dev">React</a> 19</span> · <span class="tool-item"><img class="tool-logo-on-dark" src="/opennext-cdk/icons/shadcnui.svg" alt="" /> <a href="https://ui.shadcn.com">shadcn/ui</a></span> · <span class="tool-item"><img src="/opennext-cdk/icons/tailwindcss.svg" alt="" /> <a href="https://tailwindcss.com">Tailwind</a> 4</span></td></tr>
+<tr><th>Hosting</th><td><span class="tool-item"><img class="tool-logo-on-dark" src="/opennext-cdk/icons/opennext.png" alt="" /> <a href="https://github.com/opennextjs/opennextjs-aws"><code>@opennextjs/aws</code></a></span> → <span class="tool-item"><img src="/opennext-cdk/icons/lambda.svg" alt="" /> <a href="https://aws.amazon.com/lambda/">Lambda</a></span> ARM64 (2048 MB, 60s) · <span class="tool-item"><img src="/opennext-cdk/icons/cloudfront.svg" alt="" /> <a href="https://aws.amazon.com/cloudfront/">CloudFront</a></span> · <span class="tool-item"><img src="/opennext-cdk/icons/s3.svg" alt="" /> <a href="https://aws.amazon.com/s3/">S3</a></span></td></tr>
+<tr><th>IaC</th><td><span class="tool-item"><img src="/opennext-cdk/icons/cdk.svg" alt="" /> <a href="https://aws.amazon.com/cdk/">AWS CDK</a></span> stacks: Data → Auth → Web → Observability (+ CI/CD OIDC) · <span class="tool-item"><img src="/opennext-cdk/icons/cdk.svg" alt="" /> <a href="https://github.com/berenddeboer/cdk-opennext">cdk-opennext</a></span> <code>NextjsSite</code></td></tr>
+<tr><th>Auth</th><td><span class="tool-item"><img src="/opennext-cdk/icons/cognito.svg" alt="" /> <a href="https://aws.amazon.com/cognito/">Cognito</a></span> ×2 (creators / admins)</td></tr>
+<tr><th>Data</th><td><span class="tool-item"><img src="/opennext-cdk/icons/dynamodb.svg" alt="" /> <a href="https://electrodb.dev">ElectroDB</a></span> on DynamoDB single-table</td></tr>
+<tr><th>DNS</th><td><span class="tool-item"><img src="/opennext-cdk/icons/route53.svg" alt="" /> <a href="https://aws.amazon.com/route53/">Route 53</a></span> <code>qr-plakat.de</code></td></tr>
+</tbody>
+</table>
 
 ---
 
@@ -115,6 +116,5 @@ Live: [qr-plakat.de](https://qr-plakat.de).
 - [OpenClaw](/openclaw-eng)
 - [OpenClaw, three months later](/openclaw-three-months-later)
 - [Next.js on ECS Fargate + CDK](/aws-mcp-listings)
-- [SST Next.js + OpenNext](/sst-nextjs-s3-picture-uploader)
 - [OpenNext AWS](https://github.com/opennextjs/opennextjs-aws)
 - [cdk-opennext](https://github.com/berenddeboer/cdk-opennext)

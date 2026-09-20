@@ -33,6 +33,47 @@ html.dark .blog-post-content .tool-item img.tool-logo-on-dark {
   padding-left: 0;
 }
 
+.blog-post-content table.stack-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 0 1.45rem;
+  font-size: 0.95rem;
+}
+
+.blog-post-content table.stack-table th,
+.blog-post-content table.stack-table td {
+  vertical-align: middle;
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+html.dark .blog-post-content table.stack-table th,
+html.dark .blog-post-content table.stack-table td {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+.blog-post-content table.stack-table th {
+  width: 7.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  white-space: nowrap;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+html.dark .blog-post-content table.stack-table th {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.blog-post-content table.stack-table td {
+  line-height: 1.5;
+}
+
+.blog-post-content table.stack-table tr:last-child th,
+.blog-post-content table.stack-table tr:last-child td {
+  border-bottom: none;
+}
+
 .blog-post-content table td {
   vertical-align: middle;
 }
