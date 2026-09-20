@@ -108,6 +108,13 @@ After deploy: `CALENDLY_PAT=… CALENDLY_WEBHOOK_SIGNING_KEY=… ./scripts/setup
 
 **Ads Manager:** primary conversion = `appointment_scheduled` only; switch to Maximize Conversions after verified bookings.
 
+## Courses (Phase 0)
+
+- Catalog: `/courses`, `/courses-de`
+- Detail: `/courses/:slug`, `/courses-de/:slug` — data in `src/data/coursesContent.js`
+- Waitlist form → `GATSBY_COURSES_API_URL` (AWS API Gateway, set in Netlify env)
+- Issue: https://github.com/mmuller88/mmblog/issues/65
+
 ## Deployment
 
 - Auto-deploys to Netlify on push to master

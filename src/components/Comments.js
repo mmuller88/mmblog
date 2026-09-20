@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react"
-import Giscus from "@giscus/react"
 import { useStaticQuery, graphql } from "gatsby"
 
 function getTheme() {
@@ -10,6 +9,7 @@ function getTheme() {
 export default function Comments({ pathname, lang = "en" }) {
   const [theme, setTheme] = useState("light")
   const [visible, setVisible] = useState(false)
+  const [Giscus, setGiscus] = useState(null)
   const wrapperRef = useRef(null)
 
   const { site } = useStaticQuery(graphql`
@@ -29,6 +29,10 @@ export default function Comments({ pathname, lang = "en" }) {
   `)
 
   const giscus = site.siteMetadata.giscus
+
+  useEffect(() => {
+    import("@giscus/react").then((mod) => setGiscus(() => mod.default))
+  }, [])
 
   useEffect(() => {
     setTheme(getTheme())
@@ -62,7 +66,7 @@ export default function Comments({ pathname, lang = "en" }) {
       <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">
         Comments
       </h2>
-      {visible ? (
+      {visible && Giscus ? (
         <Giscus
           repo={giscus.repo}
           repoId={giscus.repoId}
