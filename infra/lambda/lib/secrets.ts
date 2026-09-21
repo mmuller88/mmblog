@@ -21,8 +21,8 @@ export const getSecrets = async (): Promise<AppSecrets> => {
   const raw = out.SecretString ?? ""
   try {
     cache = JSON.parse(raw) as AppSecrets
-  } catch {
-    cache = {}
+  } catch (err) {
+    throw new Error(`Secrets Manager value is not valid JSON: ${String(err)}`)
   }
   return cache
 }
