@@ -31,7 +31,19 @@ export default function Comments({ pathname, lang = "en" }) {
   const giscus = site.siteMetadata.giscus
 
   useEffect(() => {
-    import("@giscus/react").then((mod) => setGiscus(() => mod.default))
+   let cancelled = false
+
+   import("@giscus/react")
+    .then((mod) => {
+     if (!cancelled) setGiscus(() => mod.default)
+    })
+    .catch(() => {
+     // Ignore load errors; keep the "Loading comments…" placeholder.
+    })
+
+   return () => {
+    cancelled = true
+   }
   }, [])
 
   useEffect(() => {
