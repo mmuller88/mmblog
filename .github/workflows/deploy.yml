@@ -43,7 +43,7 @@ jobs:
 
       - name: CDK deploy
         working-directory: infra
-        run: npx cdk deploy --require-approval never --outputs-file cdk-outputs.json
+        run: npx cdk deploy --require-approval never -c manageDns=true --outputs-file cdk-outputs.json
 
       - name: Install site deps
         run: npm ci

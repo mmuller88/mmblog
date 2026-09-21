@@ -196,14 +196,11 @@ export class MmblogStack extends Stack {
       const target = route53.RecordTarget.fromAlias(
         new targets53.CloudFrontTarget(distribution)
       )
-      new route53.ARecord(this, "ApexA", { zone, target })
-      new route53.AaaaRecord(this, "ApexAaaa", { zone, target })
-      new route53.ARecord(this, "WwwA", { zone, recordName: "www", target })
-      new route53.AaaaRecord(this, "WwwAaaa", {
-        zone,
-        recordName: "www",
-        target,
-      })
+      const dns = { zone, target, deleteExisting: true }
+      new route53.ARecord(this, "ApexA", dns)
+      new route53.AaaaRecord(this, "ApexAaaa", dns)
+      new route53.ARecord(this, "WwwA", { ...dns, recordName: "www" })
+      new route53.AaaaRecord(this, "WwwAaaa", { ...dns, recordName: "www" })
     }
 
     const githubProvider =
