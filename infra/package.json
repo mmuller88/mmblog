@@ -1,0 +1,29 @@
+{
+  "name": "mmblog-infra",
+  "private": true,
+  "scripts": {
+    "build": "tsc --noEmit",
+    "synth": "cdk synth",
+    "deploy": "cdk deploy --require-approval never",
+    "diff": "cdk diff",
+    "test:health": "tsx lambda/run-health.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.901.0",
+    "@aws-sdk/client-secrets-manager": "^3.901.0",
+    "@aws-sdk/client-sesv2": "^3.901.0",
+    "@aws-sdk/lib-dynamodb": "^3.901.0",
+    "aws-cdk-lib": "^2.219.0",
+    "cdk-nag": "^2.37.0",
+    "constructs": "^10.4.2"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.152",
+    "@types/node": "^20.19.0",
+    "aws-cdk": "^2.1100.0",
+    "esbuild": "^0.25.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}

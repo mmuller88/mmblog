@@ -72,5 +72,10 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-# Local Netlify folder
+# CDK
+infra/cdk.out
+infra/dist
+infra/cdk-outputs.json
+
+# Local Netlify leftover
 .netlify

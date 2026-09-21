@@ -17,6 +17,23 @@ updates:
     labels:
       - dependencies
 
+  - package-ecosystem: npm
+    directory: /infra
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      npm-minor-patch:
+        update-types:
+          - minor
+          - patch
+    commit-message:
+      prefix: chore
+      include: scope
+    labels:
+      - dependencies
+
   - package-ecosystem: github-actions
     directory: /
     schedule:

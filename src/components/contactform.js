@@ -22,7 +22,7 @@ class ContactForm extends Component {
 
   let url = window?.location?.href ?? "nothing"
 
-  fetch("/", {
+  fetch("/api/forms", {
    method: "POST",
    headers: { "Content-Type": "application/x-www-form-urlencoded" },
    body: this.encode({
@@ -50,8 +50,6 @@ class ContactForm extends Component {
     name="contact"
     method="post"
     action="/thx/"
-    data-netlify="true"
-    data-netlify-honeypot="bot-field"
     onSubmit={this.handleSubmit}
     ref={this.ContactForm}
    >

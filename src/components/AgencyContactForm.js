@@ -14,7 +14,7 @@ const AgencyContactForm = ({ labels }) => {
   const form = e.target
   const url = window?.location?.href ?? ""
 
-  fetch("/", {
+  fetch("/api/forms", {
    method: "POST",
    headers: { "Content-Type": "application/x-www-form-urlencoded" },
    body: new URLSearchParams({
@@ -42,8 +42,6 @@ const AgencyContactForm = ({ labels }) => {
   <form
    name="agency-contact"
    method="post"
-   data-netlify="true"
-   data-netlify-honeypot="bot-field"
    onSubmit={handleSubmit}
    className="space-y-4"
   >

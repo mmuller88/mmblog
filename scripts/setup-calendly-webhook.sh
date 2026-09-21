@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Register Calendly webhook → martinmueller.dev/api/calendly-webhook
-# Requires: CALENDLY_PAT, CALENDLY_WEBHOOK_SIGNING_KEY (same as Netlify env)
-# Run AFTER Netlify deploy + CALENDLY_WEBHOOK_SIGNING_KEY is set in Netlify.
+# Requires: CALENDLY_PAT, CALENDLY_WEBHOOK_SIGNING_KEY
+# Run AFTER /api/calendly-webhook is live + signing key is in Secrets Manager.
 
 set -euo pipefail
 

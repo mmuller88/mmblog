@@ -25,7 +25,7 @@ const WaitlistThankYouDePage = ({ location }) => {
    <div className="mx-auto max-w-2xl px-4 py-16 text-center">
     <Link to={langSwitch.href} className="mb-8 inline-block text-brand hover:underline">
      {langSwitch.label}
-    </Link
+    </Link>
     <h1 className="mb-4 text-3xl font-bold text-gray-900 dark:text-gray-100">
      {heading}
     </h1>
