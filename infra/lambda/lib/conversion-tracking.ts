@@ -70,7 +70,14 @@ export const verifySignature = (
     .update(`${t}.${rawBody}`, "utf8")
     .digest("hex")
 
-  return expected === signature
+  try {
+    const a = Buffer.from(expected, "utf8")
+    const b = Buffer.from(signature, "utf8")
+    if (a.length !== b.length) return false
+    return timingSafeEqual(a, b)
+  } catch {
+    return false
+  }
 }
 
 export const sendCapiEvent = async (

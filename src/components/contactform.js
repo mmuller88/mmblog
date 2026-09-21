@@ -24,7 +24,10 @@ class ContactForm extends Component {
 
   fetch("/api/forms", {
    method: "POST",
-   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+   headers: {
+    "Content-Type": "application/x-www-form-urlencoded",
+    Accept: "application/json",
+   },
    body: this.encode({
     "form-name": form.getAttribute("name"),
     ...this.state,
@@ -32,10 +35,8 @@ class ContactForm extends Component {
    }),
   })
    .then((response) => {
-    console.log("====================================")
-    console.log(`${JSON.stringify(response, null, 2)}`)
-    console.log("====================================")
-    navigate(form.getAttribute("action"))
+    if (!response.ok) throw new Error(`HTTP ${response.status}`)
+    navigate("/thx/")
    })
    .catch((error) => {
     console.log("====================================")
@@ -49,11 +50,12 @@ class ContactForm extends Component {
    <form
     name="contact"
     method="post"
-    action="/thx/"
+    action="/api/forms"
     onSubmit={this.handleSubmit}
     ref={this.ContactForm}
    >
     <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="redirect" value="/thx/" />
     <p hidden>
      <label>
       Don’t fill this out:{" "}
