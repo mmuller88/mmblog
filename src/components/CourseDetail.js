@@ -7,7 +7,24 @@ import CourseWaitlistForm from "./CourseWaitlistForm"
 const SITE_URL = "https://martinmueller.dev"
 
 const CourseDetail = ({ course, location }) => {
- if (!course) return null
+ if (!course) {
+  const catalogPath = location?.pathname?.startsWith("/courses-de/")
+   ? "/courses-de/"
+   : "/courses/"
+
+  return (
+   <Layout fullWidth>
+    <div className="mx-auto max-w-2xl px-4 py-16 text-center">
+     <h1 className="mb-4 text-3xl font-bold text-gray-900 dark:text-gray-100">
+      Course not found
+     </h1>
+     <Link to={catalogPath} className="text-brand hover:underline">
+      ← Back to courses
+     </Link>
+    </div>
+   </Layout>
+  )
+ }
 
  const {
   slug,
