@@ -21,7 +21,7 @@
     "@types/aws-lambda": "^8.10.152",
     "@types/node": "^20.19.0",
     "aws-cdk": "^2.1100.0",
-    "esbuild": "^0.25.0",
+    "esbuild": "^0.28.2",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.0",
     "typescript": "^5.9.0"
