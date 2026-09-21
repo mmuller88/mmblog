@@ -26,7 +26,9 @@ const CoursesCatalog = ({ locale, location }) => {
    />
 
    <div className="mx-auto max-w-6xl px-4 pt-6">
-    <a href={langSwitch.href}>{langSwitch.label}</a>
+    <Link to={langSwitch.href} className="text-brand hover:underline">
+     {langSwitch.label}
+    </Link>
    </div>
 
    <div className="bg-gradient-to-br from-blue-50 via-white to-cyan-50 px-4 py-16 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
