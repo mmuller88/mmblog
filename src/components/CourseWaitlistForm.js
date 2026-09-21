@@ -77,10 +77,14 @@ const CourseWaitlistForm = ({ courseSlug, locale, labels, thankYouPath }) => {
     </label>
    </p>
    <div>
-    <label className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300">
+    <label
+     htmlFor="course-waitlist-name"
+     className="mb-1 block text-sm font-medium text-gray-700 dark:text-gray-300"
+    >
      {labels.name}
     </label>
     <input
+     id="course-waitlist-name"
      type="text"
      name="name"
      required
