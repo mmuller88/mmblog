@@ -39,9 +39,13 @@ const CourseWaitlistForm = ({ courseSlug, locale, labels, thankYouPath }) => {
     throw new Error(`HTTP ${res.status}`)
    }
 
+   setStatus("success")
+
    const base =
     thankYouPath ||
-    (locale === "de" ? "/courses-de/waitlist-thank-you/" : "/courses/waitlist-thank-you/")
+    (locale === "de"
+     ? "/courses-de/waitlist-thank-you/"
+     : "/courses/waitlist-thank-you/")
    window.location.assign(`${base}?course=${encodeURIComponent(courseSlug)}`)
   } catch {
    setStatus("error")
