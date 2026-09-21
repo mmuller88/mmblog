@@ -1,4 +1,4 @@
-import { createHash, createHmac } from "crypto"
+import { createHash, createHmac, timingSafeEqual } from "crypto"
 
 export const PIXEL_ID = "1tUq9Gtv8XLgjUkRRiQmcH"
 export const SOURCE_URL = "https://martinmueller.dev/one-man-agency/"
