@@ -17,8 +17,11 @@ export const forms = async (req: Request): Promise<Response> => {
     return Response.json({ ok: true })
   }
 
-  const formName = params.get("form-name") || "contact"
-  const subject = SUBJECTS[formName] || `martinmueller.dev ${formName}`
+  const requested = params.get("form-name") || "contact"
+  const formName = Object.prototype.hasOwnProperty.call(SUBJECTS, requested)
+    ? requested
+    : "contact"
+  const subject = SUBJECTS[formName]
   const to = process.env.TO_EMAIL
   if (!to) return new Response("server not configured", { status: 500 })
 
