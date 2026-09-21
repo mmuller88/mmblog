@@ -38,7 +38,7 @@ const Layout = ({ children, fullWidth = false }) => (
        {` `}
        <a href="https://www.gatsbyjs.org">Gatsby</a> and
        {` `}
-       <a href="https://www.netlify.com">Netlify</a>
+       <a href="https://aws.amazon.com">AWS</a>
       </footer>
      </>
     ) : (
@@ -57,7 +57,7 @@ const Layout = ({ children, fullWidth = false }) => (
        {` `}
        <a href="https://www.gatsbyjs.org">Gatsby</a> and
        {` `}
-       <a href="https://www.netlify.com">Netlify</a>
+       <a href="https://aws.amazon.com">AWS</a>
       </footer>
      </div>
     )}

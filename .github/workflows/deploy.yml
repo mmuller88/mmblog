@@ -1,0 +1,62 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    if: github.actor != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      NODE_VERSION: "20"
+      AWS_REGION: us-east-1
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            infra/package-lock.json
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Install infra deps
+        working-directory: infra
+        run: npm ci
+
+      - name: CDK deploy
+        working-directory: infra
+        run: npx cdk deploy --require-approval never --outputs-file cdk-outputs.json
+
+      - name: Install site deps
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+        env:
+          GOOGLE_TTS_CREDENTIALS: ${{ secrets.GOOGLE_TTS_CREDENTIALS }}
+          GATSBY_COURSES_API_URL: ${{ secrets.GATSBY_COURSES_API_URL }}
+
+      - name: Sync + invalidate
+        run: |
+          BUCKET=$(jq -r '.MmblogStack.BucketName' infra/cdk-outputs.json)
+          DIST=$(jq -r '.MmblogStack.DistributionId' infra/cdk-outputs.json)
+          chmod +x scripts/sync-site.sh
+          ./scripts/sync-site.sh "$BUCKET" "$DIST"

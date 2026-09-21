@@ -14,9 +14,12 @@ const AgencyContactForm = ({ labels }) => {
   const form = e.target
   const url = window?.location?.href ?? ""
 
-  fetch("/", {
+  fetch("/api/forms", {
    method: "POST",
-   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+   headers: {
+    "Content-Type": "application/x-www-form-urlencoded",
+    Accept: "application/json",
+   },
    body: new URLSearchParams({
     "form-name": form.getAttribute("name"),
     ...state,
@@ -42,12 +45,12 @@ const AgencyContactForm = ({ labels }) => {
   <form
    name="agency-contact"
    method="post"
-   data-netlify="true"
-   data-netlify-honeypot="bot-field"
+   action="/api/forms"
    onSubmit={handleSubmit}
    className="space-y-4"
   >
    <input type="hidden" name="form-name" value="agency-contact" />
+   <input type="hidden" name="redirect" value="/thx/" />
    <p className="hidden">
     <label>
      Don’t fill this out: <input name="bot-field" onChange={handleChange} />
