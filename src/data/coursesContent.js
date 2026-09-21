@@ -477,7 +477,7 @@ export const thankYouContent = {
  de: {
   meta: {
    title: "Warteliste — Kurse",
-   description: "E-Mail bestätigen, um die Wartlisten-Anmeldung abzuschließen.",
+  description: "E-Mail bestätigen, um die Wartelisten-Anmeldung abzuschließen.",
    locale: "de_DE",
    language: "de",
    engUrl: "/courses/waitlist-thank-you/",
