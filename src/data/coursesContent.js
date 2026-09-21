@@ -437,19 +437,22 @@ export function getCourse(slug, locale) {
 
 export function getCatalogCourses(locale) {
  const lang = locale === "de" ? "de" : "en"
- return courseSlugs.map((slug) => {
-  const course = courses[slug][lang]
-  return {
-   slug,
-   title: course.hero.title,
-   subtitle: course.hero.subtitle,
-   image: course.hero.image,
-   imageAlt: course.hero.imageAlt,
-   listPriceEur: course.pricing.listPriceEur,
-   earlyBirdPriceEur: course.pricing.earlyBirdPriceEur,
-   path: lang === "de" ? `/courses-de/${slug}/` : `/courses/${slug}/`,
-  }
- })
+ return courseSlugs
+  .map((slug) => {
+   const course = courses[slug]?.[lang]
+   if (!course) return null
+   return {
+    slug,
+    title: course.hero.title,
+    subtitle: course.hero.subtitle,
+    image: course.hero.image,
+    imageAlt: course.hero.imageAlt,
+    listPriceEur: course.pricing.listPriceEur,
+    earlyBirdPriceEur: course.pricing.earlyBirdPriceEur,
+    path: lang === "de" ? `/courses-de/${slug}/` : `/courses/${slug}/`,
+   }
+  })
+  .filter(Boolean)
 }
 
 export function getCatalogContent(locale) {
