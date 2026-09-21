@@ -24,6 +24,7 @@ function Metatags(props) {
   imageAlt,
   imageWidth = 1200,
   imageHeight = 630,
+  extraJsonLd = null,
  } = props
 
  // Ensure tags is always an array to prevent iteration errors
@@ -258,6 +259,11 @@ function Metatags(props) {
    <script type="application/ld+json">
     {JSON.stringify(organizationStructuredData)}
    </script>
+   {extraJsonLd && (
+    <script type="application/ld+json">
+     {JSON.stringify(extraJsonLd)}
+    </script>
+   )}
   </Helmet>
  )
 }
