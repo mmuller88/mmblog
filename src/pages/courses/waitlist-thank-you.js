@@ -23,9 +23,9 @@ const WaitlistThankYouPage = ({ location }) => {
     gerUrl={meta.gerUrl}
    />
    <div className="mx-auto max-w-2xl px-4 py-16 text-center">
-    <a href={langSwitch.href} className="mb-8 inline-block">
+    <Link to={langSwitch.href} className="mb-8 inline-block text-brand hover:underline">
      {langSwitch.label}
-    </a>
+    </Link
     <h1 className="mb-4 text-3xl font-bold text-gray-900 dark:text-gray-100">
      {heading}
     </h1>
