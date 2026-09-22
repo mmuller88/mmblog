@@ -52,7 +52,6 @@ jobs:
         run: npm run build
         env:
           GOOGLE_TTS_CREDENTIALS: ${{ secrets.GOOGLE_TTS_CREDENTIALS }}
-          GATSBY_COURSES_API_URL: ${{ secrets.GATSBY_COURSES_API_URL }}
 
       - name: Sync + invalidate
         run: |

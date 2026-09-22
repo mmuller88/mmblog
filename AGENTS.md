@@ -116,7 +116,9 @@ After deploy: `CALENDLY_PAT=… CALENDLY_WEBHOOK_SIGNING_KEY=… ./scripts/setup
 
 - Catalog: `/courses`, `/courses-de`
 - Detail: `/courses/:slug`, `/courses-de/:slug` — data in `src/data/coursesContent.js`
-- Waitlist form → `GATSBY_COURSES_API_URL` (AWS API Gateway, GH secret)
+- Waitlist: `POST /api/waitlist` (same origin) → DynamoDB + SES double opt-in. Confirm: `GET /api/waitlist/confirm?token=`
+- Backend is `MmblogStack` in `981237193288` / `us-east-1` (same HTTP API as the site). Not the separate `mm-courses` account from the original issue.
+- Admin CSV: `GET /api/admin/waitlist?course=` with `Authorization: Bearer` `WAITLIST_ADMIN_KEY` (Secrets Manager JSON)
 - Issue: https://github.com/mmuller88/mmblog/issues/65
 
 ## Deployment
@@ -137,9 +139,9 @@ cd infra
 npx cdk bootstrap aws://981237193288/us-east-1
 ./scripts/ensure-github-oidc.sh
 npx cdk deploy
-# put JSON into SecretsArn output
+# put JSON into SecretsArn output (include WAITLIST_ADMIN_KEY)
 # GH var AWS_DEPLOY_ROLE_ARN = DeployRoleArn output
-# GH secrets: GOOGLE_TTS_CREDENTIALS, GATSBY_COURSES_API_URL
+# GH secrets: GOOGLE_TTS_CREDENTIALS
 # verify SES (sandbox: verify office@ or request production)
 ```
 

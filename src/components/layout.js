@@ -33,7 +33,9 @@ const Layout = ({ children, fullWidth = false }) => (
       <main>{children}</main>
       <footer className="mx-auto max-w-[960px] px-[1.0875rem] pb-[1.45rem]">
        © {new Date().getFullYear()} Martin Mueller (
-       <a href={"https://martinmueller.dev/impressum"}>Impressum</a>) Built with
+       <a href={"https://martinmueller.dev/impressum"}>Impressum</a>
+       {" · "}
+       <a href={"https://martinmueller.dev/datenschutz"}>Datenschutz</a>) Built with
        {` `}
        <a href="https://www.gatsbyjs.org">Gatsby</a> and
        {` `}
@@ -52,7 +54,9 @@ const Layout = ({ children, fullWidth = false }) => (
       <main>{children}</main>
       <footer>
        © {new Date().getFullYear()} Martin Mueller (
-       <a href={"https://martinmueller.dev/impressum"}>Impressum</a>) Built with
+       <a href={"https://martinmueller.dev/impressum"}>Impressum</a>
+       {" · "}
+       <a href={"https://martinmueller.dev/datenschutz"}>Datenschutz</a>) Built with
        {` `}
        <a href="https://www.gatsbyjs.org">Gatsby</a> and
        {` `}

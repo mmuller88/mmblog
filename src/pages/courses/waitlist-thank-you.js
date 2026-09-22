@@ -2,13 +2,15 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "../../components/layout"
 import MetaTags from "../../components/Metatags"
-import { thankYouContent } from "../../data/coursesContent"
+import { thankYouView } from "../../data/coursesContent"
 
 const SITE_URL = "https://martinmueller.dev"
 
 const WaitlistThankYouPage = ({ location }) => {
- const content = thankYouContent.en
- const { meta, langSwitch, heading, body, catalogLink } = content
+ const { meta, langSwitch, heading, body, catalogLink } = thankYouView(
+  "en",
+  location.search
+ )
 
  return (
   <Layout fullWidth>
