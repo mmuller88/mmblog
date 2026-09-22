@@ -46,7 +46,8 @@ export type CsvRow = {
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-export const courseFor = (slug: string): CourseOffer | undefined => COURSES[slug]
+export const courseFor = (slug: string): CourseOffer | undefined =>
+  Object.prototype.hasOwnProperty.call(COURSES, slug) ? COURSES[slug] : undefined
 
 export const courseSlugs = (): string[] => Object.keys(COURSES)
 
