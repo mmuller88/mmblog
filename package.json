@@ -6,7 +6,7 @@
   "author": "Martin Mueller <office@martinmueller.dev>",
   "dependencies": {
     "@giscus/react": "^3.1.0",
-    "@google-cloud/text-to-speech": "^5.6.0",
+    "@google-cloud/text-to-speech": "^7.1.0",
     "gatsby": "^5.13.1",
     "gatsby-plugin-catch-links": "^5.13.0",
     "gatsby-plugin-feed": "^5.13.0",
