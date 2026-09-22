@@ -14,7 +14,7 @@
     "@aws-sdk/client-sesv2": "^3.901.0",
     "@aws-sdk/lib-dynamodb": "^3.901.0",
     "aws-cdk-lib": "^2.219.0",
-    "cdk-nag": "^2.37.0",
+    "cdk-nag": "^3.0.2",
     "constructs": "^10.4.2"
   },
   "devDependencies": {
