@@ -84,7 +84,7 @@ const Header = ({ siteTitle }) => (
               width="20"
               height="20"
               alt={item.alt}
-              className="mb-0 block h-5 w-5 rounded-full"
+              className="!mb-0 block h-5 w-5 rounded-full"
             />
           </a>
         ))}
