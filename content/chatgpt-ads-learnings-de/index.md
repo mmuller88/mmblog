@@ -1,6 +1,6 @@
 ---
 title: "ChatGPT Ads: Was ich aus meiner ersten Kampagne gelernt habe"
-show: "yes"
+show: "no"
 date: "2026-09-19"
 image: "index.png"
 audio: "audio.mp3"

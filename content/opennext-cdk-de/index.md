@@ -1,6 +1,6 @@
 ---
 title: "OpenNext + CDK: Next.js auf AWS ohne ECS Fargate"
-show: "yes"
+show: "no"
 date: "2026-09-21"
 image: "index.png"
 audio: "audio.mp3"
