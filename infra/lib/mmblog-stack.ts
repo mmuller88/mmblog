@@ -188,14 +188,13 @@ export class MmblogStack extends Stack {
     const apiStage = httpApi.defaultStage?.node.defaultChild as
       | apigwv2.CfnStage
       | undefined
-    if (apiStage) {
-      apiStage.routeSettings = {
-        "POST /api/waitlist": {
-          throttlingBurstLimit: 5,
-          throttlingRateLimit: 2,
-        },
-      }
-    }
+    // L1 routeSettings emits camelCase keys that API Gateway v2 rejects.
+    apiStage?.addPropertyOverride("RouteSettings", {
+      "POST /api/waitlist": {
+        ThrottlingBurstLimit: 5,
+        ThrottlingRateLimit: 2,
+      },
+    })
 
     new events.Rule(this, "HealthDaily", {
       schedule: events.Schedule.cron({ minute: "0", hour: "7" }),
