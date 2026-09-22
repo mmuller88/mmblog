@@ -10,7 +10,6 @@ import ThemeToggle from "./ThemeToggle"
 const navLinks = [
   { to: "/one-man-agency", label: "One-Man Agency" },
   { to: "/courses", label: "Courses" },
-  { to: "/tags/eyf/", label: "Podcast" },
   { to: "/resume", label: "Resume" },
 ]
 
