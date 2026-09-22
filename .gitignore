@@ -79,3 +79,5 @@ infra/cdk-outputs.json
 
 # Local Netlify leftover
 .netlify
+
+.playwright-cli
