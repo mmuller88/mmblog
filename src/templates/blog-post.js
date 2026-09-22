@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from "react"
 import Layout from "../components/layout"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
 import PrevNext from "../components/prevnext"
 import MetaTags from "../components/Metatags"
@@ -265,6 +265,7 @@ function BlogPost(props) {
  } = props.data.markdownRemark.frontmatter
  const audioUrl = audio?.publicURL
  const timingUrl = audioTiming?.publicURL
+ const gatsbyImage = getImage(image)
  const headings = props.data.markdownRemark.headings
  const audioRef = useRef(null)
  const contentRef = useRef(null)
@@ -406,9 +407,9 @@ function BlogPost(props) {
     ) : null}
 
     <div className="mb-6 w-full max-w-5xl mx-auto">
-     {image && image.childImageSharp && (
-      <Img
-       fluid={image.childImageSharp.fluid}
+     {gatsbyImage && (
+      <GatsbyImage
+       image={gatsbyImage}
        alt={title}
        className="h-auto w-full object-contain"
       />
@@ -522,9 +523,7 @@ export const query = graphql`
        width
        height
       }
-      fluid(maxWidth: 1200) {
-       ...GatsbyImageSharpFluid
-      }
+      gatsbyImageData(width: 1200, layout: CONSTRAINED, placeholder: BLURRED)
      }
     }
     audio {

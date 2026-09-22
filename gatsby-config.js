@@ -128,17 +128,6 @@ module.exports = {
     //   },
     // },
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
-        trackingId: "UA-170834724-1",
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-        defer: true
-      },
-    },
-    {
       resolve: 'gatsby-plugin-feed',
         options: {
           query: `
@@ -274,6 +263,7 @@ module.exports = {
         },
     },
     'gatsby-plugin-react-helmet',
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     // {
@@ -363,21 +353,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
-        path: `${__dirname}/content`,
-      }
-    },
-    `gatsby-plugin-mdx`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: `content`,
-        path: `${__dirname}/content`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-page-creator`,
-      options: {
         path: `${__dirname}/content`,
       },
     },

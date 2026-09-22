@@ -171,7 +171,6 @@ function Metatags(props) {
    link={[
     { rel: "canonical", href: canonicalUrl },
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
-    { rel: "preconnect", href: "https://www.google-analytics.com" },
     { rel: "dns-prefetch", href: "https://api.ab.martinmueller.dev" },
     ...hreflangLinks,
    ]}

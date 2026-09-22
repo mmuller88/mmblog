@@ -25,9 +25,6 @@ require("prismjs/components/prism-json")
 require("prismjs/components/prism-docker")
 require("prismjs/components/prism-python")
 
-// You can delete this file if you're not using it
-require('gatsby-remark-vscode/styles.css');
-
 export const onClientEntry = () => {
  captureOppref()
 }
