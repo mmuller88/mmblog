@@ -1,4 +1,4 @@
-import { DynamoDBDocumentClient, GetCommand, PutCommand, QueryCommand, UpdateCommand } from "@aws-sdk/lib-dynamodb"
+import { DynamoDBDocumentClient, GetCommand, QueryCommand, TransactWriteCommand, UpdateCommand, type TransactWriteCommandInput } from "@aws-sdk/lib-dynamodb"
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb"
 import { wrapHttp, errMsg } from "./adapter"
 import { getSecrets } from "./lib/secrets"
@@ -17,8 +17,15 @@ import {
   newConfirmToken,
   normalizeLocale,
   pkFor,
+  RATE_GLOBAL_MAX,
+  RATE_IP_MAX,
   skFor,
   slugFromPk,
+  TOKEN_SK,
+  tokenPk,
+  withinCooldown,
+  clientIp,
+  minuteBucket,
   thankYouLocation,
   toCsv,
   welcomeMessage,
@@ -38,8 +45,13 @@ type Stored = {
   discountPriceEur?: number
   listPriceEur?: number
   confirmed?: boolean
+  confirmTokenHash?: string
   signedUpAt?: string
   confirmedAt?: string
+  lastMailAt?: string
+  waitlistPk?: string
+  waitlistSk?: string
+  slug?: string
 }
 
 const tableName = (): string | undefined => process.env.WAITLIST_TABLE
@@ -47,8 +59,15 @@ const tableName = (): string | undefined => process.env.WAITLIST_TABLE
 const siteUrl = (): string =>
   (process.env.SITE_URL || "https://martinmueller.dev").replace(/\/$/, "")
 
-const isConditional = (err: unknown): boolean =>
-  err instanceof Error && err.name === "ConditionalCheckFailedException"
+const isConditional = (err: unknown): boolean => {
+  if (!(err instanceof Error)) return false
+  if (err.name === "ConditionalCheckFailedException") return true
+  if (err.name !== "TransactionCanceledException") return false
+  const reasons = (
+    err as Error & { CancellationReasons?: Array<{ Code?: string }> }
+  ).CancellationReasons
+  return reasons?.some((reason) => reason.Code === "ConditionalCheckFailed") ?? false
+}
 
 const getItem = async (pk: string, sk: string): Promise<Stored | undefined> => {
   const TableName = tableName()
@@ -80,19 +99,41 @@ const queryCourse = async (slug: string): Promise<Stored[]> => {
   return items
 }
 
-const findByToken = async (hash: string): Promise<Stored | undefined> => {
+const consumeQuota = async (
+  pk: string,
+  sk: string,
+  max: number
+): Promise<boolean> => {
   const TableName = tableName()
-  if (!TableName) return undefined
-  const out = await doc.send(
-    new QueryCommand({
-      TableName,
-      IndexName: "confirmToken",
-      KeyConditionExpression: "confirmTokenHash = :h",
-      ExpressionAttributeValues: { ":h": hash },
-      Limit: 1,
-    })
-  )
-  return out.Items?.[0] as Stored | undefined
+  if (!TableName) return false
+  try {
+    await doc.send(
+      new UpdateCommand({
+        TableName,
+        Key: { pk, sk },
+        UpdateExpression: "ADD #c :one SET expiresAt = :exp",
+        ConditionExpression: "attribute_not_exists(#c) OR #c < :max",
+        ExpressionAttributeNames: { "#c": "count" },
+        ExpressionAttributeValues: {
+          ":one": 1,
+          ":max": max,
+          ":exp": Math.floor(Date.now() / 1000) + 2 * 60 * 60,
+        },
+      })
+    )
+    return true
+  } catch (err) {
+    if (isConditional(err)) return false
+    throw err
+  }
+}
+
+const underRateLimit = async (req: Request): Promise<boolean> => {
+  const bucket = `MINUTE#${minuteBucket()}`
+  const ip = clientIp(req.headers.get("x-forwarded-for"))
+  const ipOk = await consumeQuota(`RATELIMIT#IP#${ip}`, bucket, RATE_IP_MAX)
+  if (!ipOk) return false
+  return consumeQuota("RATELIMIT#GLOBAL", bucket, RATE_GLOBAL_MAX)
 }
 
 const toRow = (item: Stored): CsvRow => ({
@@ -141,69 +182,107 @@ const signup = async (req: Request): Promise<Response> => {
   const source = cleanText(body.source, 200)
   const pk = pkFor(courseSlug)
   const sk = skFor(email)
-  let token = newConfirmToken()
-  const signedUpAt = new Date().toISOString()
 
   try {
-    await doc.send(
-      new PutCommand({
-        TableName,
-        Item: {
-          pk,
-          sk,
-          email,
-          name,
-          locale,
-          source,
-          discountTier: "early-bird",
-          discountPriceEur: course.earlyBirdPriceEur,
-          listPriceEur: course.listPriceEur,
-          confirmed: false,
-          confirmTokenHash: hashToken(token),
-          signedUpAt,
+    if (!(await underRateLimit(req))) {
+      return new Response("too many requests", { status: 429 })
+    }
+  } catch (err) {
+    console.error("waitlist rate limit error:", errMsg(err))
+    return new Response("signup failed", { status: 500 })
+  }
+
+  const existing = await getItem(pk, sk)
+  if (existing?.confirmed) return Response.json({ ok: true, confirmed: true })
+  if (existing && withinCooldown(existing.lastMailAt, Date.now())) {
+    return Response.json({ ok: true, confirmed: false })
+  }
+
+  const token = newConfirmToken()
+  const hash = hashToken(token)
+  const signedUpAt = existing?.signedUpAt ?? new Date().toISOString()
+  const pointer = {
+    pk: tokenPk(hash),
+    sk: TOKEN_SK,
+    waitlistPk: pk,
+    waitlistSk: sk,
+    email,
+    locale,
+    slug: courseSlug,
+    listPriceEur: course.listPriceEur,
+    discountPriceEur: course.earlyBirdPriceEur,
+  }
+
+  try {
+    if (!existing) {
+      await doc.send(
+        new TransactWriteCommand({
+          TransactItems: [
+            {
+              Put: {
+                TableName,
+                Item: {
+                  pk,
+                  sk,
+                  email,
+                  name,
+                  locale,
+                  source,
+                  discountTier: "early-bird",
+                  discountPriceEur: course.earlyBirdPriceEur,
+                  listPriceEur: course.listPriceEur,
+                  confirmed: false,
+                  confirmTokenHash: hash,
+                  signedUpAt,
+                },
+                ConditionExpression: "attribute_not_exists(pk)",
+              },
+            },
+            { Put: { TableName, Item: pointer } },
+          ],
+        })
+      )
+    } else {
+      const transact: NonNullable<TransactWriteCommandInput["TransactItems"]> = [
+        {
+          Update: {
+            TableName,
+            Key: { pk, sk },
+            UpdateExpression:
+              "SET confirmTokenHash = :h, #name = :name, locale = :locale, #source = :source, discountPriceEur = :early, listPriceEur = :list",
+            ConditionExpression: "confirmed = :false",
+            ExpressionAttributeNames: { "#name": "name", "#source": "source" },
+            ExpressionAttributeValues: {
+              ":h": hash,
+              ":name": name,
+              ":locale": locale,
+              ":source": source,
+              ":early": course.earlyBirdPriceEur,
+              ":list": course.listPriceEur,
+              ":false": false,
+            },
+          },
         },
-        ConditionExpression: "attribute_not_exists(pk)",
-      })
-    )
+        { Put: { TableName, Item: pointer } },
+      ]
+      if (existing.confirmTokenHash && existing.confirmTokenHash !== hash) {
+        transact.push({
+          Delete: {
+            TableName,
+            Key: { pk: tokenPk(existing.confirmTokenHash), sk: TOKEN_SK },
+          },
+        })
+      }
+      await doc.send(new TransactWriteCommand({ TransactItems: transact }))
+    }
   } catch (err) {
     if (!isConditional(err)) {
       console.error("waitlist put error:", errMsg(err))
       return new Response("signup failed", { status: 500 })
     }
-    const existing = await getItem(pk, sk)
-    if (existing?.confirmed) return Response.json({ ok: true, confirmed: true })
-
-    token = newConfirmToken()
-    try {
-      await doc.send(
-        new UpdateCommand({
-          TableName,
-          Key: { pk, sk },
-          UpdateExpression:
-            "SET confirmTokenHash = :h, #name = :name, locale = :locale, #source = :source, discountPriceEur = :early, listPriceEur = :list",
-          ConditionExpression:
-            "attribute_not_exists(confirmed) OR confirmed = :false",
-          ExpressionAttributeNames: { "#name": "name", "#source": "source" },
-          ExpressionAttributeValues: {
-            ":h": hashToken(token),
-            ":name": name,
-            ":locale": locale,
-            ":source": source,
-            ":early": course.earlyBirdPriceEur,
-            ":list": course.listPriceEur,
-            ":false": false,
-          },
-        })
-      )
-    } catch (updateErr) {
-      if (!isConditional(updateErr)) {
-        console.error("waitlist update error:", errMsg(updateErr))
-        return new Response("signup failed", { status: 500 })
-      }
-      const again = await getItem(pk, sk)
-      if (again?.confirmed) return Response.json({ ok: true, confirmed: true })
-      return new Response("signup failed", { status: 500 })
-    }
+    const again = await getItem(pk, sk)
+    if (again?.confirmed) return Response.json({ ok: true, confirmed: true })
+    return new Response("signup failed", { status: 500 })
   }
 
   const mail = confirmMessage({
@@ -221,6 +300,19 @@ const signup = async (req: Request): Promise<Response> => {
     return new Response("send failed", { status: 502 })
   }
 
+  try {
+    await doc.send(
+      new UpdateCommand({
+        TableName,
+        Key: { pk, sk },
+        UpdateExpression: "SET lastMailAt = :now",
+        ExpressionAttributeValues: { ":now": new Date().toISOString() },
+      })
+    )
+  } catch (err) {
+    console.error("waitlist lastMailAt error:", errMsg(err))
+  }
+
   console.log(emfLine("Signup", courseSlug))
   return Response.json({ ok: true, confirmed: false })
 }
@@ -235,26 +327,36 @@ const confirm = async (req: Request): Promise<Response> => {
   const token = new URL(req.url).searchParams.get("token") || ""
   if (!isConfirmToken(token)) return new Response("invalid token", { status: 400 })
 
-  const item = await findByToken(hashToken(token))
-  if (!item?.email) return new Response("invalid token", { status: 400 })
+  const hash = hashToken(token)
+  const pointer = await getItem(tokenPk(hash), TOKEN_SK)
+  if (!pointer?.waitlistPk || !pointer.waitlistSk || !pointer.email) {
+    return new Response("invalid token", { status: 400 })
+  }
 
-  const slug = slugFromPk(item.pk)
+  const item = await getItem(pointer.waitlistPk, pointer.waitlistSk)
+  const slug = pointer.slug || slugFromPk(pointer.waitlistPk)
   const course = courseFor(slug)
-  const locale = localeOf(item.locale)
-  let freshlyConfirmed = false
+  const locale = localeOf(pointer.locale ?? item?.locale)
+  if (item?.confirmed) {
+    return new Response(null, {
+      status: 302,
+      headers: { Location: thankYouLocation(siteUrl(), locale, slug) },
+    })
+  }
 
+  let freshlyConfirmed = false
   try {
     await doc.send(
       new UpdateCommand({
         TableName,
-        Key: { pk: item.pk, sk: item.sk },
-        UpdateExpression:
-          "SET confirmed = :true, confirmedAt = :now REMOVE confirmTokenHash",
-        ConditionExpression: "confirmTokenHash = :h",
+        Key: { pk: pointer.waitlistPk, sk: pointer.waitlistSk },
+        UpdateExpression: "SET confirmed = :true, confirmedAt = :now",
+        ConditionExpression: "confirmTokenHash = :h AND confirmed = :false",
         ExpressionAttributeValues: {
           ":true": true,
           ":now": new Date().toISOString(),
-          ":h": hashToken(token),
+          ":h": hash,
+          ":false": false,
         },
       })
     )
@@ -264,19 +366,25 @@ const confirm = async (req: Request): Promise<Response> => {
       console.error("waitlist confirm error:", errMsg(err))
       return new Response("confirm failed", { status: 500 })
     }
-    const current = await getItem(item.pk, item.sk)
+    const current = await getItem(pointer.waitlistPk, pointer.waitlistSk)
     if (!current?.confirmed) return new Response("invalid token", { status: 400 })
   }
 
   if (freshlyConfirmed) {
     const mail = welcomeMessage({
       title: course?.title ?? slug,
-      earlyBirdPriceEur: Number(item.discountPriceEur ?? course?.earlyBirdPriceEur ?? 0),
-      listPriceEur: Number(item.listPriceEur ?? course?.listPriceEur ?? 0),
+      earlyBirdPriceEur: Number(
+        item?.discountPriceEur ?? course?.earlyBirdPriceEur ?? 0
+      ),
+      listPriceEur: Number(item?.listPriceEur ?? course?.listPriceEur ?? 0),
       locale,
     })
     try {
-      await sendEmail({ to: item.email, subject: mail.subject, message: mail.message })
+      await sendEmail({
+        to: pointer.email,
+        subject: mail.subject,
+        message: mail.message,
+      })
     } catch (err) {
       console.error("waitlist welcome ses error:", errMsg(err))
     }

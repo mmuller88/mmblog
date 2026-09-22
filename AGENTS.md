@@ -117,6 +117,7 @@ After deploy: `CALENDLY_PAT=… CALENDLY_WEBHOOK_SIGNING_KEY=… ./scripts/setup
 - Catalog: `/courses`, `/courses-de`
 - Detail: `/courses/:slug`, `/courses-de/:slug` — data in `src/data/coursesContent.js`
 - Waitlist: `POST /api/waitlist` (same origin) → DynamoDB + SES double opt-in. Confirm: `GET /api/waitlist/confirm?token=`
+- Backend is `MmblogStack` in `981237193288` / `us-east-1` (same HTTP API as the site). Not the separate `mm-courses` account from the original issue.
 - Admin CSV: `GET /api/admin/waitlist?course=` with `Authorization: Bearer` `WAITLIST_ADMIN_KEY` (Secrets Manager JSON)
 - Issue: https://github.com/mmuller88/mmblog/issues/65
 

@@ -77,6 +77,44 @@ export const pkFor = (slug: string): string => `COURSE#${slug}`
 
 export const skFor = (email: string): string => `WAITLIST#${email}`
 
+export const TOKEN_SK = "TOKEN"
+
+export const tokenPk = (hash: string): string => `TOKEN#${hash}`
+
+export const RATE_IP_MAX = 5
+
+export const RATE_GLOBAL_MAX = 30
+
+export const RESEND_COOLDOWN_MS = 15 * 60 * 1000
+
+export const minuteBucket = (now = new Date()): string =>
+  now.toISOString().slice(0, 16)
+
+const IPV4 = /^(?:\d{1,3}\.){3}\d{1,3}$/
+const IPV6 = /^[0-9a-fA-F:]{2,64}$/
+
+export const clientIp = (forwardedFor: string | null): string => {
+  if (!forwardedFor) return "unknown"
+  const parts = forwardedFor
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean)
+  const last = parts[parts.length - 1] ?? ""
+  if (IPV4.test(last)) return last
+  if (last.includes(":") && IPV6.test(last)) return last
+  return "unknown"
+}
+
+export const withinCooldown = (
+  lastMailAt: string | undefined,
+  nowMs: number
+): boolean => {
+  if (!lastMailAt) return false
+  const sent = Date.parse(lastMailAt)
+  if (Number.isNaN(sent)) return false
+  return nowMs - sent < RESEND_COOLDOWN_MS
+}
+
 export const slugFromPk = (pk: string): string =>
   pk.startsWith("COURSE#") ? pk.slice("COURSE#".length) : pk
 

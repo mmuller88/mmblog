@@ -3,6 +3,7 @@ import { describe, it } from "node:test"
 import {
   COURSES,
   bearerMatches,
+  clientIp,
   confirmMessage,
   courseFor,
   emfLine,
@@ -12,6 +13,7 @@ import {
   thankYouLocation,
   toCsv,
   welcomeMessage,
+  withinCooldown,
 } from "./waitlist"
 
 describe("course allowlist", () => {
@@ -25,7 +27,27 @@ describe("course allowlist", () => {
     assert.equal(courseFor("chatgpt-ads")?.listPriceEur, 99)
     assert.equal(courseFor("hetzner-eu-production")?.earlyBirdPriceEur, 79)
     assert.equal(courseFor("nope"), undefined)
+    assert.equal(courseFor("__proto__"), undefined)
+    assert.equal(courseFor("constructor"), undefined)
+    assert.equal(courseFor("toString"), undefined)
     assert.equal(Object.keys(COURSES).length, 4)
+  })
+})
+
+describe("client ip", () => {
+  it("uses the last forwarded hop and ignores prototype slugs", () => {
+    assert.equal(clientIp("1.1.1.1, 2.2.2.2"), "2.2.2.2")
+    assert.equal(clientIp(null), "unknown")
+    assert.equal(clientIp("not an ip"), "unknown")
+  })
+})
+
+describe("resend cooldown", () => {
+  it("blocks a second mail inside 15 minutes", () => {
+    const now = Date.parse("2026-09-22T12:00:00.000Z")
+    assert.equal(withinCooldown(undefined, now), false)
+    assert.equal(withinCooldown("2026-09-22T11:50:00.000Z", now), true)
+    assert.equal(withinCooldown("2026-09-22T11:40:00.000Z", now), false)
   })
 })
 
