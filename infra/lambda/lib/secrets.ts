@@ -7,6 +7,7 @@ export type AppSecrets = {
   OPENAI_ADS_CAPI_KEY?: string
   CALENDLY_WEBHOOK_SIGNING_KEY?: string
   CONVERSION_HEALTH_ALERT_URL?: string
+  WAITLIST_ADMIN_KEY?: string
 }
 
 const client = new SecretsManagerClient({})

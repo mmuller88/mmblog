@@ -118,3 +118,5 @@ Live: [qr-plakat.de](https://qr-plakat.de).
 - [Next.js on ECS Fargate + CDK](/aws-mcp-listings)
 - [OpenNext AWS](https://github.com/opennextjs/opennextjs-aws)
 - [cdk-opennext](https://github.com/berenddeboer/cdk-opennext)
+
+Course waitlist: [Next.js MVP: OpenNext + CDK](/courses/opennext-cdk-mvp/) — early-bird pricing for confirmed signups.

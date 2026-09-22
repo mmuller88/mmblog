@@ -189,3 +189,5 @@ Links:
 🚀 **I'm also looking for beta testers for [PeachBase](https://forms.gle/a7SErMaLMYHMnmAn7)** — the serverless vector DB I use as shared memory across all my AI agents. If you want to try it, sign up!
 
 Thanks for reading! If you have questions about my setup, feel free to reach out. And if you'd like help setting up your own OpenClaw AI agent — whether it's configuration, tool integration, or building custom workflows — I'm available for consulting. Just drop me a message at [office@martinmueller.dev](mailto:office@martinmueller.dev) or book a call at [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev).
+
+Course waitlist: [OpenClaw: Personal AI OS](/courses/openclaw-personal-ai-os/) — early-bird pricing for confirmed signups.

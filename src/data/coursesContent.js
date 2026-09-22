@@ -17,8 +17,8 @@ const waitlistFormEn = {
  submitting: "Joining…",
  success: "You're on the list — check your email to confirm and lock in early-bird pricing.",
  error: "Something went wrong. Please try again or email office@martinmueller.dev.",
- unavailable:
-  "Waitlist API not live yet — leave your email and we'll notify you when signups open.",
+ privacy:
+  "We store your name and email for this waitlist until you ask us to delete them.",
  honeypot: "Don't fill this out",
 }
 
@@ -31,8 +31,8 @@ const waitlistFormDe = {
   "Sie stehen auf der Liste — bitte E-Mail bestätigen, um den Early-Bird-Preis zu sichern.",
  error:
   "Etwas ist schiefgelaufen. Bitte erneut versuchen oder office@martinmueller.dev schreiben.",
- unavailable:
-  "Wartelisten-API noch nicht live — wir melden uns, sobald Anmeldungen offen sind.",
+ privacy:
+  "Name und E-Mail speichern wir für diese Warteliste, bis Sie die Löschung verlangen.",
  honeypot: "Nicht ausfüllen",
 }
 
@@ -472,6 +472,9 @@ export const thankYouContent = {
   heading: "Almost there",
   body:
    "If you haven't already, check your inbox and confirm your email to lock in early-bird pricing.",
+  confirmedHeading: "You're on the list",
+  confirmedBody:
+   "Early-bird pricing is locked in. We'll email you when the course launches.",
   catalogLink: { label: "← Back to courses", href: "/courses/" },
  },
  de: {
@@ -486,6 +489,29 @@ export const thankYouContent = {
   heading: "Fast geschafft",
   body:
    "Falls noch nicht geschehen: Posteingang prüfen und E-Mail bestätigen, um den Early-Bird-Preis zu sichern.",
+  confirmedHeading: "Sie sind auf der Liste",
+  confirmedBody:
+   "Der Early-Bird-Preis ist reserviert. Wir schreiben Ihnen, wenn der Kurs startet.",
   catalogLink: { label: "← Zurück zu Kursen", href: "/courses-de/" },
  },
+}
+
+export function thankYouView(locale, search) {
+ const content = locale === "de" ? thankYouContent.de : thankYouContent.en
+ const params = new URLSearchParams(search || "")
+ const confirmed = params.get("confirmed") === "1"
+ const course = params.get("course")
+ let href = content.langSwitch.href
+ if (confirmed) {
+  const q = new URLSearchParams({ confirmed: "1" })
+  if (course) q.set("course", course)
+  href = `${href}?${q.toString()}`
+ }
+ return {
+  meta: content.meta,
+  langSwitch: { ...content.langSwitch, href },
+  heading: confirmed ? content.confirmedHeading : content.heading,
+  body: confirmed ? content.confirmedBody : content.body,
+  catalogLink: content.catalogLink,
+ }
 }

@@ -144,3 +144,5 @@ Happy to swap notes either way — [reach out](https://martinmueller.dev/contact
 
 - [ChatGPT Ads freelance offer](https://martinmueller.dev/one-man-agency/gpt/) — campaigns, tracking, landings
 - [AWS Community Day DACH talk deck](https://mmuller88.github.io/presentations/aws-community-day-dach-2026/#/chatgpt-ads) — includes the live ad screenshots
+
+Course waitlist: [ChatGPT Ads](/courses/chatgpt-ads/) — early-bird pricing for confirmed signups.

@@ -73,3 +73,5 @@ Prod ist live unter [universe.arc-rider.com](https://universe.arc-rider.com). F�
 
 - [Hetzner: Object Storage als OpenTofu-Backend](https://community.hetzner.com/tutorials/howto-hcloud-s3-terraform-backend/)
 - [Supabase Self-Hosting (Docker)](https://supabase.com/docs/guides/self-hosting/docker)
+
+Kurs-Warteliste: [EU-Produktion auf Hetzner](/courses-de/hetzner-eu-production/) — Early-Bird-Preis für bestätigte Anmeldungen.
