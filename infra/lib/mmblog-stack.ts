@@ -33,6 +33,30 @@ const TO_EMAIL = `office@${DOMAIN}`
 const ALERT_EMAIL = `office+netlify@${DOMAIN}`
 const GITHUB_REPO = "mmuller88/mmblog"
 
+const LAMBDA_BASIC_EXECUTION_POLICY_ACK =
+  "AwsSolutions-IAM4[Policy::arn:<AWS::Partition>:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole]"
+
+const DEPLOY_ROLE_IAM5_ACKS = [
+  "AwsSolutions-IAM5[Action::s3:GetObject*]",
+  "AwsSolutions-IAM5[Action::s3:GetBucket*]",
+  "AwsSolutions-IAM5[Action::s3:List*]",
+  "AwsSolutions-IAM5[Action::s3:DeleteObject*]",
+  "AwsSolutions-IAM5[Action::s3:Abort*]",
+  "AwsSolutions-IAM5[Resource::<SiteE53D7754.Arn>/*]",
+] as const
+
+const ROUTE53_DELETE_EXISTING_ACK =
+  "Construct-Annotations::@aws-cdk/aws-route53:deleteExisting"
+
+function acknowledgeAll(
+  scope: Construct,
+  suppressions: Array<{ id: string; reason: string }>
+): void {
+  for (const suppression of suppressions) {
+    Validations.of(scope).acknowledge(suppression)
+  }
+}
+
 export class MmblogStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props)
@@ -192,15 +216,18 @@ export class MmblogStack extends Stack {
     })
 
     const manageDns = String(this.node.tryGetContext("manageDns")) === "true"
+    const dnsRecords: Construct[] = []
     if (manageDns) {
       const target = route53.RecordTarget.fromAlias(
         new targets53.CloudFrontTarget(distribution)
       )
       const dns = { zone, target, deleteExisting: true }
-      new route53.ARecord(this, "ApexA", dns)
-      new route53.AaaaRecord(this, "ApexAaaa", dns)
-      new route53.ARecord(this, "WwwA", { ...dns, recordName: "www" })
-      new route53.AaaaRecord(this, "WwwAaaa", { ...dns, recordName: "www" })
+      dnsRecords.push(
+        new route53.ARecord(this, "ApexA", dns),
+        new route53.AaaaRecord(this, "ApexAaaa", dns),
+        new route53.ARecord(this, "WwwA", { ...dns, recordName: "www" }),
+        new route53.AaaaRecord(this, "WwwAaaa", { ...dns, recordName: "www" })
+      )
     }
 
     const githubProvider =
@@ -269,7 +296,7 @@ export class MmblogStack extends Stack {
     new CfnOutput(this, "DeployRoleArn", { value: deployRole.roleArn })
     new CfnOutput(this, "SecretsArn", { value: secrets.secretArn })
 
-    this.nag(likesFn, webhookFn, formsFn, healthFn, deployRole)
+    this.nag(likesFn, webhookFn, formsFn, healthFn, deployRole, dnsRecords)
   }
 
   private apiFn(
@@ -314,9 +341,10 @@ export class MmblogStack extends Stack {
     webhookFn: NodejsFunction,
     formsFn: NodejsFunction,
     healthFn: NodejsFunction,
-    deployRole: iam.Role
+    deployRole: iam.Role,
+    dnsRecords: Construct[]
   ): void {
-    const stackSuppressions = [
+    acknowledgeAll(this, [
       {
         id: "AwsSolutions-CFR1",
         reason: "Public global blog, no geo restriction",
@@ -349,30 +377,30 @@ export class MmblogStack extends Stack {
         id: "AwsSolutions-COG4",
         reason: "No Cognito; public blog API",
       },
-    ]
-    for (const suppression of stackSuppressions) {
-      Validations.of(this).acknowledge(suppression)
-    }
+    ])
 
-    const fnSuppressions = [
-      {
-        id: "AwsSolutions-IAM4",
-        reason: "AWSLambdaBasicExecutionRole for CloudWatch logs",
-      },
-      {
-        id: "AwsSolutions-IAM5",
-        reason: "NodejsFunction log group wildcard is CDK-generated",
-      },
-    ]
+    const lambdaBasicExecutionReason =
+      "AWSLambdaBasicExecutionRole for CloudWatch logs"
     for (const fn of [likesFn, webhookFn, formsFn, healthFn]) {
-      for (const suppression of fnSuppressions) {
-        Validations.of(fn).acknowledge(suppression)
-      }
+      Validations.of(fn).acknowledge({
+        id: LAMBDA_BASIC_EXECUTION_POLICY_ACK,
+        reason: lambdaBasicExecutionReason,
+      })
     }
 
-    Validations.of(deployRole).acknowledge({
-      id: "AwsSolutions-IAM5",
-      reason: "GitHub deploy needs s3:* on site bucket objects + cdk roles",
-    })
+    const deployRoleReason =
+      "GitHub OIDC deploy syncs static site to the blog bucket"
+    for (const id of DEPLOY_ROLE_IAM5_ACKS) {
+      Validations.of(deployRole).acknowledge({ id, reason: deployRoleReason })
+    }
+
+    const dnsCutoverReason =
+      "deleteExisting replaces legacy Netlify apex/www during DNS cutover"
+    for (const record of dnsRecords) {
+      Validations.of(record).acknowledge({
+        id: ROUTE53_DELETE_EXISTING_ACK,
+        reason: dnsCutoverReason,
+      })
+    }
   }
 }
