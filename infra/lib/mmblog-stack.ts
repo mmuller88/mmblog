@@ -5,6 +5,7 @@ import {
   RemovalPolicy,
   Stack,
   StackProps,
+  Validations,
 } from "aws-cdk-lib"
 import * as acm from "aws-cdk-lib/aws-certificatemanager"
 import * as apigwv2 from "aws-cdk-lib/aws-apigatewayv2"
@@ -23,7 +24,6 @@ import * as targets53 from "aws-cdk-lib/aws-route53-targets"
 import * as s3 from "aws-cdk-lib/aws-s3"
 import * as secretsmanager from "aws-cdk-lib/aws-secretsmanager"
 import * as ses from "aws-cdk-lib/aws-ses"
-import { NagSuppressions } from "cdk-nag"
 import { Construct } from "constructs"
 
 const DOMAIN = "martinmueller.dev"
@@ -316,7 +316,7 @@ export class MmblogStack extends Stack {
     healthFn: NodejsFunction,
     deployRole: iam.Role
   ): void {
-    NagSuppressions.addStackSuppressions(this, [
+    const stackSuppressions = [
       {
         id: "AwsSolutions-CFR1",
         reason: "Public global blog, no geo restriction",
@@ -349,34 +349,30 @@ export class MmblogStack extends Stack {
         id: "AwsSolutions-COG4",
         reason: "No Cognito; public blog API",
       },
-    ])
-
-    for (const fn of [likesFn, webhookFn, formsFn, healthFn]) {
-      NagSuppressions.addResourceSuppressions(
-        fn,
-        [
-          {
-            id: "AwsSolutions-IAM4",
-            reason: "AWSLambdaBasicExecutionRole for CloudWatch logs",
-          },
-          {
-            id: "AwsSolutions-IAM5",
-            reason: "NodejsFunction log group wildcard is CDK-generated",
-          },
-        ],
-        true
-      )
+    ]
+    for (const suppression of stackSuppressions) {
+      Validations.of(this).acknowledge(suppression)
     }
 
-    NagSuppressions.addResourceSuppressions(
-      deployRole,
-      [
-        {
-          id: "AwsSolutions-IAM5",
-          reason: "GitHub deploy needs s3:* on site bucket objects + cdk roles",
-        },
-      ],
-      true
-    )
+    const fnSuppressions = [
+      {
+        id: "AwsSolutions-IAM4",
+        reason: "AWSLambdaBasicExecutionRole for CloudWatch logs",
+      },
+      {
+        id: "AwsSolutions-IAM5",
+        reason: "NodejsFunction log group wildcard is CDK-generated",
+      },
+    ]
+    for (const fn of [likesFn, webhookFn, formsFn, healthFn]) {
+      for (const suppression of fnSuppressions) {
+        Validations.of(fn).acknowledge(suppression)
+      }
+    }
+
+    Validations.of(deployRole).acknowledge({
+      id: "AwsSolutions-IAM5",
+      reason: "GitHub deploy needs s3:* on site bucket objects + cdk roles",
+    })
   }
 }
