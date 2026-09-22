@@ -140,10 +140,24 @@ const courses = {
    catalogLink: { label: "← All courses", href: "/courses/" },
    hero: {
     title: "Next.js MVP: OpenNext + CDK",
-    subtitle:
-     "Ship a production Next.js app on Lambda + CloudFront without Fargate overhead. Real stack from qr-plakat.de.",
+    subtitleBefore:
+     "Ship a production Next.js app on Lambda + CloudFront without Fargate overhead. Real stack from ",
+    subtitleLink: { href: "https://qr-plakat.de", label: "qr-plakat.de" },
+    subtitleAfter: ".",
     image: opennextImage,
     imageAlt: "OpenNext CDK architecture",
+   },
+   mvpWhy: {
+    heading: "Why OpenNext + CDK for an MVP",
+    intro:
+     "Fargate wants always-on tasks, a VPC, and an ALB before you have users. OpenNext maps Next.js to pay-per-request Lambda — the stack I shipped for qr-plakat.de.",
+    points: [
+     "Scale to zero — no baseline compute when traffic is bursty or pre-revenue",
+     "Keep App Router, RSC, and Server Actions without running next start in Docker",
+     "CDK stacks you own: Data, Auth, Web, CI/CD — same IaC as bigger projects",
+     "One GitHub Actions job from lint to CloudFront invalidation",
+     "Graduate to ECS Fargate later if product-market fit justifies always-on",
+    ],
    },
    pricing: {
     listPriceEur: 199,
@@ -182,10 +196,24 @@ const courses = {
    catalogLink: { label: "← Alle Kurse", href: "/courses-de/" },
    hero: {
     title: "Next.js MVP: OpenNext + CDK",
-    subtitle:
-     "Produktions-Next.js auf Lambda + CloudFront ohne Fargate. Echter Stack von qr-plakat.de.",
+    subtitleBefore:
+     "Produktions-Next.js auf Lambda + CloudFront ohne Fargate. Echter Stack von ",
+    subtitleLink: { href: "https://qr-plakat.de", label: "qr-plakat.de" },
+    subtitleAfter: ".",
     image: opennextImage,
     imageAlt: "OpenNext CDK Architektur",
+   },
+   mvpWhy: {
+    heading: "Warum OpenNext + CDK für ein MVP",
+    intro:
+     "Fargate will always-on Tasks, VPC und ALB — bevor Nutzer da sind. OpenNext mappt Next.js auf pay-per-request Lambda — der Stack hinter qr-plakat.de.",
+    points: [
+     "Scale to zero — keine Basiskosten bei burstigem oder pre-revenue Traffic",
+     "App Router, RSC und Server Actions ohne next start im Container",
+     "CDK-Stacks, die Sie besitzen: Data, Auth, Web, CI/CD",
+     "Ein GitHub-Actions-Job von Lint bis CloudFront-Invalidierung",
+     "Später auf ECS Fargate wechseln, wenn PMF always-on rechtfertigt",
+    ],
    },
    pricing: {
     listPriceEur: 199,
@@ -441,12 +469,17 @@ export function getCatalogCourses(locale) {
   .map((slug) => {
    const course = courses[slug]?.[lang]
    if (!course) return null
+   const { hero } = course
+   const subtitle =
+    hero.subtitle ??
+    `${hero.subtitleBefore ?? ""}${hero.subtitleLink?.label ?? ""}${hero.subtitleAfter ?? ""}`
+
    return {
     slug,
-    title: course.hero.title,
-    subtitle: course.hero.subtitle,
-    image: course.hero.image,
-    imageAlt: course.hero.imageAlt,
+    title: hero.title,
+    subtitle,
+    image: hero.image,
+    imageAlt: hero.imageAlt,
     listPriceEur: course.pricing.listPriceEur,
     earlyBirdPriceEur: course.pricing.earlyBirdPriceEur,
     path: lang === "de" ? `/courses-de/${slug}/` : `/courses/${slug}/`,

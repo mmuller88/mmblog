@@ -32,6 +32,7 @@ const CourseDetail = ({ course, location }) => {
   langSwitch,
   catalogLink,
   hero,
+  mvpWhy,
   pricing,
   curriculum,
   relatedPost,
@@ -95,7 +96,20 @@ const CourseDetail = ({ course, location }) => {
        {hero.title}
       </h1>
       <p className="mb-6 text-xl leading-relaxed text-gray-700 dark:text-gray-300">
-       {hero.subtitle}
+       {hero.subtitle ?? (
+        <>
+         {hero.subtitleBefore}
+         <a
+          href={hero.subtitleLink.href}
+          className="text-brand underline hover:text-brand-dark"
+          target="_blank"
+          rel="noopener noreferrer"
+         >
+          {hero.subtitleLink.label}
+         </a>
+         {hero.subtitleAfter}
+        </>
+       )}
       </p>
       <div className="mb-4 flex flex-wrap items-baseline gap-3">
        <span className="text-3xl font-bold text-brand">€{pricing.earlyBirdPriceEur}</span>
@@ -121,6 +135,28 @@ const CourseDetail = ({ course, location }) => {
      </div>
     </div>
    </div>
+
+   {mvpWhy ? (
+    <section className="mx-auto max-w-6xl px-4 pb-4">
+     <h2 className="mb-3 text-2xl font-bold text-gray-900 dark:text-gray-100">
+      {mvpWhy.heading}
+     </h2>
+     <p className="mb-6 max-w-3xl text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+      {mvpWhy.intro}
+     </p>
+     <ul className="grid gap-3 md:grid-cols-2">
+      {mvpWhy.points.map((point) => (
+       <li
+        key={point}
+        className="flex gap-3 rounded-lg border border-gray-200 bg-white p-4 text-gray-700 dark:border-slate-700 dark:bg-slate-800 dark:text-gray-300"
+       >
+        <span className="mt-0.5 shrink-0 text-brand" aria-hidden="true">✓</span>
+        <span>{point}</span>
+       </li>
+      ))}
+     </ul>
+    </section>
+   ) : null}
 
    <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 md:grid-cols-2">
     <section>
