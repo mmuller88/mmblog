@@ -197,7 +197,7 @@ const TrainingRequestForm = ({
     </label>
     <select
      id="training-team-size"
-     name="team-size"
+    name="team-size" required
      value={state["team-size"]}
      onChange={handleChange}
      className={inputClass}
