@@ -51,9 +51,11 @@
     "dev": "gatsby develop",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
+    "typecheck": "npm --prefix infra run typecheck",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "test:smoke": "node scripts/smoke-build.js",
     "test:conversion-health": "npm --prefix infra run test:health"
   },
   "repository": {

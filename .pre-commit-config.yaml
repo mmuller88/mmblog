@@ -1,0 +1,36 @@
+default_install_hook_types: [pre-commit, pre-push]
+minimum_pre_commit_version: "3.2.0"
+fail_fast: false
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-merge-conflict
+      - id: check-yaml
+        args: ["--unsafe"]
+      - id: check-json
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-added-large-files
+        args: ["--maxkb=8000"]
+      - id: detect-private-key
+      - id: detect-aws-credentials
+        args: ["--allow-missing-credentials"]
+
+  - repo: local
+    hooks:
+      - id: typecheck
+        name: Typecheck
+        entry: bash -c "npm run typecheck"
+        language: system
+        files: \.(ts|tsx)$
+        pass_filenames: false
+        stages: [pre-commit]
+      - id: typecheck-push
+        name: Typecheck
+        entry: bash -c "npm run typecheck"
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [pre-push]

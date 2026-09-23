@@ -2,7 +2,8 @@
   "name": "mmblog-infra",
   "private": true,
   "scripts": {
-    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck",
     "synth": "cdk synth",
     "deploy": "cdk deploy --require-approval never",
     "diff": "cdk diff",

@@ -80,4 +80,7 @@ infra/cdk-outputs.json
 # Local Netlify leftover
 .netlify
 
+# Local AWS creds
+aws_access_keys.sh
+
 .playwright-cli

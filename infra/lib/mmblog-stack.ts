@@ -278,6 +278,12 @@ export class MmblogStack extends Stack {
     )
     deployRole.addToPolicy(
       new iam.PolicyStatement({
+        actions: ["cloudformation:DescribeStacks"],
+        resources: [this.stackId],
+      })
+    )
+    deployRole.addToPolicy(
+      new iam.PolicyStatement({
         actions: ["ssm:GetParameter"],
         resources: [
           `arn:aws:ssm:${this.region}:${this.account}:parameter/cdk-bootstrap/hnb659fds/version`,

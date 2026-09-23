@@ -12,8 +12,11 @@ npm run build           # generate-audio (skip if no GCP creds) + gatsby build
 npm run generate-audio  # Google Cloud TTS → content/**/audio.mp3 (opt-in posts)
 npm run serve           # serve production build
 npm run format          # prettier formatting
+npm run typecheck       # infra tsc (also pre-commit + pre-push)
+npm run test:smoke      # after build: key HTML/RSS files
 npm --prefix infra run synth   # CDK synth
 npm --prefix infra run deploy  # CDK deploy (needs AWS creds)
+pre-commit install      # once: brew install pre-commit && pre-commit install
 ```
 
 ## Architecture
@@ -122,8 +125,10 @@ After deploy: `CALENDLY_PAT=… CALENDLY_WEBHOOK_SIGNING_KEY=… ./scripts/setup
 ## Deployment
 
 - GitHub Actions `.github/workflows/deploy.yml` on push to `master` (OIDC → `AWS_DEPLOY_ROLE_ARN`)
+- Order: infra `tsc`, then site build + `test:smoke` if site paths changed, then CDK synth/deploy if `infra/**` changed, then S3 sync. Site-only pushes skip CDK and read stack outputs (`DescribeStacks`). Infra-only pushes skip the Gatsby build.
 - CDK stack `MmblogStack` in `981237193288` / `us-east-1`: CloudFront+S3, `/api/*` HTTP API, SES, EventBridge
 - Site build: `npm run build` then `scripts/sync-site.sh`
+- Hooks: `.pre-commit-config.yaml` — hygiene on commit; `npm run typecheck` on staged `.ts` and again on push
 - Forms POST `/api/forms` (SES to `office@martinmueller.dev`)
 - Likes: DynamoDB via `GET|POST /api/likes`
 - DNS: Route53 zone already in this account. First deploy uses `manageDns=false`. Cutover: delete Netlify apex/www records, `cdk deploy -c manageDns=true`

@@ -24,6 +24,41 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - uses: dorny/paths-filter@v4
+        id: changes
+        with:
+          filters: |
+            site:
+              - 'content/**'
+              - 'src/**'
+              - 'static/**'
+              - 'gatsby-*.js'
+              - 'postcss.config.js'
+              - 'tailwind.config.js'
+              - 'package.json'
+              - 'package-lock.json'
+              - 'scripts/**'
+            infra:
+              - 'infra/**'
+
+      - name: What to run
+        id: run
+        run: |
+          site="${{ steps.changes.outputs.site }}"
+          infra="${{ steps.changes.outputs.infra }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            site=true
+            infra=true
+          fi
+          if [ "$site" = true ] || [ "$infra" = true ]; then
+            aws=true
+          else
+            aws=false
+          fi
+          echo "site=$site" >> "$GITHUB_OUTPUT"
+          echo "infra=$infra" >> "$GITHUB_OUTPUT"
+          echo "aws=$aws" >> "$GITHUB_OUTPUT"
+
       - uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -32,30 +67,55 @@ jobs:
             package-lock.json
             infra/package-lock.json
 
-      - uses: aws-actions/configure-aws-credentials@v6
-        with:
-          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
-          aws-region: ${{ env.AWS_REGION }}
-
       - name: Install infra deps
         working-directory: infra
         run: npm ci
 
-      - name: CDK deploy
-        working-directory: infra
-        run: npx cdk deploy --require-approval never -c manageDns=true --outputs-file cdk-outputs.json
+      - name: Typecheck
+        run: npm run typecheck
 
       - name: Install site deps
+        if: steps.run.outputs.site == 'true'
         run: npm ci
 
       - name: Build site
+        if: steps.run.outputs.site == 'true'
         run: npm run build
         env:
           GOOGLE_TTS_CREDENTIALS: ${{ secrets.GOOGLE_TTS_CREDENTIALS }}
 
+      - name: Smoke
+        if: steps.run.outputs.site == 'true'
+        run: npm run test:smoke
+
+      - name: CDK synth
+        if: steps.run.outputs.infra == 'true'
+        working-directory: infra
+        run: npx cdk synth --quiet -c manageDns=true
+
+      - name: Configure AWS credentials
+        if: steps.run.outputs.aws == 'true'
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: CDK deploy
+        if: steps.run.outputs.infra == 'true'
+        working-directory: infra
+        run: npx cdk deploy --require-approval never -c manageDns=true --outputs-file cdk-outputs.json
+
       - name: Sync + invalidate
+        if: steps.run.outputs.site == 'true'
         run: |
-          BUCKET=$(jq -r '.MmblogStack.BucketName' infra/cdk-outputs.json)
-          DIST=$(jq -r '.MmblogStack.DistributionId' infra/cdk-outputs.json)
+          if [ -f infra/cdk-outputs.json ]; then
+            BUCKET=$(jq -r '.MmblogStack.BucketName' infra/cdk-outputs.json)
+            DIST=$(jq -r '.MmblogStack.DistributionId' infra/cdk-outputs.json)
+          else
+            BUCKET=$(aws cloudformation describe-stacks --stack-name MmblogStack --query "Stacks[0].Outputs[?OutputKey=='BucketName'].OutputValue" --output text)
+            DIST=$(aws cloudformation describe-stacks --stack-name MmblogStack --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" --output text)
+          fi
+          test -n "$BUCKET" && test "$BUCKET" != "None" && test "$BUCKET" != "null"
+          test -n "$DIST" && test "$DIST" != "None" && test "$DIST" != "null"
           chmod +x scripts/sync-site.sh
           ./scripts/sync-site.sh "$BUCKET" "$DIST"
