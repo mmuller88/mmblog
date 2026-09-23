@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { navigate } from "gatsby"
 
 const inputClass =
  "w-full rounded-lg border border-gray-300 px-4 py-2 dark:border-slate-600 dark:bg-slate-900 dark:text-gray-100"
@@ -7,6 +8,7 @@ const TrainingRequestForm = ({
  trainingSlug,
  trainingTitle,
  locale,
+ pageUrl,
  labels,
 }) => {
  const [state, setState] = useState({
@@ -29,7 +31,7 @@ const TrainingRequestForm = ({
  const handleSubmit = async (e) => {
   e.preventDefault()
   if (honeypot) {
-   setStatus("success")
+   navigate("/thx/")
    return
   }
 
@@ -42,30 +44,14 @@ const TrainingRequestForm = ({
      "Content-Type": "application/x-www-form-urlencoded",
      Accept: "application/json",
     },
-    body: new URLSearchParams({
-     "form-name": "training-request",
-     training: trainingTitle,
-     "training-slug": trainingSlug,
-     locale,
-     url: window?.location?.href ?? "",
-     ...state,
-     "bot-field": honeypot,
-    }).toString(),
+    body: new URLSearchParams(new FormData(e.target)).toString(),
    })
 
    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-   setStatus("success")
+   navigate("/thx/")
   } catch {
    setStatus("error")
   }
- }
-
- if (status === "success") {
-  return (
-   <p className="rounded-lg bg-green-50 p-4 text-center text-green-800 dark:bg-green-900/30 dark:text-green-200">
-    {labels.success}
-   </p>
-  )
  }
 
  return (
@@ -76,8 +62,13 @@ const TrainingRequestForm = ({
    onSubmit={handleSubmit}
    className="space-y-4"
   >
+   <input type="hidden" name="form-name" value="training-request" />
+   <input type="hidden" name="training" value={trainingTitle} />
+   <input type="hidden" name="training-slug" value={trainingSlug} />
+   <input type="hidden" name="locale" value={locale} />
+   <input type="hidden" name="url" value={pageUrl} />
+   <input type="hidden" name="redirect" value="/thx/" />
    <p className="hidden">
-    <input type="hidden" name="form-name" value="training-request" />
     <label>
      <input
       type="text"
@@ -197,7 +188,8 @@ const TrainingRequestForm = ({
     </label>
     <select
      id="training-team-size"
-    name="team-size" required
+     name="team-size"
+     required
      value={state["team-size"]}
      onChange={handleChange}
      className={inputClass}

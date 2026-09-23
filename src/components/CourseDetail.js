@@ -263,6 +263,7 @@ const CourseDetail = ({ course, location }) => {
       trainingSlug={slug}
       trainingTitle={hero.title}
       locale={meta.language}
+      pageUrl={`${SITE_URL}${location.pathname}`}
       labels={request.form}
      />
     </div>
