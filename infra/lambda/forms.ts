@@ -4,6 +4,7 @@ import { sendEmail } from "./lib/ses"
 const SUBJECTS: Record<string, string> = {
   contact: "martinmueller.dev contact",
   "agency-contact": "martinmueller.dev agency contact",
+  "training-request": "martinmueller.dev training request",
 }
 
 const ALLOWED_REDIRECTS = new Set(["/thx/"])

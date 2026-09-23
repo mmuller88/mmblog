@@ -1,8 +1,8 @@
 import React from "react"
 import CoursesCatalog from "../components/CoursesCatalog"
 
-const CoursesPage = ({ location }) => (
+const TrainingsPage = ({ location }) => (
  <CoursesCatalog locale="en" location={location} />
 )
 
-export default CoursesPage
+export default TrainingsPage

@@ -13,6 +13,9 @@ async function handler(event) {
     return redirect("https://martinmueller.dev/one-man-agency/")
   }
 
+  var training = trainingRedirect(uri)
+  if (training) return redirect("https://martinmueller.dev" + training + qs)
+
   if (uri.indexOf("/api/") === 0) {
     return request
   }
@@ -44,6 +47,35 @@ function queryString(qs) {
     }
   }
   return "?" + parts.join("&")
+}
+
+function withSlash(path) {
+  if (path.charAt(path.length - 1) === "/") return path
+  return path + "/"
+}
+
+function trainingRedirect(uri) {
+  if (
+    uri === "/courses/waitlist-thank-you" ||
+    uri === "/courses/waitlist-thank-you/"
+  ) {
+    return "/trainings/"
+  }
+  if (
+    uri === "/courses-de/waitlist-thank-you" ||
+    uri === "/courses-de/waitlist-thank-you/"
+  ) {
+    return "/trainings-de/"
+  }
+  if (uri === "/courses" || uri === "/courses/") return "/trainings/"
+  if (uri === "/courses-de" || uri === "/courses-de/") return "/trainings-de/"
+  if (uri.indexOf("/courses/") === 0 && uri.indexOf(".") === -1) {
+    return withSlash("/trainings/" + uri.slice("/courses/".length))
+  }
+  if (uri.indexOf("/courses-de/") === 0 && uri.indexOf(".") === -1) {
+    return withSlash("/trainings-de/" + uri.slice("/courses-de/".length))
+  }
+  return ""
 }
 
 function redirect(location) {

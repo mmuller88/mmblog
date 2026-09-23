@@ -1,8 +1,8 @@
 import React from "react"
 import CoursesCatalog from "../components/CoursesCatalog"
 
-const CoursesDePage = ({ location }) => (
+const TrainingsDePage = ({ location }) => (
  <CoursesCatalog locale="de" location={location} />
 )
 
-export default CoursesDePage
+export default TrainingsDePage
