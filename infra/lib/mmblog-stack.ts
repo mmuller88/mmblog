@@ -31,6 +31,7 @@ const WWW = `www.${DOMAIN}`
 const FROM_EMAIL = `noreply@${DOMAIN}`
 const TO_EMAIL = `office@${DOMAIN}`
 const ALERT_EMAIL = `office+netlify@${DOMAIN}`
+const COURSES_EMAIL = `office+courses@${DOMAIN}`
 const GITHUB_REPO = "mmuller88/mmblog"
 
 const LAMBDA_BASIC_EXECUTION_POLICY_ACK =
@@ -109,6 +110,9 @@ export class MmblogStack extends Stack {
     new ses.EmailIdentity(this, "SesAlert", {
       identity: ses.Identity.email(ALERT_EMAIL),
     })
+    new ses.EmailIdentity(this, "SesCourses", {
+      identity: ses.Identity.email(COURSES_EMAIL),
+    })
 
     const sharedEnv = {
       SECRETS_ARN: secrets.secretArn,
@@ -147,10 +151,19 @@ export class MmblogStack extends Stack {
       ...sharedEnv,
       WAITLIST_TABLE: waitlistTable.tableName,
       SITE_URL: `https://${DOMAIN}`,
+      COURSES_EMAIL,
     })
     waitlistTable.grantReadWriteData(waitlistFn)
     secrets.grantRead(waitlistFn)
     this.grantSesSend(waitlistFn)
+
+    const digestFn = this.apiFn("WaitlistDigestFn", "waitlist-digest.ts", {
+      ...sharedEnv,
+      WAITLIST_TABLE: waitlistTable.tableName,
+      COURSES_EMAIL,
+    })
+    waitlistTable.grantReadData(digestFn)
+    this.grantSesSend(digestFn)
 
     const httpApi = new apigwv2.HttpApi(this, "Api")
 
@@ -199,6 +212,11 @@ export class MmblogStack extends Stack {
     new events.Rule(this, "HealthDaily", {
       schedule: events.Schedule.cron({ minute: "0", hour: "7" }),
       targets: [new targets.LambdaFunction(healthFn)],
+    })
+
+    new events.Rule(this, "WaitlistDaily", {
+      schedule: events.Schedule.cron({ minute: "0", hour: "6" }),
+      targets: [new targets.LambdaFunction(digestFn)],
     })
 
     const viewerFn = new cloudfront.Function(this, "ViewerReq", {
@@ -346,6 +364,7 @@ export class MmblogStack extends Stack {
       formsFn,
       healthFn,
       waitlistFn,
+      digestFn,
       deployRole,
       dnsRecords
     )
@@ -394,6 +413,7 @@ export class MmblogStack extends Stack {
     formsFn: NodejsFunction,
     healthFn: NodejsFunction,
     waitlistFn: NodejsFunction,
+    digestFn: NodejsFunction,
     deployRole: iam.Role,
     dnsRecords: Construct[]
   ): void {
@@ -435,7 +455,14 @@ export class MmblogStack extends Stack {
 
     const lambdaBasicExecutionReason =
       "AWSLambdaBasicExecutionRole for CloudWatch logs"
-    for (const fn of [likesFn, webhookFn, formsFn, healthFn, waitlistFn]) {
+    for (const fn of [
+      likesFn,
+      webhookFn,
+      formsFn,
+      healthFn,
+      waitlistFn,
+      digestFn,
+    ]) {
       Validations.of(fn).acknowledge({
         id: LAMBDA_BASIC_EXECUTION_POLICY_ACK,
         reason: lambdaBasicExecutionReason,

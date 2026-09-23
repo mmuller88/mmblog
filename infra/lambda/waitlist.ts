@@ -28,9 +28,11 @@ import {
   minuteBucket,
   thankYouLocation,
   toCsv,
+  ownerSignupMessage,
   welcomeMessage,
   type CsvRow,
   type Locale,
+  type SignupNotice,
 } from "./lib/waitlist"
 
 const doc = DynamoDBDocumentClient.from(new DynamoDBClient({}))
@@ -58,6 +60,17 @@ const tableName = (): string | undefined => process.env.WAITLIST_TABLE
 
 const siteUrl = (): string =>
   (process.env.SITE_URL || "https://martinmueller.dev").replace(/\/$/, "")
+
+const notifyOwner = async (notice: SignupNotice): Promise<void> => {
+  const to = process.env.COURSES_EMAIL
+  if (!to) return
+  const mail = ownerSignupMessage(notice)
+  try {
+    await sendEmail({ to, subject: mail.subject, message: mail.message })
+  } catch (err) {
+    console.error("waitlist owner notify error:", errMsg(err))
+  }
+}
 
 const isConditional = (err: unknown): boolean => {
   if (!(err instanceof Error)) return false
@@ -313,6 +326,18 @@ const signup = async (req: Request): Promise<Response> => {
     console.error("waitlist lastMailAt error:", errMsg(err))
   }
 
+  if (!existing) {
+    await notifyOwner({
+      title: course.title,
+      email,
+      name,
+      locale,
+      source,
+      at: signedUpAt,
+      confirmed: false,
+    })
+  }
+
   console.log(emfLine("Signup", courseSlug))
   return Response.json({ ok: true, confirmed: false })
 }
@@ -345,6 +370,7 @@ const confirm = async (req: Request): Promise<Response> => {
   }
 
   let freshlyConfirmed = false
+  const confirmedAt = new Date().toISOString()
   try {
     await doc.send(
       new UpdateCommand({
@@ -354,7 +380,7 @@ const confirm = async (req: Request): Promise<Response> => {
         ConditionExpression: "confirmTokenHash = :h AND confirmed = :false",
         ExpressionAttributeValues: {
           ":true": true,
-          ":now": new Date().toISOString(),
+          ":now": confirmedAt,
           ":h": hash,
           ":false": false,
         },
@@ -388,6 +414,15 @@ const confirm = async (req: Request): Promise<Response> => {
     } catch (err) {
       console.error("waitlist welcome ses error:", errMsg(err))
     }
+    await notifyOwner({
+      title: course?.title ?? slug,
+      email: pointer.email,
+      name: item?.name ?? "",
+      locale,
+      source: item?.source ?? "",
+      at: confirmedAt,
+      confirmed: true,
+    })
     console.log(emfLine("Confirm", slug))
   }
 

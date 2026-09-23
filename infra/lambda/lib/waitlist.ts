@@ -233,6 +233,160 @@ export const confirmMessage = (opts: {
   }
 }
 
+export type SignupNotice = {
+  title: string
+  email: string
+  name: string
+  locale: string
+  source: string
+  at: string
+  confirmed: boolean
+}
+
+export const ownerSignupMessage = (notice: SignupNotice): Mail => {
+  const who = notice.name ? `${notice.email} (${notice.name})` : notice.email
+  const status = notice.confirmed ? "confirmed" : "pending confirm"
+  return {
+    subject: `Course signup (${status}): ${notice.title}`,
+    message: [
+      notice.confirmed
+        ? `${who} confirmed ${notice.title}.`
+        : `${who} joined the waitlist for ${notice.title}. Email not confirmed yet.`,
+      "",
+      `Locale: ${notice.locale || "-"}`,
+      `Source: ${notice.source || "-"}`,
+      `At: ${notice.at}`,
+    ].join("\n"),
+  }
+}
+
+const BERLIN = "Europe/Berlin"
+
+const zonedParts = (date: Date, timeZone: string): Record<string, string> => {
+  const fmt = new Intl.DateTimeFormat("en-US", {
+    timeZone,
+    hourCycle: "h23",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  })
+  const out: Record<string, string> = {}
+  for (const part of fmt.formatToParts(date)) {
+    if (part.type !== "literal") out[part.type] = part.value
+  }
+  return out
+}
+
+const zonedOffsetMs = (date: Date, timeZone: string): number => {
+  const parts = zonedParts(date, timeZone)
+  let hour = Number(parts.hour)
+  let day = Number(parts.day)
+  if (hour === 24) {
+    hour = 0
+    day += 1
+  }
+  const asUtc = Date.UTC(
+    Number(parts.year),
+    Number(parts.month) - 1,
+    day,
+    hour,
+    Number(parts.minute),
+    Number(parts.second)
+  )
+  return asUtc - date.getTime()
+}
+
+const zonedMidnightUtc = (
+  year: number,
+  month: number,
+  day: number,
+  timeZone: string
+): number => {
+  const guess = Date.UTC(year, month - 1, day)
+  const offset = zonedOffsetMs(new Date(guess), timeZone)
+  const corrected = guess - offset
+  const offset2 = zonedOffsetMs(new Date(corrected), timeZone)
+  return offset2 === offset ? corrected : guess - offset2
+}
+
+const pad = (n: number): string => String(n).padStart(2, "0")
+
+export const previousBerlinDay = (
+  now: Date
+): { startMs: number; endMs: number; label: string } => {
+  const today = zonedParts(now, BERLIN)
+  const y = Number(today.year)
+  const m = Number(today.month)
+  const d = Number(today.day)
+  const yesterday = new Date(Date.UTC(y, m - 1, d - 1))
+  const yy = yesterday.getUTCFullYear()
+  const ym = yesterday.getUTCMonth() + 1
+  const yd = yesterday.getUTCDate()
+  return {
+    startMs: zonedMidnightUtc(yy, ym, yd, BERLIN),
+    endMs: zonedMidnightUtc(y, m, d, BERLIN),
+    label: `${yy}-${pad(ym)}-${pad(yd)}`,
+  }
+}
+
+const inWindow = (iso: string, startMs: number, endMs: number): boolean => {
+  const t = Date.parse(iso)
+  return Number.isFinite(t) && t >= startMs && t < endMs
+}
+
+export const dailySummaryMessage = (rows: CsvRow[], now: Date): Mail => {
+  const day = previousBerlinDay(now)
+  const signed = rows.filter((row) =>
+    inWindow(row.signedUpAt, day.startMs, day.endMs)
+  )
+  const confirmed = rows.filter((row) =>
+    inWindow(row.confirmedAt, day.startMs, day.endMs)
+  )
+  const lines = [
+    `Course signups ${day.label} (Europe/Berlin)`,
+    "",
+    `Yesterday: ${signed.length} signed up, ${confirmed.length} confirmed`,
+    `All time: ${rows.length} signed up, ${rows.filter((row) => row.confirmed).length} confirmed`,
+    "",
+  ]
+  for (const slug of courseSlugs()) {
+    const title = courseFor(slug)?.title ?? slug
+    const all = rows.filter((row) => row.course === slug)
+    const confirmedCount = all.filter((row) => row.confirmed).length
+    lines.push(title)
+    lines.push(
+      `  total ${all.length}, confirmed ${confirmedCount}, pending ${all.length - confirmedCount}`
+    )
+    const activity = all
+      .filter(
+        (row) =>
+          inWindow(row.signedUpAt, day.startMs, day.endMs) ||
+          inWindow(row.confirmedAt, day.startMs, day.endMs)
+      )
+      .sort((a, b) => a.signedUpAt.localeCompare(b.signedUpAt))
+    for (const row of activity) {
+      const joined = inWindow(row.signedUpAt, day.startMs, day.endMs)
+      const didConfirm = inWindow(row.confirmedAt, day.startMs, day.endMs)
+      const what =
+        joined && didConfirm
+          ? "signed up and confirmed"
+          : didConfirm
+            ? "confirmed"
+            : "signed up, pending"
+      const who = row.name ? `${row.email} (${row.name})` : row.email
+      lines.push(`  ${who} — ${what}`)
+    }
+    lines.push("")
+  }
+  return {
+    subject: `Course signups ${day.label}`,
+    message: lines.join("\n").trimEnd() + "\n",
+  }
+}
+
 export const welcomeMessage = (opts: {
   title: string
   earlyBirdPriceEur: number
