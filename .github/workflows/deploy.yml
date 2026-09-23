@@ -13,6 +13,7 @@ concurrency:
 permissions:
   id-token: write
   contents: read
+  actions: read
 
 env:
   NODE_VERSION: "20"
@@ -95,13 +96,70 @@ jobs:
 
       - name: What to run
         id: run
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
+          set -euo pipefail
           site="${{ steps.changes.outputs.site }}"
           infra="${{ steps.changes.outputs.infra }}"
+
+          # Path filter only sees this push. A cancelled deploy can leave
+          # site or infra changes unpublished; diff against the last publish.
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             site=true
             infra=true
+          elif [ "$site" != true ] || [ "$infra" != true ]; then
+            site_base=""
+            infra_base=""
+            if ! runs=$(gh run list --workflow deploy.yml --branch "${{ github.ref_name }}" --limit 30 \
+              --json databaseId,headSha,conclusion,event \
+              --jq '.[] | select(.conclusion=="success" and (.event=="push" or .event=="workflow_dispatch")) | "\(.databaseId) \(.headSha)"'); then
+              echo "could not list deploy runs; building and deploying"
+              site=true
+              infra=true
+              runs=""
+            fi
+            while read -r id sha; do
+              [ -z "${id:-}" ] && continue
+              [ "$sha" = "${{ github.sha }}" ] && continue
+              [ -n "$site_base" ] && [ -n "$infra_base" ] && break
+              names=$(gh api "repos/${{ github.repository }}/actions/runs/${id}/jobs" \
+                --jq '.jobs[] | select(.name=="deploy") | .steps[] | select(.conclusion=="success") | .name')
+              if [ -z "$site_base" ] && printf '%s\n' "$names" | grep -Fxq "Sync + invalidate"; then
+                site_base=$sha
+              fi
+              if [ -z "$infra_base" ] && printf '%s\n' "$names" | grep -Fxq "CDK deploy"; then
+                infra_base=$sha
+              fi
+            done <<< "$runs"
+
+            touches() {
+              local base="$1" pattern="$2" files count
+              if [ -z "$base" ]; then
+                return 0
+              fi
+              if ! files=$(gh api "repos/${{ github.repository }}/compare/${base}...${{ github.sha }}" --jq '.files[].filename'); then
+                echo "compare $base failed; treating as changed"
+                return 0
+              fi
+              count=$(printf '%s\n' "$files" | grep -c . || true)
+              if [ "$count" -ge 300 ]; then
+                return 0
+              fi
+              printf '%s\n' "$files" | grep -Eq "$pattern"
+            }
+
+            if [ "$site" != true ] && touches "$site_base" '^(content|src|static|scripts)/|^gatsby-.*\.js$|^postcss\.config\.js$|^tailwind\.config\.js$|^package(-lock)?\.json$'; then
+              echo "site changes since ${site_base:-none}"
+              site=true
+            fi
+            if [ "$infra" != true ] && touches "$infra_base" '^infra/'; then
+              echo "infra changes since ${infra_base:-none}"
+              infra=true
+            fi
+            echo "published site_base=${site_base:-none} infra_base=${infra_base:-none}"
           fi
+
           if [ "$site" = true ] || [ "$infra" = true ]; then
             aws=true
           else
@@ -110,6 +168,7 @@ jobs:
           echo "site=$site" >> "$GITHUB_OUTPUT"
           echo "infra=$infra" >> "$GITHUB_OUTPUT"
           echo "aws=$aws" >> "$GITHUB_OUTPUT"
+          echo "run site=$site infra=$infra aws=$aws"
 
       - uses: actions/setup-node@v7
         with:
