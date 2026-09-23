@@ -77,8 +77,8 @@ const TrainingRequestForm = ({
    className="space-y-4"
   >
    <p className="hidden">
+    <input type="hidden" name="form-name" value="training-request" />
     <label>
-     {labels.honeypot}
      <input
       type="text"
       name="bot-field"
