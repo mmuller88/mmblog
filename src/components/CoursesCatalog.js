@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "./layout"
 import MetaTags from "./Metatags"
+import FaqAccordion from "./FaqAccordion"
 import { getCatalogContent, getCatalogCourses } from "../data/coursesContent"
 
 const SITE_URL = "https://martinmueller.dev"
@@ -100,16 +101,7 @@ const CoursesCatalog = ({ locale, location }) => {
     <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">
      {faqHeading}
     </h2>
-    <div className="space-y-6">
-     {faqs.map((item) => (
-      <div key={item.q}>
-       <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-gray-100">
-        {item.q}
-       </h3>
-       <p className="text-gray-700 dark:text-gray-300">{item.a}</p>
-      </div>
-     ))}
-    </div>
+    <FaqAccordion items={faqs} />
    </section>
   </Layout>
  )

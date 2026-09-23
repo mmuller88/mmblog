@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import Layout from "./layout"
 import MetaTags from "./Metatags"
 import TrainingRequestForm from "./TrainingRequestForm"
+import FaqAccordion from "./FaqAccordion"
 import { getCatalogContent, getCatalogCourses } from "../data/coursesContent"
 
 const SITE_URL = "https://martinmueller.dev"
@@ -161,16 +162,27 @@ const CourseDetail = ({ course, location }) => {
     <p className="mb-6 max-w-3xl text-lg leading-relaxed text-gray-700 dark:text-gray-300">
      {expect.intro}
     </p>
-    <ul className="grid gap-3 md:grid-cols-2">
+    <ul className="!m-0 grid !list-none gap-4 !p-0 md:grid-cols-2">
      {expect.points.map((point) => (
       <li
        key={point}
-       className="flex gap-3 rounded-lg border border-gray-200 bg-white p-4 text-gray-700 dark:border-slate-700 dark:bg-slate-800 dark:text-gray-300"
+       className="!mb-0 flex items-start gap-4 rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800"
       >
-       <span className="mt-0.5 shrink-0 text-brand" aria-hidden="true">
-        ✓
+       <span
+        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand"
+        aria-hidden="true"
+       >
+        <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+         <path
+          fillRule="evenodd"
+          d="M16.7 5.3a1 1 0 010 1.4l-7.2 7.2a1 1 0 01-1.4 0L3.3 9.1a1 1 0 011.4-1.4l3.1 3.1 6.5-6.5a1 1 0 011.4 0z"
+          clipRule="evenodd"
+         />
+        </svg>
        </span>
-       <span>{point}</span>
+       <span className="pt-1.5 leading-relaxed text-gray-700 dark:text-gray-300">
+        {point}
+       </span>
       </li>
      ))}
     </ul>
@@ -215,20 +227,35 @@ const CourseDetail = ({ course, location }) => {
     <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">
      {agenda.heading}
     </h2>
-    <ol className="grid gap-6 md:grid-cols-2">
+    <ol
+     className={`!m-0 grid !list-none gap-6 !p-0 ${
+      agenda.days.length > 1 ? "md:grid-cols-2" : ""
+     } ${agenda.days.length > 2 ? "lg:grid-cols-3" : ""}`}
+    >
      {agenda.days.map((day, index) => (
       <li
        key={day.title}
-       className="rounded-xl border border-gray-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800"
+       className="!mb-0 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-800"
       >
-       <h3 className="mb-3 text-lg font-semibold text-gray-900 dark:text-gray-100">
-        <span className="mr-2 text-brand">{index + 1}.</span>
-        {day.title}
-       </h3>
-       <ul className="space-y-2">
+       <div className="flex items-center gap-3 border-b border-gray-100 bg-gradient-to-r from-blue-50 to-white px-5 py-4 dark:border-slate-700 dark:from-slate-800 dark:to-slate-800">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand text-sm font-bold text-white">
+         {index + 1}
+        </span>
+        <h3 className="!mb-0 font-sans text-lg font-semibold text-gray-900 dark:text-gray-100">
+         {day.title}
+        </h3>
+       </div>
+       <ul className="!m-0 !list-none space-y-3 !p-5">
         {day.items.map((item) => (
-         <li key={item} className="text-gray-700 dark:text-gray-300">
-          {item}
+         <li
+          key={item}
+          className="!mb-0 flex gap-3 text-gray-700 dark:text-gray-300"
+         >
+          <span
+           className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"
+           aria-hidden="true"
+          />
+          <span className="leading-relaxed">{item}</span>
          </li>
         ))}
        </ul>
@@ -273,16 +300,7 @@ const CourseDetail = ({ course, location }) => {
     <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">
      {faqHeading}
     </h2>
-    <div className="space-y-6">
-     {faqs.map((item) => (
-      <div key={item.q}>
-       <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-gray-100">
-        {item.q}
-       </h3>
-       <p className="text-gray-700 dark:text-gray-300">{item.a}</p>
-      </div>
-     ))}
-    </div>
+    <FaqAccordion items={faqs} />
    </section>
 
    {related.length > 0 ? (
