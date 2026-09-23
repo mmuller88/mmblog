@@ -3,24 +3,76 @@ name: Deploy
 on:
   push:
     branches: [master]
+  pull_request:
   workflow_dispatch:
 
 concurrency:
-  group: deploy-prod
-  cancel-in-progress: false
+  group: ${{ github.ref == 'refs/heads/master' && 'deploy-prod' || format('{0}-{1}', github.workflow, github.ref) }}
+  cancel-in-progress: true
 
 permissions:
   id-token: write
   contents: read
 
+env:
+  NODE_VERSION: "20"
+  AWS_REGION: us-east-1
+
 jobs:
+  ci:
+    if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: dorny/paths-filter@v4
+        id: changes
+        with:
+          filters: |
+            site:
+              - 'content/**'
+              - 'src/**'
+              - 'static/**'
+              - 'gatsby-*.js'
+              - 'postcss.config.js'
+              - 'tailwind.config.js'
+              - 'package.json'
+              - 'package-lock.json'
+              - 'scripts/**'
+            infra:
+              - 'infra/**'
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            infra/package-lock.json
+
+      - name: Install infra deps
+        working-directory: infra
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Install site deps
+        if: steps.changes.outputs.site == 'true'
+        run: npm ci
+
+      - name: Build site
+        if: steps.changes.outputs.site == 'true'
+        run: npm run build
+
+      - name: Smoke
+        if: steps.changes.outputs.site == 'true'
+        run: npm run test:smoke
+
   deploy:
-    if: github.actor != 'dependabot[bot]'
+    if: github.event_name != 'pull_request' && github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     environment: production
-    env:
-      NODE_VERSION: "20"
-      AWS_REGION: us-east-1
     steps:
       - uses: actions/checkout@v7
 
