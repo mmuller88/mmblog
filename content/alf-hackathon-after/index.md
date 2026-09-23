@@ -1,5 +1,6 @@
 ---
 title: Alfresco Virtual Hack-a-thon May 2020 Summary
+show: "no"
 description: Alfresco Virtual Hack-a-thon May 2020
 date: '2020-05-15'
 image: 'hack.jpeg'

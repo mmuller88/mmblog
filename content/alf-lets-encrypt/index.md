@@ -1,7 +1,7 @@
 ---
 title: Alfresco trifft Let's Encrypt
 description: Companion Image für Docker Compose
-show: 'no'
+show: "no"
 date: '2020-05-30'
 image: 'lets.png'
 tags: ['de', '2020', 'acs', 'alfresco', 'docker', 'docker-compose', 'ssl', 'github-actions', 'postman']

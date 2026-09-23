@@ -25,6 +25,7 @@ function Metatags(props) {
   imageWidth = 1200,
   imageHeight = 630,
   extraJsonLd = null,
+  noindex = false,
  } = props
 
  // Ensure tags is always an array to prevent iteration errors
@@ -148,22 +149,43 @@ function Metatags(props) {
   ],
  }
 
- // Build hreflang links for multilingual content
+ const toAbsolute = (href) => {
+  if (!href) return ""
+  if (/^https?:\/\//i.test(href)) return href
+  const path = href.startsWith("/") ? href : `/${href}`
+  return `${url}${path}`
+ }
+
+ const pageLang = language === "de" ? "de" : "en"
+ const enHref = engUrl
+  ? toAbsolute(engUrl)
+  : pageLang === "en"
+    ? canonicalUrl
+    : ""
+ const deHref = gerUrl
+  ? toAbsolute(gerUrl)
+  : pageLang === "de"
+    ? canonicalUrl
+    : ""
+
  const hreflangLinks = []
- if (engUrl) {
-  hreflangLinks.push({ rel: "alternate", hreflang: "en", href: url + engUrl })
+ if (enHref) {
+  hreflangLinks.push({ rel: "alternate", hreflang: "en", href: enHref })
  }
- if (gerUrl) {
-  hreflangLinks.push({ rel: "alternate", hreflang: "de", href: url + gerUrl })
+ if (deHref) {
+  hreflangLinks.push({ rel: "alternate", hreflang: "de", href: deHref })
  }
- // Add x-default pointing to current page
- if (engUrl || gerUrl) {
+ if (enHref && deHref) {
   hreflangLinks.push({
    rel: "alternate",
    hreflang: "x-default",
-   href: canonicalUrl,
+   href: enHref,
   })
  }
+
+ const robotsContent = noindex
+  ? "noindex, follow"
+  : "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
 
  return (
   <Helmet
@@ -179,13 +201,9 @@ function Metatags(props) {
     { name: "description", content: description },
     ...(keywordString ? [{ name: "keywords", content: keywordString }] : []),
     { name: "author", content: author },
-    {
-     name: "robots",
-     content:
-      "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
-    },
-    { name: "googlebot", content: "index, follow" },
-    { name: "bingbot", content: "index, follow" },
+    { name: "robots", content: robotsContent },
+    { name: "googlebot", content: robotsContent },
+    { name: "bingbot", content: robotsContent },
     { name: "language", content: metaLanguage },
     { name: "revisit-after", content: "7 days" },
     { name: "distribution", content: "global" },
@@ -259,9 +277,7 @@ function Metatags(props) {
     {JSON.stringify(organizationStructuredData)}
    </script>
    {extraJsonLd && (
-    <script type="application/ld+json">
-     {JSON.stringify(extraJsonLd)}
-    </script>
+    <script type="application/ld+json">{JSON.stringify(extraJsonLd)}</script>
    )}
   </Helmet>
  )

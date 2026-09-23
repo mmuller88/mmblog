@@ -1,6 +1,6 @@
 ---
 title: Alfresco Signaturen mit Sinadura
-show: 'no'
+show: "no"
 date: '2020-08-14'
 image: 'sig.png'
 tags: ['de', '2020', 'addon', 'acs', 'alfresco', 'docker-compose']

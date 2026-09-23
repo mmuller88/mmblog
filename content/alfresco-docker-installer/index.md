@@ -1,6 +1,6 @@
 ---
 title: Alfresco's Amps und Jars mit Docker Testen
-show: 'no'
+show: "no"
 description: Project für OBJECT mit Customizations
 date: '2020-03-15'
 image: 'docker.jpg'
@@ -18,7 +18,7 @@ Interassant hinzukam für mein Projet, dass die Amps für ein ACS 5.2.6 Deployme
 # Warum Docker Deployment?
 Der altmodische Weg ist es die lokal kompilierten Amps und Jars an einem lokalen ACS Deployment zu testen, welches komplett ohne Docker konfiguriert wurde. Das bedeutet Tomcat muss installiert und ACS mit all seinen Dependencies muss auch vorhanden sein. Klar der altmodische Installer hilft dabei, es ist trotzdem eine zeitaufbringende und wenig befriedigende Aufgabe Alfresco so installieren zu müssen. Zusätzlich kommt dann ja noch das man die Amps immer per Hand installieren und evtl. deinstallieren muss. Nicht schön!
 
-Docker Container adressieren genau diese Probleme. Mit Hilfe des Dockerfiles kann ich niederschreiben welche Konfigurationsschritte unternommen werden sollen. Mit Git kann das sogar versioniert passieren und Deployments können blitzschnell zu vorherigen funktionierenden Versionen reverted werden. In diesen Dockerfiles kann man die Installation des Tomcats sowie die Konfiguration von ACS und vieles mehr niederschreiben. 
+Docker Container adressieren genau diese Probleme. Mit Hilfe des Dockerfiles kann ich niederschreiben welche Konfigurationsschritte unternommen werden sollen. Mit Git kann das sogar versioniert passieren und Deployments können blitzschnell zu vorherigen funktionierenden Versionen reverted werden. In diesen Dockerfiles kann man die Installation des Tomcats sowie die Konfiguration von ACS und vieles mehr niederschreiben.
 
 Klingt nach ner Menge Arbeit? Nö! Alfresco maintained ACS Docker Deployments mit Version 6.0 oder neuer. Wie so ein einfaches Docker Deployment, wobei die Container mit Docker Compose orchestriert werden lässt sich hier bestauen für [ACS Enterprise](https://github.com/Alfresco/acs-deployment/tree/master/docker-compose) und hier für [ACS Community](https://github.com/Alfresco/acs-community-deployment/tree/master/docker-compose). Die Docker Images welches diese Deployment sind hier [ACS Enterprise Image](https://github.com/Alfresco/acs-packaging/tree/master/docker-alfresco) und hier [ACS Community Image](https://github.com/Alfresco/acs-community-packaging/tree/master/docker-alfresco). Zugegeben diese Deployments und Images sind recht limitiert in Punkto Customizations. Das ist zwar gut für einen schnellen Einstieg, erlaubt uns aber nicht unsere lokal erstellten Amps zu testen. Wie das ermöglicht wird, beschreibe ich im nächsten Kapitel.
 
@@ -37,7 +37,7 @@ hochgefahren und die Urls getestet werden welche da sind:
 
 ```
 http://localhost:80  Alfresco Content App
-http://localhost:80/alfresco 
+http://localhost:80/alfresco
 http://localhost:80/share
 ```
 
@@ -70,12 +70,12 @@ context: ./../share
 ```
 
 # Amps / Jars für ACS 5.2
-Wenn ihr auch so wie ich Amps oder Jars für ein ACS 5.2 Deployment testen wollt, kommen ein paar Schwierigkeiten hinzu. Es kann passieren, dass die verwendeten Dependencies für die 5.2 Amp / Jar nicht mehr kompatibel mit dem ACS Docker Deployment sind. Auffallen wird das durch Errors wärend ACS gebooted wird. Der erste Schritt ist herauszufinden welche Dependencies (in der Regel Jar files auf dem Tomcat Classpath) Probleme verursachen. Es empfiehlt sich dann ein Maven Profil für die 6.2 amp zu kreieren, welches dann die Dependencies mit der richtigen Version nachlädt. 
+Wenn ihr auch so wie ich Amps oder Jars für ein ACS 5.2 Deployment testen wollt, kommen ein paar Schwierigkeiten hinzu. Es kann passieren, dass die verwendeten Dependencies für die 5.2 Amp / Jar nicht mehr kompatibel mit dem ACS Docker Deployment sind. Auffallen wird das durch Errors wärend ACS gebooted wird. Der erste Schritt ist herauszufinden welche Dependencies (in der Regel Jar files auf dem Tomcat Classpath) Probleme verursachen. Es empfiehlt sich dann ein Maven Profil für die 6.2 amp zu kreieren, welches dann die Dependencies mit der richtigen Version nachlädt.
 
 Dann müssen diese auch im Dockerfile gelöscht werden. Nicht entmutigen lassen, dass kann schon recht Haaresträubend und Zeitaufwendig werden! Bei mir sah das in etwa dann so aus:
 ```
 ARG POI_V=4.0.1
-RUN rm -f $TOMCAT_DIR/webapps/alfresco/WEB-INF/lib/poi-${POI_V}.jar 
+RUN rm -f $TOMCAT_DIR/webapps/alfresco/WEB-INF/lib/poi-${POI_V}.jar
 RUN rm -f $TOMCAT_DIR/webapps/alfresco/WEB-INF/lib/poi-ooxml-${POI_V}.jar
 RUN rm -f $TOMCAT_DIR/webapps/alfresco/WEB-INF/lib/poi-scratchpad-${POI_V}.jar
 

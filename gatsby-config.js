@@ -10,7 +10,7 @@ module.exports = {
       linkedin: `martin-mueller-dev`
     },
     keywords: [
-      'AWS', 'Cloud Computing', 'Serverless', 'CDK', 'Infrastructure as Code', 
+      'AWS', 'Cloud Computing', 'Serverless', 'CDK', 'Infrastructure as Code',
       'Software Engineering', 'DevOps', 'Technology Blog', 'Martin Mueller'
     ],
     language: 'en',
@@ -282,7 +282,22 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         output: `/sitemap.xml`,
-        exclude: [`/dev-404-page`, `/404`, `/404.html`, `/offline-plugin-app-shell-fallback`],
+        excludes: [`/dev-404-page`, `/404`, `/404.html`, `/offline-plugin-app-shell-fallback`],
+        filterPages: (page, excludedRoute, { minimatch, withoutTrailingSlash, resolvePagePath }) => {
+          const pagePath = withoutTrailingSlash(resolvePagePath(page)).toLowerCase()
+          if (
+            pagePath.startsWith("/alf-") ||
+            pagePath.startsWith("/alfresco-") ||
+            pagePath.startsWith("/adf-app")
+          ) {
+            return true
+          }
+          if (typeof excludedRoute !== "string") return false
+          return minimatch(
+            withoutTrailingSlash(resolvePagePath(page)),
+            withoutTrailingSlash(excludedRoute)
+          )
+        },
         query: `
           {
             allSitePage {
@@ -332,7 +347,7 @@ module.exports = {
     },
     `gatsby-plugin-catch-links`,
     'gatsby-plugin-offline',
-    
+
     // {
     //   resolve: "gatsby-transformer-remark",
       // options: { // should be wrapped in options
@@ -364,6 +379,6 @@ module.exports = {
         path: `${__dirname}/src/pages`,
       },
     },
-    
+
   ],
 }

@@ -1,5 +1,6 @@
 ---
 title: "Data-Driven SEO with the SISTRIX MCP: A HalloCasa Case Study"
+description: "How the SISTRIX MCP in Cursor audited HalloCasa: visibility by country, near-win keywords, and a prioritized SEO roadmap."
 show: "yes"
 date: "2026-06-23"
 image: "index.png"

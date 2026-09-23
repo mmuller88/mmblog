@@ -1,5 +1,6 @@
 ---
 title: "ChatGPT Ads: Was ich aus meiner ersten Kampagne gelernt habe"
+description: "Feldnotizen zu ChatGPT Ads in Europa: gesponserte Karten unter der Antwort, Unterschied zu Google Ads, und die erste Live-Kampagne."
 show: "no"
 date: "2026-09-19"
 image: "index.png"
@@ -8,6 +9,19 @@ audioTiming: "audio-timing.json"
 tags: ["de", "2026", "chatgpt", "ads", "openai", "marketing", "growth"]
 engUrl: https://martinmueller.dev/chatgpt-ads-learnings
 pruneLength: 50
+faq:
+  - q: "Was sind ChatGPT Ads?"
+    a: "ChatGPT Ads sind gesponserte Karten unter der Antwort des Assistenten. Sie matchen das Gespräch — was gefragt wurde und in welchem Themen-Thread man steckt — nicht ein Keyword auf einer Suchergebnisseite."
+  - q: "Seit wann gibt es ChatGPT Ads in Europa?"
+    a: "ChatGPT Ads sind seit August 2026 in Europa live. Ich habe mich Mitte September 2026 registriert, und die Anzeigen waren wenige Stunden später live."
+  - q: "Wie unterscheiden sich ChatGPT Ads von Google Ads?"
+    a: "Google Ads matchen Keywords auf einer Suchergebnisseite. ChatGPT Ads matchen den laufenden Chat. Die Leute dort nutzen bereits ChatGPT Web, statt an einem Banner vorbeizuscrollen."
+  - q: "Braucht man für ChatGPT Ads ein großes Budget?"
+    a: "Nein. Ein kleines Budget reicht, um Placement und Creative zu lernen. Ich habe mit begrenztem echten Budget eine Anzeige für Freelance-AWS und eine für qr-plakat.de geschaltet."
+  - q: "Wen erreicht man mit ChatGPT Ads?"
+    a: "Menschen, die ChatGPT Web schon benutzen und im Dialog ein Problem lösen. Für B2B-Services, SaaS und AI-nahe Angebote ist das eine konzentrierte Zielgruppe."
+  - q: "Was sollte man zuerst messen?"
+    a: "Nicht nur Klicks im Ads Manager. Downstream zählen E-Mail, Calendly und echte Gespräche. Ein Angebot, eine Seite, eine Metrik."
 ---
 
 ChatGPT Ads sind seit **August 2026** in Europa live. Ich habe mich **Mitte September** registriert — nicht weil ich einen perfekten Mediaplan hatte, sondern weil neue Werbeflächen selten sind und ich mit echtem Budget lernen wollte.
@@ -129,6 +143,28 @@ Kein perfektes Lab (Inventory, Pacing, Matching gelten trotzdem), aber besser al
 ChatGPT Ads sind **real, in Europa live, und auf eine gute Art weird** — Distribution im Moment der Intent innerhalb eines Gesprächs, nicht auf einer Ergebnisseite. Und die Menschen auf der anderen Seite sind kein Zufalls-Traffic: Sie **nutzen bereits ChatGPT Web** — die potenzielle Zielgruppe fühlt sich dadurch ungewöhnlich wertvoll an.
 
 Wenn du etwas zu verkaufen hast (Services, SaaS, echtes Produkt), eine klare Landing Page und Neugier: **kleinen Test laufen lassen**. Ein kurzes Experiment hat mir mehr gebracht als jeder Produkt-Blogpost — und als Erstwerber war es echt Spaß.
+
+---
+
+## FAQ
+
+**Was sind ChatGPT Ads?**
+Gesponserte Karten unter der Antwort des Assistenten. Sie matchen das Gespräch — was gefragt wurde und in welchem Themen-Thread man steckt — nicht ein Keyword auf einer Suchergebnisseite.
+
+**Seit wann gibt es ChatGPT Ads in Europa?**
+Seit August 2026 in Europa live. Ich habe mich Mitte September 2026 registriert, und die Anzeigen waren wenige Stunden später live.
+
+**Wie unterscheiden sich ChatGPT Ads von Google Ads?**
+Google Ads matchen Keywords auf einer Suchergebnisseite. ChatGPT Ads matchen den laufenden Chat. Die Leute dort nutzen bereits ChatGPT Web, statt an einem Banner vorbeizuscrollen.
+
+**Braucht man für ChatGPT Ads ein großes Budget?**
+Nein. Ein kleines Budget reicht, um Placement und Creative zu lernen. Ich habe mit begrenztem echten Budget eine Anzeige für Freelance-AWS und eine für qr-plakat.de geschaltet.
+
+**Wen erreicht man mit ChatGPT Ads?**
+Menschen, die ChatGPT Web schon benutzen und im Dialog ein Problem lösen. Für B2B-Services, SaaS und AI-nahe Angebote ist das eine konzentrierte Zielgruppe.
+
+**Was sollte man zuerst messen?**
+Nicht nur Klicks im Ads Manager. Downstream zählen E-Mail, Calendly und echte Gespräche. Ein Angebot, eine Seite, eine Metrik.
 
 ---
 

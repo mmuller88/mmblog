@@ -12,6 +12,8 @@ import {
  calculateReadingTime,
  extractKeywords,
  generateBreadcrumbs,
+ isAlfrescoTechPath,
+ truncateText,
 } from "../utils/seo"
 // import ContactForm from "../components/contactform"
 import KoFi from "../components/KoFi"
@@ -259,6 +261,7 @@ function BlogPost(props) {
   showContact,
   tldr,
   faq,
+  description,
   audio,
   audioTiming,
   pdf,
@@ -317,7 +320,8 @@ function BlogPost(props) {
   <Layout>
    <MetaTags
     title={title}
-    description={excerpt}
+    description={truncateText(description || excerpt, 155)}
+    noindex={isAlfrescoTechPath(props.location.pathname)}
     thumbnail={(thumbnail && url + thumbnail) || image}
     imageWidth={imageResize?.width}
     imageHeight={imageResize?.height}
@@ -391,9 +395,7 @@ function BlogPost(props) {
      >
       {!audioEngaged ? (
        <p className="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-        {tags.includes("de")
-         ? "Diesen Beitrag anhören"
-         : "Listen to this post"}
+        {tags.includes("de") ? "Diesen Beitrag anhören" : "Listen to this post"}
        </p>
       ) : null}
       <audio
@@ -437,11 +439,7 @@ function BlogPost(props) {
      dangerouslySetInnerHTML={{ __html: html }}
     />
     <HeadingAnchorCopy contentRef={contentRef} contentKey={html} />
-    <ExternalLinks
-     contentRef={contentRef}
-     contentKey={html}
-     siteUrl={url}
-    />
+    <ExternalLinks contentRef={contentRef} contentKey={html} siteUrl={url} />
     {/* <div>
      <p>
       <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
@@ -511,6 +509,7 @@ export const query = graphql`
     engUrl
     gerUrl
     showContact
+    description
     tldr
     faq {
      q

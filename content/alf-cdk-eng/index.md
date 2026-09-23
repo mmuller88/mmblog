@@ -1,5 +1,6 @@
 ---
 title: Create ACS Infrastructure easy with AWS CDK
+show: "no"
 date: '2020-07-26'
 image: 'alfcdk.jpg'
 tags: ['eng', '2020', 'acs', 'alfresco', 'cdk', 'docker-compose']

@@ -1,5 +1,6 @@
 ---
 title: The Alfresco Provisioner
+show: "no"
 description: About the Closed Beta of my CDK Backend
 date: '2020-05-19'
 image: 'prov.png'
@@ -80,7 +81,7 @@ No HTTPS has yet been set up for the proxy of the instances. I plan to use the c
 Another useful feature would be if the user can simply redirect the url instance to his own domain url.
 
 # Closed Alpha
-I will soon make the Alfresco Provisioner available to the public. For that I thought to organize a closed alpha first. Interested people can try out the Alfresco Instance Provisioner and provide feedback and more. 
+I will soon make the Alfresco Provisioner available to the public. For that I thought to organize a closed alpha first. Interested people can try out the Alfresco Instance Provisioner and provide feedback and more.
 
 If you are interested, write to me and I will then create your access accounts. All I need is the email address and the desired user name. I don't have a specific launch date for the Closed Alpha yet, but I am confident that I will do it in May.
 
@@ -88,7 +89,7 @@ If you are interested, write to me and I will then create your access accounts. 
 I decided to make a short video about how to use the Alfresco Provisioner. The video can be viewed here: https://www.youtube.com/watch?v=OOEOE_ncsx4
 
 ## More about the Alfresco Products
-To give you a quicker 
+To give you a quicker
 
 # From a Personal Perspective
 What I like most about this project is the fact that most of the implementation, testing, development and documentation is done or supported using the Swagger definition. This goes from the validation of the request parameters, implementation of the REST interface, documentation, visualization with Swagger UI and automated tests in Postman. I love the approach with the Swagger definition, which I can preview using the Swagger plugin in Visual Studio Code, to use for almost everything. For sure, that's the future of server implementations.

@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import Layout from "./layout"
 import MetaTags from "./Metatags"
 import AgencyContactForm from "./AgencyContactForm"
+import FaqAccordion from "./FaqAccordion"
 import useOaiqTracking from "../hooks/useOaiqTracking"
 import {
  oneManAgencyHeroImage,
@@ -23,9 +24,30 @@ const AgencyLanding = ({ content, location }) => {
   sowExample,
   testimonials,
   contact,
+  definition,
+  faqs = [],
+  faqHeading,
+  relatedPost,
+  service = false,
  } = content
 
  const { calendlyUrl, openCalendly } = useOaiqTracking()
+
+ const serviceJsonLd = service
+  ? {
+     "@context": "https://schema.org",
+     "@type": "Service",
+     name: meta.title,
+     description: meta.description,
+     url: `${SITE_URL}${location.pathname}`,
+     provider: {
+      "@type": "Person",
+      name: "Martin Mueller",
+      url: SITE_URL,
+     },
+     areaServed: meta.language === "de" ? "DE" : "Worldwide",
+    }
+  : null
 
  return (
   <Layout fullWidth>
@@ -43,6 +65,8 @@ const AgencyLanding = ({ content, location }) => {
     pathname={location.pathname}
     engUrl={meta.engUrl}
     gerUrl={meta.gerUrl}
+    faq={faqs}
+    extraJsonLd={serviceJsonLd}
    />
 
    <div className="mx-auto max-w-6xl px-4 pt-6">
@@ -83,6 +107,31 @@ const AgencyLanding = ({ content, location }) => {
     </div>
    </div>
 
+   {definition && (
+    <div className="bg-white px-4 py-16 dark:bg-slate-900">
+     <div className="mx-auto max-w-3xl">
+      <h2 className="mb-6 font-sans text-3xl font-bold text-gray-900 dark:text-gray-100">
+       {definition.heading}
+      </h2>
+      {definition.paragraphs.map((paragraph) => (
+       <p
+        key={paragraph.slice(0, 48)}
+        className="mb-4 text-lg leading-relaxed text-gray-700 dark:text-gray-300"
+       >
+        {paragraph}
+       </p>
+      ))}
+      {definition.link && (
+       <p className="mb-0">
+        <Link to={definition.link.href} className="text-brand hover:underline">
+         {definition.link.label}
+        </Link>
+       </p>
+      )}
+     </div>
+    </div>
+   )}
+
    <div className="bg-white px-4 py-16 dark:bg-slate-900">
     <div className="mx-auto max-w-3xl">
      <h2 className="mb-8 text-center font-sans text-3xl font-bold text-gray-900 dark:text-gray-100">
@@ -96,6 +145,13 @@ const AgencyLanding = ({ content, location }) => {
        </li>
       ))}
      </ul>
+     {relatedPost && (
+      <p className="mt-8 text-center">
+       <Link to={relatedPost.href} className="text-brand hover:underline">
+        {relatedPost.label}
+       </Link>
+      </p>
+     )}
      {sowExample && (
       <div className="mt-8 text-center">
        <a
@@ -110,6 +166,17 @@ const AgencyLanding = ({ content, location }) => {
      )}
     </div>
    </div>
+
+   {faqs.length > 0 && (
+    <div className="bg-white px-4 py-16 dark:bg-slate-900">
+     <div className="mx-auto max-w-3xl">
+      <h2 className="mb-8 text-center font-sans text-3xl font-bold text-gray-900 dark:text-gray-100">
+       {faqHeading}
+      </h2>
+      <FaqAccordion items={faqs} />
+     </div>
+    </div>
+   )}
 
    {testimonials.length > 0 && (
     <div className="bg-gradient-to-br from-gray-50 to-blue-50 px-4 py-16 dark:from-slate-800 dark:to-slate-900">

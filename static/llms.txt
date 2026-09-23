@@ -1,0 +1,21 @@
+# Martin Mueller
+
+AWS Solutions Architect. Blog and one-man agency for AWS CDK, serverless, GEO (visibility in AI answers), and ChatGPT Ads.
+
+## Agency
+
+- https://martinmueller.dev/one-man-agency/
+- https://martinmueller.dev/one-man-agency-de/
+- https://martinmueller.dev/one-man-agency/seo-geo/
+- https://martinmueller.dev/one-man-agency-de/seo-geo/
+- https://martinmueller.dev/one-man-agency/gpt/
+- https://martinmueller.dev/one-man-agency-de/gpt/
+
+## Posts
+
+- https://martinmueller.dev/chatgpt-ads-learnings/
+- https://martinmueller.dev/chatgpt-ads-learnings-de/
+- https://martinmueller.dev/sistrix-mcp-hallocasa-seo/
+- https://martinmueller.dev/sistrix-mcp-hallocasa-seo-de/
+- https://martinmueller.dev/opennext-cdk/
+- https://martinmueller.dev/opennext-cdk-de/

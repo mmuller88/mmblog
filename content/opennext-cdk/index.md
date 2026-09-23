@@ -1,5 +1,6 @@
 ---
 title: "OpenNext + CDK: Next.js on AWS Without ECS Fargate"
+description: "Shipping a Next.js MVP on AWS with OpenNext and CDK instead of ECS Fargate: one GitHub Actions deploy, lower run cost than always-on tasks."
 show: "yes"
 date: "2026-09-21"
 image: "index.png"

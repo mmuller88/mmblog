@@ -1,6 +1,6 @@
 ---
 title: Go Alfresco BART
-show: 'no'
+show: "no"
 description: Go Alfresco BART
 date: '2020-05-03'
 image: 'goalf.png'

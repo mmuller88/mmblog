@@ -1,6 +1,6 @@
 ---
 title: Der Alfresco Provisioner
-show: 'no'
+show: "no"
 description: Über die Closed Beta meines CDK Backends
 date: '2020-05-19'
 image: 'prov.png'
@@ -11,7 +11,7 @@ pruneLength: 50
 
 Hi Alfrescans.
 
-Hast du schonmal Alfresco auf einer AWS Ec2 Instanz installiert? Vielleicht sogar auch schon mit Docker Compose? Auch wenn Docker die Installation von Alfresco einfacher gemacht hat, ist es immer noch aufwending! Zuerst muss man eine Ec2 Instanz erstellen. Dafür muss man sich in AWS einloggen, einen Ec2 Typen auswählen und diesen starten. Dann dort drauf connecten, Docker installieren und dann muss noch eine Alfresco Docker Compose Installation durchführen. Wie toll wäre es wenn wir einfach einen Managed Service hätten welche das für uns macht? 
+Hast du schonmal Alfresco auf einer AWS Ec2 Instanz installiert? Vielleicht sogar auch schon mit Docker Compose? Auch wenn Docker die Installation von Alfresco einfacher gemacht hat, ist es immer noch aufwending! Zuerst muss man eine Ec2 Instanz erstellen. Dafür muss man sich in AWS einloggen, einen Ec2 Typen auswählen und diesen starten. Dann dort drauf connecten, Docker installieren und dann muss noch eine Alfresco Docker Compose Installation durchführen. Wie toll wäre es wenn wir einfach einen Managed Service hätten welche das für uns macht?
 
 Gute Nachrichten! Genau das habe ich in den letzten Wochen implementiert. Es muss nun einfach nur noch der gewünschte Ec2 Typ und das gewünschte Alfresco Docker Compose Deployment auswählen und der Alfresco Provisioner übernimmt den Rest und installiert Alfresco für dich! Damit kann Jeder schnell und einfach Alfresco Backends für sich und seine Community erstellen. In den nächsten Abschnitten werde ich genauer von meiner Idee berichten sowie welche Technologien ich dafür verwendet habe.
 

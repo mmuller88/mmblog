@@ -1,6 +1,6 @@
 ---
 title: ACS und APS Integration
-show: 'no'
+show: "no"
 date: '2020-06-14'
 image: 'handshake.png'
 tags: ['de', '2020', 'acs', 'aps', 'process']

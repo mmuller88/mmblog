@@ -1,7 +1,7 @@
 ---
 title: Build an ADF App from Scratch
 description: For a project at OBJECT I build an app based on ADF and ACA
-show: 'no'
+show: "no"
 date: '2020-03-01'
 image: 'robot.png'
 tags: ['eng', 'alfresco', 'ai', '2020', 'ecm', 'adf', 'prototype', 'aca', 'object']

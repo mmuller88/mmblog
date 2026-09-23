@@ -37,7 +37,10 @@ export const agencyLandingContent = {
     gerUrl: "/one-man-agency-de/aws/",
    },
    langSwitch: { label: "Deutsch", href: "/one-man-agency-de/aws/" },
-   hubLink: { label: "← Full One-Man Agency overview", href: "/one-man-agency/" },
+   hubLink: {
+    label: "← Full One-Man Agency overview",
+    href: "/one-man-agency/",
+   },
    hero: {
     title: "AWS Consulting",
     subtitle:
@@ -137,16 +140,20 @@ export const agencyLandingContent = {
      ],
     },
    ],
-   contact: { heading: "Erzählen Sie mir von Ihrem AWS-Projekt", form: formLabelsDe },
+   contact: {
+    heading: "Erzählen Sie mir von Ihrem AWS-Projekt",
+    form: formLabelsDe,
+   },
   },
  },
  seoGeo: {
   en: {
    meta: {
-    title: "SEO & GEO Consulting — Visibility in Search & AI Answers",
+    title: "GEO SEO — Visibility in Search and AI Answers",
     description:
-     "SEO and GEO strategy for traditional search and AI answer engines. Audits, structured deliverables, fixed-scope SoW.",
+     "GEO SEO for Google rankings and AI answers. Audits, citeable pages, and a fixed-scope statement of work.",
     keywords: [
+     "GEO SEO",
      "SEO audit",
      "GEO strategy",
      "AI visibility",
@@ -157,14 +164,48 @@ export const agencyLandingContent = {
     gerUrl: "/one-man-agency-de/seo-geo/",
    },
    langSwitch: { label: "Deutsch", href: "/one-man-agency-de/seo-geo/" },
-   hubLink: { label: "← Full One-Man Agency overview", href: "/one-man-agency/" },
+   hubLink: {
+    label: "← Full One-Man Agency overview",
+    href: "/one-man-agency/",
+   },
    hero: {
-    title: "SEO & GEO Strategy",
+    title: "GEO SEO",
     subtitle:
-     "Get found in Google and in AI answers. Audits, actionable roadmaps, and fixed-scope delivery.",
+     "Get found in Google and in AI answers. Audits, citeable pages, and fixed-scope delivery.",
     ctaSpeak: "🗣️ Book a call",
     ctaWrite: "📝 Or send a message",
    },
+   definition: {
+    heading: "What GEO SEO is",
+    paragraphs: [
+     "GEO (Generative Engine Optimization) is visibility inside AI answers — ChatGPT, Google AI Overviews, Perplexity — in addition to the ten blue links. SEO stays the base: a page Google can crawl, one clear question, and a direct answer.",
+     "What gets cited is a page that names the question in the title, answers it in the first paragraphs, shows the fact with a source, and covers follow-up questions in an FAQ. A thin page with no answer is not citeable.",
+    ],
+    link: {
+     label: "Case study: SISTRIX MCP and HalloCasa",
+     href: "/sistrix-mcp-hallocasa-seo/",
+    },
+   },
+   faqs: [
+    {
+     q: "What is GEO SEO?",
+     a: "GEO SEO (Generative Engine Optimization) is the work of being named in AI answers — ChatGPT, Google AI Overviews, and similar systems — in addition to classic Google rankings.",
+    },
+    {
+     q: "What is the difference between SEO and GEO?",
+     a: "SEO targets a ranking on the results page. GEO targets a citation inside the answer itself. Both need a crawlable page, one clear question, and a direct answer.",
+    },
+    {
+     q: "What should a page include so an AI answer can cite it?",
+     a: "The question in the title, the answer in the opening paragraphs, sourced facts, and an FAQ for follow-ups. A page without that answer gives the model nothing to cite.",
+    },
+    {
+     q: "Do I need both SEO and GEO?",
+     a: "Yes. Without an indexable page there is nothing to cite. GEO does not replace SEO.",
+    },
+   ],
+   faqHeading: "GEO SEO questions",
+   service: true,
    deliverables: {
     heading: "What you get",
     items: [
@@ -181,14 +222,18 @@ export const agencyLandingContent = {
     href: "/one-man-agency/sow-seo-geo-redacted-example.pdf",
    },
    testimonials: [],
-   contact: { heading: "Tell me about your visibility goals", form: formLabelsEn },
+   contact: {
+    heading: "Tell me about your visibility goals",
+    form: formLabelsEn,
+   },
   },
   de: {
    meta: {
-    title: "SEO & GEO Consulting — Sichtbarkeit in Suche & KI-Antworten",
+    title: "GEO SEO — Sichtbarkeit in Suche und KI-Antworten",
     description:
-     "SEO- und GEO-Strategie für klassische Suche und KI-Antworten. Audits, konkrete Deliverables, festes Statement of Work.",
+     "GEO SEO für Google-Rankings und KI-Antworten. Audits, zitierbare Seiten und ein festes Statement of Work.",
     keywords: [
+     "GEO SEO",
      "SEO Audit",
      "GEO Strategie",
      "KI Sichtbarkeit",
@@ -204,12 +249,43 @@ export const agencyLandingContent = {
     href: "/one-man-agency-de/",
    },
    hero: {
-    title: "SEO & GEO Strategie",
+    title: "GEO SEO",
     subtitle:
-     "Gefunden werden in Google und in KI-Antworten. Audits, umsetzbare Roadmaps, feste Scope-Lieferung.",
+     "Gefunden werden in Google und in KI-Antworten. Audits, zitierbare Seiten, feste Scope-Lieferung.",
     ctaSpeak: "🗣️ Termin buchen",
     ctaWrite: "📝 Oder Nachricht senden",
    },
+   definition: {
+    heading: "Was GEO SEO ist",
+    paragraphs: [
+     "GEO (Generative Engine Optimization) ist Sichtbarkeit in KI-Antworten — ChatGPT, Google AI Overviews, Perplexity — zusätzlich zu den zehn blauen Links. SEO bleibt die Grundlage: eine crawlbare Seite, eine klare Frage, eine direkte Antwort.",
+     "Zitiert wird eine Seite, die die Frage im Titel nennt, sie in den ersten Absätzen beantwortet, das Faktum mit Quelle zeigt und Folgefragen in einer FAQ abdeckt. Eine dünne Seite ohne diese Antwort ist nicht zitierbar.",
+    ],
+    link: {
+     label: "Case Study: SISTRIX MCP und HalloCasa",
+     href: "/sistrix-mcp-hallocasa-seo-de/",
+    },
+   },
+   faqs: [
+    {
+     q: "Was ist GEO SEO?",
+     a: "GEO SEO (Generative Engine Optimization) ist die Arbeit daran, in KI-Antworten genannt zu werden — ChatGPT, Google AI Overviews und ähnliche Systeme — zusätzlich zu klassischen Google-Rankings.",
+    },
+    {
+     q: "Was ist der Unterschied zwischen SEO und GEO?",
+     a: "SEO zielt auf ein Ranking in der Ergebnisliste. GEO zielt auf ein Zitat in der Antwort selbst. Beides braucht eine crawlbare Seite, eine klare Frage und eine direkte Antwort.",
+    },
+    {
+     q: "Was sollte eine Seite enthalten, damit eine KI-Antwort sie zitieren kann?",
+     a: "Die Frage im Titel, die Antwort in den ersten Absätzen, belegte Fakten und eine FAQ für Folgefragen. Eine Seite ohne diese Antwort gibt dem Modell nichts zu zitieren.",
+    },
+    {
+     q: "Brauche ich SEO und GEO?",
+     a: "Ja. Ohne indexierbare Seite gibt es nichts zu zitieren. GEO ersetzt SEO nicht.",
+    },
+   ],
+   faqHeading: "Fragen zu GEO SEO",
+   service: true,
    deliverables: {
     heading: "Das bekommen Sie",
     items: [
@@ -226,7 +302,10 @@ export const agencyLandingContent = {
     href: "/one-man-agency/sow-seo-geo-redacted-example.pdf",
    },
    testimonials: [],
-   contact: { heading: "Schildern Sie mir Ihre Sichtbarkeitsziele", form: formLabelsDe },
+   contact: {
+    heading: "Schildern Sie mir Ihre Sichtbarkeitsziele",
+    form: formLabelsDe,
+   },
   },
  },
  gpt: {
@@ -247,7 +326,10 @@ export const agencyLandingContent = {
     gerUrl: "/one-man-agency-de/gpt/",
    },
    langSwitch: { label: "Deutsch", href: "/one-man-agency-de/gpt/" },
-   hubLink: { label: "← Full One-Man Agency overview", href: "/one-man-agency/" },
+   hubLink: {
+    label: "← Full One-Man Agency overview",
+    href: "/one-man-agency/",
+   },
    hero: {
     title: "ChatGPT Ads",
     subtitle:
@@ -268,7 +350,14 @@ export const agencyLandingContent = {
     ],
    },
    testimonials: [],
-   contact: { heading: "Tell me about your ChatGPT Ads goals", form: formLabelsEn },
+   relatedPost: {
+    label: "Field notes: what I learned from my first ChatGPT Ads campaign",
+    href: "/chatgpt-ads-learnings/",
+   },
+   contact: {
+    heading: "Tell me about your ChatGPT Ads goals",
+    form: formLabelsEn,
+   },
   },
   de: {
    meta: {
@@ -311,7 +400,15 @@ export const agencyLandingContent = {
     ],
    },
    testimonials: [],
-   contact: { heading: "Schildern Sie mir Ihre ChatGPT Ads Ziele", form: formLabelsDe },
+   relatedPost: {
+    label:
+     "Feldnotizen: Was ich aus meiner ersten ChatGPT-Ads-Kampagne gelernt habe",
+    href: "/chatgpt-ads-learnings-de/",
+   },
+   contact: {
+    heading: "Schildern Sie mir Ihre ChatGPT Ads Ziele",
+    form: formLabelsDe,
+   },
   },
  },
  vibeCoding: {
@@ -332,7 +429,10 @@ export const agencyLandingContent = {
     gerUrl: "/one-man-agency-de/vibe-coding/",
    },
    langSwitch: { label: "Deutsch", href: "/one-man-agency-de/vibe-coding/" },
-   hubLink: { label: "← Full One-Man Agency overview", href: "/one-man-agency/" },
+   hubLink: {
+    label: "← Full One-Man Agency overview",
+    href: "/one-man-agency/",
+   },
    hero: {
     title: "Vibe Coding → Production",
     subtitle:

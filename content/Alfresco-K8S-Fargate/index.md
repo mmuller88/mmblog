@@ -1,5 +1,6 @@
 ---
 title: Alfresco's Kubernetes DBP with AWS EKS and Fargate for managing Pods
+show: "no"
 description: Dec 2019 I bought a house and extended it with a lot cool and cost saving smart home devices/
 date: '2020-01-22'
 image: 'aws.jpg'

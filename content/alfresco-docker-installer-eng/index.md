@@ -1,5 +1,6 @@
 ---
 title: Alfresco's Amps and Jars Testing with Docker
+show: "no"
 description: Project for OBJECT with Customizations
 date: '2020-03-17'
 image: 'docker.jpg'
@@ -36,7 +37,7 @@ and the urls can be tested which are:
 
 ```
 http://localhost:80  Alfresco Content App
-http://localhost:80/alfresco 
+http://localhost:80/alfresco
 http://localhost:80/share
 ```
 

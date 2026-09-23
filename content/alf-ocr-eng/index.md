@@ -1,5 +1,6 @@
 ---
 title: Alfresco 6.2 with OCR
+show: "no"
 date: '2020-11-24'
 image: 'digital.png'
 tags: ['eng', '2020', 'addon', 'acs', 'alfresco', 'docker-compose', 'ocr']

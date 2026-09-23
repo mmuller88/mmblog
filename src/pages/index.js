@@ -3,6 +3,11 @@ import { Link, graphql } from "gatsby"
 import "./post.css"
 import Layout from "../components/layout"
 import MetaTags from "../components/Metatags"
+import { generateStructuredData } from "../utils/seo"
+
+const homeTitle = "Martin Mueller — AWS CDK, Serverless & GEO"
+const homeDescription =
+ "AWS CDK, serverless, and GEO for visibility in Google and AI answers. Field notes and consulting by Martin Mueller, AWS Solutions Architect."
 
 export const PreviewPost = (props) => {
  //   if (!props.node) return null
@@ -11,37 +16,16 @@ export const PreviewPost = (props) => {
  return (
   <Link to={props.node.fields.slug} key={props.i} className="link">
    <div className="post-list">
-    <h1>{props.node.frontmatter.title}</h1>
-    <div
-     className="post"
-     //  style={{
-     //   display: "flex",
-     //   flexDirection: "column",
-     //   alignItems: "center",
-     //   gap: "26px",
-
-     //  }}
-    >
+    <h2 className="mb-6 font-sans text-3xl font-bold text-inherit">
+     {props.node.frontmatter.title}
+    </h2>
+    <div className="post">
      {imageSrc && (
-      <div
-       className="flex justify-center items-center"
-       style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-       }}
-      >
-       {" "}
+      <div className="flex w-full items-center justify-center">
        <img
         src={imageSrc}
         alt={props.node.frontmatter.title}
-        style={{
-         width: "100%",
-         height: "auto",
-         alignContent: "center",
-         justifySelf: "center",
-        }}
+        className="h-auto w-full"
        />
       </div>
      )}
@@ -58,17 +42,19 @@ export const PreviewPost = (props) => {
 const IndexPage = (props) => {
  const postList = props.data.posts
  const siteUrl = props.data.site.siteMetadata.siteUrl
- const siteTitle = props.data.site.siteMetadata.title
- const siteDescription = props.data.site.siteMetadata.description
 
  return (
   <Layout>
    <MetaTags
-    title={siteTitle}
-    description={siteDescription}
+    title={homeTitle}
+    description={homeDescription}
     url={siteUrl}
     pathname="/"
     isArticle={false}
+    extraJsonLd={generateStructuredData.person({
+     url: siteUrl,
+     description: homeDescription,
+    })}
    />
    <div className="href">
     <a href={`tags/de`}>de</a>, <a href={`tags/eng`}>eng</a>,{" "}
@@ -89,7 +75,7 @@ const IndexPage = (props) => {
     ,{" "}
     {/* {
               data.filter((tag) => (tag.fieldValue === "eng" || tag.fieldValue === "de")).map(tag => (
-                  
+
                   // <a href={`tags/${tag.fieldValue}`}>{tag.fieldValue} {`(${tag.totalCount})`}</a>
                   // <Link to={`tags/${tag.fieldValue}`} >
                   //     {tag.fieldValue} {`(${tag.totalCount})`}
@@ -114,8 +100,6 @@ export const pageQuery = graphql`
   site {
    siteMetadata {
     siteUrl
-    title
-    description
    }
   }
   posts: allMarkdownRemark(

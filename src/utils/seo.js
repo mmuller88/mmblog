@@ -15,6 +15,15 @@ export const createSlug = (title) => {
 /**
  * Truncate text to specified length with ellipsis
  */
+export const isAlfrescoTechPath = (pathname = "") => {
+ const path = String(pathname).toLowerCase()
+ return (
+  path.startsWith("/alf-") ||
+  path.startsWith("/alfresco-") ||
+  path.startsWith("/adf-app")
+ )
+}
+
 export const truncateText = (text, maxLength = 160) => {
  if (!text || text.length <= maxLength) return text
  return text.substring(0, maxLength - 3) + "..."
@@ -307,6 +316,8 @@ export const generateStructuredData = {
    "Infrastructure as Code",
    "Software Engineering",
    "DevOps",
+   "GEO",
+   "ChatGPT Ads",
   ],
  }),
 

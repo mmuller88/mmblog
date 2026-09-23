@@ -1,5 +1,6 @@
 ---
 title: ADF App Bauen vom Scratch
+show: "no"
 description: Für ein Projekt von OBJECT werde ich eine ADF App bauen
 date: '2020-02-29'
 image: 'robot.png'

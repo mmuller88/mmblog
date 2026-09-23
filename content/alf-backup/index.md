@@ -1,6 +1,6 @@
 ---
 title: Alfresco Backup und Restoring so einfach wie möglich!
-show: 'no'
+show: "no"
 date: '2020-08-14'
 image: 'alfcdk.jpg'
 tags: ['de', '2020', 'acs', 'alfresco', 'docker-compose', 'nofeed']
@@ -10,9 +10,9 @@ pruneLength: 50
 
 Hi Alfrescans.
 
-Heute möchte ich mal ein Thema angehen welches die meisten von uns als sehr anstrengend gar lästig ansehen. Es soll heute mal um Alfresco Backups und Restoring gehen. Alfresco selber macht wenig Vorgaben bzw. ist sehr agnostisch bezüglich Backup und Restoring Strategien. Das macht auch Sinn da diese stark von der jeweiligen IT Infrastrucktur abhängt z.B. welche DB und den dazugehörigen Backuptechnologien genutzt wird oder wo das Alfresco Deployment überhaupt läuft, also ob es z.B. ein Cluster ist, On-Premis oder in der Cloud ist. 
+Heute möchte ich mal ein Thema angehen welches die meisten von uns als sehr anstrengend gar lästig ansehen. Es soll heute mal um Alfresco Backups und Restoring gehen. Alfresco selber macht wenig Vorgaben bzw. ist sehr agnostisch bezüglich Backup und Restoring Strategien. Das macht auch Sinn da diese stark von der jeweiligen IT Infrastrucktur abhängt z.B. welche DB und den dazugehörigen Backuptechnologien genutzt wird oder wo das Alfresco Deployment überhaupt läuft, also ob es z.B. ein Cluster ist, On-Premis oder in der Cloud ist.
 
-Es gibt also viele Variablen für ein Alfresco Deployment welche eine konkrete Backup und Restoring Strategie erschweren. Allerding gibt es in der Alfresco Dokumentation einige Best Practices welche grobe Backupkonzepte wie cold, hot oder warm Backups erklären. Für mein [Alfresco Provisioner Projekt](https://martinmueller.dev/alf-provisioner), bei dem ich Alfresco als Program as a Service (PaaS) anbieten möchte, soll das Backup und Restoring so einfach wie möglich gestaltet werden. 
+Es gibt also viele Variablen für ein Alfresco Deployment welche eine konkrete Backup und Restoring Strategie erschweren. Allerding gibt es in der Alfresco Dokumentation einige Best Practices welche grobe Backupkonzepte wie cold, hot oder warm Backups erklären. Für mein [Alfresco Provisioner Projekt](https://martinmueller.dev/alf-provisioner), bei dem ich Alfresco als Program as a Service (PaaS) anbieten möchte, soll das Backup und Restoring so einfach wie möglich gestaltet werden.
 
 Sogar so einfach das in Zukunft der Nutzer selber das Restoring mit wenigen Klicks ausführen kann. Für diesen Ansatz habe ich mir überlegt komplett auf [Restic](https://github.com/restic/restic) als Backup und Restoring Engine zu setzen, unterstützt mit einem Swagger UI Frontend zum durchführen des Restorings. In den nächsten Abschnitt erkläre ich was Restic überhaupt ist und danach welche Strategie ich mit Restic als Backup und Restoring Engine verfolge und umsetze.
 
