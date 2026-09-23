@@ -9,7 +9,7 @@ const SITE_URL = "https://martinmueller.dev"
 const CoursesCatalog = ({ locale, location }) => {
  const content = getCatalogContent(locale)
  const courses = getCatalogCourses(locale)
- const { meta, langSwitch, hero, cardCta, pricingLabel, listLabel } = content
+ const { meta, langSwitch, hero, how, cardCta, faqHeading, faqs } = content
 
  return (
   <Layout fullWidth>
@@ -23,6 +23,7 @@ const CoursesCatalog = ({ locale, location }) => {
     pathname={location.pathname}
     engUrl={meta.engUrl}
     gerUrl={meta.gerUrl}
+    faq={faqs}
    />
 
    <div className="mx-auto max-w-6xl px-4 pt-6">
@@ -57,23 +58,16 @@ const CoursesCatalog = ({ locale, location }) => {
         />
        </div>
        <div className="flex flex-1 flex-col p-6">
+        <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+         {course.duration} · {course.level} · {course.format}
+        </p>
         <h2 className="mb-2 text-2xl font-bold text-gray-900 dark:text-gray-100">
          {course.title}
         </h2>
         <p className="mb-4 flex-1 text-gray-600 dark:text-gray-300">
          {course.subtitle}
         </p>
-        <div className="mb-4 flex flex-wrap items-baseline gap-3">
-         <span className="text-2xl font-bold text-brand">
-          €{course.earlyBirdPriceEur}
-         </span>
-         <span className="text-sm text-gray-500 dark:text-gray-400">
-          {pricingLabel}
-         </span>
-         <span className="text-sm text-gray-400 line-through dark:text-gray-500">
-          {listLabel} €{course.listPriceEur}
-         </span>
-        </div>
+        <p className="mb-4 text-lg font-semibold text-brand">{course.price}</p>
         <Link
          to={course.path}
          className="inline-flex items-center justify-center rounded-lg bg-brand px-6 py-3 font-semibold text-white no-underline transition-colors hover:bg-brand-dark hover:text-white hover:no-underline"
@@ -85,6 +79,38 @@ const CoursesCatalog = ({ locale, location }) => {
      ))}
     </div>
    </div>
+
+   <section className="mx-auto max-w-6xl px-4 pb-16">
+    <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">
+     {how.heading}
+    </h2>
+    <ul className="grid gap-4 md:grid-cols-2">
+     {how.points.map((point) => (
+      <li key={point.title} className="text-gray-700 dark:text-gray-300">
+       <span className="font-semibold text-gray-900 dark:text-gray-100">
+        {point.title}
+       </span>{" "}
+       {point.body}
+      </li>
+     ))}
+    </ul>
+   </section>
+
+   <section className="mx-auto max-w-3xl px-4 pb-16">
+    <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-gray-100">
+     {faqHeading}
+    </h2>
+    <div className="space-y-6">
+     {faqs.map((item) => (
+      <div key={item.q}>
+       <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-gray-100">
+        {item.q}
+       </h3>
+       <p className="text-gray-700 dark:text-gray-300">{item.a}</p>
+      </div>
+     ))}
+    </div>
+   </section>
   </Layout>
  )
 }

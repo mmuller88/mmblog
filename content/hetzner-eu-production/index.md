@@ -76,4 +76,4 @@ Built with [Lovable](/lovable-hetzner-germany) for Germany/DACH? Same phased EU-
 - [Hetzner: Object Storage as OpenTofu backend](https://community.hetzner.com/tutorials/howto-hcloud-s3-terraform-backend/)
 - [Supabase self-hosting (Docker)](https://supabase.com/docs/guides/self-hosting/docker)
 
-Course waitlist: [EU Production on Hetzner](/courses/hetzner-eu-production/) — early-bird pricing for confirmed signups.
+Training: [EU Production on Hetzner](/trainings/hetzner-eu-production/) — two-day team training, on-site or remote, price on request.

@@ -127,4 +127,4 @@ This post is the walkthrough. The course is the build — the same path as [qr-p
 
 You ship a Next.js SaaS on **OpenNext 4.x + CDK**: Lambda and CloudFront, no Fargate. CDK stacks for Data, Auth, Web, and CI/CD. DynamoDB single-table with ElectroDB. Cognito with your own login UI. One GitHub Actions job from lint to CloudFront invalidation, Route 53, **eu-central-1**.
 
-**[Next.js MVP: OpenNext + CDK](/courses/opennext-cdk-mvp/)** — €199 list, **€129 early-bird** for confirmed waitlist signups, held 14 days after launch.
+**[Next.js MVP: OpenNext + CDK](/trainings/opennext-cdk-mvp/)** — three-day team training, on-site or remote, price on request.

@@ -198,4 +198,4 @@ This post is the setup. The course is the build — a personal AI on your VPS.
 
 You install the OpenClaw gateway, wire **Telegram and Slack**, and keep the agent continuous with SOUL.md, MEMORY.md, and daily notes. Heartbeats and cron for proactive checks. A Cursor agent loop that opens GitHub PRs. MCP servers for calendar, email, and search.
 
-**[OpenClaw: Personal AI OS](/courses/openclaw-personal-ai-os/)** — €149 list, **€99 early-bird** for confirmed waitlist signups, held 14 days after launch.
+**[OpenClaw: Personal AI OS](/trainings/openclaw-personal-ai-os/)** — two-day team training, on-site or remote, price on request.

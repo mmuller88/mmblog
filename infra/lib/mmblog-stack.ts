@@ -31,7 +31,6 @@ const WWW = `www.${DOMAIN}`
 const FROM_EMAIL = `noreply@${DOMAIN}`
 const TO_EMAIL = `office@${DOMAIN}`
 const ALERT_EMAIL = `office+netlify@${DOMAIN}`
-const COURSES_EMAIL = `office+courses@${DOMAIN}`
 const GITHUB_REPO = "mmuller88/mmblog"
 
 const LAMBDA_BASIC_EXECUTION_POLICY_ACK =
@@ -90,17 +89,8 @@ export class MmblogStack extends Stack {
 
     const secrets = new secretsmanager.Secret(this, "Secrets", {
       description:
-        "mmblog JSON: OPENAI_ADS_CAPI_KEY, CALENDLY_WEBHOOK_SIGNING_KEY, CONVERSION_HEALTH_ALERT_URL, WAITLIST_ADMIN_KEY",
+        "mmblog JSON: OPENAI_ADS_CAPI_KEY, CALENDLY_WEBHOOK_SIGNING_KEY, CONVERSION_HEALTH_ALERT_URL",
       removalPolicy: RemovalPolicy.RETAIN,
-    })
-
-    const waitlistTable = new dynamodb.Table(this, "Waitlist", {
-      partitionKey: { name: "pk", type: dynamodb.AttributeType.STRING },
-      sortKey: { name: "sk", type: dynamodb.AttributeType.STRING },
-      billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
-      pointInTimeRecoverySpecification: { pointInTimeRecoveryEnabled: true },
-      removalPolicy: RemovalPolicy.RETAIN,
-      timeToLiveAttribute: "expiresAt",
     })
 
     // Domain already verified in this account; do not recreate (DKIM records exist).
@@ -109,9 +99,6 @@ export class MmblogStack extends Stack {
     })
     new ses.EmailIdentity(this, "SesAlert", {
       identity: ses.Identity.email(ALERT_EMAIL),
-    })
-    new ses.EmailIdentity(this, "SesCourses", {
-      identity: ses.Identity.email(COURSES_EMAIL),
     })
 
     const sharedEnv = {
@@ -147,24 +134,6 @@ export class MmblogStack extends Stack {
     secrets.grantRead(healthFn)
     this.grantSesSend(healthFn)
 
-    const waitlistFn = this.apiFn("WaitlistFn", "waitlist.ts", {
-      ...sharedEnv,
-      WAITLIST_TABLE: waitlistTable.tableName,
-      SITE_URL: `https://${DOMAIN}`,
-      COURSES_EMAIL,
-    })
-    waitlistTable.grantReadWriteData(waitlistFn)
-    secrets.grantRead(waitlistFn)
-    this.grantSesSend(waitlistFn)
-
-    const digestFn = this.apiFn("WaitlistDigestFn", "waitlist-digest.ts", {
-      ...sharedEnv,
-      WAITLIST_TABLE: waitlistTable.tableName,
-      COURSES_EMAIL,
-    })
-    waitlistTable.grantReadData(digestFn)
-    this.grantSesSend(digestFn)
-
     const httpApi = new apigwv2.HttpApi(this, "Api")
 
     httpApi.addRoutes({
@@ -182,41 +151,9 @@ export class MmblogStack extends Stack {
       methods: [apigwv2.HttpMethod.POST],
       integration: new HttpLambdaIntegration("FormsInt", formsFn),
     })
-    httpApi.addRoutes({
-      path: "/api/waitlist",
-      methods: [apigwv2.HttpMethod.POST],
-      integration: new HttpLambdaIntegration("WaitlistInt", waitlistFn),
-    })
-    httpApi.addRoutes({
-      path: "/api/waitlist/confirm",
-      methods: [apigwv2.HttpMethod.GET],
-      integration: new HttpLambdaIntegration("WaitlistConfirmInt", waitlistFn),
-    })
-    httpApi.addRoutes({
-      path: "/api/admin/waitlist",
-      methods: [apigwv2.HttpMethod.GET],
-      integration: new HttpLambdaIntegration("WaitlistAdminInt", waitlistFn),
-    })
-
-    const apiStage = httpApi.defaultStage?.node.defaultChild as
-      | apigwv2.CfnStage
-      | undefined
-    // L1 routeSettings emits camelCase keys that API Gateway v2 rejects.
-    apiStage?.addPropertyOverride("RouteSettings", {
-      "POST /api/waitlist": {
-        ThrottlingBurstLimit: 5,
-        ThrottlingRateLimit: 2,
-      },
-    })
-
     new events.Rule(this, "HealthDaily", {
       schedule: events.Schedule.cron({ minute: "0", hour: "7" }),
       targets: [new targets.LambdaFunction(healthFn)],
-    })
-
-    new events.Rule(this, "WaitlistDaily", {
-      schedule: events.Schedule.cron({ minute: "0", hour: "6" }),
-      targets: [new targets.LambdaFunction(digestFn)],
     })
 
     const viewerFn = new cloudfront.Function(this, "ViewerReq", {
@@ -363,8 +300,6 @@ export class MmblogStack extends Stack {
       webhookFn,
       formsFn,
       healthFn,
-      waitlistFn,
-      digestFn,
       deployRole,
       dnsRecords
     )
@@ -412,8 +347,6 @@ export class MmblogStack extends Stack {
     webhookFn: NodejsFunction,
     formsFn: NodejsFunction,
     healthFn: NodejsFunction,
-    waitlistFn: NodejsFunction,
-    digestFn: NodejsFunction,
     deployRole: iam.Role,
     dnsRecords: Construct[]
   ): void {
@@ -445,7 +378,7 @@ export class MmblogStack extends Stack {
       {
         id: "AwsSolutions-APIG4",
         reason:
-          "Public likes/forms/webhook/waitlist; webhook HMAC and waitlist admin key checked in Lambda",
+          "Public likes/forms/webhook; webhook HMAC checked in Lambda",
       },
       {
         id: "AwsSolutions-COG4",
@@ -460,8 +393,6 @@ export class MmblogStack extends Stack {
       webhookFn,
       formsFn,
       healthFn,
-      waitlistFn,
-      digestFn,
     ]) {
       Validations.of(fn).acknowledge({
         id: LAMBDA_BASIC_EXECUTION_POLICY_ACK,

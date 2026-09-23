@@ -6,7 +6,6 @@
     "synth": "cdk synth",
     "deploy": "cdk deploy --require-approval never",
     "diff": "cdk diff",
-    "test": "node --import tsx --test lambda/lib/waitlist.test.ts",
     "test:health": "tsx lambda/run-health.ts"
   },
   "dependencies": {

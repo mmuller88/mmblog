@@ -151,4 +151,4 @@ Dieser Post ist, was nach drei Monaten gelandet ist. Der Kurs ist der Build — 
 
 Du installierst das OpenClaw-Gateway, hängst **Telegram und Slack** an und hältst den Agenten mit SOUL.md, MEMORY.md und Tagesnotizen kontinuierlich. Heartbeats und Cron für proaktive Checks. Ein Cursor-Agent-Loop, der GitHub-PRs öffnet. MCP-Server für Kalender, E-Mail und Search.
 
-**[OpenClaw: Personal AI OS](/courses-de/openclaw-personal-ai-os/)** — 149 € Listenpreis, **99 € Early-Bird** für bestätigte Wartelisten-Anmeldungen, 14 Tage nach Launch reserviert.
+**[OpenClaw: Personal AI OS](/trainings-de/openclaw-personal-ai-os/)** — zweitägiges Team-Training, vor Ort oder remote, Preis auf Anfrage.
