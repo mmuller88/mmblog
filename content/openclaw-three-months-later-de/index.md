@@ -142,3 +142,13 @@ Links:
 - [OpenClaw](https://openclaw.ai) · [GitHub](https://github.com/openclaw/openclaw)
 
 Fragen oder Hilfe beim Setup? [office@martinmueller.dev](mailto:office@martinmueller.dev) oder [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev).
+
+---
+
+## Kurs: OpenClaw als persönliches KI-OS
+
+Dieser Post ist, was nach drei Monaten gelandet ist. Der Kurs ist der Build — persönliche KI auf deinem VPS, vom Gateway-Install bis zum GitHub-PR-Loop.
+
+Du installierst das OpenClaw-Gateway, hängst **Telegram und Slack** an und hältst den Agenten mit SOUL.md, MEMORY.md und Tagesnotizen kontinuierlich. Heartbeats und Cron für proaktive Checks. Ein Cursor-Agent-Loop, der GitHub-PRs öffnet. MCP-Server für Kalender, E-Mail und Search.
+
+**[OpenClaw: Personal AI OS](/courses-de/openclaw-personal-ai-os/)** — 149 € Listenpreis, **99 € Early-Bird** für bestätigte Wartelisten-Anmeldungen, 14 Tage nach Launch reserviert.

@@ -119,4 +119,12 @@ Live: [qr-plakat.de](https://qr-plakat.de).
 - [OpenNext AWS](https://github.com/opennextjs/opennextjs-aws)
 - [cdk-opennext](https://github.com/berenddeboer/cdk-opennext)
 
-Kurs-Warteliste: [Next.js MVP: OpenNext + CDK](/courses-de/opennext-cdk-mvp/) — Early-Bird-Preis für bestätigte Anmeldungen.
+---
+
+## Kurs: Next.js-MVP auf OpenNext + CDK
+
+Dieser Post ist der Walkthrough. Der Kurs ist der Build — derselbe Weg wie [qr-plakat.de](https://qr-plakat.de).
+
+Du shippst ein Next.js-SaaS auf **OpenNext 4.x + CDK**: Lambda und CloudFront, kein Fargate. CDK-Stacks für Data, Auth, Web und CI/CD. DynamoDB Single-Table mit ElectroDB. Cognito mit eigenem Login-UI. Ein GitHub-Actions-Job von Lint bis CloudFront-Invalidierung, Route 53, **eu-central-1**.
+
+**[Next.js MVP: OpenNext + CDK](/courses-de/opennext-cdk-mvp/)** — 199 € Listenpreis, **129 € Early-Bird** für bestätigte Wartelisten-Anmeldungen, 14 Tage nach Launch reserviert.

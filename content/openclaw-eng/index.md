@@ -190,4 +190,12 @@ Links:
 
 Thanks for reading! If you have questions about my setup, feel free to reach out. And if you'd like help setting up your own OpenClaw AI agent — whether it's configuration, tool integration, or building custom workflows — I'm available for consulting. Just drop me a message at [office@martinmueller.dev](mailto:office@martinmueller.dev) or book a call at [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev).
 
-Course waitlist: [OpenClaw: Personal AI OS](/courses/openclaw-personal-ai-os/) — early-bird pricing for confirmed signups.
+---
+
+## Course: OpenClaw as a personal AI OS
+
+This post is the setup. The course is the build — a personal AI on your VPS.
+
+You install the OpenClaw gateway, wire **Telegram and Slack**, and keep the agent continuous with SOUL.md, MEMORY.md, and daily notes. Heartbeats and cron for proactive checks. A Cursor agent loop that opens GitHub PRs. MCP servers for calendar, email, and search.
+
+**[OpenClaw: Personal AI OS](/courses/openclaw-personal-ai-os/)** — €149 list, **€99 early-bird** for confirmed waitlist signups, held 14 days after launch.

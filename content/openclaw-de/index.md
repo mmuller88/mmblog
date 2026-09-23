@@ -190,4 +190,12 @@ Links:
 
 Danke fürs Lesen! Bei Fragen zu meinem Setup, einfach melden. Und falls ihr Unterstützung beim Aufsetzen eures eigenen OpenClaw AI Agents braucht — ob Konfiguration, Tool-Integration oder Custom Workflows — ich biete dazu auch Consulting an. Schreibt mir einfach an [office@martinmueller.dev](mailto:office@martinmueller.dev) oder bucht direkt einen Call unter [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev).
 
-Kurs-Warteliste: [OpenClaw: Personal AI OS](/courses-de/openclaw-personal-ai-os/) — Early-Bird-Preis für bestätigte Anmeldungen.
+---
+
+## Kurs: OpenClaw als persönliches KI-OS
+
+Dieser Post ist das Setup. Der Kurs ist der Build — persönliche KI auf deinem VPS.
+
+Du installierst das OpenClaw-Gateway, hängst **Telegram und Slack** an und hältst den Agenten mit SOUL.md, MEMORY.md und Tagesnotizen kontinuierlich. Heartbeats und Cron für proaktive Checks. Ein Cursor-Agent-Loop, der GitHub-PRs öffnet. MCP-Server für Kalender, E-Mail und Search.
+
+**[OpenClaw: Personal AI OS](/courses-de/openclaw-personal-ai-os/)** — 149 € Listenpreis, **99 € Early-Bird** für bestätigte Wartelisten-Anmeldungen, 14 Tage nach Launch reserviert.
