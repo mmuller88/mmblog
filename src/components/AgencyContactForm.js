@@ -94,7 +94,7 @@ const AgencyContactForm = ({ labels }) => {
    </div>
    <button
     type="submit"
-    className="w-full rounded-lg bg-brand px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-dark"
+    className="w-full rounded-lg bg-brand-solid px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-solidHover"
    >
     {labels.submit}
    </button>

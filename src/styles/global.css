@@ -2,7 +2,9 @@
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
 @config "../../tailwind.config.js";
-@custom-variant dark (&:where(.dark, .dark *));
+/* :is, not :where — custom colors sort after default utilities, so a
+   zero-specificity dark: variant loses to a later bg-brand-solid. */
+@custom-variant dark (&:is(.dark, .dark *));
 
 @layer base {
   html.dark {

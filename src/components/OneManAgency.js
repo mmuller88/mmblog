@@ -78,14 +78,14 @@ const OneManAgency = ({ content, location }) => {
         href="mailto:office+agency@martinmueller.dev"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex transform items-center justify-center rounded-lg bg-brand px-8 py-4 font-semibold text-white no-underline shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-dark hover:text-white hover:no-underline hover:shadow-xl dark:bg-white dark:text-slate-900 dark:hover:bg-gray-100 dark:hover:text-slate-900"
+        className="inline-flex transform items-center justify-center rounded-lg bg-brand-solid px-8 py-4 font-semibold text-white no-underline shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-solidHover hover:text-white hover:no-underline hover:shadow-xl dark:bg-white dark:text-slate-900 dark:hover:bg-gray-100 dark:hover:text-slate-900"
        >
         {hero.ctaWrite}
        </a>
        <a
         href={calendlyUrl}
         onClick={openCalendly}
-        className="inline-flex transform items-center justify-center rounded-lg bg-brand px-8 py-4 font-semibold text-white no-underline shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-dark hover:text-white hover:no-underline hover:shadow-xl dark:bg-white dark:text-slate-900 dark:hover:bg-gray-100 dark:hover:text-slate-900"
+        className="inline-flex transform items-center justify-center rounded-lg bg-brand-solid px-8 py-4 font-semibold text-white no-underline shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-solidHover hover:text-white hover:no-underline hover:shadow-xl dark:bg-white dark:text-slate-900 dark:hover:bg-gray-100 dark:hover:text-slate-900"
        >
         {hero.ctaSpeak}
        </a>
@@ -263,7 +263,7 @@ const OneManAgency = ({ content, location }) => {
          href={example.href}
          target="_blank"
          rel="noopener noreferrer"
-         className="inline-flex items-center justify-center rounded-lg border-2 border-brand px-6 py-3 font-semibold text-brand no-underline transition-colors hover:bg-brand hover:text-white dark:hover:text-white"
+         className="inline-flex items-center justify-center rounded-lg border-2 border-brand-solid px-6 py-3 font-semibold text-brand-solid no-underline transition-colors hover:bg-brand-solid hover:text-white dark:border-brand dark:text-brand dark:hover:bg-brand dark:hover:text-white"
         >
          {example.label}
         </a>
@@ -339,14 +339,14 @@ const OneManAgency = ({ content, location }) => {
        href="mailto:office+agency@martinmueller.dev"
        target="_blank"
        rel="noopener noreferrer"
-       className="inline-flex transform items-center justify-center rounded-lg bg-white px-8 py-4 font-semibold text-brand shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-50 hover:shadow-xl"
+       className="inline-flex transform items-center justify-center rounded-lg bg-white px-8 py-4 font-semibold text-slate-900 no-underline shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-50 hover:text-slate-900 hover:no-underline hover:shadow-xl"
       >
        {cta.ctaWrite}
       </a>
       <a
        href={calendlyUrl}
        onClick={openCalendly}
-       className="inline-flex transform items-center justify-center rounded-lg bg-white px-8 py-4 font-semibold text-brand shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-50 hover:shadow-xl"
+       className="inline-flex transform items-center justify-center rounded-lg bg-white px-8 py-4 font-semibold text-slate-900 no-underline shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-gray-50 hover:text-slate-900 hover:no-underline hover:shadow-xl"
       >
        {cta.ctaSpeak}
       </a>
