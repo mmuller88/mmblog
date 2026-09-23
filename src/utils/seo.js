@@ -20,7 +20,8 @@ export const isAlfrescoTechPath = (pathname = "") => {
  return (
   path.startsWith("/alf-") ||
   path.startsWith("/alfresco-") ||
-  path.startsWith("/adf-app")
+  path.startsWith("/adf-app") ||
+  path.startsWith("/start-script")
  )
 }
 

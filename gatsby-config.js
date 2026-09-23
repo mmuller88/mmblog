@@ -282,22 +282,17 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         output: `/sitemap.xml`,
-        excludes: [`/dev-404-page`, `/404`, `/404.html`, `/offline-plugin-app-shell-fallback`],
-        filterPages: (page, excludedRoute, { minimatch, withoutTrailingSlash, resolvePagePath }) => {
-          const pagePath = withoutTrailingSlash(resolvePagePath(page)).toLowerCase()
-          if (
-            pagePath.startsWith("/alf-") ||
-            pagePath.startsWith("/alfresco-") ||
-            pagePath.startsWith("/adf-app")
-          ) {
-            return true
-          }
-          if (typeof excludedRoute !== "string") return false
-          return minimatch(
-            withoutTrailingSlash(resolvePagePath(page)),
-            withoutTrailingSlash(excludedRoute)
-          )
-        },
+        excludes: [
+          `/dev-404-page`,
+          `/404`,
+          `/404.html`,
+          `/offline-plugin-app-shell-fallback`,
+          `/alf-*`,
+          `/alfresco-*`,
+          `/Alfresco-*`,
+          `/ADF-App*`,
+          `/start-script*`,
+        ],
         query: `
           {
             allSitePage {

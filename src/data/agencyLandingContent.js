@@ -350,6 +350,25 @@ export const agencyLandingContent = {
     ],
    },
    testimonials: [],
+   faqs: [
+    {
+     q: "What are ChatGPT Ads?",
+     a: "ChatGPT Ads are sponsored cards below the assistant's answer. They match the conversation, not a keyword on a search results page.",
+    },
+    {
+     q: "When did ChatGPT Ads launch in Europe?",
+     a: "ChatGPT Ads have been live in Europe since August 2026.",
+    },
+    {
+     q: "How are ChatGPT Ads different from Google Ads?",
+     a: "Google Ads match keywords on a results page. ChatGPT Ads match the ongoing chat. The people there are already using ChatGPT web.",
+    },
+    {
+     q: "Do ChatGPT Ads need a large budget?",
+     a: "No. A small budget is enough to learn placement and creative, then measure email, Calendly, and real conversations.",
+    },
+   ],
+   faqHeading: "ChatGPT Ads questions",
    relatedPost: {
     label: "Field notes: what I learned from my first ChatGPT Ads campaign",
     href: "/chatgpt-ads-learnings/",
@@ -400,6 +419,25 @@ export const agencyLandingContent = {
     ],
    },
    testimonials: [],
+   faqs: [
+    {
+     q: "Was sind ChatGPT Ads?",
+     a: "ChatGPT Ads sind gesponserte Karten unter der Antwort des Assistenten. Sie matchen das Gespräch, nicht ein Keyword auf einer Suchergebnisseite.",
+    },
+    {
+     q: "Seit wann gibt es ChatGPT Ads in Europa?",
+     a: "ChatGPT Ads sind seit August 2026 in Europa live.",
+    },
+    {
+     q: "Wie unterscheiden sich ChatGPT Ads von Google Ads?",
+     a: "Google Ads matchen Keywords auf einer Suchergebnisseite. ChatGPT Ads matchen den laufenden Chat. Die Leute dort nutzen bereits ChatGPT Web.",
+    },
+    {
+     q: "Braucht man für ChatGPT Ads ein großes Budget?",
+     a: "Nein. Ein kleines Budget reicht, um Placement und Creative zu lernen. Gemessen werden E-Mail, Calendly und echte Gespräche.",
+    },
+   ],
+   faqHeading: "Fragen zu ChatGPT Ads",
    relatedPost: {
     label:
      "Feldnotizen: Was ich aus meiner ersten ChatGPT-Ads-Kampagne gelernt habe",
