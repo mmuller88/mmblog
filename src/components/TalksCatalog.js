@@ -45,7 +45,7 @@ const TalksCatalog = ({ locale, location }) => {
      {talk.heroImage ? (
       <img
        src={talk.heroImage}
-       alt=""
+       alt={talk.heroImageAlt ?? ""}
        className="mb-0 h-full w-full object-contain p-8"
       />
      ) : null}

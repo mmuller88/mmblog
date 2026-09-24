@@ -14,7 +14,8 @@
    "showInCatalog": true,
    "deckSlug": "aws-community-day-dach-2026",
    "eventUrl": "https://www.aws-community-day.de/",
-   "heroImage": "/talks/aws-community-day-dach-2026.svg",
+   "heroImage": "/talks/aws-community-day-dach-2026.png",
+   "heroImageAlt": "AWS Community Day DACH 2026",
    "tags": ["aws", "ai-agents", "openclaw", "devops"],
    "relatedBlogPost": {
     "en": {

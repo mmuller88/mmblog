@@ -109,6 +109,7 @@ function localizeTalk(slug, locale) {
   deckUrl,
   eventUrl: talk.eventUrl,
   heroImage: talk.heroImage,
+  heroImageAlt: talk.heroImageAlt ?? copy.event.name,
   tags: talk.tags,
   relatedBlogPost: talk.relatedBlogPost?.[lang] ?? null,
   event: copy.event,
