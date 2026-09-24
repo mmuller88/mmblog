@@ -1,0 +1,32 @@
+{
+  "updated": "2026-09-24",
+  "talks": [
+    {
+      "slug": "aws-community-day-dach-2026",
+      "title": "AI Factory: An Autonomous Dev Pipeline",
+      "event": "AWS Community Day DACH 2026",
+      "date": "2026-09-15",
+      "url": "https://martinmueller.dev/talks/aws-community-day-dach-2026/",
+      "deckUrl": "https://mmuller88.github.io/presentations/aws-community-day-dach-2026/?utm_source=martinmueller&utm_medium=talks",
+      "tags": [
+        "aws",
+        "ai-agents",
+        "openclaw",
+        "devops"
+      ]
+    },
+    {
+      "slug": "ki-stammtisch",
+      "title": "AI Assistants at Work and in Daily Life",
+      "event": "KI Stammtisch",
+      "date": null,
+      "url": "https://martinmueller.dev/talks/ki-stammtisch/",
+      "deckUrl": "https://mmuller88.github.io/presentations/ki-stammtisch/?utm_source=martinmueller&utm_medium=talks",
+      "tags": [
+        "ai-agents",
+        "openclaw",
+        "productivity"
+      ]
+    }
+  ]
+}

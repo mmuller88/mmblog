@@ -46,7 +46,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "npm run generate-audio && gatsby build",
+    "build": "npm run generate-talks-feed && npm run validate:talks && npm run generate-audio && gatsby build",
+    "generate-talks-feed": "node scripts/generate-talks-feed.js",
+    "validate:talks": "node scripts/validate-talks-content.js",
     "generate-audio": "node scripts/generate-audio.js",
     "dev": "gatsby develop",
     "develop": "gatsby develop",

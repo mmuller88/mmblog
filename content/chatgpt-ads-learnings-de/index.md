@@ -179,6 +179,6 @@ Gerne auch einfach Notizen tauschen — [Kontakt](https://martinmueller.dev/cont
 **Related:**
 
 - [ChatGPT Ads Freelance-Angebot](https://martinmueller.dev/one-man-agency-de/gpt/) — Kampagnen, Tracking, Landings
-- [AWS Community Day DACH Talk Deck](https://mmuller88.github.io/presentations/aws-community-day-dach-2026/#/chatgpt-ads) — inkl. Live-Ad-Screenshots
+- [AWS Community Day DACH Talk](/talks-de/aws-community-day-dach-2026/) — inkl. Live-Ad-Screenshots ([Folien](https://mmuller88.github.io/presentations/aws-community-day-dach-2026/?utm_source=martinmueller&utm_medium=talks#/chatgpt-ads))
 
 Training: [ChatGPT Ads](/trainings-de/chatgpt-ads/) — eintägiges Team-Training, vor Ort oder remote, Preis auf Anfrage.

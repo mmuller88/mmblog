@@ -315,12 +315,18 @@ const OneManAgency = ({ content, location }) => {
         </li>
        ))}
       </ul>
-      <p className="mt-6">
+      <p className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
        <Link
         to={aiAgents.readMoreHref}
         className="font-semibold text-brand no-underline hover:text-brand-dark hover:underline"
        >
         {aiAgents.readMore}
+       </Link>
+       <Link
+        to={aiAgents.talksHref}
+        className="font-semibold text-brand no-underline hover:text-brand-dark hover:underline"
+       >
+        {aiAgents.talksLink}
        </Link>
       </p>
      </div>
