@@ -1,93 +1,120 @@
 {
-  "talkSlugs": [
-    "aws-community-day-dach-2026",
-    "milan-2026-ai-factory",
-    "ki-stammtisch"
-  ],
-  "talks": {
-    "aws-community-day-dach-2026": {
-      "status": "delivered",
-      "date": "2026-09-15",
-      "duration": "30 min",
-      "deckLanguage": "en",
-      "showInCatalog": true,
-      "deckSlug": "aws-community-day-dach-2026",
-      "eventUrl": "https://www.aws-community-day.de/",
-      "heroImage": "/talks/aws-community-day-dach-2026.svg",
-      "tags": ["aws", "ai-agents", "openclaw", "devops"],
-      "relatedBlogPost": "/openclaw-eng/",
-      "en": {
-        "event": {
-          "name": "AWS Community Day DACH 2026",
-          "location": "Kosmos Berlin, Germany"
-        },
-        "title": "AI Factory: An Autonomous Dev Pipeline",
-        "abstract": "VPS control plane + Telegram + OpenClaw → GitHub PRs with human merge gates. How I run HalloCasa, ai-secure, and qr-plakat from one agent inbox — honest architecture, real bills, production lessons from Berlin."
-      },
-      "de": {
-        "event": {
-          "name": "AWS Community Day DACH 2026",
-          "location": "Kosmos Berlin, Deutschland"
-        },
-        "title": "AI Factory: Eine autonome Dev-Pipeline",
-        "abstract": "VPS-Control-Plane + Telegram + OpenClaw → GitHub-PRs mit menschlichen Merge-Gates. Wie ich HalloCasa, ai-secure und qr-plakat aus einer Agent-Inbox betreibe — ehrliche Architektur, echte Kosten, Lessons aus Berlin."
-      }
+ "talkSlugs": [
+  "aws-community-day-dach-2026",
+  "milan-2026-ai-factory",
+  "ki-stammtisch"
+ ],
+ "talks": {
+  "aws-community-day-dach-2026": {
+   "status": "delivered",
+   "date": "2026-09-15",
+   "duration": "30 min",
+   "deckLanguage": "en",
+   "showInCatalog": true,
+   "deckSlug": "aws-community-day-dach-2026",
+   "eventUrl": "https://www.aws-community-day.de/",
+   "heroImage": "/talks/aws-community-day-dach-2026.svg",
+   "tags": ["aws", "ai-agents", "openclaw", "devops"],
+   "relatedBlogPost": {
+    "en": {
+     "href": "/openclaw-eng/",
+     "title": "How I Use OpenClaw as My AI-Powered Personal Operating System"
     },
-    "milan-2026-ai-factory": {
-      "status": "upcoming",
-      "date": "2026-10-13",
-      "duration": "40 min",
-      "deckLanguage": "en",
-      "showInCatalog": true,
-      "deckSlug": null,
-      "eventUrl": "https://milan.serverlessdays.io/",
-      "heroImage": "/talks/milan-2026-ai-factory.svg",
-      "tags": ["aws", "serverless", "ai-agents", "openclaw"],
-      "relatedBlogPost": "/openclaw-eng/",
-      "en": {
-        "event": {
-          "name": "ServerlessDays Milano 2026",
-          "location": "WAO Romolo C30, Milan, Italy"
-        },
-        "title": "The AI Factory That Never Sleeps",
-        "abstract": "Same AI Factory story as Berlin — reframed for serverless builders. VPS agent orchestration, Telegram ops, GitHub PR loop. Slides published after the event."
-      },
-      "de": {
-        "event": {
-          "name": "ServerlessDays Milano 2026",
-          "location": "WAO Romolo C30, Mailand, Italien"
-        },
-        "title": "The AI Factory That Never Sleeps",
-        "abstract": "Dieselbe AI-Factory-Story wie in Berlin — für Serverless-Builder. VPS-Agent-Orchestrierung, Telegram-Ops, GitHub-PR-Loop. Folien nach dem Event."
-      }
-    },
-    "ki-stammtisch": {
-      "status": "delivered",
-      "date": null,
-      "duration": "30–45 min",
-      "deckLanguage": "de",
-      "showInCatalog": true,
-      "deckSlug": "ki-stammtisch",
-      "eventUrl": null,
-      "heroImage": "/talks/ki-stammtisch.svg",
-      "tags": ["ai-agents", "openclaw", "productivity"],
-      "relatedBlogPost": "/openclaw-de/",
-      "en": {
-        "event": {
-          "name": "KI Stammtisch",
-          "location": "Germany"
-        },
-        "title": "AI Assistants at Work and in Daily Life",
-        "abstract": "Beyond code generation: email, invoices, blog posts, CFP abstracts, calendar — via Telegram. OpenClaw vs Hermes vs Langdock — three approaches compared (deck in German)."
-      },
-      "de": {
-        "event": {
-          "name": "KI Stammtisch",
-          "location": "Deutschland"
-        },
-        "title": "KI-Assistenten im Beruf und Alltag",
-        "abstract": "Mehr als Code schreiben: E-Mails, Rechnungen, Blogposts, CFP-Abstracts, Kalender — per Telegram. OpenClaw vs Hermes vs Langdock im Vergleich."
-      }
+    "de": {
+     "href": "/openclaw-de/",
+     "title": "Wie ich OpenClaw als mein KI-gestütztes persönliches Betriebssystem nutze"
     }
+   },
+   "en": {
+    "event": {
+     "name": "AWS Community Day DACH 2026",
+     "location": "Kosmos Berlin, Germany"
+    },
+    "title": "AI Factory: An Autonomous Dev Pipeline",
+    "abstract": "VPS control plane + Telegram + OpenClaw → GitHub PRs with human merge gates. How I run HalloCasa, ai-secure, and qr-plakat from one agent inbox — honest architecture, real bills, production lessons from Berlin."
+   },
+   "de": {
+    "event": {
+     "name": "AWS Community Day DACH 2026",
+     "location": "Kosmos Berlin, Deutschland"
+    },
+    "title": "AI Factory: Eine autonome Dev-Pipeline",
+    "abstract": "VPS-Control-Plane + Telegram + OpenClaw → GitHub-PRs mit menschlichen Merge-Gates. Wie ich HalloCasa, ai-secure und qr-plakat aus einer Agent-Inbox betreibe — ehrliche Architektur, echte Kosten, Lessons aus Berlin."
+   }
+  },
+  "milan-2026-ai-factory": {
+   "status": "upcoming",
+   "date": "2026-10-13",
+   "duration": "40 min",
+   "deckLanguage": "en",
+   "showInCatalog": true,
+   "deckSlug": null,
+   "eventUrl": "https://milan.serverlessdays.io/",
+   "heroImage": "/talks/milan-2026-ai-factory.svg",
+   "tags": ["aws", "serverless", "ai-agents", "openclaw"],
+   "relatedBlogPost": {
+    "en": {
+     "href": "/openclaw-eng/",
+     "title": "How I Use OpenClaw as My AI-Powered Personal Operating System"
+    },
+    "de": {
+     "href": "/openclaw-de/",
+     "title": "Wie ich OpenClaw als mein KI-gestütztes persönliches Betriebssystem nutze"
+    }
+   },
+   "en": {
+    "event": {
+     "name": "ServerlessDays Milano 2026",
+     "location": "WAO Romolo C30, Milan, Italy"
+    },
+    "title": "The AI Factory That Never Sleeps",
+    "abstract": "Same AI Factory story as Berlin — reframed for serverless builders. VPS agent orchestration, Telegram ops, GitHub PR loop. Slides published after the event."
+   },
+   "de": {
+    "event": {
+     "name": "ServerlessDays Milano 2026",
+     "location": "WAO Romolo C30, Mailand, Italien"
+    },
+    "title": "The AI Factory That Never Sleeps",
+    "abstract": "Dieselbe AI-Factory-Story wie in Berlin — für Serverless-Builder. VPS-Agent-Orchestrierung, Telegram-Ops, GitHub-PR-Loop. Folien nach dem Event."
+   }
+  },
+  "ki-stammtisch": {
+   "status": "delivered",
+   "date": null,
+   "duration": "30–45 min",
+   "deckLanguage": "de",
+   "showInCatalog": true,
+   "deckSlug": "ki-stammtisch",
+   "eventUrl": null,
+   "heroImage": "/talks/ki-stammtisch.svg",
+   "tags": ["ai-agents", "openclaw", "productivity"],
+   "relatedBlogPost": {
+    "en": {
+     "href": "/openclaw-eng/",
+     "title": "How I Use OpenClaw as My AI-Powered Personal Operating System"
+    },
+    "de": {
+     "href": "/openclaw-de/",
+     "title": "Wie ich OpenClaw als mein KI-gestütztes persönliches Betriebssystem nutze"
+    }
+   },
+   "en": {
+    "event": {
+     "name": "KI Stammtisch",
+     "location": "Germany"
+    },
+    "title": "AI Assistants at Work and in Daily Life",
+    "abstract": "Beyond code generation: email, invoices, blog posts, CFP abstracts, calendar — via Telegram. OpenClaw vs Hermes vs Langdock — three approaches compared (deck in German)."
+   },
+   "de": {
+    "event": {
+     "name": "KI Stammtisch",
+     "location": "Deutschland"
+    },
+    "title": "KI-Assistenten im Beruf und Alltag",
+    "abstract": "Mehr als Code schreiben: E-Mails, Rechnungen, Blogposts, CFP-Abstracts, Kalender — per Telegram. OpenClaw vs Hermes vs Langdock im Vergleich."
+   }
   }
+ }
 }

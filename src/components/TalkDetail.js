@@ -186,9 +186,7 @@ const TalkDetail = ({ talk, location }) => {
          {ui.detailCta}
         </a>
        ) : (
-        <span
-         className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold text-gray-600 dark:border-slate-600 dark:text-gray-300"
-        >
+        <span className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold text-gray-600 dark:border-slate-600 dark:text-gray-300">
          {ui.detailTeaser}
         </span>
        )}
@@ -207,11 +205,10 @@ const TalkDetail = ({ talk, location }) => {
 
      {heroImage ? (
       <div className="overflow-hidden rounded-xl border border-gray-200 bg-white p-8 dark:border-slate-700 dark:bg-slate-800">
-        <img
-         src={heroImage}
-         alt={title}
-         className="mb-0 w-full object-contain"
-        />
+       <img
+        src={heroImage}
+        alt={title}
+        className="mb-0 w-full object-contain"
        />
       </div>
      ) : null}
@@ -232,8 +229,8 @@ const TalkDetail = ({ talk, location }) => {
     {relatedBlogPost ? (
      <p className="text-gray-700 dark:text-gray-300">
       {ui.relatedPostLabel}:{" "}
-      <Link to={relatedBlogPost} className="text-brand hover:underline">
-       {relatedBlogPost}
+      <Link to={relatedBlogPost.href} className="text-brand hover:underline">
+       {relatedBlogPost.title}
       </Link>
      </p>
     ) : null}
