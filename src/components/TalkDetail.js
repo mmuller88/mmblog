@@ -71,6 +71,7 @@ const TalkDetail = ({ talk, location }) => {
   deckUrl,
   eventUrl,
   heroImage,
+  heroImageAlt,
   tags,
   relatedBlogPost,
   event,
@@ -116,7 +117,7 @@ const TalkDetail = ({ talk, location }) => {
     engUrl={meta.engUrl}
     gerUrl={meta.gerUrl}
     thumbnail={thumbnail}
-    imageAlt={title}
+    imageAlt={heroImageAlt ?? title}
     tags={tags}
     extraJsonLd={talkJsonLd}
    />
@@ -207,7 +208,7 @@ const TalkDetail = ({ talk, location }) => {
       <div className="overflow-hidden rounded-xl border border-gray-200 bg-white p-8 dark:border-slate-700 dark:bg-slate-800">
        <img
         src={heroImage}
-        alt={title}
+        alt={heroImageAlt ?? title}
         className="mb-0 w-full object-contain"
        />
       </div>

@@ -1,21 +1,17 @@
 import catalog from "./talksCatalog.json"
+import deckUrl from "./deckUrl"
 
-const PRESENTATIONS_BASE = "https://mmuller88.github.io/presentations"
-const UTM = "utm_source=martinmueller&utm_medium=talks"
+export const { buildDeckUrl, resolveDeckUrl } = deckUrl
 
 export const talkSlugs = catalog.talkSlugs
 export const talks = catalog.talks
-
-export function buildDeckUrl(slug) {
- return `${PRESENTATIONS_BASE}/${slug}/?${UTM}`
-}
 
 const catalogContent = {
  en: {
   meta: {
    title: "Talks — Martin Mueller",
    description:
-    "Conference slide decks: AWS Community Day DACH, ServerlessDays Milano, KI Stammtisch. Practitioner talks on AI agents, OpenClaw, and AWS.",
+    "Conference slide decks: AWS Community Day Athens & DACH, ServerlessDays Milano, KI Stammtisch. AI agents, AgentCore, OpenClaw, AWS.",
    keywords: ["talks", "conference", "AWS", "OpenClaw", "AI agents", "slides"],
    locale: "en_US",
    language: "en",
@@ -46,7 +42,7 @@ const catalogContent = {
   meta: {
    title: "Vorträge — Martin Mueller",
    description:
-    "Konferenz-Folien: AWS Community Day DACH, ServerlessDays Milano, KI Stammtisch. Practitioner-Talks zu KI-Agenten, OpenClaw und AWS.",
+    "Konferenz-Folien: AWS Community Day Athen & DACH, ServerlessDays Milano, KI Stammtisch. KI-Agenten, AgentCore, OpenClaw, AWS.",
    keywords: [
     "Vorträge",
     "Konferenz",
@@ -88,7 +84,7 @@ function localizeTalk(slug, locale) {
  if (!talk || !talk.showInCatalog) return null
 
  const copy = talk[lang]
- const deckUrl = talk.deckSlug ? buildDeckUrl(talk.deckSlug) : null
+ const deckUrl = resolveDeckUrl(talk)
  const pathPrefix = lang === "de" ? "/talks-de" : "/talks"
 
  return {
@@ -100,6 +96,7 @@ function localizeTalk(slug, locale) {
   deckUrl,
   eventUrl: talk.eventUrl,
   heroImage: talk.heroImage,
+  heroImageAlt: talk.heroImageAlt ?? copy.event.name,
   tags: talk.tags,
   relatedBlogPost: talk.relatedBlogPost?.[lang] ?? null,
   event: copy.event,

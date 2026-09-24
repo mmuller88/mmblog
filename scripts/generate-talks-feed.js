@@ -2,18 +2,14 @@
 const fs = require("fs")
 const path = require("path")
 const catalog = require("../src/data/talksCatalog.json")
+const { resolveDeckUrl } = require("../src/data/deckUrl")
 
-const PRESENTATIONS_BASE = "https://mmuller88.github.io/presentations"
-const UTM = "utm_source=martinmueller&utm_medium=talks"
 const SITE = "https://martinmueller.dev"
-
-function buildDeckUrl(slug) {
- return `${PRESENTATIONS_BASE}/${slug}/?${UTM}`
-}
 
 function feedEntry(slug) {
  const talk = catalog.talks[slug]
- if (!talk?.showInCatalog || talk.status !== "delivered" || !talk.deckSlug) {
+ const deckUrl = talk ? resolveDeckUrl(talk) : null
+ if (!talk?.showInCatalog || talk.status !== "delivered" || !deckUrl) {
   return null
  }
  const copy = talk.en
@@ -23,7 +19,7 @@ function feedEntry(slug) {
   event: copy.event.name,
   date: talk.date,
   url: `${SITE}/talks/${slug}/`,
-  deckUrl: buildDeckUrl(talk.deckSlug),
+  deckUrl,
   tags: talk.tags,
  }
 }

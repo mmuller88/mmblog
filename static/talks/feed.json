@@ -16,6 +16,20 @@
       ]
     },
     {
+      "slug": "aws-community-day-athens-2026",
+      "title": "Beyond Chatbots: Shipping Stateful AI Agents on AWS",
+      "event": "AWS Community Day Athens 2026",
+      "date": "2026-04-28",
+      "url": "https://martinmueller.dev/talks/aws-community-day-athens-2026/",
+      "deckUrl": "https://mmuller88.github.io/codegenius-itrac-agentic-ai-training/?utm_source=martinmueller&utm_medium=talks",
+      "tags": [
+        "aws",
+        "ai-agents",
+        "agentcore",
+        "bedrock"
+      ]
+    },
+    {
       "slug": "ki-stammtisch",
       "title": "AI Assistants at Work and in Daily Life",
       "event": "KI Stammtisch",
