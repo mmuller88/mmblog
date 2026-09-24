@@ -18,8 +18,8 @@ catalog.talkSlugs.forEach((slug) => {
  if (!talk.en?.title || !talk.de?.title) {
   fail(`${slug}: missing EN/DE title`)
  }
- if (talk.status === "upcoming" && talk.deckSlug) {
-  fail(`${slug}: upcoming talks must not expose deckSlug`)
+ if (talk.status === "upcoming" && (talk.deckSlug || talk.deckExternalUrl)) {
+  fail(`${slug}: upcoming talks must not expose a deck URL`)
  }
  if (
   talk.status === "delivered" &&

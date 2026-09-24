@@ -1,23 +1,10 @@
 import catalog from "./talksCatalog.json"
+import deckUrl from "./deckUrl"
 
-const PRESENTATIONS_BASE = "https://mmuller88.github.io/presentations"
-const UTM = "utm_source=martinmueller&utm_medium=talks"
+export const { buildDeckUrl, resolveDeckUrl } = deckUrl
 
 export const talkSlugs = catalog.talkSlugs
 export const talks = catalog.talks
-
-export function buildDeckUrl(slug) {
- return `${PRESENTATIONS_BASE}/${slug}/?${UTM}`
-}
-
-export function resolveDeckUrl(talk) {
- if (talk.deckExternalUrl) {
-  const base = talk.deckExternalUrl.split("?")[0].replace(/\/?$/, "/")
-  return `${base}?${UTM}`
- }
- if (talk.deckSlug) return buildDeckUrl(talk.deckSlug)
- return null
-}
 
 const catalogContent = {
  en: {

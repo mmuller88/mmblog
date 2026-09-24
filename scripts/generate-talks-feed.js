@@ -2,21 +2,9 @@
 const fs = require("fs")
 const path = require("path")
 const catalog = require("../src/data/talksCatalog.json")
+const { resolveDeckUrl } = require("../src/data/deckUrl")
 
-const PRESENTATIONS_BASE = "https://mmuller88.github.io/presentations"
-const UTM = "utm_source=martinmueller&utm_medium=talks"
 const SITE = "https://martinmueller.dev"
-
-function resolveDeckUrl(talk) {
- if (talk.deckExternalUrl) {
-  const base = talk.deckExternalUrl.split("?")[0].replace(/\/?$/, "/")
-  return `${base}?${UTM}`
- }
- if (talk.deckSlug) {
-  return `${PRESENTATIONS_BASE}/${talk.deckSlug}/?${UTM}`
- }
- return null
-}
 
 function feedEntry(slug) {
  const talk = catalog.talks[slug]
