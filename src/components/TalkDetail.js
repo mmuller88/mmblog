@@ -207,10 +207,11 @@ const TalkDetail = ({ talk, location }) => {
 
      {heroImage ? (
       <div className="overflow-hidden rounded-xl border border-gray-200 bg-white p-8 dark:border-slate-700 dark:bg-slate-800">
-       <img
-        src={heroImage}
-        alt=""
-        className="mb-0 w-full object-contain"
+        <img
+         src={heroImage}
+         alt={title}
+         className="mb-0 w-full object-contain"
+        />
        />
       </div>
      ) : null}
