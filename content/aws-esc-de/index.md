@@ -286,7 +286,7 @@ Wenn ihr AWS nutzt oder plant und Souveränität klären wollt:
 2. **CDK/Terraform-Stolpersteine** (IAM, Route53, Partition)
 3. **Migrations-Fahrplan** — Pilot → Rollout, Hybrid wo sinnvoll
 
-Aktueller Talk: **[AI Factory auf dem AWS Community Day DACH 2026](/talks-de/aws-community-day-dach-2026/)** (Berlin, 15. Sep.).
+Talk auf dem **AWS Community Day DACH 2026** (Berlin, 15. Sep.) — *AWS European Sovereign Cloud: A Builder's Guide*.
 
 **Kontakt:** [office@martinmueller.dev](mailto:office@martinmueller.dev) · [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev) · [LinkedIn](https://www.linkedin.com/in/martinmueller88) · [Lebenslauf](https://martinmueller.dev/resume-de)
 
