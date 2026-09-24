@@ -1,6 +1,7 @@
 {
  "talkSlugs": [
   "aws-community-day-dach-2026",
+  "aws-community-day-athens-2026",
   "milan-2026-ai-factory",
   "ki-stammtisch"
  ],
@@ -40,6 +41,44 @@
     },
     "title": "AI Factory: Eine autonome Dev-Pipeline",
     "abstract": "VPS-Control-Plane + Telegram + OpenClaw → GitHub-PRs mit menschlichen Merge-Gates. Wie ich HalloCasa, ai-secure und qr-plakat aus einer Agent-Inbox betreibe — ehrliche Architektur, echte Kosten, Lessons aus Berlin."
+   }
+  },
+  "aws-community-day-athens-2026": {
+   "status": "delivered",
+   "date": "2026-04-28",
+   "duration": "45 min",
+   "deckLanguage": "en",
+   "showInCatalog": true,
+   "deckSlug": null,
+   "deckExternalUrl": "https://mmuller88.github.io/codegenius-itrac-agentic-ai-training/",
+   "eventUrl": null,
+   "heroImage": "/talks/aws-community-day-athens-2026.svg",
+   "tags": ["aws", "ai-agents", "agentcore", "bedrock"],
+   "relatedBlogPost": {
+    "en": {
+     "href": "/aws-agentcore/",
+     "title": "AWS Bedrock AgentCore - AI Agent Development from Local to Cloud"
+    },
+    "de": {
+     "href": "/aws-agentcore/",
+     "title": "AWS Bedrock AgentCore - AI Agent Development from Local to Cloud"
+    }
+   },
+   "en": {
+    "event": {
+     "name": "AWS Community Day Athens 2026",
+     "location": "Athens, Greece"
+    },
+    "title": "Beyond Chatbots: Shipping Stateful AI Agents on AWS",
+    "abstract": "From one-shot prompts to durable agents — memory, tools, MCP, and control loops. ai-secure.dev as the live case study, plus production patterns for cost and reliability on AWS."
+   },
+   "de": {
+    "event": {
+     "name": "AWS Community Day Athens 2026",
+     "location": "Athen, Griechenland"
+    },
+    "title": "Beyond Chatbots: Shipping Stateful AI Agents on AWS",
+    "abstract": "Von Einmal-Prompts zu dauerhaften Agenten — Memory, Tools, MCP und Control Loops. ai-secure.dev als Live-Case-Study plus Production-Patterns für Kosten und Zuverlässigkeit auf AWS."
    }
   },
   "milan-2026-ai-factory": {

@@ -119,8 +119,8 @@ After deploy: `CALENDLY_PAT=… CALENDLY_WEBHOOK_SIGNING_KEY=… ./scripts/setup
 
 - Catalog: `/talks`, `/talks-de` (nav label DE: **Vorträge** on catalog page)
 - Detail: `/talks/:slug`, `/talks-de/:slug` — data in `src/data/talksCatalog.json` + `src/data/talksContent.js`
-- Slide decks stay on GitHub Pages: `https://mmuller88.github.io/presentations/<slug>/` (UTM `utm_source=martinmueller&utm_medium=talks`)
-- **Upcoming talks** (e.g. Milan): detail page OK, **no `deckSlug`** / no public deck link until after event
+- Slide decks: `deckSlug` → `presentations/<slug>/`; or `deckExternalUrl` for other `mmuller88.github.io` repos (e.g. Athens training deck). UTM `utm_source=martinmueller&utm_medium=talks`
+- **Upcoming talks** (e.g. Milan): detail page OK, **no deck URL** until after event
 - JSON feed: `static/talks/feed.json` (regenerated via `npm run generate-talks-feed`)
 - Validate: `npm run validate:talks`
 - Issue: https://github.com/mmuller88/mmblog/issues/112

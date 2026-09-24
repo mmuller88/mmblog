@@ -21,11 +21,22 @@ catalog.talkSlugs.forEach((slug) => {
  if (talk.status === "upcoming" && talk.deckSlug) {
   fail(`${slug}: upcoming talks must not expose deckSlug`)
  }
- if (talk.status === "delivered" && talk.showInCatalog && !talk.deckSlug) {
-  fail(`${slug}: delivered catalog talk needs deckSlug`)
+ if (
+  talk.status === "delivered" &&
+  talk.showInCatalog &&
+  !talk.deckSlug &&
+  !talk.deckExternalUrl
+ ) {
+  fail(`${slug}: delivered catalog talk needs deckSlug or deckExternalUrl`)
  }
  if (talk.deckSlug && !DECK_SLUG.test(talk.deckSlug)) {
   fail(`${slug}: deckSlug must be a single URL-safe slug`)
+ }
+ if (
+  talk.deckExternalUrl &&
+  !/^https:\/\/mmuller88\.github\.io\//.test(talk.deckExternalUrl)
+ ) {
+  fail(`${slug}: deckExternalUrl must be mmuller88.github.io`)
  }
 })
 

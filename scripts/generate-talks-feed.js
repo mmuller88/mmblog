@@ -7,13 +7,21 @@ const PRESENTATIONS_BASE = "https://mmuller88.github.io/presentations"
 const UTM = "utm_source=martinmueller&utm_medium=talks"
 const SITE = "https://martinmueller.dev"
 
-function buildDeckUrl(slug) {
- return `${PRESENTATIONS_BASE}/${slug}/?${UTM}`
+function resolveDeckUrl(talk) {
+ if (talk.deckExternalUrl) {
+  const base = talk.deckExternalUrl.split("?")[0].replace(/\/?$/, "/")
+  return `${base}?${UTM}`
+ }
+ if (talk.deckSlug) {
+  return `${PRESENTATIONS_BASE}/${talk.deckSlug}/?${UTM}`
+ }
+ return null
 }
 
 function feedEntry(slug) {
  const talk = catalog.talks[slug]
- if (!talk?.showInCatalog || talk.status !== "delivered" || !talk.deckSlug) {
+ const deckUrl = talk ? resolveDeckUrl(talk) : null
+ if (!talk?.showInCatalog || talk.status !== "delivered" || !deckUrl) {
   return null
  }
  const copy = talk.en
@@ -23,7 +31,7 @@ function feedEntry(slug) {
   event: copy.event.name,
   date: talk.date,
   url: `${SITE}/talks/${slug}/`,
-  deckUrl: buildDeckUrl(talk.deckSlug),
+  deckUrl,
   tags: talk.tags,
  }
 }
