@@ -286,7 +286,7 @@ If you use or plan AWS and need to clarify sovereignty:
 2. **CDK/Terraform pitfalls** (IAM, Route 53, partition)
 3. **Migration path** — pilot → rollout, hybrid where it makes sense
 
-Talk at **AWS Community Day DACH 2026** (Berlin, 15 Sep) — *AWS European Sovereign Cloud: A Builder's Guide*.
+Recent talk: **[AI Factory at AWS Community Day DACH 2026](/talks/aws-community-day-dach-2026/)** (Berlin, 15 Sep).
 
 **Contact:** [office@martinmueller.dev](mailto:office@martinmueller.dev) · [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev) · [LinkedIn](https://www.linkedin.com/in/martinmueller88) · [Resume](https://martinmueller.dev/resume)
 

@@ -171,6 +171,8 @@ export const oneManAgencyContent = {
    ],
    readMore: "Read how it works →",
    readMoreHref: "/openclaw-three-months-later/",
+   talksLink: "Conference slide decks →",
+   talksHref: "/talks/",
   },
   cta: {
    heading: "Ready to Get Started?",
@@ -348,6 +350,8 @@ export const oneManAgencyContent = {
    ],
    readMore: "So funktioniert es →",
    readMoreHref: "/openclaw-three-months-later-de/",
+   talksLink: "Konferenz-Folien →",
+   talksHref: "/talks-de/",
   },
   cta: {
    heading: "Bereit loszulegen?",

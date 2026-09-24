@@ -33,9 +33,12 @@ Passionate about making AI agents practical and production-ready. From LLM orche
 
 ## Speaker & Talks
 
-- 🇬🇷 **AWS Community Day Athens 2026** — "Beyond Chatbots: Shipping Stateful AI Agents on AWS"
+Full slide deck catalog: **[martinmueller.dev/talks](https://martinmueller.dev/talks/)**
+
+- 🇩🇪 **AWS Community Day DACH 2026** (Berlin) — [AI Factory: An Autonomous Dev Pipeline](https://martinmueller.dev/talks/aws-community-day-dach-2026/)
+- 🇮🇹 **ServerlessDays Milano 2026** (upcoming) — [The AI Factory That Never Sleeps](https://martinmueller.dev/talks/milan-2026-ai-factory/)
+- 🎤 **KI Stammtisch** — [KI-Assistenten im Beruf und Alltag](https://martinmueller.dev/talks/ki-stammtisch/)
 - 🎓 **CodeGenius / ITRAC Training** — Agentic AI Training (Wismar, 2026)
-- 🎤 Regular speaker at AWS Meetups and community events
 
 ## Testimonials
 

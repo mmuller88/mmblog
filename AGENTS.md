@@ -115,6 +115,18 @@ After deploy: `CALENDLY_PAT=… CALENDLY_WEBHOOK_SIGNING_KEY=… ./scripts/setup
 
 **Ads Manager:** primary conversion = `appointment_scheduled` only; switch to Maximize Conversions after verified bookings.
 
+## Talks
+
+- Catalog: `/talks`, `/talks-de` (nav label DE: **Vorträge** on catalog page)
+- Detail: `/talks/:slug`, `/talks-de/:slug` — data in `src/data/talksCatalog.json` + `src/data/talksContent.js`
+- Slide decks stay on GitHub Pages: `https://mmuller88.github.io/presentations/<slug>/` (UTM `utm_source=martinmueller&utm_medium=talks`)
+- **Upcoming talks** (e.g. Milan): detail page OK, **no `deckSlug`** / no public deck link until after event
+- JSON feed: `static/talks/feed.json` (regenerated via `npm run generate-talks-feed`)
+- Validate: `npm run validate:talks`
+- Issue: https://github.com/mmuller88/mmblog/issues/112
+
+**Add a talk:** edit `src/data/talksCatalog.json` → add page stubs under `src/pages/talks/` + `talks-de/` → run `npm run generate-talks-feed`
+
 ## Trainings
 
 - Catalog: `/trainings`, `/trainings-de`
