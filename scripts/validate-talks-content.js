@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const catalog = require("../src/data/talksCatalog.json")
 
-const PRESENTATIONS_BASE = "https://mmuller88.github.io/presentations"
+const DECK_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
 let failed = false
 
 function fail(message) {
@@ -24,8 +24,8 @@ catalog.talkSlugs.forEach((slug) => {
  if (talk.status === "delivered" && talk.showInCatalog && !talk.deckSlug) {
   fail(`${slug}: delivered catalog talk needs deckSlug`)
  }
- if (talk.deckSlug && !`${PRESENTATIONS_BASE}/${talk.deckSlug}/`.includes(talk.deckSlug)) {
-  fail(`${slug}: invalid deck slug`)
+ if (talk.deckSlug && !DECK_SLUG.test(talk.deckSlug)) {
+  fail(`${slug}: deckSlug must be a single URL-safe slug`)
  }
 })
 
