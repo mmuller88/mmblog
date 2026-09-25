@@ -1,5 +1,5 @@
 import React from "react"
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
 import { OAIQ_LOADER_SCRIPT, OAIQ_PIXEL_ID } from "../utils/oaiq"
 
 const OaiqPixel = () => (

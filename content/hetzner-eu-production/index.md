@@ -67,6 +67,8 @@ On **Netlify**, **managed Supabase**, or **AWS** for dev and need **prod in the 
 
 Built with [Lovable](/lovable-hetzner-germany) for Germany/DACH? Same phased EU-prod path.
 
+Same work as a bounded engagement: **[Vibe Coding and production readiness](https://martinmueller.dev/one-man-agency/vibe-coding/)**. [Book a call](https://calendly.com/martinmueller_dev/30min) or send a message from that page.
+
 [office@martinmueller.dev](mailto:office@martinmueller.dev) · [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev) · [LinkedIn](https://www.linkedin.com/in/martinmueller88)
 
 ---

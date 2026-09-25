@@ -65,6 +65,8 @@ Prod ist live unter [universe.arc-rider.com](https://universe.arc-rider.com). F�
 
 **Netlify**, **managed Supabase** oder **AWS** für Dev und **Prod in der EU auf Hetzner** nötig? Ich helfe bei Planung, OpenTofu, CI-Deploys, self-hosted Supabase auf Prod-VMs und **self-hosted Observability** (Grafana LGTM, Alloy, Kosten-Wächter, Grafana MCP für agentenfreundlichen Betrieb).
 
+Dieselbe Arbeit als abgegrenztes Angebot: **[Vibe Coding und Production Readiness](https://martinmueller.dev/one-man-agency-de/vibe-coding/)**. [Termin buchen](https://calendly.com/martinmueller_dev/30min) oder eine Nachricht über das Formular auf der Seite schicken.
+
 [office@martinmueller.dev](mailto:office@martinmueller.dev) · [calendly.com/martinmueller_dev](https://calendly.com/martinmueller_dev) · [LinkedIn](https://www.linkedin.com/in/martinmueller88)
 
 ---

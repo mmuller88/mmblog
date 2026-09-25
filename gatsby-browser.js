@@ -3,6 +3,8 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
+import React from "react"
+import { HelmetProvider } from "react-helmet-async"
 import { captureOppref, measurePageViewed } from "./src/utils/oaiq"
 
 require("./src/styles/global.css")
@@ -24,6 +26,10 @@ require("prismjs/components/prism-yaml")
 require("prismjs/components/prism-json")
 require("prismjs/components/prism-docker")
 require("prismjs/components/prism-python")
+
+export const wrapRootElement = ({ element }) => (
+ <HelmetProvider>{element}</HelmetProvider>
+)
 
 export const onClientEntry = () => {
  captureOppref()

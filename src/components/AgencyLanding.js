@@ -20,6 +20,10 @@ const AgencyLanding = ({ content, location }) => {
   langSwitch,
   hubLink,
   hero,
+  audience,
+  caseStudy,
+  offer,
+  credential,
   deliverables,
   sowExample,
   testimonials,
@@ -106,6 +110,50 @@ const AgencyLanding = ({ content, location }) => {
      </div>
     </div>
    </div>
+
+   {audience && (
+    <div className="bg-white px-4 py-16 dark:bg-slate-900">
+     <div className="mx-auto max-w-3xl">
+      <h2 className="mb-6 font-sans text-3xl font-bold text-gray-900 dark:text-gray-100">
+       {audience.heading}
+      </h2>
+      <p className="mb-4 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+       {audience.who}
+      </p>
+      <p className="mb-4 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+       {audience.trigger}
+      </p>
+      <p className="mb-0 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+       {audience.work}
+      </p>
+     </div>
+    </div>
+   )}
+
+   {caseStudy && (
+    <div className="bg-gradient-to-br from-gray-50 to-blue-50 px-4 py-16 dark:from-slate-800 dark:to-slate-900">
+     <div className="mx-auto max-w-3xl">
+      <h2 className="mb-6 font-sans text-3xl font-bold text-gray-900 dark:text-gray-100">
+       {caseStudy.heading}
+      </h2>
+      {caseStudy.paragraphs.map((paragraph) => (
+       <p
+        key={paragraph.slice(0, 48)}
+        className="mb-4 text-lg leading-relaxed text-gray-700 dark:text-gray-300"
+       >
+        {paragraph}
+       </p>
+      ))}
+      {caseStudy.link && (
+       <p className="mb-0">
+        <Link to={caseStudy.link.href} className="text-brand hover:underline">
+         {caseStudy.link.label}
+        </Link>
+       </p>
+      )}
+     </div>
+    </div>
+   )}
 
    {definition && (
     <div className="bg-white px-4 py-16 dark:bg-slate-900">
@@ -214,6 +262,48 @@ const AgencyLanding = ({ content, location }) => {
     </div>
    )}
 
+   {offer && (
+    <div className="bg-white px-4 py-16 dark:bg-slate-900">
+     <div className="mx-auto max-w-3xl">
+      <h2 className="mb-4 font-sans text-3xl font-bold text-gray-900 dark:text-gray-100">
+       {offer.heading}
+      </h2>
+      <p className="mb-6 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+       {offer.intro}
+      </p>
+      <dl className="m-0">
+       {offer.rows.map(([label, value]) => (
+        <div key={label} className="mb-4">
+         <dt className="font-semibold text-gray-900 dark:text-gray-100">
+          {label}
+         </dt>
+         <dd className="mb-0 text-gray-700 dark:text-gray-300">{value}</dd>
+        </div>
+       ))}
+      </dl>
+     </div>
+    </div>
+   )}
+
+   {credential && (
+    <div className="bg-white px-4 pb-16 dark:bg-slate-900">
+     <div className="mx-auto max-w-3xl">
+      <h2 className="mb-4 font-sans text-2xl font-bold text-gray-900 dark:text-gray-100">
+       {credential.heading}
+      </h2>
+      <ul className="m-0 list-none space-y-2 p-0">
+       {credential.links.map((item) => (
+        <li key={item.href}>
+         <Link to={item.href} className="text-brand hover:underline">
+          {item.label}
+         </Link>
+        </li>
+       ))}
+      </ul>
+     </div>
+    </div>
+   )}
+
    <div className="bg-white px-4 py-16 dark:bg-slate-900">
     <div className="mx-auto max-w-xl">
      <h2 className="mb-2 text-center font-sans text-3xl font-bold text-gray-900 dark:text-gray-100">
@@ -222,7 +312,7 @@ const AgencyLanding = ({ content, location }) => {
      <p className="mb-8 text-center text-gray-600 dark:text-gray-400">
       {hero.ctaWrite}
      </p>
-     <AgencyContactForm labels={contact.form} />
+     <AgencyContactForm labels={contact.form} page={location.pathname} />
     </div>
    </div>
 

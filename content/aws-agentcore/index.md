@@ -102,8 +102,8 @@ A security compliance scanner that uses an AI agent to audit websites.
 // Simple tasks → Haiku (~10x cheaper)
 // Complex tasks → Sonnet
 const classification = classifyTask(prompt)
-const model = classification.complexity === 'simple' 
-  ? 'claude-haiku-4-5' 
+const model = classification.complexity === 'simple'
+  ? 'claude-haiku-4-5'
   : 'claude-sonnet-4-5'
 ```
 
@@ -131,6 +131,10 @@ const model = classification.complexity === 'simple'
 
 - AgentCore logs are separate from your app logs. Use CloudWatch SDK directly for application logging.
 - Use Infrastructure as Code (IaC) to deploy your agent to AgentCore.
+
+## Need an AWS review?
+
+If the account, the bill, or the path to production is the problem: **[AWS consulting](https://martinmueller.dev/one-man-agency/aws/)** — architecture, CDK, and a bounded Statement of Work. [Book a call](https://calendly.com/martinmueller_dev/30min) or send a message from that page.
 
 ## Conclusion
 

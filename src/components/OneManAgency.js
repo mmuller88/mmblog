@@ -20,6 +20,7 @@ const OneManAgency = ({ content, location }) => {
   meta,
   langSwitch,
   sections,
+  services,
   hero,
   testimonials,
   valuePackages,
@@ -100,6 +101,26 @@ const OneManAgency = ({ content, location }) => {
      </div>
     </div>
    </div>
+
+   {services && (
+    <div className="bg-white px-4 py-16 dark:bg-slate-900">
+     <div className="mx-auto max-w-6xl">
+      <SectionHeading id="services">{services.heading}</SectionHeading>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+       {services.items.map((item) => (
+        <Link
+         key={item.href}
+         to={item.href}
+         className="rounded-xl bg-gray-50 p-6 text-gray-900 no-underline shadow-md transition-shadow duration-200 hover:text-gray-900 hover:no-underline hover:shadow-lg dark:bg-slate-800 dark:text-gray-100 dark:hover:text-gray-100"
+        >
+         <h3 className="mb-3 font-sans text-xl font-semibold">{item.title}</h3>
+         <p className="mb-0 text-gray-700 dark:text-gray-300">{item.text}</p>
+        </Link>
+       ))}
+      </div>
+     </div>
+    </div>
+   )}
 
    <div className="mx-auto max-w-6xl px-4">
     <TableOfContents headings={sections} />

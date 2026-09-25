@@ -44,9 +44,48 @@ export const agencyLandingContent = {
    hero: {
     title: "AWS Consulting",
     subtitle:
-     "Production-grade AWS architecture, CDK, migrations, and cost optimization — one senior expert, fixed scope and price.",
+     "For a SaaS team that needs an AWS architecture or cost review — one senior expert, scope agreed in a Statement of Work.",
     ctaSpeak: "🗣️ Book a call",
     ctaWrite: "📝 Or send a message",
+   },
+   audience: {
+    heading: "Who this is for",
+    who: "A SaaS team whose AWS account grew faster than the design: unclear architecture, a bill that jumped, or a migration that stalled.",
+    trigger:
+     "The trigger is a cost surprise, a fragile production setup, or a launch date that the current account cannot support.",
+    work:
+     "I inspect the account and write the target design — or implement it in CDK when the Statement of Work says so.",
+   },
+   offer: {
+    heading: "First step",
+    intro:
+     "The call is to see whether an AWS review is the right next purchase. After that, a bounded Statement of Work.",
+    rows: [
+     [
+      "Scope",
+      "One account or one workload: architecture, cost, or a named migration.",
+     ],
+     [
+      "Deliverables",
+      "Written findings, a target design, and the agreed CDK or migration work.",
+     ],
+     ["Turnaround", "Agreed in the Statement of Work."],
+     [
+      "Exclusions",
+      "Staff augmentation, 24/7 ops, and work outside the named account.",
+     ],
+     ["Price", "On request."],
+    ],
+   },
+   credential: {
+    heading: "Related",
+    links: [
+     {
+      label: "AWS Community Day Athens — AgentCore talk",
+      href: "/talks/aws-community-day-athens-2026/",
+     },
+     { label: "Building with Bedrock AgentCore", href: "/aws-agentcore/" },
+    ],
    },
    deliverables: {
     heading: "What you get",
@@ -105,9 +144,48 @@ export const agencyLandingContent = {
    hero: {
     title: "AWS Consulting",
     subtitle:
-     "Produktionsreife AWS-Architektur, CDK, Migrationen und Kostenoptimierung — ein Senior-Experte, fester Scope und Festpreis.",
+     "Für ein SaaS-Team, das ein AWS-Architektur- oder Kosten-Review braucht — ein Senior-Experte, Scope im Statement of Work.",
     ctaSpeak: "🗣️ Termin buchen",
     ctaWrite: "📝 Oder Nachricht senden",
+   },
+   audience: {
+    heading: "Für wen",
+    who: "Ein SaaS-Team, dessen AWS-Account schneller gewachsen ist als das Design: unklare Architektur, eine Rechnung, die gesprungen ist, oder eine Migration, die hängt.",
+    trigger:
+     "Der Auslöser ist eine Kostenüberraschung, eine fragile Produktion oder ein Launch, den der aktuelle Account nicht trägt.",
+    work:
+     "Ich prüfe den Account und schreibe das Zielbild — oder setze es in CDK um, wenn das Statement of Work das sagt.",
+   },
+   offer: {
+    heading: "Erster Schritt",
+    intro:
+     "Das Gespräch klärt, ob ein AWS-Review der richtige nächste Kauf ist. Danach ein abgegrenztes Statement of Work.",
+    rows: [
+     [
+      "Scope",
+      "Ein Account oder ein Workload: Architektur, Kosten oder eine benannte Migration.",
+     ],
+     [
+      "Liefergegenstände",
+      "Schriftliche Befunde, ein Zielbild und die vereinbarte CDK- oder Migrationsarbeit.",
+     ],
+     ["Dauer", "Vereinbart im Statement of Work."],
+     [
+      "Nicht enthalten",
+      "Body Leasing, 24/7-Betrieb und Arbeit außerhalb des benannten Accounts.",
+     ],
+     ["Preis", "Auf Anfrage."],
+    ],
+   },
+   credential: {
+    heading: "Dazu",
+    links: [
+     {
+      label: "AWS Community Day Athen — AgentCore-Vortrag",
+      href: "/talks-de/aws-community-day-athens-2026/",
+     },
+     { label: "Bauen mit Bedrock AgentCore", href: "/aws-agentcore/" },
+    ],
    },
    deliverables: {
     heading: "Das bekommen Sie",
@@ -149,15 +227,15 @@ export const agencyLandingContent = {
  seoGeo: {
   en: {
    meta: {
-    title: "GEO SEO — Visibility in Search and AI Answers",
+    title: "Technical SEO for JavaScript and SaaS",
     description:
-     "GEO SEO for Google rankings and AI answers. Audits, citeable pages, and a fixed-scope statement of work.",
+     "Technical SEO for JavaScript and SaaS sites, implementation included. Audit, prioritized fixes, and a fixed-scope Statement of Work.",
     keywords: [
-     "GEO SEO",
+     "technical SEO",
+     "JavaScript SEO",
+     "SaaS SEO",
      "SEO audit",
-     "GEO strategy",
-     "AI visibility",
-     "search optimization",
+     "canonical tags",
     ],
     locale: "en_US",
     language: "en",
@@ -169,22 +247,49 @@ export const agencyLandingContent = {
     href: "/one-man-agency/",
    },
    hero: {
-    title: "GEO SEO",
+    title: "Technical SEO for JavaScript and SaaS",
     subtitle:
-     "Get found in Google and in AI answers. Audits, citeable pages, and fixed-scope delivery.",
+     "For a SaaS team whose JavaScript site is hard to crawl, index, or explain. Audit plus implementation, not a slide deck.",
     ctaSpeak: "🗣️ Book a call",
     ctaWrite: "📝 Or send a message",
    },
-   definition: {
-    heading: "What GEO SEO is",
+   audience: {
+    heading: "Who this is for",
+    who: "A founder or marketing lead on a JavaScript or SaaS site who needs technical SEO done in the codebase, not only recommended.",
+    trigger:
+     "The trigger is wrong canonicals, a sitemap or rendering setup crawlers miss, or a launch that search still does not see.",
+    work:
+     "I audit the rendered HTML and the repo, then implement the prioritized fixes we agree in the Statement of Work.",
+   },
+   caseStudy: {
+    heading: "HalloCasa",
     paragraphs: [
-     "GEO (Generative Engine Optimization) is visibility inside AI answers — ChatGPT, Google AI Overviews, Perplexity — in addition to the ten blue links. SEO stays the base: a page Google can crawl, one clear question, and a direct answer.",
-     "What gets cited is a page that names the question in the title, answers it in the first paragraphs, shows the fact with a source, and covers follow-up questions in an FAQ. A thin page with no answer is not citeable.",
+     "HalloCasa needed a technical SEO audit and a prioritized roadmap: crawl and index basics, market visibility, and what to fix first in a Next.js site.",
+     "The delivery was the audit and that roadmap. This page does not claim a measured traffic or ranking change.",
     ],
     link: {
-     label: "Case study: SISTRIX MCP and HalloCasa",
+     label: "How the HalloCasa audit was run",
      href: "/sistrix-mcp-hallocasa-seo/",
     },
+   },
+   offer: {
+    heading: "First step",
+    intro:
+     "The call is to see whether a technical SEO pass is the right next purchase. After that, a bounded Statement of Work.",
+    rows: [
+     ["Scope", "One JavaScript or SaaS site: crawl, index, canonicals, and the pages that should rank."],
+     ["Deliverables", "Audit notes plus the prioritized fixes we implement in the repo."],
+     ["Turnaround", "Agreed in the Statement of Work."],
+     ["Exclusions", "Content writing for a new article series, link buying, and ranking guarantees."],
+     ["Price", "On request."],
+    ],
+   },
+   definition: {
+    heading: "What this engagement is",
+    paragraphs: [
+     "Technical SEO for JavaScript and SaaS sites: the HTML a crawler actually receives, canonicals, hreflang, sitemaps, and indexable pages — with implementation included.",
+     "Google’s AI features use those same basics. The work is the crawlable page and the fix in the repo, not a separate AI markup project.",
+    ],
    },
    faqs: [
     {
@@ -229,15 +334,15 @@ export const agencyLandingContent = {
   },
   de: {
    meta: {
-    title: "GEO SEO — Sichtbarkeit in Suche und KI-Antworten",
+    title: "Technisches SEO für JavaScript- und SaaS-Seiten",
     description:
-     "GEO SEO für Google-Rankings und KI-Antworten. Audits, zitierbare Seiten und ein festes Statement of Work.",
+     "Technisches SEO für JavaScript- und SaaS-Seiten, inklusive Umsetzung. Audit, priorisierte Fixes und ein festes Statement of Work.",
     keywords: [
-     "GEO SEO",
+     "technisches SEO",
+     "JavaScript SEO",
+     "SaaS SEO",
      "SEO Audit",
-     "GEO Strategie",
-     "KI Sichtbarkeit",
-     "Suchmaschinenoptimierung",
+     "Canonical Tags",
     ],
     locale: "de_DE",
     language: "de",
@@ -249,22 +354,49 @@ export const agencyLandingContent = {
     href: "/one-man-agency-de/",
    },
    hero: {
-    title: "GEO SEO",
+    title: "Technisches SEO für JavaScript und SaaS",
     subtitle:
-     "Gefunden werden in Google und in KI-Antworten. Audits, zitierbare Seiten, feste Scope-Lieferung.",
+     "Für ein SaaS-Team, dessen JavaScript-Seite schwer zu crawlen, zu indexieren oder zu erklären ist. Audit plus Umsetzung, kein Foliensatz.",
     ctaSpeak: "🗣️ Termin buchen",
     ctaWrite: "📝 Oder Nachricht senden",
    },
-   definition: {
-    heading: "Was GEO SEO ist",
+   audience: {
+    heading: "Für wen",
+    who: "Gründer oder Marketing-Verantwortliche einer JavaScript- oder SaaS-Seite, die technisches SEO im Code brauchen, nicht nur als Empfehlung.",
+    trigger:
+     "Der Auslöser sind falsche Canonicals, eine Sitemap oder ein Rendering, das Crawler verfehlen, oder ein Launch, den die Suche nicht sieht.",
+    work:
+     "Ich prüfe das ausgelieferte HTML und das Repo und setze die priorisierten Fixes um, die wir im Statement of Work festlegen.",
+   },
+   caseStudy: {
+    heading: "HalloCasa",
     paragraphs: [
-     "GEO (Generative Engine Optimization) ist Sichtbarkeit in KI-Antworten — ChatGPT, Google AI Overviews, Perplexity — zusätzlich zu den zehn blauen Links. SEO bleibt die Grundlage: eine crawlbare Seite, eine klare Frage, eine direkte Antwort.",
-     "Zitiert wird eine Seite, die die Frage im Titel nennt, sie in den ersten Absätzen beantwortet, das Faktum mit Quelle zeigt und Folgefragen in einer FAQ abdeckt. Eine dünne Seite ohne diese Antwort ist nicht zitierbar.",
+     "HalloCasa brauchte ein technisches SEO-Audit und eine priorisierte Roadmap: Crawl- und Index-Grundlagen, Sichtbarkeit je Markt, und was in einer Next.js-Seite zuerst zu fixen ist.",
+     "Geliefert wurden das Audit und diese Roadmap. Diese Seite behauptet keine gemessene Traffic- oder Ranking-Änderung.",
     ],
     link: {
-     label: "Case Study: SISTRIX MCP und HalloCasa",
+     label: "Wie das HalloCasa-Audit lief",
      href: "/sistrix-mcp-hallocasa-seo-de/",
     },
+   },
+   offer: {
+    heading: "Erster Schritt",
+    intro:
+     "Das Gespräch klärt, ob ein technischer SEO-Durchgang der richtige nächste Kauf ist. Danach ein abgegrenztes Statement of Work.",
+    rows: [
+     ["Scope", "Eine JavaScript- oder SaaS-Seite: Crawl, Index, Canonicals und die Seiten, die ranken sollen."],
+     ["Liefergegenstände", "Audit-Notizen plus die priorisierten Fixes, die wir im Repo umsetzen."],
+     ["Dauer", "Vereinbart im Statement of Work."],
+     ["Nicht enthalten", "Neue Artikelserien, Linkkauf und Ranking-Garantien."],
+     ["Preis", "Auf Anfrage."],
+    ],
+   },
+   definition: {
+    heading: "Worum es geht",
+    paragraphs: [
+     "Technisches SEO für JavaScript- und SaaS-Seiten: das HTML, das ein Crawler wirklich bekommt, Canonicals, hreflang, Sitemaps und indexierbare Seiten — inklusive Umsetzung.",
+     "Googles KI-Funktionen nutzen dieselben Grundlagen. Die Arbeit ist die crawlbare Seite und der Fix im Repo, kein separates KI-Markup-Projekt.",
+    ],
    },
    faqs: [
     {
@@ -474,9 +606,46 @@ export const agencyLandingContent = {
    hero: {
     title: "Vibe Coding → Production",
     subtitle:
-     "Shipped fast with AI — now make it secure, observable, and deployable. DevOps, security audits, and EU-compliant infrastructure.",
+     "For a founder whose AI prototype has to go live: secure, observable, and deployable on infrastructure you can point to.",
     ctaSpeak: "🗣️ Book a call",
     ctaWrite: "📝 Or send a message",
+   },
+   audience: {
+    heading: "Who this is for",
+    who: "A founder who shipped a prototype with AI tools and now needs a production launch: hosting, deploys, monitoring, and a security pass.",
+    trigger:
+     "The trigger is a demo that must become production, a stack that only the author can deploy, or a customer who asked where the data lives.",
+    work:
+     "I review the launch path or build it: EU hosting, pipelines, monitoring, and the security work named in the Statement of Work.",
+   },
+   caseStudy: {
+    heading: "Arc Rider",
+    paragraphs: [
+     "Arc Rider needed a GDPR-conscious production home in Germany for a React and Supabase product, without handing operations to a platform the team could not inspect.",
+     "The work was a self-hosted production environment on Hetzner, self-hosted Supabase, deploy automation the team can run with AI agents, Grafana monitoring, and a security audit.",
+     "The outcome was a production setup the team maintains. Jakob Jordan’s note on this page is the approved account of that work.",
+    ],
+   },
+   offer: {
+    heading: "First step",
+    intro:
+     "The call is to see whether a production-readiness review is the right next purchase. After that, a bounded Statement of Work.",
+    rows: [
+     [
+      "Scope",
+      "One product: the path from the current prototype to a named production environment.",
+     ],
+     [
+      "Deliverables",
+      "Review notes or the agreed hosting, deploy, monitoring, and security work.",
+     ],
+     ["Turnaround", "Agreed in the Statement of Work."],
+     [
+      "Exclusions",
+      "Ongoing on-call, feature development outside the launch, and unnamed third-party migrations.",
+     ],
+     ["Price", "On request."],
+    ],
    },
    deliverables: {
     heading: "What you get",
@@ -530,9 +699,46 @@ export const agencyLandingContent = {
    hero: {
     title: "Vibe Coding → Produktion",
     subtitle:
-     "Schnell mit KI gebaut — jetzt sicher, überwacht und deploybar machen. DevOps, Security Audits und DSGVO-konforme EU-Infrastruktur.",
+     "Für Gründer, deren KI-Prototyp live gehen muss: sicher, beobachtbar und deploybar auf Infrastruktur, auf die man zeigen kann.",
     ctaSpeak: "🗣️ Termin buchen",
     ctaWrite: "📝 Oder Nachricht senden",
+   },
+   audience: {
+    heading: "Für wen",
+    who: "Ein Gründer, der einen Prototyp mit KI-Werkzeugen gebaut hat und jetzt einen Produktionsstart braucht: Hosting, Deploys, Monitoring und einen Security-Pass.",
+    trigger:
+     "Der Auslöser ist eine Demo, die Produktion werden muss, ein Stack, den nur der Autor deployen kann, oder ein Kunde, der fragt, wo die Daten liegen.",
+    work:
+     "Ich prüfe den Weg zum Launch oder baue ihn: EU-Hosting, Pipelines, Monitoring und die Security-Arbeit aus dem Statement of Work.",
+   },
+   caseStudy: {
+    heading: "Arc Rider",
+    paragraphs: [
+     "Arc Rider brauchte ein DSGVO-bewusstes Produktions-Zuhause in Deutschland für ein React- und Supabase-Produkt, ohne den Betrieb an eine Plattform abzugeben, die das Team nicht prüfen kann.",
+     "Die Arbeit war eine selbst gehostete Produktionsumgebung auf Hetzner, selbst gehostetes Supabase, Deploy-Automatisierung, die das Team mit KI-Agenten fahren kann, Grafana-Monitoring und ein Security Audit.",
+     "Das Ergebnis ist ein Produktions-Setup, das das Team selbst wartet. Jakob Jordans Zitat auf dieser Seite ist die freigegebene Schilderung.",
+    ],
+   },
+   offer: {
+    heading: "Erster Schritt",
+    intro:
+     "Das Gespräch klärt, ob ein Production-Readiness-Review der richtige nächste Kauf ist. Danach ein abgegrenztes Statement of Work.",
+    rows: [
+     [
+      "Scope",
+      "Ein Produkt: der Weg vom aktuellen Prototyp zu einer benannten Produktionsumgebung.",
+     ],
+     [
+      "Liefergegenstände",
+      "Review-Notizen oder das vereinbarte Hosting, Deploy, Monitoring und die Security-Arbeit.",
+     ],
+     ["Dauer", "Vereinbart im Statement of Work."],
+     [
+      "Nicht enthalten",
+      "Dauerhafte Rufbereitschaft, Feature-Entwicklung außerhalb des Launches und unbenannte Dritt-Migrationen.",
+     ],
+     ["Preis", "Auf Anfrage."],
+    ],
    },
    deliverables: {
     heading: "Das bekommen Sie",
