@@ -190,9 +190,23 @@ function Metatags(props) {
   ? "noindex, follow"
   : "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
 
+ const jsonLdScripts = [
+  articleStructuredData,
+  faqStructuredData,
+  organizationStructuredData,
+  extraJsonLd,
+ ]
+  .filter(Boolean)
+  .map((data) => ({
+   type: "application/ld+json",
+   innerHTML: JSON.stringify(data),
+  }))
+
  return (
   <Helmet
+   htmlAttributes={{ lang: language }}
    title={title}
+   script={jsonLdScripts}
    link={[
     { rel: "canonical", href: canonicalUrl },
     { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -263,26 +277,7 @@ function Metatags(props) {
     { name: "apple-mobile-web-app-capable", content: "yes" },
     { name: "mobile-web-app-capable", content: "yes" },
    ]}
-  >
-   <html lang={language} />
-   {/* JSON-LD Structured Data */}
-   {articleStructuredData && (
-    <script type="application/ld+json">
-     {JSON.stringify(articleStructuredData)}
-    </script>
-   )}
-   {faqStructuredData && (
-    <script type="application/ld+json">
-     {JSON.stringify(faqStructuredData)}
-    </script>
-   )}
-   <script type="application/ld+json">
-    {JSON.stringify(organizationStructuredData)}
-   </script>
-   {extraJsonLd && (
-    <script type="application/ld+json">{JSON.stringify(extraJsonLd)}</script>
-   )}
-  </Helmet>
+  />
  )
 }
 

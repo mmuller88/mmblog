@@ -21,11 +21,14 @@ const Breadcrumb = ({ crumbs, siteUrl }) => {
 
  return (
   <>
-   <Helmet>
-    <script type="application/ld+json">
-     {JSON.stringify(breadcrumbStructuredData)}
-    </script>
-   </Helmet>
+   <Helmet
+    script={[
+     {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify(breadcrumbStructuredData),
+     },
+    ]}
+   />
    <nav aria-label="Breadcrumb" className="mb-4">
     <ol className="flex items-center flex-wrap gap-1 text-sm text-gray-500 dark:text-gray-400 list-none p-0 m-0">
      {crumbs.map((crumb, index) => (
