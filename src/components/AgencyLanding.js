@@ -312,7 +312,7 @@ const AgencyLanding = ({ content, location }) => {
      <p className="mb-8 text-center text-gray-600 dark:text-gray-400">
       {hero.ctaWrite}
      </p>
-     <AgencyContactForm labels={contact.form} />
+     <AgencyContactForm labels={contact.form} page={location.pathname} />
     </div>
    </div>
 

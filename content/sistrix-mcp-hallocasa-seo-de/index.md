@@ -192,7 +192,7 @@ Die Agent-Session lieferte ein vollständiges Strategie-Dokument — Baseline pr
 
 <p><a href="hallocasa-seo-strategy.pdf">PDF herunterladen</a> · <a href="https://github.com/hallocasacom/hallocasa-next/blob/main/misc/seo/SEO_STRATEGY.md">Markdown-Quelle</a></p>
 
-**Ähnliches für deine Domain?** Ich helfe Teams, denselben SISTRIX-MCP- plus Codebase-Audit-Workflow zu fahren und daraus ein priorisiertes Strategie-Dokument zu machen. Das Angebot ist **[technisches SEO für JavaScript- und SaaS-Seiten](https://martinmueller.dev/one-man-agency-de/seo-geo/)**, inklusive Umsetzung. [Termin buchen](https://calendly.com/martinmueller_dev/30min) oder eine Nachricht von der Seite. [LinkedIn](https://www.linkedin.com/in/martinmueller88/).
+**Ähnliches für deine Domain?** Ich helfe Teams, denselben SISTRIX-MCP- plus Codebase-Audit-Workflow zu fahren und daraus ein priorisiertes Strategie-Dokument zu machen. Das Angebot ist **[technisches SEO für JavaScript- und SaaS-Seiten](https://martinmueller.dev/one-man-agency-de/seo-geo/)**, inklusive Umsetzung. [Termin buchen](https://calendly.com/martinmueller_dev/30min) oder eine Nachricht über das Formular auf der Seite schicken. [LinkedIn](https://www.linkedin.com/in/martinmueller88/).
 
 ---
 

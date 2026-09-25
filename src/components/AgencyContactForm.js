@@ -1,22 +1,20 @@
 import React, { useState } from "react"
 import { measureLeadCreated } from "../utils/oaiq"
 
-const AgencyContactForm = ({ labels }) => {
- const [state, setState] = useState({})
+const AgencyContactForm = ({ labels, page = "" }) => {
  const [submitted, setSubmitted] = useState(false)
-
- const handleChange = (e) => {
-  setState((prev) => ({ ...prev, [e.target.name]: e.target.value }))
- }
 
  const handleSubmit = (e) => {
   e.preventDefault()
   const form = e.target
-  const url = window?.location?.href ?? ""
-  const page = window?.location?.pathname ?? ""
+  const data = new FormData(form)
+  data.set("url", window?.location?.href ?? "")
+  data.set("page", window?.location?.pathname || page)
   const utmSource = new URLSearchParams(window?.location?.search || "").get(
    "utm_source"
   )
+  if (utmSource) data.set("utm_source", utmSource)
+  else data.delete("utm_source")
 
   fetch("/api/forms", {
    method: "POST",
@@ -24,13 +22,7 @@ const AgencyContactForm = ({ labels }) => {
     "Content-Type": "application/x-www-form-urlencoded",
     Accept: "application/json",
    },
-   body: new URLSearchParams({
-    "form-name": form.getAttribute("name"),
-    ...state,
-    url,
-    page,
-    ...(utmSource ? { utm_source: utmSource } : {}),
-   }).toString(),
+   body: new URLSearchParams(data).toString(),
   })
    .then(() => {
     measureLeadCreated()
@@ -57,9 +49,11 @@ const AgencyContactForm = ({ labels }) => {
   >
    <input type="hidden" name="form-name" value="agency-contact" />
    <input type="hidden" name="redirect" value="/thx/" />
+   <input type="hidden" name="page" value={page} />
+   <input type="hidden" name="utm_source" value="" />
    <p className="hidden">
     <label>
-     Don’t fill this out: <input name="bot-field" onChange={handleChange} />
+     Don’t fill this out: <input name="bot-field" />
     </label>
    </p>
    <div>
@@ -70,7 +64,6 @@ const AgencyContactForm = ({ labels }) => {
      type="text"
      name="name"
      required
-     onChange={handleChange}
      className="w-full rounded-lg border border-gray-300 px-4 py-2 dark:border-slate-600 dark:bg-slate-800 dark:text-gray-100"
     />
    </div>
@@ -82,7 +75,6 @@ const AgencyContactForm = ({ labels }) => {
      type="email"
      name="email"
      required
-     onChange={handleChange}
      className="w-full rounded-lg border border-gray-300 px-4 py-2 dark:border-slate-600 dark:bg-slate-800 dark:text-gray-100"
     />
    </div>
@@ -94,7 +86,6 @@ const AgencyContactForm = ({ labels }) => {
      name="message"
      rows={5}
      required
-     onChange={handleChange}
      className="w-full rounded-lg border border-gray-300 px-4 py-2 dark:border-slate-600 dark:bg-slate-800 dark:text-gray-100"
     />
    </div>

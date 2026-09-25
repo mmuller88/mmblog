@@ -8,6 +8,9 @@ const HOISTED = /^(title|link|meta|script|style|base|noscript)$/i
 
 exports.wrapRootElement = ({ element }) => {
  resetSsrHead()
+ // react-helmet-async 3 on React 19 ignores provider context and renders
+ // title, meta, and link at the start of the SSR stream. replaceRenderer
+ // moves those tags into <head>.
  return React.createElement(HelmetProvider, null, element)
 }
 

@@ -272,6 +272,18 @@ export const agencyLandingContent = {
      href: "/sistrix-mcp-hallocasa-seo/",
     },
    },
+   offer: {
+    heading: "First step",
+    intro:
+     "The call is to see whether a technical SEO pass is the right next purchase. After that, a bounded Statement of Work.",
+    rows: [
+     ["Scope", "One JavaScript or SaaS site: crawl, index, canonicals, and the pages that should rank."],
+     ["Deliverables", "Audit notes plus the prioritized fixes we implement in the repo."],
+     ["Turnaround", "Agreed in the Statement of Work."],
+     ["Exclusions", "Content writing for a new article series, link buying, and ranking guarantees."],
+     ["Price", "On request."],
+    ],
+   },
    definition: {
     heading: "What this engagement is",
     paragraphs: [
@@ -366,6 +378,18 @@ export const agencyLandingContent = {
      label: "Wie das HalloCasa-Audit lief",
      href: "/sistrix-mcp-hallocasa-seo-de/",
     },
+   },
+   offer: {
+    heading: "Erster Schritt",
+    intro:
+     "Das Gespräch klärt, ob ein technischer SEO-Durchgang der richtige nächste Kauf ist. Danach ein abgegrenztes Statement of Work.",
+    rows: [
+     ["Scope", "Eine JavaScript- oder SaaS-Seite: Crawl, Index, Canonicals und die Seiten, die ranken sollen."],
+     ["Liefergegenstände", "Audit-Notizen plus die priorisierten Fixes, die wir im Repo umsetzen."],
+     ["Dauer", "Vereinbart im Statement of Work."],
+     ["Nicht enthalten", "Neue Artikelserien, Linkkauf und Ranking-Garantien."],
+     ["Preis", "Auf Anfrage."],
+    ],
    },
    definition: {
     heading: "Worum es geht",
