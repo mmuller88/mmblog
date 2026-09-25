@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
 # Sitemaps
 Sitemap: https://martinmueller.dev/sitemap.xml
 
@@ -23,4 +26,4 @@ Allow: /*.webp$
 Allow: /*.pdf$
 
 # Crawl delay (optional - uncomment if needed)
-# Crawl-delay: 1 
+# Crawl-delay: 1

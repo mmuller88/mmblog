@@ -25,7 +25,34 @@ export const oneManAgencyContent = {
    gerUrl: "/one-man-agency-de/",
   },
   langSwitch: { label: "Translate To German", href: "/one-man-agency-de/" },
+  services: {
+   heading: "Services",
+   items: [
+    {
+     title: "AWS",
+     text: "Architecture, CDK, cost, and migration reviews.",
+     href: "/one-man-agency/aws/",
+    },
+    {
+     title: "SEO / GEO",
+     text:
+      "Technical SEO for JavaScript and SaaS sites, implementation included.",
+     href: "/one-man-agency/seo-geo/",
+    },
+    {
+     title: "ChatGPT Ads",
+     text: "Campaigns, tracking, and landing pages.",
+     href: "/one-man-agency/gpt/",
+    },
+    {
+     title: "Vibe Coding",
+     text: "Production readiness for an AI prototype.",
+     href: "/one-man-agency/vibe-coding/",
+    },
+   ],
+  },
   sections: [
+   { id: "services", value: "Services", depth: 2 },
    { id: "testimonials", value: "What Clients Say", depth: 2 },
    { id: "value-packages", value: "Value Packages", depth: 2 },
    { id: "statement-of-work", value: "Statement of Work First", depth: 2 },
@@ -128,11 +155,16 @@ export const oneManAgencyContent = {
     "Acceptance criteria",
     "Security, cloud, SEO/GEO audits & more",
    ],
-   examplesIntro:
-    "See what a real SoW looks like — redacted client examples:",
+   examplesIntro: "See what a real SoW looks like — redacted client examples:",
    examples: [
-    { label: "📄 SEO/GEO Strategy SoW", href: "/one-man-agency/sow-seo-geo-redacted-example.pdf" },
-    { label: "📄 Security Audit SoW Template", href: "/one-man-agency/sow-security-audit-template-redacted.pdf" },
+    {
+     label: "📄 SEO/GEO Strategy SoW",
+     href: "/one-man-agency/sow-seo-geo-redacted-example.pdf",
+    },
+    {
+     label: "📄 Security Audit SoW Template",
+     href: "/one-man-agency/sow-security-audit-template-redacted.pdf",
+    },
    ],
   },
   whyOneExpert: {
@@ -163,11 +195,27 @@ export const oneManAgencyContent = {
    intro:
     "My self-hosted AI agent OpenClaw runs alongside Cursor and MCP integrations — turning one person into a small ops team. Real workflows from the last three months:",
    workflows: [
-    { label: "Blog posts", text: "voice note in, researched draft out, published on my site" },
-    { label: "GitHub issues → plans → PRs", text: "agent writes the plan, I approve, code lands in the repo" },
-    { label: "Invoices", text: "bilingual PDFs for US and German clients, email draft ready to send" },
-    { label: "SEO & compliance", text: "live data pulls and reports without clicking through five tools" },
-    { label: "Conference proposals", text: "talk drafts from memory, not from a blank page" },
+    {
+     label: "Blog posts",
+     text: "voice note in, researched draft out, published on my site",
+    },
+    {
+     label: "GitHub issues → plans → PRs",
+     text: "agent writes the plan, I approve, code lands in the repo",
+    },
+    {
+     label: "Invoices",
+     text:
+      "bilingual PDFs for US and German clients, email draft ready to send",
+    },
+    {
+     label: "SEO & compliance",
+     text: "live data pulls and reports without clicking through five tools",
+    },
+    {
+     label: "Conference proposals",
+     text: "talk drafts from memory, not from a blank page",
+    },
    ],
    readMore: "Read how it works →",
    readMoreHref: "/openclaw-three-months-later/",
@@ -204,12 +252,47 @@ export const oneManAgencyContent = {
    engUrl: "/one-man-agency/",
   },
   langSwitch: { label: "Translate To English", href: "/one-man-agency/" },
+  services: {
+   heading: "Leistungen",
+   items: [
+    {
+     title: "AWS",
+     text: "Architektur, CDK, Kosten und Migration.",
+     href: "/one-man-agency-de/aws/",
+    },
+    {
+     title: "SEO / GEO",
+     text:
+      "Technisches SEO für JavaScript- und SaaS-Seiten, inklusive Umsetzung.",
+     href: "/one-man-agency-de/seo-geo/",
+    },
+    {
+     title: "ChatGPT Ads",
+     text: "Kampagnen, Tracking und Landingpages.",
+     href: "/one-man-agency-de/gpt/",
+    },
+    {
+     title: "Vibe Coding",
+     text: "Production Readiness für einen KI-Prototyp.",
+     href: "/one-man-agency-de/vibe-coding/",
+    },
+   ],
+  },
   sections: [
+   { id: "services", value: "Leistungen", depth: 2 },
    { id: "testimonials", value: "Was Kunden sagen", depth: 2 },
    { id: "value-packages", value: "Pakete", depth: 2 },
    { id: "statement-of-work", value: "Statement of Work zuerst", depth: 2 },
-   { id: "why-one-expert", value: "Warum ein Experte ein großes Team schlägt", depth: 2 },
-   { id: "ai-agents", value: "Wie KI-Agenten die Lieferung skalieren", depth: 2 },
+   {
+    id: "why-one-expert",
+    value: "Warum ein Experte ein großes Team schlägt",
+    depth: 2,
+   },
+   {
+    id: "ai-agents",
+    value: "Wie KI-Agenten die Lieferung skalieren",
+    depth: 2,
+   },
    { id: "get-started", value: "Bereit loszulegen?", depth: 2 },
   ],
   hero: {
@@ -310,8 +393,14 @@ export const oneManAgencyContent = {
    examplesIntro:
     "So sieht ein echtes SoW aus — anonymisierte Kundenbeispiele:",
    examples: [
-    { label: "📄 SEO/GEO-Strategie SoW", href: "/one-man-agency/sow-seo-geo-redacted-example.pdf" },
-    { label: "📄 Security-Audit SoW-Vorlage", href: "/one-man-agency/sow-security-audit-template-redacted.pdf" },
+    {
+     label: "📄 SEO/GEO-Strategie SoW",
+     href: "/one-man-agency/sow-seo-geo-redacted-example.pdf",
+    },
+    {
+     label: "📄 Security-Audit SoW-Vorlage",
+     href: "/one-man-agency/sow-security-audit-template-redacted.pdf",
+    },
    ],
   },
   whyOneExpert: {
@@ -342,11 +431,28 @@ export const oneManAgencyContent = {
    intro:
     "Mein selbst gehosteter KI-Agent OpenClaw läuft parallel zu Cursor und MCP-Integrationen — und macht aus einer Person ein kleines Ops-Team. Echte Workflows der letzten drei Monate:",
    workflows: [
-    { label: "Blogposts", text: "Sprachnotiz rein, recherchierter Entwurf raus, auf meiner Seite veröffentlicht" },
-    { label: "GitHub Issues → Pläne → PRs", text: "Agent schreibt den Plan, ich gebe frei, Code landet im Repo" },
-    { label: "Rechnungen", text: "zweisprachige PDFs für US- und deutsche Kunden, E-Mail-Entwurf fertig zum Versand" },
-    { label: "SEO & Compliance", text: "Live-Daten und Reports ohne fünf Tools anklicken zu müssen" },
-    { label: "Konferenz-Vorschläge", text: "Talk-Entwürfe aus dem Gedächtnis, nicht von einer leeren Seite" },
+    {
+     label: "Blogposts",
+     text:
+      "Sprachnotiz rein, recherchierter Entwurf raus, auf meiner Seite veröffentlicht",
+    },
+    {
+     label: "GitHub Issues → Pläne → PRs",
+     text: "Agent schreibt den Plan, ich gebe frei, Code landet im Repo",
+    },
+    {
+     label: "Rechnungen",
+     text:
+      "zweisprachige PDFs für US- und deutsche Kunden, E-Mail-Entwurf fertig zum Versand",
+    },
+    {
+     label: "SEO & Compliance",
+     text: "Live-Daten und Reports ohne fünf Tools anklicken zu müssen",
+    },
+    {
+     label: "Konferenz-Vorschläge",
+     text: "Talk-Entwürfe aus dem Gedächtnis, nicht von einer leeren Seite",
+    },
    ],
    readMore: "So funktioniert es →",
    readMoreHref: "/openclaw-three-months-later-de/",

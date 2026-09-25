@@ -1,136 +1,143 @@
 module.exports = {
-  siteMetadata: {
-    title: `Martin Mueller's Blog`,
-    description: `Technology blog featuring AWS, CDK, serverless, and cloud architecture insights by Martin Mueller - AWS Solutions Architect and software engineer.`,
-    siteUrl: 'https://martinmueller.dev',
-    author: `Martin Mueller`,
-    social: {
-      twitter: `@MartinMueller_`,
-      github: `mmuller88`,
-      linkedin: `martin-mueller-dev`
-    },
-    keywords: [
-      'AWS', 'Cloud Computing', 'Serverless', 'CDK', 'Infrastructure as Code',
-      'Software Engineering', 'DevOps', 'Technology Blog', 'Martin Mueller'
-    ],
-    language: 'en',
-    locale: 'en_US',
-    giscus: {
-      repo: 'mmuller88/mmblog',
-      repoId: 'MDEwOlJlcG9zaXRvcnkxODc2MjcwNTg=',
-      category: 'Announcements',
-      categoryId: 'DIC_kwDOCy72Ms4C_Wft',
-      mapping: 'pathname',
-    },
+ siteMetadata: {
+  title: `Martin Mueller's Blog`,
+  description: `Technology blog featuring AWS, CDK, serverless, and cloud architecture insights by Martin Mueller - AWS Solutions Architect and software engineer.`,
+  siteUrl: "https://martinmueller.dev",
+  author: `Martin Mueller`,
+  social: {
+   twitter: `@MartinMueller_`,
+   github: `mmuller88`,
+   linkedin: `martin-mueller-dev`,
   },
-  plugins: [
-    {
-    resolve: `gatsby-transformer-remark`,
-    options: {
-      plugins: [
+  keywords: [
+   "AWS",
+   "Cloud Computing",
+   "Serverless",
+   "CDK",
+   "Infrastructure as Code",
+   "Software Engineering",
+   "DevOps",
+   "Technology Blog",
+   "Martin Mueller",
+  ],
+  language: "en",
+  locale: "en_US",
+  giscus: {
+   repo: "mmuller88/mmblog",
+   repoId: "MDEwOlJlcG9zaXRvcnkxODc2MjcwNTg=",
+   category: "Announcements",
+   categoryId: "DIC_kwDOCy72Ms4C_Wft",
+   mapping: "pathname",
+  },
+ },
+ plugins: [
+  {
+   resolve: `gatsby-transformer-remark`,
+   options: {
+    plugins: [
+     {
+      resolve: `gatsby-remark-images`,
+      options: {
+       // It's important to specify the maxWidth (in pixels) of
+       // the content container as this plugin uses this as the
+       // base for generating different widths of each image.
+       maxWidth: 800,
+       linkImagesToOriginal: false,
+       loading: "lazy",
+       quality: 90,
+       withWebp: true,
+       tracedSVG: true,
+      },
+     },
+     {
+      resolve: `gatsby-remark-autolink-headers`,
+      options: {
+       offsetY: 0,
+       icon: `<svg aria-hidden="true" height="20" width="20" viewBox="0 0 16 16" fill="currentColor"><path d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg>`,
+       className: `heading-anchor`,
+       isIconAfterHeader: false,
+       elements: [`h2`, `h3`, `h4`],
+      },
+     },
+     {
+      resolve: `gatsby-remark-prismjs`,
+      options: {
+       // Class prefix for <pre> tags containing syntax highlighting;
+       // defaults to 'language-' (e.g. <pre class="language-js">).
+       classPrefix: "language-",
+       // This is used to allow setting a language for inline code
+       // (i.e. single backticks) by creating a separator.
+       inlineCodeMarker: null,
+       // This lets you set up language aliases.  For example,
+       // setting this to '{ sh: "bash" }' will let you use
+       // the language "sh" which will highlight using the
+       // bash highlighter.
+       aliases: {},
+       // This toggles the display of line numbers globally alongside the code.
+       showLineNumbers: false,
+       // If setting this to true, the parser won't handle and highlight inline
+       // code used in markdown i.e. single backtick code like `this`.
+       noInlineHighlight: true,
+       // This adds a new language definition to Prism or extend an existing
+       // language definition. More details on this option can be found
+       // under the header "Add new language definition or extend an existing
+       // language definition" below.
+       languageExtensions: [
         {
-          resolve: `gatsby-remark-images`,
-          options: {
-            // It's important to specify the maxWidth (in pixels) of
-            // the content container as this plugin uses this as the
-            // base for generating different widths of each image.
-            maxWidth: 800,
-            linkImagesToOriginal: false,
-            loading: 'lazy',
-            quality: 90,
-            withWebp: true,
-            tracedSVG: true
+         language: "superscript",
+         extend: "javascript",
+         definition: {
+          superscript_types: /(SuperType)/,
+         },
+         insertBefore: {
+          function: {
+           superscript_keywords: /(superif|superelse)/,
           },
+         },
         },
-        {
-          resolve: `gatsby-remark-autolink-headers`,
-          options: {
-            offsetY: 0,
-            icon: `<svg aria-hidden="true" height="20" width="20" viewBox="0 0 16 16" fill="currentColor"><path d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg>`,
-            className: `heading-anchor`,
-            isIconAfterHeader: false,
-            elements: [`h2`, `h3`, `h4`],
-          },
-        },
-        {
-          resolve: `gatsby-remark-prismjs`,
-          options: {
-            // Class prefix for <pre> tags containing syntax highlighting;
-            // defaults to 'language-' (e.g. <pre class="language-js">).
-            classPrefix: "language-",
-            // This is used to allow setting a language for inline code
-            // (i.e. single backticks) by creating a separator.
-            inlineCodeMarker: null,
-            // This lets you set up language aliases.  For example,
-            // setting this to '{ sh: "bash" }' will let you use
-            // the language "sh" which will highlight using the
-            // bash highlighter.
-            aliases: {},
-            // This toggles the display of line numbers globally alongside the code.
-            showLineNumbers: false,
-            // If setting this to true, the parser won't handle and highlight inline
-            // code used in markdown i.e. single backtick code like `this`.
-            noInlineHighlight: true,
-            // This adds a new language definition to Prism or extend an existing
-            // language definition. More details on this option can be found
-            // under the header "Add new language definition or extend an existing
-            // language definition" below.
-            languageExtensions: [
-              {
-                language: "superscript",
-                extend: "javascript",
-                definition: {
-                  superscript_types: /(SuperType)/,
-                },
-                insertBefore: {
-                  function: {
-                    superscript_keywords: /(superif|superelse)/,
-                  },
-                },
-              },
-            ],
-            // Customize the prompt used in shell output
-            // Values below are default
-            prompt: {
-              user: "root",
-              host: "localhost",
-              global: false,
-            },
-            // By default the HTML entities <>&" are escaped.
-            // Add additional HTML escapes by providing a mapping
-            // of HTML entities and their escape value IE: { '}': '&#123;' }
-            escapeEntities: {},
-          },
-        },
-      ],
-    },
-    },
-    // {
-    //   resolve: `gatsby-plugin-disqus`,
-    //   options: {
-    //     shortname: `MartinMuellerDev`
-    //   }
-    // },
-    'gatsby-plugin-postcss',
-    // {
-    //   resolve: `gatsby-plugin-gdpr-cookies`,
-    //   options: {
-    //     googleAnalytics: {
-    //       trackingId: 'UA-170834724-1',
-    //       // Setting this parameter is optional
-    //       // anonymize: true
-    //     },
-    //     // facebookPixel: {
-    //     //   pixelId: 'YOUR_FACEBOOK_PIXEL_ID'
-    //     // },
-    //     // Defines the environments where the tracking should be available  - default is ["production"]
-    //     environments: ['production', 'development']
-    //   },
-    // },
-    {
-      resolve: 'gatsby-plugin-feed',
-        options: {
-          query: `
+       ],
+       // Customize the prompt used in shell output
+       // Values below are default
+       prompt: {
+        user: "root",
+        host: "localhost",
+        global: false,
+       },
+       // By default the HTML entities <>&" are escaped.
+       // Add additional HTML escapes by providing a mapping
+       // of HTML entities and their escape value IE: { '}': '&#123;' }
+       escapeEntities: {},
+      },
+     },
+    ],
+   },
+  },
+  // {
+  //   resolve: `gatsby-plugin-disqus`,
+  //   options: {
+  //     shortname: `MartinMuellerDev`
+  //   }
+  // },
+  "gatsby-plugin-postcss",
+  // {
+  //   resolve: `gatsby-plugin-gdpr-cookies`,
+  //   options: {
+  //     googleAnalytics: {
+  //       trackingId: 'UA-170834724-1',
+  //       // Setting this parameter is optional
+  //       // anonymize: true
+  //     },
+  //     // facebookPixel: {
+  //     //   pixelId: 'YOUR_FACEBOOK_PIXEL_ID'
+  //     // },
+  //     // Defines the environments where the tracking should be available  - default is ["production"]
+  //     environments: ['production', 'development']
+  //   },
+  // },
+  {
+   resolve: "gatsby-plugin-feed",
+   options: {
+    query: `
             {
               site {
                 siteMetadata {
@@ -142,39 +149,48 @@ module.exports = {
               }
             }
           `,
-          feeds: [
-            {
-              serialize: ({ query: { site, allMarkdownRemark } }) => {
-                return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("eng") && !edge.node.frontmatter.tags.includes("nofeed")).map(edge => {
-                  return Object.assign({}, edge.node.frontmatter, {
-                    description: edge.node.excerpt,
-                    date: edge.node.frontmatter.date,
-                    url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    categories: edge.node.frontmatter.tags,
-                    enclosure: edge.node.frontmatter.image && {
-                      url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
-                    },
-                    custom_elements: [
-                      { "content:encoded": edge.node.html },
-                      {
-                        featuredImage:  edge.node.frontmatter.image ?
-                          site.siteMetadata.siteUrl +
-                          edge.node.frontmatter.image.publicURL : undefined
-                      },
-                      edge.node.frontmatter.image && {
-                        "media:content": {
-                          _attr: {
-                            url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
-                            medium: "image"
-                          }
-                        }
-                      },
-                    ].filter(Boolean),
-                  })
-                })
-              },
-              query: `
+    feeds: [
+     {
+      serialize: ({ query: { site, allMarkdownRemark } }) => {
+       return allMarkdownRemark.edges
+        .filter(
+         (edge) =>
+          edge.node.frontmatter.tags.includes("eng") &&
+          !edge.node.frontmatter.tags.includes("nofeed")
+        )
+        .map((edge) => {
+         return Object.assign({}, edge.node.frontmatter, {
+          description: edge.node.excerpt,
+          date: edge.node.frontmatter.date,
+          url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+          guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+          categories: edge.node.frontmatter.tags,
+          enclosure: edge.node.frontmatter.image && {
+           url:
+            site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
+          },
+          custom_elements: [
+           { "content:encoded": edge.node.html },
+           {
+            featuredImage: edge.node.frontmatter.image
+             ? site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL
+             : undefined,
+           },
+           edge.node.frontmatter.image && {
+            "media:content": {
+             _attr: {
+              url:
+               site.siteMetadata.siteUrl +
+               edge.node.frontmatter.image.publicURL,
+              medium: "image",
+             },
+            },
+           },
+          ].filter(Boolean),
+         })
+        })
+      },
+      query: `
                 {
                   allMarkdownRemark(
                     sort: { order: DESC, fields: [frontmatter___date] }
@@ -197,42 +213,51 @@ module.exports = {
                   }
                 }
               `,
-              output: "/rss.xml",
-              title: "Martin Mueller's Blog",
-              description: "Latest posts from Martin Mueller's technology blog"
+      output: "/rss.xml",
+      title: "Martin Mueller's Blog",
+      description: "Latest posts from Martin Mueller's technology blog",
+     },
+     {
+      serialize: ({ query: { site, allMarkdownRemark } }) => {
+       return allMarkdownRemark.edges
+        .filter(
+         (edge) =>
+          edge.node.frontmatter.tags.includes("de") &&
+          !edge.node.frontmatter.tags.includes("nofeed")
+        )
+        .map((edge) => {
+         return Object.assign({}, edge.node.frontmatter, {
+          description: edge.node.excerpt,
+          date: edge.node.frontmatter.date,
+          url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+          guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+          categories: edge.node.frontmatter.tags,
+          enclosure: edge.node.frontmatter.image && {
+           url:
+            site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
+          },
+          custom_elements: [
+           { "content:encoded": edge.node.html },
+           {
+            featuredImage: edge.node.frontmatter.image
+             ? site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL
+             : undefined,
+           },
+           edge.node.frontmatter.image && {
+            "media:content": {
+             _attr: {
+              url:
+               site.siteMetadata.siteUrl +
+               edge.node.frontmatter.image.publicURL,
+              medium: "image",
+             },
             },
-            {
-              serialize: ({ query: { site, allMarkdownRemark } }) => {
-                return allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.tags.includes("de") && !edge.node.frontmatter.tags.includes("nofeed")).map(edge => {
-                  return Object.assign({}, edge.node.frontmatter, {
-                    description: edge.node.excerpt,
-                    date: edge.node.frontmatter.date,
-                    url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                    categories: edge.node.frontmatter.tags,
-                    enclosure: edge.node.frontmatter.image && {
-                      url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
-                    },
-                    custom_elements: [
-                      { "content:encoded": edge.node.html },
-                      {
-                        featuredImage:  edge.node.frontmatter.image ?
-                          site.siteMetadata.siteUrl +
-                          edge.node.frontmatter.image.publicURL : undefined
-                      },
-                      edge.node.frontmatter.image && {
-                        "media:content": {
-                          _attr: {
-                            url: site.siteMetadata.siteUrl + edge.node.frontmatter.image.publicURL,
-                            medium: "image"
-                          }
-                        }
-                      },
-                    ].filter(Boolean),
-                  })
-                })
-              },
-              query: `
+           },
+          ].filter(Boolean),
+         })
+        })
+      },
+      query: `
                 {
                   allMarkdownRemark(
                     sort: { order: DESC, fields: [frontmatter___date] }
@@ -255,45 +280,44 @@ module.exports = {
                   }
                 }
               `,
-              output: "/rss-ger.xml",
-              title: "Martin Mueller's Blog Ger",
-              description: "Neueste Beiträge aus Martin Muellers Technologie-Blog"
-            },
-          ]
-        },
-    },
-    'gatsby-plugin-react-helmet',
-    `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
-    // {
-    //   resolve: `gatsby-remark-images`,
-    //   options: {
-    //     // It's important to specify the maxWidth (in pixels) of
-    //     // the content container as this plugin uses this as the
-    //     // base for generating different widths of each image.
-    //     maxWidth: 1200,
-    //     linkImagesToOriginal: true,
-    //     sizeByPixelDensity: true,
-    //     showCaptions: true,
-    //   },
-    // },
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        output: `/sitemap.xml`,
-        excludes: [
-          `/dev-404-page`,
-          `/404`,
-          `/404.html`,
-          `/offline-plugin-app-shell-fallback`,
-          `/alf-*`,
-          `/alfresco-*`,
-          `/Alfresco-*`,
-          `/ADF-App*`,
-          `/start-script*`,
-        ],
-        query: `
+      output: "/rss-ger.xml",
+      title: "Martin Mueller's Blog Ger",
+      description: "Neueste Beiträge aus Martin Muellers Technologie-Blog",
+     },
+    ],
+   },
+  },
+  `gatsby-plugin-image`,
+  `gatsby-plugin-sharp`,
+  `gatsby-transformer-sharp`,
+  // {
+  //   resolve: `gatsby-remark-images`,
+  //   options: {
+  //     // It's important to specify the maxWidth (in pixels) of
+  //     // the content container as this plugin uses this as the
+  //     // base for generating different widths of each image.
+  //     maxWidth: 1200,
+  //     linkImagesToOriginal: true,
+  //     sizeByPixelDensity: true,
+  //     showCaptions: true,
+  //   },
+  // },
+  {
+   resolve: `gatsby-plugin-sitemap`,
+   options: {
+    output: `/sitemap.xml`,
+    excludes: [
+     `/dev-404-page`,
+     `/404`,
+     `/404.html`,
+     `/offline-plugin-app-shell-fallback`,
+     `/alf-*`,
+     `/alfresco-*`,
+     `/Alfresco-*`,
+     `/ADF-App*`,
+     `/start-script*`,
+    ],
+    query: `
           {
             allSitePage {
               nodes {
@@ -312,68 +336,68 @@ module.exports = {
             }
           }
         `,
-        resolveSiteUrl: () => 'https://martinmueller.dev',
-        serialize: ({ path, frontmatter }) => {
-          return {
-            url: path,
-            changefreq: path === '/' ? 'weekly' : 'monthly',
-            priority: path === '/' ? 1.0 : 0.8,
-            lastmod: frontmatter?.date
-          }
-        }
-      }
+    resolveSiteUrl: () => "https://martinmueller.dev",
+    serialize: ({ path, frontmatter }) => {
+     return {
+      url: path,
+      changefreq: path === "/" ? "weekly" : "monthly",
+      priority: path === "/" ? 1.0 : 0.8,
+      lastmod: frontmatter?.date,
+     }
     },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: 'Martin Mueller\'s Blog',
-        short_name: 'MM Blog',
-        description: 'Technology blog featuring AWS, CDK, serverless, and cloud architecture insights',
-        start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/avatarIcon.jpeg', // This path is relative to the root of the site.
-        cache_busting_mode: 'query',
-        include_favicon: true,
-        legacy: true,
-        theme_color_in_head: true
-      },
-    },
-    `gatsby-plugin-catch-links`,
-    'gatsby-plugin-offline',
+   },
+  },
+  {
+   resolve: `gatsby-plugin-manifest`,
+   options: {
+    name: "Martin Mueller's Blog",
+    short_name: "MM Blog",
+    description:
+     "Technology blog featuring AWS, CDK, serverless, and cloud architecture insights",
+    start_url: "/",
+    background_color: "#663399",
+    theme_color: "#663399",
+    display: "minimal-ui",
+    icon: "src/images/avatarIcon.jpeg", // This path is relative to the root of the site.
+    cache_busting_mode: "query",
+    include_favicon: true,
+    legacy: true,
+    theme_color_in_head: true,
+   },
+  },
+  `gatsby-plugin-catch-links`,
+  "gatsby-plugin-offline",
 
-    // {
-    //   resolve: "gatsby-transformer-remark",
-      // options: { // should be wrapped in options
-      //   plugins: [
-      //     {
-      //       resolve: "gatsby-remark-images",
-      //       options: {
-      //         maxWidth: 5000,
-      //         withWebp: true,
-      //         showCaptions: true,
-      //         quality: 100,
-      //       },
-      //     },
-      //     "gatsby-remark-emoji",
-      //   ],
-      // }
-    // },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `content`,
-        path: `${__dirname}/content`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages`,
-      },
-    },
-
-  ],
+  // {
+  //   resolve: "gatsby-transformer-remark",
+  // options: { // should be wrapped in options
+  //   plugins: [
+  //     {
+  //       resolve: "gatsby-remark-images",
+  //       options: {
+  //         maxWidth: 5000,
+  //         withWebp: true,
+  //         showCaptions: true,
+  //         quality: 100,
+  //       },
+  //     },
+  //     "gatsby-remark-emoji",
+  //   ],
+  // }
+  // },
+  {
+   resolve: `gatsby-source-filesystem`,
+   options: {
+    name: `content`,
+    path: `${__dirname}/content`,
+   },
+  },
+  {
+   resolve: `gatsby-source-filesystem`,
+   options: {
+    name: `pages`,
+    path: `${__dirname}/src/pages`,
+   },
+  },
+ ],
 }

@@ -1,5 +1,6 @@
 import React from "react"
-import { Helmet } from "react-helmet"
+import { Helmet } from "react-helmet-async"
+import ssrHead from "../utils/ssrHead"
 
 function Metatags(props) {
  const {
@@ -182,6 +183,8 @@ function Metatags(props) {
    href: enHref,
   })
  }
+
+ ssrHead.setSsrLang(language)
 
  const robotsContent = noindex
   ? "noindex, follow"

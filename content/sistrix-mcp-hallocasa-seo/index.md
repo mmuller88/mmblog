@@ -192,7 +192,7 @@ The agent session produced a full strategy document — baseline by market, comp
 
 <p><a href="hallocasa-seo-strategy.pdf">Download PDF</a> · <a href="https://github.com/hallocasacom/hallocasa-next/blob/main/misc/seo/SEO_STRATEGY.md">View markdown source</a></p>
 
-**Want something similar for your domain?** I help teams run the same SISTRIX MCP + codebase audit workflow and turn it into a prioritized strategy doc like this. [Reach out on LinkedIn](https://www.linkedin.com/in/martinmueller88/).
+**Want something similar for your domain?** I help teams run the same SISTRIX MCP + codebase audit workflow and turn it into a prioritized strategy doc like this. The offer is **[technical SEO for JavaScript and SaaS sites](https://martinmueller.dev/one-man-agency/seo-geo/)**, implementation included. [Book a call](https://calendly.com/martinmueller_dev/30min) or send a message from that page. [LinkedIn](https://www.linkedin.com/in/martinmueller88/).
 
 ---
 

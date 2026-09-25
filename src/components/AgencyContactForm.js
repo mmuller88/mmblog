@@ -13,6 +13,10 @@ const AgencyContactForm = ({ labels }) => {
   e.preventDefault()
   const form = e.target
   const url = window?.location?.href ?? ""
+  const page = window?.location?.pathname ?? ""
+  const utmSource = new URLSearchParams(window?.location?.search || "").get(
+   "utm_source"
+  )
 
   fetch("/api/forms", {
    method: "POST",
@@ -24,6 +28,8 @@ const AgencyContactForm = ({ labels }) => {
     "form-name": form.getAttribute("name"),
     ...state,
     url,
+    page,
+    ...(utmSource ? { utm_source: utmSource } : {}),
    }).toString(),
   })
    .then(() => {
