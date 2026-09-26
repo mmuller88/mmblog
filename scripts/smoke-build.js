@@ -89,7 +89,7 @@ const headRoutes = [
  },
  {
   file: "one-man-agency-de/aws/index.html",
-  title: "AWS Consulting — Architektur, CDK & Migration",
+  title: "AWS CDK Beratung: Architektur, Kosten, Migration",
   canonical: `${SITE}/one-man-agency-de/aws/`,
   en: `${SITE}/one-man-agency/aws/`,
   de: `${SITE}/one-man-agency-de/aws/`,
@@ -103,7 +103,7 @@ const headRoutes = [
  },
  {
   file: "one-man-agency-de/seo-geo/index.html",
-  title: "Technisches SEO für JavaScript- und SaaS-Seiten",
+  title: "Technisches SEO und GEO für JavaScript- und SaaS-Seiten",
   canonical: `${SITE}/one-man-agency-de/seo-geo/`,
   en: `${SITE}/one-man-agency/seo-geo/`,
   de: `${SITE}/one-man-agency-de/seo-geo/`,
@@ -131,7 +131,7 @@ const headRoutes = [
  },
  {
   file: "one-man-agency-de/vibe-coding/index.html",
-  title: "Vibe Coding & DevOps — Production Readiness & Security",
+  title: "Vibe Coding in Produktion: Security, Deploy, EU-Hosting",
   canonical: `${SITE}/one-man-agency-de/vibe-coding/`,
   en: `${SITE}/one-man-agency/vibe-coding/`,
   de: `${SITE}/one-man-agency-de/vibe-coding/`,

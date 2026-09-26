@@ -122,7 +122,7 @@ export const agencyLandingContent = {
   },
   de: {
    meta: {
-    title: "AWS Consulting — Architektur, CDK & Migration",
+    title: "AWS CDK Beratung: Architektur, Kosten, Migration",
     description:
      "Senior AWS-Experte für Architektur, CDK-Infrastruktur, Kostenoptimierung und Migrationen. Festes Statement of Work, kein Agentur-Aufschlag.",
     keywords: [
@@ -198,6 +198,7 @@ export const agencyLandingContent = {
      "Schriftliches Statement of Work mit Festpreis",
     ],
    },
+   service: true,
    testimonials: [
     {
      name: "Adrian Logan",
@@ -334,7 +335,7 @@ export const agencyLandingContent = {
   },
   de: {
    meta: {
-    title: "Technisches SEO für JavaScript- und SaaS-Seiten",
+    title: "Technisches SEO und GEO für JavaScript- und SaaS-Seiten",
     description:
      "Technisches SEO für JavaScript- und SaaS-Seiten, inklusive Umsetzung. Audit, priorisierte Fixes und ein festes Statement of Work.",
     keywords: [
@@ -570,6 +571,7 @@ export const agencyLandingContent = {
     },
    ],
    faqHeading: "Fragen zu ChatGPT Ads",
+   service: true,
    relatedPost: {
     label:
      "Feldnotizen: Was ich aus meiner ersten ChatGPT-Ads-Kampagne gelernt habe",
@@ -677,7 +679,7 @@ export const agencyLandingContent = {
   },
   de: {
    meta: {
-    title: "Vibe Coding & DevOps — Production Readiness & Security",
+    title: "Vibe Coding in Produktion: Security, Deploy, EU-Hosting",
     description:
      "KI-Prototypen produktionsreif machen. DevOps, Security Audits, Monitoring, DSGVO-konformes Hosting in der EU.",
     keywords: [
@@ -766,6 +768,7 @@ export const agencyLandingContent = {
      ],
     },
    ],
+   service: true,
    contact: { heading: "Erzählen Sie mir von Ihrem Stack", form: formLabelsDe },
   },
  },

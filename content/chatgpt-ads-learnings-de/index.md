@@ -1,7 +1,7 @@
 ---
-title: "ChatGPT Ads: Was ich aus meiner ersten Kampagne gelernt habe"
-description: "Feldnotizen zu ChatGPT Ads in Europa: gesponserte Karten unter der Antwort, Unterschied zu Google Ads, und die erste Live-Kampagne."
-show: "no"
+title: "ChatGPT Ads in Deutschland: Setup, Tracking, erste Kampagne"
+description: "Was ChatGPT Ads in Deutschland sind, was den Preis treibt (Tracking, Landings, Spend) und wann eine Agentur sinnvoll ist."
+show: "yes"
 date: "2026-09-19"
 image: "index.png"
 audio: "audio.mp3"
@@ -22,7 +22,21 @@ faq:
     a: "Menschen, die ChatGPT Web schon benutzen und im Dialog ein Problem lösen. Für B2B-Services, SaaS und AI-nahe Angebote ist das eine konzentrierte Zielgruppe."
   - q: "Was sollte man zuerst messen?"
     a: "Nicht nur Klicks im Ads Manager. Downstream zählen E-Mail, Calendly und echte Gespräche. Ein Angebot, eine Seite, eine Metrik."
+  - q: "Was kosten ChatGPT Ads?"
+    a: "Es gibt keine öffentliche Preisliste. Den Festpreis treiben drei Teile: Medien-Spend im Ads Manager, Tracking (Pixel und CAPI) und die Intent-Landings. Preis auf Anfrage, im Statement of Work."
+  - q: "Wann lohnt sich eine ChatGPT Ads Agentur?"
+    a: "Wenn Kampagne, Tracking und Landing zusammen stehen sollen und Downstream zählen soll — E-Mail, Calendly, Gespräche — statt nur Klicks im Ads Manager. Für einen kleinen Placement-Test reicht ein eigenes Budget."
 ---
+
+ChatGPT Ads sind gesponserte Karten unter der Antwort in ChatGPT. Sie matchen das laufende Gespräch — was gefragt wurde und in welchem Thread man steckt — nicht ein Keyword auf einer Suchergebnisseite. In Deutschland und dem restlichen Europa sind sie seit August 2026 live.
+
+Was sie kosten, steht auf keiner Preisliste. Drei Teile treiben das Angebot. **Spend** ist das Medienbudget im Ads Manager. Ein kleines Budget reicht, um Placement und Creative zu sehen; ich habe so zwei Kampagnen live bekommen. **Tracking** ist OpenAI-Pixel plus CAPI, damit ein Klick bis zu E-Mail, Calendly oder einem Gespräch zählt. **Landings** sind die Seiten hinter der Karte: eine Intent-Seite pro Angebot, nicht die Homepage. Mein Freelance-Angebot hat keinen öffentlichen Euro-Preis. Der Festpreis steht im Statement of Work und richtet sich nach genau diesen drei Teilen.
+
+Eine Agentur lohnt sich, wenn Kampagne, Tracking und Landing zusammen stehen sollen und du Downstream messen willst — gebuchte Termine, nicht nur Klicks. Wer nur das Placement lernen will, kommt mit einem kleinen eigenen Test hin.
+
+Setup und Tracking als Angebot: **[ChatGPT Ads](/one-man-agency-de/gpt/)**. Das eintägige Team-Training: **[ChatGPT Ads](/trainings-de/chatgpt-ads/)**.
+
+Darunter die Feldnotizen aus der ersten Kampagne.
 
 ChatGPT Ads sind seit **August 2026** in Europa live. Ich habe mich **Mitte September** registriert — nicht weil ich einen perfekten Mediaplan hatte, sondern weil neue Werbeflächen selten sind und ich mit echtem Budget lernen wollte.
 
@@ -146,6 +160,18 @@ Wenn du etwas zu verkaufen hast (Services, SaaS, echtes Produkt), eine klare Lan
 
 ---
 
+## Kosten
+
+Der Preis ist kein Medien-CPC. Drei Posten bestimmen das Statement of Work, Preis auf Anfrage:
+
+- **Spend.** Das Budget, das im Ads Manager auf die Karten geht. Klein reicht, um Placement und Creative zu lernen.
+- **Tracking.** OpenAI-Pixel und CAPI, plus die Calendly-Anbindung, damit ein gebuchter Termin ankommt und nicht nur ein Klick im Manager.
+- **Landings.** Eine Intent-Seite pro Anzeigengruppe, dazu Creative, Copy und danach Reporting.
+
+Das ist derselbe Scope wie auf dem **[Freelance-Angebot](/one-man-agency-de/gpt/)**: Kampagnen-Setup, Pixel und CAPI, Intent-Landings, Festpreis im Statement of Work. Wer das im Team selbst schalten will: **[Training ChatGPT Ads](/trainings-de/chatgpt-ads/)**.
+
+---
+
 ## FAQ
 
 **Was sind ChatGPT Ads?**
@@ -165,6 +191,12 @@ Menschen, die ChatGPT Web schon benutzen und im Dialog ein Problem lösen. Für 
 
 **Was sollte man zuerst messen?**
 Nicht nur Klicks im Ads Manager. Downstream zählen E-Mail, Calendly und echte Gespräche. Ein Angebot, eine Seite, eine Metrik.
+
+**Was kosten ChatGPT Ads?**
+Es gibt keine öffentliche Preisliste. Den Festpreis treiben drei Teile: Medien-Spend im Ads Manager, Tracking (Pixel und CAPI) und die Intent-Landings. Preis auf Anfrage, im Statement of Work.
+
+**Wann lohnt sich eine ChatGPT Ads Agentur?**
+Wenn Kampagne, Tracking und Landing zusammen stehen sollen und Downstream zählen soll — E-Mail, Calendly, Gespräche — statt nur Klicks im Ads Manager. Für einen kleinen Placement-Test reicht ein eigenes Budget.
 
 ---
 

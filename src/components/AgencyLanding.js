@@ -48,6 +48,12 @@ const AgencyLanding = ({ content, location }) => {
       "@type": "Person",
       name: "Martin Mueller",
       url: SITE_URL,
+      ...(meta.language === "de"
+       ? {
+          jobTitle: "AWS Community Builder",
+          sameAs: ["https://www.linkedin.com/in/martinmueller88/"],
+         }
+       : {}),
      },
      areaServed: meta.language === "de" ? "DE" : "Worldwide",
     }

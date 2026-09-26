@@ -1,6 +1,6 @@
 ---
 title: Wie ich OpenClaw als mein KI-gestütztes persönliches Betriebssystem nutze
-show: "no"
+show: "yes"
 date: "2026-03-31"
 image: "index.png"
 tags: ["de", "2026", "openclaw", "ai", "automation", "devops", "nofeed"]

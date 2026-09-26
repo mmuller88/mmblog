@@ -1,6 +1,6 @@
 ---
 title: "OpenClaw drei Monate später: Was wirklich gelandet ist"
-show: "no"
+show: "yes"
 date: "2026-07-07"
 image: "index.png"
 audio: "audio.mp3"

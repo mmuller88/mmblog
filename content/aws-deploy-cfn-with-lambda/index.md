@@ -1,6 +1,6 @@
 ---
 title: AWS Cloudformation deploying mit Lambda
-show: 'no'
+show: "yes"
 date: '2021-06-07'
 # image: 'version-prs.png'
 tags: ['de', '2021', 'projen', 'cdk', 'aws'] #nofeed
