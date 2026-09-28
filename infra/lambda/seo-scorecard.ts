@@ -215,14 +215,14 @@ export const seoScorecard = async (): Promise<Response> => {
       )
     }
 
-    const rows = measureRows(SCORECARD, hits, positions)
-    await publish(metricPoints(rows))
+const rows = measureRows(SCORECARD, hits, positions)
     const runDate = now.toISOString().slice(0, 10)
     await sendEmail({
       to,
       subject: `mmblog SEO ${runDate}`,
       message: formatEmail(runDate, window, rows, dashboardUrl),
     })
+    await publish(metricPoints(rows))
     console.log("seo-scorecard ok", JSON.stringify({ runDate, window, rows }))
     return Response.json({ ok: true, runDate, rows })
   } catch (err) {
