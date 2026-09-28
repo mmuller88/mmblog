@@ -29,7 +29,7 @@
     "react-dom": "^19.3.0",
     "react-helmet-async": "^3.0.0",
     "remark": "^13.0.0",
-    "remark-gfm": "^1.0.0",
+    "remark-gfm": "^4.0.1",
     "remark-parse": "^9.0.0",
     "sharp": "^0.33.1",
     "tailwindcss": "^4.3.3"
