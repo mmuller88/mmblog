@@ -7,6 +7,13 @@ export type AppSecrets = {
   OPENAI_ADS_CAPI_KEY?: string
   CALENDLY_WEBHOOK_SIGNING_KEY?: string
   CONVERSION_HEALTH_ALERT_URL?: string
+  GSC_SERVICE_ACCOUNT_JSON?: string | GoogleServiceAccount
+  SISTRIX_API_KEY?: string
+}
+
+export type GoogleServiceAccount = {
+  client_email: string
+  private_key: string
 }
 
 const client = new SecretsManagerClient({})
