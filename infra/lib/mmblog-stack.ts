@@ -386,7 +386,7 @@ export class MmblogStack extends Stack {
     dashboard.addWidgets(
       new cloudwatch.TextWidget({
         markdown:
-          "GSC ist 28 Tage, Land Deutschland, und hinkt etwa drei Tage hinterher. Position ist SISTRIX Google DE. Keine Position wird nicht als 0 gezeichnet.",
+          "GSC ist 28 Tage, Land Deutschland, und hinkt etwa drei Tage hinterher. Position ist SISTRIX Google DE. Keine Position wird als 0 gezeichnet.",
         width: 24,
         height: 2,
       })
