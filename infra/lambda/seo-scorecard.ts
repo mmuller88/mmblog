@@ -78,7 +78,7 @@ const googleAccessToken = async (
       grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
       assertion,
     }),
-    signal: AbortSignal.timeout(15000),
+    signal: AbortSignal.timeout(10000),
   })
   const text = await res.text()
   if (!res.ok) throw new Error(`google token ${res.status}: ${text}`)
@@ -95,10 +95,14 @@ type GscQueryResponse = {
   }>
 }
 
-const fetchGsc = async (
+const GSC_PAGE_SIZE = 5000
+const GSC_MAX_ROWS = 25000
+
+const fetchGscPage = async (
   token: string,
-  window: { startDate: string; endDate: string }
-): Promise<GscHit[]> => {
+  window: { startDate: string; endDate: string },
+  startRow: number
+): Promise<NonNullable<GscQueryResponse["rows"]>> => {
   const site = encodeURIComponent(GSC_SITE)
   const res = await fetch(
     `https://www.googleapis.com/webmasters/v3/sites/${site}/searchAnalytics/query`,
@@ -119,25 +123,37 @@ const fetchGsc = async (
             ],
           },
         ],
-        rowLimit: 5000,
+        rowLimit: GSC_PAGE_SIZE,
+        startRow,
         dataState: "all",
       }),
-      signal: AbortSignal.timeout(20000),
+      signal: AbortSignal.timeout(10000),
     }
   )
   const text = await res.text()
   if (!res.ok) throw new Error(`gsc ${res.status}: ${text}`)
   const json = JSON.parse(text) as GscQueryResponse
-  const rows = json.rows ?? []
-  if (rows.length >= 5000) {
-    throw new Error("gsc returned 5000 rows; raise the limit before trusting zeros")
+  return json.rows ?? []
+}
+
+const fetchGsc = async (
+  token: string,
+  window: { startDate: string; endDate: string }
+): Promise<GscHit[]> => {
+  const hits: GscHit[] = []
+  for (let startRow = 0; startRow < GSC_MAX_ROWS; startRow += GSC_PAGE_SIZE) {
+    const rows = await fetchGscPage(token, window, startRow)
+    for (const row of rows) {
+      hits.push({
+        page: row.keys?.[0] ?? "",
+        query: row.keys?.[1] ?? "",
+        impressions: row.impressions ?? 0,
+        clicks: row.clicks ?? 0,
+      })
+    }
+    if (rows.length < GSC_PAGE_SIZE) return hits
   }
-  return rows.map((row) => ({
-    page: row.keys?.[0] ?? "",
-    query: row.keys?.[1] ?? "",
-    impressions: row.impressions ?? 0,
-    clicks: row.clicks ?? 0,
-  }))
+  throw new Error("gsc returned 25000 rows; refusing to treat the rest as zero")
 }
 
 const fetchPosition = async (
@@ -151,7 +167,7 @@ const fetchPosition = async (
   url.searchParams.set("domain", DOMAIN)
   url.searchParams.set("format", "json")
 
-  const res = await fetch(url, { signal: AbortSignal.timeout(15000) })
+  const res = await fetch(url, { signal: AbortSignal.timeout(10000) })
   const text = await res.text()
   if (!res.ok) throw new Error(`sistrix ${keyword} ${res.status}: ${text}`)
   try {
@@ -159,6 +175,27 @@ const fetchPosition = async (
   } catch (err) {
     throw new Error(`sistrix ${keyword}: ${errMsg(err)}`)
   }
+}
+
+const mapPool = async <T, R>(
+  items: readonly T[],
+  limit: number,
+  fn: (item: T) => Promise<R>
+): Promise<R[]> => {
+  const results = new Array<R>(items.length)
+  let next = 0
+  const workers = Array.from(
+    { length: Math.min(limit, items.length) },
+    async () => {
+      while (next < items.length) {
+        const index = next
+        next += 1
+        results[index] = await fn(items[index])
+      }
+    }
+  )
+  await Promise.all(workers)
+  return results
 }
 
 const publish = async (
@@ -198,7 +235,8 @@ export const seoScorecard = async (): Promise<Response> => {
 
   try {
     const secrets = await getSecrets()
-    if (!secrets.GSC_SERVICE_ACCOUNT_JSON || !secrets.SISTRIX_API_KEY) {
+    const apiKey = secrets.SISTRIX_API_KEY
+    if (!secrets.GSC_SERVICE_ACCOUNT_JSON || !apiKey) {
       return await fail("missing GSC_SERVICE_ACCOUNT_JSON or SISTRIX_API_KEY")
     }
 
@@ -208,14 +246,14 @@ export const seoScorecard = async (): Promise<Response> => {
     const hits = await fetchGsc(token, window)
 
     const positions = new Map<string, number | null>()
-    for (const row of SCORECARD) {
-      positions.set(
-        row.keyword.toLowerCase(),
-        await fetchPosition(secrets.SISTRIX_API_KEY, row.keyword)
-      )
-    }
+    const fetched = await mapPool(SCORECARD, 4, (row) =>
+      fetchPosition(apiKey, row.keyword)
+    )
+    SCORECARD.forEach((row, index) => {
+      positions.set(row.keyword.toLowerCase(), fetched[index])
+    })
 
-const rows = measureRows(SCORECARD, hits, positions)
+    const rows = measureRows(SCORECARD, hits, positions)
     const runDate = now.toISOString().slice(0, 10)
     await sendEmail({
       to,

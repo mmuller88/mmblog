@@ -95,7 +95,11 @@ export const metricPoints = (rows: MeasuredRow[]): MetricPoint[] => {
   return points
 }
 
-type SistrixResult = { position?: number | string; domain?: string }
+type SistrixResult = {
+  position?: number | string
+  domain?: string
+  url?: string
+}
 
 type SistrixResponse = {
   status?: string
@@ -108,7 +112,28 @@ const asArray = <T>(value: T | T[] | undefined): T[] => {
   return Array.isArray(value) ? value : [value]
 }
 
-export const parseSistrixBody = (text: string, domain: string): number | null => {
+const hostnameMatches = (hostname: string, host: string): boolean => {
+  const name = hostname.replace(/^www\./, "").toLowerCase()
+  return name === host || name.endsWith(`.${host}`)
+}
+
+const rowMatchesHost = (row: SistrixResult, host: string): boolean => {
+  if (row.domain && hostnameMatches(row.domain, host)) return true
+  if (row.url) {
+    try {
+      return hostnameMatches(new URL(row.url).hostname, host)
+    } catch {
+      return false
+    }
+  }
+  // keyword.seo often returns only position when the request already set domain.
+  return !row.domain
+}
+
+export const parseSistrixBody = (
+  text: string,
+  domain: string
+): number | null => {
   const json = JSON.parse(text) as SistrixResponse
   const errorCode = json.error?.[0]?.error_code
   if (String(errorCode) === "1000") return null
@@ -119,10 +144,7 @@ export const parseSistrixBody = (text: string, domain: string): number | null =>
 
   const host = domain.toLowerCase()
   const positions = asArray(json.answer?.[0]?.result)
-    .filter((row) => {
-      const rowDomain = (row.domain ?? "").toLowerCase()
-      return rowDomain === host || rowDomain.endsWith(`.${host}`)
-    })
+    .filter((row) => rowMatchesHost(row, host))
     .map((row) => Number(row.position))
     .filter((position) => Number.isFinite(position) && position > 0)
 

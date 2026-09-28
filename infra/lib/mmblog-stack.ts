@@ -170,7 +170,7 @@ export class MmblogStack extends Stack {
         SEO_EMAIL,
         DASHBOARD_URL: `https://${this.region}.console.aws.amazon.com/cloudwatch/home?region=${this.region}#dashboards:name=${SEO_DASHBOARD}`,
       },
-      Duration.seconds(60)
+      Duration.seconds(90)
     )
     secrets.grantRead(seoFn)
     this.grantSesSend(seoFn)
