@@ -8,7 +8,6 @@ export type AppSecrets = {
   CALENDLY_WEBHOOK_SIGNING_KEY?: string
   CONVERSION_HEALTH_ALERT_URL?: string
   GSC_SERVICE_ACCOUNT_JSON?: string | GoogleServiceAccount
-  SISTRIX_API_KEY?: string
 }
 
 export type GoogleServiceAccount = {

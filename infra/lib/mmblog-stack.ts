@@ -92,7 +92,7 @@ export class MmblogStack extends Stack {
 
     const secrets = new secretsmanager.Secret(this, "Secrets", {
       description:
-        "mmblog JSON: OPENAI_ADS_CAPI_KEY, CALENDLY_WEBHOOK_SIGNING_KEY, CONVERSION_HEALTH_ALERT_URL, GSC_SERVICE_ACCOUNT_JSON, SISTRIX_API_KEY",
+        "mmblog JSON: OPENAI_ADS_CAPI_KEY, CALENDLY_WEBHOOK_SIGNING_KEY, CONVERSION_HEALTH_ALERT_URL, GSC_SERVICE_ACCOUNT_JSON",
       removalPolicy: RemovalPolicy.RETAIN,
     })
 
@@ -386,14 +386,13 @@ export class MmblogStack extends Stack {
     dashboard.addWidgets(
       new cloudwatch.TextWidget({
         markdown:
-          "GSC ist 28 Tage, Land Deutschland, und hinkt etwa drei Tage hinterher. Position ist SISTRIX Google DE. Keine Position wird als 0 gezeichnet.",
+          "GSC ist 28 Tage, Land Deutschland, und hinkt etwa drei Tage hinterher.",
         width: 24,
         height: 2,
       })
     )
     dashboard.addWidgets(graph("Impressions (28d, DE)", "Impressions"))
     dashboard.addWidgets(graph("Clicks (28d, DE)", "Clicks"))
-    dashboard.addWidgets(graph("Position (SISTRIX, DE)", "Position"))
   }
 
   private grantSeoMetrics(fn: NodejsFunction): void {

@@ -15,7 +15,6 @@ import {
   gscWindow,
   measureRows,
   metricPoints,
-  parseSistrixBody,
   type GscHit,
 } from "./lib/seo-report"
 import { SCORECARD } from "./seo-keywords"
@@ -23,7 +22,6 @@ import { SCORECARD } from "./seo-keywords"
 const GSC_SITE = "sc-domain:martinmueller.dev"
 const GSC_SCOPE = "https://www.googleapis.com/auth/webmasters.readonly"
 const TOKEN_URL = "https://oauth2.googleapis.com/token"
-const DOMAIN = "martinmueller.dev"
 
 const cloudwatch = new CloudWatchClient({})
 
@@ -156,48 +154,6 @@ const fetchGsc = async (
   throw new Error("gsc returned 25000 rows; refusing to treat the rest as zero")
 }
 
-const fetchPosition = async (
-  apiKey: string,
-  keyword: string
-): Promise<number | null> => {
-  const url = new URL("https://api.sistrix.com/keyword.seo")
-  url.searchParams.set("api_key", apiKey)
-  url.searchParams.set("kw", keyword)
-  url.searchParams.set("country", "de")
-  url.searchParams.set("domain", DOMAIN)
-  url.searchParams.set("format", "json")
-
-  const res = await fetch(url, { signal: AbortSignal.timeout(10000) })
-  const text = await res.text()
-  if (!res.ok) throw new Error(`sistrix ${keyword} ${res.status}: ${text}`)
-  try {
-    return parseSistrixBody(text, DOMAIN)
-  } catch (err) {
-    throw new Error(`sistrix ${keyword}: ${errMsg(err)}`)
-  }
-}
-
-const mapPool = async <T, R>(
-  items: readonly T[],
-  limit: number,
-  fn: (item: T) => Promise<R>
-): Promise<R[]> => {
-  const results = new Array<R>(items.length)
-  let next = 0
-  const workers = Array.from(
-    { length: Math.min(limit, items.length) },
-    async () => {
-      while (next < items.length) {
-        const index = next
-        next += 1
-        results[index] = await fn(items[index])
-      }
-    }
-  )
-  await Promise.all(workers)
-  return results
-}
-
 const publish = async (
   points: ReturnType<typeof metricPoints>
 ): Promise<void> => {
@@ -209,7 +165,7 @@ const publish = async (
         MetricName: point.name,
         Dimensions: [{ Name: "Keyword", Value: point.keyword }],
         Value: point.value,
-        Unit: point.name === "Position" ? StandardUnit.None : StandardUnit.Count,
+        Unit: StandardUnit.Count,
       })),
     })
   )
@@ -235,25 +191,15 @@ export const seoScorecard = async (): Promise<Response> => {
 
   try {
     const secrets = await getSecrets()
-    const apiKey = secrets.SISTRIX_API_KEY
-    if (!secrets.GSC_SERVICE_ACCOUNT_JSON || !apiKey) {
-      return await fail("missing GSC_SERVICE_ACCOUNT_JSON or SISTRIX_API_KEY")
+    if (!secrets.GSC_SERVICE_ACCOUNT_JSON) {
+      return await fail("missing GSC_SERVICE_ACCOUNT_JSON")
     }
 
     const now = new Date()
     const window = gscWindow(now)
     const token = await googleAccessToken(serviceAccount(secrets.GSC_SERVICE_ACCOUNT_JSON))
     const hits = await fetchGsc(token, window)
-
-    const positions = new Map<string, number | null>()
-    const fetched = await mapPool(SCORECARD, 4, (row) =>
-      fetchPosition(apiKey, row.keyword)
-    )
-    SCORECARD.forEach((row, index) => {
-      positions.set(row.keyword.toLowerCase(), fetched[index])
-    })
-
-    const rows = measureRows(SCORECARD, hits, positions)
+    const rows = measureRows(SCORECARD, hits)
     const runDate = now.toISOString().slice(0, 10)
     await sendEmail({
       to,

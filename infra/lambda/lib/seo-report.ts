@@ -13,11 +13,10 @@ export type MeasuredRow = {
   path: string
   impressions: number
   clicks: number
-  position: number | null
 }
 
 export type MetricPoint = {
-  name: "Impressions" | "Clicks" | "Position"
+  name: "Impressions" | "Clicks"
   keyword: string
   value: number
 }
@@ -51,8 +50,7 @@ const hitKey = (path: string, query: string): string =>
 
 export const measureRows = (
   keywords: ScorecardKeyword[],
-  hits: GscHit[],
-  positions: ReadonlyMap<string, number | null>
+  hits: GscHit[]
 ): MeasuredRow[] => {
   const totals = new Map<string, { impressions: number; clicks: number }>()
   for (const hit of hits) {
@@ -65,14 +63,12 @@ export const measureRows = (
 
   return keywords.map((row) => {
     const totalsForRow = totals.get(hitKey(row.path, row.keyword))
-    const position = positions.get(row.keyword.toLowerCase())
     return {
       tag: row.tag,
       keyword: row.keyword,
       path: row.path,
       impressions: totalsForRow?.impressions ?? 0,
       clicks: totalsForRow?.clicks ?? 0,
-      position: position === undefined ? null : position,
     }
   })
 }
@@ -84,72 +80,8 @@ export const metricPoints = (rows: MeasuredRow[]): MetricPoint[] => {
       { name: "Impressions", keyword: row.keyword, value: row.impressions },
       { name: "Clicks", keyword: row.keyword, value: row.clicks }
     )
-    if (row.position !== null) {
-      points.push({
-        name: "Position",
-        keyword: row.keyword,
-        value: row.position,
-      })
-    }
   }
   return points
-}
-
-type SistrixResult = {
-  position?: number | string
-  domain?: string
-  url?: string
-}
-
-type SistrixResponse = {
-  status?: string
-  error?: Array<{ error_code?: string | number; error_message?: string }>
-  answer?: Array<{ result?: SistrixResult | SistrixResult[] }>
-}
-
-const asArray = <T>(value: T | T[] | undefined): T[] => {
-  if (value == null) return []
-  return Array.isArray(value) ? value : [value]
-}
-
-const hostnameMatches = (hostname: string, host: string): boolean => {
-  const name = hostname.replace(/^www\./, "").toLowerCase()
-  return name === host || name.endsWith(`.${host}`)
-}
-
-const rowMatchesHost = (row: SistrixResult, host: string): boolean => {
-  if (row.domain && hostnameMatches(row.domain, host)) return true
-  if (row.url) {
-    try {
-      return hostnameMatches(new URL(row.url).hostname, host)
-    } catch {
-      return false
-    }
-  }
-  // keyword.seo often returns only position when the request already set domain.
-  return !row.domain
-}
-
-export const parseSistrixBody = (
-  text: string,
-  domain: string
-): number | null => {
-  const json = JSON.parse(text) as SistrixResponse
-  const errorCode = json.error?.[0]?.error_code
-  if (String(errorCode) === "1000") return null
-  if (json.status === "fail") {
-    const message = json.error?.[0]?.error_message ?? text
-    throw new Error(message)
-  }
-
-  const host = domain.toLowerCase()
-  const positions = asArray(json.answer?.[0]?.result)
-    .filter((row) => rowMatchesHost(row, host))
-    .map((row) => Number(row.position))
-    .filter((position) => Number.isFinite(position) && position > 0)
-
-  if (positions.length === 0) return null
-  return Math.min(...positions)
 }
 
 const pad = (value: string, width: number): string => value.padEnd(width)
@@ -160,14 +92,13 @@ export const formatEmail = (
   rows: MeasuredRow[],
   dashboardUrl: string
 ): string => {
-  const header = ["Tag", "Keyword", "URL", "Impressions", "Clicks", "Position"]
+  const header = ["Tag", "Keyword", "URL", "Impressions", "Clicks"]
   const body = rows.map((row) => [
     row.tag,
     row.keyword,
     row.path,
     String(row.impressions),
     String(row.clicks),
-    row.position === null ? "—" : String(row.position),
   ])
   const widths = header.map((label, index) =>
     Math.max(label.length, ...body.map((cells) => cells[index].length))
@@ -178,7 +109,6 @@ export const formatEmail = (
   return [
     `mmblog SEO ${runDate}`,
     `GSC ${window.startDate}..${window.endDate}, country DE, 28 days. Newest days can still change.`,
-    "Position is SISTRIX Google DE. No rank is — and is not stored as 0.",
     dashboardUrl,
     "",
     line(header),
