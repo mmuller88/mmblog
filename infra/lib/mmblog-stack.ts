@@ -125,7 +125,7 @@ export class MmblogStack extends Stack {
       ...sharedEnv,
       TO_EMAIL,
     })
-    this.grantSesSend(formsFn)
+    this.grantSesSend(formsFn, [TO_EMAIL])
 
     const healthFn = this.apiFn(
       "HealthFn",
@@ -138,7 +138,7 @@ export class MmblogStack extends Stack {
       Duration.seconds(60)
     )
     secrets.grantRead(healthFn)
-    this.grantSesSend(healthFn)
+    this.grantSesSend(healthFn, [ALERT_EMAIL])
 
     const httpApi = new apigwv2.HttpApi(this, "Api")
 
@@ -173,7 +173,7 @@ export class MmblogStack extends Stack {
       Duration.seconds(90)
     )
     secrets.grantRead(seoFn)
-    this.grantSesSend(seoFn)
+    this.grantSesSend(seoFn, [SEO_EMAIL])
     this.grantSeoMetrics(seoFn)
     new events.Rule(this, "SeoDaily", {
       schedule: events.Schedule.cron({ minute: "15", hour: "6" }),
@@ -408,12 +408,16 @@ export class MmblogStack extends Stack {
     )
   }
 
-  private grantSesSend(fn: NodejsFunction): void {
+  private grantSesSend(fn: NodejsFunction, recipients: string[]): void {
     fn.addToRolePolicy(
       new iam.PolicyStatement({
         actions: ["ses:SendEmail"],
         resources: [
           `arn:aws:ses:${this.region}:${this.account}:identity/${DOMAIN}`,
+          ...recipients.map(
+            (email) =>
+              `arn:aws:ses:${this.region}:${this.account}:identity/${email}`
+          ),
         ],
       })
     )
