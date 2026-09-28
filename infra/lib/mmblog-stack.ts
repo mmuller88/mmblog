@@ -11,6 +11,7 @@ import * as acm from "aws-cdk-lib/aws-certificatemanager"
 import * as apigwv2 from "aws-cdk-lib/aws-apigatewayv2"
 import { HttpLambdaIntegration } from "aws-cdk-lib/aws-apigatewayv2-integrations"
 import * as cloudfront from "aws-cdk-lib/aws-cloudfront"
+import * as cloudwatch from "aws-cdk-lib/aws-cloudwatch"
 import * as origins from "aws-cdk-lib/aws-cloudfront-origins"
 import * as dynamodb from "aws-cdk-lib/aws-dynamodb"
 import * as events from "aws-cdk-lib/aws-events"
@@ -31,6 +32,8 @@ const WWW = `www.${DOMAIN}`
 const FROM_EMAIL = `noreply@${DOMAIN}`
 const TO_EMAIL = `office@${DOMAIN}`
 const ALERT_EMAIL = `office+netlify@${DOMAIN}`
+const SEO_EMAIL = `office+stats@${DOMAIN}`
+const SEO_DASHBOARD = "MmblogSeo"
 const GITHUB_REPO = "mmuller88/mmblog"
 
 const LAMBDA_BASIC_EXECUTION_POLICY_ACK =
@@ -89,7 +92,7 @@ export class MmblogStack extends Stack {
 
     const secrets = new secretsmanager.Secret(this, "Secrets", {
       description:
-        "mmblog JSON: OPENAI_ADS_CAPI_KEY, CALENDLY_WEBHOOK_SIGNING_KEY, CONVERSION_HEALTH_ALERT_URL",
+        "mmblog JSON: OPENAI_ADS_CAPI_KEY, CALENDLY_WEBHOOK_SIGNING_KEY, CONVERSION_HEALTH_ALERT_URL, GSC_SERVICE_ACCOUNT_JSON, SISTRIX_API_KEY",
       removalPolicy: RemovalPolicy.RETAIN,
     })
 
@@ -99,6 +102,9 @@ export class MmblogStack extends Stack {
     })
     new ses.EmailIdentity(this, "SesAlert", {
       identity: ses.Identity.email(ALERT_EMAIL),
+    })
+    new ses.EmailIdentity(this, "SesStats", {
+      identity: ses.Identity.email(SEO_EMAIL),
     })
 
     const sharedEnv = {
@@ -155,6 +161,25 @@ export class MmblogStack extends Stack {
       schedule: events.Schedule.cron({ minute: "0", hour: "7" }),
       targets: [new targets.LambdaFunction(healthFn)],
     })
+
+    const seoFn = this.apiFn(
+      "SeoScorecardFn",
+      "seo-scorecard.ts",
+      {
+        ...sharedEnv,
+        SEO_EMAIL,
+        DASHBOARD_URL: `https://${this.region}.console.aws.amazon.com/cloudwatch/home?region=${this.region}#dashboards:name=${SEO_DASHBOARD}`,
+      },
+      Duration.seconds(60)
+    )
+    secrets.grantRead(seoFn)
+    this.grantSesSend(seoFn)
+    this.grantSeoMetrics(seoFn)
+    new events.Rule(this, "SeoDaily", {
+      schedule: events.Schedule.cron({ minute: "15", hour: "6" }),
+      targets: [new targets.LambdaFunction(seoFn, { retryAttempts: 0 })],
+    })
+    this.seoDashboard()
 
     const viewerFn = new cloudfront.Function(this, "ViewerReq", {
       runtime: cloudfront.FunctionRuntime.JS_2_0,
@@ -306,6 +331,7 @@ export class MmblogStack extends Stack {
       webhookFn,
       formsFn,
       healthFn,
+      seoFn,
       deployRole,
       dnsRecords
     )
@@ -337,6 +363,51 @@ export class MmblogStack extends Stack {
     })
   }
 
+  private seoDashboard(): void {
+    const search = (metricName: string): cloudwatch.MathExpression =>
+      new cloudwatch.MathExpression({
+        expression: `SEARCH('{Mmblog/Seo,Keyword} MetricName="${metricName}"', 'Average', 86400)`,
+        label: "${PROP('Dim.Keyword')}",
+        period: Duration.days(1),
+      })
+    const graph = (title: string, metricName: string): cloudwatch.GraphWidget =>
+      new cloudwatch.GraphWidget({
+        title,
+        width: 24,
+        height: 6,
+        left: [search(metricName)],
+      })
+
+    const dashboard = new cloudwatch.Dashboard(this, "SeoDashboard", {
+      dashboardName: SEO_DASHBOARD,
+      defaultInterval: Duration.days(28),
+      periodOverride: cloudwatch.PeriodOverride.INHERIT,
+    })
+    dashboard.addWidgets(
+      new cloudwatch.TextWidget({
+        markdown:
+          "GSC ist 28 Tage, Land Deutschland, und hinkt etwa drei Tage hinterher. Position ist SISTRIX Google DE. Keine Position wird nicht als 0 gezeichnet.",
+        width: 24,
+        height: 2,
+      })
+    )
+    dashboard.addWidgets(graph("Impressions (28d, DE)", "Impressions"))
+    dashboard.addWidgets(graph("Clicks (28d, DE)", "Clicks"))
+    dashboard.addWidgets(graph("Position (SISTRIX, DE)", "Position"))
+  }
+
+  private grantSeoMetrics(fn: NodejsFunction): void {
+    fn.addToRolePolicy(
+      new iam.PolicyStatement({
+        actions: ["cloudwatch:PutMetricData"],
+        resources: ["*"],
+        conditions: {
+          StringEquals: { "cloudwatch:namespace": "Mmblog/Seo" },
+        },
+      })
+    )
+  }
+
   private grantSesSend(fn: NodejsFunction): void {
     fn.addToRolePolicy(
       new iam.PolicyStatement({
@@ -353,6 +424,7 @@ export class MmblogStack extends Stack {
     webhookFn: NodejsFunction,
     formsFn: NodejsFunction,
     healthFn: NodejsFunction,
+    seoFn: NodejsFunction,
     deployRole: iam.Role,
     dnsRecords: Construct[]
   ): void {
@@ -394,17 +466,18 @@ export class MmblogStack extends Stack {
 
     const lambdaBasicExecutionReason =
       "AWSLambdaBasicExecutionRole for CloudWatch logs"
-    for (const fn of [
-      likesFn,
-      webhookFn,
-      formsFn,
-      healthFn,
-    ]) {
+    for (const fn of [likesFn, webhookFn, formsFn, healthFn, seoFn]) {
       Validations.of(fn).acknowledge({
         id: LAMBDA_BASIC_EXECUTION_POLICY_ACK,
         reason: lambdaBasicExecutionReason,
       })
     }
+
+    Validations.of(seoFn).acknowledge({
+      id: "AwsSolutions-IAM5[Resource::*]",
+      reason:
+        "PutMetricData has no resource ARN; namespace condition is Mmblog/Seo",
+    })
 
     const deployRoleReason =
       "GitHub OIDC deploy syncs static site to the blog bucket"

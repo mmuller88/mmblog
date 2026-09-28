@@ -10,6 +10,7 @@
     "test:health": "tsx lambda/run-health.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-cloudwatch": "^3.901.0",
     "@aws-sdk/client-dynamodb": "^3.901.0",
     "@aws-sdk/client-secrets-manager": "^3.901.0",
     "@aws-sdk/client-sesv2": "^3.901.0",
