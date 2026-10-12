@@ -617,7 +617,7 @@ export const agencyLandingContent = {
     ctaSpeak: "🗣️ Book a call",
     ctaWrite: "📝 Or send a message",
     video: {
-     src: "/one-man-agency/vibe-promo.mp4?v=1",
+     src: "/one-man-agency/vibe-promo.mp4?v=2",
      poster: "/one-man-agency/vibe-promo.jpg",
      title: "Your vibe-coded idea, taken to production",
     },
