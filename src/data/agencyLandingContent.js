@@ -48,7 +48,7 @@ export const agencyLandingContent = {
     ctaSpeak: "🗣️ Book a call",
     ctaWrite: "📝 Or send a message",
     video: {
-     src: "/one-man-agency/aws-promo.mp4?v=1",
+     src: "/one-man-agency/aws-promo.mp4?v=2",
      poster: "/one-man-agency/aws-promo.jpg",
      title: "AWS Consulting — architecture shipped on AWS",
     },
@@ -616,6 +616,11 @@ export const agencyLandingContent = {
      "For a founder whose AI prototype has to go live: secure, observable, and deployable on infrastructure you can point to.",
     ctaSpeak: "🗣️ Book a call",
     ctaWrite: "📝 Or send a message",
+    video: {
+     src: "/one-man-agency/vibe-promo.mp4?v=1",
+     poster: "/one-man-agency/vibe-promo.jpg",
+     title: "Your vibe-coded idea, taken to production",
+    },
    },
    audience: {
     heading: "Who this is for",

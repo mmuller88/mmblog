@@ -58,6 +58,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "test:smoke": "node scripts/smoke-build.js",
     "video:aws": "npm --prefix misc/videos/aws-promo run render",
+    "video:vibe": "npm --prefix misc/videos/vibe-promo run render",
     "test:conversion-health": "npm --prefix infra run test:health"
   },
   "repository": {

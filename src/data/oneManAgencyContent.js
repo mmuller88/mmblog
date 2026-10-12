@@ -69,7 +69,7 @@ export const oneManAgencyContent = {
    imageAlt:
     "OpenClaw AI agent orchestrating blog posts, code, invoices, and SEO work",
    video: {
-    src: "/one-man-agency/aws-promo.mp4?v=1",
+    src: "/one-man-agency/aws-promo.mp4?v=2",
     poster: "/one-man-agency/aws-promo.jpg",
     title: "AWS Consulting — architecture shipped on AWS",
    },

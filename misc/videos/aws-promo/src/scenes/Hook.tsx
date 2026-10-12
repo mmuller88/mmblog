@@ -1,12 +1,19 @@
-import { AbsoluteFill } from 'remotion'
+import { AbsoluteFill, Img, useCurrentFrame, useVideoConfig } from 'remotion'
+import { ASSETS } from '../assets'
 import { Reveal } from '../components/Reveal'
 import { Terminal } from '../components/Terminal'
 import { Wordmark } from '../components/Kicker'
+import { pop } from '../lib/anim'
 import { COPY } from '../script'
 
 const ACCENT = 'font-serif text-[1.16em] leading-none font-normal tracking-normal text-orange italic'
 
-export const Hook: React.FC = () => (
+export const Hook: React.FC = () => {
+  const frame = useCurrentFrame()
+  const { fps } = useVideoConfig()
+  const avatar = pop(frame, fps, 0, 12)
+
+  return (
   <AbsoluteFill className="bg-[radial-gradient(ellipse_at_30%_20%,#16324f_0%,#0b1220_52%,#070d18_100%)]">
     <svg className="absolute inset-0 h-full w-full opacity-50">
       <defs>
@@ -25,7 +32,13 @@ export const Hook: React.FC = () => (
       <rect width="1920" height="1080" fill="url(#hook-dots)" mask="url(#hook-mask)" />
     </svg>
 
-    <div className="absolute top-[250px] left-[120px] w-[1680px] font-display text-[86px] leading-[0.96] font-extrabold tracking-[-0.03em] text-white">
+    <Img
+      src={ASSETS.avatar}
+      className="absolute top-[236px] left-[110px] h-[156px] w-[156px] rounded-full object-cover ring-[6px] ring-brand"
+      style={{ transform: `scale(${avatar})`, opacity: Math.min(1, avatar * 2) }}
+    />
+
+    <div className="absolute top-[248px] left-[310px] w-[1500px] font-display text-[78px] leading-[0.96] font-extrabold tracking-[-0.03em] text-white">
       <Reveal line={COPY.hook[0]} delay={6} />
       <Reveal line={COPY.hook[1]} delay={20} accentDelay={4} accentClassName={ACCENT} />
     </div>
@@ -36,4 +49,5 @@ export const Hook: React.FC = () => (
 
     <Wordmark />
   </AbsoluteFill>
-)
+  )
+}
