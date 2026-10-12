@@ -59,6 +59,21 @@ const AgencyLanding = ({ content, location }) => {
     }
   : null
 
+ const videoJsonLd = hero.video
+  ? {
+     "@context": "https://schema.org",
+     "@type": "VideoObject",
+     name: hero.video.title,
+     description: meta.description,
+     thumbnailUrl: `${SITE_URL}${hero.video.poster}`,
+     uploadDate: "2026-10-12",
+     duration: "PT30S",
+     contentUrl: `${SITE_URL}${hero.video.src.split("?")[0]}`,
+    }
+  : null
+
+ const extraJsonLd = [serviceJsonLd, videoJsonLd].filter(Boolean)
+
  return (
   <Layout fullWidth>
    <MetaTags
@@ -76,7 +91,13 @@ const AgencyLanding = ({ content, location }) => {
     engUrl={meta.engUrl}
     gerUrl={meta.gerUrl}
     faq={faqs}
-    extraJsonLd={serviceJsonLd}
+    extraJsonLd={
+     extraJsonLd.length === 1
+      ? extraJsonLd[0]
+      : extraJsonLd.length
+        ? extraJsonLd
+        : null
+    }
    />
 
    <div className="mx-auto max-w-6xl px-4 pt-6">
@@ -108,11 +129,24 @@ const AgencyLanding = ({ content, location }) => {
       </div>
      </div>
      <div className="overflow-hidden rounded-xl shadow-lg">
-      <img
-       src={oneManAgencyHeroImage}
-       alt={oneManAgencyHeroImageAlt}
-       className="mb-0 w-full object-cover"
-      />
+      {hero.video ? (
+       <video
+        controls
+        playsInline
+        preload="none"
+        poster={hero.video.poster}
+        aria-label={hero.video.title}
+        className="aspect-video mb-0 w-full bg-slate-900"
+       >
+        <source src={hero.video.src} type="video/mp4" />
+       </video>
+      ) : (
+       <img
+        src={oneManAgencyHeroImage}
+        alt={oneManAgencyHeroImageAlt}
+        className="mb-0 w-full object-cover"
+       />
+      )}
      </div>
     </div>
    </div>

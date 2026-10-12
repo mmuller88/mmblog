@@ -14,6 +14,8 @@ const pages = [
  { file: "rss.xml", needle: "<rss" },
  { file: "rss-ger.xml", needle: "<rss" },
  { file: "one-man-agency/index.html", needle: "One-Man Agency" },
+ { file: "one-man-agency/index.html", needle: "aws-promo.mp4" },
+ { file: "one-man-agency/aws/index.html", needle: "aws-promo.mp4" },
  { file: "trainings/index.html", needle: "Trainings" },
  { file: "sitemap.xml/sitemap-index.xml", needle: "sitemapindex" },
 ]

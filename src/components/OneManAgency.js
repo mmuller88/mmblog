@@ -42,6 +42,19 @@ const OneManAgency = ({ content, location }) => {
 
  const { calendlyUrl, openCalendly } = useOaiqTracking()
 
+ const videoJsonLd = hero.video
+  ? {
+     "@context": "https://schema.org",
+     "@type": "VideoObject",
+     name: hero.video.title,
+     description: meta.description,
+     thumbnailUrl: `${SITE_URL}${hero.video.poster}`,
+     uploadDate: "2026-10-12",
+     duration: "PT30S",
+     contentUrl: `${SITE_URL}${hero.video.src.split("?")[0]}`,
+    }
+  : null
+
  return (
   <Layout fullWidth>
    <MetaTags
@@ -58,6 +71,7 @@ const OneManAgency = ({ content, location }) => {
     pathname={location.pathname}
     engUrl={meta.engUrl}
     gerUrl={meta.gerUrl}
+    extraJsonLd={videoJsonLd}
    />
 
    <div className="mx-auto max-w-6xl px-4 pt-6">
@@ -93,11 +107,24 @@ const OneManAgency = ({ content, location }) => {
       </div>
      </div>
      <div className="overflow-hidden rounded-xl shadow-lg">
-      <img
-       src={oneManAgencyHeroImage}
-       alt={hero.imageAlt}
-       className="mb-0 w-full object-cover"
-      />
+      {hero.video ? (
+       <video
+        controls
+        playsInline
+        preload="none"
+        poster={hero.video.poster}
+        aria-label={hero.video.title}
+        className="aspect-video mb-0 w-full bg-slate-900"
+       >
+        <source src={hero.video.src} type="video/mp4" />
+       </video>
+      ) : (
+       <img
+        src={oneManAgencyHeroImage}
+        alt={hero.imageAlt}
+        className="mb-0 w-full object-cover"
+       />
+      )}
      </div>
     </div>
    </div>

@@ -1,0 +1,31 @@
+{
+  "name": "aws-promo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "30s AWS consulting promo (Remotion)",
+  "engines": {
+    "node": ">=23.6"
+  },
+  "scripts": {
+    "studio": "npm run build-music && remotion studio",
+    "build-music": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/build-music.mjs",
+    "render": "npm run build-music && remotion render AwsPromo ../../../static/one-man-agency/aws-promo.mp4 && remotion still AwsPromo ../../../static/one-man-agency/aws-promo.jpg --frame=96",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "@remotion/google-fonts": "4.0.534",
+    "@remotion/paths": "4.0.534",
+    "@remotion/tailwind-v4": "4.0.534",
+    "qrcode": "^1.5.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "4.0.534",
+    "tailwindcss": "4.2.0"
+  },
+  "devDependencies": {
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.2.0",
+    "typescript": "^5.9.3"
+  }
+}

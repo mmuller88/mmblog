@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="QR-Plakat">
+  <!-- Mini QR: 3 finders. Tile teal-500, finders white. ADR-0040 -->
+  <rect width="32" height="32" rx="8" fill="#14B8A6"/>
+  <g fill="#FFFFFF">
+    <path d="M5 5h8v8H5zM19 5h8v8h-8zM5 19h8v8H5z"/>
+  </g>
+  <g fill="#14B8A6">
+    <path d="M6.6 6.6h4.8v4.8H6.6zM20.6 6.6h4.8v4.8h-4.8zM6.6 20.6h4.8v4.8H6.6z"/>
+  </g>
+  <g fill="#FFFFFF">
+    <path d="M7.9 7.9h2.2v2.2H7.9zM21.9 7.9h2.2v2.2h-2.2zM7.9 21.9h2.2v2.2H7.9z"/>
+  </g>
+</svg>

@@ -47,6 +47,11 @@ export const agencyLandingContent = {
      "For a SaaS team that needs an AWS architecture or cost review — one senior expert, scope agreed in a Statement of Work.",
     ctaSpeak: "🗣️ Book a call",
     ctaWrite: "📝 Or send a message",
+    video: {
+     src: "/one-man-agency/aws-promo.mp4?v=1",
+     poster: "/one-man-agency/aws-promo.jpg",
+     title: "AWS Consulting — architecture shipped on AWS",
+    },
    },
    audience: {
     heading: "Who this is for",

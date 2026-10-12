@@ -14,6 +14,7 @@ npm run serve           # serve production build
 npm run format          # prettier formatting
 npm run typecheck       # infra tsc (also pre-commit + pre-push)
 npm run test:smoke      # after build: key HTML/RSS files
+npm run video:aws       # 30s AWS promo → static/one-man-agency/ (Node >= 23.6)
 npm --prefix infra run synth   # CDK synth
 npm --prefix infra run deploy  # CDK deploy (needs AWS creds)
 pre-commit install      # once: brew install pre-commit && pre-commit install
@@ -172,6 +173,14 @@ npx cdk deploy
 **Bilingual posts:** Create two folders (e.g., `my-post/` and `my-post-eng/`), link via `engUrl`/`gerUrl` frontmatter.
 
 **Hide post:** Set `show: "no"` in frontmatter.
+
+## Videos
+
+Promo renders live in `misc/videos/` (Remotion). They are outside the CI site path filter, so editing them does not build the site.
+
+- `misc/videos/aws-promo` — 30s English AWS promo for `/one-man-agency/aws/`
+- `npm run video:aws` writes `static/one-man-agency/aws-promo.mp4` and `aws-promo.jpg`
+- `scripts/sync-site.sh` caches that MP4 for a year, so bump `?v=` on `hero.video.src` in `src/data/agencyLandingContent.js` after every re-render
 
 ## Constraints
 
