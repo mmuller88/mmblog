@@ -21,14 +21,20 @@ export const QrPlakat: React.FC = () => {
 
   return (
     <AbsoluteFill className="bg-[radial-gradient(ellipse_at_75%_30%,#ffffff_0%,#f4f1ea_55%,#d7efec_100%)]">
-      <Kicker index={COPY.qrplakat.index} label={COPY.qrplakat.kicker} mark={ASSETS.qrPlakat} light />
+      <Kicker
+        index={COPY.qrplakat.index}
+        label={COPY.qrplakat.label}
+        mark={ASSETS.qrPlakat}
+        light
+        context={COPY.qrplakat.context}
+      />
 
-      <div className="absolute top-[210px] left-[110px] w-[860px] font-display text-[92px] leading-[0.96] font-extrabold tracking-[-0.03em] text-ink">
+      <div className="absolute top-[226px] left-[110px] w-[860px] font-display text-[92px] leading-[0.96] font-extrabold tracking-[-0.03em] text-ink">
         <Reveal line={COPY.qrplakat.lines[0]} delay={4} />
         <Reveal line={COPY.qrplakat.lines[1]} delay={16} accentDelay={6} accentClassName={ACCENT} />
       </div>
 
-      <div className="absolute top-[520px] left-[110px] flex flex-col items-start gap-3">
+      <div className="absolute top-[536px] left-[110px] flex flex-col items-start gap-3">
         {COPY.qrplakat.chips.map((text, i) => (
           <Chip key={text} text={text} delay={atBeat(2) + i * 8} light />
         ))}

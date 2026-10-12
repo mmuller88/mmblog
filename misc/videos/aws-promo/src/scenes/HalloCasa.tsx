@@ -16,14 +16,19 @@ export const HalloCasa: React.FC = () => {
 
   return (
     <AbsoluteFill className="bg-[radial-gradient(ellipse_at_72%_42%,#14304f_0%,#0b1220_55%,#070d18_100%)]">
-      <Kicker index={COPY.hallocasa.index} label={COPY.hallocasa.kicker} mark={ASSETS.hallocasa} />
+      <Kicker
+        index={COPY.hallocasa.index}
+        label={COPY.hallocasa.label}
+        mark={ASSETS.hallocasa}
+        context={COPY.hallocasa.context}
+      />
 
-      <div className="absolute top-[220px] left-[110px] w-[900px] font-display text-[78px] leading-[0.98] font-extrabold tracking-[-0.03em] text-white">
+      <div className="absolute top-[236px] left-[110px] w-[900px] font-display text-[78px] leading-[0.98] font-extrabold tracking-[-0.03em] text-white">
         <Reveal line={COPY.hallocasa.lines[0]} delay={4} />
         <Reveal line={COPY.hallocasa.lines[1]} delay={16} accentDelay={6} accentClassName={ACCENT} />
       </div>
 
-      <div className="absolute top-[500px] left-[110px] flex gap-4">
+      <div className="absolute top-[516px] left-[110px] flex gap-4">
         {COPY.hallocasa.chips.map((text, i) => (
           <Chip key={text} text={text} delay={atBeat(2) + i * 8} />
         ))}

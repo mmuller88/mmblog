@@ -24,10 +24,11 @@ const OUT_DIR = new URL('../public/', import.meta.url)
 
 /** [chord, beats] per section, D minor. Each section must last exactly BEATS[id] seconds. */
 const ARRANGEMENT = {
-  hook: [['Dm', 8]],
+  hook: [['Dm', 10]],
   hallocasa: [['Dm', 4], ['Bb', 4], ['F', 4]],
-  aisecure: [['Dm', 4], ['C', 4], ['Bb', 4]],
-  qrplakat: [['Bb', 4], ['F', 4], ['C', 4]],
+  cyquins: [['Dm', 4], ['C', 4], ['Bb', 4]],
+  aisecure: [['Dm', 5], ['Bb', 5]],
+  qrplakat: [['F', 5], ['C', 5]],
   stack: [['Dm', 4], ['Bb', 4]],
   end: [['Fadd9', 8]],
 }
@@ -44,6 +45,7 @@ const CHORDS = {
 /** Drums + bass per section; the last `fill` beats drop out before the next cut. */
 const GROOVE = {
   hallocasa: { fill: 2, rolling: false, shaker: false },
+  cyquins: { fill: 2, rolling: true, shaker: false },
   aisecure: { fill: 2, rolling: true, shaker: false },
   qrplakat: { fill: 2, rolling: false, shaker: true },
   stack: { fill: 2, rolling: false, shaker: true },
@@ -51,7 +53,7 @@ const GROOVE = {
 
 /** Bell notes for the stack-scene words, one per STACK_WORD_BEATS entry. */
 const STACK_NOTES = [74, 77, 81, 79, 77]
-const DEPLOY_NOTES = [81, 84, 88]
+const DEPLOY_NOTES = [79, 81, 84, 88]
 
 const ARP = [0, 1, 2, 3, 1, 2, 3, 2]
 const ARP_ACCENT = [1, 0.55, 0.8, 0.6]
@@ -461,6 +463,9 @@ riser(cut('hallocasa'), 1.6, 0.95)
 boom(cut('hallocasa'), 1)
 crash(cut('hallocasa'), 0.9)
 
+riser(cut('cyquins'), 1.4, 0.9)
+boom(cut('cyquins'), 0.95)
+
 for (const [id, hops] of Object.entries(FLOW_HOPS)) {
   hops.forEach((b, i) => pluck(at(section(id).start + b), 86 + (i % 3) * 2, 0.8, 1))
 }
@@ -503,12 +508,14 @@ for (const t of kickTimes) {
 
 const padCutoff = (t) => {
   const h = cut('hallocasa')
+  const c = cut('cyquins')
   const a = cut('aisecure')
   const q = cut('qrplakat')
   const s = cut('stack')
   const e = cut('end')
   if (t < h) return 280 * (2400 / 280) ** (t / h)
-  if (t < a) return 2600
+  if (t < c) return 2400
+  if (t < a) return 2800
   if (t < q) return 3600
   if (t < s) return 3000
   if (t < e) return 4800

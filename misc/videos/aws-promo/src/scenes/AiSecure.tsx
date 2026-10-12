@@ -19,14 +19,19 @@ export const AiSecure: React.FC = () => {
 
   return (
     <AbsoluteFill className="bg-[radial-gradient(ellipse_at_80%_30%,#0e3a38_0%,#0b1220_48%,#070d18_100%)]">
-      <Kicker index={COPY.aisecure.index} label={COPY.aisecure.kicker} mark={ASSETS.aiSecure} />
+      <Kicker
+        index={COPY.aisecure.index}
+        label={COPY.aisecure.label}
+        mark={ASSETS.aiSecure}
+        context={COPY.aisecure.context}
+      />
 
-      <div className="absolute top-[210px] left-[100px] w-[860px] font-display text-[68px] leading-[0.98] font-extrabold tracking-[-0.03em] text-white">
+      <div className="absolute top-[226px] left-[100px] w-[860px] font-display text-[68px] leading-[0.98] font-extrabold tracking-[-0.03em] text-white">
         <Reveal line={COPY.aisecure.lines[0]} delay={4} />
         <Reveal line={COPY.aisecure.lines[1]} delay={16} accentDelay={6} accentClassName={ACCENT} />
       </div>
 
-      <div className="absolute top-[460px] left-[100px] flex flex-col items-start gap-3">
+      <div className="absolute top-[476px] left-[100px] flex flex-col items-start gap-3">
         {COPY.aisecure.chips.map((text, i) => (
           <Chip key={text} text={text} delay={atBeat(2) + i * 10} />
         ))}

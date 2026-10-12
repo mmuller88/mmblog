@@ -14,6 +14,8 @@ import hallocasa from '../assets/hallocasa-white.svg'
 import qrPlakat from '../assets/qr-plakat.svg'
 import scanProgress from '../assets/scan-progress.png'
 import scanReport from '../assets/scan-report.png'
+import prowler from '../assets/prowler-wordmark.png'
+import hdi from '../assets/hdi-logo.png'
 
 export const ICONS = {
   cloudfront,
@@ -28,4 +30,4 @@ export const ICONS = {
   cdk,
 } as const
 
-export const ASSETS = { hallocasa, qrPlakat, aiSecure, scanProgress, scanReport, avatar }
+export const ASSETS = { hallocasa, qrPlakat, aiSecure, scanProgress, scanReport, avatar, prowler, hdi }

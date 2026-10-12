@@ -48,7 +48,7 @@ export const agencyLandingContent = {
     ctaSpeak: "🗣️ Book a call",
     ctaWrite: "📝 Or send a message",
     video: {
-     src: "/one-man-agency/aws-promo.mp4?v=2",
+     src: "/one-man-agency/aws-promo.mp4?v=3",
      poster: "/one-man-agency/aws-promo.jpg",
      title: "AWS Consulting — architecture shipped on AWS",
     },

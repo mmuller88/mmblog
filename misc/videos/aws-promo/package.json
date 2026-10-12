@@ -9,7 +9,7 @@
   "scripts": {
     "studio": "npm run build-music && remotion studio",
     "build-music": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/build-music.mjs",
-    "render": "npm run build-music && remotion render AwsPromo ../../../static/one-man-agency/aws-promo.mp4 && remotion still AwsPromo ../../../static/one-man-agency/aws-promo.jpg --frame=96",
+    "render": "npm run build-music && remotion render AwsPromo ../../../static/one-man-agency/aws-promo.mp4 && remotion still AwsPromo ../../../static/one-man-agency/aws-promo.jpg --frame=240",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
