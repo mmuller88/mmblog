@@ -61,6 +61,55 @@ export const agencyLandingContent = {
     work:
      "I inspect the account and write the target design — or implement it in CDK when the Statement of Work says so.",
    },
+   videoExamples: {
+    heading: "What the video shows",
+    intro:
+     "The clip is not stock footage — these are production systems I co-founded, ship as products, or run for clients. Labels match the on-screen context pills.",
+    items: [
+     {
+      index: "01",
+      context: "Co-founded product",
+      title: "HalloCasa",
+      subtitle: "Global real-estate marketplace",
+      body:
+       "International property network for agents and buyers. I own the AWS side: multi-account CDK pipelines, ECS on Fargate for Next.js and API workloads, plus CloudFront, ALB, and RDS in us-east-1.",
+      stack: ["ECS Fargate", "CDK", "CloudFront", "RDS"],
+      href: "https://hallocasa.com",
+      linkLabel: "hallocasa.com",
+     },
+     {
+      index: "02",
+      context: "Client · Germany",
+      title: "HDI Cyquins",
+      subtitle: "Cyber insurance assessments (Prowler)",
+      body:
+       "Platform for HDI brokers: invite a firm, run security questionnaires, connect AWS, Azure, GCP, and Microsoft 365, and score risk with Prowler Cloud. I build and operate the AWS estate — ECS Fargate, CDK, Cognito, DynamoDB, and EventBridge integrations.",
+      stack: ["ECS Fargate", "CDK", "Prowler API", "Multi-cloud scans"],
+     },
+     {
+      index: "03",
+      context: "Own SaaS product",
+      title: "ai-secure.dev",
+      subtitle: "AI-driven compliance audits",
+      body:
+       "Agents review web apps against ISO 27001, SOC 2, NIST, and more — on Bedrock AgentCore (runtime and browser tools), with an MCP server on API Gateway.",
+      stack: ["Bedrock AgentCore", "Fargate", "DynamoDB"],
+      href: "https://ai-secure.dev",
+      linkLabel: "ai-secure.dev",
+     },
+     {
+      index: "04",
+      context: "Own product · DACH",
+      title: "qr-plakat.de",
+      subtitle: "Shop-window posters with updatable QR links",
+      body:
+       "Design A-format posters in the browser, host scan targets in Frankfurt (eu-central-1), and export print-ready 300 dpi PDFs from Lambda — OpenNext on serverless.",
+      stack: ["OpenNext", "Lambda", "CloudFront", "Frankfurt"],
+      href: "https://qr-plakat.de",
+      linkLabel: "qr-plakat.de",
+     },
+    ],
+   },
    offer: {
     heading: "First step",
     intro:
@@ -124,6 +173,7 @@ export const agencyLandingContent = {
     },
    ],
    contact: { heading: "Tell me about your AWS project", form: formLabelsEn },
+   service: true,
   },
   de: {
    meta: {
@@ -152,6 +202,11 @@ export const agencyLandingContent = {
      "Für ein SaaS-Team, das ein AWS-Architektur- oder Kosten-Review braucht — ein Senior-Experte, Scope im Statement of Work.",
     ctaSpeak: "🗣️ Termin buchen",
     ctaWrite: "📝 Oder Nachricht senden",
+    video: {
+     src: "/one-man-agency/aws-promo.mp4?v=3",
+     poster: "/one-man-agency/aws-promo.jpg",
+     title: "AWS Consulting — Architektur, die auf AWS läuft",
+    },
    },
    audience: {
     heading: "Für wen",
@@ -160,6 +215,55 @@ export const agencyLandingContent = {
      "Der Auslöser ist eine Kostenüberraschung, eine fragile Produktion oder ein Launch, den der aktuelle Account nicht trägt.",
     work:
      "Ich prüfe den Account und schreibe das Zielbild — oder setze es in CDK um, wenn das Statement of Work das sagt.",
+   },
+   videoExamples: {
+    heading: "Was das Video zeigt",
+    intro:
+     "Kein Stock-Material — das sind Produktionssysteme, die ich mitgegründet habe, als Produkt betreibe oder für Kunden betreue. Die Labels entsprechen den Kontext-Pills im Video.",
+    items: [
+     {
+      index: "01",
+      context: "Mitgegründetes Produkt",
+      title: "HalloCasa",
+      subtitle: "Internationaler Immobilien-Marktplatz",
+      body:
+       "Netzwerk für Makler und Käufer weltweit. Ich verantworte die AWS-Seite: Multi-Account-CDK-Pipelines, ECS auf Fargate für Next.js und API, plus CloudFront, ALB und RDS in us-east-1.",
+      stack: ["ECS Fargate", "CDK", "CloudFront", "RDS"],
+      href: "https://hallocasa.com",
+      linkLabel: "hallocasa.com",
+     },
+     {
+      index: "02",
+      context: "Kunde · Deutschland",
+      title: "HDI Cyquins",
+      subtitle: "Cyber-Versicherungs-Assessments (Prowler)",
+      body:
+       "Plattform für HDI-Broker: Firma einladen, Security-Fragebögen, Anbindung von AWS, Azure, GCP und Microsoft 365, Risiko-Scoring mit Prowler Cloud. Ich baue und betreibe die AWS-Landschaft — ECS Fargate, CDK, Cognito, DynamoDB, EventBridge.",
+      stack: ["ECS Fargate", "CDK", "Prowler API", "Multi-Cloud-Scans"],
+     },
+     {
+      index: "03",
+      context: "Eigenes SaaS-Produkt",
+      title: "ai-secure.dev",
+      subtitle: "KI-gestützte Compliance-Audits",
+      body:
+       "Agents prüfen Web-Apps gegen ISO 27001, SOC 2, NIST u. a. — auf Bedrock AgentCore (Runtime und Browser-Tools), MCP-Server auf API Gateway.",
+      stack: ["Bedrock AgentCore", "Fargate", "DynamoDB"],
+      href: "https://ai-secure.dev",
+      linkLabel: "ai-secure.dev",
+     },
+     {
+      index: "04",
+      context: "Eigenes Produkt · DACH",
+      title: "qr-plakat.de",
+      subtitle: "Schaufenster-Plakate mit wechselbarem QR-Link",
+      body:
+       "A-Format-Plakate im Browser gestalten, Scan-Ziele in Frankfurt (eu-central-1) hosten, druckfertige 300-dpi-PDFs per Lambda — OpenNext serverless.",
+      stack: ["OpenNext", "Lambda", "CloudFront", "Frankfurt"],
+      href: "https://qr-plakat.de",
+      linkLabel: "qr-plakat.de",
+     },
+    ],
    },
    offer: {
     heading: "Erster Schritt",
