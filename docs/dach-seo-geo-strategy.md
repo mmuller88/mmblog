@@ -107,7 +107,7 @@ German hubs (already live):
 
 Every new or rewritten post gets **one** hub link and **one** training link in the first screen and again at the end. DE training pages already point at the DE posts. Keep it that way.
 
-`show: "no"` does not noindex (sitemap has no `show` filter; homepage listings do). The commercial posts are crawlable and invisible on the homepage. Flip `show` to `yes` for the posts in the asset map below so the site itself points at the pages you want indexed.
+`show: "no"` does not noindex (sitemap has no `show` filter). The **homepage** lists only posts tagged `eng` with `show` ≠ `no`. German posts stay crawlable via sitemap, `/tags/de/`, `rss-ger.xml`, and DE hub/training links — no `show: yes` required for GEO.
 
 DE landing titles to change (query language, not English product labels):
 
@@ -135,9 +135,9 @@ Add `Person` + `Service` JSON-LD on the four DE landings. `name`: Martin Mueller
 
 ### P0 — weeks 1–3 (pages that can rank on what you already wrote)
 
-1. **ChatGPT Ads post.** Retitle to the query: `ChatGPT Ads in Deutschland: Setup, Tracking, erste Kampagne`. First 150 words answer “was sind ChatGPT Ads / was kosten sie / wann eine Agentur”. Keep the field notes as the proof. Add a Kosten section (what drives the quote: tracking, landings, spend). Links: `/one-man-agency-de/gpt/` and `/trainings-de/chatgpt-ads/`. Set `show: yes`. Competition on the head terms is 0; this is the only commercial query where a single page can reach page 1 without new authority.
+1. **ChatGPT Ads post.** Retitle to the query: `ChatGPT Ads in Deutschland: Setup, Tracking, erste Kampagne`. First 150 words answer “was sind ChatGPT Ads / was kosten sie / wann eine Agentur”. Keep the field notes as the proof. Add a Kosten section (what drives the quote: tracking, landings, spend). Links: `/one-man-agency-de/gpt/` and `/trainings-de/chatgpt-ads/`. Competition on the head terms is 0; this is the only commercial query where a single page can reach page 1 without new authority.
 2. **OpenClaw Sicherheit.** New German post, or a new H2-led URL if the existing posts should stay narrative. Target `openclaw sicherheit` (70, empty SERP) plus selbst hosten / DSGVO / VPS. Lead with the threat (keys, inbox, shell on a VPS) and what you actually locked down. Link `/trainings-de/openclaw-personal-ai-os/` and the Vibe Coding hub. Do not aim the title at `openclaw` (22k, official site + Wikipedia).
-3. **Homepage + listings.** `show: yes` on the six posts in the asset map. Homepage and tag pages then pass internal links. Leave Alfresco on `show: no` and out of the sitemap.
+3. **Internal links.** Point DE hubs/trainings at the asset-map posts; `/tags/de/` and `rss-ger.xml` for DE discovery. Homepage stays English-only (`eng` tag). Leave Alfresco on `show: no` and out of the sitemap.
 4. **Schema + titles** on the four DE landings, as in the table above.
 5. **Measurement.** SISTRIX Optimizer project for martinmueller.dev, country DE. AI tracker, model `aio` + `gpt`, country DE, these prompts:
    - Was ist OpenClaw und wie hostet man es sicher?
@@ -240,7 +240,7 @@ AI citations of the domain: 0 of 12. GSC impressions: not recorded yet. Fill tha
 ## Order of writing
 
 0. Search Console + Optimizer + AI tracker + week-0 row in `docs/dach-seo-geo-scorecard.md`
-1. ChatGPT Ads retitle + Kosten + `show: yes`
+1. ChatGPT Ads retitle + Kosten
 2. OpenClaw Sicherheit
 3. Landing titles + Person/Service schema
 4. Vibe Coding in Produktion

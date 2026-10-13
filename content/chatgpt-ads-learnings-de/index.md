@@ -1,7 +1,7 @@
 ---
 title: "ChatGPT Ads in Deutschland: Setup, Tracking, erste Kampagne"
 description: "Was ChatGPT Ads in Deutschland sind, was den Preis treibt (Tracking, Landings, Spend) und wann eine Agentur sinnvoll ist."
-show: "yes"
+show: "no"
 date: "2026-09-19"
 image: "index.png"
 audio: "audio.mp3"

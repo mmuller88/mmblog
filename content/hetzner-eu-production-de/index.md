@@ -1,6 +1,6 @@
 ---
 title: Produktion auf Hetzner für einen deutschen Kunden — EU-Hosting (Teil 1)
-show: "yes"
+show: "no"
 date: "2026-06-05"
 image: "index.jpg"
 tags:

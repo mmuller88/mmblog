@@ -43,7 +43,7 @@ Posts live in `content/{slug}/index.md` with frontmatter:
 ```yaml
 ---
 title: "Post Title"
-show: "yes"           # "no" to hide from listings
+show: "yes"           # "no" to hide from listings; homepage only lists posts with tag `eng`
 date: "YYYY-MM-DD"
 image: "image.png"    # relative path, in same folder
 tags: ["aws", "eng"]  # "eng" for English, "de" for German

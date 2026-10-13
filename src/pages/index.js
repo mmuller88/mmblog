@@ -110,7 +110,10 @@ export const pageQuery = graphql`
    sort: { order: DESC, fields: [frontmatter___date] }
    filter: {
     fileAbsolutePath: { regex: "/content/" }
-    frontmatter: { show: { ne: "no" } }
+    frontmatter: {
+     show: { ne: "no" }
+     tags: { in: ["eng"] }
+    }
    }
   ) {
    edges {

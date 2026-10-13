@@ -1,6 +1,6 @@
 ---
 title: Mit Lovable gebaut? Prod in Deutschland & DACH auf Hetzner hosten
-show: "yes"
+show: "no"
 date: "2026-06-08"
 image: "index.jpg"
 tags:
