@@ -1,7 +1,7 @@
 ---
 title: "ServerlessDays Milano 2026 — Folien online"
 description: "Folien zu The AI Factory That Never Sleeps — OpenClaw, Telegram, GitHub-PR-Loop — von den ServerlessDays Milano, 13. Okt. 2026."
-show: "yes"
+show: "no"
 date: "2026-10-13"
 tags: ["de", "2026", "serverless", "openclaw", "talks"]
 gerUrl: https://martinmueller.dev/serverlessdays-milano-2026-slides

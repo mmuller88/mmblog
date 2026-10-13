@@ -4,6 +4,7 @@ import "./post.css"
 import Layout from "../components/layout"
 import MetaTags from "../components/Metatags"
 import HomeAgencyPitch from "../components/HomeAgencyPitch"
+import HomeNewsBanner from "../components/HomeNewsBanner"
 import { generateStructuredData } from "../utils/seo"
 
 const homeTitle = "Martin Mueller — AWS CDK, Serverless & GEO"
@@ -57,6 +58,7 @@ const IndexPage = (props) => {
      description: homeDescription,
     })}
    />
+   <HomeNewsBanner />
    <HomeAgencyPitch />
    <div className="href">
     <a href={`tags/de`}>de</a>, <a href={`tags/eng`}>eng</a>,{" "}
