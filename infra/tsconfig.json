@@ -13,10 +13,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "ts-node": {
-    "transpileOnly": true
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node"]
   },
   "include": ["bin", "lib", "lambda"],
   "exclude": ["cdk.out", "dist", "node_modules"]

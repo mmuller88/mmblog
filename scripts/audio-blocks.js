@@ -4,9 +4,21 @@
  * Skips thematic breaks (---) — rendered as <hr>, not highlighted.
  */
 
-const remark = require("remark")
-const remarkParse = require("remark-parse")
-const remarkGfm = require("remark-gfm")
+function plugin(mod) {
+  if (typeof mod === "function") return mod
+  if (mod && typeof mod.default === "function") return mod.default
+  return mod
+}
+
+function remarkProcessor(mod) {
+  if (typeof mod === "function") return mod
+  if (mod && typeof mod.remark === "function") return mod.remark
+  return plugin(mod)
+}
+
+const remark = remarkProcessor(require("remark"))
+const remarkParse = plugin(require("remark-parse"))
+const remarkGfm = plugin(require("remark-gfm"))
 
 function nodeText(node) {
   if (node.type === "text") return node.value
