@@ -37,8 +37,8 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
     "autoprefixer": "^10.6.1",
-    "postcss": "^8.5.28",
-    "prettier": "^3.9.9"
+    "postcss": "^8.5.29",
+    "prettier": "^3.9.10"
   },
   "keywords": [
     "gatsby"
