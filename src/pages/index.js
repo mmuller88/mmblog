@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import "./post.css"
 import Layout from "../components/layout"
 import MetaTags from "../components/Metatags"
+import HomeAgencyPitch from "../components/HomeAgencyPitch"
 import { generateStructuredData } from "../utils/seo"
 
 const homeTitle = "Martin Mueller — AWS CDK, Serverless & GEO"
@@ -56,6 +57,7 @@ const IndexPage = (props) => {
      description: homeDescription,
     })}
    />
+   <HomeAgencyPitch />
    <div className="href">
     <a href={`tags/de`}>de</a>, <a href={`tags/eng`}>eng</a>,{" "}
     <a href={`tags`}>tags</a>,{" "}

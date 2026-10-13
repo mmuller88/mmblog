@@ -1,7 +1,7 @@
 ---
 title: "OpenClaw Sicherheit: Keys, Postfach und Shell auf dem VPS"
 description: "OpenClaw selbst hosten: API-Keys, Postfach und Shell auf dem VPS. Was ich begrenzt habe, und was DSGVO hier heißt."
-show: "yes"
+show: "no"
 date: "2026-09-26"
 tags: ["de", "2026", "openclaw", "security", "dsgvo", "vps"]
 pruneLength: 50

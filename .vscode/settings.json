@@ -3,7 +3,7 @@
         "markdown"
     ],
     "cSpell.dictionaryDefinitions": [
-    
+
     ],
     "cSpell.language": "en,de",
     "yaml.customTags": [
@@ -61,7 +61,8 @@
         "statusBar.debuggingBackground": "#06aced",
         "statusBar.debuggingForeground": "#15202b",
         "activityBar.activeBorder": "#15202b",
-        "activityBarTop.activeBorder": "#15202b"
+        "activityBarTop.activeBorder": "#15202b",
+        "statusBar.inactiveBackground": "#06aced"
     },
-    "peacock.color": "#06aced",
+    "peacock.color": "#06aced"
 }
