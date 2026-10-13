@@ -73,7 +73,22 @@ const AgencyLanding = ({ content, location }) => {
     }
   : null
 
- const extraJsonLd = [serviceJsonLd, videoJsonLd].filter(Boolean)
+ const exampleVideoJsonLd = (videoExamples?.items || [])
+  .filter((item) => item.video)
+  .map((item) => ({
+   "@context": "https://schema.org",
+   "@type": "VideoObject",
+   name: item.video.title,
+   description: item.video.caption || item.body,
+   thumbnailUrl: `${SITE_URL}${item.video.poster}`,
+   uploadDate: "2026-10-12",
+   duration: "PT30S",
+   contentUrl: `${SITE_URL}${item.video.src.split("?")[0]}`,
+  }))
+
+ const extraJsonLd = [serviceJsonLd, videoJsonLd, ...exampleVideoJsonLd].filter(
+  Boolean
+ )
 
  return (
   <Layout fullWidth>
@@ -185,47 +200,68 @@ const AgencyLanding = ({ content, location }) => {
         <article
          key={item.index}
          data-testid={`aws-video-example-${item.index}`}
-         className="flex flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900"
+         className={`flex flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900 ${item.video ? "md:col-span-2 md:flex-row md:items-center md:gap-8" : ""}`}
         >
-         <div className="mb-3 flex flex-wrap items-center gap-2">
-          <span className="font-mono text-sm font-semibold text-brand">
-           {item.index}
-          </span>
-          <span className="rounded-full bg-slate-100 px-3 py-0.5 text-xs font-medium uppercase tracking-wide text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-           {item.context}
-          </span>
-         </div>
-         <h3 className="mb-1 font-sans text-xl font-bold text-gray-900 dark:text-gray-100">
-          {item.title}
-         </h3>
-         <p className="mb-3 text-sm font-medium text-gray-500 dark:text-gray-400">
-          {item.subtitle}
-         </p>
-         <p className="mb-4 flex-grow text-base leading-relaxed text-gray-700 dark:text-gray-300">
-          {item.body}
-         </p>
-         <ul className="m-0 mb-4 flex flex-wrap gap-2 list-none p-0">
-          {item.stack.map((chip) => (
-           <li
-            key={chip}
-            className="rounded-full bg-blue-50 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"
+         {item.video ? (
+          <div className="mb-6 w-full md:mb-0 md:w-1/2">
+           <video
+            controls
+            playsInline
+            preload="none"
+            poster={item.video.poster}
+            aria-label={item.video.title}
+            className="aspect-video mb-2 w-full rounded-lg bg-slate-900"
            >
-            {chip}
-           </li>
-          ))}
-         </ul>
-         {item.href && (
-          <p className="mb-0">
-           <a
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-brand hover:underline"
-           >
-            {item.linkLabel || item.href}
-           </a>
+            <source src={item.video.src} type="video/mp4" />
+           </video>
+           {item.video.caption ? (
+            <p className="mb-0 text-sm text-gray-500 dark:text-gray-400">
+             {item.video.caption}
+            </p>
+           ) : null}
+          </div>
+         ) : null}
+         <div className={`flex flex-col ${item.video ? "md:w-1/2" : ""}`}>
+          <div className="mb-3 flex flex-wrap items-center gap-2">
+           <span className="font-mono text-sm font-semibold text-brand">
+            {item.index}
+           </span>
+           <span className="rounded-full bg-slate-100 px-3 py-0.5 text-xs font-medium uppercase tracking-wide text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+            {item.context}
+           </span>
+          </div>
+          <h3 className="mb-1 font-sans text-xl font-bold text-gray-900 dark:text-gray-100">
+           {item.title}
+          </h3>
+          <p className="mb-3 text-sm font-medium text-gray-500 dark:text-gray-400">
+           {item.subtitle}
           </p>
-         )}
+          <p className="mb-4 flex-grow text-base leading-relaxed text-gray-700 dark:text-gray-300">
+           {item.body}
+          </p>
+          <ul className="m-0 mb-4 flex flex-wrap gap-2 list-none p-0">
+           {item.stack.map((chip) => (
+            <li
+             key={chip}
+             className="rounded-full bg-blue-50 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"
+            >
+             {chip}
+            </li>
+           ))}
+          </ul>
+          {item.href && (
+           <p className="mb-0">
+            <a
+             href={item.href}
+             target="_blank"
+             rel="noopener noreferrer"
+             className="text-brand hover:underline"
+            >
+             {item.linkLabel || item.href}
+            </a>
+           </p>
+          )}
+         </div>
         </article>
        ))}
       </div>

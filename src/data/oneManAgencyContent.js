@@ -27,6 +27,8 @@ export const oneManAgencyContent = {
   langSwitch: { label: "Translate To German", href: "/one-man-agency-de/" },
   services: {
    heading: "Services",
+   intro: "Each service is its own page — scope, proof, and a way to book.",
+   linkLabel: "Open page →",
    items: [
     {
      title: "AWS",
@@ -259,6 +261,8 @@ export const oneManAgencyContent = {
   langSwitch: { label: "Translate To English", href: "/one-man-agency/" },
   services: {
    heading: "Leistungen",
+   intro: "Jede Leistung hat eine eigene Seite — Scope, Nachweis und Buchung.",
+   linkLabel: "Seite öffnen →",
    items: [
     {
      title: "AWS",

@@ -76,6 +76,13 @@ export const agencyLandingContent = {
       stack: ["ECS Fargate", "CDK", "CloudFront", "RDS"],
       href: "https://hallocasa.com",
       linkLabel: "hallocasa.com",
+      video: {
+       src: "/one-man-agency/hallocasa-broker-promo.mp4?v=1",
+       poster: "/one-man-agency/hallocasa-broker-promo.jpg",
+       title: "HalloCasa — local listings, global buyers",
+       caption:
+        "Product clip: a broker profile, listings, and the global buyer network.",
+      },
      },
      {
       index: "02",
@@ -231,6 +238,13 @@ export const agencyLandingContent = {
       stack: ["ECS Fargate", "CDK", "CloudFront", "RDS"],
       href: "https://hallocasa.com",
       linkLabel: "hallocasa.com",
+      video: {
+       src: "/one-man-agency/hallocasa-broker-promo.mp4?v=1",
+       poster: "/one-man-agency/hallocasa-broker-promo.jpg",
+       title: "HalloCasa — lokale Inserate, globale Käufer",
+       caption:
+        "Produktclip: Maklerprofil, Inserate und das globale Käufernetzwerk.",
+      },
      },
      {
       index: "02",
@@ -387,10 +401,19 @@ export const agencyLandingContent = {
     intro:
      "The call is to see whether a technical SEO pass is the right next purchase. After that, a bounded Statement of Work.",
     rows: [
-     ["Scope", "One JavaScript or SaaS site: crawl, index, canonicals, and the pages that should rank."],
-     ["Deliverables", "Audit notes plus the prioritized fixes we implement in the repo."],
+     [
+      "Scope",
+      "One JavaScript or SaaS site: crawl, index, canonicals, and the pages that should rank.",
+     ],
+     [
+      "Deliverables",
+      "Audit notes plus the prioritized fixes we implement in the repo.",
+     ],
      ["Turnaround", "Agreed in the Statement of Work."],
-     ["Exclusions", "Content writing for a new article series, link buying, and ranking guarantees."],
+     [
+      "Exclusions",
+      "Content writing for a new article series, link buying, and ranking guarantees.",
+     ],
      ["Price", "On request."],
     ],
    },
@@ -494,8 +517,14 @@ export const agencyLandingContent = {
     intro:
      "Das Gespräch klärt, ob ein technischer SEO-Durchgang der richtige nächste Kauf ist. Danach ein abgegrenztes Statement of Work.",
     rows: [
-     ["Scope", "Eine JavaScript- oder SaaS-Seite: Crawl, Index, Canonicals und die Seiten, die ranken sollen."],
-     ["Liefergegenstände", "Audit-Notizen plus die priorisierten Fixes, die wir im Repo umsetzen."],
+     [
+      "Scope",
+      "Eine JavaScript- oder SaaS-Seite: Crawl, Index, Canonicals und die Seiten, die ranken sollen.",
+     ],
+     [
+      "Liefergegenstände",
+      "Audit-Notizen plus die priorisierten Fixes, die wir im Repo umsetzen.",
+     ],
      ["Dauer", "Vereinbart im Statement of Work."],
      ["Nicht enthalten", "Neue Artikelserien, Linkkauf und Ranking-Garantien."],
      ["Preis", "Auf Anfrage."],

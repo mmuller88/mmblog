@@ -132,16 +132,26 @@ const OneManAgency = ({ content, location }) => {
    {services && (
     <div className="bg-white px-4 py-16 dark:bg-slate-900">
      <div className="mx-auto max-w-6xl">
-      <SectionHeading id="services">{services.heading}</SectionHeading>
+      <SectionHeading id="services" className="mb-4">
+       {services.heading}
+      </SectionHeading>
+      <p className="mx-auto mb-12 max-w-2xl text-center text-gray-600 dark:text-gray-400">
+       {services.intro}
+      </p>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
        {services.items.map((item) => (
         <Link
          key={item.href}
          to={item.href}
-         className="rounded-xl bg-gray-50 p-6 text-gray-900 no-underline shadow-md transition-shadow duration-200 hover:text-gray-900 hover:no-underline hover:shadow-lg dark:bg-slate-800 dark:text-gray-100 dark:hover:text-gray-100"
+         className="flex flex-col rounded-xl bg-gray-50 p-6 text-gray-900 no-underline shadow-md transition-shadow duration-200 hover:text-gray-900 hover:no-underline hover:shadow-lg dark:bg-slate-800 dark:text-gray-100 dark:hover:text-gray-100"
         >
-         <h3 className="mb-3 font-sans text-xl font-semibold">{item.title}</h3>
-         <p className="mb-0 text-gray-700 dark:text-gray-300">{item.text}</p>
+         <p className="mb-3 font-sans text-xl font-semibold text-brand">
+          {item.title}
+         </p>
+         <p className="mb-4 flex-grow text-gray-700 dark:text-gray-300">
+          {item.text}
+         </p>
+         <p className="mb-0 font-semibold text-brand">{services.linkLabel}</p>
         </Link>
        ))}
       </div>
