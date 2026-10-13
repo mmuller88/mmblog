@@ -37,7 +37,7 @@ Full slide deck catalog: **[martinmueller.dev/talks](https://martinmueller.dev/t
 
 - 🇬🇷 **AWS Community Day Athens 2026** — [Beyond Chatbots: Shipping Stateful AI Agents on AWS](https://martinmueller.dev/talks/aws-community-day-athens-2026/)
 - 🇩🇪 **AWS Community Day DACH 2026** (Berlin) — [AI Factory: An Autonomous Dev Pipeline](https://martinmueller.dev/talks/aws-community-day-dach-2026/)
-- 🇮🇹 **ServerlessDays Milano 2026** (upcoming) — [The AI Factory That Never Sleeps](https://martinmueller.dev/talks/milan-2026-ai-factory/)
+- 🇮🇹 **ServerlessDays Milano 2026** — [The AI Factory That Never Sleeps](https://martinmueller.dev/talks/milan-2026-ai-factory/) ([slides](https://mmuller88.github.io/presentations/milan-2026-ai-factory/?utm_source=martinmueller&utm_medium=talks))
 - 🎤 **KI Stammtisch** — [KI-Assistenten im Beruf und Alltag](https://martinmueller.dev/talks/ki-stammtisch/)
 - 🎓 **CodeGenius / ITRAC Training** — Agentic AI Training (Wismar, 2026)
 

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-24",
+  "updated": "2026-10-13",
   "talks": [
     {
       "slug": "aws-community-day-dach-2026",
@@ -27,6 +27,20 @@
         "ai-agents",
         "agentcore",
         "bedrock"
+      ]
+    },
+    {
+      "slug": "milan-2026-ai-factory",
+      "title": "The AI Factory That Never Sleeps",
+      "event": "ServerlessDays Milano 2026",
+      "date": "2026-10-13",
+      "url": "https://martinmueller.dev/talks/milan-2026-ai-factory/",
+      "deckUrl": "https://mmuller88.github.io/presentations/milan-2026-ai-factory/?utm_source=martinmueller&utm_medium=talks",
+      "tags": [
+        "aws",
+        "serverless",
+        "ai-agents",
+        "openclaw"
       ]
     },
     {

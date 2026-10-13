@@ -83,12 +83,12 @@
    }
   },
   "milan-2026-ai-factory": {
-   "status": "upcoming",
+   "status": "delivered",
    "date": "2026-10-13",
    "duration": "40 min",
    "deckLanguage": "en",
    "showInCatalog": true,
-   "deckSlug": null,
+   "deckSlug": "milan-2026-ai-factory",
    "eventUrl": "https://milan.serverlessdays.io/",
    "heroImage": "/talks/milan-2026-ai-factory.svg",
    "tags": ["aws", "serverless", "ai-agents", "openclaw"],
@@ -108,7 +108,7 @@
      "location": "WAO Romolo C30, Milan, Italy"
     },
     "title": "The AI Factory That Never Sleeps",
-    "abstract": "Same AI Factory story as Berlin — reframed for serverless builders. VPS agent orchestration, Telegram ops, GitHub PR loop. Slides published after the event."
+    "abstract": "OpenClaw on a Hostinger VPS, Telegram forum topics, and a GitHub issue → plan → PR loop with human gates — honest about what is not serverless, and where AWS/CDK still matters (HalloCasa, HDI/Prowler, ai-secure). Delivered at ServerlessDays Milano, 13 Oct 2026."
    },
    "de": {
     "event": {
@@ -116,7 +116,7 @@
      "location": "WAO Romolo C30, Mailand, Italien"
     },
     "title": "The AI Factory That Never Sleeps",
-    "abstract": "Dieselbe AI-Factory-Story wie in Berlin — für Serverless-Builder. VPS-Agent-Orchestrierung, Telegram-Ops, GitHub-PR-Loop. Folien nach dem Event."
+    "abstract": "OpenClaw auf einem Hostinger-VPS, Telegram-Forum-Topics und ein GitHub-Issue-→-Plan-→-PR-Loop mit menschlichen Gates — ehrlich, was nicht Serverless ist, und wo AWS/CDK trotzdem zählt. Gehalten auf den ServerlessDays Milano, 13. Okt. 2026."
    }
   },
   "ki-stammtisch": {
