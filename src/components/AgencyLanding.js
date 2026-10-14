@@ -1,10 +1,12 @@
-import React from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { Link } from "gatsby"
 import Layout from "./layout"
 import MetaTags from "./Metatags"
 import AgencyContactForm from "./AgencyContactForm"
 import FaqAccordion from "./FaqAccordion"
+import HeadingAnchorLink from "./HeadingAnchorLink"
 import useOaiqTracking from "../hooks/useOaiqTracking"
+import "../styles/heading-anchors.css"
 import {
  oneManAgencyHeroImage,
  oneManAgencyHeroImageAlt,
@@ -37,6 +39,24 @@ const AgencyLanding = ({ content, location }) => {
  } = content
 
  const { calendlyUrl, openCalendly } = useOaiqTracking()
+ const [anchorToast, setAnchorToast] = useState(false)
+ const anchorToastTimerRef = useRef(null)
+
+ useEffect(
+  () => () =>
+   anchorToastTimerRef.current &&
+   window.clearTimeout(anchorToastTimerRef.current),
+  []
+ )
+
+ const onProjectAnchorCopied = () => {
+  setAnchorToast(true)
+  if (anchorToastTimerRef.current) window.clearTimeout(anchorToastTimerRef.current)
+  anchorToastTimerRef.current = window.setTimeout(
+   () => setAnchorToast(false),
+   1500
+  )
+ }
 
  const serviceJsonLd = service
   ? {
@@ -228,7 +248,14 @@ const AgencyLanding = ({ content, location }) => {
            </span>
           </div>
           <h3 className="mb-1 font-sans text-xl font-bold text-gray-900 dark:text-gray-100">
-           {item.title}
+           <span className="inline-flex items-center gap-1">
+            <HeadingAnchorLink
+             id={sectionId}
+             onCopied={onProjectAnchorCopied}
+             className="!opacity-70 hover:!opacity-100 focus:!opacity-100"
+            />
+            {item.title}
+           </span>
           </h3>
           <p className="mb-3 text-sm font-medium text-gray-500 dark:text-gray-400">
            {item.subtitle}
@@ -281,6 +308,14 @@ const AgencyLanding = ({ content, location }) => {
         )
        })}
       </div>
+      {anchorToast ? (
+       <p
+        className="fixed bottom-8 left-1/2 z-50 -translate-x-1/2 rounded-md bg-gray-900 px-3 py-2 text-sm font-normal text-white shadow-lg"
+        role="status"
+       >
+        {meta.language === "de" ? "Link kopiert!" : "Copied!"}
+       </p>
+      ) : null}
      </div>
     </div>
    )}
