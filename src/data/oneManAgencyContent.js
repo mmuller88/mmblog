@@ -53,7 +53,7 @@ export const oneManAgencyContent = {
     },
     {
      title: "Security audit",
-     text: "App and cloud security review with a fixed-scope SoW.",
+     text: "App and cloud review — Prowler for multi-cloud posture when in scope.",
      href: "/one-man-agency/security-audit/",
     },
     {
@@ -297,7 +297,7 @@ export const oneManAgencyContent = {
     },
     {
      title: "Security Audit",
-     text: "App- und Cloud-Security-Review mit festem SoW.",
+     text: "App- und Cloud-Review — Prowler für Multi-Cloud-Posture im Scope.",
      href: "/one-man-agency-de/security-audit/",
     },
     {

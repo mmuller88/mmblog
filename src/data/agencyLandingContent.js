@@ -934,6 +934,7 @@ export const agencyLandingContent = {
      "cloud security",
      "application security",
      "AWS security",
+     "Prowler",
      "compliance review",
     ],
     locale: "en_US",
@@ -962,7 +963,17 @@ export const agencyLandingContent = {
     trigger:
      "The trigger is a customer questionnaire, a cyber-insurance assessment, an incident scare, or a launch date with no security sign-off.",
     work:
-     "I review the agreed surface (app, API, IAM, network, CI) and deliver prioritized findings plus what to fix first — or implement fixes when the SoW says so.",
+     "I review the agreed surface (app, API, IAM, network, CI) and deliver prioritized findings plus what to fix first — or implement fixes when the SoW says so. For multi-cloud estates I use Prowler (open source and Prowler Cloud) on AWS, Azure, GCP, and Microsoft 365.",
+   },
+   definition: {
+    heading: "Tools",
+    paragraphs: [
+     "Reviews combine manual app and architecture work with automation where it speeds coverage. Prowler is one of the tools I use for cloud posture — the same family I run in production for HDI Cyquins (German cyber-insurance assessments).",
+    ],
+    link: {
+     label: "HDI Cyquins case on my AWS page",
+     href: "/one-man-agency/aws/#hdi-cyquins",
+    },
    },
    offer: {
     heading: "First step",
@@ -997,6 +1008,7 @@ export const agencyLandingContent = {
     items: [
      "Threat-oriented review of app and API surfaces",
      "Cloud IAM, secrets, and network exposure check",
+     "Multi-cloud scans with Prowler when AWS, Azure, GCP, or M365 are in scope",
      "Dependency and configuration risk notes",
      "Prioritized findings (critical → low) with fix guidance",
      "Executive summary for stakeholders",
@@ -1031,6 +1043,7 @@ export const agencyLandingContent = {
      "Cloud Security",
      "Application Security",
      "AWS Security",
+     "Prowler",
      "Compliance Review",
     ],
     locale: "de_DE",
@@ -1059,7 +1072,17 @@ export const agencyLandingContent = {
     trigger:
      "Auslöser: Kundenfragebogen, Cyber-Versicherungs-Assessment, Incident-Schrecken oder Launch ohne Security-Sign-off.",
     work:
-     "Ich prüfe die vereinbarte Oberfläche (App, API, IAM, Netz, CI) und liefere priorisierte Findings plus Fix-Reihenfolge — oder setze Fixes um, wenn das SoW das sagt.",
+     "Ich prüfe die vereinbarte Oberfläche (App, API, IAM, Netz, CI) und liefere priorisierte Findings plus Fix-Reihenfolge — oder setze Fixes um, wenn das SoW das sagt. Für Multi-Cloud-Landschaften nutze ich Prowler (Open Source und Prowler Cloud) für AWS, Azure, GCP und Microsoft 365.",
+   },
+   definition: {
+    heading: "Werkzeuge",
+    paragraphs: [
+     "Reviews kombinieren manuelle App- und Architektur-Arbeit mit Automation, wo sie Abdeckung beschleunigt. Prowler ist eines der Tools für Cloud-Posture — dieselbe Familie, die ich in Produktion für HDI Cyquins (deutsche Cyber-Versicherungs-Assessments) betreibe.",
+    ],
+    link: {
+     label: "HDI-Cyquins-Case auf meiner AWS-Seite",
+     href: "/one-man-agency-de/aws/#hdi-cyquins",
+    },
    },
    offer: {
     heading: "Erster Schritt",
@@ -1094,6 +1117,7 @@ export const agencyLandingContent = {
     items: [
      "Threat-orientiertes Review von App- und API-Oberflächen",
      "Check von Cloud-IAM, Secrets und Netz-Exposure",
+     "Multi-Cloud-Scans mit Prowler, wenn AWS, Azure, GCP oder M365 im Scope sind",
      "Notizen zu Dependency- und Config-Risiken",
      "Priorisierte Findings (kritisch → niedrig) mit Fix-Hinweisen",
      "Executive Summary für Stakeholder",
