@@ -192,36 +192,33 @@ const AgencyLanding = ({ content, location }) => {
       <h2 className="mb-4 text-center font-sans text-3xl font-bold text-gray-900 dark:text-gray-100">
        {videoExamples.heading}
       </h2>
-      <p className="mx-auto mb-10 max-w-3xl text-center text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+      <p className="mx-auto mb-6 max-w-3xl text-center text-lg leading-relaxed text-gray-700 dark:text-gray-300">
        {videoExamples.intro}
       </p>
-      <div className="grid gap-6 md:grid-cols-2">
+      <nav
+       aria-label={videoExamples.jumpNavLabel || "Projects"}
+       className="mb-10 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm"
+      >
        {videoExamples.items.map((item) => (
+        <a
+         key={item.anchor || item.index}
+         href={`#${item.anchor || item.index}`}
+         className="text-brand hover:underline"
+        >
+         {item.title}
+        </a>
+       ))}
+      </nav>
+      <div className="grid gap-6 md:grid-cols-2">
+       {videoExamples.items.map((item) => {
+        const sectionId = item.anchor || `project-${item.index}`
+        return (
         <article
          key={item.index}
+         id={sectionId}
          data-testid={`aws-video-example-${item.index}`}
-         className={`flex flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900 ${item.video ? "md:col-span-2 md:flex-row md:items-center md:gap-8" : ""}`}
+         className="scroll-mt-24 flex flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900"
         >
-         {item.video ? (
-          <div className="mb-6 w-full md:mb-0 md:w-1/2">
-           <video
-            controls
-            playsInline
-            preload="none"
-            poster={item.video.poster}
-            aria-label={item.video.title}
-            className="aspect-video mb-2 w-full rounded-lg bg-slate-900"
-           >
-            <source src={item.video.src} type="video/mp4" />
-           </video>
-           {item.video.caption ? (
-            <p className="mb-0 text-sm text-gray-500 dark:text-gray-400">
-             {item.video.caption}
-            </p>
-           ) : null}
-          </div>
-         ) : null}
-         <div className={`flex flex-col ${item.video ? "md:w-1/2" : ""}`}>
           <div className="mb-3 flex flex-wrap items-center gap-2">
            <span className="font-mono text-sm font-semibold text-brand">
             {item.index}
@@ -236,6 +233,25 @@ const AgencyLanding = ({ content, location }) => {
           <p className="mb-3 text-sm font-medium text-gray-500 dark:text-gray-400">
            {item.subtitle}
           </p>
+          {item.video ? (
+           <div className="mb-4 w-full">
+            <video
+             controls
+             playsInline
+             preload="none"
+             poster={item.video.poster}
+             aria-label={item.video.title}
+             className="aspect-video mb-2 w-full rounded-lg bg-slate-900"
+            >
+             <source src={item.video.src} type="video/mp4" />
+            </video>
+            {item.video.caption ? (
+             <p className="mb-0 text-sm text-gray-500 dark:text-gray-400">
+              {item.video.caption}
+             </p>
+            ) : null}
+           </div>
+          ) : null}
           <p className="mb-4 flex-grow text-base leading-relaxed text-gray-700 dark:text-gray-300">
            {item.body}
           </p>
@@ -261,9 +277,9 @@ const AgencyLanding = ({ content, location }) => {
             </a>
            </p>
           )}
-         </div>
         </article>
-       ))}
+        )
+       })}
       </div>
      </div>
     </div>

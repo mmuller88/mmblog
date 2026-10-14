@@ -68,6 +68,7 @@ export const agencyLandingContent = {
     items: [
      {
       index: "01",
+      anchor: "hallocasa",
       context: "Co-founded product",
       title: "HalloCasa",
       subtitle: "Global real-estate marketplace",
@@ -86,6 +87,7 @@ export const agencyLandingContent = {
      },
      {
       index: "02",
+      anchor: "hdi-cyquins",
       context: "Client · Germany",
       title: "HDI Cyquins",
       subtitle: "Cyber insurance assessments (Prowler)",
@@ -95,6 +97,7 @@ export const agencyLandingContent = {
      },
      {
       index: "03",
+      anchor: "ai-secure",
       context: "Own SaaS product",
       title: "ai-secure.dev",
       subtitle: "AI-driven compliance audits",
@@ -106,6 +109,7 @@ export const agencyLandingContent = {
      },
      {
       index: "04",
+      anchor: "qr-plakat",
       context: "Own product · DACH",
       title: "qr-plakat.de",
       subtitle: "Shop-window posters with updatable QR links",
@@ -230,6 +234,7 @@ export const agencyLandingContent = {
     items: [
      {
       index: "01",
+      anchor: "hallocasa",
       context: "Mitgegründetes Produkt",
       title: "HalloCasa",
       subtitle: "Internationaler Immobilien-Marktplatz",
@@ -248,6 +253,7 @@ export const agencyLandingContent = {
      },
      {
       index: "02",
+      anchor: "hdi-cyquins",
       context: "Kunde · Deutschland",
       title: "HDI Cyquins",
       subtitle: "Cyber-Versicherungs-Assessments (Prowler)",
@@ -257,6 +263,7 @@ export const agencyLandingContent = {
      },
      {
       index: "03",
+      anchor: "ai-secure",
       context: "Eigenes SaaS-Produkt",
       title: "ai-secure.dev",
       subtitle: "KI-gestützte Compliance-Audits",
@@ -268,6 +275,7 @@ export const agencyLandingContent = {
      },
      {
       index: "04",
+      anchor: "qr-plakat",
       context: "Eigenes Produkt · DACH",
       title: "qr-plakat.de",
       subtitle: "Schaufenster-Plakate mit wechselbarem QR-Link",
