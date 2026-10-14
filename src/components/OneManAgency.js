@@ -138,7 +138,7 @@ const OneManAgency = ({ content, location }) => {
       <p className="mx-auto mb-12 max-w-2xl text-center text-gray-600 dark:text-gray-400">
        {services.intro}
       </p>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
        {services.items.map((item) => (
         <Link
          key={item.href}

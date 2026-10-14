@@ -51,6 +51,16 @@ export const oneManAgencyContent = {
      text: "Production readiness for an AI prototype.",
      href: "/one-man-agency/vibe-coding/",
     },
+    {
+     title: "Security audit",
+     text: "App and cloud security review with a fixed-scope SoW.",
+     href: "/one-man-agency/security-audit/",
+    },
+    {
+     title: "DevOps audit",
+     text: "CI/CD, observability, and ops readiness review.",
+     href: "/one-man-agency/devops-audit/",
+    },
    ],
   },
   sections: [
@@ -284,6 +294,16 @@ export const oneManAgencyContent = {
      title: "Vibe Coding",
      text: "Production Readiness für einen KI-Prototyp.",
      href: "/one-man-agency-de/vibe-coding/",
+    },
+    {
+     title: "Security Audit",
+     text: "App- und Cloud-Security-Review mit festem SoW.",
+     href: "/one-man-agency-de/security-audit/",
+    },
+    {
+     title: "DevOps Audit",
+     text: "Review von CI/CD, Observability und Ops-Reife.",
+     href: "/one-man-agency-de/devops-audit/",
     },
    ],
   },

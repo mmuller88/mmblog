@@ -484,9 +484,20 @@ const AgencyLanding = ({ content, location }) => {
       <ul className="m-0 list-none space-y-2 p-0">
        {credential.links.map((item) => (
         <li key={item.href}>
-         <Link to={item.href} className="text-brand hover:underline">
-          {item.label}
-         </Link>
+         {item.href.startsWith("http") ? (
+          <a
+           href={item.href}
+           target="_blank"
+           rel="noopener noreferrer"
+           className="text-brand hover:underline"
+          >
+           {item.label}
+          </a>
+         ) : (
+          <Link to={item.href} className="text-brand hover:underline">
+           {item.label}
+          </Link>
+         )}
         </li>
        ))}
       </ul>

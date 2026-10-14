@@ -147,6 +147,34 @@ const headRoutes = [
   en: `${SITE}/one-man-agency/vibe-coding/`,
   de: `${SITE}/one-man-agency-de/vibe-coding/`,
  },
+ {
+  file: "one-man-agency/security-audit/index.html",
+  title: "Security Audit — App & Cloud, Fixed Scope",
+  canonical: `${SITE}/one-man-agency/security-audit/`,
+  en: `${SITE}/one-man-agency/security-audit/`,
+  de: `${SITE}/one-man-agency-de/security-audit/`,
+ },
+ {
+  file: "one-man-agency-de/security-audit/index.html",
+  title: "Security Audit — App & Cloud, fester Scope",
+  canonical: `${SITE}/one-man-agency-de/security-audit/`,
+  en: `${SITE}/one-man-agency/security-audit/`,
+  de: `${SITE}/one-man-agency-de/security-audit/`,
+ },
+ {
+  file: "one-man-agency/devops-audit/index.html",
+  title: "DevOps Audit — CI/CD, Observability & Ops Readiness",
+  canonical: `${SITE}/one-man-agency/devops-audit/`,
+  en: `${SITE}/one-man-agency/devops-audit/`,
+  de: `${SITE}/one-man-agency-de/devops-audit/`,
+ },
+ {
+  file: "one-man-agency-de/devops-audit/index.html",
+  title: "DevOps Audit — CI/CD, Observability & Ops-Reife",
+  canonical: `${SITE}/one-man-agency-de/devops-audit/`,
+  en: `${SITE}/one-man-agency/devops-audit/`,
+  de: `${SITE}/one-man-agency-de/devops-audit/`,
+ },
 ]
 
 function headHtml(html) {

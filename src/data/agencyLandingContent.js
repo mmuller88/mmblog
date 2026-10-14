@@ -923,4 +923,405 @@ export const agencyLandingContent = {
    contact: { heading: "Erzählen Sie mir von Ihrem Stack", form: formLabelsDe },
   },
  },
+ securityAudit: {
+  en: {
+   meta: {
+    title: "Security Audit — App & Cloud, Fixed Scope",
+    description:
+     "Security audit for web apps and cloud estates: findings, risk prioritization, and remediation guidance. Written Statement of Work, no agency markup.",
+    keywords: [
+     "security audit",
+     "cloud security",
+     "application security",
+     "AWS security",
+     "compliance review",
+    ],
+    locale: "en_US",
+    language: "en",
+    gerUrl: "/one-man-agency-de/security-audit/",
+   },
+   langSwitch: {
+    label: "Deutsch",
+    href: "/one-man-agency-de/security-audit/",
+   },
+   hubLink: {
+    label: "← Full One-Man Agency overview",
+    href: "/one-man-agency/",
+   },
+   hero: {
+    title: "Security Audit",
+    subtitle:
+     "For a team that needs an independent security pass before launch, procurement, or insurance — one senior reviewer, scope fixed in a Statement of Work.",
+    ctaSpeak: "🗣️ Book a call",
+    ctaWrite: "📝 Or send a message",
+   },
+   audience: {
+    heading: "Who this is for",
+    who:
+     "A SaaS or product team with a live or near-live stack on AWS, Kubernetes, or VPS — and no clear picture of exposure, secrets, or blast radius.",
+    trigger:
+     "The trigger is a customer questionnaire, a cyber-insurance assessment, an incident scare, or a launch date with no security sign-off.",
+    work:
+     "I review the agreed surface (app, API, IAM, network, CI) and deliver prioritized findings plus what to fix first — or implement fixes when the SoW says so.",
+   },
+   offer: {
+    heading: "First step",
+    intro:
+     "The call scopes the audit boundary. After that, a bounded Statement of Work with deliverables and price.",
+    rows: [
+     [
+      "Scope",
+      "One product or one cloud account: named environments, repos, and attack surfaces.",
+     ],
+     [
+      "Deliverables",
+      "Written findings, severity ranking, remediation notes, and optional re-test window.",
+     ],
+     ["Turnaround", "Agreed in the Statement of Work."],
+     [
+      "Exclusions",
+      "Penetration testing beyond agreed scope, 24/7 SOC, and unnamed systems.",
+     ],
+     ["Price", "On request."],
+    ],
+   },
+   credential: {
+    heading: "Related",
+    links: [
+     { label: "ai-secure.dev — compliance agents I ship", href: "https://ai-secure.dev" },
+     { label: "Vibe Coding → production + security", href: "/one-man-agency/vibe-coding/" },
+    ],
+   },
+   deliverables: {
+    heading: "What you get",
+    items: [
+     "Threat-oriented review of app and API surfaces",
+     "Cloud IAM, secrets, and network exposure check",
+     "Dependency and configuration risk notes",
+     "Prioritized findings (critical → low) with fix guidance",
+     "Executive summary for stakeholders",
+     "Written Statement of Work with fixed price",
+    ],
+   },
+   sowExample: {
+    label: "📄 Security Audit SoW template (redacted)",
+    href: "/one-man-agency/sow-security-audit-template-redacted.pdf",
+   },
+   testimonials: [
+    {
+     name: "Jakob Jordan",
+     href: "https://www.linkedin.com/in/jakob-jordan-10404bb4/",
+     image: testimonialJakob,
+     paragraphs: [
+      "Martin built our production environment on Hetzner in Germany — including Grafana monitoring and an essential security audit.",
+      "The infrastructure is set up so we can maintain and deploy it through AI agents.",
+     ],
+    },
+   ],
+   service: true,
+   contact: { heading: "Tell me what you need reviewed", form: formLabelsEn },
+  },
+  de: {
+   meta: {
+    title: "Security Audit — App & Cloud, fester Scope",
+    description:
+     "Security Audit für Web-Apps und Cloud: Findings, Risiko-Priorisierung, Remediation. Schriftliches Statement of Work, kein Agentur-Aufschlag.",
+    keywords: [
+     "Security Audit",
+     "Cloud Security",
+     "Application Security",
+     "AWS Security",
+     "Compliance Review",
+    ],
+    locale: "de_DE",
+    language: "de",
+    engUrl: "/one-man-agency/security-audit/",
+   },
+   langSwitch: {
+    label: "English",
+    href: "/one-man-agency/security-audit/",
+   },
+   hubLink: {
+    label: "← Zur vollständigen One-Man-Agency-Übersicht",
+    href: "/one-man-agency-de/",
+   },
+   hero: {
+    title: "Security Audit",
+    subtitle:
+     "Für Teams, die vor Launch, Beschaffung oder Versicherung einen unabhängigen Security-Pass brauchen — ein Senior-Reviewer, Scope im Statement of Work.",
+    ctaSpeak: "🗣️ Termin buchen",
+    ctaWrite: "📝 Oder Nachricht senden",
+   },
+   audience: {
+    heading: "Für wen",
+    who:
+     "Ein SaaS- oder Produktteam mit Live- oder Near-Live-Stack auf AWS, Kubernetes oder VPS — ohne klares Bild von Exposure, Secrets oder Blast Radius.",
+    trigger:
+     "Auslöser: Kundenfragebogen, Cyber-Versicherungs-Assessment, Incident-Schrecken oder Launch ohne Security-Sign-off.",
+    work:
+     "Ich prüfe die vereinbarte Oberfläche (App, API, IAM, Netz, CI) und liefere priorisierte Findings plus Fix-Reihenfolge — oder setze Fixes um, wenn das SoW das sagt.",
+   },
+   offer: {
+    heading: "Erster Schritt",
+    intro:
+     "Im Gespräch wird die Audit-Grenze gezogen. Danach ein abgegrenztes Statement of Work mit Liefergegenständen und Preis.",
+    rows: [
+     [
+      "Scope",
+      "Ein Produkt oder ein Cloud-Account: benannte Umgebungen, Repos und Angriffsflächen.",
+     ],
+     [
+      "Liefergegenstände",
+      "Schriftliche Findings, Severity-Ranking, Remediation-Notizen, optional Re-Test-Fenster.",
+     ],
+     ["Dauer", "Vereinbart im Statement of Work."],
+     [
+      "Nicht enthalten",
+      "Pentest außerhalb des Scopes, 24/7-SOC und unbenannte Systeme.",
+     ],
+     ["Preis", "Auf Anfrage."],
+    ],
+   },
+   credential: {
+    heading: "Dazu",
+    links: [
+     { label: "ai-secure.dev — Compliance-Agents, die ich betreibe", href: "https://ai-secure.dev" },
+     { label: "Vibe Coding → Produktion + Security", href: "/one-man-agency-de/vibe-coding/" },
+    ],
+   },
+   deliverables: {
+    heading: "Das bekommen Sie",
+    items: [
+     "Threat-orientiertes Review von App- und API-Oberflächen",
+     "Check von Cloud-IAM, Secrets und Netz-Exposure",
+     "Notizen zu Dependency- und Config-Risiken",
+     "Priorisierte Findings (kritisch → niedrig) mit Fix-Hinweisen",
+     "Executive Summary für Stakeholder",
+     "Schriftliches Statement of Work mit Festpreis",
+    ],
+   },
+   sowExample: {
+    label: "📄 Security-Audit SoW-Vorlage (anonymisiert)",
+    href: "/one-man-agency/sow-security-audit-template-redacted.pdf",
+   },
+   testimonials: [
+    {
+     name: "Jakob Jordan",
+     href: "https://www.linkedin.com/in/jakob-jordan-10404bb4/",
+     image: testimonialJakob,
+     paragraphs: [
+      "Martin hat unsere Produktionsumgebung auf Hetzner aufgebaut — inklusive Grafana-Monitoring und einem wichtigen Security Audit.",
+      "Die Infrastruktur ist so aufgesetzt, dass wir sie über KI-Agenten warten und deployen können.",
+     ],
+    },
+   ],
+   service: true,
+   contact: {
+    heading: "Was soll geprüft werden?",
+    form: formLabelsDe,
+   },
+  },
+ },
+ devopsAudit: {
+  en: {
+   meta: {
+    title: "DevOps Audit — CI/CD, Observability & Ops Readiness",
+    description:
+     "DevOps audit for teams shipping on AWS or EU VPS: pipelines, deploy safety, monitoring, and runbooks. Fixed-scope Statement of Work.",
+    keywords: [
+     "DevOps audit",
+     "CI/CD review",
+     "production readiness",
+     "observability",
+     "AWS DevOps",
+    ],
+    locale: "en_US",
+    language: "en",
+    gerUrl: "/one-man-agency-de/devops-audit/",
+   },
+   langSwitch: {
+    label: "Deutsch",
+    href: "/one-man-agency-de/devops-audit/",
+   },
+   hubLink: {
+    label: "← Full One-Man Agency overview",
+    href: "/one-man-agency/",
+   },
+   hero: {
+    title: "DevOps Audit",
+    subtitle:
+     "For a team whose deploys are manual, opaque, or scary — one senior DevOps review with a clear remediation roadmap, scoped in a Statement of Work.",
+    ctaSpeak: "🗣️ Book a call",
+    ctaWrite: "📝 Or send a message",
+   },
+   audience: {
+    heading: "Who this is for",
+    who:
+     "A product team that ships but cannot explain how production is deployed, rolled back, or observed — or that relies on one person’s laptop scripts.",
+    trigger:
+     "The trigger is a failed release, missing monitoring, an audit asking for change control, or growth that outgrew the original setup.",
+    work:
+     "I map the current path to production, score gaps (CI/CD, env parity, secrets, alerts), and deliver a prioritized fix list — or implement the SoW work.",
+   },
+   offer: {
+    heading: "First step",
+    intro:
+     "The call names the system under review. After that, a bounded Statement of Work.",
+    rows: [
+     [
+      "Scope",
+      "One product line: repos, pipelines, hosting, and on-call reality as it exists today.",
+     ],
+     [
+      "Deliverables",
+      "Ops maturity notes, gap analysis, and an ordered remediation plan (or agreed implementation).",
+     ],
+     ["Turnaround", "Agreed in the Statement of Work."],
+     [
+      "Exclusions",
+      "24/7 on-call takeover, greenfield rewrites, and work outside named repos or accounts.",
+     ],
+     ["Price", "On request."],
+    ],
+   },
+   credential: {
+    heading: "Related",
+    links: [
+     { label: "AWS consulting", href: "/one-man-agency/aws/" },
+     { label: "Vibe Coding → full production build", href: "/one-man-agency/vibe-coding/" },
+     {
+      label: "Hetzner production case study",
+      href: "/hetzner-eu-production/",
+     },
+    ],
+   },
+   deliverables: {
+    heading: "What you get",
+    items: [
+     "Deploy and release process review",
+     "CI/CD pipeline and branch strategy assessment",
+     "Infrastructure-as-code and environment drift notes",
+     "Monitoring, alerting, and runbook gaps",
+     "Backup, rollback, and incident-readiness checklist",
+     "Written Statement of Work with fixed price",
+    ],
+   },
+   testimonials: [
+    {
+     name: "Eric Amberg",
+     href: "https://www.linkedin.com/in/ericamberg",
+     image: testimonialEric,
+     paragraphs: [
+      "Martin built the sophisticated AWS infrastructure for our online lab environments. Very good communication and a very fast implementation.",
+      "His concepts are scalable and comply with best practices in cloud environments.",
+     ],
+    },
+   ],
+   service: true,
+   contact: { heading: "Tell me about your deploy path", form: formLabelsEn },
+  },
+  de: {
+   meta: {
+    title: "DevOps Audit — CI/CD, Observability & Ops-Reife",
+    description:
+     "DevOps Audit für Teams auf AWS oder EU-VPS: Pipelines, Deploy-Sicherheit, Monitoring, Runbooks. Abgegrenztes Statement of Work.",
+    keywords: [
+     "DevOps Audit",
+     "CI/CD Review",
+     "Production Readiness",
+     "Observability",
+     "AWS DevOps",
+    ],
+    locale: "de_DE",
+    language: "de",
+    engUrl: "/one-man-agency/devops-audit/",
+   },
+   langSwitch: {
+    label: "English",
+    href: "/one-man-agency/devops-audit/",
+   },
+   hubLink: {
+    label: "← Zur vollständigen One-Man-Agency-Übersicht",
+    href: "/one-man-agency-de/",
+   },
+   hero: {
+    title: "DevOps Audit",
+    subtitle:
+     "Für Teams, deren Deploys manuell, undurchsichtig oder riskant sind — ein Senior-DevOps-Review mit klarer Roadmap, Scope im Statement of Work.",
+    ctaSpeak: "🗣️ Termin buchen",
+    ctaWrite: "📝 Oder Nachricht senden",
+   },
+   audience: {
+    heading: "Für wen",
+    who:
+     "Ein Produktteam, das shipped, aber nicht erklären kann, wie Produktion deployed, zurückgerollt oder beobachtet wird — oder das auf Laptop-Skripte einer Person setzt.",
+    trigger:
+     "Auslöser: fehlgeschlagenes Release, fehlendes Monitoring, Audit zu Change Control oder Wachstum über den ersten Setup hinaus.",
+    work:
+     "Ich mappe den Weg zur Produktion, bewerte Lücken (CI/CD, Env-Parität, Secrets, Alerts) und liefere eine priorisierte Fix-Liste — oder setze das SoW um.",
+   },
+   offer: {
+    heading: "Erster Schritt",
+    intro:
+     "Im Gespräch wird das System benannt. Danach ein abgegrenztes Statement of Work.",
+    rows: [
+     [
+      "Scope",
+      "Eine Produktlinie: Repos, Pipelines, Hosting und On-Call-Realität heute.",
+     ],
+     [
+      "Liefergegenstände",
+      "Ops-Reife-Notizen, Gap-Analyse und priorisierter Remediation-Plan (oder vereinbarte Umsetzung).",
+     ],
+     ["Dauer", "Vereinbart im Statement of Work."],
+     [
+      "Nicht enthalten",
+      "24/7-On-Call-Übernahme, Greenfield-Rewrites und Arbeit außerhalb benannter Repos oder Accounts.",
+     ],
+     ["Preis", "Auf Anfrage."],
+    ],
+   },
+   credential: {
+    heading: "Dazu",
+    links: [
+     { label: "AWS Consulting", href: "/one-man-agency-de/aws/" },
+     {
+      label: "Vibe Coding → kompletter Produktionsaufbau",
+      href: "/one-man-agency-de/vibe-coding/",
+     },
+     {
+      label: "Hetzner-Produktions-Fallstudie",
+      href: "/hetzner-eu-production-de/",
+     },
+    ],
+   },
+   deliverables: {
+    heading: "Das bekommen Sie",
+    items: [
+     "Review von Deploy- und Release-Prozess",
+     "Bewertung von CI/CD-Pipeline und Branch-Strategie",
+     "Notizen zu IaC und Environment-Drift",
+     "Lücken bei Monitoring, Alerting und Runbooks",
+     "Checkliste Backup, Rollback und Incident-Readiness",
+     "Schriftliches Statement of Work mit Festpreis",
+    ],
+   },
+   testimonials: [
+    {
+     name: "Eric Amberg",
+     href: "https://www.linkedin.com/in/ericamberg",
+     image: testimonialEric,
+     paragraphs: [
+      "Martin hat die anspruchsvolle AWS-Infrastruktur für unsere Online-Lab-Umgebungen aufgebaut. Sehr gute Kommunikation und schnelle Umsetzung.",
+      "Seine Konzepte sind skalierbar und entsprechen Best Practices.",
+     ],
+    },
+   ],
+   service: true,
+   contact: {
+    heading: "Wie sieht Ihr Deploy-Pfad aus?",
+    form: formLabelsDe,
+   },
+  },
+ },
 }
