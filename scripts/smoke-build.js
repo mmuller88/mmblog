@@ -41,11 +41,11 @@ const pages = [
  },
  {
   file: "one-man-agency/security-audit/index.html",
-  needle: "cyquins-pitch.mp4",
+  needle: "security-promo.mp4",
  },
  {
   file: "one-man-agency-de/security-audit/index.html",
-  needle: "cyquins-pitch.mp4",
+  needle: "security-promo.mp4",
  },
  { file: "one-man-agency/vibe-coding/index.html", needle: "vibe-promo.mp4" },
  { file: "trainings/index.html", needle: "Trainings" },

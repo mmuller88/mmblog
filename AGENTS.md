@@ -16,6 +16,7 @@ npm run typecheck       # infra tsc (also pre-commit + pre-push)
 npm run test:smoke      # after build: key HTML/RSS files
 npm run video:aws       # 30s AWS promo → static/one-man-agency/ (Node >= 23.6)
 npm run video:vibe      # 30s vibe-coding promo → static/one-man-agency/ (Node >= 23.6)
+npm run video:security  # 30s security-audit promo → static/one-man-agency/ (Node >= 23.6)
 npm --prefix infra run synth   # CDK synth
 npm --prefix infra run deploy  # CDK deploy (needs AWS creds)
 pre-commit install      # once: brew install pre-commit && pre-commit install
@@ -181,8 +182,10 @@ Promo renders live in `misc/videos/` (Remotion). They are outside the CI site pa
 
 - `misc/videos/aws-promo` — 30s English AWS promo for `/one-man-agency/aws/`
 - `misc/videos/vibe-promo` — 30s English vibe-coding promo for `/one-man-agency/vibe-coding/`
+- `misc/videos/security-promo` — 30s English cyberpunk security-audit promo for `/one-man-agency/security-audit/` (EN + DE)
 - `npm run video:aws` writes `static/one-man-agency/aws-promo.mp4` and `aws-promo.jpg`
 - `npm run video:vibe` writes `static/one-man-agency/vibe-promo.mp4` and `vibe-promo.jpg`
+- `npm run video:security` writes `static/one-man-agency/security-promo.mp4` and `security-promo.jpg`
 - `scripts/sync-site.sh` caches those MP4s for a year, so bump `?v=` on `hero.video.src` in `src/data/agencyLandingContent.js` after every re-render
 
 ## Constraints

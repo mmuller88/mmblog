@@ -1,0 +1,28 @@
+{
+  "name": "security-promo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "30s security audit promo (Remotion)",
+  "engines": {
+    "node": ">=23.6"
+  },
+  "scripts": {
+    "studio": "npm run build-music && remotion studio",
+    "build-music": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/build-music.mjs",
+    "render": "npm run build-music && remotion render SecurityPromo ../../../static/one-man-agency/security-promo.mp4 && remotion still SecurityPromo ../../../static/one-man-agency/security-promo.jpg --frame=100",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "@remotion/google-fonts": "4.0.534",
+    "@remotion/tailwind-v4": "4.0.534",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "4.0.534",
+    "tailwindcss": "4.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "typescript": "^5.9.3"
+  }
+}
