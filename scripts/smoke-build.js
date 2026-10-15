@@ -10,6 +10,8 @@ const publicDir = path.join(__dirname, "..", "public")
 
 const pages = [
  { file: "index.html", needle: "Martin Mueller" },
+ { file: "index.html", needle: "aws-promo.mp4" },
+ { file: "index.html", needle: "security-promo.mp4" },
  { file: "404.html", needle: "NOT FOUND" },
  { file: "rss.xml", needle: "<rss" },
  { file: "rss-ger.xml", needle: "<rss" },
