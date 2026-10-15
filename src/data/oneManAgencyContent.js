@@ -34,6 +34,31 @@ export const oneManAgencyContent = {
      title: "AWS",
      text: "Architecture, CDK, cost, and migration reviews.",
      href: "/one-man-agency/aws/",
+     video: {
+      src: "/one-man-agency/aws-promo.mp4?v=3",
+      poster: "/one-man-agency/aws-promo.jpg",
+      title: "AWS consulting promo",
+     },
+    },
+    {
+     title: "Vibe Coding",
+     text: "Production readiness for an AI prototype.",
+     href: "/one-man-agency/vibe-coding/",
+     video: {
+      src: "/one-man-agency/vibe-promo.mp4?v=2",
+      poster: "/one-man-agency/vibe-promo.jpg",
+      title: "Vibe coding promo",
+     },
+    },
+    {
+     title: "Security audit",
+     text: "App and cloud review — Prowler for multi-cloud posture when in scope.",
+     href: "/one-man-agency/security-audit/",
+    },
+    {
+     title: "DevOps audit",
+     text: "CI/CD, observability, and ops readiness review.",
+     href: "/one-man-agency/devops-audit/",
     },
     {
      title: "SEO / GEO",
@@ -45,21 +70,6 @@ export const oneManAgencyContent = {
      title: "ChatGPT Ads",
      text: "Campaigns, tracking, and landing pages.",
      href: "/one-man-agency/gpt/",
-    },
-    {
-     title: "Vibe Coding",
-     text: "Production readiness for an AI prototype.",
-     href: "/one-man-agency/vibe-coding/",
-    },
-    {
-     title: "Security audit",
-     text: "App and cloud review — Prowler for multi-cloud posture when in scope.",
-     href: "/one-man-agency/security-audit/",
-    },
-    {
-     title: "DevOps audit",
-     text: "CI/CD, observability, and ops readiness review.",
-     href: "/one-man-agency/devops-audit/",
     },
    ],
   },
@@ -311,6 +321,31 @@ export const oneManAgencyContent = {
      title: "AWS",
      text: "Architektur, CDK, Kosten und Migration.",
      href: "/one-man-agency-de/aws/",
+     video: {
+      src: "/one-man-agency/aws-promo.mp4?v=3",
+      poster: "/one-man-agency/aws-promo.jpg",
+      title: "AWS Consulting Promo",
+     },
+    },
+    {
+     title: "Vibe Coding",
+     text: "Production Readiness für einen KI-Prototyp.",
+     href: "/one-man-agency-de/vibe-coding/",
+     video: {
+      src: "/one-man-agency/vibe-promo.mp4?v=2",
+      poster: "/one-man-agency/vibe-promo.jpg",
+      title: "Vibe Coding Promo",
+     },
+    },
+    {
+     title: "Security Audit",
+     text: "App- und Cloud-Review — Prowler für Multi-Cloud-Posture im Scope.",
+     href: "/one-man-agency-de/security-audit/",
+    },
+    {
+     title: "DevOps Audit",
+     text: "Review von CI/CD, Observability und Ops-Reife.",
+     href: "/one-man-agency-de/devops-audit/",
     },
     {
      title: "SEO / GEO",
@@ -322,21 +357,6 @@ export const oneManAgencyContent = {
      title: "ChatGPT Ads",
      text: "Kampagnen, Tracking und Landingpages.",
      href: "/one-man-agency-de/gpt/",
-    },
-    {
-     title: "Vibe Coding",
-     text: "Production Readiness für einen KI-Prototyp.",
-     href: "/one-man-agency-de/vibe-coding/",
-    },
-    {
-     title: "Security Audit",
-     text: "App- und Cloud-Review — Prowler für Multi-Cloud-Posture im Scope.",
-     href: "/one-man-agency-de/security-audit/",
-    },
-    {
-     title: "DevOps Audit",
-     text: "Review von CI/CD, Observability und Ops-Reife.",
-     href: "/one-man-agency-de/devops-audit/",
     },
    ],
   },

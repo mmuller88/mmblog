@@ -153,19 +153,35 @@ const OneManAgency = ({ content, location }) => {
       </p>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
        {services.items.map((item) => (
-        <Link
+        <div
          key={item.href}
-         to={item.href}
-         className="flex flex-col rounded-xl bg-gray-50 p-6 text-gray-900 no-underline shadow-md transition-shadow duration-200 hover:text-gray-900 hover:no-underline hover:shadow-lg dark:bg-slate-800 dark:text-gray-100 dark:hover:text-gray-100"
+         className="flex flex-col overflow-hidden rounded-xl bg-gray-50 text-gray-900 shadow-md transition-shadow duration-200 hover:shadow-lg dark:bg-slate-800 dark:text-gray-100"
         >
-         <p className="mb-3 font-sans text-xl font-semibold text-brand">
-          {item.title}
-         </p>
-         <p className="mb-4 flex-grow text-gray-700 dark:text-gray-300">
-          {item.text}
-         </p>
-         <p className="mb-0 font-semibold text-brand">{services.linkLabel}</p>
-        </Link>
+         {item.video ? (
+          <video
+           controls
+           playsInline
+           preload="none"
+           poster={item.video.poster}
+           aria-label={item.video.title}
+           className="aspect-video w-full bg-slate-900"
+          >
+           <source src={item.video.src} type="video/mp4" />
+          </video>
+         ) : null}
+         <Link
+          to={item.href}
+          className="flex flex-grow flex-col p-6 text-gray-900 no-underline hover:text-gray-900 hover:no-underline dark:text-gray-100 dark:hover:text-gray-100"
+         >
+          <p className="mb-3 font-sans text-xl font-semibold text-brand">
+           {item.title}
+          </p>
+          <p className="mb-4 flex-grow text-gray-700 dark:text-gray-300">
+           {item.text}
+          </p>
+          <p className="mb-0 font-semibold text-brand">{services.linkLabel}</p>
+         </Link>
+        </div>
        ))}
       </div>
      </div>

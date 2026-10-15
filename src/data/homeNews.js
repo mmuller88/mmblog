@@ -11,6 +11,7 @@ export const homeNews = {
   "https://mmuller88.github.io/presentations/milan-2026-ai-factory/?utm_source=martinmueller&utm_medium=home",
  eventUrl: "https://milan.serverlessdays.io/",
  unicornSrc: "/home/serverlessdays-milano-unicorn.svg",
+ summaryHint: "Tap to expand",
  video: {
   src: "/home/milan-2026-recap.mp4?v=1",
   poster: "/home/milan-2026-recap.jpg?v=1",
