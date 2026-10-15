@@ -47,6 +47,14 @@ const pages = [
   file: "one-man-agency-de/security-audit/index.html",
   needle: "security-promo.mp4",
  },
+ {
+  file: "one-man-agency/devops-audit/index.html",
+  needle: "devops-promo.mp4",
+ },
+ {
+  file: "one-man-agency-de/devops-audit/index.html",
+  needle: "devops-promo.mp4",
+ },
  { file: "one-man-agency/vibe-coding/index.html", needle: "vibe-promo.mp4" },
  { file: "trainings/index.html", needle: "Trainings" },
  { file: "sitemap.xml/sitemap-index.xml", needle: "sitemapindex" },

@@ -60,6 +60,7 @@
     "video:aws": "npm --prefix misc/videos/aws-promo run render",
     "video:vibe": "npm --prefix misc/videos/vibe-promo run render",
     "video:security": "npm --prefix misc/videos/security-promo run render",
+    "video:devops": "npm --prefix misc/videos/devops-promo run render",
     "test:conversion-health": "npm --prefix infra run test:health"
   },
   "repository": {

@@ -1203,6 +1203,12 @@ export const agencyLandingContent = {
      "For a team whose deploys are manual, opaque, or scary — one senior DevOps review with a clear remediation roadmap, scoped in a Statement of Work.",
     ctaSpeak: "🗣️ Book a call",
     ctaWrite: "📝 Or send a message",
+    video: {
+     src: "/one-man-agency/devops-promo.mp4?v=1",
+     poster: "/one-man-agency/devops-promo.jpg",
+     title: "DevOps audit — map, gaps, roadmap",
+     duration: "PT30S",
+    },
    },
    audience: {
     heading: "Who this is for",
@@ -1300,6 +1306,12 @@ export const agencyLandingContent = {
      "Für Teams, deren Deploys manuell, undurchsichtig oder riskant sind — ein Senior-DevOps-Review mit klarer Roadmap, Scope im Statement of Work.",
     ctaSpeak: "🗣️ Termin buchen",
     ctaWrite: "📝 Oder Nachricht senden",
+    video: {
+     src: "/one-man-agency/devops-promo.mp4?v=1",
+     poster: "/one-man-agency/devops-promo.jpg",
+     title: "DevOps Audit — Pfad, Lücken, Roadmap",
+     duration: "PT30S",
+    },
    },
    audience: {
     heading: "Für wen",
