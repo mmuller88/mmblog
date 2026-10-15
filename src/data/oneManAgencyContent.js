@@ -54,11 +54,21 @@ export const oneManAgencyContent = {
      title: "Security audit",
      text: "App and cloud review — Prowler for multi-cloud posture when in scope.",
      href: "/one-man-agency/security-audit/",
+     video: {
+      src: "/one-man-agency/security-promo.mp4?v=1",
+      poster: "/one-man-agency/security-promo.jpg",
+      title: "Security audit — scope, review, report, fix",
+     },
     },
     {
      title: "DevOps audit",
      text: "CI/CD, observability, and ops readiness review.",
      href: "/one-man-agency/devops-audit/",
+     video: {
+      src: "/one-man-agency/devops-promo.mp4?v=1",
+      poster: "/one-man-agency/devops-promo.jpg",
+      title: "DevOps audit — map, gaps, roadmap",
+     },
     },
     {
      title: "SEO / GEO",
@@ -341,11 +351,21 @@ export const oneManAgencyContent = {
      title: "Security Audit",
      text: "App- und Cloud-Review — Prowler für Multi-Cloud-Posture im Scope.",
      href: "/one-man-agency-de/security-audit/",
+     video: {
+      src: "/one-man-agency/security-promo.mp4?v=1",
+      poster: "/one-man-agency/security-promo.jpg",
+      title: "Security Audit — Scope, Review, Report, Fix",
+     },
     },
     {
      title: "DevOps Audit",
      text: "Review von CI/CD, Observability und Ops-Reife.",
      href: "/one-man-agency-de/devops-audit/",
+     video: {
+      src: "/one-man-agency/devops-promo.mp4?v=1",
+      poster: "/one-man-agency/devops-promo.jpg",
+      title: "DevOps Audit — Pfad, Lücken, Roadmap",
+     },
     },
     {
      title: "SEO / GEO",
