@@ -15,14 +15,37 @@ const pages = [
  { file: "rss-ger.xml", needle: "<rss" },
  { file: "one-man-agency/index.html", needle: "One-Man Agency" },
  { file: "one-man-agency/index.html", needle: "aws-promo.mp4" },
+ { file: "one-man-agency/index.html", needle: "hallocasa-broker-promo.mp4" },
+ { file: "one-man-agency/index.html", needle: "cyquins-pitch.mp4" },
+ {
+  file: "one-man-agency-de/index.html",
+  needle: "hallocasa-broker-promo.mp4",
+ },
+ { file: "one-man-agency-de/index.html", needle: "cyquins-pitch.mp4" },
  { file: "one-man-agency/aws/index.html", needle: "aws-promo.mp4" },
  {
   file: "one-man-agency/aws/index.html",
   needle: "hallocasa-broker-promo.mp4",
  },
  {
+  file: "one-man-agency/aws/index.html",
+  needle: "cyquins-pitch.mp4",
+ },
+ {
   file: "one-man-agency-de/aws/index.html",
   needle: "hallocasa-broker-promo.mp4",
+ },
+ {
+  file: "one-man-agency-de/aws/index.html",
+  needle: "cyquins-pitch.mp4",
+ },
+ {
+  file: "one-man-agency/security-audit/index.html",
+  needle: "cyquins-pitch.mp4",
+ },
+ {
+  file: "one-man-agency-de/security-audit/index.html",
+  needle: "cyquins-pitch.mp4",
  },
  { file: "one-man-agency/vibe-coding/index.html", needle: "vibe-promo.mp4" },
  { file: "trainings/index.html", needle: "Trainings" },

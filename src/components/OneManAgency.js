@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 import { Link } from "gatsby"
 import Layout from "./layout"
 import MetaTags from "./Metatags"
-import TableOfContents from "./TableOfContents"
 import SectionHeading from "./SectionHeading"
 import "../styles/heading-anchors.css"
 import testimonialJakob from "../../content/resume/testimonialJakob.png"
@@ -19,10 +18,10 @@ const OneManAgency = ({ content, location }) => {
  const {
   meta,
   langSwitch,
-  sections,
   services,
   hero,
   testimonials,
+  projects,
   valuePackages,
   sow,
   whyOneExpert,
@@ -42,18 +41,32 @@ const OneManAgency = ({ content, location }) => {
 
  const { calendlyUrl, openCalendly } = useOaiqTracking()
 
- const videoJsonLd = hero.video
-  ? {
-     "@context": "https://schema.org",
-     "@type": "VideoObject",
-     name: hero.video.title,
-     description: meta.description,
-     thumbnailUrl: `${SITE_URL}${hero.video.poster}`,
-     uploadDate: "2026-10-12",
-     duration: "PT30S",
-     contentUrl: `${SITE_URL}${hero.video.src.split("?")[0]}`,
-    }
-  : null
+ const videoJsonLd = [
+  hero.video
+   ? {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name: hero.video.title,
+      description: meta.description,
+      thumbnailUrl: `${SITE_URL}${hero.video.poster}`,
+      uploadDate: "2026-10-12",
+      duration: "PT30S",
+      contentUrl: `${SITE_URL}${hero.video.src.split("?")[0]}`,
+     }
+   : null,
+  ...(projects?.items || [])
+   .filter((item) => item.video)
+   .map((item) => ({
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: item.video.title,
+    description: item.video.caption || item.body,
+    thumbnailUrl: `${SITE_URL}${item.video.poster}`,
+    uploadDate: "2026-10-12",
+    duration: "PT30S",
+    contentUrl: `${SITE_URL}${item.video.src.split("?")[0]}`,
+   })),
+ ].filter(Boolean)
 
  return (
   <Layout fullWidth>
@@ -159,10 +172,6 @@ const OneManAgency = ({ content, location }) => {
     </div>
    )}
 
-   <div className="mx-auto max-w-6xl px-4">
-    <TableOfContents headings={sections} />
-   </div>
-
    {/* Testimonials Section */}
    <div className="bg-white px-4 py-16 dark:bg-slate-900">
     <div className="mx-auto max-w-6xl">
@@ -236,6 +245,90 @@ const OneManAgency = ({ content, location }) => {
      </div>
     </div>
    </div>
+
+   {projects && (
+    <div className="bg-gradient-to-br from-gray-50 to-blue-50 px-4 py-16 dark:from-slate-800 dark:to-slate-900">
+     <div className="mx-auto max-w-6xl">
+      <SectionHeading id="projects" className="mb-4">
+       {projects.heading}
+      </SectionHeading>
+      <p className="mx-auto mb-10 max-w-3xl text-center text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+       {projects.intro}
+      </p>
+      <div className="grid gap-6 md:grid-cols-2">
+       {projects.items.map((item) => {
+        const sectionId = item.anchor || `project-${item.index}`
+        return (
+         <article
+          key={item.index}
+          id={sectionId}
+          className="scroll-mt-24 flex flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900"
+         >
+          <div className="mb-3 flex flex-wrap items-center gap-2">
+           <span className="font-mono text-sm font-semibold text-brand">
+            {item.index}
+           </span>
+           <span className="rounded-full bg-slate-100 px-3 py-0.5 text-xs font-medium uppercase tracking-wide text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+            {item.context}
+           </span>
+          </div>
+          <h3 className="mb-1 font-sans text-xl font-bold text-gray-900 dark:text-gray-100">
+           {item.title}
+          </h3>
+          <p className="mb-3 text-sm font-medium text-gray-500 dark:text-gray-400">
+           {item.subtitle}
+          </p>
+          {item.video ? (
+           <div className="mb-4 w-full">
+            <video
+             controls
+             playsInline
+             preload="none"
+             poster={item.video.poster}
+             aria-label={item.video.title}
+             className="aspect-video mb-2 w-full rounded-lg bg-slate-900"
+            >
+             <source src={item.video.src} type="video/mp4" />
+            </video>
+            {item.video.caption ? (
+             <p className="mb-0 text-sm text-gray-500 dark:text-gray-400">
+              {item.video.caption}
+             </p>
+            ) : null}
+           </div>
+          ) : null}
+          <p className="mb-4 flex-grow text-base leading-relaxed text-gray-700 dark:text-gray-300">
+           {item.body}
+          </p>
+          <ul className="m-0 mb-4 flex list-none flex-wrap gap-2 p-0">
+           {item.stack.map((chip) => (
+            <li
+             key={chip}
+             className="rounded-full bg-blue-50 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"
+            >
+             {chip}
+            </li>
+           ))}
+          </ul>
+          {item.href ? (
+           <p className="mb-0">
+            <a
+             href={item.href}
+             target="_blank"
+             rel="noopener noreferrer"
+             className="text-brand hover:underline"
+            >
+             {item.linkLabel || item.href}
+            </a>
+           </p>
+          ) : null}
+         </article>
+        )
+       })}
+      </div>
+     </div>
+    </div>
+   )}
 
    {/* Value Packages Section */}
    <div className="bg-gradient-to-br from-gray-50 to-blue-50 px-4 py-16 dark:from-slate-800 dark:to-slate-900">

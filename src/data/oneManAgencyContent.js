@@ -63,15 +63,6 @@ export const oneManAgencyContent = {
     },
    ],
   },
-  sections: [
-   { id: "services", value: "Services", depth: 2 },
-   { id: "testimonials", value: "What Clients Say", depth: 2 },
-   { id: "value-packages", value: "Value Packages", depth: 2 },
-   { id: "statement-of-work", value: "Statement of Work First", depth: 2 },
-   { id: "why-one-expert", value: "Why One Expert Beats a Big Team", depth: 2 },
-   { id: "ai-agents", value: "How AI Agents Scale Delivery", depth: 2 },
-   { id: "get-started", value: "Ready to Get Started?", depth: 2 },
-  ],
   hero: {
    title: "One-Man Agency",
    subtitle:
@@ -101,6 +92,48 @@ export const oneManAgencyContent = {
     "Martin built the sophisticated AWS infrastructure for our online lab environments. Working with him was characterized by very good communication and a very fast implementation of the tasks set.",
     "Martin works very professionally and has great experience with AWS environments. He is able to quickly grasp the requirements and promptly develop solution approaches. His concepts are scalable and comply with best practices in cloud environments.",
     "Thanks to his support, we got a stable cloud environment for our HackLabs in a very short time, which we still use today.",
+   ],
+  },
+  projects: {
+   heading: "Selected projects",
+   intro: "Products I co-founded or ship for a client.",
+   items: [
+    {
+     index: "01",
+     anchor: "hallocasa",
+     context: "Co-founded product",
+     title: "HalloCasa",
+     subtitle: "Global real-estate marketplace",
+     body:
+      "International property network for agents and buyers. A broker publishes a profile and listings; buyers search that network worldwide.",
+     stack: ["Broker profiles", "Listings", "Global search"],
+     href: "https://hallocasa.com",
+     linkLabel: "hallocasa.com",
+     video: {
+      src: "/one-man-agency/hallocasa-broker-promo.mp4?v=1",
+      poster: "/one-man-agency/hallocasa-broker-promo.jpg",
+      title: "HalloCasa — local listings, global buyers",
+      caption:
+       "Product clip: a broker profile, listings, and the global buyer network.",
+     },
+    },
+    {
+     index: "02",
+     anchor: "hdi-cyquins",
+     context: "Client · Germany",
+     title: "HDI Cyquins",
+     subtitle: "Cyber insurance assessments",
+     body:
+      "Platform for HDI brokers: invite a firm, run a security questionnaire, connect AWS, Azure, GCP, and Microsoft 365 read-only, and score the risk for underwriting.",
+     stack: ["Questionnaires", "Four-cloud scan", "Underwriting score"],
+     video: {
+      src: "/one-man-agency/cyquins-pitch.mp4?v=1",
+      poster: "/one-man-agency/cyquins-pitch.jpg",
+      title: "HDI Cyquins — one score for underwriting",
+      caption:
+       "Product clip: client invite, a read-only four-cloud scan, and the underwriting score.",
+     },
+    },
    ],
   },
   valuePackages: {
@@ -307,23 +340,6 @@ export const oneManAgencyContent = {
     },
    ],
   },
-  sections: [
-   { id: "services", value: "Leistungen", depth: 2 },
-   { id: "testimonials", value: "Was Kunden sagen", depth: 2 },
-   { id: "value-packages", value: "Pakete", depth: 2 },
-   { id: "statement-of-work", value: "Statement of Work zuerst", depth: 2 },
-   {
-    id: "why-one-expert",
-    value: "Warum ein Experte ein großes Team schlägt",
-    depth: 2,
-   },
-   {
-    id: "ai-agents",
-    value: "Wie KI-Agenten die Lieferung skalieren",
-    depth: 2,
-   },
-   { id: "get-started", value: "Bereit loszulegen?", depth: 2 },
-  ],
   hero: {
    title: "One-Man Agency",
    subtitle:
@@ -348,6 +364,48 @@ export const oneManAgencyContent = {
     "Martin hat die anspruchsvolle AWS-Infrastruktur für unsere Online-Lab-Umgebungen aufgebaut. Die Zusammenarbeit war geprägt von sehr guter Kommunikation und einer sehr schnellen Umsetzung der gestellten Aufgaben.",
     "Martin arbeitet sehr professionell und hat große Erfahrung mit AWS-Umgebungen. Er erfasst Anforderungen schnell und entwickelt zügig Lösungsansätze. Seine Konzepte sind skalierbar und entsprechen Best Practices in Cloud-Umgebungen.",
     "Dank seiner Unterstützung haben wir in sehr kurzer Zeit eine stabile Cloud-Umgebung für unsere HackLabs erhalten, die wir bis heute nutzen.",
+   ],
+  },
+  projects: {
+   heading: "Ausgewählte Projekte",
+   intro: "Produkte, die ich mitgegründet habe oder für einen Kunden betreibe.",
+   items: [
+    {
+     index: "01",
+     anchor: "hallocasa",
+     context: "Mitgegründetes Produkt",
+     title: "HalloCasa",
+     subtitle: "Internationaler Immobilien-Marktplatz",
+     body:
+      "Internationales Netzwerk für Makler und Käufer. Ein Makler veröffentlicht Profil und Inserate; Käufer durchsuchen das Netzwerk weltweit.",
+     stack: ["Maklerprofile", "Inserate", "Globale Suche"],
+     href: "https://hallocasa.com",
+     linkLabel: "hallocasa.com",
+     video: {
+      src: "/one-man-agency/hallocasa-broker-promo.mp4?v=1",
+      poster: "/one-man-agency/hallocasa-broker-promo.jpg",
+      title: "HalloCasa — lokale Inserate, globale Käufer",
+      caption:
+       "Produktclip: Maklerprofil, Inserate und das globale Käufernetzwerk.",
+     },
+    },
+    {
+     index: "02",
+     anchor: "hdi-cyquins",
+     context: "Kunde · Deutschland",
+     title: "HDI Cyquins",
+     subtitle: "Cyber-Versicherungs-Assessments",
+     body:
+      "Plattform für HDI-Broker: Firma einladen, Security-Fragebogen, read-only Anbindung von AWS, Azure, GCP und Microsoft 365, Risiko-Score fürs Underwriting.",
+     stack: ["Fragebögen", "Vier-Cloud-Scan", "Underwriting-Score"],
+     video: {
+      src: "/one-man-agency/cyquins-pitch.mp4?v=1",
+      poster: "/one-man-agency/cyquins-pitch.jpg",
+      title: "HDI Cyquins — ein Score fürs Underwriting",
+      caption:
+       "Produktclip: Kundeneinladung, read-only Scan über vier Clouds und der Underwriting-Score.",
+     },
+    },
    ],
   },
   valuePackages: {

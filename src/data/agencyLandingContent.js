@@ -94,6 +94,13 @@ export const agencyLandingContent = {
       body:
        "Platform for HDI brokers: invite a firm, run security questionnaires, connect AWS, Azure, GCP, and Microsoft 365, and score risk with Prowler Cloud. I build and operate the AWS estate — ECS Fargate, CDK, Cognito, DynamoDB, and EventBridge integrations.",
       stack: ["ECS Fargate", "CDK", "Prowler API", "Multi-cloud scans"],
+      video: {
+       src: "/one-man-agency/cyquins-pitch.mp4?v=1",
+       poster: "/one-man-agency/cyquins-pitch.jpg",
+       title: "HDI Cyquins — one score for underwriting",
+       caption:
+        "Product clip: client invite, a read-only four-cloud scan, and the underwriting score.",
+      },
      },
      {
       index: "03",
@@ -260,6 +267,13 @@ export const agencyLandingContent = {
       body:
        "Plattform für HDI-Broker: Firma einladen, Security-Fragebögen, Anbindung von AWS, Azure, GCP und Microsoft 365, Risiko-Scoring mit Prowler Cloud. Ich baue und betreibe die AWS-Landschaft — ECS Fargate, CDK, Cognito, DynamoDB, EventBridge.",
       stack: ["ECS Fargate", "CDK", "Prowler API", "Multi-Cloud-Scans"],
+      video: {
+       src: "/one-man-agency/cyquins-pitch.mp4?v=1",
+       poster: "/one-man-agency/cyquins-pitch.jpg",
+       title: "HDI Cyquins — ein Score fürs Underwriting",
+       caption:
+        "Produktclip: Kundeneinladung, read-only Scan über vier Clouds und der Underwriting-Score.",
+      },
      },
      {
       index: "03",
@@ -955,6 +969,12 @@ export const agencyLandingContent = {
      "For a team that needs an independent security pass before launch, procurement, or insurance — one senior reviewer, scope fixed in a Statement of Work.",
     ctaSpeak: "🗣️ Book a call",
     ctaWrite: "📝 Or send a message",
+    video: {
+     src: "/one-man-agency/cyquins-pitch.mp4?v=1",
+     poster: "/one-man-agency/cyquins-pitch.jpg",
+     title: "HDI Cyquins — one score for underwriting",
+     duration: "PT30S",
+    },
    },
    audience: {
     heading: "Who this is for",
@@ -1064,6 +1084,12 @@ export const agencyLandingContent = {
      "Für Teams, die vor Launch, Beschaffung oder Versicherung einen unabhängigen Security-Pass brauchen — ein Senior-Reviewer, Scope im Statement of Work.",
     ctaSpeak: "🗣️ Termin buchen",
     ctaWrite: "📝 Oder Nachricht senden",
+    video: {
+     src: "/one-man-agency/cyquins-pitch.mp4?v=1",
+     poster: "/one-man-agency/cyquins-pitch.jpg",
+     title: "HDI Cyquins — ein Score fürs Underwriting",
+     duration: "PT30S",
+    },
    },
    audience: {
     heading: "Für wen",
