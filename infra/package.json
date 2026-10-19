@@ -10,11 +10,11 @@
     "test:health": "tsx lambda/run-health.ts"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudwatch": "^3.1149.0",
-    "@aws-sdk/client-dynamodb": "^3.1149.0",
-    "@aws-sdk/client-secrets-manager": "^3.1149.0",
-    "@aws-sdk/client-sesv2": "^3.1149.0",
-    "@aws-sdk/lib-dynamodb": "^3.1149.0",
+    "@aws-sdk/client-cloudwatch": "^3.1152.0",
+    "@aws-sdk/client-dynamodb": "^3.1152.0",
+    "@aws-sdk/client-secrets-manager": "^3.1152.0",
+    "@aws-sdk/client-sesv2": "^3.1152.0",
+    "@aws-sdk/lib-dynamodb": "^3.1152.0",
     "aws-cdk-lib": "^2.273.0",
     "cdk-nag": "^3.0.2",
     "constructs": "^10.4.2"
