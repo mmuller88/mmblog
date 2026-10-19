@@ -6,7 +6,7 @@
   "author": "Martin Mueller <office@martinmueller.dev>",
   "dependencies": {
     "@giscus/react": "^3.1.0",
-    "@google-cloud/text-to-speech": "^7.1.1",
+    "@google-cloud/text-to-speech": "^7.2.0",
     "gatsby": "^5.13.1",
     "gatsby-plugin-catch-links": "^5.13.0",
     "gatsby-plugin-feed": "^5.13.0",
@@ -25,8 +25,8 @@
     "gray-matter": "^4.0.3",
     "prismjs": "^1.29.0",
     "prop-types": "^15.8.1",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "react-helmet-async": "^3.0.0",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
@@ -37,7 +37,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
     "autoprefixer": "^10.6.1",
-    "postcss": "^8.5.29",
+    "postcss": "^8.5.30",
     "prettier": "^3.9.10"
   },
   "keywords": [
