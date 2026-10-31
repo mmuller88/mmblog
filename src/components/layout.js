@@ -10,6 +10,7 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import { CaraChatInline, CaraChatScript } from "./CaraChat"
 import OaiqPixel from "./OaiqPixel"
 import "./layout.css"
 
@@ -27,10 +28,14 @@ const Layout = ({ children, fullWidth = false }) => (
   render={(data) => (
    <>
     <OaiqPixel />
+    <CaraChatScript />
     <Header siteTitle={data.site.siteMetadata.title} />
     {fullWidth ? (
      <>
       <main>{children}</main>
+      <div className="mx-auto max-w-[960px] px-[1.0875rem]">
+       <CaraChatInline />
+      </div>
       <footer className="mx-auto max-w-[960px] px-[1.0875rem] pb-[1.45rem]">
        © {new Date().getFullYear()} Martin Mueller (
        <a href={"https://martinmueller.dev/impressum"}>Impressum</a>
@@ -52,6 +57,7 @@ const Layout = ({ children, fullWidth = false }) => (
       }}
      >
       <main>{children}</main>
+      <CaraChatInline />
       <footer>
        © {new Date().getFullYear()} Martin Mueller (
        <a href={"https://martinmueller.dev/impressum"}>Impressum</a>
