@@ -83,6 +83,21 @@ export const oneManAgencyContent = {
     },
    ],
   },
+  trust: {
+   credentialsHeading: "AWS credentials",
+   sapAlt: "AWS Certified Solutions Architect – Professional",
+   sapHref: "/aws-cert/",
+   verifyLabel: "Verify certification →",
+   partnerLabel: "AWS Partner Network",
+   partnerSub: "APN member — consulting & solutions on AWS",
+   partnerHref: "https://aws.amazon.com/partners/",
+   clientsHeading: "Clients & stations",
+   clientsIntro:
+    "Products I co-founded, communities I speak in, and brands I ship or advise — same grid as the Hanseatic Hackathon stand.",
+   techHeading: "Tech stack",
+   techIntro:
+    "Tools I ship and run in production — agents, cloud, data, and the web.",
+  },
   hero: {
    title: "One-Man Agency",
    subtitle:
@@ -374,6 +389,21 @@ export const oneManAgencyContent = {
      href: "/one-man-agency-de/gpt/",
     },
    ],
+  },
+  trust: {
+   credentialsHeading: "AWS-Zertifizierung & Partner",
+   sapAlt: "AWS Certified Solutions Architect – Professional",
+   sapHref: "/aws-cert/",
+   verifyLabel: "Zertifikat prüfen →",
+   partnerLabel: "AWS Partner Network",
+   partnerSub: "APN-Mitglied — Beratung & Lösungen auf AWS",
+   partnerHref: "https://aws.amazon.com/partners/",
+   clientsHeading: "Kunden & Stationen",
+   clientsIntro:
+    "Produkte, die ich mitgegründet habe, Communities, in denen ich spreche, und Marken, die ich ausliefere oder berate — wie auf dem Hackathon-Standblatt.",
+   techHeading: "Tech-Stack",
+   techIntro:
+    "Tools, die ich in Produktion einsetze — Agenten, Cloud, Daten und Web.",
   },
   hero: {
    title: "One-Man Agency",

@@ -16,9 +16,14 @@ const pages = [
  { file: "rss.xml", needle: "<rss" },
  { file: "rss-ger.xml", needle: "<rss" },
  { file: "one-man-agency/index.html", needle: "One-Man Agency" },
+ { file: "one-man-agency/index.html", needle: "Clients &amp; stations" },
  { file: "one-man-agency/index.html", needle: "aws-promo.mp4" },
  { file: "one-man-agency/index.html", needle: "hallocasa-broker-promo.mp4" },
  { file: "one-man-agency/index.html", needle: "cyquins-pitch.mp4" },
+ {
+  file: "one-man-agency-de/index.html",
+  needle: "Kunden &amp; Stationen",
+ },
  {
   file: "one-man-agency-de/index.html",
   needle: "hallocasa-broker-promo.mp4",
