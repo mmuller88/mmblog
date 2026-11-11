@@ -9,6 +9,7 @@ import testimonialAdrian from "../../content/resume/testimonialAdrian.png"
 import testimonialEric from "../../content/resume/testimonialEric.png"
 import { oneManAgencyHeroImage } from "../data/oneManAgencyContent"
 import useOaiqTracking from "../hooks/useOaiqTracking"
+import OneManAgencyTrust from "./OneManAgencyTrust"
 
 const SITE_URL = "https://martinmueller.dev"
 const HERO_IMAGE_WIDTH = 1376
@@ -27,6 +28,7 @@ const OneManAgency = ({ content, location }) => {
   whyOneExpert,
   aiAgents,
   cta,
+  trust,
  } = content
 
  useEffect(() => {
@@ -187,6 +189,8 @@ const OneManAgency = ({ content, location }) => {
      </div>
     </div>
    )}
+
+   <OneManAgencyTrust trust={trust} />
 
    {/* Testimonials Section */}
    <div className="bg-white px-4 py-16 dark:bg-slate-900">
