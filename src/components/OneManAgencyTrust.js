@@ -98,7 +98,7 @@ const OneManAgencyTrust = ({ trust }) => {
               <img
                 src={item.logo}
                 alt={item.label}
-                className="mb-0 size-9 object-contain sm:size-10"
+                className="mb-0 size-9 object-contain dark:bg-white sm:size-10"
               />
               <span className="text-[11px] font-medium leading-none text-gray-600 dark:text-gray-400">
                 {item.label}
