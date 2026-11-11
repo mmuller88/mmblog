@@ -37,17 +37,17 @@ const OneManAgencyTrust = ({ trust }) => {
             href={trust.partnerHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-1 flex-col items-center justify-center gap-3 rounded-xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-md dark:border-slate-700 dark:bg-slate-900"
+            className="flex flex-1 flex-col items-center justify-center gap-3 rounded-xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-md dark:border-slate-600"
           >
             <img
               src={AWS_LOGO}
               alt="Amazon Web Services"
-              className="mb-0 h-12 w-auto max-w-[200px] object-contain dark:invert"
+              className="mb-0 h-12 w-auto max-w-[200px] object-contain"
             />
-            <p className="mb-0 text-sm font-semibold text-gray-800 dark:text-gray-200">
+            <p className="mb-0 text-sm font-semibold text-gray-800">
               {trust.partnerLabel}
             </p>
-            <p className="mb-0 text-xs text-gray-500 dark:text-gray-400">
+            <p className="mb-0 text-xs text-gray-500">
               {trust.partnerSub}
             </p>
           </a>
@@ -67,11 +67,11 @@ const OneManAgencyTrust = ({ trust }) => {
               key={client.label}
               className="flex list-none flex-col items-center gap-2 text-center"
             >
-              <span className="flex h-12 w-full items-center justify-center dark:bg-white">
+              <span className="flex h-14 w-full items-center justify-center rounded-lg bg-white px-2 shadow-sm ring-1 ring-gray-200">
                 <img
                   src={client.logo}
                   alt={client.alt}
-                  className="mb-0 max-h-12 max-w-full object-contain"
+                  className="mb-0 max-h-8 max-w-full object-contain"
                 />
               </span>
               <p className="mb-0 font-mono text-[10px] leading-none text-gray-500 dark:text-gray-400">
@@ -95,11 +95,13 @@ const OneManAgencyTrust = ({ trust }) => {
               key={item.label}
               className="flex list-none flex-col items-center gap-1.5 text-center"
             >
-              <img
-                src={item.logo}
-                alt={item.label}
-                className="mb-0 size-9 object-contain dark:bg-white sm:size-10"
-              />
+              <span className="flex size-11 items-center justify-center rounded-md bg-white shadow-sm ring-1 ring-gray-200 sm:size-12">
+                <img
+                  src={item.logo}
+                  alt={item.label}
+                  className="mb-0 size-7 object-contain sm:size-8"
+                />
+              </span>
               <span className="text-[11px] font-medium leading-none text-gray-600 dark:text-gray-400">
                 {item.label}
               </span>
