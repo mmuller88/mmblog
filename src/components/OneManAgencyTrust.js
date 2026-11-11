@@ -67,7 +67,7 @@ const OneManAgencyTrust = ({ trust }) => {
               key={client.label}
               className="flex list-none flex-col items-center gap-2 text-center"
             >
-              <span className="flex h-12 w-full items-center justify-center">
+              <span className="flex h-12 w-full items-center justify-center dark:bg-white">
                 <img
                   src={client.logo}
                   alt={client.alt}
