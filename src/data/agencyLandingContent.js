@@ -1386,4 +1386,288 @@ export const agencyLandingContent = {
    },
   },
  },
+ localAi: {
+  en: {
+   meta: {
+    title: "Local AI & EU-Hosted LLMs — Private Models for Teams",
+    description:
+     "Local and EU-hosted language models for teams that cannot send prompts to a US API. Self-hosted open-weight models or an EU model API, scoped in a Statement of Work.",
+    keywords: [
+     "local AI",
+     "EU-hosted LLM",
+     "self-hosted LLM",
+     "open-weight models",
+     "private AI",
+     "vLLM",
+    ],
+    locale: "en_US",
+    language: "en",
+    gerUrl: "/one-man-agency-de/local-ai/",
+   },
+   langSwitch: { label: "Deutsch", href: "/one-man-agency-de/local-ai/" },
+   hubLink: {
+    label: "← Full One-Man Agency overview",
+    href: "/one-man-agency/",
+   },
+   hero: {
+    title: "Local & EU AI",
+    subtitle:
+     "For a team whose prompts cannot leave the company, or cannot leave the EU. One senior engineer, scope fixed in a Statement of Work.",
+    ctaSpeak: "🗣️ Book a call",
+    ctaWrite: "📝 Or send a message",
+    video: {
+     src: "/one-man-agency/local-ai-promo.mp4?v=1",
+     poster: "/one-man-agency/local-ai-promo.jpg",
+     title: "Local and EU AI — map the prompt, choose the setup, host it",
+     duration: "PT30S",
+     uploadDate: "2026-11-15",
+    },
+   },
+   audience: {
+    heading: "Who this is for",
+    who: "A company that wants an internal assistant, or chat over its own documents, or a SaaS team adding a language-model feature — and a US API is not an acceptable place for that data.",
+    trigger:
+     "The trigger is a customer questionnaire asking where prompts go, a works council that objects, staff pasting documents into ChatGPT, or a token bill that keeps growing.",
+    work:
+     "I map which data reaches which model, pick a setup per use case, and implement the one named in the Statement of Work.",
+   },
+   definition: {
+    heading: "Three ways to run a model",
+    paragraphs: [
+     "Local or on-prem: the model runs on hardware the company administers. Prompts and documents stay on that machine.",
+     "Self-hosted on EU GPUs: the same open-weight model, on a server in the EU the company controls — a Hetzner GPU server, AWS in Frankfurt, or the AWS European Sovereign Cloud.",
+     "An EU-hosted model API: a provider runs the model and keeps processing in the EU. Less to operate, and the data does leave the company.",
+     "A frontier model stays available only behind a gateway, and only for data that may leave the EU. The gateway is where authentication, routing, and the decision not to log prompts live.",
+    ],
+   },
+   offer: {
+    heading: "First step",
+    intro:
+     "The call names the data and the use cases. After that, a bounded Statement of Work.",
+    rows: [
+     [
+      "Scope",
+      "One product or one internal assistant: the data that may reach a model, and the use cases in scope.",
+     ],
+     [
+      "Deliverables",
+      "A written decision per use case, and the hosting, gateway, or chat we agreed to build.",
+     ],
+     ["Turnaround", "Agreed in the Statement of Work."],
+     [
+      "Exclusions",
+      "Training a model from scratch, legal advice, buying hardware, and 24/7 operations.",
+     ],
+     ["Price", "On request."],
+    ],
+   },
+   credential: {
+    heading: "Related",
+    links: [
+     {
+      label: "AWS European Sovereign Cloud — when Frankfurt is enough",
+      href: "/aws-esc/",
+     },
+     {
+      label: "Production on Hetzner in the EU",
+      href: "/hetzner-eu-production/",
+     },
+     { label: "Building with Bedrock AgentCore", href: "/aws-agentcore/" },
+     {
+      label: "OpenClaw, three months later",
+      href: "/openclaw-three-months-later/",
+     },
+    ],
+   },
+   deliverables: {
+    heading: "What you get",
+    items: [
+     "Review of which data reaches which model, region, and subprocessor",
+     "A written decision per use case",
+     "A shortlist of models, tested on your real tasks",
+     "An OpenAI-compatible endpoint (vLLM or Ollama) on your hardware, a Hetzner GPU server, AWS Frankfurt, or the AWS European Sovereign Cloud",
+     "A gateway with authentication, routing, rate limits, and no prompt logging",
+     "An internal chat, or chat over your documents, with single sign-on",
+     "A cost comparison: pay per token, or rent a GPU",
+     "Written Statement of Work with fixed price",
+    ],
+   },
+   faqs: [
+    {
+     q: "What is local AI?",
+     a: "A language model that runs on hardware the company administers: a workstation, a server in the office, or a machine the company controls. Prompts and documents stay on that machine.",
+    },
+    {
+     q: "Should I run a local model or use an EU API?",
+     a: "Local or on-prem when the data must not leave the company. An EU-hosted API when the data may leave the company but must stay in the EU, and nobody wants to run GPUs. Self-hosting on an EU GPU server sits between the two.",
+    },
+    {
+     q: "Does an EU data centre make this GDPR-compliant?",
+     a: "No. An EU region is data residency, not a legal verdict. A contract, the subprocessor list, retention, and who can access the system still matter. This engagement is the technical side. It is not legal advice.",
+    },
+    {
+     q: "What hardware does a local model need?",
+     a: "It depends on the model and the traffic. A small open-weight model can run on one modern GPU. A larger one needs a GPU server with enough memory for the weights and the context. I size it from the tasks, not from a catalog.",
+    },
+    {
+     q: "Are open-weight models good enough?",
+     a: "For many internal tasks — summarising, extracting, classifying, answering from your documents — current open-weight models are enough. We test that on your real tasks before the Statement of Work commits to one. The hardest reasoning can stay on a frontier model, behind the gateway, for data that may leave the EU.",
+    },
+    {
+     q: "What does it cost?",
+     a: "The review and the build are priced in the Statement of Work, on request. Running cost is either per token at an EU API, or a rented GPU. The comparison of the two is a deliverable.",
+    },
+   ],
+   faqHeading: "Local and EU AI questions",
+   testimonials: [],
+   service: true,
+   contact: {
+    heading: "Tell me where your prompts go",
+    form: formLabelsEn,
+   },
+  },
+  de: {
+   meta: {
+    title: "Lokale KI für Unternehmen: Self-Hosting & EU-Modelle",
+    description:
+     "Lokale KI und EU-gehostete Sprachmodelle für Teams, die Prompts nicht an eine US-API schicken dürfen. Self-Hosting oder EU-Modell-API, Scope im Statement of Work.",
+    keywords: [
+     "lokale KI",
+     "KI lokal betreiben",
+     "EU-Modelle",
+     "Self-Hosting KI",
+     "On-Premise KI",
+     "DSGVO KI",
+    ],
+    locale: "de_DE",
+    language: "de",
+    engUrl: "/one-man-agency/local-ai/",
+   },
+   langSwitch: { label: "English", href: "/one-man-agency/local-ai/" },
+   hubLink: {
+    label: "← Zur vollständigen One-Man-Agency-Übersicht",
+    href: "/one-man-agency-de/",
+   },
+   hero: {
+    title: "Lokale KI & EU-Modelle",
+    subtitle:
+     "Für Teams, deren Prompts das Unternehmen nicht verlassen dürfen — oder die EU nicht. Ein Senior-Ingenieur, Scope im Statement of Work.",
+    ctaSpeak: "🗣️ Termin buchen",
+    ctaWrite: "📝 Oder Nachricht senden",
+    video: {
+     src: "/one-man-agency/local-ai-promo.mp4?v=1",
+     poster: "/one-man-agency/local-ai-promo.jpg",
+     title: "Lokale KI und EU-Modelle — Prompt verfolgen, Setup wählen, hosten",
+     duration: "PT30S",
+     uploadDate: "2026-11-15",
+    },
+   },
+   audience: {
+    heading: "Für wen",
+    who: "Ein Unternehmen, das einen internen Assistenten oder Chat über eigene Dokumente will, oder ein SaaS-Team, das eine Sprachmodell-Funktion einbaut — und eine US-API dafür nicht in Frage kommt.",
+    trigger:
+     "Auslöser: ein Kundenfragebogen fragt, wohin Prompts gehen, der Betriebsrat widerspricht, Mitarbeitende fügen Dokumente in ChatGPT ein, oder die Token-Rechnung wächst.",
+    work:
+     "Ich mappe, welche Daten welches Modell erreichen, wähle je Anwendungsfall ein Setup und setze das um, das im Statement of Work steht.",
+   },
+   definition: {
+    heading: "Drei Wege, ein Modell zu betreiben",
+    paragraphs: [
+     "Lokal oder on-prem: das Modell läuft auf Hardware, die das Unternehmen selbst administriert. Prompts und Dokumente bleiben auf dieser Maschine.",
+     "Self-Hosting auf EU-GPUs: dasselbe Open-Weight-Modell, auf einem Server in der EU, den das Unternehmen kontrolliert — Hetzner-GPU, AWS in Frankfurt oder die AWS European Sovereign Cloud.",
+     "Eine EU-gehostete Modell-API: ein Anbieter betreibt das Modell und hält die Verarbeitung in der EU. Weniger Betrieb, und die Daten verlassen das Unternehmen.",
+     "Ein Frontier-Modell bleibt nur hinter einem Gateway erreichbar, und nur für Daten, die die EU verlassen dürfen. Am Gateway liegen Authentifizierung, Routing und die Entscheidung, Prompts nicht zu loggen.",
+    ],
+   },
+   offer: {
+    heading: "Erster Schritt",
+    intro:
+     "Im Gespräch werden Daten und Anwendungsfälle benannt. Danach ein abgegrenztes Statement of Work.",
+    rows: [
+     [
+      "Scope",
+      "Ein Produkt oder ein interner Assistent: die Daten, die ein Modell erreichen dürfen, und die Anwendungsfälle im Scope.",
+     ],
+     [
+      "Liefergegenstände",
+      "Eine schriftliche Entscheidung je Anwendungsfall und das vereinbarte Hosting, Gateway oder der Chat.",
+     ],
+     ["Dauer", "Vereinbart im Statement of Work."],
+     [
+      "Nicht enthalten",
+      "Ein Modell von Grund auf trainieren, Rechtsberatung, Hardware-Beschaffung und 24/7-Betrieb.",
+     ],
+     ["Preis", "Auf Anfrage."],
+    ],
+   },
+   credential: {
+    heading: "Dazu",
+    links: [
+     {
+      label: "AWS European Sovereign Cloud — wann Frankfurt reicht",
+      href: "/aws-esc-de/",
+     },
+     {
+      label: "Produktion auf Hetzner in der EU",
+      href: "/hetzner-eu-production-de/",
+     },
+     { label: "Bauen mit Bedrock AgentCore", href: "/aws-agentcore/" },
+     {
+      label: "OpenClaw sicher hosten",
+      href: "/openclaw-sicherheit-de/",
+     },
+    ],
+   },
+   deliverables: {
+    heading: "Das bekommen Sie",
+    items: [
+     "Review, welche Daten welches Modell, welche Region und welchen Auftragsverarbeiter erreichen",
+     "Eine schriftliche Entscheidung je Anwendungsfall",
+     "Eine Modell-Shortlist, getestet an Ihren echten Aufgaben",
+     "Ein OpenAI-kompatibler Endpunkt (vLLM oder Ollama) auf Ihrer Hardware, einem Hetzner-GPU-Server, AWS Frankfurt oder der AWS European Sovereign Cloud",
+     "Ein Gateway mit Authentifizierung, Routing, Rate-Limits und ohne Prompt-Logging",
+     "Ein interner Chat oder Chat über Ihre Dokumente, mit Single Sign-on",
+     "Ein Kostenvergleich: pro Token zahlen oder eine GPU mieten",
+     "Schriftliches Statement of Work mit Festpreis",
+    ],
+   },
+   faqs: [
+    {
+     q: "Was ist lokale KI?",
+     a: "Ein Sprachmodell, das auf Hardware läuft, die das Unternehmen selbst administriert: ein Arbeitsplatzrechner, ein Server im Haus oder eine Maschine unter eigener Kontrolle. Prompts und Dokumente bleiben auf dieser Maschine.",
+    },
+    {
+     q: "Lokales Modell oder EU-API?",
+     a: "Lokal oder on-prem, wenn die Daten das Unternehmen nicht verlassen dürfen. Eine EU-gehostete API, wenn die Daten das Unternehmen verlassen dürfen, aber in der EU bleiben müssen, und niemand GPUs betreiben will. Self-Hosting auf einem EU-GPU-Server liegt dazwischen.",
+    },
+    {
+     q: "Macht ein EU-Rechenzentrum die Lösung DSGVO-konform?",
+     a: "Nein. Eine EU-Region ist Datenresidenz, kein Rechtsurteil. Vertrag, Liste der Unterauftragnehmer, Speicherdauer und wer zugreifen kann, bleiben offen. Dieses Engagement ist die technische Seite. Es ist keine Rechtsberatung.",
+    },
+    {
+     q: "Welche Hardware braucht ein lokales Modell?",
+     a: "Das hängt vom Modell und von der Last ab. Ein kleines Open-Weight-Modell läuft auf einer modernen GPU. Ein größeres braucht einen GPU-Server mit genug Speicher für die Gewichte und den Kontext. Ich dimensioniere nach den Aufgaben, nicht nach einem Katalog.",
+    },
+    {
+     q: "Reichen Open-Weight-Modelle?",
+     a: "Für viele interne Aufgaben — zusammenfassen, extrahieren, klassifizieren, aus eigenen Dokumenten antworten — reichen aktuelle Open-Weight-Modelle. Das prüfen wir an Ihren echten Aufgaben, bevor das Statement of Work ein Modell festlegt. Die schwerste Reasoning-Arbeit kann auf einem Frontier-Modell bleiben, hinter dem Gateway, für Daten, die die EU verlassen dürfen.",
+    },
+    {
+     q: "Was kostet das?",
+     a: "Review und Aufbau stehen im Statement of Work, Preis auf Anfrage. Die Laufkosten sind entweder Token bei einer EU-API oder eine gemietete GPU. Der Vergleich der beiden ist ein Liefergegenstand.",
+    },
+   ],
+   faqHeading: "Fragen zu lokaler KI und EU-Modellen",
+   relatedPost: {
+    label: "Lokale KI: selbst hosten, EU-API oder beides?",
+    href: "/lokale-ki-eu-modelle-de/",
+   },
+   testimonials: [],
+   service: true,
+   contact: {
+    heading: "Wohin gehen Ihre Prompts?",
+    form: formLabelsDe,
+   },
+  },
+ },
 }

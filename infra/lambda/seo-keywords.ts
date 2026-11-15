@@ -25,6 +25,17 @@ export const SCORECARD: ScorecardKeyword[] = [
   },
   { tag: "p1", keyword: "geo optimierung", path: "/one-man-agency-de/seo-geo/" },
   { tag: "p1", keyword: "ki sichtbarkeit", path: "/one-man-agency-de/seo-geo/" },
+  { tag: "p1", keyword: "lokale ki", path: "/one-man-agency-de/local-ai/" },
+  {
+    tag: "p1",
+    keyword: "dsgvo konforme ki",
+    path: "/one-man-agency-de/local-ai/",
+  },
+  {
+    tag: "p2",
+    keyword: "ki lokal betreiben",
+    path: "/lokale-ki-eu-modelle-de/",
+  },
   {
     tag: "p2",
     keyword: "aws lambda cloudformation",

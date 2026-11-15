@@ -13,6 +13,9 @@ Week 0. SISTRIX Google DE, pull 2026-09-21. GSC not recorded. AI cited is `n` (0
 | 2026-09-21 | p1 | mcp server | `/sistrix-mcp-hallocasa-seo-de/` | | | — | n |
 | 2026-09-21 | p1 | geo optimierung | `/one-man-agency-de/seo-geo/` | | | — | n |
 | 2026-09-21 | p1 | ki sichtbarkeit | `/one-man-agency-de/seo-geo/` | | | — | n |
+| 2026-11-15 | p1 | lokale ki | `/one-man-agency-de/local-ai/` | | | — | n |
+| 2026-11-15 | p1 | dsgvo konforme ki | `/one-man-agency-de/local-ai/` | | | — | n |
+| 2026-11-15 | p2 | ki lokal betreiben | `/lokale-ki-eu-modelle-de/` | | | — | n |
 | 2026-09-21 | p1 | vibe coding | new production post, not live | | | — | n |
 | 2026-09-21 | p2 | aws lambda cloudformation | `/aws-deploy-cfn-with-lambda/` | | | 19 | n |
 | 2026-09-21 | p2 | aws cdk | `/opennext-cdk-de/` | | | — | n |

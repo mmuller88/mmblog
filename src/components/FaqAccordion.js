@@ -26,7 +26,7 @@ const FaqAccordion = ({ items }) => (
       />
      </svg>
     </summary>
-    <p className="!mb-0 px-5 pb-5 leading-relaxed text-gray-700 dark:text-gray-300">
+    <p className="!mb-0 !px-5 !pb-5 leading-relaxed text-gray-700 dark:text-gray-300">
      {item.a}
     </p>
    </details>

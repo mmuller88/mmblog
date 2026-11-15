@@ -10,6 +10,8 @@ AWS Solutions Architect. Blog and one-man agency for AWS CDK, serverless, GEO (v
 - https://martinmueller.dev/one-man-agency-de/seo-geo/
 - https://martinmueller.dev/one-man-agency/gpt/
 - https://martinmueller.dev/one-man-agency-de/gpt/
+- https://martinmueller.dev/one-man-agency/local-ai/
+- https://martinmueller.dev/one-man-agency-de/local-ai/
 
 ## Posts
 
@@ -19,3 +21,4 @@ AWS Solutions Architect. Blog and one-man agency for AWS CDK, serverless, GEO (v
 - https://martinmueller.dev/sistrix-mcp-hallocasa-seo-de/
 - https://martinmueller.dev/opennext-cdk/
 - https://martinmueller.dev/opennext-cdk-de/
+- https://martinmueller.dev/lokale-ki-eu-modelle-de/

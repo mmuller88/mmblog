@@ -71,6 +71,16 @@ export const oneManAgencyContent = {
      },
     },
     {
+     title: "Local & EU AI",
+     text: "Self-hosted models and EU-hosted model APIs.",
+     href: "/one-man-agency/local-ai/",
+     video: {
+      src: "/one-man-agency/local-ai-promo.mp4?v=1",
+      poster: "/one-man-agency/local-ai-promo.jpg",
+      title: "Local and EU AI — map the prompt, choose the setup, host it",
+     },
+    },
+    {
      title: "SEO / GEO",
      text:
       "Technical SEO for JavaScript and SaaS sites, implementation included.",
@@ -375,6 +385,17 @@ export const oneManAgencyContent = {
       src: "/one-man-agency/devops-promo.mp4?v=1",
       poster: "/one-man-agency/devops-promo.jpg",
       title: "DevOps Audit — Pfad, Lücken, Roadmap",
+     },
+    },
+    {
+     title: "Lokale KI & EU-Modelle",
+     text: "Self-Hosting und EU-gehostete Modell-APIs.",
+     href: "/one-man-agency-de/local-ai/",
+     video: {
+      src: "/one-man-agency/local-ai-promo.mp4?v=1",
+      poster: "/one-man-agency/local-ai-promo.jpg",
+      title:
+       "Lokale KI und EU-Modelle — Prompt verfolgen, Setup wählen, hosten",
      },
     },
     {

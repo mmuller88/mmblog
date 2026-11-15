@@ -87,7 +87,7 @@ const AgencyLanding = ({ content, location }) => {
      name: hero.video.title,
      description: meta.description,
      thumbnailUrl: `${SITE_URL}${hero.video.poster}`,
-     uploadDate: "2026-10-12",
+     uploadDate: hero.video.uploadDate || "2026-10-12",
      duration: hero.video.duration || "PT35S",
      contentUrl: `${SITE_URL}${hero.video.src.split("?")[0]}`,
     }

@@ -62,6 +62,14 @@ const pages = [
   file: "one-man-agency-de/devops-audit/index.html",
   needle: "devops-promo.mp4",
  },
+ {
+  file: "one-man-agency/local-ai/index.html",
+  needle: "local-ai-promo.mp4",
+ },
+ {
+  file: "one-man-agency-de/local-ai/index.html",
+  needle: "local-ai-promo.mp4",
+ },
  { file: "one-man-agency/vibe-coding/index.html", needle: "vibe-promo.mp4" },
  { file: "trainings/index.html", needle: "Trainings" },
  { file: "sitemap.xml/sitemap-index.xml", needle: "sitemapindex" },
@@ -212,6 +220,20 @@ const headRoutes = [
   canonical: `${SITE}/one-man-agency-de/devops-audit/`,
   en: `${SITE}/one-man-agency/devops-audit/`,
   de: `${SITE}/one-man-agency-de/devops-audit/`,
+ },
+ {
+  file: "one-man-agency/local-ai/index.html",
+  title: "Local AI & EU-Hosted LLMs — Private Models for Teams",
+  canonical: `${SITE}/one-man-agency/local-ai/`,
+  en: `${SITE}/one-man-agency/local-ai/`,
+  de: `${SITE}/one-man-agency-de/local-ai/`,
+ },
+ {
+  file: "one-man-agency-de/local-ai/index.html",
+  title: "Lokale KI für Unternehmen: Self-Hosting & EU-Modelle",
+  canonical: `${SITE}/one-man-agency-de/local-ai/`,
+  en: `${SITE}/one-man-agency/local-ai/`,
+  de: `${SITE}/one-man-agency-de/local-ai/`,
  },
 ]
 

@@ -103,6 +103,7 @@ German hubs (already live):
 | SEO / GEO | `/one-man-agency-de/seo-geo/` | — (no training; the deliverable is the audit) |
 | ChatGPT Ads | `/one-man-agency-de/gpt/` | `/trainings-de/chatgpt-ads/` |
 | Vibe Coding → Produktion | `/one-man-agency-de/vibe-coding/` | `/trainings-de/hetzner-eu-production/` and `/trainings-de/openclaw-personal-ai-os/` |
+| Lokale KI & EU-Modelle | `/one-man-agency-de/local-ai/` | `/trainings-de/hetzner-eu-production/` |
 | Catalog | `/one-man-agency-de/`, `/trainings-de/` | — |
 
 Every new or rewritten post gets **one** hub link and **one** training link in the first screen and again at the end. DE training pages already point at the DE posts. Keep it that way.

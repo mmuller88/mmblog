@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #05030b;
+  --color-night-2: #0b0618;
+  --color-night-3: #160b30;
+  --color-magenta: #ff2bd6;
+  --color-hot: #ff3864;
+  --color-orange: #ff7a1a;
+  --color-amber: #ffb020;
+  --color-cyan: #00e5ff;
+  --color-violet: #8b5cf6;
+  --color-steel: #94a3b8;
+  --color-neon: #9dff3c;
+  --color-neon-dark: #6aa518;
+  --color-ink: #0f172a;
+
+  --font-display: "Chakra Petch", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
