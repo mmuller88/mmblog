@@ -469,10 +469,16 @@ export class MmblogStack extends Stack {
 
     const lambdaBasicExecutionReason =
       "AWSLambdaBasicExecutionRole for CloudWatch logs"
+    const lambdaRuntimeReason =
+      "nodejs26.x is public preview, not for production; bump at GA"
     for (const fn of [likesFn, webhookFn, formsFn, healthFn, seoFn]) {
       Validations.of(fn).acknowledge({
         id: LAMBDA_BASIC_EXECUTION_POLICY_ACK,
         reason: lambdaBasicExecutionReason,
+      })
+      Validations.of(fn).acknowledge({
+        id: "AwsSolutions-L1",
+        reason: lambdaRuntimeReason,
       })
     }
 
