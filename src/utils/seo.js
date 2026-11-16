@@ -167,7 +167,7 @@ export const generateOGImageUrl = (title, description) => {
  const params = new URLSearchParams({
   title: title || "Martin Mueller's Blog",
   subtitle: description || "Technology insights and tutorials",
-  logo: "https://martinmueller.dev/avatarIcon.jpeg",
+  logo: "https://martinmueller.dev/logo.png",
   theme: "light",
   template: "article",
  })
@@ -256,7 +256,7 @@ export const generateStructuredData = {
    url: data.siteUrl,
    logo: {
     "@type": "ImageObject",
-    url: `${data.siteUrl}/avatarIcon.jpeg`,
+    url: `${data.siteUrl}/logo.png`,
    },
   },
   mainEntityOfPage: {

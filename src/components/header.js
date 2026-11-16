@@ -5,6 +5,7 @@ import twitterLogo from "../images/icons/twitter.svg"
 import inLogo from "../images/icons/in.svg"
 import ghLogo from "../images/icons/gh.svg"
 import threadsIcon from "../images/threads.png"
+import logoMark from "../images/logo-mark.svg"
 import ThemeToggle from "./ThemeToggle"
 
 const navLinks = [
@@ -46,8 +47,15 @@ const linkClass = "whitespace-nowrap hover:underline"
 const Header = ({ siteTitle }) => (
  <header className="site-header mb-[1.45rem]">
   <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-4 gap-y-3 px-4 py-[1.45rem] sm:px-6">
-   <h1 className="m-0 shrink-0 text-lg font-bold leading-tight sm:text-2xl">
-    <Link to="/" className={linkClass}>
+   <h1 className="m-0 shrink-0 text-lg font-bold leading-tight max-sm:!text-[1.625rem] sm:text-2xl">
+    <Link to="/" className={`${linkClass} inline-flex items-center gap-2`}>
+     <img
+      src={logoMark}
+      width="28"
+      height="30"
+      alt=""
+      className="!mb-0 block w-6 sm:w-9"
+     />
      {siteTitle}
     </Link>
    </h1>

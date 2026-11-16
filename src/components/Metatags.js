@@ -88,7 +88,7 @@ function Metatags(props) {
       url: url,
       logo: {
        "@type": "ImageObject",
-       url: `${url}/avatarIcon.jpeg`,
+       url: `${url}/logo.png`,
       },
      },
      mainEntityOfPage: {
@@ -142,7 +142,7 @@ function Metatags(props) {
   "@type": "Organization",
   name: "Martin Mueller",
   url: url,
-  logo: `${url}/avatarIcon.jpeg`,
+  logo: `${url}/logo.png`,
   sameAs: [
    "https://twitter.com/MartinMueller_",
    "https://github.com/mmuller88",
@@ -270,8 +270,8 @@ function Metatags(props) {
      : []),
 
     // Additional meta tags for better SEO
-    { name: "theme-color", content: "#663399" },
-    { name: "msapplication-TileColor", content: "#663399" },
+    { name: "theme-color", content: "#00aced" },
+    { name: "msapplication-TileColor", content: "#0b1f33" },
     { name: "application-name", content: "Martin Mueller's Blog" },
     { name: "apple-mobile-web-app-title", content: "Martin Mueller's Blog" },
     { name: "apple-mobile-web-app-capable", content: "yes" },

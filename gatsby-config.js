@@ -355,10 +355,10 @@ module.exports = {
     description:
      "Technology blog featuring AWS, CDK, serverless, and cloud architecture insights",
     start_url: "/",
-    background_color: "#663399",
-    theme_color: "#663399",
+    background_color: "#0b1f33",
+    theme_color: "#00aced",
     display: "minimal-ui",
-    icon: "src/images/avatarIcon.jpeg", // This path is relative to the root of the site.
+    icon: "src/images/logo-icon.png", // This path is relative to the root of the site.
     cache_busting_mode: "query",
     include_favicon: true,
     legacy: true,
