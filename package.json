@@ -27,18 +27,18 @@
     "prop-types": "^15.8.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "react-helmet-async": "^3.0.0",
+    "react-helmet-async": "^3.1.0",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
     "sharp": "^0.33.1",
-    "tailwindcss": "^4.3.4"
+    "tailwindcss": "^4.3.5"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.3.4",
+    "@tailwindcss/postcss": "^4.3.5",
     "autoprefixer": "^10.6.2",
     "postcss": "^8.5.32",
-    "prettier": "^3.9.10"
+    "prettier": "^3.10.1"
   },
   "keywords": [
     "gatsby"
