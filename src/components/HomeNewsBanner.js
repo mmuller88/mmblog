@@ -39,8 +39,8 @@ const HomeNewsBanner = () => {
            aria-pressed={lang === code}
            className={
             lang === code
-             ? "rounded-md bg-white px-2 py-1 text-xs font-bold uppercase text-violet-950"
-             : "rounded-md px-2 py-1 text-xs font-bold uppercase text-violet-200 hover:text-white"
+             ? "rounded-md !appearance-none !border-0 !bg-white px-2 py-1 text-xs font-bold uppercase !text-violet-950"
+             : "rounded-md !appearance-none !border-0 !bg-transparent px-2 py-1 text-xs font-bold uppercase !text-white hover:!text-teal-200"
            }
            onClick={(event) => {
             event.preventDefault()
@@ -62,7 +62,7 @@ const HomeNewsBanner = () => {
       </div>
       <h2
        id="home-news-heading"
-       className="!mb-0 !font-sans !text-lg !font-bold !leading-snug text-white sm:!text-xl"
+       className="!mb-0 !font-sans !text-lg !font-bold !leading-snug !text-white sm:!text-xl"
       >
        {copy.title}
       </h2>
