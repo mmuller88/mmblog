@@ -62,6 +62,7 @@
     "video:security": "npm --prefix misc/videos/security-promo run render",
     "video:devops": "npm --prefix misc/videos/devops-promo run render",
     "video:local-ai": "npm --prefix misc/videos/local-ai-promo run render",
+    "video:upwork": "npm --prefix misc/videos/upwork-intro run render",
     "test:conversion-health": "npm --prefix infra run test:health"
   },
   "repository": {

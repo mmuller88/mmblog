@@ -1,0 +1,30 @@
+{
+  "name": "upwork-intro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Upwork profile intro, TTS narrator plus Remotion (not for Boosted Profile)",
+  "engines": {
+    "node": ">=23.6"
+  },
+  "scripts": {
+    "voice": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/build-voice.mjs",
+    "voice:sample": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/build-voice.mjs --sample",
+    "studio": "npm run voice && remotion studio",
+    "render": "npm run voice && remotion render UpworkIntro out/upwork-intro.mp4 && remotion still UpworkIntro out/upwork-intro.jpg --frame=60",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "@remotion/google-fonts": "4.0.534",
+    "@remotion/paths": "4.0.534",
+    "@remotion/tailwind-v4": "4.0.534",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "4.0.534",
+    "tailwindcss": "4.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "typescript": "^5.9.3"
+  }
+}
