@@ -1,10 +1,10 @@
 /** Flip `enabled` to false when the banner should come down. */
 export const homeNews = {
  enabled: true,
- thumbUrl: "/one-man-agency/logos/prowler.svg",
+ thumbUrl: "/reinvent-2026/prowler-reinvent-hero.jpg?v=1",
  video: {
-  src: "/one-man-agency/security-promo.mp4?v=1",
-  poster: "/one-man-agency/security-promo.jpg?v=1",
+  src: "/reinvent-2026/prowler-promo.mp4?v=1",
+  poster: "/reinvent-2026/prowler-promo.jpg?v=1",
  },
  en: {
   badge: "News",
@@ -19,8 +19,8 @@ export const homeNews = {
   eventLabel: "re:Invent",
   eventUrl: "https://reinvent.awsevents.com/",
   deckUrl: "https://prowler.com?utm_source=martinmueller&utm_medium=home",
-  videoTitle: "Security audit promo (Prowler)",
-  imageAlt: "Prowler logo",
+  videoTitle: "Prowler product overview video",
+  imageAlt: "AWS re:Invent and Prowler — Las Vegas, Dec 2026",
  },
  de: {
   badge: "Neu",
@@ -35,7 +35,7 @@ export const homeNews = {
   eventLabel: "re:Invent",
   eventUrl: "https://reinvent.awsevents.com/",
   deckUrl: "https://prowler.com?utm_source=martinmueller&utm_medium=home",
-  videoTitle: "Security-Audit-Promo (Prowler)",
-  imageAlt: "Prowler-Logo",
+  videoTitle: "Prowler-Produktvideo",
+  imageAlt: "AWS re:Invent und Prowler — Las Vegas, Dez. 2026",
  },
 }

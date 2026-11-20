@@ -16,15 +16,13 @@ const HomeNewsBanner = () => {
     aria-labelledby="home-news-heading"
    >
     <div className="flex items-start gap-4 p-4 sm:gap-6 sm:p-6">
-     <div
-      role="img"
-      aria-label={copy.imageAlt}
-      className={`h-16 w-16 shrink-0 rounded-lg sm:h-20 sm:w-20 bg-[url('${
-       homeNews.thumbUrl ?? "/hanseatic-hackathon/team-hanse.jpg"
-      }')] ${
-       homeNews.thumbUrl?.endsWith(".svg")
-        ? "bg-contain bg-no-repeat bg-center bg-white/95 p-2"
-        : "bg-cover bg-center"
+     <img
+      src={homeNews.thumbUrl ?? "/hanseatic-hackathon/team-hanse.jpg"}
+      alt={copy.imageAlt}
+      width={80}
+      height={80}
+      className={`h-16 w-16 shrink-0 rounded-lg object-cover sm:h-20 sm:w-20 ${
+       homeNews.thumbUrl?.endsWith(".svg") ? "bg-white/95 object-contain p-2" : ""
       }`}
      />
      <div className="min-w-0 flex-1 text-left">

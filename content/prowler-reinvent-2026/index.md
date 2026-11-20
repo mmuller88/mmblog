@@ -8,7 +8,11 @@ gerUrl: https://martinmueller.dev/prowler-reinvent-2026-de
 pruneLength: 50
 ---
 
-![Prowler](/one-man-agency/logos/prowler.svg)
+![AWS re:Invent — meet me at the Prowler booth](/reinvent-2026/prowler-reinvent-hero.jpg)
+
+<video controls playsinline preload="metadata" poster="/reinvent-2026/prowler-promo.jpg?v=1" aria-label="Prowler product overview" class="mb-4 aspect-video w-full rounded-xl">
+  <source src="/reinvent-2026/prowler-promo.mp4?v=1" type="video/mp4" />
+</video>
 
 **Dec 1 and 2, 2026** I'll be at **AWS re:Invent** in Las Vegas, on the **[Prowler](https://prowler.com)** booth as a **Prowler partner**. I'm there to talk with people who build or buy cloud security — not to run a pitch marathon.
 
