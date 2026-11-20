@@ -116,6 +116,106 @@ function getAudioContentElements(root) {
  })
 }
 
+function BlogImageLightbox({ contentRef, contentKey, isDe }) {
+ const [src, setSrc] = useState(null)
+
+ const close = useCallback(() => setSrc(null), [])
+
+ useEffect(() => {
+  if (!src) return undefined
+  const onKey = (e) => {
+   if (e.key === "Escape") close()
+  }
+  const prevOverflow = document.body.style.overflow
+  document.body.style.overflow = "hidden"
+  window.addEventListener("keydown", onKey)
+  return () => {
+   document.body.style.overflow = prevOverflow
+   window.removeEventListener("keydown", onKey)
+  }
+ }, [src, close])
+
+ useEffect(() => {
+  const root = contentRef.current
+  if (!root) return undefined
+
+  const cleanups = []
+
+  const bind = (img) => {
+   if (img.dataset.lightboxBound === "1") return
+   if (img.closest("a") || img.closest(".tool-item")) return
+   if (img.classList.contains("tool-logo-on-dark")) return
+   img.dataset.lightboxBound = "1"
+
+   img.classList.add("cursor-zoom-in")
+   if (!img.getAttribute("tabindex")) img.setAttribute("tabindex", "0")
+   if (!img.getAttribute("role")) img.setAttribute("role", "button")
+
+   const label =
+    img.getAttribute("alt")?.trim() ||
+    (isDe ? "Bild vergrößern" : "View full-size image")
+   img.setAttribute("aria-label", label)
+
+   const open = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setSrc(img.currentSrc || img.src)
+   }
+
+   img.addEventListener("click", open)
+   const onKey = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+     e.preventDefault()
+     open(e)
+    }
+   }
+   img.addEventListener("keydown", onKey)
+   cleanups.push(() => {
+    img.removeEventListener("click", open)
+    img.removeEventListener("keydown", onKey)
+    delete img.dataset.lightboxBound
+   })
+  }
+
+  root.querySelectorAll("img").forEach((img) => {
+   if (img.complete) bind(img)
+   else {
+    const onLoad = () => bind(img)
+    img.addEventListener("load", onLoad, { once: true })
+    cleanups.push(() => img.removeEventListener("load", onLoad))
+   }
+  })
+
+  return () => cleanups.forEach((fn) => fn())
+ }, [contentRef, contentKey, isDe])
+
+ if (!src) return null
+
+ return (
+  <div
+   className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4"
+   role="dialog"
+   aria-modal="true"
+   aria-label={isDe ? "Vergrößertes Bild" : "Expanded image"}
+   onClick={close}
+  >
+   <button
+    type="button"
+    className="absolute right-4 top-4 rounded-lg border border-white/30 bg-black/50 px-3 py-2 text-sm font-semibold text-white"
+    onClick={close}
+   >
+    {isDe ? "Schließen" : "Close"}
+   </button>
+   <img
+    src={src}
+    alt=""
+    className="max-h-[90vh] max-w-full object-contain"
+    onClick={(e) => e.stopPropagation()}
+   />
+  </div>
+ )
+}
+
 function timingForBlock(timing, blockIdx) {
  if (!timing || blockIdx < 0) return null
  const entry = timing.find((row) => row.p === blockIdx)
@@ -440,6 +540,11 @@ function BlogPost(props) {
     />
     <HeadingAnchorCopy contentRef={contentRef} contentKey={html} />
     <ExternalLinks contentRef={contentRef} contentKey={html} siteUrl={url} />
+    <BlogImageLightbox
+     contentRef={contentRef}
+     contentKey={html}
+     isDe={tags.includes("de")}
+    />
     {/* <div>
      <p>
       <KoFi color="#29abe0" id="T6T1BR59W" label="Buy me a Ko-fi" />
