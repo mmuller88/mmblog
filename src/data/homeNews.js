@@ -19,7 +19,7 @@ export const homeNews = {
   eventLabel: "re:Invent",
   eventUrl: "https://reinvent.awsevents.com/",
   deckUrl: "https://prowler.com?utm_source=martinmueller&utm_medium=home",
-  videoTitle: "Prowler product overview video",
+  videoTitle: "Prowler security audit promo",
   imageAlt: "AWS re:Invent and Prowler — Las Vegas, Dec 2026",
  },
  de: {
@@ -35,7 +35,7 @@ export const homeNews = {
   eventLabel: "re:Invent",
   eventUrl: "https://reinvent.awsevents.com/",
   deckUrl: "https://prowler.com?utm_source=martinmueller&utm_medium=home",
-  videoTitle: "Prowler-Produktvideo",
+  videoTitle: "Prowler Security-Audit-Promo",
   imageAlt: "AWS re:Invent und Prowler — Las Vegas, Dez. 2026",
  },
 }

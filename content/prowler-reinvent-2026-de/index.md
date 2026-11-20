@@ -10,7 +10,7 @@ pruneLength: 50
 
 ![AWS re:Invent — Prowler-Stand](/reinvent-2026/prowler-reinvent-hero.jpg)
 
-<video controls playsinline preload="metadata" poster="/reinvent-2026/prowler-promo.jpg?v=1" aria-label="Prowler Produktvideo" class="mb-4 aspect-video w-full rounded-xl">
+<video controls playsinline preload="metadata" poster="/reinvent-2026/prowler-promo.jpg?v=1" aria-label="Prowler Security-Audit-Promo" class="mb-4 aspect-video w-full rounded-xl">
   <source src="/reinvent-2026/prowler-promo.mp4?v=1" type="video/mp4" />
 </video>
 
