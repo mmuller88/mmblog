@@ -1,28 +1,29 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
-import { homeNews } from "../data/homeNews"
+import { homeNewsItems } from "../data/homeNews"
 
 const langs = ["en", "de"]
 
-const HomeNewsBanner = () => {
- const [lang, setLang] = useState("en")
- if (!homeNews.enabled) return null
- const copy = homeNews[lang]
+const NewsCard = ({ item, lang, setLang }) => {
+ const copy = item[lang]
+ const headingId = `home-news-heading-${item.id}`
 
  return (
-  <details className="group mb-10 overflow-hidden rounded-2xl border-2 border-violet-400/80 bg-gradient-to-br from-violet-950 via-violet-900 to-fuchsia-900 shadow-xl ring-4 ring-violet-500/25 dark:border-violet-500/60 dark:ring-violet-400/20">
+  <details className="group overflow-hidden rounded-2xl border-2 border-violet-400/80 bg-gradient-to-br from-violet-950 via-violet-900 to-fuchsia-900 shadow-xl ring-4 ring-violet-500/25 dark:border-violet-500/60 dark:ring-violet-400/20">
    <summary
     className="cursor-pointer list-none [&::-webkit-details-marker]:hidden"
-    aria-labelledby="home-news-heading"
+    aria-labelledby={headingId}
    >
     <div className="flex items-start gap-4 p-4 sm:gap-6 sm:p-6">
      <img
-      src={homeNews.thumbUrl ?? "/hanseatic-hackathon/team-hanse.jpg"}
+      src={item.thumbUrl}
       alt={copy.imageAlt}
       width={80}
       height={80}
       className={`h-16 w-16 shrink-0 rounded-lg object-cover sm:h-20 sm:w-20 ${
-       homeNews.thumbUrl?.endsWith(".svg") ? "bg-white/95 object-contain p-2" : ""
+       item.thumbUrl?.split("?")[0].endsWith(".svg")
+        ? "bg-white/95 object-contain p-2"
+        : ""
       }`}
      />
      <div className="min-w-0 flex-1 text-left">
@@ -65,7 +66,7 @@ const HomeNewsBanner = () => {
        </div>
       </div>
       <h2
-       id="home-news-heading"
+       id={headingId}
        className="!mb-0 !font-sans !text-lg !font-bold !leading-snug !text-white sm:!text-xl"
       >
        {copy.title}
@@ -80,15 +81,15 @@ const HomeNewsBanner = () => {
     <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
      <div className="mx-auto w-full max-w-xl shrink-0">
       <video
-       key={lang}
+       key={`${item.id}-${lang}`}
        controls
        playsInline
        preload="metadata"
-       poster={homeNews.video.poster}
+       poster={item.video.poster}
        aria-label={copy.videoTitle}
        className="mb-0 aspect-video w-full rounded-xl bg-violet-950 object-contain"
       >
-       <source src={homeNews.video.src} type="video/mp4" />
+       <source src={item.video.src} type="video/mp4" />
       </video>
      </div>
      <div className="min-w-0 flex-1 text-center lg:text-left">
@@ -122,6 +123,20 @@ const HomeNewsBanner = () => {
     </div>
    </div>
   </details>
+ )
+}
+
+const HomeNewsBanner = () => {
+ const [lang, setLang] = useState("en")
+ const items = homeNewsItems.filter((item) => item.enabled)
+ if (!items.length) return null
+
+ return (
+  <div className="mb-10 flex flex-col gap-4">
+   {items.map((item) => (
+    <NewsCard key={item.id} item={item} lang={lang} setLang={setLang} />
+   ))}
+  </div>
  )
 }
 

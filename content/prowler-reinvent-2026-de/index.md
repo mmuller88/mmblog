@@ -10,8 +10,8 @@ pruneLength: 50
 
 ![AWS re:Invent — Prowler-Stand](/reinvent-2026/prowler-reinvent-hero.jpg)
 
-<video controls playsinline preload="metadata" poster="/reinvent-2026/prowler-promo.jpg?v=1" aria-label="Prowler Security-Audit-Promo" class="mb-4 aspect-video w-full rounded-xl">
-  <source src="/reinvent-2026/prowler-promo.mp4?v=1" type="video/mp4" />
+<video controls playsinline preload="metadata" poster="/reinvent-2026/prowler-pitch.jpg?v=1" aria-label="Prowler-Pitch, 30 Sekunden" class="mb-4 aspect-video w-full rounded-xl">
+  <source src="/reinvent-2026/prowler-pitch.mp4?v=1" type="video/mp4" />
 </video>
 
 **Am 1. und 2. Dezember 2026** bin ich auf der **AWS re:Invent** in Las Vegas am **[Prowler](https://prowler.com)**-Stand — als **Prowler-Partner**. Ich möchte Leute treffen, die Cloud-Security bauen oder einkaufen, nicht einen Pitch-Marathon fahren.
