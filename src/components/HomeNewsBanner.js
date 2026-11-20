@@ -19,7 +19,13 @@ const HomeNewsBanner = () => {
      <div
       role="img"
       aria-label={copy.imageAlt}
-      className="h-16 w-16 shrink-0 rounded-lg bg-[url('/hanseatic-hackathon/team-hanse.jpg')] bg-cover bg-center sm:h-20 sm:w-20"
+      className={`h-16 w-16 shrink-0 rounded-lg sm:h-20 sm:w-20 bg-[url('${
+       homeNews.thumbUrl ?? "/hanseatic-hackathon/team-hanse.jpg"
+      }')] ${
+       homeNews.thumbUrl?.endsWith(".svg")
+        ? "bg-contain bg-no-repeat bg-center bg-white/95 p-2"
+        : "bg-cover bg-center"
+      }`}
      />
      <div className="min-w-0 flex-1 text-left">
       <div className="mb-1 flex items-center gap-2">
