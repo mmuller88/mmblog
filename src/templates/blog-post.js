@@ -18,6 +18,7 @@ import {
 // import ContactForm from "../components/contactform"
 import KoFi from "../components/KoFi"
 import TableOfContents from "../components/TableOfContents"
+import ImageLightbox from "../components/ImageLightbox"
 import "../styles/heading-anchors.css"
 
 function HeadingAnchorCopy({ contentRef, contentKey }) {
@@ -122,20 +123,6 @@ function BlogImageLightbox({ contentRef, contentKey, isDe }) {
  const close = useCallback(() => setSrc(null), [])
 
  useEffect(() => {
-  if (!src) return undefined
-  const onKey = (e) => {
-   if (e.key === "Escape") close()
-  }
-  const prevOverflow = document.body.style.overflow
-  document.body.style.overflow = "hidden"
-  window.addEventListener("keydown", onKey)
-  return () => {
-   document.body.style.overflow = prevOverflow
-   window.removeEventListener("keydown", onKey)
-  }
- }, [src, close])
-
- useEffect(() => {
   const root = contentRef.current
   if (!root) return undefined
 
@@ -189,31 +176,7 @@ function BlogImageLightbox({ contentRef, contentKey, isDe }) {
   return () => cleanups.forEach((fn) => fn())
  }, [contentRef, contentKey, isDe])
 
- if (!src) return null
-
- return (
-  <div
-   className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4"
-   role="dialog"
-   aria-modal="true"
-   aria-label={isDe ? "Vergrößertes Bild" : "Expanded image"}
-   onClick={close}
-  >
-   <button
-    type="button"
-    className="absolute right-4 top-4 rounded-lg border border-white/30 bg-black/50 px-3 py-2 text-sm font-semibold text-white"
-    onClick={close}
-   >
-    {isDe ? "Schließen" : "Close"}
-   </button>
-   <img
-    src={src}
-    alt=""
-    className="max-h-[90vh] max-w-full object-contain"
-    onClick={(e) => e.stopPropagation()}
-   />
-  </div>
- )
+ return <ImageLightbox src={src} isDe={isDe} onClose={close} />
 }
 
 function timingForBlock(timing, blockIdx) {

@@ -3,7 +3,7 @@ export const homeNewsItems = [
  {
   id: "reinvent-2026",
   enabled: true,
-  thumbUrl: "/reinvent-2026/prowler-reinvent-hero.jpg?v=1",
+  thumbUrl: "/reinvent-2026/prowler-reinvent-hero.jpg?v=2",
   video: {
    src: "/reinvent-2026/prowler-pitch.mp4?v=1",
    poster: "/reinvent-2026/prowler-pitch.jpg?v=1",

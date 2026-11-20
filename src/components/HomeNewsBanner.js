@@ -1,12 +1,17 @@
-import React, { useState } from "react"
+import React, { useCallback, useState } from "react"
 import { Link } from "gatsby"
 import { homeNewsItems } from "../data/homeNews"
+import ImageLightbox from "./ImageLightbox"
 
 const langs = ["en", "de"]
 
-const NewsCard = ({ item, lang, setLang }) => {
+const NewsCard = ({ item, lang, setLang, onZoom }) => {
  const copy = item[lang]
  const headingId = `home-news-heading-${item.id}`
+ const zoomLabel =
+  lang === "de"
+   ? `${copy.imageAlt}. Bild vergrößern`
+   : `${copy.imageAlt}. View full-size image`
 
  return (
   <details className="group overflow-hidden rounded-2xl border-2 border-violet-400/80 bg-gradient-to-br from-violet-950 via-violet-900 to-fuchsia-900 shadow-xl ring-4 ring-violet-500/25 dark:border-violet-500/60 dark:ring-violet-400/20">
@@ -15,17 +20,28 @@ const NewsCard = ({ item, lang, setLang }) => {
     aria-labelledby={headingId}
    >
     <div className="flex items-start gap-4 p-4 sm:gap-6 sm:p-6">
-     <img
-      src={item.thumbUrl}
-      alt={copy.imageAlt}
-      width={80}
-      height={80}
-      className={`h-16 w-16 shrink-0 rounded-lg object-cover sm:h-20 sm:w-20 ${
-       item.thumbUrl?.split("?")[0].endsWith(".svg")
-        ? "bg-white/95 object-contain p-2"
-        : ""
-      }`}
-     />
+     <button
+      type="button"
+      aria-label={zoomLabel}
+      className="!m-0 shrink-0 cursor-zoom-in !appearance-none !border-0 !bg-transparent !p-0"
+      onClick={(event) => {
+       event.preventDefault()
+       event.stopPropagation()
+       onZoom({ src: item.thumbUrl, alt: copy.imageAlt })
+      }}
+     >
+      <img
+       src={item.thumbUrl}
+       alt=""
+       width={80}
+       height={80}
+       className={`h-16 w-16 rounded-lg object-cover sm:h-20 sm:w-20 ${
+        item.thumbUrl?.split("?")[0].endsWith(".svg")
+         ? "bg-white/95 object-contain p-2"
+         : ""
+       }`}
+      />
+     </button>
      <div className="min-w-0 flex-1 text-left">
       <div className="mb-1 flex items-center gap-2">
        <p className="!mb-0 inline-flex rounded-full bg-teal-400/20 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-teal-200 ring-1 ring-teal-300/40">
@@ -128,14 +144,28 @@ const NewsCard = ({ item, lang, setLang }) => {
 
 const HomeNewsBanner = () => {
  const [lang, setLang] = useState("en")
+ const [zoom, setZoom] = useState(null)
+ const closeZoom = useCallback(() => setZoom(null), [])
  const items = homeNewsItems.filter((item) => item.enabled)
  if (!items.length) return null
 
  return (
   <div className="mb-10 flex flex-col gap-4">
    {items.map((item) => (
-    <NewsCard key={item.id} item={item} lang={lang} setLang={setLang} />
+    <NewsCard
+     key={item.id}
+     item={item}
+     lang={lang}
+     setLang={setLang}
+     onZoom={setZoom}
+    />
    ))}
+   <ImageLightbox
+    src={zoom?.src}
+    alt={zoom?.alt || ""}
+    isDe={lang === "de"}
+    onClose={closeZoom}
+   />
   </div>
  )
 }

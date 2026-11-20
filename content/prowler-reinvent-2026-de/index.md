@@ -8,7 +8,7 @@ engUrl: https://martinmueller.dev/prowler-reinvent-2026
 pruneLength: 50
 ---
 
-![AWS re:Invent — Prowler-Stand](/reinvent-2026/prowler-reinvent-hero.jpg)
+![AWS re:Invent — Prowler-Stand](/reinvent-2026/prowler-reinvent-hero.jpg?v=2)
 
 <video controls playsinline preload="metadata" poster="/reinvent-2026/prowler-pitch.jpg?v=1" aria-label="Prowler-Pitch, 30 Sekunden" class="mb-4 aspect-video w-full rounded-xl">
   <source src="/reinvent-2026/prowler-pitch.mp4?v=1" type="video/mp4" />
