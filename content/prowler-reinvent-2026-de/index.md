@@ -30,6 +30,7 @@ Praxis als **Full-Stack- / AWS**-Entwickler und **Prowler-Partner**: **Prowler C
 ### Wo du mich findest
 
 - **Wann:** Stand **1.–2. Dez.** (re:Invent-Woche, Vegas)
-- **Danach:** [Kontakt](https://martinmueller.dev/contact) · [LinkedIn](https://www.linkedin.com/in/martinmueller88) · [martinmueller.dev](https://martinmueller.dev)
+- **Zeit reservieren:** [30-Minuten-Slot auf Calendly](https://calendly.com/martinmueller_dev/30min) — am Stand, Kaffee in Vegas oder Follow-up nach der Woche
+- **Auch:** [Kontakt](https://martinmueller.dev/contact) · [LinkedIn](https://www.linkedin.com/in/martinmueller88) · [martinmueller.dev](https://martinmueller.dev)
 
-Wenn du ohnehin in der Woche in Vegas bist, schreib kurz — 15 Minuten zwischen Sessions reichen oft.
+Wenn du ohnehin in der Woche in Vegas bist, schreib kurz oder [such dir einen Calendly-Termin](https://calendly.com/martinmueller_dev/30min) — 15 Minuten zwischen Sessions reichen oft.

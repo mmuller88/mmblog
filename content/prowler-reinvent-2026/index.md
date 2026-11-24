@@ -30,6 +30,7 @@ Hands-on work as a **full-stack / AWS** builder and **Prowler partner**: product
 ### Find me
 
 - **When:** booth **Dec 1–2** (re:Invent week — Vegas)
-- **After:** [Contact](https://martinmueller.dev/contact) · [LinkedIn](https://www.linkedin.com/in/martinmueller88) · [martinmueller.dev](https://martinmueller.dev)
+- **Reserve time:** [Book a 30-minute slot on Calendly](https://calendly.com/martinmueller_dev/30min) — booth chat, Vegas coffee, or a follow-up after the week
+- **Also:** [Contact](https://martinmueller.dev/contact) · [LinkedIn](https://www.linkedin.com/in/martinmueller88) · [martinmueller.dev](https://martinmueller.dev)
 
-If you're already in town that week, drop a line — happy to carve 15 minutes between sessions.
+If you're already in town that week, drop a line or [pick a Calendly slot](https://calendly.com/martinmueller_dev/30min) — happy to carve 15 minutes between sessions.
